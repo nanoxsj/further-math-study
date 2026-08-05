@@ -1,0 +1,549 @@
+本节保留教材 Chapter 7 的全部编号 Example。题意与符号按教材重写，步骤展开到可直接复习的方法层级。
+
+::: {.callout-example title="Example 7.1 — Plane through three points"}
+Find the equation of the plane through $A(4,2,0)$, $B(3,1,1)$ and $C(4,-1,1)$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Two independent directions in the plane are
+
+$$
+\overrightarrow{AB}=\begin{pmatrix}-1\\-1\\1\end{pmatrix},\;
+\overrightarrow{AC}=\begin{pmatrix}0\\-3\\1\end{pmatrix}.
+$$
+
+Hence a parametric equation is
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}4\\2\\0\end{pmatrix}
++\lambda\begin{pmatrix}-1\\-1\\1\end{pmatrix}
++\mu\begin{pmatrix}0\\-3\\1\end{pmatrix}}.
+$$
+
+Thus $x=4-\lambda$, $y=2-\lambda-3\mu$ and $z=\lambda+\mu$. Eliminating $\lambda$ and $\mu$ gives
+
+$$
+\boxed{2x+y+3z=10}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.2 — Plane from a point and a normal"}
+Write down the equation of the plane through $(2,1,3)$ whose normal is $4\mathbf i+5\mathbf j+6\mathbf k$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+With $\mathbf a=(2,1,3)$ and $\mathbf n=(4,5,6)$,
+
+$$
+(\mathbf r-\mathbf a)\boldsymbol\cdot\mathbf n=0.
+$$
+
+Therefore $4(x-2)+5(y-1)+6(z-3)=0$, so
+
+$$
+\boxed{4x+5y+6z=31}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.3 — Intersection of a line and a plane"}
+Find the point where
+
+$$
+\mathbf r=\begin{pmatrix}2\\3\\4\end{pmatrix}
++\lambda\begin{pmatrix}1\\2\\-1\end{pmatrix}
+$$
+
+meets the plane $5x+y-z=1$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+A point of the line has coordinates $(2+\lambda,3+2\lambda,4-\lambda)$. Substitution gives
+
+$$
+5(2+\lambda)+(3+2\lambda)-(4-\lambda)=1,
+$$
+
+so $9+8\lambda=1$ and $\lambda=-1$. The point of intersection is
+
+$$
+\boxed{(1,1,5)}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.4 — A line parallel to a plane"}
+Show that the line
+
+$$
+\mathbf r=\begin{pmatrix}2\\1\\0\end{pmatrix}
++t\begin{pmatrix}3\\1\\-2\end{pmatrix}
+$$
+
+is parallel to the plane $2x+4y+5z=8$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The direction of the line is $\mathbf d=(3,1,-2)$ and a normal to the plane is $\mathbf n=(2,4,5)$. Since
+
+$$
+\mathbf d\boldsymbol\cdot\mathbf n=3(2)+1(4)-2(5)=0,
+$$
+
+the line direction is perpendicular to the normal. Hence the line is parallel to the plane.
+:::
+:::
+
+::: {.callout-example title="Example 7.5 — A line lying in a plane"}
+Determine whether the line in Example 7.4 lies in the plane $2x+4y+5z=8$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Example 7.4 shows that the line is parallel to the plane. For $t=1$, the point on the line is $(5,2,-2)$, and
+
+$$
+2(5)+4(2)+5(-2)=8.
+$$
+
+This point belongs to the plane. Therefore the whole line lies in the plane.
+:::
+:::
+
+::: {.callout-example title="Example 7.6 — Perpendicular from a point to a plane"}
+$A$ is $(7,5,3)$ and $\pi$ is $3x+2y+z=6$.
+
+(i) Find the line through $A$ perpendicular to $\pi$.
+
+(ii) Find its intersection $P$ with $\pi$.
+
+(iii) Find $AP$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+(i) A normal to $\pi$ is $(3,2,1)$, so
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}7\\5\\3\end{pmatrix}
++\lambda\begin{pmatrix}3\\2\\1\end{pmatrix}}.
+$$
+
+(ii) Substitution of $(7+3\lambda,5+2\lambda,3+\lambda)$ into the plane gives
+
+$$
+3(7+3\lambda)+2(5+2\lambda)+(3+\lambda)=6.
+$$
+
+Thus $14\lambda=-28$, so $\lambda=-2$ and
+
+$$
+\boxed{P=(1,1,1)}.
+$$
+
+(iii)
+
+$$
+\overrightarrow{AP}=\begin{pmatrix}-6\\-4\\-2\end{pmatrix},
+\;
+AP=\sqrt{36+16+4}=\boxed{\sqrt{56}}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.7 — Angle between a line and a plane"}
+Find the angle between
+
+$$
+\mathbf r=\begin{pmatrix}-1\\2\\-3\end{pmatrix}
++t\begin{pmatrix}-1\\2\\5\end{pmatrix}
+$$
+
+and the plane $2x+3y+z=4$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Take $\mathbf n=(2,3,1)$ and $\mathbf d=(-1,2,5)$. If $A$ is the angle between $\mathbf n$ and $\mathbf d$, then
+
+$$
+\cos A=\frac{\mathbf n\boldsymbol\cdot\mathbf d}{|\mathbf n||\mathbf d|}
+=\frac{-2+6+5}{\sqrt{14}\sqrt{30}}.
+$$
+
+Hence $A=63.95^\circ$. The angle between the line and the plane is
+
+$$
+90^\circ-A=26.05^\circ,
+$$
+
+or $\boxed{26^\circ}$ to the nearest degree.
+:::
+:::
+
+::: {.callout-example title="Example 7.8 — Line of intersection of two planes"}
+Find the line of intersection of
+
+$$
+3x+2y-3z=-18
+\;\text{and}\;
+x-2y+z=12.
+$$
+
+::: {.callout-tip collapse="true" title="Solution"}
+Putting $y=0$ gives $x=3$, $z=9$, so $P=(3,0,9)$. Putting $z=1$ gives $x=-1$, $y=-6$, so $Q=(-1,-6,1)$. Then
+
+$$
+\overrightarrow{PQ}=\begin{pmatrix}-4\\-6\\-8\end{pmatrix}
+=-2\begin{pmatrix}2\\3\\4\end{pmatrix}.
+$$
+
+Therefore one equation of the common line is
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}-1\\-6\\1\end{pmatrix}
++t\begin{pmatrix}2\\3\\4\end{pmatrix}}.
+$$
+
+Equivalent base points and non-zero scalar multiples of the direction vector give the same line.
+:::
+:::
+
+::: {.callout-example title="Example 7.9 — Angle between two planes"}
+Find the acute angle between $\pi_1:2x+3y+5z=8$ and $\pi_2:5x+y-4z=12$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+The normals are $\mathbf n_1=(2,3,5)$ and $\mathbf n_2=(5,1,-4)$. Hence
+
+$$
+\cos\theta=\frac{\mathbf n_1\boldsymbol\cdot\mathbf n_2}{|\mathbf n_1||\mathbf n_2|}
+=\frac{-7}{\sqrt{38}\sqrt{42}}.
+$$
+
+This gives $\theta=100.1^\circ$ between the chosen normals. The acute angle between the planes is therefore
+
+$$
+\boxed{180^\circ-100.1^\circ=79.9^\circ}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.10 — A plane through a common line"}
+Find the plane through $(1,2,3)$ that contains the common line of
+
+$$
+\pi_1:2x+2y+z+3=0,
+\;
+\pi_2:2x+3y+z+13=0.
+$$
+
+::: {.callout-tip collapse="true" title="Solution"}
+Every plane in the sheaf through the common line has equation
+
+$$
+p(2x+2y+z+3)+q(2x+3y+z+13)=0,
+$$
+
+where $p$ and $q$ are not both zero. Substitution of $(1,2,3)$ gives
+
+$$
+12p+24q=0,
+$$
+
+so $p=-2q$. Therefore
+
+$$
+-2(2x+2y+z+3)+(2x+3y+z+13)=0,
+$$
+
+and the required plane is
+
+$$
+\boxed{2x+y+z=7}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.11 — Common perpendicular of two lines"}
+Find the equation of the common perpendicular to
+
+$$
+\mathbf r=\begin{pmatrix}1\\0\\-1\end{pmatrix}
++\alpha\begin{pmatrix}1\\1\\0\end{pmatrix},
+\;
+\mathbf r=\begin{pmatrix}-2\\1\\4\end{pmatrix}
++\beta\begin{pmatrix}-3\\0\\1\end{pmatrix}.
+$$
+
+::: {.callout-tip collapse="true" title="Solution"}
+Let
+
+$$
+P=(1+\alpha,\alpha,-1),
+\;
+Q=(-2-3\beta,1,4+\beta).
+$$
+
+Then
+
+$$
+\overrightarrow{PQ}=(-3-\alpha-3\beta,1-\alpha,5+\beta).
+$$
+
+For $PQ$ to be perpendicular to both given lines,
+
+$$
+\overrightarrow{PQ}\boldsymbol\cdot(1,1,0)=0,
+\;
+\overrightarrow{PQ}\boldsymbol\cdot(-3,0,1)=0.
+$$
+
+Thus
+
+$$
+-2\alpha-3\beta-2=0,
+\;
+3\alpha+10\beta+14=0.
+$$
+
+Solving gives $\alpha=2$, $\beta=-2$. Hence $P=(3,2,-1)$, $Q=(4,1,2)$ and $\overrightarrow{PQ}=(1,-1,3)$. The common perpendicular is
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}3\\2\\-1\end{pmatrix}
++\lambda\begin{pmatrix}1\\-1\\3\end{pmatrix}}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.12 — Vector product and a unit normal"}
+Let $\mathbf a=3\mathbf i+2\mathbf j+5\mathbf k$ and $\mathbf b=\mathbf i-4\mathbf j+2\mathbf k$.
+
+(i) Calculate $\mathbf a\times\mathbf b$.
+
+(ii) Hence find a unit vector perpendicular to both $\mathbf a$ and $\mathbf b$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+(i)
+
+$$
+\mathbf a\times\mathbf b=
+\begin{vmatrix}
+\mathbf i&\mathbf j&\mathbf k\\
+3&2&5\\
+1&-4&2
+\end{vmatrix}
+=24\mathbf i-\mathbf j-14\mathbf k.
+$$
+
+(ii) Since $|\mathbf a\times\mathbf b|=\sqrt{24^2+(-1)^2+(-14)^2}=\sqrt{773}$, one required unit vector is
+
+$$
+\boxed{\widehat{\mathbf n}=\frac1{\sqrt{773}}
+\begin{pmatrix}24\\-1\\-14\end{pmatrix}}.
+$$
+
+Its negative is also perpendicular to both vectors.
+:::
+:::
+
+::: {.callout-example title="Example 7.13 — Plane through three points using a vector product"}
+Find the Cartesian equation of the plane through $A(3,4,2)$, $B(2,0,5)$ and $C(6,7,8)$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+
+$$
+\overrightarrow{AB}=(-1,-4,3),
+\;
+\overrightarrow{BC}=(4,7,3).
+$$
+
+A normal is
+
+$$
+\overrightarrow{AB}\times\overrightarrow{BC}
+=(-33,15,9)=-3(11,-5,-3).
+$$
+
+Use $\mathbf n=(11,-5,-3)$. The equation is $11x-5y-3z=d$. Substitution of $A$ gives $d=33-20-6=7$. Hence
+
+$$
+\boxed{11x-5y-3z=7}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.14 — Parametric plane to Cartesian form"}
+A plane is
+
+$$
+\mathbf r=3\mathbf i-\mathbf j+5\mathbf k
++\lambda(5\mathbf i-2\mathbf j+\mathbf k)
++\mu(2\mathbf i+\mathbf j-3\mathbf k).
+$$
+
+Find its Cartesian equation.
+
+::: {.callout-tip collapse="true" title="Solution"}
+A normal is the vector product of the two directions:
+
+$$
+\begin{pmatrix}5\\-2\\1\end{pmatrix}
+\times
+\begin{pmatrix}2\\1\\-3\end{pmatrix}
+=\begin{pmatrix}5\\17\\9\end{pmatrix}.
+$$
+
+Therefore
+
+$$
+\mathbf r\boldsymbol\cdot(5,17,9)
+=(3,-1,5)\boldsymbol\cdot(5,17,9)=43,
+$$
+
+so
+
+$$
+\boxed{5x+17y+9z=43}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.15 — Closest point on a line"}
+The line $l$ is
+
+$$
+\mathbf r=\begin{pmatrix}-10\\20\\2\end{pmatrix}
++\lambda\begin{pmatrix}5\\4\\3\end{pmatrix}
+$$
+
+and $P=(70,30,22)$. The point $M$ on $l$ is closest to $P$.
+
+(i) Express $\mathbf m$ and $\overrightarrow{PM}$ in terms of $\lambda$.
+
+(ii) Show that $\lambda=10$ and find $M$.
+
+(iii) Verify the value of $PM$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+(i)
+
+$$
+\mathbf m=\begin{pmatrix}-10+5\lambda\\20+4\lambda\\2+3\lambda\end{pmatrix},
+\;
+\overrightarrow{PM}=\begin{pmatrix}-80+5\lambda\\-10+4\lambda\\-20+3\lambda\end{pmatrix}.
+$$
+
+(ii) At the nearest point, $PM$ is perpendicular to the line direction $\mathbf d=(5,4,3)$:
+
+$$
+5(-80+5\lambda)+4(-10+4\lambda)+3(-20+3\lambda)=0.
+$$
+
+Thus $50\lambda=500$, so $\lambda=10$ and
+
+$$
+\boxed{M=(40,60,32)}.
+$$
+
+(iii) $\overrightarrow{PM}=(-30,30,10)$, hence
+
+$$
+PM=\sqrt{900+900+100}=\boxed{10\sqrt{19}}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.16 — Distance from a point to a line in two dimensions"}
+Find the shortest distance from $P(3,5)$ to $5x-3y+4=0$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+Using the two-dimensional distance formula,
+
+$$
+D=\frac{|5(3)-3(5)+4|}{\sqrt{5^2+(-3)^2}}
+=\boxed{\frac4{\sqrt{34}}}.
+$$
+
+This example is retained because it is a numbered textbook example; the main Further Mathematics vector work uses the corresponding three-dimensional methods.
+:::
+:::
+
+::: {.callout-example title="Example 7.17 — Distance from a point to a plane"}
+Find the shortest distance from $(2,4,-2)$ to $6x-y-3z+1=0$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+
+$$
+D=\frac{|6(2)-4-3(-2)+1|}{\sqrt{6^2+(-1)^2+(-3)^2}}
+=\frac{15}{\sqrt{46}}.
+$$
+
+Therefore
+
+$$
+\boxed{D=\frac{15}{\sqrt{46}}\approx2.21}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.18 — Distance between parallel lines"}
+The lines are
+
+$$
+l_1:\mathbf r=\begin{pmatrix}2\\-3\\0\end{pmatrix}
++\lambda\begin{pmatrix}1\\-3\\2\end{pmatrix},
+\;
+l_2:\mathbf r=\begin{pmatrix}4\\2\\1\end{pmatrix}
++\mu\begin{pmatrix}-2\\6\\-4\end{pmatrix}.
+$$
+
+(i) Show that they are parallel.
+
+(ii) Find the shortest distance between them.
+
+::: {.callout-tip collapse="true" title="Solution"}
+(i) The second direction is $-2$ times the first, so the lines are parallel.
+
+(ii) Take $A=(2,-3,0)$ on $l_1$ and $P=(4,2,1)$ on $l_2$. Then
+
+$$
+\overrightarrow{AP}=(2,5,1),
+\;
+\overrightarrow{AP}\times(1,-3,2)=(13,-3,-11).
+$$
+
+Therefore
+
+$$
+D=\frac{\sqrt{13^2+(-3)^2+(-11)^2}}{\sqrt{1^2+(-3)^2+2^2}}
+=\boxed{\sqrt{\frac{299}{14}}\approx4.62}.
+$$
+:::
+:::
+
+::: {.callout-example title="Example 7.19 — Distance between skew lines"}
+Find the shortest distance between
+
+$$
+l_1:\mathbf r=\begin{pmatrix}8\\9\\-2\end{pmatrix}
++\lambda\begin{pmatrix}1\\2\\-3\end{pmatrix},
+\;
+l_2:\mathbf r=\begin{pmatrix}6\\0\\-2\end{pmatrix}
++\mu\begin{pmatrix}1\\-1\\-2\end{pmatrix}.
+$$
+
+::: {.callout-tip collapse="true" title="Solution"}
+Let $\mathbf a_1=(8,9,-2)$, $\mathbf a_2=(6,0,-2)$, $\mathbf d_1=(1,2,-3)$ and $\mathbf d_2=(1,-1,-2)$. Then
+
+$$
+\mathbf a_1-\mathbf a_2=(2,9,0),
+\;
+\mathbf d_1\times\mathbf d_2=(-7,-1,-3).
+$$
+
+Also
+
+$$
+(\mathbf d_1\times\mathbf d_2)\boldsymbol\cdot(\mathbf a_1-\mathbf a_2)=-23,
+\;
+|\mathbf d_1\times\mathbf d_2|=\sqrt{59}.
+$$
+
+Hence
+
+$$
+\boxed{D=\frac{23}{\sqrt{59}}\approx2.99}.
+$$
+:::
+:::

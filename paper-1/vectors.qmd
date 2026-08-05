@@ -1,0 +1,220 @@
+---
+title: "1.6 Vectors"
+subtitle: "平面与直线 · 向量积 · 角度、交点与距离"
+description: "CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 7。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 使用并互相转换平面的 Cartesian、normal 与 parametric vector forms；
+2. 计算 vector product，并理解其方向和大小；
+3. 判断直线与平面相交、平行或直线位于平面内，并求交点；
+4. 求点到平面的垂足及距离；
+5. 求直线与平面、两个平面之间的角；
+6. 求两个平面的交线；
+7. 求两条 skew lines 的最短距离及 common perpendicular 的方程。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能从平面方程立即读出 normal vector
+- [ ] 能在点、方向向量与 normal vector 之间选择合适的平面形式
+- [ ] 能用 scalar product 判断平行、垂直和计算角度
+- [ ] 能用 vector product 求共同垂直方向、平面 normal 和面积
+- [ ] 能通过参数代入求 line-plane intersection
+- [ ] 能建立 perpendicular line 求 foot of perpendicular
+- [ ] 能求 two-plane intersection、skew-line distance 和 common perpendicular
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Equations of a plane
+
+过点 $A$，位置向量为 $\mathbf a$，并包含两个不平行方向 $\mathbf b,\mathbf c$ 的平面可写成
+
+$$
+\boxed{\mathbf r=\mathbf a+\lambda\mathbf b+\mu\mathbf c}.
+$$
+
+若 $\mathbf n$ 是平面的 normal vector，则
+
+$$
+(\mathbf r-\mathbf a)\boldsymbol\cdot\mathbf n=0,
+$$
+
+即
+
+$$
+\boxed{\mathbf r\boldsymbol\cdot\mathbf n=p},\;
+p=\mathbf a\boldsymbol\cdot\mathbf n.
+$$
+
+若 $\mathbf n=(a,b,c)$，Cartesian form 为
+
+$$
+\boxed{ax+by+cz=d}.
+$$
+
+从 parametric form 转换时，可用 $\mathbf b\times\mathbf c$ 求 normal；也可消去 $\lambda,\mu$。
+
+### 1.2 A line and a plane
+
+设直线
+
+$$
+\mathbf r=\mathbf a+\lambda\mathbf d
+$$
+
+和平面 $\mathbf r\boldsymbol\cdot\mathbf n=p$。
+
+- 若 $\mathbf d\boldsymbol\cdot\mathbf n\ne0$，直线与平面有唯一交点；
+- 若 $\mathbf d\boldsymbol\cdot\mathbf n=0$，直线平行于平面；
+- 在平行情形下，若 $\mathbf a\boldsymbol\cdot\mathbf n=p$，则整条直线位于平面内。
+
+求交点时，把直线的 $x,y,z$ 参数式代入平面方程，先求参数，再代回直线。
+
+### 1.3 Foot of a perpendicular and distance to a plane
+
+从点 $P$ 到平面 $\mathbf r\boldsymbol\cdot\mathbf n=p$ 的垂线方向为 $\mathbf n$。先写
+
+$$
+\mathbf r=\mathbf p_0+t\mathbf n,
+$$
+
+再与平面联立，所得交点 $M$ 是 foot of the perpendicular，距离为 $|PM|$。
+
+对于平面 $ax+by+cz=d$ 和点 $(x_0,y_0,z_0)$，距离公式为
+
+$$
+\boxed{
+D=\frac{|ax_0+by_0+cz_0-d|}{\sqrt{a^2+b^2+c^2}}
+}.
+$$
+
+### 1.4 Angle between a line and a plane
+
+若直线方向为 $\mathbf d$，平面 normal 为 $\mathbf n$，直线与平面的锐角为 $\alpha$，则
+
+$$
+\boxed{
+\sin\alpha=\frac{|\mathbf d\boldsymbol\cdot\mathbf n|}{|\mathbf d|\,|\mathbf n|}
+}.
+$$
+
+这里使用 $\sin\alpha$，因为直线与平面的角与 $\mathbf d$、$\mathbf n$ 之间的角互余。
+
+### 1.5 Intersection and angle of two planes
+
+两个不平行平面的交集是一条直线。可用两种方法求交线：
+
+1. 令一个坐标为参数，联立两个 Cartesian equations；
+2. 取两平面的 normals $\mathbf n_1,\mathbf n_2$，则交线方向平行于
+   $$\mathbf n_1\times\mathbf n_2,$$
+   再求交线上的一个点。
+
+两平面的锐角等于其 normals 的锐角：
+
+$$
+\boxed{
+\cos\theta=rac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}
+{|\mathbf n_1|\,|\mathbf n_2|}
+}.
+$$
+
+所有包含平面 $\pi_1:f_1=0$ 与 $\pi_2:f_2=0$ 的公共交线的平面可写成
+
+$$
+pf_1+qf_2=0,
+$$
+
+其中 $p,q$ 不同时为零。
+
+### 1.6 Vector product
+
+对于
+
+$$
+\mathbf a=(a_1,a_2,a_3),\;
+\mathbf b=(b_1,b_2,b_3),
+$$
+
+$$
+\boxed{
+\mathbf a\times\mathbf b=
+\begin{pmatrix}
+a_2b_3-a_3b_2\\
+a_3b_1-a_1b_3\\
+a_1b_2-a_2b_1
+\end{pmatrix}
+}.
+$$
+
+$\mathbf a\times\mathbf b$ 同时垂直于 $\mathbf a$ 和 $\mathbf b$，方向由 right-hand rule 决定，且
+
+$$
+|\mathbf a\times\mathbf b|=|\mathbf a|\,|\mathbf b|\sin\theta.
+$$
+
+因此平行四边形面积为 $|\mathbf a\times\mathbf b|$，三角形面积为其一半。向量积满足
+
+$$
+\mathbf a\times\mathbf b=-(\mathbf b\times\mathbf a).
+$$
+
+### 1.7 Distances involving lines
+
+点 $P$ 到直线 $\mathbf r=\mathbf a+\lambda\mathbf d$ 的距离可写成
+
+$$
+\boxed{
+D=\frac{|(\mathbf p-\mathbf a)\times\mathbf d|}{|\mathbf d|}
+}.
+$$
+
+两条 skew lines
+
+$$
+\mathbf r=\mathbf a+\lambda\mathbf b,\;
+\mathbf r=\mathbf c+\mu\mathbf d
+$$
+
+的共同垂直方向为 $\mathbf b\times\mathbf d$。最短距离为
+
+$$
+\boxed{
+D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
+{|\mathbf b\times\mathbf d|}
+}.
+$$
+
+若要求 common perpendicular 的方程，可分别取两线上一般点 $P,Q$，令 $\overrightarrow{PQ}$ 同时垂直于 $\mathbf b$ 和 $\mathbf d$，解出两个参数后用 $P$ 或 $Q$ 与方向 $\mathbf b\times\mathbf d$ 写直线。
+
+## 2. Textbook Examples
+
+{{< include vectors-examples.qmd >}}
+
+## 3. Cambridge examination questions in the textbook
+
+{{< include vectors-textbook-exercises.qmd >}}
+
+## 4. Past-paper question bank
+
+{{< include vectors-past-papers.qmd >}}
+
+## 5. Geometric summary diagrams
+
+{{< include vectors-diagrams.qmd >}}
+
+## 6. 完成本节的判断标准
+
+1. 每次先明确 point vector、direction vector 与 normal vector；
+2. 判断平行或垂直时能写出对应的 scalar product 条件；
+3. 角度题能分清 line-line、line-plane 与 plane-plane 使用的三角函数；
+4. 距离题能说明 perpendicular direction 或使用的面积/投影关系；
+5. common perpendicular 和 skew-line distance 能正确使用两个方向向量的 vector product。

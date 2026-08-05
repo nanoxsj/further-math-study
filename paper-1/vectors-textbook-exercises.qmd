@@ -1,0 +1,287 @@
+这里只收录教材 Exercise 中明确标注 **Cambridge International AS & A Level Further Mathematics 9231** 来源的题目；标注为 Mathematics 9709 的题目不在本节重复收录。
+
+::: {.callout-note title="Exercise 7B, Question 13"}
+The lines $l_1$ and $l_2$ have equations
+
+$$
+l_1:\mathbf r=8\mathbf i+2\mathbf j+3\mathbf k
++\lambda(\mathbf i-2\mathbf j)
+$$
+
+and
+
+$$
+l_2:\mathbf r=5\mathbf i+3\mathbf j-14\mathbf k
++\mu(-2\mathbf j+3\mathbf k).
+$$
+
+The point $P$ on $l_1$ and the point $Q$ on $l_2$ are such that $PQ$ is perpendicular to both lines. Find the position vectors of $P$ and $Q$.
+
+*Source: 9231 Paper 11 Question 11 (part question), May/June 2015. The sign of the $\mathbf k$ term is given here in the form consistent with the original mark scheme and the textbook answer.*
+
+::: {.callout-tip collapse="true" title="Answer"}
+Write
+
+$$
+P=(8+\lambda,2-2\lambda,3),
+\;
+Q=(5,3-2\mu,-14+3\mu).
+$$
+
+Then
+
+$$
+\overrightarrow{PQ}=(-3-\lambda,1-2\mu+2\lambda,-17+3\mu).
+$$
+
+The two perpendicularity conditions give
+
+$$
+\overrightarrow{PQ}\boldsymbol\cdot(1,-2,0)=0
+\Longrightarrow -5-5\lambda+4\mu=0,
+$$
+
+$$
+\overrightarrow{PQ}\boldsymbol\cdot(0,-2,3)=0
+\Longrightarrow -53-4\lambda+13\mu=0.
+$$
+
+Solving gives $\lambda=3$ and $\mu=5$. Therefore
+
+$$
+\boxed{\overrightarrow{OP}=11\mathbf i-4\mathbf j+3\mathbf k},
+\;
+\boxed{\overrightarrow{OQ}=5\mathbf i-7\mathbf j+\mathbf k}.
+$$
+:::
+:::
+
+::: {.callout-note title="Exercise 7C, Question 10"}
+The plane $\Pi_1$ has equation
+
+$$
+\mathbf r=\begin{pmatrix}2\\3\\-1\end{pmatrix}
++s\begin{pmatrix}1\\0\\1\end{pmatrix}
++t\begin{pmatrix}1\\-1\\-2\end{pmatrix}.
+$$
+
+(i) Find a Cartesian equation of $\Pi_1$.
+
+The plane $\Pi_2$ has equation $2x-y+z=10$.
+
+(ii) Find the acute angle between $\Pi_1$ and $\Pi_2$.
+
+(iii) Find an equation of their line of intersection in the form $\mathbf r=\mathbf a+\lambda\mathbf b$.
+
+*Source: 9231 Paper 11 Question 8, October/November 2013.*
+
+::: {.callout-tip collapse="true" title="Answer"}
+(i) A normal to $\Pi_1$ is
+
+$$
+\begin{pmatrix}1\\0\\1\end{pmatrix}
+\times
+\begin{pmatrix}1\\-1\\-2\end{pmatrix}
+=\begin{pmatrix}1\\3\\-1\end{pmatrix}.
+$$
+
+Hence
+
+$$
+x+3y-z=(2)+3(3)-(-1)=12,
+$$
+
+so $\boxed{\Pi_1:x+3y-z=12}$.
+
+(ii) Use normals $\mathbf n_1=(1,3,-1)$ and $\mathbf n_2=(2,-1,1)$:
+
+$$
+\cos\theta=rac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}{|\mathbf n_1||\mathbf n_2|}
+=\frac{|2-3-1|}{\sqrt{11}\sqrt6}
+=\frac2{\sqrt{66}}.
+$$
+
+Thus $\boxed{\theta=75.7^\circ}$.
+
+(iii) A direction of the common line is
+
+$$
+\mathbf n_1\times\mathbf n_2
+=\begin{pmatrix}2\\-3\\-7\end{pmatrix}.
+$$
+
+The point $(6,2,0)$ satisfies both plane equations. Therefore
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}6\\2\\0\end{pmatrix}
++\lambda\begin{pmatrix}2\\-3\\-7\end{pmatrix}}.
+$$
+:::
+:::
+
+::: {.callout-note title="Exercise 7D, Question 11"}
+The line $l_1$ passes through $A(2,3,-5)$ and $B(8,7,-13)$. The line $l_2$ passes through $C(-2,1,8)$ and $D(3,-1,4)$.
+
+(i) Find the shortest distance between $l_1$ and $l_2$.
+
+(ii) The plane $\Pi_1$ passes through $A,B,D$, and $\Pi_2$ passes through $A,C,D$. Find the acute angle between $\Pi_1$ and $\Pi_2$.
+
+*Source: 9231 Paper 11 Question 11, May/June 2014.*
+
+::: {.callout-tip collapse="true" title="Answer"}
+(i) Direction vectors are
+
+$$
+\mathbf d_1=\overrightarrow{AB}=(6,4,-8),
+\;
+\mathbf d_2=\overrightarrow{CD}=(5,-2,-4).
+$$
+
+Also
+
+$$
+\mathbf d_1\times\mathbf d_2=(-32,-16,-32),
+\;
+\overrightarrow{AC}=(-4,-2,13).
+$$
+
+Therefore
+
+$$
+D=\frac{|\overrightarrow{AC}\boldsymbol\cdot(\mathbf d_1\times\mathbf d_2)|}
+{|\mathbf d_1\times\mathbf d_2|}
+=\frac{256}{48}
+=\boxed{\frac{16}{3}}.
+$$
+
+(ii) Suitable normals are
+
+$$
+\mathbf n_1=\overrightarrow{AB}\times\overrightarrow{AD}
+=(4,-62,-28)=2(2,-31,-14),
+$$
+
+$$
+\mathbf n_2=\overrightarrow{AC}\times\overrightarrow{AD}
+=(34,49,18).
+$$
+
+Thus
+
+$$
+\cos\theta=rac{|(2,-31,-14)\boldsymbol\cdot(34,49,18)|}
+{\sqrt{1161}\sqrt{3881}}
+=\frac{1703}{\sqrt{1161\cdot3881}}.
+$$
+
+Hence the acute angle is $\boxed{36.7^\circ}$.
+:::
+:::
+
+::: {.callout-note title="Exercise 7D, Question 12"}
+The position vectors of $A,B,C,D$ are
+
+$$
+2\mathbf i+4\mathbf j-3\mathbf k,
+\;
+-2\mathbf i+5\mathbf j-4\mathbf k,
+\;
+\mathbf i+4\mathbf j+\mathbf k,
+\;
+\mathbf i+5\mathbf j+m\mathbf k,
+$$
+
+respectively, where $m$ is an integer. The shortest distance between $AB$ and $CD$ is $3$.
+
+(i) Show that the only possible value of $m$ is $2$.
+
+(ii) Find the shortest distance of $D$ from $AC$.
+
+(iii) Show that the acute angle between planes $ACD$ and $BCD$ is $\cos^{-1}(1/3)$.
+
+*Source: 9231 Paper 11 Question 11, May/June 2012.*
+
+::: {.callout-tip collapse="true" title="Answer"}
+(i)
+
+$$
+\overrightarrow{AB}=(-4,1,-1),
+\;
+\overrightarrow{CD}=(0,1,m-1),
+\;
+\overrightarrow{AC}=(-1,0,4).
+$$
+
+Now
+
+$$
+\overrightarrow{AB}\times\overrightarrow{CD}
+=(m,4m-4,-4).
+$$
+
+Using the skew-line distance formula,
+
+$$
+\frac{|\overrightarrow{AC}\boldsymbol\cdot
+(\overrightarrow{AB}\times\overrightarrow{CD})|}
+{|\overrightarrow{AB}\times\overrightarrow{CD}|}=3.
+$$
+
+After squaring,
+
+$$
+(m+16)^2=9\{m^2+16(m-1)^2+16\},
+$$
+
+which reduces to
+
+$$
+19m^2-40m+4=0.
+$$
+
+Hence $m=2$ or $m=2/19$. Since $m$ is an integer,
+
+$$
+\boxed{m=2}.
+$$
+
+(ii) With $m=2$, $D=(1,5,2)$ and
+
+$$
+\overrightarrow{AD}=(-1,1,5),
+\;
+\overrightarrow{AC}=(-1,0,4).
+$$
+
+Therefore
+
+$$
+D_{D,AC}=\frac{|\overrightarrow{AD}\times\overrightarrow{AC}|}{|\overrightarrow{AC}|}
+=\frac{\sqrt{18}}{\sqrt{17}}
+=\boxed{\sqrt{\frac{18}{17}}}.
+$$
+
+(iii) Normals to $ACD$ and $BCD$ may be taken as
+
+$$
+\mathbf n_1=\overrightarrow{AC}\times\overrightarrow{AD}=(-4,1,-1),
+$$
+
+$$
+\mathbf n_2=\overrightarrow{BC}\times\overrightarrow{BD}=(-6,-3,3).
+$$
+
+Then
+
+$$
+\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}{|\mathbf n_1||\mathbf n_2|}
+=\frac{18}{\sqrt{18}\sqrt{54}}=\frac13.
+$$
+
+Thus the acute angle is
+
+$$
+\boxed{\cos^{-1}\!\left(\frac13\right)}.
+$$
+:::
+:::

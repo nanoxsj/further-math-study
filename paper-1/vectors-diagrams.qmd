@@ -1,0 +1,28 @@
+以下图形均根据向量关系重新绘制，并以 SVG 直接嵌入页面；虚线表示被遮挡部分或辅助线。
+
+<div class="vector-svg-grid">
+<figure class="vector-svg-card">
+<svg viewBox="0 0 420 270" role="img" aria-labelledby="vp-title vp-desc">
+<title id="vp-title">Perpendicular from a point to a plane</title><desc id="vp-desc">Point P, perpendicular foot F and the normal to a plane.</desc>
+<defs><marker id="arr-vp" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"/></marker></defs>
+<polygon points="55,188 260,112 370,174 164,250" fill="#dbeafe" stroke="#315b7d" stroke-width="2"/><line x1="210" y1="40" x2="210" y2="177" stroke="#dc2626" stroke-width="3" marker-end="url(#arr-vp)"/><line x1="210" y1="177" x2="210" y2="223" stroke="#64748b" stroke-width="2" stroke-dasharray="7 6"/><circle cx="210" cy="40" r="5" fill="#dc2626"/><circle cx="210" cy="177" r="5"/><path d="M210 177l17-6v-17" fill="none" stroke="#111827" stroke-width="2"/><text x="220" y="37">P</text><text x="220" y="198">F</text><text x="229" y="102" fill="#dc2626">n</text><text x="327" y="188">π</text>
+</svg><figcaption>Point-to-plane distance: $F$ lies on the normal through $P$.</figcaption></figure>
+
+<figure class="vector-svg-card">
+<svg viewBox="0 0 420 270" role="img" aria-labelledby="pp-title pp-desc">
+<title id="pp-title">Intersection of two planes</title><desc id="pp-desc">Two planes meeting in a line, with both normal vectors.</desc>
+<polygon points="42,200 217,56 374,112 200,256" fill="#ede9fe" fill-opacity=".82" stroke="#7c3aed" stroke-width="2"/><polygon points="48,96 358,226 366,151 56,22" fill="#d1fae5" fill-opacity=".72" stroke="#059669" stroke-width="2"/><line x1="53" y1="61" x2="362" y2="190" stroke="#e11d48" stroke-width="4"/><line x1="200" y1="155" x2="137" y2="88" stroke="#7c3aed" stroke-width="3"/><line x1="200" y1="155" x2="252" y2="77" stroke="#059669" stroke-width="3"/><text x="330" y="102" fill="#7c3aed">π₁</text><text x="335" y="238" fill="#047857">π₂</text><text x="91" y="72" fill="#7c3aed">n₁</text><text x="260" y="69" fill="#047857">n₂</text><text x="329" y="184" fill="#be123c">l</text>
+</svg><figcaption>The intersection direction is parallel to $\mathbf n_1\times\mathbf n_2$.</figcaption></figure>
+
+<figure class="vector-svg-card">
+<svg viewBox="0 0 420 270" role="img" aria-labelledby="sk-title sk-desc">
+<title id="sk-title">Common perpendicular between skew lines</title><desc id="sk-desc">Two skew lines joined by their shortest segment PQ.</desc>
+<line x1="48" y1="70" x2="360" y2="131" stroke="#2563eb" stroke-width="4"/><line x1="66" y1="226" x2="352" y2="162" stroke="#ea580c" stroke-width="4"/><line x1="211" y1="102" x2="230" y2="189" stroke="#111827" stroke-width="3"/><line x1="211" y1="102" x2="230" y2="189" stroke="#111827" stroke-width="9" stroke-opacity=".08"/><circle cx="211" cy="102" r="5"/><circle cx="230" cy="189" r="5"/><path d="M211 102l16 3 3 15M230 189l-4-16-16 3" fill="none" stroke="#111827" stroke-width="2"/><text x="214" y="91">P</text><text x="239" y="205">Q</text><text x="338" y="119" fill="#1d4ed8">l₁</text><text x="332" y="184" fill="#c2410c">l₂</text><text x="248" y="147">shortest distance</text>
+</svg><figcaption>For skew lines, $PQ$ is parallel to $\mathbf d_1\times\mathbf d_2$.</figcaption></figure>
+</div>
+
+```{=html}
+<style>
+.vector-svg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:1rem;margin:1rem 0 1.5rem}.vector-svg-card{margin:0;padding:.75rem;border:1px solid #d7e0e8;border-radius:12px;background:#fff;box-shadow:0 3px 12px rgba(15,23,42,.06)}.vector-svg-card svg{display:block;width:100%;height:auto}.vector-svg-card svg text{font:17px system-ui,sans-serif}.vector-svg-card figcaption{margin-top:.4rem;color:#475569;font-size:.92rem}@media(max-width:540px){.vector-svg-card{padding:.4rem}.vector-svg-card svg text{font-size:15px}}
+</style>
+```

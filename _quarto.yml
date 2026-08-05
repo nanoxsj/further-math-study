@@ -8,6 +8,7 @@ project:
     - paper-1/summation-of-series.qmd
     - paper-1/matrices.qmd
     - paper-1/polar-coordinates.qmd
+    - paper-1/vectors.qmd
 
 website:
   title: "CIE Further Mathematics 9231"
@@ -30,6 +31,8 @@ website:
             text: "1.4 Matrices"
           - href: paper-1/polar-coordinates.qmd
             text: "1.5 Polar coordinates"
+          - href: paper-1/vectors.qmd
+            text: "1.6 Vectors"
 
 format:
   html:

@@ -1,0 +1,1337 @@
+完全相同的地区版本合并为一题，并在题目下列出全部来源。答案按 published mark scheme 的得分点展开。
+
+### 2019
+
+::: {.callout-note title="May/June 2019, Paper 11/12, Question 3"}
+The lines are
+
+$$
+l_1:\mathbf r=6\mathbf i+2\mathbf j+7\mathbf k+\lambda(\mathbf i+\mathbf j),
+$$
+
+$$
+l_2:\mathbf r=4\mathbf i+4\mathbf j+\mu(-6\mathbf j+\mathbf k).
+$$
+
+Points $P$ on $l_1$ and $Q$ on $l_2$ are such that $PQ$ is perpendicular to both lines. Find their position vectors. [8]
+
+*Sources: 9231/11/M/J/19 Q3; 9231/12/M/J/19 Q3.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+
+$$
+P=(6+\lambda,2+\lambda,7),
+\;Q=(4,4-6\mu,\mu),
+$$
+
+so
+
+$$
+\overrightarrow{PQ}=(-2-\lambda,2-\lambda-6\mu,-7+\mu).
+$$
+
+The perpendicularity conditions give
+
+$$
+\overrightarrow{PQ}\boldsymbol\cdot(1,1,0)=0
+\Longrightarrow -2\lambda-6\mu=0,
+$$
+
+$$
+\overrightarrow{PQ}\boldsymbol\cdot(0,-6,1)=0
+\Longrightarrow 6\lambda+37\mu=19.
+$$
+
+Thus $\lambda=-3$, $\mu=1$, and
+
+$$
+\boxed{\overrightarrow{OP}=3\mathbf i-\mathbf j+7\mathbf k},
+\;\boxed{\overrightarrow{OQ}=4\mathbf i-2\mathbf j+\mathbf k}.
+$$
+:::
+:::
+
+::: {.callout-note title="May/June 2019, Paper 13, Question 7"}
+Line $l_1$ passes through $A(-3,1,4)$ and $B(-1,5,9)$. Line $l_2$ passes through $C(-2,6,5)$ and $D(-1,7,5)$.
+
+(i) Find the shortest distance between $l_1$ and $l_2$. [5]
+
+(ii) Find the acute angle between $l_2$ and plane $ABD$. [5]
+
+*Source: 9231/13/M/J/19 Q7.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(i)
+
+$$
+\overrightarrow{AB}=(2,4,5),
+\;\overrightarrow{CD}=(1,1,0),
+$$
+
+$$
+\overrightarrow{AB}\times\overrightarrow{CD}=(-5,5,-2).
+$$
+
+Using $\overrightarrow{AC}=(1,5,1)$,
+
+$$
+D=\frac{|(1,5,1)\boldsymbol\cdot(-5,5,-2)|}{\sqrt{54}}
+=\boxed{\frac{18}{\sqrt{54}}=\sqrt6}.
+$$
+
+(ii) Since $\overrightarrow{AD}=(2,6,1)$, a normal to $ABD$ is
+
+$$
+(2,4,5)\times(2,6,1)=(-26,8,4)=2(-13,4,2).
+$$
+
+For the line direction $(1,1,0)$,
+
+$$
+\sin\alpha=\frac{|(1,1,0)\boldsymbol\cdot(-13,4,2)|}{\sqrt2\sqrt{189}}
+=\frac9{\sqrt{378}}.
+$$
+
+Hence $\boxed{\alpha=27.6^\circ}$.
+:::
+:::
+
+::: {.callout-note title="October/November 2019, Paper 11/12/13, Question 6"}
+With $O$ as origin, $A,B,C$ have position vectors $\mathbf i-\mathbf j$, $2\mathbf i+\mathbf j+7\mathbf k$ and $\mathbf i-\mathbf j+\mathbf k$.
+
+(i) Find the shortest distance between lines $OC$ and $AB$. [5]
+
+(ii) Find the Cartesian equation of the plane containing $OC$ and the common perpendicular of $OC$ and $AB$. [4]
+
+*Sources: 9231/11/O/N/19 Q6; 9231/12/O/N/19 Q6; 9231/13/O/N/19 Q6.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(i) Directions are $\overrightarrow{OC}=(1,-1,1)$ and $\overrightarrow{AB}=(1,2,7)$. Thus
+
+$$
+\overrightarrow{OC}\times\overrightarrow{AB}=(-9,-6,3)=-3(3,2,-1).
+$$
+
+Using $\overrightarrow{OA}=(1,-1,0)$,
+
+$$
+D=\frac{|(1,-1,0)\boldsymbol\cdot(3,2,-1)|}{\sqrt{14}}
+=\boxed{\frac1{\sqrt{14}}}.
+$$
+
+(ii) The required plane contains directions $(1,-1,1)$ and $(3,2,-1)$. Its normal is
+
+$$
+(1,-1,1)\times(3,2,-1)=(-1,4,5).
+$$
+
+It passes through $O$, so
+
+$$
+\boxed{-x+4y+5z=0}.
+$$
+:::
+:::
+
+### 2020
+
+::: {.callout-note title="May/June 2020, Paper 11/12, Question 5"}
+$l_1:\mathbf r=(3,0,3)+m(1,4,4)$ and $l_2:\mathbf r=(3,-5,-6)+n(0,5,6)$.
+
+(a) Find their shortest distance. [5]
+
+(b) A plane $\Pi$ contains $l_1$ and is parallel to $(1,0,1)$. Find its Cartesian equation. [4]
+
+*Sources: 9231/11/M/J/20 Q5; 9231/12/M/J/20 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+(1,4,4)\times(0,5,6)=(4,-6,5),
+$$
+
+$$
+D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
+=\boxed{\frac{15}{\sqrt{77}}}.
+$$
+
+(b) A normal is $(1,4,4)\times(1,0,1)=(4,3,-4)$. Hence
+
+$$
+\boxed{4x+3y-4z=0}.
+$$
+:::
+:::
+
+::: {.callout-note title="May/June 2020, Paper 13, Question 7"}
+$l_1:\mathbf r=-5\mathbf j+m(5\mathbf i+2\mathbf k)$ and $l_2:\mathbf r=4\mathbf i+2\mathbf j-2\mathbf k+n(\mathbf j+\mathbf k)$. A plane $\Pi$ contains $l_1$ and is parallel to $l_2$.
+
+(a) Find the Cartesian equation of $\Pi$. [4]
+
+(b) Find the distance between $l_2$ and $\Pi$. [3]
+
+(c) Points $P$ on $l_1$ and $Q$ on $l_2$ make $PQ$ perpendicular to both lines. Show that $\overrightarrow{OP}=\frac{55}{27}\mathbf i-5\mathbf j+\frac{22}{27}\mathbf k$ and state an equation of $PQ$. [8]
+
+*Source: 9231/13/M/J/20 Q7.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) A normal is $(5,0,2)\times(0,1,1)=(-2,-5,5)$. Thus
+
+$$
+\boxed{-2x-5y+5z=25}.
+$$
+
+(b) Using $(4,2,-2)$ on $l_2$,
+
+$$
+\boxed{D=\frac{53}{\sqrt{54}}}.
+$$
+
+(c) Let $P=(5m,-5,2m)$ and $Q=(4,2+n,-2+n)$. From $PQ\boldsymbol\cdot(5,0,2)=0$ and $PQ\boldsymbol\cdot(0,1,1)=0$, solving gives $m=11/27$. Hence the stated $P$ follows. Since the common perpendicular direction is $(-2,-5,5)$,
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}55/27\\-5\\22/27\end{pmatrix}
++t\begin{pmatrix}-2\\-5\\5\end{pmatrix}}.
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2020, Paper 11/13, Question 4"}
+$A,B,C$ have position vectors $(-1,1,2)$, $(-2,-1,0)$ and $(2,0,2)$.
+
+(a) Find plane $ABC$. [5] (b) Find its distance from $O$. [2] (c) Find the acute angle between planes $OAB$ and $ABC$. [4]
+
+*Sources: 9231/11/O/N/20 Q4; 9231/13/O/N/20 Q4.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) $\overrightarrow{AB}\times\overrightarrow{AC}=(-2,-6,7)$, so
+
+$$
+\boxed{-2x-6y+7z=10}.
+$$
+
+(b) $\boxed{10/\sqrt{89}}$.
+
+(c) A normal to $OAB$ is $(2,-4,3)$. Thus
+
+$$
+\cos\theta=\frac{41}{\sqrt{29}\sqrt{89}},
+$$
+
+so $\boxed{\theta=36.2^\circ}$.
+:::
+:::
+
+::: {.callout-note title="October/November 2020, Paper 12, Question 7"}
+$A,B,C$ have position vectors $(-2,2,-1)$, $(-2,1,2)$ and $(0,-2,1)$.
+
+(a) Find plane $ABC$. [5] (b) Find the acute angle between planes $OBC$ and $ABC$. [4]
+
+The point $D$ has position vector $t\mathbf i-\mathbf j$. (c) Given that the shortest distance between $AB$ and $CD$ is $\sqrt{10}$, find $t$. [6]
+
+*Source: 9231/12/O/N/20 Q7.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) $\overrightarrow{AB}\times\overrightarrow{AC}=2(5,3,1)$, hence
+
+$$
+\boxed{5x+3y+z=-5}.
+$$
+
+(b) A normal to $OBC$ is $(5,2,4)$. Therefore
+
+$$
+\cos\theta=\frac{35}{\sqrt{35}\sqrt{45}},
+$$
+
+giving $\boxed{\theta=28.1^\circ}$.
+
+(c) $\overrightarrow{AB}=(0,-1,3)$, $\overrightarrow{CD}=(t,1,-1)$ and their vector product is $(-2,3t,t)$. Thus
+
+$$
+\frac{|(2,-4,2)\boldsymbol\cdot(-2,3t,t)|}{\sqrt{4+10t^2}}=\sqrt{10}.
+$$
+
+Squaring reduces to $80t=24$, so $\boxed{t=3/10}$.
+:::
+:::
+
+### 2021
+
+::: {.callout-note title="May/June 2021, Paper 11/12, Question 6"}
+Let $t>0$. The line $l_1$ passes through $t\mathbf i+\mathbf j$ and is parallel to $-2\mathbf i-\mathbf j$. The line $l_2$ passes through $\mathbf j+t\mathbf k$ and is parallel to $-2\mathbf j+\mathbf k$. The shortest distance between the lines is $\sqrt{21}$.
+
+(a) Find $t$. [5]
+
+(b) The plane $\Pi_1$ contains $l_1$ and is parallel to $l_2$. Write a parametric equation of $\Pi_1$. [1]
+
+(c) The plane $\Pi_2$ is $5x-6y+7z=0$. Find the acute angle between $l_2$ and $\Pi_2$. [3]
+
+(d) Find the acute angle between $\Pi_1$ and $\Pi_2$. [3]
+
+*Sources: 9231/11/M/J/21 Q6; 9231/12/M/J/21 Q6.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) A vector joining the base points is $t(-1,0,1)$, while
+
+$$
+(-2,-1,0)\times(0,-2,1)=(-1,2,4).
+$$
+
+Hence
+
+$$
+\frac{|t(-1,0,1)\boldsymbol\cdot(-1,2,4)|}{\sqrt{21}}
+=\frac{5t}{\sqrt{21}}=\sqrt{21},
+$$
+
+so $\boxed{t=\dfrac{21}{5}}$.
+
+(b)
+
+$$
+\boxed{\mathbf r=\frac{21}{5}\mathbf i+\mathbf j
++\lambda(-2\mathbf i-\mathbf j)
++\mu(-2\mathbf j+\mathbf k)}.
+$$
+
+(c) If $\alpha$ is the angle between $l_2$ and $\Pi_2$, then
+
+$$
+\sin\alpha=\frac{|(0,-2,1)\boldsymbol\cdot(5,-6,7)|}{\sqrt5\sqrt{110}}
+=\frac{19}{\sqrt{550}}.
+$$
+
+Thus $\boxed{\alpha=54.1^\circ}$.
+
+(d) A normal to $\Pi_1$ is $(-1,2,4)$. Therefore
+
+$$
+\cos\theta=\frac{|(-1,2,4)\boldsymbol\cdot(5,-6,7)|}{\sqrt{21}\sqrt{110}}
+=\frac{11}{\sqrt{2310}},
+$$
+
+giving $\boxed{\theta=76.8^\circ}$.
+:::
+:::
+
+::: {.callout-note title="May/June 2021, Paper 13, Question 6"}
+The lines are
+
+$$
+l_1:\mathbf r=-\mathbf i-2\mathbf j+\mathbf k+s(2\mathbf i-3\mathbf j),
+$$
+
+$$
+l_2:\mathbf r=3\mathbf i-2\mathbf k+t(3\mathbf i-\mathbf j+3\mathbf k).
+$$
+
+Plane $\Pi_1$ contains $l_1$ and $P(-2,-2,4)$. Plane $\Pi_2$ contains $l_2$ and is parallel to $l_1$.
+
+(a) Give a parametric equation of $\Pi_1$. [2]
+
+(b) Find a Cartesian equation of $\Pi_2$. [4]
+
+(c) Find the acute angle between the planes. [5]
+
+*Source: 9231/13/M/J/21 Q6.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) From $P$ to $(-1,-2,1)$ on $l_1$ is $(1,0,-3)$, hence
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}-2\\-2\\4\end{pmatrix}
++\lambda\begin{pmatrix}2\\-3\\0\end{pmatrix}
++\mu\begin{pmatrix}1\\0\\-3\end{pmatrix}}.
+$$
+
+(b)
+
+$$
+(2,-3,0)\times(3,-1,3)=(-9,-6,7).
+$$
+
+Using $(3,0,-2)$ gives
+
+$$
+\boxed{9x+6y-7z=41}.
+$$
+
+(c) A normal to $\Pi_1$ is $(3,2,1)$. Thus
+
+$$
+\cos\theta=\frac{|(3,2,1)\boldsymbol\cdot(9,6,-7)|}{\sqrt{14}\sqrt{166}}
+=\frac{32}{\sqrt{2324}},
+$$
+
+so $\boxed{\theta=48.4^\circ}$.
+:::
+:::
+
+::: {.callout-note title="October/November 2021, Paper 11/13, Question 5"}
+The plane $\Pi$ is
+
+$$
+\mathbf r=-2\mathbf i+3\mathbf j+3\mathbf k
++m(\mathbf i+\mathbf k)+n(2\mathbf i+3\mathbf j).
+$$
+
+(a) Find its Cartesian equation. [4]
+
+The line $l$ passes through $P(2,-3,5)$ and is parallel to $\mathbf k$.
+
+(b) Find where $l$ meets $\Pi$. [3]
+
+(c) Find the acute angle between $l$ and $\Pi$. [3]
+
+(d) Find the perpendicular distance from $P$ to $\Pi$. [3]
+
+*Sources: 9231/11/O/N/21 Q5; 9231/13/O/N/21 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+(1,0,1)\times(2,3,0)=(-3,2,3),
+$$
+
+and substitution of $(-2,3,3)$ gives
+
+$$
+\boxed{-3x+2y+3z=21}.
+$$
+
+(b) A general point of $l$ is $(2,-3,5+t)$. Substitution gives $t=6$, so the intersection is
+
+$$
+\boxed{(2,-3,11)}.
+$$
+
+(c)
+
+$$
+\sin\alpha=\frac{|(0,0,1)\boldsymbol\cdot(-3,2,3)|}{\sqrt{22}}
+=\frac3{\sqrt{22}},
+$$
+
+so $\boxed{\alpha=39.8^\circ}$.
+
+(d)
+
+$$
+D=\frac{|-3(2)+2(-3)+3(5)-21|}{\sqrt{22}}
+=\boxed{\frac{18}{\sqrt{22}}\approx3.84}.
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2021, Paper 12, Question 7"}
+The points $A,B,C$ have position vectors $2\mathbf i+2\mathbf j$, $-\mathbf j+\mathbf k$ and $2\mathbf i+\mathbf j-7\mathbf k$.
+
+(a) Find the equation of plane $OAB$ in the form $\mathbf r\boldsymbol\cdot\mathbf n=p$. [3]
+
+The plane $\Pi$ is $x-3y-2z=1$.
+
+(b) Find its perpendicular distance from $O$. [1]
+
+(c) Find the acute angle between $OAB$ and $\Pi$. [3]
+
+(d) Find an equation of the common perpendicular to lines $OC$ and $AB$. [10]
+
+*Source: 9231/12/O/N/21 Q7.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+(2,2,0)\times(0,-1,1)=(2,-2,-2),
+$$
+
+so $\boxed{\mathbf r\boldsymbol\cdot(1,-1,-1)=0}$.
+
+(b) $\boxed{1/\sqrt{14}}$.
+
+(c)
+
+$$
+\cos\theta=\frac{|(1,-1,-1)\boldsymbol\cdot(1,-3,-2)|}{\sqrt3\sqrt{14}}
+=\frac6{\sqrt{42}},
+$$
+
+so $\boxed{\theta=22.2^\circ}$.
+
+(d) Directions of $OC$ and $AB$ are $(2,1,-7)$ and $(-2,-3,1)$. Their vector product is parallel to $(5,-3,1)$. Let $P=\lambda(2,1,-7)$ and $Q=(2,2,0)+\mu(-2,-3,1)$. Solving
+
+$$
+\overrightarrow{PQ}\boldsymbol\cdot(2,1,-7)=0,
+\;
+\overrightarrow{PQ}\boldsymbol\cdot(-2,-3,1)=0
+$$
+
+gives a point $(-1/5,-1/10,7/10)$ on the common perpendicular. Hence
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}-1/5\\-1/10\\7/10\end{pmatrix}
++t\begin{pmatrix}5\\-3\\1\end{pmatrix}}.
+$$
+:::
+:::
+
+### 2022
+
+::: {.callout-note title="May/June 2022, Paper 11/12, Question 2"}
+The points $A,B,C$ have position vectors
+
+$$
+4\mathbf i-4\mathbf j+\mathbf k,
+\;-4\mathbf i+3\mathbf j-4\mathbf k,
+\;4\mathbf i-\mathbf j-2\mathbf k.
+$$
+
+(a) Find the equation of plane $ABC$. [5]
+
+(b) Find the perpendicular distance from $O$ to plane $ABC$. [2]
+
+The point $D$ has position vector $2\mathbf i+3\mathbf j-3\mathbf k$.
+
+(c) Find the intersection of line $OD$ with plane $ABC$. [3]
+
+*Sources: 9231/11/M/J/22 Q2; 9231/12/M/J/22 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+\overrightarrow{AB}=(-8,7,-5),
+\;\overrightarrow{AC}=(0,3,-3),
+$$
+
+$$
+\overrightarrow{AB}\times\overrightarrow{AC}=(-6,-24,-24),
+$$
+
+so take the normal $(1,4,4)$. Substitution of $A$ gives
+
+$$
+\boxed{x+4y+4z=-8}.
+$$
+
+(b)
+
+$$
+\boxed{D=\frac8{\sqrt{33}}\approx1.39}.
+$$
+
+(c) Line $OD$ is
+
+$$
+\mathbf r=t\begin{pmatrix}2\\3\\-3\end{pmatrix}.
+$$
+
+Substitution gives $2t+12t-12t=-8$, so $t=-4$. The intersection is
+
+$$
+\boxed{(-8,-12,12)}.
+$$
+:::
+:::
+
+::: {.callout-note title="May/June 2022, Paper 13, Question 7"}
+The position vectors of $A,B,C,D$ are
+
+$$
+7\mathbf i+4\mathbf j-\mathbf k,
+\;11\mathbf i+3\mathbf j,
+\;2\mathbf i+6\mathbf j+3\mathbf k,
+\;2\mathbf i+7\mathbf j+m\mathbf k.
+$$
+
+(a) Given that the shortest distance between lines $AB$ and $CD$ is $3$, show that $m^2-5m+4=0$. [7]
+
+Let $\Pi_1$ be plane $ABD$ when $m=1$, and $\Pi_2$ be plane $ABD$ when $m=4$.
+
+(b)(i) Write a parametric equation of $\Pi_1$. [2]
+
+(b)(ii) Find a Cartesian equation of $\Pi_2$. [4]
+
+(c) Find the acute angle between $\Pi_1$ and $\Pi_2$. [5]
+
+*Source: 9231/13/M/J/22 Q7.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+\overrightarrow{AB}=(4,-1,1),
+\;\overrightarrow{CD}=(0,1,m-3),
+$$
+
+$$
+\overrightarrow{AB}\times\overrightarrow{CD}
+=(2-m,12-4m,4).
+$$
+
+Using $\overrightarrow{AC}=(-5,2,4)$, the distance condition is
+
+$$
+\frac{|(-5,2,4)\boldsymbol\cdot(2-m,12-4m,4)|}
+{\sqrt{(m-2)^2+(4m-12)^2+16}}=3.
+$$
+
+Thus
+
+$$
+\frac{|30-3m|}{\sqrt{17m^2-100m+164}}=3.
+$$
+
+Squaring and simplifying gives
+
+$$
+16m^2-80m+64=0,
+$$
+
+and hence
+
+$$
+\boxed{m^2-5m+4=0}.
+$$
+
+(b)(i) When $m=1$, $\overrightarrow{AD}=(-5,3,2)$. Therefore
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}7\\4\\-1\end{pmatrix}
++s\begin{pmatrix}4\\-1\\1\end{pmatrix}
++t\begin{pmatrix}-5\\3\\2\end{pmatrix}}.
+$$
+
+(b)(ii) When $m=4$, $\overrightarrow{AD}=(-5,3,5)$ and
+
+$$
+\overrightarrow{AB}\times\overrightarrow{AD}=(-8,-25,7).
+$$
+
+Substitution of $A$ gives
+
+$$
+\boxed{-8x-25y+7z=-163}.
+$$
+
+(c) A normal to $\Pi_1$ is
+
+$$
+(4,-1,1)\times(-5,3,2)=(-5,-13,7).
+$$
+
+Using $\mathbf n_2=(-8,-25,7)$,
+
+$$
+\cos\theta=\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}
+{|\mathbf n_1||\mathbf n_2|}
+=\frac{414}{\sqrt{243}\sqrt{738}}.
+$$
+
+Hence $\boxed{\theta=12.1^\circ}$.
+:::
+:::
+
+### 2023
+
+::: {.callout-note title="October/November 2023, Paper 11/13, Question 4"}
+The lines are
+
+$$
+l_1:\mathbf r=-2\mathbf i-3\mathbf j-5\mathbf k
++m(-4\mathbf i+3\mathbf j+5\mathbf k),
+$$
+
+$$
+l_2:\mathbf r=2\mathbf i-2\mathbf j+3\mathbf k
++n(2\mathbf i-3\mathbf j+\mathbf k).
+$$
+
+(a) Find the shortest distance between $l_1$ and $l_2$. [5]
+
+The plane $\Pi$ contains $l_1$ and the point with position vector $-\mathbf i-3\mathbf j-4\mathbf k$.
+
+(b) Find a Cartesian equation of $\Pi$. [4]
+
+*Sources: 9231/11/O/N/23 Q4; 9231/13/O/N/23 Q4.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) The vector from the base point of $l_1$ to that of $l_2$ is $(4,1,8)$. A common perpendicular direction is
+
+$$
+(-4,3,5)\times(2,-3,1)=(18,14,6)=2(9,7,3).
+$$
+
+Hence
+
+$$
+D=\frac{|(4,1,8)\boldsymbol\cdot(9,7,3)|}{\sqrt{139}}
+=\boxed{\frac{67}{\sqrt{139}}\approx5.68}.
+$$
+
+(b) From $(-2,-3,-5)$ to the extra point $(-1,-3,-4)$ the direction is $(1,0,1)$. Therefore a normal to $\Pi$ is
+
+$$
+(1,0,1)\times(-4,3,5)=(-3,-9,3),
+$$
+
+which is parallel to $(1,3,-1)$. Using $(-1,-3,-4)$ gives
+
+$$
+\boxed{x+3y-z=-6}.
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2023, Paper 12, Question 5"}
+The plane $\Pi_1$ has equation
+
+$$
+\mathbf r=\mathbf i-\mathbf j-2\mathbf k
++m(\mathbf i-2\mathbf j-3\mathbf k)
++n(3\mathbf i-\mathbf k).
+$$
+
+(a) Find a Cartesian equation of $\Pi_1$. [4]
+
+The line $l$, which does not lie in $\Pi_1$, is
+
+$$
+\mathbf r=-3\mathbf i+\mathbf k+t(\mathbf i+\mathbf j+\mathbf k).
+$$
+
+(b) Show that $l$ is parallel to $\Pi_1$. [2]
+
+(c) Find the distance between $l$ and $\Pi_1$. [3]
+
+The plane $\Pi_2$ is $3x+3y+2z=1$.
+
+(d) Find a vector equation of the line of intersection of $\Pi_1$ and $\Pi_2$. [4]
+
+*Source: 9231/12/O/N/23 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+(1,-2,-3)\times(3,0,-1)=(2,-8,6)=2(1,-4,3).
+$$
+
+Using $(1,-1,-2)$ gives
+
+$$
+\boxed{x-4y+3z=-1}.
+$$
+
+(b) The line direction is $(1,1,1)$ and
+
+$$
+(1,1,1)\boldsymbol\cdot(1,-4,3)=0.
+$$
+
+Thus $l$ is parallel to $\Pi_1$; the stated condition confirms that it is not contained in the plane.
+
+(c) Use the point $(-3,0,1)$ on $l$:
+
+$$
+D=\frac{|-3-4(0)+3(1)+1|}{\sqrt{26}}
+=\boxed{\frac1{\sqrt{26}}\approx0.196}.
+$$
+
+(d) The direction of the common line is
+
+$$
+(1,-4,3)\times(3,3,2)=(-17,7,15).
+$$
+
+One common point is $(5/7,0,-4/7)$. Therefore
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}5/7\\0\\-4/7\end{pmatrix}
++\lambda\begin{pmatrix}-17\\7\\15\end{pmatrix}}.
+$$
+:::
+:::
+
+### 2024
+
+::: {.callout-note title="May/June 2024, Paper 11/12, Question 5"}
+The points $A,B,C$ have position vectors
+
+$$
+2\mathbf i+2\mathbf j+4\mathbf k,
+\;2\mathbf i+4\mathbf j-\mathbf k,
+\;-3\mathbf i-3\mathbf j+4\mathbf k.
+$$
+
+(a) Find the equation of plane $ABC$. [5]
+
+The point $D$ has position vector $2\mathbf i+\mathbf j+3\mathbf k$.
+
+(b) Find the perpendicular distance from $D$ to plane $ABC$. [2]
+
+(c) Find the shortest distance between lines $AB$ and $CD$. [5]
+
+*Sources: 9231/11/M/J/24 Q5; 9231/12/M/J/24 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+\overrightarrow{AB}=(0,2,-5),
+\;\overrightarrow{AC}=(-5,-5,0),
+$$
+
+$$
+\overrightarrow{AB}\times\overrightarrow{AC}=(-25,25,10)=5(-5,5,2).
+$$
+
+Using $A=(2,2,4)$ gives $d=8$, hence
+
+$$
+\boxed{-5x+5y+2z=8}.
+$$
+
+(b)
+
+$$
+D=\frac{|-5(2)+5(1)+2(3)-8|}{\sqrt{54}}
+=\boxed{\frac7{\sqrt{54}}\approx0.953}.
+$$
+
+(c) $\overrightarrow{CD}=(5,4,-1)$ and
+
+$$
+\overrightarrow{AB}\times\overrightarrow{CD}=(18,-25,-10).
+$$
+
+Using $\overrightarrow{CA}=(5,5,0)$,
+
+$$
+D=\frac{|(5,5,0)\boldsymbol\cdot(18,-25,-10)|}{\sqrt{1049}}
+=\boxed{\frac{35}{\sqrt{1049}}\approx1.08}.
+$$
+:::
+:::
+
+::: {.callout-note title="May/June 2024, Paper 13, Question 5"}
+The lines are
+
+$$
+l_1:\mathbf r=\mathbf i+4\mathbf j-\mathbf k+m(\mathbf j-2\mathbf k),
+$$
+
+$$
+l_2:\mathbf r=-3\mathbf i+4\mathbf j+n(\mathbf i+2\mathbf j+\mathbf k).
+$$
+
+(a) Find the shortest distance between $l_1$ and $l_2$. [5]
+
+The plane $\Pi_1$ contains $l_1$ and is parallel to $l_2$.
+
+(b) Obtain a Cartesian equation of $\Pi_1$. [2]
+
+The point $(1,1,1)$ lies on plane $\Pi_2$. The line of intersection of $\Pi_1$ and $\Pi_2$ passes through $(0,0,2)$ and is parallel to $\mathbf i+4\mathbf j-3\mathbf k$.
+
+(c) Obtain a Cartesian equation of $\Pi_2$. [3]
+
+*Source: 9231/13/M/J/24 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) The directions are $\mathbf d_1=(0,1,-2)$ and $\mathbf d_2=(1,2,1)$, so
+
+$$
+\mathbf d_1\times\mathbf d_2=(5,-2,-1).
+$$
+
+For points $(1,4,-1)$ and $(-3,4,0)$, the joining vector is $(-4,0,1)$. Thus
+
+$$
+D=\frac{|(-4,0,1)\boldsymbol\cdot(5,-2,-1)|}{\sqrt{30}}
+=\boxed{\frac{21}{\sqrt{30}}\approx3.83}.
+$$
+
+(b) The vector $(5,-2,-1)$ is normal to $\Pi_1$. Substitution of $(1,4,-1)$ gives
+
+$$
+\boxed{5x-2y-z=-2}.
+$$
+
+(c) The plane contains the directions $(1,4,-3)$ and $(1,1,-1)$, the latter joining $(0,0,2)$ to $(1,1,1)$. A normal is
+
+$$
+(1,1,-1)\times(1,4,-3)=(1,2,3).
+$$
+
+Using $(0,0,2)$ gives
+
+$$
+\boxed{x+2y+3z=6}.
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2024, Paper 11/13, Question 7"}
+The lines are
+
+$$
+l_1:\mathbf r=\mathbf i+3\mathbf j-2\mathbf k+m(2\mathbf i+\mathbf j+\mathbf k),
+$$
+
+$$
+l_2:\mathbf r=\mathbf i-2\mathbf j+9\mathbf k+n(\mathbf i-4\mathbf j+2\mathbf k).
+$$
+
+The plane $\Pi_1$ contains $l_1$ and is parallel to $l_2$.
+
+(a) Find the Cartesian equation of $\Pi_1$. [4]
+
+The plane $\Pi_2$ contains $l_2$ and $(2,-1,7)$.
+
+(b) Find the acute angle between $\Pi_1$ and $\Pi_2$. [4]
+
+Points $P$ on $l_1$ and $Q$ on $l_2$ are such that $PQ$ is perpendicular to both lines.
+
+(c) Find a vector equation for $PQ$. [7]
+
+*Sources: 9231/11/O/N/24 Q7; 9231/13/O/N/24 Q7.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+(2,1,1)\times(1,-4,2)=(6,-3,-9)=3(2,-1,-3).
+$$
+
+Using $(1,3,-2)$ gives $2-3+6=5$, hence
+
+$$
+\boxed{2x-y-3z=5}.
+$$
+
+(b) The directions in $\Pi_2$ may be taken as $(1,-4,2)$ and $(1,1,-2)$, giving normal $(6,4,5)$. Therefore
+
+$$
+\cos\theta=\frac{|(2,-1,-3)\boldsymbol\cdot(6,4,5)|}{\sqrt{14}\sqrt{77}}
+=\frac7{\sqrt{1078}}.
+$$
+
+Thus $\boxed{\theta=77.7^\circ}$.
+
+(c) Let
+
+$$
+P=(1+2\lambda,3+\lambda,-2+\lambda),
+$$
+
+$$
+Q=(1+\mu,-2-4\mu,9+2\mu).
+$$
+
+Then
+
+$$
+\overrightarrow{PQ}=(\mu-2\lambda,-5-4\mu-\lambda,11+2\mu-\lambda).
+$$
+
+The conditions $PQ\boldsymbol\cdot(2,1,1)=0$ and $PQ\boldsymbol\cdot(1,-4,2)=0$ reduce to
+
+$$
+-6\lambda+6=0,
+\;
+21\mu+42=0.
+$$
+
+Hence $\lambda=1$, $\mu=-2$, so $P=(3,4,-1)$ and $Q=(-1,6,5)$. Since $\overrightarrow{QP}=(4,-2,-6)$ is parallel to $(6,-3,-9)$, one equation is
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}-1\\6\\5\end{pmatrix}
++t\begin{pmatrix}6\\-3\\-9\end{pmatrix}}.
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2024, Paper 12, Question 2"}
+The line
+
+$$
+l_1:\mathbf r=\mathbf i+3\mathbf j-\mathbf k+m(\mathbf i-\mathbf j-4\mathbf k)
+$$
+
+lies in a plane $\Pi$ which is parallel to $2\mathbf i+5\mathbf j-4\mathbf k$.
+
+(a) Find the Cartesian equation of $\Pi$. [4]
+
+The line $l_2$ is parallel to $5\mathbf i-5\mathbf j-2\mathbf k$.
+
+(b) Find the acute angle between $l_2$ and $\Pi$. [3]
+
+*Source: 9231/12/O/N/24 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) A normal is
+
+$$
+(1,-1,-4)\times(2,5,-4)=(24,-4,7).
+$$
+
+Using $(1,3,-1)$ gives
+
+$$
+\boxed{24x-4y+7z=5}.
+$$
+
+(b) If $\alpha$ is the angle between the line direction and the plane normal, then
+
+$$
+\cos\alpha=\frac{|(5,-5,-2)\boldsymbol\cdot(24,-4,7)|}{\sqrt{54}\sqrt{641}}
+=\frac{126}{\sqrt{34614}}.
+$$
+
+The required angle is $90^\circ-\alpha$, hence
+
+$$
+\boxed{42.6^\circ}.
+$$
+:::
+:::
+
+### 2025
+
+::: {.callout-note title="May/June 2025, Paper 11/12, Question 6"}
+The points $A,B,C$ have position vectors
+
+$$
+\mathbf i-2\mathbf k,
+\;\mathbf i+2\mathbf j+2\mathbf k,
+\;2\mathbf i-\mathbf j-\mathbf k,
+$$
+
+respectively.
+
+(a) Find the equation of plane $ABC$ in the form $ax+by+cz=d$. [5]
+
+A point $D$ has position vector $\mathbf i+t\mathbf k$, where $t\ne-2$.
+
+(b) Find the acute angle between planes $ABC$ and $ABD$. [4]
+
+(c) Find the values of $t$ such that the shortest distance between lines $AB$ and $CD$ is $\sqrt2$. [7]
+
+*Sources: 9231/11/M/J/25 Q6; 9231/12/M/J/25 Q6.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+\overrightarrow{AB}=(0,2,4),
+\;
+\overrightarrow{AC}=(1,-1,1).
+$$
+
+Their vector product is $(6,4,-2)=2(3,2,-1)$, so a normal is $(3,2,-1)$. Using $A=(1,0,-2)$,
+
+$$
+3(1)+2(0)-(-2)=5.
+$$
+
+Hence
+
+$$
+\boxed{3x+2y-z=5}.
+$$
+
+(b) Since $\overrightarrow{AD}=(0,0,t+2)$ and $t\ne-2$, the plane $ABD$ has normal parallel to $(1,0,0)$. Therefore
+
+$$
+\cos\theta=\frac{|(3,2,-1)\boldsymbol\cdot(1,0,0)|}{\sqrt{14}}
+=\frac3{\sqrt{14}},
+$$
+
+so $\boxed{\theta=36.7^\circ}$.
+
+(c) Directions of $AB$ and $CD$ may be taken as $(0,1,2)$ and $(-1,1,t+1)$. A common perpendicular direction is
+
+$$
+(0,1,2)\times(-1,1,t+1)=(t-1,-2,1).
+$$
+
+Since $\overrightarrow{AC}=(1,-1,1)$,
+
+$$
+D=\frac{|(1,-1,1)\boldsymbol\cdot(t-1,-2,1)|}
+{\sqrt{(t-1)^2+4+1}}
+=\frac{|t+2|}{\sqrt{t^2-2t+6}}.
+$$
+
+Set this equal to $\sqrt2$ and square:
+
+$$
+(t+2)^2=2(t^2-2t+6),
+$$
+
+so $t^2-8t+8=0$. Thus
+
+$$
+\boxed{t=4+2\sqrt2\ \text{or}\ t=4-2\sqrt2}.
+$$
+:::
+:::
+
+::: {.callout-note title="May/June 2025, Paper 13, Question 5"}
+The plane $\Pi$ has equation
+
+$$
+\mathbf r=2\mathbf i+3\mathbf j-2\mathbf k
++m(\mathbf i-2\mathbf j-\mathbf k)
++n(3\mathbf i+2\mathbf j-2\mathbf k).
+$$
+
+(a) Find a Cartesian equation of $\Pi$. [4]
+
+The point $P$ has position vector $4\mathbf i+2\mathbf j+9\mathbf k$.
+
+(b) Find the position vector of the foot of the perpendicular from $P$ to $\Pi$. [4]
+
+*Source: 9231/13/M/J/25 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+\begin{pmatrix}1\\-2\\-1\end{pmatrix}
+\times
+\begin{pmatrix}3\\2\\-2\end{pmatrix}
+=\begin{pmatrix}6\\-1\\8\end{pmatrix}.
+$$
+
+Using $(2,3,-2)$ gives $d=12-3-16=-7$. Hence
+
+$$
+\boxed{6x-y+8z=-7}.
+$$
+
+(b) The perpendicular through $P$ is
+
+$$
+\mathbf r=\begin{pmatrix}4\\2\\9\end{pmatrix}
++\lambda\begin{pmatrix}6\\-1\\8\end{pmatrix}.
+$$
+
+Substitution in the plane gives
+
+$$
+94+101\lambda=-7,
+$$
+
+so $\lambda=-1$. The foot has position vector
+
+$$
+\boxed{-2\mathbf i+3\mathbf j+\mathbf k}.
+$$
+:::
+:::
+
+::: {.callout-note title="May/June 2025, Paper 14, Question 3"}
+The points $A,B,C$ have position vectors
+
+$$
+2\mathbf j+3\mathbf k,
+\;-5\mathbf i+3\mathbf j+\mathbf k,
+\;\mathbf i+2\mathbf j+5\mathbf k.
+$$
+
+(a) Find the equation of plane $ABC$. [5]
+
+(b) Find the perpendicular distance from $O$ to plane $ABC$. [2]
+
+(c) Find the acute angle between line $OA$ and plane $ABC$. [3]
+
+*Source: 9231/14/M/J/25 Q3.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+\overrightarrow{AB}=(-5,1,-2),
+\;
+\overrightarrow{AC}=(1,0,2),
+$$
+
+$$
+\overrightarrow{AB}\times\overrightarrow{AC}=(2,8,-1).
+$$
+
+Using $A=(0,2,3)$ gives $d=13$, so
+
+$$
+\boxed{2x+8y-z=13}.
+$$
+
+(b)
+
+$$
+D=\frac{13}{\sqrt{2^2+8^2+(-1)^2}}
+=\boxed{\frac{13}{\sqrt{69}}\approx1.57}.
+$$
+
+(c) A direction of $OA$ is $(0,2,3)$. If $\alpha$ is the angle between the line and the plane, then
+
+$$
+\sin\alpha=\frac{|(0,2,3)\boldsymbol\cdot(2,8,-1)|}
+{\sqrt{13}\sqrt{69}}
+=\frac{13}{\sqrt{897}}.
+$$
+
+Thus $\boxed{\alpha=25.7^\circ}$.
+:::
+:::
+
+::: {.callout-note title="October/November 2025, Paper 11/13, Question 5"}
+The plane $\Pi_1$ has equation
+
+$$
+\mathbf r=-3\mathbf i-\mathbf j-\mathbf k
++m(\mathbf j+2\mathbf k)
++n(\mathbf i+3\mathbf j+\mathbf k).
+$$
+
+(a) Find an equation of $\Pi_1$ in Cartesian form. [4]
+
+(b) Find the perpendicular distance from the point with position vector $-\mathbf i-2\mathbf k$ to $\Pi_1$. [3]
+
+The plane $\Pi_2$ has equation $3x+2y-z=14$.
+
+(c) Find a vector equation of the line of intersection of $\Pi_1$ and $\Pi_2$. [4]
+
+*Sources: 9231/11/O/N/25 Q5; 9231/13/O/N/25 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+(0,1,2)\times(1,3,1)=(-5,2,-1),
+$$
+
+so take the normal $(5,-2,1)$. Using $(-3,-1,-1)$ gives
+
+$$
+\boxed{5x-2y+z=-14}.
+$$
+
+(b) For $(-1,0,-2)$,
+
+$$
+D=\frac{|5(-1)-2(0)-2+14|}{\sqrt{30}}
+=\boxed{\frac7{\sqrt{30}}\approx1.28}.
+$$
+
+(c) A direction of the common line is
+
+$$
+(5,-2,1)\times(3,2,-1)=(0,8,16)=8(0,1,2).
+$$
+
+The point $(0,7,0)$ lies on both planes. Hence
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}0\\7\\0\end{pmatrix}
++\lambda\begin{pmatrix}0\\1\\2\end{pmatrix}}.
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2025, Paper 12, Question 6"}
+The plane $\Pi$ is $x+3y+2z=1$.
+
+(a) Find the perpendicular distance from $O$ to $\Pi$. [2]
+
+Relative to $O$, the points $A,B,C$ have position vectors
+
+$$
+-\mathbf j+2\mathbf k,
+\;2\mathbf i-\mathbf k,
+\;2\mathbf i-\mathbf j-\mathbf k.
+$$
+
+(b) Find the acute angle between planes $OAB$ and $\Pi$. [4]
+
+*Source: 9231/12/O/N/25 Q6.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+\boxed{D=\frac1{\sqrt{1^2+3^2+2^2}}=\frac1{\sqrt{14}}}.
+$$
+
+(b) A normal to $OAB$ is
+
+$$
+\overrightarrow{OA}\times\overrightarrow{OB}
+=(0,-1,2)\times(2,0,-1)=(1,4,2).
+$$
+
+The normal to $\Pi$ is $(1,3,2)$. Therefore
+
+$$
+\cos\theta=\frac{|(1,4,2)\boldsymbol\cdot(1,3,2)|}{\sqrt{21}\sqrt{14}}
+=\frac{17}{\sqrt{294}}.
+$$
+
+Hence $\boxed{\theta=7.49^\circ}$.
+:::
+:::
+
+::: {.callout-note title="October/November 2025, Paper 14, Question 4"}
+The points $A,B,C$ have position vectors
+
+$$
+3\mathbf i+5\mathbf j+5\mathbf k,
+\;2\mathbf i+2\mathbf j+2\mathbf k,
+\;2\mathbf i+\mathbf j-\mathbf k.
+$$
+
+(a) Find the equation of plane $ABC$. [5]
+
+The point $D$ has position vector $\mathbf i-\mathbf j+3\mathbf k$.
+
+(b) Find the shortest distance between lines $AB$ and $CD$. [5]
+
+*Source: 9231/14/O/N/25 Q4.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a)
+
+$$
+\overrightarrow{AB}=(-1,-3,-3),
+\;
+\overrightarrow{AC}=(-1,-4,-6),
+$$
+
+$$
+\overrightarrow{AB}\times\overrightarrow{AC}=(6,-3,1).
+$$
+
+Using $A=(3,5,5)$ gives
+
+$$
+\boxed{6x-3y+z=8}.
+$$
+
+(b) $\overrightarrow{CD}=(-1,-2,4)$ and
+
+$$
+\overrightarrow{AB}\times\overrightarrow{CD}=(-18,7,-1).
+$$
+
+Also $\overrightarrow{AC}=(-1,-4,-6)$. Thus
+
+$$
+D=\frac{|(-1,-4,-6)\boldsymbol\cdot(-18,7,-1)|}{\sqrt{(-18)^2+7^2+(-1)^2}}
+=\boxed{\frac4{\sqrt{374}}\approx0.207}.
+$$
+:::
+:::
