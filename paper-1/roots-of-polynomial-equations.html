@@ -2017,6 +2017,13 @@ Show answer and mark scheme
 </main> <!-- /main -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
   document.querySelectorAll("input[data-progress]").forEach((box) => {
     const key = `fm9231:${box.dataset.progress}`;
     box.checked = localStorage.getItem(key) === "1";
@@ -2029,7 +2036,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
