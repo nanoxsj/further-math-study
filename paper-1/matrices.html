@@ -858,18 +858,51 @@ A^n=\begin{pmatrix}2^n&amp;0\\2^n-1&amp;1\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Since <span class="math inline">\(\det A=2\)</span>, <span class="math inline">\(|\det A^{-1}|=\frac12\)</span>, so <span class="math inline">\(\boxed{d=15}\)</span>.</p>
-<p>The formula is true for <span class="math inline">\(n=1\)</span>. If it holds for <span class="math inline">\(n=k\)</span>, then</p>
+<p><strong>(a)</strong> Since</p>
+<p><span class="math display">\[
+\det A=2,\qquad \det(A^{-1})=(\det A)^{-1}=\frac12,
+\]</span></p>
+<p>the area scale factor is <span class="math inline">\(\left|\det(A^{-1})\right|=\frac12\)</span>. Therefore</p>
+<p><span class="math display">\[
+\boxed{d=30\times\frac12=15}.
+\]</span></p>
+<p><strong>(b)</strong> For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}2&amp;0\\1&amp;1\end{pmatrix}
+=\begin{pmatrix}2^1&amp;0\\2^1-1&amp;1\end{pmatrix},
+\]</span></p>
+<p>so the statement is true initially. Assume that it is true for <span class="math inline">\(n=k\)</span>, where <span class="math inline">\(k\)</span> is a positive integer:</p>
+<p><span class="math display">\[
+A^k=\begin{pmatrix}2^k&amp;0\\2^k-1&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Then</p>
 <p><span class="math display">\[
 A^{k+1}=\begin{pmatrix}2^k&amp;0\\2^k-1&amp;1\end{pmatrix}
 \begin{pmatrix}2&amp;0\\1&amp;1\end{pmatrix}
 =\begin{pmatrix}2^{k+1}&amp;0\\2^{k+1}-1&amp;1\end{pmatrix},
 \]</span></p>
-<p>which completes the induction. Finally,</p>
+<p>Thus the statement is true for <span class="math inline">\(k+1\)</span> whenever it is true for <span class="math inline">\(k\)</span>. Hence, by mathematical induction,</p>
+<p><span class="math display">\[
+\boxed{A^n=\begin{pmatrix}2^n&amp;0\\2^n-1&amp;1\end{pmatrix}}
+\]</span></p>
+<p>for every positive integer <span class="math inline">\(n\)</span>.</p>
+<p><strong>(c)</strong> Using part (b),</p>
 <p><span class="math display">\[
 A^nB=\begin{pmatrix}2^n&amp;0\\2^n+32&amp;0\end{pmatrix}.
 \]</span></p>
-<p>For its image to have gradient <span class="math inline">\(2\)</span>, <span class="math inline">\((2^n+32)/2^n=2\)</span>, giving <span class="math inline">\(2^n=32\)</span> and <span class="math inline">\(\boxed{n=5}\)</span>.</p>
+<p>For a general point <span class="math inline">\((x,y)\)</span>,</p>
+<p><span class="math display">\[
+A^nB\binom xy
+=\binom{2^nx}{(2^n+32)x}.
+\]</span></p>
+<p>The image has gradient <span class="math inline">\((2^n+32)/2^n\)</span>. Since the invariant line has gradient <span class="math inline">\(2\)</span>,</p>
+<p><span class="math display">\[
+\frac{2^n+32}{2^n}=2
+\quad\Longrightarrow\quad
+2^n=32
+\quad\Longrightarrow\quad
+\boxed{n=5}.
+\]</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -897,12 +930,52 @@ CAB=\begin{pmatrix}-2&amp;-\frac32\\-1&amp;-\frac32\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Expanding <span class="math inline">\(\det A\)</span> gives <span class="math inline">\(k^2+k+2\)</span>, whose discriminant is <span class="math inline">\(1-8&lt;0\)</span>; hence it is never zero for real <span class="math inline">\(k\)</span>.</p>
-<p>Multiplying <span class="math inline">\(CAB\)</span> and comparing entries gives <span class="math inline">\(\boxed{k=-\frac12}\)</span>. For <span class="math inline">\(y=mx\)</span>, the condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><strong>(a)</strong> Expanding along the first row,</p>
+<p><span class="math display">\[
+\det A
+=k\begin{vmatrix}-1&amp;-1\\1&amp;-k\end{vmatrix}
++2\begin{vmatrix}0&amp;-1\\1&amp;1\end{vmatrix}
+=k(k+1)+2
+=k^2+k+2.
+\]</span></p>
+<p>The discriminant of <span class="math inline">\(k^2+k+2\)</span> is</p>
+<p><span class="math display">\[
+1^2-4(1)(2)=-7&lt;0.
+\]</span></p>
+<p>Since its leading coefficient is positive, <span class="math inline">\(k^2+k+2&gt;0\)</span> for every real <span class="math inline">\(k\)</span>. Thus <span class="math inline">\(\det A\ne0\)</span> and <span class="math inline">\(A\)</span> is non-singular.</p>
+<p><strong>(b)</strong> First,</p>
+<p><span class="math display">\[
+AB=\begin{pmatrix}0&amp;-3k\\1&amp;-3\\-1&amp;0\end{pmatrix},
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+CAB
+=\begin{pmatrix}-2&amp;9k+3\\-1&amp;-3k-3\end{pmatrix}.
+\]</span></p>
+<p>Comparing, for example, the top-right entry with the given matrix,</p>
+<p><span class="math display">\[
+9k+3=-\frac32
+\quad\Longrightarrow\quad
+\boxed{k=-\frac12}.
+\]</span></p>
+<p><strong>(c)</strong> The given <span class="math inline">\(CAB\)</span> maps a point <span class="math inline">\((x,y)\)</span> to</p>
+<p><span class="math display">\[
+\binom XY
+=\begin{pmatrix}-2&amp;-\frac32\\-1&amp;-\frac32\end{pmatrix}
+\binom xy
+=\binom{-2x-\frac32y}{-x-\frac32y}.
+\]</span></p>
+<p>For the line <span class="math inline">\(y=mx\)</span>, substitute <span class="math inline">\(y=mx\)</span> and require <span class="math inline">\(Y=mX\)</span>:</p>
 <p><span class="math display">\[
 -1-\frac32m=m\left(-2-\frac32m\right),
 \]</span></p>
-<p>so <span class="math inline">\(3m^2+m-2=0\)</span>. Therefore</p>
+<p>Thus</p>
+<p><span class="math display">\[
+3m^2+m-2=0
+\quad\Longrightarrow\quad
+(3m-2)(m+1)=0.
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{y=\frac23x\quad\text{or}\quad y=-x}.
 \]</span></p>
@@ -930,12 +1003,34 @@ M=\begin{pmatrix}1&amp;b\\0&amp;1\end{pmatrix}
 <summary>
 Show answer and mark scheme
 </summary>
-<p>First apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(a\)</span>, then a shear with the <span class="math inline">\(x\)</span>-axis fixed and shear factor <span class="math inline">\(b\)</span>.</p>
+<p><strong>(a)</strong> Reading the product from right to left, first apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(a\)</span>, then a shear with the <span class="math inline">\(x\)</span>-axis fixed, taking <span class="math inline">\((0,1)\)</span> to <span class="math inline">\((b,1)\)</span>.</p>
 <p><span class="math display">\[
-M=\begin{pmatrix}a&amp;b\\0&amp;1\end{pmatrix},\qquad
+M=\begin{pmatrix}1&amp;b\\0&amp;1\end{pmatrix}
+\begin{pmatrix}a&amp;0\\0&amp;1\end{pmatrix}
+=\begin{pmatrix}a&amp;b\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">\(\det M=a\)</span>,</p>
+<p><span class="math display">\[
 \boxed{M^{-1}=\frac1a\begin{pmatrix}1&amp;-b\\0&amp;a\end{pmatrix}}.
 \]</span></p>
-<p>The area factor is <span class="math inline">\(|\det M|=a\)</span>, so <span class="math inline">\(a=2\)</span>. A point <span class="math inline">\((x,-x/3)\)</span> on the invariant line maps to <span class="math inline">\((ax-bx/3,-x/3)\)</span>. Requiring it to remain on the same line gives <span class="math inline">\(1=a-b/3\)</span>, hence <span class="math inline">\(\boxed{a=2, b=3}\)</span>.</p>
+<p><strong>(c)</strong> The unit square has area <span class="math inline">\(1\)</span>, so its image has area</p>
+<p><span class="math display">\[
+|\det M|=a.
+\]</span></p>
+<p>As <span class="math inline">\(a&gt;0\)</span> and the given area is <span class="math inline">\(2\)</span>, <span class="math inline">\(\boxed{a=2}\)</span>. A general point on <span class="math inline">\(x+3y=0\)</span> can be written as <span class="math inline">\((x,-x/3)\)</span>. Its image is</p>
+<p><span class="math display">\[
+\binom XY
+=\begin{pmatrix}a&amp;b\\0&amp;1\end{pmatrix}
+\binom{x}{-x/3}
+=\binom{ax-\frac13bx}{-\frac13x}.
+\]</span></p>
+<p>The image must again satisfy <span class="math inline">\(X+3Y=0\)</span>:</p>
+<p><span class="math display">\[
+ax-\frac13bx-x=0
+\quad\Longrightarrow\quad
+1=a-\frac b3.
+\]</span></p>
+<p>Using <span class="math inline">\(a=2\)</span> gives <span class="math inline">\(\boxed{b=3}\)</span>, so <span class="math inline">\(\boxed{a=2, b=3}\)</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-on-11-13"> Completed</label>
 <div class="source-line">
@@ -961,16 +1056,33 @@ B=\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac1
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(A\)</span> is reflection in <span class="math inline">\(y=x\)</span>; <span class="math inline">\(B\)</span> is rotation through <span class="math inline">\(60^\circ\)</span> anticlockwise about the origin. Also</p>
+<p><strong>(a)</strong> <span class="math inline">\(A\)</span> represents reflection in the line <span class="math inline">\(y=x\)</span>.</p>
+<p><strong>(b)</strong> Comparing <span class="math inline">\(B\)</span> with the standard rotation matrix shows that it represents a rotation through <span class="math inline">\(60^\circ\)</span> anticlockwise about the origin.</p>
+<p><strong>(c)</strong> Multiplying in the stated order,</p>
 <p><span class="math display">\[
 AB=\begin{pmatrix}\frac{\sqrt3}{2}&amp;\frac12\\[2pt]\frac12&amp;-\frac{\sqrt3}{2}\end{pmatrix},
 \qquad \det(AB)=-1,
 \]</span></p>
-<p>so the absolute area factor is <span class="math inline">\(1\)</span>. Since <span class="math inline">\(AB\)</span> is a reflection, it is self-inverse:</p>
+<p>Therefore the area scale factor is <span class="math inline">\(|\det(AB)|=1\)</span>, so triangles <span class="math inline">\(DEF\)</span> and <span class="math inline">\(PQR\)</span> have equal area.</p>
+<p><strong>(d)</strong> Using the <span class="math inline">\(2\times2\)</span> inverse formula,</p>
 <p><span class="math display">\[
 \boxed{(AB)^{-1}=\begin{pmatrix}\frac{\sqrt3}{2}&amp;\frac12\\[2pt]\frac12&amp;-\frac{\sqrt3}{2}\end{pmatrix}}.
 \]</span></p>
-<p>Putting <span class="math inline">\(y=mx\)</span> and using <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(m^2+2\sqrt3m-1=0\)</span>. Hence</p>
+<p><strong>(e)</strong> Under <span class="math inline">\(AB\)</span>,</p>
+<p><span class="math display">\[
+\binom XY
+=\binom{\frac{\sqrt3}{2}x+\frac12y}{\frac12x-\frac{\sqrt3}{2}y}.
+\]</span></p>
+<p>Put <span class="math inline">\(y=mx\)</span> and require <span class="math inline">\(Y=mX\)</span>:</p>
+<p><span class="math display">\[
+\frac12-\frac{\sqrt3}{2}m
+=m\left(\frac{\sqrt3}{2}+\frac12m\right).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+m^2+2\sqrt3m-1=0,
+\]</span></p>
+<p>so <span class="math inline">\(m=-\sqrt3\pm2\)</span>. Therefore</p>
 <p><span class="math display">\[
 \boxed{y=(2-\sqrt3)x\quad\text{or}\quad y=-(2+\sqrt3)x}.
 \]</span></p>
@@ -1008,16 +1120,57 @@ MN=\begin{pmatrix}1&amp;1\\[2pt]\frac12&amp;\frac12\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> The rotation matrix is</p>
+<p><span class="math display">\[
+\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix},
+\]</span></p>
+<p>and the following stretch has matrix <span class="math inline">\(\begin{pmatrix}d&amp;0\\0&amp;1\end{pmatrix}\)</span>. Hence, in the correct order,</p>
 <p><span class="math display">\[
 M=\begin{pmatrix}d&amp;0\\0&amp;1\end{pmatrix}
 \begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}
 =\begin{pmatrix}\frac d2&amp;-\frac{d\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}.
 \]</span></p>
-<p>Since <span class="math inline">\(|\det M|=d\)</span>, <span class="math inline">\(d=\frac12d^2\)</span> and <span class="math inline">\(d\ne0\)</span>, so <span class="math inline">\(\boxed{d=2}\)</span>. Then</p>
+<p><strong>(b)</strong> Since</p>
+<p><span class="math display">\[
+\det M=\frac d4+\frac{3d}{4}=d,
+\]</span></p>
+<p>the image area is <span class="math inline">\(|d|\)</span>. In the geometrical stretch context <span class="math inline">\(d&gt;0\)</span>, so</p>
+<p><span class="math display">\[
+d=\frac12d^2.
+\]</span></p>
+<p>As <span class="math inline">\(d\ne0\)</span>, <span class="math inline">\(\boxed{d=2}\)</span>.</p>
+<p><strong>(c)</strong> With <span class="math inline">\(d=2\)</span>,</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}1&amp;-\sqrt3\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix},
+\qquad
+M^{-1}=\frac12\begin{pmatrix}\frac12&amp;\sqrt3\\[2pt]-\frac{\sqrt3}{2}&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+N=M^{-1}(MN)
+=\frac12\begin{pmatrix}\frac12&amp;\sqrt3\\[2pt]-\frac{\sqrt3}{2}&amp;1\end{pmatrix}
+\begin{pmatrix}1&amp;1\\[2pt]\frac12&amp;\frac12\end{pmatrix}
+\]</span></p>
+<p>and hence</p>
 <p><span class="math display">\[
 \boxed{N=\frac14\begin{pmatrix}1+\sqrt3&amp;1+\sqrt3\\1-\sqrt3&amp;1-\sqrt3\end{pmatrix}}.
 \]</span></p>
-<p>For <span class="math inline">\(MN=\begin{pmatrix}1&amp;1\\1/2&amp;1/2\end{pmatrix}\)</span>, the condition <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(2m^2+m-1=0\)</span>. Thus</p>
+<p><strong>(d)</strong> Under <span class="math inline">\(MN\)</span>,</p>
+<p><span class="math display">\[
+\binom XY
+=\begin{pmatrix}1&amp;1\\[2pt]\frac12&amp;\frac12\end{pmatrix}
+\binom xy
+=\binom{x+y}{\frac12x+\frac12y}.
+\]</span></p>
+<p>For <span class="math inline">\(y=mx\)</span>, the condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+\frac12+\frac12m=m(1+m)
+\quad\Longrightarrow\quad
+2m^2+m-1=0
+\quad\Longrightarrow\quad
+(2m-1)(m+1)=0.
+\]</span></p>
+<p>Thus</p>
 <p><span class="math display">\[
 \boxed{y=\frac12x\quad\text{or}\quad y=-x}.
 \]</span></p>
@@ -1044,10 +1197,31 @@ C=\begin{pmatrix}0&amp;1&amp;1\\-1&amp;2&amp;0\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> First,</p>
 <p><span class="math display">\[
-CAB=\boxed{\begin{pmatrix}10&amp;-1\\14-k&amp;-k-2\end{pmatrix}}.
+AB=\begin{pmatrix}2+k&amp;k\\8&amp;-1\\2&amp;0\end{pmatrix},
 \]</span></p>
-<p>Setting <span class="math inline">\(\det A=0\)</span> gives <span class="math inline">\(k=\boxed{-2}\)</span>, and hence <span class="math inline">\(CAB=\begin{pmatrix}10&amp;-1\\16&amp;0\end{pmatrix}\)</span>. For <span class="math inline">\(y=mx\)</span>,</p>
+<p>so</p>
+<p><span class="math display">\[
+CAB
+=\begin{pmatrix}0&amp;1&amp;1\\-1&amp;2&amp;0\end{pmatrix}
+\begin{pmatrix}2+k&amp;k\\8&amp;-1\\2&amp;0\end{pmatrix}
+=\boxed{\begin{pmatrix}10&amp;-1\\14-k&amp;-k-2\end{pmatrix}}.
+\]</span></p>
+<p><strong>(b)</strong> Expanding <span class="math inline">\(\det A\)</span> along the first row,</p>
+<p><span class="math display">\[
+\det A
+=2\begin{vmatrix}-1&amp;3\\0&amp;1\end{vmatrix}
+-k\begin{vmatrix}5&amp;3\\1&amp;1\end{vmatrix}
++k\begin{vmatrix}5&amp;-1\\1&amp;0\end{vmatrix}
+=-2-k.
+\]</span></p>
+<p>Since <span class="math inline">\(A\)</span> is singular, <span class="math inline">\(-2-k=0\)</span>, giving <span class="math inline">\(\boxed{k=-2}\)</span>.</p>
+<p><strong>(c)</strong> Hence</p>
+<p><span class="math display">\[
+CAB=\begin{pmatrix}10&amp;-1\\16&amp;0\end{pmatrix},
+\]</span></p>
+<p>which maps <span class="math inline">\((x,mx)\)</span> to <span class="math inline">\((10x-mx,16x)\)</span>. Requiring <span class="math inline">\(Y=mX\)</span> gives</p>
 <p><span class="math display">\[
 16=m(10-m),
 \]</span></p>
@@ -1073,19 +1247,35 @@ M=\begin{pmatrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatr
 <summary>
 Show answer and mark scheme
 </summary>
-<p>First apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(3\)</span>, then rotate anticlockwise through <span class="math inline">\(\theta\)</span> about the origin.</p>
+<p><strong>(a)</strong> Reading the product from right to left, first apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(3\)</span>, then rotate anticlockwise through <span class="math inline">\(\theta\)</span> about the origin.</p>
+<p><strong>(b)</strong> Multiplying gives</p>
 <p><span class="math display">\[
 M=\begin{pmatrix}3\cos\theta&amp;-\sin\theta\\3\sin\theta&amp;\cos\theta\end{pmatrix}.
 \]</span></p>
-<p>For <span class="math inline">\(y=mx\)</span>, <span class="math inline">\(Y=mX\)</span> reduces to</p>
+<p>For a point <span class="math inline">\((x,mx)\)</span>,</p>
+<p><span class="math display">\[
+X=(3\cos\theta-m\sin\theta)x,
+\qquad
+Y=(3\sin\theta+m\cos\theta)x.
+\]</span></p>
+<p>Requiring <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+3\sin\theta+m\cos\theta
+=3m\cos\theta-m^2\sin\theta,
+\]</span></p>
+<p>which reduces to</p>
 <p><span class="math display">\[
 m^2\sin\theta-2m\cos\theta+3\sin\theta=0.
 \]</span></p>
-<p>Exactly one invariant line requires a repeated root, so</p>
+<p>Exactly one finite-gradient invariant line requires a repeated root, so the discriminant must be zero:</p>
 <p><span class="math display">\[
 4\cos^2\theta-12\sin^2\theta=0.
 \]</span></p>
-<p>In the stated interval, <span class="math inline">\(\boxed{\theta=\frac\pi6\text{ or }\frac{5\pi}6}\)</span>.</p>
+<p>Thus <span class="math inline">\(\tan^2\theta=1/3\)</span>. In the stated interval this gives</p>
+<p><span class="math display">\[
+\boxed{\theta=\frac\pi6\text{ or }\frac{5\pi}6}.
+\]</span></p>
+<p>At the endpoints <span class="math inline">\(\theta=0,\pi\)</span>, both coordinate axes are invariant, so neither endpoint satisfies “exactly one”.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-on-11-13"> Completed</label>
 <div class="source-line">
@@ -1105,11 +1295,40 @@ m^2\sin\theta-2m\cos\theta+3\sin\theta=0.
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Part (a) is an enlargement, centre the origin, scale factor <span class="math inline">\(6\)</span>. Since <span class="math inline">\(\det A=-2\)</span>, the image area is <span class="math inline">\(2(13)=\boxed{26\text{ cm}^2}\)</span>.</p>
+<p><strong>(a)</strong> The matrix <span class="math inline">\(6I\)</span> represents an enlargement with centre the origin and scale factor <span class="math inline">\(6\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[
+\det A=3(2)-4(2)=-2.
+\]</span></p>
+<p>Hence the area scale factor is <span class="math inline">\(|-2|=2\)</span>, and the image area is</p>
+<p><span class="math display">\[
+\boxed{2\times13=26\text{ cm}^2}.
+\]</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">\(AB=6I\)</span>,</p>
+<p><span class="math display">\[
+B=A^{-1}(6I)=6A^{-1}.
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+A^{-1}=-\frac12\begin{pmatrix}2&amp;-4\\-2&amp;3\end{pmatrix},
+\]</span></p>
+<p>so</p>
 <p><span class="math display">\[
 \boxed{B=6A^{-1}=\begin{pmatrix}-6&amp;12\\6&amp;-9\end{pmatrix}}.
 \]</span></p>
-<p>An invariant point <span class="math inline">\((x,y)\)</span> satisfies <span class="math inline">\(3x+4y=x\)</span> and <span class="math inline">\(2x+2y=y\)</span>. These reduce to <span class="math inline">\(2x+4y=0\)</span> and <span class="math inline">\(2x+y=0\)</span>, whose only solution is <span class="math inline">\(\boxed{(0,0)}\)</span>.</p>
+<p><strong>(d)</strong> If <span class="math inline">\((x,y)\)</span> is invariant, then</p>
+<p><span class="math display">\[
+\begin{pmatrix}3&amp;4\\2&amp;2\end{pmatrix}\binom xy=\binom xy.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+3x+4y=x,\qquad 2x+2y=y,
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+2x+4y=0,\qquad 2x+y=0.
+\]</span></p>
+<p>The second equation gives <span class="math inline">\(y=-2x\)</span>; substituting into the first gives <span class="math inline">\(-6x=0\)</span>. Hence <span class="math inline">\(x=0\)</span> and <span class="math inline">\(y=0\)</span>, so the origin is the only invariant point.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-on-12"> Completed</label>
 <div class="source-line">
@@ -1140,22 +1359,74 @@ BAC=\begin{pmatrix}2&amp;1\\k&amp;4\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> Expanding along the first row,</p>
 <p><span class="math display">\[
-\det A=60-12k,
+\det A
+=1\begin{vmatrix}k&amp;6\\8&amp;9\end{vmatrix}
+-2\begin{vmatrix}4&amp;6\\7&amp;9\end{vmatrix}
++3\begin{vmatrix}4&amp;k\\7&amp;8\end{vmatrix}
 \]</span></p>
-<p>so <span class="math inline">\(\boxed{k\ne5}\)</span>. Cofactors give the top row</p>
+<p><span class="math display">\[
+=(9k-48)-2(36-42)+3(32-7k)
+=60-12k.
+\]</span></p>
+<p>Thus <span class="math inline">\(A\)</span> is non-singular when</p>
+<p><span class="math display">\[
+\boxed{k\ne5}.
+\]</span></p>
+<p><strong>(b)</strong> The top row of <span class="math inline">\(A^{-1}=(\det A)^{-1}\operatorname{adj}A\)</span> is formed from the cofactors of the first column:</p>
+<p><span class="math display">\[
+(A^{-1})_{11}=\frac{\begin{vmatrix}k&amp;6\\8&amp;9\end{vmatrix}}{60-12k}
+=\frac{3k-16}{4(5-k)},
+\]</span></p>
+<p><span class="math display">\[
+(A^{-1})_{12}=\frac{-\begin{vmatrix}2&amp;3\\8&amp;9\end{vmatrix}}{60-12k}
+=\frac1{2(5-k)},
+\]</span></p>
+<p><span class="math display">\[
+(A^{-1})_{13}=\frac{\begin{vmatrix}2&amp;3\\k&amp;6\end{vmatrix}}{60-12k}
+=\frac{4-k}{4(5-k)}.
+\]</span></p>
+<p>Therefore the top row is</p>
 <p><span class="math display">\[
 \boxed{\left(\frac{3k-16}{4(5-k)},\ \frac1{2(5-k)},\ \frac{4-k}{4(5-k)}\right)}.
 \]</span></p>
-<p>One valid choice is</p>
+<p><strong>(c)</strong> Since</p>
+<p><span class="math display">\[
+BA=\begin{pmatrix}1&amp;2&amp;3\\4&amp;k&amp;6\end{pmatrix},
+\]</span></p>
+<p>one valid choice is</p>
 <p><span class="math display">\[
 \boxed{C=\begin{pmatrix}0&amp;1\\1&amp;0\\0&amp;0\end{pmatrix}}.
 \]</span></p>
-<p>For the final matrix, <span class="math inline">\(y=mx\)</span> gives</p>
+<p>Indeed,</p>
+<p><span class="math display">\[
+BAC
+=\begin{pmatrix}1&amp;2&amp;3\\4&amp;k&amp;6\end{pmatrix}
+\begin{pmatrix}0&amp;1\\1&amp;0\\0&amp;0\end{pmatrix}
+=\begin{pmatrix}2&amp;1\\k&amp;4\end{pmatrix}.
+\]</span></p>
+<p><strong>(d)</strong> Let <span class="math inline">\(T=\begin{pmatrix}2&amp;1\\k&amp;4\end{pmatrix}\)</span>. Then</p>
+<p><span class="math display">\[
+T\binom{x}{mx}=\binom{(2+m)x}{(k+4m)x}.
+\]</span></p>
+<p>For <span class="math inline">\(y=mx\)</span> to be invariant, <span class="math inline">\(Y=mX\)</span>:</p>
+<p><span class="math display">\[
+k+4m=m(2+m),
+\]</span></p>
+<p>giving</p>
 <p><span class="math display">\[
 m^2-2m-k=0.
 \]</span></p>
-<p>Two distinct invariant lines require discriminant <span class="math inline">\(4+4k&gt;0\)</span>; the represented transformation must also be non-singular, so <span class="math inline">\(8-k\ne0\)</span>. Therefore</p>
+<p>Two distinct invariant lines require</p>
+<p><span class="math display">\[
+\Delta=(-2)^2-4(1)(-k)=4+4k&gt;0,
+\]</span></p>
+<p>so <span class="math inline">\(k&gt;-1\)</span>. Also <span class="math inline">\(T\)</span> must be non-singular:</p>
+<p><span class="math display">\[
+\det T=8-k\ne0.
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{k&gt;-1,\qquad k\ne8}.
 \]</span></p>
@@ -1190,17 +1461,32 @@ B=\begin{pmatrix}b&amp;b\\1/a&amp;1/a\end{pmatrix},
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(A\)</span> represents a shear in the <span class="math inline">\(x\)</span>-direction, with the <span class="math inline">\(x\)</span>-axis fixed. The formula is true for <span class="math inline">\(n=1\)</span>. Assuming it for <span class="math inline">\(n=k\)</span>,</p>
+<p><strong>(a)</strong> <span class="math inline">\(A\)</span> represents a shear in the <span class="math inline">\(x\)</span>-direction, with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((a,1)\)</span>.</p>
+<p><strong>(b)</strong> For <span class="math inline">\(n=1\)</span>, the stated formula is exactly the given matrix <span class="math inline">\(A\)</span>. Assume that it holds for <span class="math inline">\(n=k\)</span>:</p>
 <p><span class="math display">\[
 A^{k+1}=\begin{pmatrix}1&amp;ka\\0&amp;1\end{pmatrix}
 \begin{pmatrix}1&amp;a\\0&amp;1\end{pmatrix}
-=\begin{pmatrix}1&amp;(k+1)a\\0&amp;1\end{pmatrix},
+=\begin{pmatrix}1&amp;(k+1)a\\0&amp;1\end{pmatrix}.
 \]</span></p>
-<p>which completes the induction. Also</p>
+<p>Therefore the statement holds for <span class="math inline">\(k+1\)</span> whenever it holds for <span class="math inline">\(k\)</span>. Hence, by mathematical induction, it is true for every positive integer <span class="math inline">\(n\)</span>.</p>
+<p><strong>(c)</strong> Using the result from part (b),</p>
 <p><span class="math display">\[
 A^nB=\begin{pmatrix}b+n&amp;b+n\\1/a&amp;1/a\end{pmatrix}.
 \]</span></p>
-<p>Using <span class="math inline">\(y=mx\)</span> and <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\((1+m)\{1/a-m(b+n)\}=0\)</span>. Hence</p>
+<p>Thus</p>
+<p><span class="math display">\[
+\binom XY
+=\binom{(b+n)(x+y)}{(x+y)/a}.
+\]</span></p>
+<p>For <span class="math inline">\(y=mx\)</span>, require <span class="math inline">\(Y=mX\)</span>:</p>
+<p><span class="math display">\[
+\frac{1+m}{a}=m(b+n)(1+m).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+(1+m)\left\{\frac1a-m(b+n)\right\}=0,
+\]</span></p>
+<p>so</p>
 <p><span class="math display">\[
 \boxed{y=-x\quad\text{or}\quad y=\frac{x}{a(b+n)}}.
 \]</span></p>
@@ -1232,7 +1518,33 @@ C=\begin{pmatrix}-2&amp;-1&amp;1\\1&amp;1&amp;3\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(\det A=0\)</span> gives <span class="math inline">\(k=2\)</span>; direct multiplication then gives the stated <span class="math inline">\(CAB\)</span>. For <span class="math inline">\(y=mx\)</span>,</p>
+<p><strong>(a)</strong> Since <span class="math inline">\(A\)</span> is singular,</p>
+<p><span class="math display">\[
+0=\det A
+=1\begin{vmatrix}1&amp;3\\2&amp;5\end{vmatrix}
+-k\begin{vmatrix}2&amp;3\\3&amp;5\end{vmatrix}
++3\begin{vmatrix}2&amp;1\\3&amp;2\end{vmatrix}
+=-1-k+3.
+\]</span></p>
+<p>Thus <span class="math inline">\(\boxed{k=2}\)</span>. Then</p>
+<p><span class="math display">\[
+AB
+=\begin{pmatrix}1&amp;2&amp;3\\2&amp;1&amp;3\\3&amp;2&amp;5\end{pmatrix}
+\begin{pmatrix}0&amp;-2\\-1&amp;3\\0&amp;0\end{pmatrix}
+=\begin{pmatrix}-2&amp;4\\-1&amp;-1\\-2&amp;0\end{pmatrix},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+CAB
+=\begin{pmatrix}-2&amp;-1&amp;1\\1&amp;1&amp;3\end{pmatrix}
+\begin{pmatrix}-2&amp;4\\-1&amp;-1\\-2&amp;0\end{pmatrix}
+=\boxed{\begin{pmatrix}3&amp;-7\\-9&amp;3\end{pmatrix}}.
+\]</span></p>
+<p><strong>(b)</strong> This matrix maps <span class="math inline">\((x,y)\)</span> to</p>
+<p><span class="math display">\[
+\binom XY=\binom{3x-7y}{-9x+3y}.
+\]</span></p>
+<p>For <span class="math inline">\(y=mx\)</span>, require <span class="math inline">\(Y=mX\)</span>:</p>
 <p><span class="math display">\[
 -9+3m=m(3-7m),
 \]</span></p>
@@ -1240,7 +1552,20 @@ Show answer and mark scheme
 <p><span class="math display">\[
 \boxed{y=\frac3{\sqrt7}x\quad\text{or}\quad y=-\frac3{\sqrt7}x}.
 \]</span></p>
-<p>Writing <span class="math inline">\(D=\alpha I\)</span>, <span class="math inline">\(E=\begin{pmatrix}\beta&amp;0\\0&amp;1\end{pmatrix}\)</span> and <span class="math inline">\(F=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span> and comparing entries gives</p>
+<p><strong>(c)</strong> The stated geometrical descriptions give</p>
+<p><span class="math display">\[
+D=\begin{pmatrix}\alpha&amp;0\\0&amp;\alpha\end{pmatrix},\qquad
+E=\begin{pmatrix}\beta&amp;0\\0&amp;1\end{pmatrix},\qquad
+F=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+D-9EF
+=\begin{pmatrix}\alpha&amp;0\\0&amp;\alpha\end{pmatrix}
+-9\begin{pmatrix}0&amp;\beta\\1&amp;0\end{pmatrix}
+=\begin{pmatrix}\alpha&amp;-9\beta\\-9&amp;\alpha\end{pmatrix}.
+\]</span></p>
+<p>Comparing this with <span class="math inline">\(CAB=\begin{pmatrix}3&amp;-7\\-9&amp;3\end{pmatrix}\)</span> gives <span class="math inline">\(\alpha=3\)</span> and <span class="math inline">\(\beta=7/9\)</span>. Hence</p>
 <p><span class="math display">\[
 \boxed{D=\begin{pmatrix}3&amp;0\\0&amp;3\end{pmatrix},\quad
 E=\begin{pmatrix}7/9&amp;0\\0&amp;1\end{pmatrix},\quad
@@ -1270,15 +1595,21 @@ M=\begin{pmatrix}k&amp;0\\0&amp;1\end{pmatrix}
 <summary>
 Show answer and mark scheme
 </summary>
-<p>First apply a shear in the <span class="math inline">\(y\)</span>-direction with the <span class="math inline">\(y\)</span>-axis fixed, then a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(k\)</span>. Since</p>
+<p><strong>(a)</strong> Reading from right to left, first apply a shear in the <span class="math inline">\(y\)</span>-direction, with the <span class="math inline">\(y\)</span>-axis fixed and <span class="math inline">\((1,0)\)</span> mapped to <span class="math inline">\((1,1)\)</span>. Then apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(k\)</span>.</p>
+<p><strong>(b)</strong> Multiplication gives</p>
 <p><span class="math display">\[
 M=\begin{pmatrix}k&amp;0\\1&amp;1\end{pmatrix},
 \]</span></p>
-<p>the parallelogram has area <span class="math inline">\(\boxed{|k|}\)</span> square units (the official scheme writes <span class="math inline">\(k\)</span>, under its geometric scale-factor convention), and</p>
+<p>The determinant is <span class="math inline">\(k\)</span>, so the image of the unit square has area <span class="math inline">\(\boxed{|k|}\)</span> square units. Under the paper’s geometrical scale-factor convention <span class="math inline">\(k&gt;0\)</span>, this is written as <span class="math inline">\(\boxed{k}\)</span> in the mark scheme.</p>
+<p>Also,</p>
 <p><span class="math display">\[
 \boxed{M^{-1}=\frac1k\begin{pmatrix}1&amp;0\\-1&amp;k\end{pmatrix}}.
 \]</span></p>
-<p>For <span class="math inline">\(\mathbf v=\binom{1}{1/(k-1)}\)</span>,</p>
+<p><strong>(c)</strong> A direction vector for the given line is</p>
+<p><span class="math display">\[
+\mathbf v=\binom{1}{1/(k-1)}.
+\]</span></p>
+<p>Then</p>
 <p><span class="math display">\[
 M\mathbf v=\binom{k}{k/(k-1)}=k\mathbf v,
 \]</span></p>
@@ -1318,7 +1649,8 @@ M=\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac1
 <summary>
 Show answer and mark scheme
 </summary>
-<p>First apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(14\)</span>, then rotate anticlockwise through <span class="math inline">\(\pi/3\)</span> about the origin. Reversing the order and inverting each factor gives</p>
+<p><strong>(a)</strong> Reading from right to left, first apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(14\)</span>, then rotate anticlockwise through <span class="math inline">\(\pi/3\)</span> about the origin.</p>
+<p><strong>(b)</strong> Using <span class="math inline">\((AB)^{-1}=B^{-1}A^{-1}\)</span>, reverse the order and invert each factor:</p>
 <p><span class="math display">\[
 \boxed{M^{-1}=\begin{pmatrix}1/14&amp;0\\0&amp;1\end{pmatrix}
 \begin{pmatrix}\frac12&amp;\frac{\sqrt3}{2}\\[2pt]-\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}}.
@@ -1327,11 +1659,34 @@ Show answer and mark scheme
 <p><span class="math display">\[
 M=\begin{pmatrix}7&amp;-\frac{\sqrt3}{2}\\[2pt]7\sqrt3&amp;\frac12\end{pmatrix},
 \]</span></p>
-<p>putting <span class="math inline">\(y=mx\)</span> gives <span class="math inline">\(2\sqrt3m^2-13m+14\sqrt3=0\)</span>. Hence</p>
+<p><strong>(c)</strong> A point <span class="math inline">\((x,mx)\)</span> maps to</p>
+<p><span class="math display">\[
+X=7x-\frac{\sqrt3}{2}mx,
+\qquad
+Y=7\sqrt3x+\frac12mx.
+\]</span></p>
+<p>Requiring <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+7\sqrt3+\frac12m
+=7m-\frac{\sqrt3}{2}m^2,
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+\sqrt3m^2-13m+14\sqrt3=0.
+\]</span></p>
+<p>This factorises through the roots <span class="math inline">\(m=2\sqrt3\)</span> and <span class="math inline">\(m=7\sqrt3/3\)</span>. Hence</p>
 <p><span class="math display">\[
 \boxed{y=2\sqrt3x\quad\text{or}\quad y=\frac{7\sqrt3}{3}x}.
 \]</span></p>
-<p>Finally <span class="math inline">\(|\det M|=14\)</span>, so the original area is <span class="math inline">\(28/14=\boxed{2\text{ cm}^2}\)</span>.</p>
+<p><strong>(d)</strong> Since determinants multiply,</p>
+<p><span class="math display">\[
+|\det M|=1\times14=14.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+28=14\times\operatorname{area}(ABC),
+\]</span></p>
+<p>so <span class="math inline">\(\boxed{\operatorname{area}(ABC)=2\text{ cm}^2}\)</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -1357,11 +1712,20 @@ A^{-1}=\begin{pmatrix}3&amp;0&amp;-1\\1&amp;0&amp;0\\-\frac{23}{2}&amp;\frac12&a
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Expansion gives</p>
+<p><strong>(a)</strong> Expanding along the first row,</p>
 <p><span class="math display">\[
-\det A=-5k^2-2,
+\det A
+=k\begin{vmatrix}5&amp;2\\3&amp;-k\end{vmatrix}
+-1\begin{vmatrix}6&amp;2\\-1&amp;-k\end{vmatrix}
+=k(-5k-6)-(-6k+2)
+=-5k^2-2.
 \]</span></p>
-<p>which is negative for every real <span class="math inline">\(k\)</span> and hence never zero. From <span class="math inline">\(AA^{-1}=I\)</span> (for example, comparing the first entry) one obtains <span class="math inline">\(3k+1=1\)</span>, so <span class="math inline">\(\boxed{k=0}\)</span>.</p>
+<p>For real <span class="math inline">\(k\)</span>, <span class="math inline">\(-5k^2-2&lt;0\)</span>, so <span class="math inline">\(\det A\ne0\)</span> and <span class="math inline">\(A\)</span> is non-singular.</p>
+<p><strong>(b)</strong> Use <span class="math inline">\(AA^{-1}=I\)</span>. The top-left entry of the product is</p>
+<p><span class="math display">\[
+3k+1,
+\]</span></p>
+<p>which must equal <span class="math inline">\(1\)</span>. Thus <span class="math inline">\(3k+1=1\)</span> and <span class="math inline">\(\boxed{k=0}\)</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-13-q1"> Completed</label>
 <div class="source-line">
@@ -1385,15 +1749,37 @@ M=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}
 <summary>
 Show answer and mark scheme
 </summary>
-<p>First apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(7\)</span>, then a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((2,1)\)</span>. Thus</p>
+<p><strong>(a)</strong> Reading from right to left, first apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(7\)</span>, then a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((2,1)\)</span>. Thus</p>
 <p><span class="math display">\[
 M=\begin{pmatrix}7&amp;2\\0&amp;1\end{pmatrix}.
 \]</span></p>
-<p>For <span class="math inline">\(y=mx\)</span>, <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(2m^2+6m=0\)</span>, so</p>
+<p><strong>(b)</strong> The image of <span class="math inline">\((x,mx)\)</span> is</p>
+<p><span class="math display">\[
+\binom XY
+=\begin{pmatrix}7&amp;2\\0&amp;1\end{pmatrix}
+\binom{x}{mx}
+=\binom{(7+2m)x}{mx}.
+\]</span></p>
+<p>Requiring <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+m=m(7+2m)
+\quad\Longrightarrow\quad
+2m^2+6m=0
+\quad\Longrightarrow\quad
+2m(m+3)=0.
+\]</span></p>
+<p>Hence</p>
 <p><span class="math display">\[
 \boxed{y=0\quad\text{or}\quad y=-3x}.
 \]</span></p>
-<p>The area factor is <span class="math inline">\(7\)</span>, hence the original area is <span class="math inline">\(35/7=\boxed{5\text{ cm}^2}\)</span>.</p>
+<p><strong>(c)</strong> The area factor is</p>
+<p><span class="math display">\[
+|\det M|=|7|=7.
+\]</span></p>
+<p>Thus <span class="math inline">\(35=7\times\operatorname{area}(DEF)\)</span> and</p>
+<p><span class="math display">\[
+\boxed{\operatorname{area}(DEF)=5\text{ cm}^2}.
+\]</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-13-q3"> Completed</label>
 <div class="source-line">
@@ -1414,21 +1800,46 @@ M=\begin{pmatrix}7&amp;2\\0&amp;1\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> The stretch and shear matrices are, respectively,</p>
+<p><span class="math display">\[
+\begin{pmatrix}k&amp;0\\0&amp;1\end{pmatrix},
+\qquad
+\begin{pmatrix}1&amp;k\\0&amp;1\end{pmatrix}.
+\]</span></p>
 <p>The product in the stated order is</p>
 <p><span class="math display">\[
 \begin{pmatrix}1&amp;k\\0&amp;1\end{pmatrix}
 \begin{pmatrix}k&amp;0\\0&amp;1\end{pmatrix}
 =\begin{pmatrix}k&amp;k\\0&amp;1\end{pmatrix}.
 \]</span></p>
-<p>Solving <span class="math inline">\(M\binom xy=\binom xy\)</span> gives</p>
+<p><strong>(b)</strong> A point on the line of invariant points satisfies</p>
+<p><span class="math display">\[
+M\binom xy=\binom xy.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+kx+ky=x,
+\]</span></p>
+<p>while the second coordinate is already unchanged. Since <span class="math inline">\(k\ne0\)</span>,</p>
 <p><span class="math display">\[
 \boxed{y=\frac{1-k}{k}x}.
 \]</span></p>
-<p>The reverse matrix is</p>
+<p><strong>(c)</strong> The required reverse transformation is represented by</p>
 <p><span class="math display">\[
 \boxed{M^{-1}=\frac1k\begin{pmatrix}1&amp;-k\\0&amp;k\end{pmatrix}}.
 \]</span></p>
-<p>Since the area of <span class="math inline">\(P\)</span> is <span class="math inline">\(|\det M|=|k|\)</span>, the condition <span class="math inline">\(|k|=3k^2\)</span> gives <span class="math inline">\(\boxed{k=\pm\frac13}\)</span>.</p>
+<p><strong>(d)</strong> Since the unit square has area <span class="math inline">\(1\)</span>, the area of <span class="math inline">\(P\)</span> is</p>
+<p><span class="math display">\[
+|\det M|=|k|.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+|k|=3k^2.
+\]</span></p>
+<p>As <span class="math inline">\(k\ne0\)</span>, division by <span class="math inline">\(|k|\)</span> gives <span class="math inline">\(1=3|k|\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{k=\pm\frac13}.
+\]</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-on-11-13"> Completed</label>
 <div class="source-line">
@@ -1454,11 +1865,43 @@ C=\begin{pmatrix}-2&amp;-1&amp;1\\1&amp;1&amp;3\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Direct multiplication gives the stated product. For <span class="math inline">\(y=mx\)</span>, the invariance equation gives <span class="math inline">\(7m^2=9\)</span>, so</p>
+<p><strong>(a)</strong> First,</p>
+<p><span class="math display">\[
+AB
+=\begin{pmatrix}1&amp;2&amp;3\\2&amp;1&amp;3\\3&amp;2&amp;5\end{pmatrix}
+\begin{pmatrix}0&amp;-2\\-1&amp;3\\0&amp;0\end{pmatrix}
+=\begin{pmatrix}-2&amp;4\\-1&amp;-1\\-2&amp;0\end{pmatrix}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+CAB
+=\begin{pmatrix}-2&amp;-1&amp;1\\1&amp;1&amp;3\end{pmatrix}
+\begin{pmatrix}-2&amp;4\\-1&amp;-1\\-2&amp;0\end{pmatrix}
+=\boxed{\begin{pmatrix}3&amp;-7\\-9&amp;3\end{pmatrix}}.
+\]</span></p>
+<p><strong>(b)</strong> For <span class="math inline">\(y=mx\)</span>,</p>
+<p><span class="math display">\[
+\binom XY
+=\binom{(3-7m)x}{(-9+3m)x}.
+\]</span></p>
+<p>The condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+-9+3m=m(3-7m)
+\quad\Longrightarrow\quad
+7m^2=9.
+\]</span></p>
+<p>Thus</p>
 <p><span class="math display">\[
 \boxed{y=\frac3{\sqrt7}x\quad\text{or}\quad y=-\frac3{\sqrt7}x}.
 \]</span></p>
-<p><span class="math inline">\(M\)</span> is a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(3\)</span>. Since <span class="math inline">\(N=(CAB)M^{-1}\)</span>,</p>
+<p><strong>(c)</strong> <span class="math inline">\(M\)</span> is a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(3\)</span>.</p>
+<p><strong>(d)</strong> Since <span class="math inline">\(NM=CAB\)</span>,</p>
+<p><span class="math display">\[
+N=(CAB)M^{-1}
+=\begin{pmatrix}3&amp;-7\\-9&amp;3\end{pmatrix}
+\begin{pmatrix}1/3&amp;0\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{N=\begin{pmatrix}1&amp;-7\\-3&amp;3\end{pmatrix}}.
 \]</span></p>
@@ -1487,15 +1930,37 @@ M=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}
 <summary>
 Show answer and mark scheme
 </summary>
-<p>First rotate anticlockwise through <span class="math inline">\(\theta\)</span> about the origin, then apply a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((2,1)\)</span>. Multiplying gives</p>
+<p><strong>(a)</strong> Reading the product from right to left, first rotate anticlockwise through <span class="math inline">\(\theta\)</span> about the origin, then apply a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((2,1)\)</span>.</p>
+<p><strong>(b)</strong> Multiplying gives</p>
 <p><span class="math display">\[
 M=\begin{pmatrix}\cos\theta+2\sin\theta&amp;2\cos\theta-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix}.
 \]</span></p>
-<p>Solving <span class="math inline">\(M\binom xy=\binom xy\)</span> for a non-zero point leads to</p>
+<p>For a line of invariant points there must be a non-zero solution of</p>
+<p><span class="math display">\[
+M\binom xy=\binom xy.
+\]</span></p>
+<p>Equating coordinates gives</p>
+<p><span class="math display">\[
+(\cos\theta+2\sin\theta-1)x
++(2\cos\theta-\sin\theta)y=0,
+\]</span></p>
+<p><span class="math display">\[
+\sin\theta\,x+(\cos\theta-1)y=0.
+\]</span></p>
+<p>These homogeneous equations have a non-zero solution only when the determinant of their coefficient matrix is zero:</p>
+<p><span class="math display">\[
+(\cos\theta+2\sin\theta-1)(\cos\theta-1)
+-(2\cos\theta-\sin\theta)\sin\theta=0.
+\]</span></p>
+<p>Using <span class="math inline">\(\sin^2\theta+\cos^2\theta=1\)</span> simplifies this to</p>
 <p><span class="math display">\[
 \sin\theta+\cos\theta=1.
 \]</span></p>
-<p>Within the stated interval the required non-identity case is</p>
+<p>Equivalently,</p>
+<p><span class="math display">\[
+\sqrt2\sin\left(\theta+\frac\pi4\right)=1.
+\]</span></p>
+<p>In <span class="math inline">\(0&lt;\theta&lt;2\pi\)</span>, the solutions of <span class="math inline">\(\sin\theta+\cos\theta=1\)</span> are <span class="math inline">\(\theta=\pi/2\)</span> and the excluded endpoint <span class="math inline">\(\theta=0\)</span> (equivalently <span class="math inline">\(2\pi\)</span>). Therefore</p>
 <p><span class="math display">\[
 \boxed{\theta=\frac\pi2}.
 \]</span></p>
@@ -1521,20 +1986,44 @@ M=\begin{pmatrix}\cos\theta+2\sin\theta&amp;2\cos\theta-\sin\theta\\\sin\theta&a
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> The stretch and rotation matrices are</p>
+<p><span class="math display">\[
+\begin{pmatrix}14&amp;0\\0&amp;1\end{pmatrix},
+\qquad
+\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}.
+\]</span></p>
+<p>Since the stretch is performed first,</p>
 <p><span class="math display">\[
 M=\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}
 \begin{pmatrix}14&amp;0\\0&amp;1\end{pmatrix}
 =\begin{pmatrix}7&amp;-\frac{\sqrt3}{2}\\[2pt]7\sqrt3&amp;\frac12\end{pmatrix},
 \]</span></p>
-<p>which proves the given result. The condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p>and multiplying by <span class="math inline">\(2\)</span> proves the stated result.</p>
+<p><strong>(b)</strong> For a point <span class="math inline">\((x,mx)\)</span>,</p>
 <p><span class="math display">\[
-\sqrt3m^2-13m+14\sqrt3=0,
+X=7x-\frac{\sqrt3}{2}mx,
+\qquad
+Y=7\sqrt3x+\frac12mx.
 \]</span></p>
-<p>so</p>
+<p>The condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+\sqrt3m^2-13m+14\sqrt3=0.
+\]</span></p>
+<p>The discriminant is <span class="math inline">\(169-168=1\)</span>, so</p>
+<p><span class="math display">\[
+m=\frac{13\pm1}{2\sqrt3}
+=2\sqrt3\quad\text{or}\quad\frac7{\sqrt3}.
+\]</span></p>
+<p>Hence</p>
 <p><span class="math display">\[
 \boxed{y=2\sqrt3x\quad\text{or}\quad y=\frac7{\sqrt3}x}.
 \]</span></p>
-<p>Finally,</p>
+<p><strong>(c)</strong> Since <span class="math inline">\(\det M=14\)</span>,</p>
+<p><span class="math display">\[
+M^{-1}
+=\frac1{14}\begin{pmatrix}\frac12&amp;\frac{\sqrt3}{2}\\[2pt]-7\sqrt3&amp;7\end{pmatrix}.
+\]</span></p>
+<p>Equivalently,</p>
 <p><span class="math display">\[
 \boxed{M^{-1}=\frac12\begin{pmatrix}1/14&amp;\sqrt3/14\\-\sqrt3&amp;1\end{pmatrix}}.
 \]</span></p>
@@ -1558,15 +2047,52 @@ M=\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac1
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> The stretch and reflection matrices are</p>
 <p><span class="math display">\[
-\boxed{M=\begin{pmatrix}0&amp;1\\3&amp;0\end{pmatrix}}.
+S=\begin{pmatrix}3&amp;0\\0&amp;1\end{pmatrix},
+\qquad
+F=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}.
 \]</span></p>
-<p><span class="math inline">\(M^{-1}\)</span> represents reflection in <span class="math inline">\(y=x\)</span> followed by a one-way stretch in the <span class="math inline">\(x\)</span>-direction with scale factor <span class="math inline">\(1/3\)</span>. Also</p>
+<p>The stretch is followed by the reflection, so</p>
+<p><span class="math display">\[
+\boxed{M=FS
+=\begin{pmatrix}0&amp;1\\3&amp;0\end{pmatrix}}.
+\]</span></p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[
+M^{-1}=S^{-1}F^{-1}
+=\begin{pmatrix}1/3&amp;0\\0&amp;1\end{pmatrix}
+\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}
+=\begin{pmatrix}0&amp;1/3\\1&amp;0\end{pmatrix}.
+\]</span></p>
+<p>Thus <span class="math inline">\(M^{-1}\)</span> represents reflection in <span class="math inline">\(y=x\)</span>, followed by a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(1/3\)</span>.</p>
+<p><strong>(c)</strong> Since <span class="math inline">\(MN=\begin{pmatrix}1&amp;2\\3&amp;2\end{pmatrix}\)</span>,</p>
+<p><span class="math display">\[
+N=M^{-1}(MN)
+=\begin{pmatrix}0&amp;1/3\\1&amp;0\end{pmatrix}
+\begin{pmatrix}1&amp;2\\3&amp;2\end{pmatrix}.
+\]</span></p>
+<p>Hence</p>
 <p><span class="math display">\[
 \boxed{N=M^{-1}\begin{pmatrix}1&amp;2\\3&amp;2\end{pmatrix}
 =\begin{pmatrix}1&amp;2/3\\1&amp;2\end{pmatrix}}.
 \]</span></p>
-<p>For <span class="math inline">\(MN=\begin{pmatrix}1&amp;2\\3&amp;2\end{pmatrix}\)</span>, <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(2m^2-m-3=0\)</span>. Therefore</p>
+<p><strong>(d)</strong> For <span class="math inline">\(y=mx\)</span>,</p>
+<p><span class="math display">\[
+\binom XY
+=\begin{pmatrix}1&amp;2\\3&amp;2\end{pmatrix}
+\binom{x}{mx}
+=\binom{(1+2m)x}{(3+2m)x}.
+\]</span></p>
+<p>The condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+3+2m=m(1+2m)
+\quad\Longrightarrow\quad
+2m^2-m-3=0
+\quad\Longrightarrow\quad
+(2m-3)(m+1)=0.
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{y=\frac32x\quad\text{or}\quad y=-x}.
 \]</span></p>
@@ -1594,11 +2120,31 @@ B=\begin{pmatrix}1&amp;0\\\frac32&amp;1\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(A\)</span> is a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((3/2,1)\)</span>. <span class="math inline">\(B\)</span> is a shear with the <span class="math inline">\(y\)</span>-axis fixed and <span class="math inline">\((1,0)\)</span> mapped to <span class="math inline">\((1,3/2)\)</span>. Now</p>
+<p><strong>(a)</strong> <span class="math inline">\(A\)</span> is a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((3/2,1)\)</span>.</p>
+<p><strong>(b)</strong> <span class="math inline">\(B\)</span> is a shear with the <span class="math inline">\(y\)</span>-axis fixed and <span class="math inline">\((1,0)\)</span> mapped to <span class="math inline">\((1,3/2)\)</span>.</p>
+<p><strong>(c)</strong> Multiplication gives</p>
 <p><span class="math display">\[
 AB=\begin{pmatrix}13/4&amp;3/2\\3/2&amp;1\end{pmatrix},\qquad \det(AB)=1,
 \]</span></p>
-<p>so areas are unchanged. For <span class="math inline">\(y=mx\)</span>, <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(m^2+\frac32m-1=0\)</span>, hence</p>
+<p>Therefore the area scale factor is <span class="math inline">\(|\det(AB)|=1\)</span>, so the two triangles have the same area.</p>
+<p><strong>(d)</strong> For <span class="math inline">\(y=mx\)</span>,</p>
+<p><span class="math display">\[
+\binom XY
+=\begin{pmatrix}13/4&amp;3/2\\3/2&amp;1\end{pmatrix}
+\binom{x}{mx}
+=\binom{(13/4+3m/2)x}{(3/2+m)x}.
+\]</span></p>
+<p>The condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+\frac32+m=m\left(\frac{13}{4}+\frac32m\right).
+\]</span></p>
+<p>After simplification,</p>
+<p><span class="math display">\[
+m^2+\frac32m-1=0
+\quad\Longrightarrow\quad
+(m+2)\left(m-\frac12\right)=0.
+\]</span></p>
+<p>Hence</p>
 <p><span class="math display">\[
 \boxed{y=-2x\quad\text{or}\quad y=\frac12x}.
 \]</span></p>
@@ -1624,8 +2170,24 @@ C=\begin{pmatrix}2&amp;-1&amp;1\\1&amp;1&amp;2\end{pmatrix}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p>When <span class="math inline">\(m=1\)</span>, <span class="math inline">\(B\)</span> is a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(k\)</span>. When <span class="math inline">\(m=k\)</span>, <span class="math inline">\(B=kI\)</span> is an enlargement centred at the origin with scale factor <span class="math inline">\(k\)</span>.</p>
-<p>Multiplication gives</p>
+<p><strong>(a)(i)</strong> When <span class="math inline">\(m=1\)</span>,</p>
+<p><span class="math display">\[
+B=\begin{pmatrix}k&amp;0\\0&amp;1\end{pmatrix},
+\]</span></p>
+<p>so <span class="math inline">\(B\)</span> represents a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(k\)</span>.</p>
+<p><strong>(a)(ii)</strong> When <span class="math inline">\(m=k\)</span>,</p>
+<p><span class="math display">\[
+B=\begin{pmatrix}k&amp;0\\0&amp;k\end{pmatrix}=kI,
+\]</span></p>
+<p>so <span class="math inline">\(B\)</span> represents an enlargement with centre the origin and scale factor <span class="math inline">\(k\)</span>.</p>
+<p><strong>(b)</strong> First,</p>
+<p><span class="math display">\[
+AB
+=\begin{pmatrix}0&amp;1\\-1&amp;1\\1&amp;1\end{pmatrix}
+\begin{pmatrix}k&amp;0\\0&amp;m\end{pmatrix}
+=\begin{pmatrix}0&amp;m\\-k&amp;m\\k&amp;m\end{pmatrix}.
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 ABC=\begin{pmatrix}
 m&amp;m&amp;2m\\
@@ -1640,7 +2202,11 @@ m(k+m)(k+2m)-m(-k+m)(-k+2m)-m(-2k+m)(k+2m)
 <p><span class="math display">\[
 {}+m(2k+m)(-k+2m)+2m(-2k+m)(-k+m)-2m(2k+m)(k+m)=0.
 \]</span></p>
-<p>Hence <span class="math inline">\(\det(ABC)=0\)</span> and <span class="math inline">\(ABC\)</span> is singular.</p>
+<p>The six expanded terms simplify to</p>
+<p><span class="math display">\[
+6m^2k+6m^2k-12m^2k=0.
+\]</span></p>
+<p>Hence <span class="math inline">\(\det(ABC)=0\)</span>, so <span class="math inline">\(ABC\)</span> is singular.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-on-12"> Completed</label>
 <div class="source-line">
@@ -1672,17 +2238,49 @@ m^2\sin\frac\pi{12}+2m\cos\frac\pi{12}-\sin\frac\pi{12}=0,
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Use the angle difference <span class="math inline">\(\pi/12=\pi/4-\pi/6\)</span> to prove the exact values. The matrix factorises as</p>
+<p><strong>(a)</strong> Since <span class="math inline">\(\pi/12=\pi/4-\pi/6\)</span>,</p>
+<p><span class="math display">\[
+\cos\frac\pi{12}
+=\cos\frac\pi4\cos\frac\pi6
++\sin\frac\pi4\sin\frac\pi6
+=\frac{\sqrt6+\sqrt2}{4},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\sin\frac\pi{12}
+=\sin\frac\pi4\cos\frac\pi6
+-\cos\frac\pi4\sin\frac\pi6
+=\frac{\sqrt6-\sqrt2}{4}.
+\]</span></p>
+<p><strong>(b)</strong> The matrix factorises as</p>
 <p><span class="math display">\[
 M=\begin{pmatrix}\cos(\pi/12)&amp;-\sin(\pi/12)\\\sin(\pi/12)&amp;\cos(\pi/12)\end{pmatrix}
 \begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix}.
 \]</span></p>
-<p>Thus reflect first in the <span class="math inline">\(x\)</span>-axis, then rotate anticlockwise through <span class="math inline">\(\pi/12\)</span> about the origin. Reversing the order gives</p>
+<p>Reading from right to left, first reflect in the <span class="math inline">\(x\)</span>-axis, then rotate anticlockwise through <span class="math inline">\(\pi/12\)</span> about the origin.</p>
+<p><strong>(c)</strong> Reversing the order and inverting each factor gives</p>
 <p><span class="math display">\[
 \boxed{M^{-1}=\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix}
 \begin{pmatrix}\cos(\pi/12)&amp;\sin(\pi/12)\\-\sin(\pi/12)&amp;\cos(\pi/12)\end{pmatrix}}.
 \]</span></p>
-<p>Applying <span class="math inline">\(Y=mX\)</span> produces the stated quadratic. The quadratic formula and <span class="math inline">\(\sin^2\theta+\cos^2\theta=1\)</span> give</p>
+<p><strong>(d)</strong> Write <span class="math inline">\(s=\sin(\pi/12)\)</span> and <span class="math inline">\(c=\cos(\pi/12)\)</span>. A point <span class="math inline">\((x,mx)\)</span> maps to</p>
+<p><span class="math display">\[
+\binom XY=\binom{(c+ms)x}{(s-mc)x}.
+\]</span></p>
+<p>The condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+s-mc=m(c+ms),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+m^2s+2mc-s=0,
+\]</span></p>
+<p>as required. By the quadratic formula,</p>
+<p><span class="math display">\[
+m=\frac{-2c\pm\sqrt{4c^2+4s^2}}{2s}
+=\frac{-c\pm1}{s}.
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{m=-\cot\frac\pi{12}\pm\cosec\frac\pi{12}}.
 \]</span></p>
