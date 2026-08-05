@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 2.1–2.3。">
+
+<title>1.3 Summation of series – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-1/rational-functions-and-graphs.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/summation-of-series.html">1.3 Summation of series</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#sequences-series-and-sigma-notation" id="toc-sequences-series-and-sigma-notation" class="nav-link" data-scroll-target="#sequences-series-and-sigma-notation">1.1 Sequences, series and sigma notation</a></li>
+  <li><a href="#standard-results" id="toc-standard-results" class="nav-link" data-scroll-target="#standard-results">1.2 Standard results</a></li>
+  <li><a href="#changing-limits" id="toc-changing-limits" class="nav-link" data-scroll-target="#changing-limits">1.3 Changing limits</a></li>
+  <li><a href="#method-of-differences" id="toc-method-of-differences" class="nav-link" data-scroll-target="#method-of-differences">1.4 Method of differences</a></li>
+  <li><a href="#sum-to-infinity" id="toc-sum-to-infinity" class="nav-link" data-scroll-target="#sum-to-infinity">1.5 Sum to infinity</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-2.1-pages-4344" id="toc-example-2.1-pages-4344" class="nav-link" data-scroll-target="#example-2.1-pages-4344">Example 2.1 · Pages 43–44</a></li>
+  <li><a href="#example-2.2-page-44" id="toc-example-2.2-page-44" class="nav-link" data-scroll-target="#example-2.2-page-44">Example 2.2 · Page 44</a></li>
+  <li><a href="#example-2.3-page-47" id="toc-example-2.3-page-47" class="nav-link" data-scroll-target="#example-2.3-page-47">Example 2.3 · Page 47</a></li>
+  <li><a href="#example-2.4-page-48" id="toc-example-2.4-page-48" class="nav-link" data-scroll-target="#example-2.4-page-48">Example 2.4 · Page 48</a></li>
+  <li><a href="#example-2.5-page-50" id="toc-example-2.5-page-50" class="nav-link" data-scroll-target="#example-2.5-page-50">Example 2.5 · Page 50</a></li>
+  <li><a href="#example-2.6-pages-5051" id="toc-example-2.6-pages-5051" class="nav-link" data-scroll-target="#example-2.6-pages-5051">Example 2.6 · Pages 50–51</a></li>
+  <li><a href="#example-2.7-page-52" id="toc-example-2.7-page-52" class="nav-link" data-scroll-target="#example-2.7-page-52">Example 2.7 · Page 52</a></li>
+  <li><a href="#example-2.8-pages-5253" id="toc-example-2.8-pages-5253" class="nav-link" data-scroll-target="#example-2.8-pages-5253">Example 2.8 · Pages 52–53</a></li>
+  </ul></li>
+  <li><a href="#cambridge-examination-questions-in-the-textbook" id="toc-cambridge-examination-questions-in-the-textbook" class="nav-link" data-scroll-target="#cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2b-question-11" id="toc-exercise-2b-question-11" class="nav-link" data-scroll-target="#exercise-2b-question-11">Exercise 2B, Question 11</a></li>
+  <li><a href="#exercise-2c-question-11" id="toc-exercise-2c-question-11" class="nav-link" data-scroll-target="#exercise-2c-question-11">Exercise 2C, Question 11</a></li>
+  <li><a href="#exercise-2c-question-12" id="toc-exercise-2c-question-12" class="nav-link" data-scroll-target="#exercise-2c-question-12">Exercise 2C, Question 12</a></li>
+  <li><a href="#exercise-2c-question-13" id="toc-exercise-2c-question-13" class="nav-link" data-scroll-target="#exercise-2c-question-13">Exercise 2C, Question 13</a></li>
+  </ul></li>
+  <li><a href="#past-paper-question-bank" id="toc-past-paper-question-bank" class="nav-link" data-scroll-target="#past-paper-question-bank">4. Past-paper question bank</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2019</a></li>
+  <li><a href="#mayjune-923111-923112-question-2-5-marks" id="toc-mayjune-923111-923112-question-2-5-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-2-5-marks">2019 May/June · 9231/11 &amp; 9231/12 · Question 2 · 5 marks</a></li>
+  <li><a href="#octobernovember-923111-923112-923113-question-5-9-marks" id="toc-octobernovember-923111-923112-923113-question-5-9-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923112-923113-question-5-9-marks">2019 October/November · 9231/11, 9231/12 &amp; 9231/13 · Question 5 · 9 marks</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2020</a></li>
+  <li><a href="#mayjune-923111-923112-question-4-10-marks" id="toc-mayjune-923111-923112-question-4-10-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-4-10-marks">2020 May/June · 9231/11 &amp; 9231/12 · Question 4 · 10 marks</a></li>
+  <li><a href="#mayjune-923113-question-3-8-marks" id="toc-mayjune-923113-question-3-8-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-3-8-marks">2020 May/June · 9231/13 · Question 3 · 8 marks</a></li>
+  <li><a href="#octobernovember-923113-question-2-7-marks" id="toc-octobernovember-923113-question-2-7-marks" class="nav-link" data-scroll-target="#octobernovember-923113-question-2-7-marks">2020 October/November · 9231/13 · Question 2 · 7 marks</a></li>
+  <li><a href="#octobernovember-923112-question-3-7-marks" id="toc-octobernovember-923112-question-3-7-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-3-7-marks">2020 October/November · 9231/12 · Question 3 · 7 marks</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2021</a></li>
+  <li><a href="#mayjune-923111-923112-question-2-9-marks" id="toc-mayjune-923111-923112-question-2-9-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-2-9-marks">2021 May/June · 9231/11 &amp; 9231/12 · Question 2 · 9 marks</a></li>
+  <li><a href="#mayjune-923113-question-1-6-marks" id="toc-mayjune-923113-question-1-6-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-1-6-marks">2021 May/June · 9231/13 · Question 1 · 6 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-2-8-marks" id="toc-octobernovember-923111-923113-question-2-8-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-2-8-marks">2021 October/November · 9231/11 &amp; 9231/13 · Question 2 · 8 marks</a></li>
+  <li><a href="#octobernovember-923112-question-3-7-marks-1" id="toc-octobernovember-923112-question-3-7-marks-1" class="nav-link" data-scroll-target="#octobernovember-923112-question-3-7-marks-1">2021 October/November · 9231/12 · Question 3 · 7 marks</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2022</a></li>
+  <li><a href="#mayjune-923111-923112-question-1a-4-marks" id="toc-mayjune-923111-923112-question-1a-4-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-1a-4-marks">2022 May/June · 9231/11 &amp; 9231/12 · Question 1(a) · 4 marks</a></li>
+  <li><a href="#mayjune-923113-question-4-6-marks" id="toc-mayjune-923113-question-4-6-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-4-6-marks">2022 May/June · 9231/13 · Question 4 · 6 marks</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2023</a></li>
+  <li><a href="#octobernovember-923111-923113-question-1-7-marks" id="toc-octobernovember-923111-923113-question-1-7-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-1-7-marks">2023 October/November · 9231/11 &amp; 9231/13 · Question 1 · 7 marks</a></li>
+  <li><a href="#octobernovember-923112-question-1-8-marks" id="toc-octobernovember-923112-question-1-8-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-1-8-marks">2023 October/November · 9231/12 · Question 1 · 8 marks</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2024</a></li>
+  <li><a href="#mayjune-923111-923112-question-3-7-marks" id="toc-mayjune-923111-923112-question-3-7-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-3-7-marks">2024 May/June · 9231/11 &amp; 9231/12 · Question 3 · 7 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-4-8-marks" id="toc-octobernovember-923111-923113-question-4-8-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-4-8-marks">2024 October/November · 9231/11 &amp; 9231/13 · Question 4 · 8 marks</a></li>
+  <li><a href="#octobernovember-923112-question-5-9-marks" id="toc-octobernovember-923112-question-5-9-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-5-9-marks">2024 October/November · 9231/12 · Question 5 · 9 marks</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">2025</a></li>
+  <li><a href="#mayjune-923111-923112-question-1-7-marks" id="toc-mayjune-923111-923112-question-1-7-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-1-7-marks">2025 May/June · 9231/11 &amp; 9231/12 · Question 1 · 7 marks</a></li>
+  <li><a href="#mayjune-923114-question-1-6-marks" id="toc-mayjune-923114-question-1-6-marks" class="nav-link" data-scroll-target="#mayjune-923114-question-1-6-marks">2025 May/June · 9231/14 · Question 1 · 6 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-1-9-marks" id="toc-octobernovember-923111-923113-question-1-9-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-1-9-marks">2025 October/November · 9231/11 &amp; 9231/13 · Question 1 · 9 marks</a></li>
+  <li><a href="#octobernovember-923112-question-1-9-marks" id="toc-octobernovember-923112-question-1-9-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-1-9-marks">2025 October/November · 9231/12 · Question 1 · 9 marks</a></li>
+  <li><a href="#octobernovember-923114-question-3-9-marks" id="toc-octobernovember-923114-question-3-9-marks" class="nav-link" data-scroll-target="#octobernovember-923114-question-3-9-marks">2025 October/November · 9231/14 · Question 3 · 9 marks</a></li>
+  </ul></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">5. 完成本节的判断标准</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/summation-of-series.html">1.3 Summation of series</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1.3 Summation of series</h1>
+<p class="subtitle lead">标准求和公式 · 错位相减 · 裂项消项 · 无穷和</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 2.1–2.3。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本节考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>使用 <span class="math inline">\(\sum r\)</span>、<span class="math inline">\(\sum r^2\)</span>、<span class="math inline">\(\sum r^3\)</span> 的标准结果求相关级数；</li>
+<li>使用 method of differences 求有限级数之和，必要时先作部分分式分解；</li>
+<li>直接考察前 <span class="math inline">\(n\)</span> 项和，判断级数是否收敛，并在收敛时求无穷和。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">能从通项写出前几项，并从具体级数识别通项和求和上下限</label></li>
+<li><label><input type="checkbox">能正确拆分求和符号并使用三个标准公式</label></li>
+<li><label><input type="checkbox">能通过错位相减处理等比型有限和</label></li>
+<li><label><input type="checkbox">能将有理式裂项，使中间项成对消去</label></li>
+<li><label><input type="checkbox">能保留所有未消去的首项和尾项</label></li>
+<li><label><input type="checkbox">能从 <span class="math inline">\(S_n\)</span> 在 <span class="math inline">\(n\to\infty\)</span> 时的极限判断收敛并求无穷和</label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="sequences-series-and-sigma-notation" class="level3">
+<h3 class="anchored" data-anchor-id="sequences-series-and-sigma-notation">1.1 Sequences, series and sigma notation</h3>
+<p>数列是按顺序排列的数；级数是数列各项的和。若通项为 <span class="math inline">\(u_r\)</span>，前 <span class="math inline">\(n\)</span> 项和写作</p>
+<p><span class="math display">\[
+S_n=\sum_{r=1}^{n}u_r.
+\]</span></p>
+<p>上下限决定所包含的项。若求和式中没有 <span class="math inline">\(r\)</span>，仍需按上下限重复相加，例如</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}c=nc.
+\]</span></p>
+<p>若已知前 <span class="math inline">\(n\)</span> 项和，则</p>
+<p><span class="math display">\[
+u_1=S_1,\qquad u_r=S_r-S_{r-1}\quad(r\ge2).
+\]</span></p>
+</section>
+<section id="standard-results" class="level3">
+<h3 class="anchored" data-anchor-id="standard-results">1.2 Standard results</h3>
+<p><span class="math display">\[
+\sum_{r=1}^{n}r=\frac12n(n+1),
+\]</span></p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}r^2=\frac16n(n+1)(2n+1),
+\]</span></p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}r^3=\frac14n^2(n+1)^2.
+\]</span></p>
+<p>使用时先展开通项，再利用求和的线性性质。不要把 <span class="math inline">\(\sum r^2\)</span> 误写成 <span class="math inline">\(\left(\sum r\right)^2\)</span>。</p>
+</section>
+<section id="changing-limits" class="level3">
+<h3 class="anchored" data-anchor-id="changing-limits">1.3 Changing limits</h3>
+<p>对于连续的一段整数，可用“大和减小和”：</p>
+<p><span class="math display">\[
+\sum_{r=a}^{b}u_r
+=\sum_{r=1}^{b}u_r-\sum_{r=1}^{a-1}u_r.
+\]</span></p>
+<p>同理，若 <span class="math inline">\(S_n=\sum_{r=1}^{n}u_r\)</span>，则</p>
+<p><span class="math display">\[
+\sum_{r=n+1}^{2n}u_r=S_{2n}-S_n.
+\]</span></p>
+</section>
+<section id="method-of-differences" class="level3">
+<h3 class="anchored" data-anchor-id="method-of-differences">1.4 Method of differences</h3>
+<p>核心是把通项写成相邻项之差：</p>
+<p><span class="math display">\[
+u_r=f(r)-f(r+1).
+\]</span></p>
+<p>于是</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}u_r
+=[f(1)-f(2)]+[f(2)-f(3)]+\cdots+[f(n)-f(n+1)],
+\]</span></p>
+<p>中间项全部消去，只剩</p>
+<p><span class="math display">\[
+\boxed{S_n=f(1)-f(n+1)}.
+\]</span></p>
+<p>若裂项跨度大于 1，通常会留下多于一个首项和尾项，必须将前几项与最后几项完整写出。</p>
+</section>
+<section id="sum-to-infinity" class="level3">
+<h3 class="anchored" data-anchor-id="sum-to-infinity">1.5 Sum to infinity</h3>
+<p>先求有限前 <span class="math inline">\(n\)</span> 项和 <span class="math inline">\(S_n\)</span>，再直接考察</p>
+<p><span class="math display">\[
+\lim_{n\to\infty}S_n.
+\]</span></p>
+<p>若极限存在且有限，则级数收敛，且该极限就是无穷和。若 <span class="math inline">\(u_n\not\to0\)</span>，级数一定不收敛；但 <span class="math inline">\(u_n\to0\)</span> 本身不能保证收敛。</p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-2.1-pages-4344" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2.1-pages-4344">Example 2.1 · Pages 43–44</h3>
+<p>For the series</p>
+<p><span class="math display">\[
+2+5+8+\cdots+500,
+\]</span></p>
+<p><strong>(i)</strong> find a formula for the <span class="math inline">\(r\)</span>th term <span class="math inline">\(u_r\)</span>; <strong>(ii)</strong> find the number of terms; <strong>(iii)</strong> find the sum by reversing and adding; <strong>(iv)</strong> confirm the answer using sigma notation.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The sequence has common difference <span class="math inline">\(3\)</span>, so</p>
+<p><span class="math display">\[
+u_r=3r-1.
+\]</span></p>
+<p>Since <span class="math inline">\(3r-1=500\)</span>, there are <span class="math inline">\(167\)</span> terms. Reversing and adding gives</p>
+<p><span class="math display">\[
+2S=167(2+500),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{S=41917}.
+\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[
+\sum_{r=1}^{167}(3r-1)
+=3\cdot\frac{167\cdot168}{2}-167
+=41917.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-1"> Completed</label></p>
+</section>
+<section id="example-2.2-page-44" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2.2-page-44">Example 2.2 · Page 44</h3>
+<p>Calculate the sum of the integers from <span class="math inline">\(100\)</span> to <span class="math inline">\(200\)</span> inclusive.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+\sum_{r=100}^{200}r
+=\sum_{r=1}^{200}r-\sum_{r=1}^{99}r
+=\frac{200\cdot201}{2}-\frac{99\cdot100}{2}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{15150}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-2"> Completed</label></p>
+</section>
+<section id="example-2.3-page-47" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2.3-page-47">Example 2.3 · Page 47</h3>
+<p>Given <span class="math inline">\(u_r=r^2+2r-1\)</span>:</p>
+<ol type="1">
+<li>write down the first three terms;</li>
+<li>find <span class="math inline">\(\sum_{r=1}^{n}u_r\)</span>;</li>
+<li>check the result for <span class="math inline">\(n=3\)</span>.</li>
+</ol>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The first three terms are <span class="math inline">\(2,7,14\)</span>. Also</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{r=1}^{n}(r^2+2r-1)
+&amp;=\sum r^2+2\sum r-\sum1\\
+&amp;=\frac16n(n+1)(2n+1)+n(n+1)-n\\
+&amp;=\boxed{\frac16n(2n^2+9n+1)}.
+\end{aligned}
+\]</span></p>
+<p>For <span class="math inline">\(n=3\)</span>, the formula gives <span class="math inline">\(23\)</span>, and <span class="math inline">\(2+7+14=23\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-3"> Completed</label></p>
+</section>
+<section id="example-2.4-page-48" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2.4-page-48">Example 2.4 · Page 48</h3>
+<p>Write</p>
+<p><span class="math display">\[
+(1\times3)+(2\times4)+(3\times5)+\cdots+n(n+2)
+\]</span></p>
+<p>using sigma notation, and hence find its sum.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+\sum_{r=1}^{n}r(r+2)
+=\sum_{r=1}^{n}(r^2+2r).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}r(r+2)=\frac16n(n+1)(2n+7)}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-4"> Completed</label></p>
+</section>
+<section id="example-2.5-page-50" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2.5-page-50">Example 2.5 · Page 50</h3>
+<p>Calculate</p>
+<p><span class="math display">\[
+5+10+20+40+\cdots+2560+5120.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Let the sum be <span class="math inline">\(S\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+S&amp;=5+10+20+\cdots+2560+5120,\\
+2S&amp;=10+20+40+\cdots+5120+10240.
+\end{aligned}
+\]</span></p>
+<p>Subtracting gives <span class="math inline">\(S=10240-5\)</span>, hence</p>
+<p><span class="math display">\[
+\boxed{S=10235}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-5"> Completed</label></p>
+</section>
+<section id="example-2.6-pages-5051" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2.6-pages-5051">Example 2.6 · Pages 50–51</h3>
+<p><strong>(i)</strong> Show that</p>
+<p><span class="math display">\[
+\frac1r-\frac1{r+1}=\frac1{r(r+1)}.
+\]</span></p>
+<p><strong>(ii)</strong> Hence find</p>
+<p><span class="math display">\[
+\frac1{1\times2}+\frac1{2\times3}+\cdots+\frac1{30\times31}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The identity follows by combining the two fractions. Therefore</p>
+<p><span class="math display">\[
+\sum_{r=1}^{30}\frac1{r(r+1)}
+=\sum_{r=1}^{30}\left(\frac1r-\frac1{r+1}\right)
+=1-\frac1{31}.
+\]</span></p>
+<p>Hence the sum is</p>
+<p><span class="math display">\[
+\boxed{\frac{30}{31}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-6"> Completed</label></p>
+</section>
+<section id="example-2.7-page-52" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2.7-page-52">Example 2.7 · Page 52</h3>
+<p><strong>(i)</strong> Show that <span class="math inline">\((2r+1)^2-(2r-1)^2=8r\)</span>.</p>
+<p><strong>(ii)</strong> Hence find <span class="math inline">\(\sum_{r=1}^{n}8r\)</span>.</p>
+<p><strong>(iii)</strong> Deduce the standard result for <span class="math inline">\(\sum_{r=1}^{n}r\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Expanding proves the identity. Summing gives</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}8r
+=(3^2-1^2)+(5^2-3^2)+\cdots+[(2n+1)^2-(2n-1)^2].
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}8r=(2n+1)^2-1=4n^2+4n,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}r=\frac12n(n+1)}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-7"> Completed</label></p>
+</section>
+<section id="example-2.8-pages-5253" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2.8-pages-5253">Example 2.8 · Pages 52–53</h3>
+<p><strong>(i)</strong> Show that</p>
+<p><span class="math display">\[
+\frac2r-\frac3{r+1}+\frac1{r+2}
+=\frac{r+4}{r(r+1)(r+2)}.
+\]</span></p>
+<p><strong>(ii)</strong> Hence find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac{r+4}{r(r+1)(r+2)}.
+\]</span></p>
+<p><strong>(iii)</strong> Deduce the sum to infinity.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>After using the stated decomposition and writing the first and last terms, all middle terms cancel, leaving</p>
+<p><span class="math display">\[
+S_n=\frac32-\frac2{n+1}+\frac1{n+2}
+=\frac{n(3n+7)}{2(n+1)(n+2)}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{S_\infty=\frac32}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-8"> Completed</label></p>
+</section>
+</section>
+<section id="cambridge-examination-questions-in-the-textbook" class="level2">
+<h2 class="anchored" data-anchor-id="cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</h2>
+<section id="exercise-2b-question-11" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="exercise-2b-question-11">Exercise 2B, Question 11</h3>
+<p>It is given that</p>
+<p><span class="math display">\[
+S_n=\sum_{r=1}^{n}u_r=2n^2+n.
+\]</span></p>
+<p>Write down <span class="math inline">\(S_1,S_2,S_3,S_4\)</span>. Express <span class="math inline">\(u_r\)</span> in terms of <span class="math inline">\(r\)</span>, justifying your answer. Find</p>
+<p><span class="math display">\[
+\sum_{r=n+1}^{2n}u_r.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+S_1=3,\quad S_2=10,\quad S_3=21,\quad S_4=36.
+\]</span></p>
+<p>For <span class="math inline">\(r\ge2\)</span>,</p>
+<p><span class="math display">\[
+u_r=S_r-S_{r-1}=4r-1,
+\]</span></p>
+<p>and this also gives <span class="math inline">\(u_1=3\)</span>. Finally,</p>
+<p><span class="math display">\[
+\sum_{r=n+1}^{2n}u_r=S_{2n}-S_n
+=\boxed{6n^2+n}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-textbook-exam-11"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231 Paper 11, Question 3, October/November 2013.
+</div>
+</section>
+<section id="exercise-2c-question-11" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="exercise-2c-question-11">Exercise 2C, Question 11</h3>
+<p>Given that</p>
+<p><span class="math display">\[
+u_k=\frac1{2k-1}-\frac1{2k+1},
+\]</span></p>
+<p>express <span class="math inline">\(\sum_{k=13}^{n}u_k\)</span> in terms of <span class="math inline">\(n\)</span> and deduce <span class="math inline">\(\sum_{k=13}^{\infty}u_k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+\sum_{k=13}^{n}u_k
+=\left(\frac1{25}-\frac1{27}\right)+\cdots+
+\left(\frac1{2n-1}-\frac1{2n+1}\right)
+=\boxed{\frac1{25}-\frac1{2n+1}}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\sum_{k=13}^{\infty}u_k=\frac1{25}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-textbook-exam-2c11"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231 Paper 11, Question 1, October/November 2014.
+</div>
+</section>
+<section id="exercise-2c-question-12" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="exercise-2c-question-12">Exercise 2C, Question 12</h3>
+<p>For positive integers <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+a_n=\frac{n+5}{n^2-n+1}-\frac{n+6}{n^2+n+1},
+\]</span></p>
+<p>and <span class="math inline">\(S_N=\sum_{n=1}^{N}a_n\)</span>. Find <span class="math inline">\(S_{30}\)</span> correct to 3 decimal places and the least <span class="math inline">\(N\)</span> for which <span class="math inline">\(S_N&gt;4.9\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Successive terms telescope because the second fraction in <span class="math inline">\(a_n\)</span> is the first fraction in <span class="math inline">\(a_{n+1}\)</span>. Thus</p>
+<p><span class="math display">\[
+S_N=6-\frac{N+6}{N^2+N+1}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+S_{30}=6-\frac{36}{931}=\boxed{5.961}\quad\text{(3 d.p.)}.
+\]</span></p>
+<p>Checking successive values gives <span class="math inline">\(S_2&lt;4.9\)</span> and <span class="math inline">\(S_3&gt;4.9\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{N=3}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-textbook-exam-2c12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231 Paper 11, Question 4, October/November 2015.
+</div>
+</section>
+<section id="exercise-2c-question-13" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="exercise-2c-question-13">Exercise 2C, Question 13</h3>
+<p>Let <span class="math inline">\(f(r)=r(r+1)(r+2)\)</span>.</p>
+<ol type="1">
+<li>Show that <span class="math inline">\(f(r)-f(r-1)=3r(r+1)\)</span>.</li>
+<li>Hence show that <span class="math inline">\(\sum_{r=1}^{n}r(r+1)=\frac13n(n+1)(n+2)\)</span>.</li>
+<li>Using the standard result for <span class="math inline">\(\sum r\)</span>, deduce the standard result for <span class="math inline">\(\sum r^2\)</span>.</li>
+<li>Find the sum</li>
+</ol>
+<p><span class="math display">\[
+1^2+2(2^2)+3^2+2(4^2)+\cdots+2(n-1)^2+n^2,
+\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is odd.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Summing <span class="math inline">\(f(r)-f(r-1)=3r(r+1)\)</span> gives</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}r(r+1)=\frac13n(n+1)(n+2).
+\]</span></p>
+<p>Since <span class="math inline">\(r(r+1)=r^2+r\)</span>,</p>
+<p><span class="math display">\[
+\sum r^2=\frac13n(n+1)(n+2)-\frac12n(n+1)
+=\boxed{\frac16n(n+1)(2n+1)}.
+\]</span></p>
+<p>For the final series, add one extra copy of every even square to the usual sum of squares. With <span class="math inline">\(m=(n-1)/2\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\frac16n(n+1)(2n+1)+\frac23m(m+1)(2m+1)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-textbook-exam-2c13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231 Paper 11, Question 4, October/November 2012.
+</div>
+</section>
+</section>
+<section id="past-paper-question-bank" class="level2">
+<h2 class="anchored" data-anchor-id="past-paper-question-bank">4. Past-paper question bank</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2019</h3>
+</section>
+<div id="series-2019-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-2-5-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-2-5-marks">2019 May/June · 9231/11 &amp; 9231/12 · Question 2 · 5 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+u_n=\frac{4\sin\left(n-\frac12\right)\sin\frac12}{\cos(2n-1)+\cos1}.
+\]</span></p>
+<p><strong>(i)</strong> Show that <span class="math inline">\(u_n=\sec n-\sec(n-1)\)</span>. <strong>[2]</strong></p>
+<p><strong>(ii)</strong> Use the method of differences to find <span class="math inline">\(\sum_{n=1}^{N}u_n\)</span>. <strong>[2]</strong></p>
+<p><strong>(iii)</strong> Explain why <span class="math inline">\(u_1+u_2+u_3+\cdots\)</span> does not converge. <strong>[1]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Using the sum-to-product identities gives the stated difference. Hence</p>
+<p><span class="math display">\[
+\sum_{n=1}^{N}u_n
+=(\sec1-1)+(\sec2-\sec1)+\cdots+(\sec N-\sec(N-1))
+=\boxed{\sec N-1}.
+\]</span></p>
+<p>Since <span class="math inline">\(\cos N\)</span> oscillates as <span class="math inline">\(N\to\infty\)</span>, <span class="math inline">\(\sec N-1\)</span> has no limit. The infinite series therefore diverges.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2019-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2019, Q2; 9231/12/M/J/2019, Q2.
+</div>
+</section>
+</div>
+<div id="series-2019-on" class="question-card">
+<section id="octobernovember-923111-923112-923113-question-5-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923112-923113-question-5-9-marks">2019 October/November · 9231/11, 9231/12 &amp; 9231/13 · Question 5 · 9 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+S_N=\sum_{r=1}^{N}(5r+1)(5r+6),
+\qquad
+T_N=\sum_{r=1}^{N}\frac1{(5r+1)(5r+6)}.
+\]</span></p>
+<p><strong>(i)</strong> Use standard results to show that</p>
+<p><span class="math display">\[
+S_N=\frac13N(25N^2+90N+83).
+\]</span></p>
+<p><strong>[3]</strong></p>
+<p><strong>(ii)</strong> Use the method of differences to express <span class="math inline">\(T_N\)</span> in terms of <span class="math inline">\(N\)</span>. <strong>[4]</strong></p>
+<p><strong>(iii)</strong> Find <span class="math inline">\(\lim_{N\to\infty}\dfrac{S_NT_N}{N^3}\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Expanding <span class="math inline">\((5r+1)(5r+6)=25r^2+35r+6\)</span> and using the standard results gives the stated <span class="math inline">\(S_N\)</span>. Also</p>
+<p><span class="math display">\[
+\frac1{(5r+1)(5r+6)}
+=\frac15\left(\frac1{5r+1}-\frac1{5r+6}\right),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{T_N=\frac1{30}-\frac1{5(5N+6)}}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\lim_{N\to\infty}\frac{S_NT_N}{N^3}=\frac5{18}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2019-on"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2019, Q5; 9231/12/O/N/2019, Q5; 9231/13/O/N/2019, Q5.
+</div>
+</section>
+</div>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2020</h3>
+</section>
+<div id="series-2020-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-4-10-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-4-10-marks">2020 May/June · 9231/11 &amp; 9231/12 · Question 4 · 10 marks</h3>
+<p><strong>(a)</strong> By first expressing <span class="math inline">\(1/(r^2-1)\)</span> in partial fractions, show that</p>
+<p><span class="math display">\[
+\sum_{r=2}^{n}\frac1{r^2-1}
+=\frac34-\frac{2n+1}{2n(n+1)}.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p><strong>(b)</strong> Deduce <span class="math inline">\(\sum_{r=2}^{3}\frac1{r^2-1}\)</span>. <strong>[1]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(\displaystyle\lim_{n\to\infty}\sum_{r=n+1}^{2n}\frac1{r^2-1}\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\frac1{r^2-1}=\frac12\left(\frac1{r-1}-\frac1{r+1}\right).
+\]</span></p>
+<p>Writing the first and last terms gives the required result. Hence</p>
+<p><span class="math display">\[
+\sum_{r=2}^{3}\frac1{r^2-1}=\boxed{\frac{11}{24}}.
+\]</span></p>
+<p>For part (c), subtract the formula for the sum to <span class="math inline">\(n\)</span> from that for the sum to <span class="math inline">\(2n\)</span>; all remaining terms tend to zero, so the limit is</p>
+<p><span class="math display">\[
+\boxed{0}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2020-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2020, Q4; 9231/12/M/J/2020, Q4.
+</div>
+</section>
+</div>
+<div id="series-2020-mj-13" class="question-card">
+<section id="mayjune-923113-question-3-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-3-8-marks">2020 May/June · 9231/13 · Question 3 · 8 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+S_n=2^2+6^2+10^2+\cdots+(4n-2)^2.
+\]</span></p>
+<p><strong>(a)</strong> Use standard results to show that</p>
+<p><span class="math display">\[
+S_n=\frac43n(4n^2-1).
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Express <span class="math inline">\(n/S_n\)</span> in partial fractions and find <span class="math inline">\(\sum_{n=1}^{N}n/S_n\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Expand <span class="math inline">\((4r-2)^2\)</span> and sum to obtain the stated result. Then</p>
+<p><span class="math display">\[
+\frac{n}{S_n}=\frac3{4(2n-1)(2n+1)}
+=\frac38\left(\frac1{2n-1}-\frac1{2n+1}\right).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{\sum_{n=1}^{N}\frac{n}{S_n}=\frac38\left(1-\frac1{2N+1}\right)
+=\frac{3N}{4(2N+1)}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2020-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2020, Q3.
+</div>
+</section>
+</div>
+<div id="series-2020-on-13" class="question-card">
+<section id="octobernovember-923113-question-2-7-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923113-question-2-7-marks">2020 October/November · 9231/13 · Question 2 · 7 marks</h3>
+<p><strong>(a)</strong> Use standard results to find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}(7r+1)(7r+8)
+\]</span></p>
+<p>as a cubic polynomial in <span class="math inline">\(n\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Use the method of differences to find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{(7r+1)(7r+8)}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\sum_{r=1}^{n}(7r+1)(7r+8)
+=\boxed{\frac n3(49n^2+168n+143)}.
+\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[
+\frac1{(7r+1)(7r+8)}
+=\frac17\left(\frac1{7r+1}-\frac1{7r+8}\right),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac1{(7r+1)(7r+8)}
+=\frac n{8(7n+8)}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2020-on-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2020, Q2; 9231/13/O/N/2020, Q2.
+</div>
+</section>
+</div>
+<div id="series-2020-on-12" class="question-card">
+<section id="octobernovember-923112-question-3-7-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-3-7-marks">2020 October/November · 9231/12 · Question 3 · 7 marks</h3>
+<p><strong>(a)</strong> By simplifying</p>
+<p><span class="math display">\[
+(x^n-\sqrt{x^{2n}+1})(x^n+\sqrt{x^{2n}+1}),
+\]</span></p>
+<p>show that</p>
+<p><span class="math display">\[
+\frac1{x^n-\sqrt{x^{2n}+1}}=-x^n-\sqrt{x^{2n}+1}.
+\]</span></p>
+<p><strong>[1]</strong></p>
+<p>Let</p>
+<p><span class="math display">\[
+u_n=x^{n+1}+\sqrt{x^{2n+2}+1}
++\frac1{x^n-\sqrt{x^{2n}+1}}.
+\]</span></p>
+<p><strong>(b)</strong> Use the method of differences to find <span class="math inline">\(\sum_{n=1}^{N}u_n\)</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Deduce the values of <span class="math inline">\(x\)</span> for which the infinite series converges and give its sum. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>The product in part (a) is <span class="math inline">\(-1\)</span>, proving the identity. Hence</p>
+<p><span class="math display">\[
+u_n=\left(x^{n+1}+\sqrt{x^{2n+2}+1}\right)
+-\left(x^n+\sqrt{x^{2n}+1}\right).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\sum_{n=1}^{N}u_n
+=x^{N+1}+\sqrt{x^{2N+2}+1}-x-\sqrt{x^2+1}}.
+\]</span></p>
+<p>The official mark scheme gives <span class="math inline">\(-1&lt;x&lt;1\)</span>. In that interval the sum to infinity is</p>
+<p><span class="math display">\[
+\boxed{1-x-\sqrt{x^2+1}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2020-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2020, Q3.
+</div>
+</section>
+</div>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2021</h3>
+</section>
+<div id="series-2021-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-2-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-2-9-marks">2021 May/June · 9231/11 &amp; 9231/12 · Question 2 · 9 marks</h3>
+<p><strong>(a)</strong> Use standard results to find <span class="math inline">\(\sum_{r=1}^{n}(1-r-r^2)\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Show that</p>
+<p><span class="math display">\[
+\frac{1-r-r^2}{(r^2+2r+2)(r^2+1)}
+=\frac{r+1}{(r+1)^2+1}-\frac r{r^2+1},
+\]</span></p>
+<p>and hence find the corresponding sum from <span class="math inline">\(r=1\)</span> to <span class="math inline">\(n\)</span>. <strong>[5]</strong></p>
+<p><strong>(c)</strong> Deduce the sum to infinity. <strong>[1]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}(1-r-r^2)=-\frac13n(n^2+3n-1)}.
+\]</span></p>
+<p>The stated difference telescopes, giving</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac{1-r-r^2}{(r^2+2r+2)(r^2+1)}
+=\frac{n+1}{(n+1)^2+1}-\frac12}.
+\]</span></p>
+<p>Hence the sum to infinity is <span class="math inline">\(\boxed{-\frac12}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2021-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2021, Q2; 9231/12/M/J/2021, Q2.
+</div>
+</section>
+</div>
+<div id="series-2021-mj-13" class="question-card">
+<section id="mayjune-923113-question-1-6-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-1-6-marks">2021 May/June · 9231/13 · Question 1 · 6 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+u_r=\frac1{\cos(r+1)\cos r}.
+\]</span></p>
+<p><strong>(a)</strong> Express <span class="math inline">\(u_r\)</span> as a difference involving tangents. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Use the method of differences to find <span class="math inline">\(\sum_{r=1}^{n}u_r\)</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Explain why the infinite series does not converge. <strong>[1]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Since</p>
+<p><span class="math display">\[
+\tan(r+1)-\tan r=\frac{\sin1}{\cos(r+1)\cos r},
+\]</span></p>
+<p><span class="math display">\[
+u_r=\frac{\tan(r+1)-\tan r}{\sin1}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}u_r=\frac{\tan(n+1)-\tan1}{\sin1}}.
+\]</span></p>
+<p>The tangent term does not approach a limit, so the infinite series diverges.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2021-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2021, Q1.
+</div>
+</section>
+</div>
+<div id="series-2021-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-2-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-2-8-marks">2021 October/November · 9231/11 &amp; 9231/13 · Question 2 · 8 marks</h3>
+<p><strong>(a)</strong> Find <span class="math inline">\(\sum_{r=1}^{n}r(r+1)(r+2)\)</span> in fully factorised form. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Express <span class="math inline">\(1/[r(r+1)(r+2)]\)</span> in partial fractions and hence find its sum from <span class="math inline">\(r=1\)</span> to <span class="math inline">\(n\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}r(r+1)(r+2)=\frac14n(n+1)(n+2)(n+3)}.
+\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[
+\frac1{r(r+1)(r+2)}
+=\frac12\left[\frac1{r(r+1)}-\frac1{(r+1)(r+2)}\right],
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac1{r(r+1)(r+2)}
+=\frac{n(n+3)}{4(n+1)(n+2)}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2021-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2021, Q2; 9231/13/O/N/2021, Q2.
+</div>
+</section>
+</div>
+<div id="series-2021-on-12" class="question-card">
+<section id="octobernovember-923112-question-3-7-marks-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-3-7-marks-1">2021 October/November · 9231/12 · Question 3 · 7 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+S_n=\sum_{r=1}^{n}\ln\frac{r(r+2)}{(r+1)^2}.
+\]</span></p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+S_n=\ln\frac{n+2}{2(n+1)}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p>Let <span class="math inline">\(S\)</span> be the corresponding sum to infinity.</p>
+<p><strong>(b)</strong> Find the least <span class="math inline">\(n\)</span> for which <span class="math inline">\(S_n-S&lt;0.01\)</span>. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Write the summand as</p>
+<p><span class="math display">\[
+\ln r-2\ln(r+1)+\ln(r+2).
+\]</span></p>
+<p>After cancellation,</p>
+<p><span class="math display">\[
+S_n=-\ln2-\ln(n+1)+\ln(n+2)
+=\ln\frac{n+2}{2(n+1)}.
+\]</span></p>
+<p>Thus <span class="math inline">\(S=-\ln2\)</span>. Solving</p>
+<p><span class="math display">\[
+\ln\frac{n+2}{n+1}&lt;0.01
+\]</span></p>
+<p>gives the least value</p>
+<p><span class="math display">\[
+\boxed{n=99}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2021-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2021, Q3.
+</div>
+</section>
+</div>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2022</h3>
+</section>
+<div id="series-2022-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-1a-4-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-1a-4-marks">2022 May/June · 9231/11 &amp; 9231/12 · Question 1(a) · 4 marks</h3>
+<p>Let <span class="math inline">\(a\)</span> be positive. Use the method of differences to find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{(ar+1)(ar+a+1)}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\frac1{(ar+1)(ar+a+1)}
+=\frac1a\left(\frac1{ar+1}-\frac1{ar+a+1}\right).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac1{(ar+1)(ar+a+1)}
+=\frac{n}{(a+1)(an+a+1)}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2022-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2022, Q1(a); 9231/12/M/J/2022, Q1(a).
+</div>
+</section>
+</div>
+<div id="series-2022-mj-13" class="question-card">
+<section id="mayjune-923113-question-4-6-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-4-6-marks">2022 May/June · 9231/13 · Question 4 · 6 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+u_r=e^{rx}(e^{2x}-2e^x+1).
+\]</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\sum_{r=1}^{n}u_r\)</span> in terms of <span class="math inline">\(n\)</span> and <span class="math inline">\(x\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Deduce the non-zero values of <span class="math inline">\(x\)</span> for which the infinite series converges and give its sum. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Since <span class="math inline">\(e^{2x}-2e^x+1=(e^x-1)^2\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}u_r=e^x(e^x-1)(e^{nx}-1)}.
+\]</span></p>
+<p>The finite sum has a limit precisely when <span class="math inline">\(x&lt;0\)</span>. In that case</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{\infty}u_r=e^x(1-e^x)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2022-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2022, Q4.
+</div>
+</section>
+</div>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2023</h3>
+</section>
+<div id="series-2023-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-1-7-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-1-7-marks">2023 October/November · 9231/11 &amp; 9231/13 · Question 1 · 7 marks</h3>
+<p><strong>(a)</strong> By considering <span class="math inline">\((r+1)^2-r^2\)</span>, prove by the method of differences that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}r=\frac12n(n+1).
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Given <span class="math inline">\(\sum_{r=1}^{n}(r+a)=n^2\)</span>, find <span class="math inline">\(a\)</span> in terms of <span class="math inline">\(n\)</span>. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Summing <span class="math inline">\((r+1)^2-r^2=2r+1\)</span> gives <span class="math inline">\((n+1)^2-1=2\sum r+n\)</span>, which rearranges to the stated result. Then</p>
+<p><span class="math display">\[
+\frac12n(n+1)+an=n^2,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{a=\frac{n-1}{2}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2023-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2023, Q1; 9231/13/O/N/2023, Q1.
+</div>
+</section>
+</div>
+<div id="series-2023-on-12" class="question-card">
+<section id="octobernovember-923112-question-1-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-1-8-marks">2023 October/November · 9231/12 · Question 1 · 8 marks</h3>
+<p><strong>(a)</strong> Find <span class="math inline">\(\sum_{r=1}^{n}(3r^2+3r+1)\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Show that</p>
+<p><span class="math display">\[
+\frac1{r^3}-\frac1{(r+1)^3}
+=\frac{3r^2+3r+1}{r^3(r+1)^3},
+\]</span></p>
+<p>and hence find the corresponding sum from <span class="math inline">\(r=1\)</span> to <span class="math inline">\(n\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}(3r^2+3r+1)=(n+1)^3-1}.
+\]</span></p>
+<p>The stated identity telescopes immediately, giving</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac{3r^2+3r+1}{r^3(r+1)^3}
+=1-\frac1{(n+1)^3}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2023-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2023, Q1.
+</div>
+</section>
+</div>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">2024</h3>
+</section>
+<div id="series-2024-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-3-7-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-3-7-marks">2024 May/June · 9231/11 &amp; 9231/12 · Question 3 · 7 marks</h3>
+<p><strong>(a)</strong> Use standard results to show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}r(r+1)(3r+4)
+=\frac1{12}N(N+1)(N+2)(9N+19).
+\]</span></p>
+<p><strong>[3]</strong></p>
+<p><strong>(b)</strong> Express <span class="math inline">\((3r+4)/[r(r+1)]\)</span> in partial fractions and hence find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}\frac{3r+4}{r(r+1)}\left(\frac14\right)^{r+1}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Expanding the summand and applying the standard results gives part (a). For part (b),</p>
+<p><span class="math display">\[
+\frac{3r+4}{r(r+1)}=\frac4r-\frac1{r+1}.
+\]</span></p>
+<p>After including the power of <span class="math inline">\(1/4\)</span>, consecutive terms cancel:</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{N}\frac{3r+4}{r(r+1)}\left(\frac14\right)^{r+1}
+=\frac14-\frac1{(N+1)4^{N+1}}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2024-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2024, Q3; 9231/12/M/J/2024, Q3.
+</div>
+</section>
+</div>
+<div id="series-2024-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-4-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-4-8-marks">2024 October/November · 9231/11 &amp; 9231/13 · Question 4 · 8 marks</h3>
+<p>Let <span class="math inline">\(k\)</span> be a positive constant.</p>
+<p><strong>(a)</strong> Use the method of differences to find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac{5k}{(5r+k)(5r+5+k)}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> It is given that the sum of the first three terms is <span class="math inline">\(1/3\)</span>. Find <span class="math inline">\(k\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Hence find</p>
+<p><span class="math display">\[
+\sum_{r=n}^{n^2}\frac{5k}{(5r+k)(5r+5+k)}.
+\]</span></p>
+<p><strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\frac{5k}{(5r+k)(5r+5+k)}
+=k\left(\frac1{5r+k}-\frac1{5r+5+k}\right).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac{5k}{(5r+k)(5r+5+k)}
+=k\left(\frac1{5+k}-\frac1{5n+5+k}\right)}.
+\]</span></p>
+<p>For <span class="math inline">\(n=3\)</span>, the condition gives <span class="math inline">\(k/(5+k)=1/3\)</span>, so <span class="math inline">\(\boxed{k=5/2}\)</span>. Subtracting two finite sums then gives</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=n}^{n^2}\frac{5k}{(5r+k)(5r+5+k)}
+=\frac1{2n+1}-\frac1{2n^2+3}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2024-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2024, Q4; 9231/13/O/N/2024, Q4.
+</div>
+</section>
+</div>
+<div id="series-2024-on-12" class="question-card">
+<section id="octobernovember-923112-question-5-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-5-9-marks">2024 October/November · 9231/12 · Question 5 · 9 marks</h3>
+<p>It is given that</p>
+<p><span class="math display">\[
+S_n=\sum_{r=1}^{n}u_r,
+\qquad
+u_r=x^{f(r)}-x^{f(r+1)},
+\qquad x&gt;0.
+\]</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\(S_n\)</span> in terms of <span class="math inline">\(n,x\)</span> and <span class="math inline">\(f\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> For <span class="math inline">\(f(r)=\ln r\)</span>, determine when the infinite series converges and give its sum. <strong>[3]</strong></p>
+<p><strong>(c)</strong> For <span class="math inline">\(f(r)=2\log_x r\)</span>, <span class="math inline">\(x\ne1\)</span>, find <span class="math inline">\(\sum_{n=1}^{N}S_n\)</span> in fully factorised form. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>The defining difference telescopes:</p>
+<p><span class="math display">\[
+\boxed{S_n=x^{f(1)}-x^{f(n+1)}}.
+\]</span></p>
+<p>For <span class="math inline">\(f(r)=\ln r\)</span>, <span class="math inline">\(x^{\ln r}=r^{\ln x}\)</span>. The series converges for <span class="math inline">\(0&lt;x&lt;1\)</span>, with sum <span class="math inline">\(1\)</span>, and for <span class="math inline">\(x=1\)</span>, with sum <span class="math inline">\(0\)</span>.</p>
+<p>For <span class="math inline">\(f(r)=2\log_x r\)</span>, <span class="math inline">\(x^{f(r)}=r^2\)</span>, so</p>
+<p><span class="math display">\[
+S_n=1-(n+1)^2=-n(n+2).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\sum_{n=1}^{N}S_n=-\frac16N(N+1)(2N+7)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2024-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2024, Q5.
+</div>
+</section>
+</div>
+<section id="section-6" class="level3">
+<h3 class="anchored" data-anchor-id="section-6">2025</h3>
+</section>
+<div id="series-2025-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-1-7-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-1-7-marks">2025 May/June · 9231/11 &amp; 9231/12 · Question 1 · 7 marks</h3>
+<p><strong>(a)</strong> Use standard results to show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}(2-3r)(5-3r)=an^3+bn^2+cn,
+\]</span></p>
+<p>and find the integers <span class="math inline">\(a,b,c\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Use the method of differences to find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{(2-3r)(5-3r)}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Expanding gives <span class="math inline">\(9r^2-21r+10\)</span>. Hence</p>
+<p><span class="math display">\[
+\boxed{a=3,\quad b=-6,\quad c=1}.
+\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[
+\frac1{(2-3r)(5-3r)}
+=\frac13\left(\frac1{2-3r}-\frac1{5-3r}\right),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac1{(2-3r)(5-3r)}
+=\frac{n}{2(2-3n)}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2025-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2025, Q1; 9231/12/M/J/2025, Q1.
+</div>
+</section>
+</div>
+<div id="series-2025-mj-14" class="question-card">
+<section id="mayjune-923114-question-1-6-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923114-question-1-6-marks">2025 May/June · 9231/14 · Question 1 · 6 marks</h3>
+<p><strong>(a)</strong> Find <span class="math inline">\(\sum_{r=1}^{n}(2r+1)\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Show that</p>
+<p><span class="math display">\[
+\frac{2r+1}{(r^2+1)(r^2+2r+2)}
+=\frac1{r^2+1}-\frac1{r^2+2r+2}.
+\]</span></p>
+<p><strong>[1]</strong></p>
+<p><strong>(c)</strong> Hence find the corresponding sum from <span class="math inline">\(r=1\)</span> to <span class="math inline">\(n\)</span>. <strong>[2]</strong></p>
+<p><strong>(d)</strong> Deduce the sum to infinity. <strong>[1]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}(2r+1)=n(n+2)}.
+\]</span></p>
+<p>Since <span class="math inline">\(r^2+2r+2=(r+1)^2+1\)</span>, the stated difference telescopes:</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac{2r+1}{(r^2+1)(r^2+2r+2)}
+=\frac12-\frac1{(n+1)^2+1}}.
+\]</span></p>
+<p>Thus the sum to infinity is <span class="math inline">\(\boxed{\frac12}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2025-mj-14"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/14/M/J/2025, Q1.
+</div>
+</section>
+</div>
+<div id="series-2025-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-1-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-1-9-marks">2025 October/November · 9231/11 &amp; 9231/13 · Question 1 · 9 marks</h3>
+<p><strong>(a)</strong> Find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}(8r^3+12r^2+4r+3).
+\]</span></p>
+<p><strong>[3]</strong></p>
+<p><strong>(b)</strong> Show that</p>
+<p><span class="math display">\[
+\frac1{r^4}-\frac1{(r+1)^4}
+=\frac{4r^3+6r^2+4r+1}{r^4(r+1)^4},
+\]</span></p>
+<p>and hence find the corresponding sum to <span class="math inline">\(n\)</span>. <strong>[5]</strong></p>
+<p><strong>(c)</strong> Deduce the sum to infinity. <strong>[1]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Using the standard formulae,</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}(8r^3+12r^2+4r+3)
+=n(2n^3+8n^2+10n+7)}.
+\]</span></p>
+<p>The stated identity telescopes directly:</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac{4r^3+6r^2+4r+1}{r^4(r+1)^4}
+=1-\frac1{(n+1)^4}}.
+\]</span></p>
+<p>The sum to infinity is therefore <span class="math inline">\(\boxed{1}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2025-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2025, Q1; 9231/13/O/N/2025, Q1.
+</div>
+</section>
+</div>
+<div id="series-2025-on-12" class="question-card">
+<section id="octobernovember-923112-question-1-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-1-9-marks">2025 October/November · 9231/12 · Question 1 · 9 marks</h3>
+<p><strong>(a)</strong> Find <span class="math inline">\(\sum_{r=1}^{n}(r^3-r)\)</span> in fully factorised form. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Express</p>
+<p><span class="math display">\[
+\frac{r+3}{r^3-r}
+\]</span></p>
+<p>as <span class="math inline">\(A/(r-1)+B/r+C/(r+1)\)</span>, and hence find its sum from <span class="math inline">\(r=2\)</span> to <span class="math inline">\(n\)</span>. <strong>[5]</strong></p>
+<p><strong>(c)</strong> Deduce the sum to infinity. <strong>[1]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}(r^3-r)=\frac14n(n-1)(n+1)(n+2)}.
+\]</span></p>
+<p>Partial fractions give</p>
+<p><span class="math display">\[
+\frac{r+3}{r^3-r}=\frac2{r-1}-\frac3r+\frac1{r+1}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=2}^{n}\frac{r+3}{r^3-r}
+=\frac32-\frac2n+\frac1{n+1}}.
+\]</span></p>
+<p>The sum to infinity is <span class="math inline">\(\boxed{\frac32}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2025-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2025, Q1.
+</div>
+</section>
+</div>
+<div id="series-2025-on-14" class="question-card">
+<section id="octobernovember-923114-question-3-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923114-question-3-9-marks">2025 October/November · 9231/14 · Question 3 · 9 marks</h3>
+<p><strong>(a)</strong> Use standard results to show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}(r+1)(r+2)(r+3)
+=\frac14n(n^3+bn^2+cn+d),
+\]</span></p>
+<p>and determine <span class="math inline">\(b,c,d\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Express <span class="math inline">\(2/[(r+1)(r+2)(r+3)]\)</span> in partial fractions and hence find its sum from <span class="math inline">\(r=1\)</span> to <span class="math inline">\(n\)</span>. <strong>[5]</strong></p>
+<p><strong>(c)</strong> State the sum to infinity. <strong>[1]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Expanding and summing gives</p>
+<p><span class="math display">\[
+\boxed{b=10,\quad c=35,\quad d=50}.
+\]</span></p>
+<p>Use</p>
+<p><span class="math display">\[
+\frac2{(r+1)(r+2)(r+3)}
+=\frac1{(r+1)(r+2)}-\frac1{(r+2)(r+3)}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac2{(r+1)(r+2)(r+3)}
+=\frac16-\frac1{(n+2)(n+3)}}.
+\]</span></p>
+<p>The sum to infinity is <span class="math inline">\(\boxed{\frac16}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="series-2025-on-14"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/14/O/N/2025, Q3.
+</div>
+</section>
+</div>
+</section>
+<section id="完成本节的判断标准" class="level2">
+<h2 class="anchored" data-anchor-id="完成本节的判断标准">5. 完成本节的判断标准</h2>
+<ol type="1">
+<li>能从具体各项准确写出通项及求和上下限；</li>
+<li>能把多项式通项拆开并正确代入三个标准公式；</li>
+<li>能从部分分式或恒等式识别消项结构；</li>
+<li>能完整保留未消去的首项与尾项；</li>
+<li>能从 <span class="math inline">\(S_n\)</span> 的极限判断收敛并求无穷和。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-1/rational-functions-and-graphs.html" class="pagination-link" aria-label="1.2 Rational functions and graphs">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1.2 Rational functions and graphs</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
