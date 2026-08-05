@@ -56,6 +56,35 @@ body { color: var(--fm-ink); }
   background: #fff;
 }
 
+.math-figure {
+  margin: 1.15rem auto 0.35rem;
+  max-width: 760px;
+}
+
+.math-plot {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--fm-ink);
+}
+
+.math-plot .plot-bg { fill: #fbfdff; stroke: #dbe4f0; }
+.math-plot .axis, .math-plot .tick { fill: none; stroke: #172033; stroke-width: 1.35; }
+.math-plot .tick-label, .math-plot .axis-label, .math-plot .point-label,
+.math-plot .asym-label, .math-plot .legend, .math-plot .plot-title {
+  fill: #334155;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+}
+.math-plot .plot-title { font-size: 15px; font-weight: 650; }
+.math-plot .tick-label { font-size: 11px; fill: #64748b; }
+.math-plot .asym { fill: none; stroke: #ef7d58; stroke-width: 1.7; stroke-dasharray: 8 6; }
+.math-plot .asym-label { fill: #b94324; font-weight: 600; }
+.math-plot .curve { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.math-plot .point { fill: #172033; stroke-width: 2; }
+.math-plot .point.open { fill: #fbfdff; }
+.math-figure figcaption { color: var(--fm-muted); font-size: 0.88rem; text-align: center; margin-top: 0.35rem; }
+
 details.answer-panel {
   margin-top: 0.85rem;
   border-radius: 10px;
@@ -93,4 +122,6 @@ mjx-container[display="true"] {
 
 @media (max-width: 700px) {
   .question-card, .study-card, .formula-panel { padding: 0.9rem; }
+  .math-figure { margin-inline: -0.35rem; }
+  .math-plot .point-label, .math-plot .asym-label, .math-plot .legend { font-size: 15px; }
 }
