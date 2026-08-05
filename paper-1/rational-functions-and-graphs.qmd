@@ -170,6 +170,8 @@ $$
 \boxed{k<\frac12\quad\text{or}\quad k\ge1}.
 $$
 
+{{< include figures/rational/example-4-1.svg >}}
+
 </details>
 
 <label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-1"> Completed</label>
@@ -189,11 +191,17 @@ Sketch:
 1. $y=|f(x)|$;
 2. $y=f(|x|)$.
 
+{{< include figures/rational/example-4-2-given.svg >}}
+
 <details class="answer-panel"><summary>Show solution</summary>
 
 For $y=|f(x)|$, retain every part of the original curve above the $x$-axis and reflect every part below the $x$-axis in the $x$-axis. In particular, $P(-1,-10)$ is mapped to $(-1,10)$, while $Q(3,5)$ is unchanged.
 
 For $y=f(|x|)$, retain only the original curve for $x\ge0$ and reflect this part in the $y$-axis. Thus $Q(3,5)$ is accompanied by the reflected stationary point $(-3,5)$; the original left-hand part, including $P$, is not used.
+
+{{< include figures/rational/example-4-2a.svg >}}
+
+{{< include figures/rational/example-4-2b.svg >}}
 
 </details>
 
@@ -245,6 +253,10 @@ $$
 
 It has vertical asymptotes where $\tan x=0$, at $x=-360^\circ,-180^\circ,0,180^\circ,360^\circ$. It has zeros at $x=\pm90^\circ,\pm270^\circ$, shown as open points here because the stated function $g$ is itself undefined at those values.
 
+{{< include figures/rational/example-4-3a.svg >}}
+
+{{< include figures/rational/example-4-3b.svg >}}
+
 </details>
 
 <label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-3"> Completed</label>
@@ -259,6 +271,8 @@ $$
 y=\frac1{f(x)}.
 $$
 
+{{< include figures/rational/example-4-4-given.svg >}}
+
 <details class="answer-panel"><summary>Show solution</summary>
 
 - The root $x=2$ becomes the vertical asymptote $x=2$.
@@ -266,6 +280,8 @@ $$
 - The vertical asymptote $x=1$ becomes an open point on the $x$-axis because $1/f(1)$ is undefined while $1/f(x)\to0$ as $x\to1$.
 - The point $(0,4)$ maps to $\left(0,\frac14\right)$.
 - The reciprocal graph has the same sign as the original graph and reverses its increasing/decreasing behaviour.
+
+{{< include figures/rational/example-4-4.svg >}}
 
 </details>
 
@@ -299,6 +315,10 @@ $$
 
 Real points occur only where $\cos x\ge0$. Draw the upper curve $y=\sqrt{\cos x}$ on those intervals and reflect it in the $x$-axis. The transformed curves meet $y=\cos x$ where $y=0$ or $y=1$.
 
+{{< include figures/rational/example-4-5a.svg >}}
+
+{{< include figures/rational/example-4-5b.svg >}}
+
 </details>
 
 <label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-5"> Completed</label>
@@ -308,6 +328,8 @@ Real points occur only where $\cos x\ge0$. Draw the upper curve $y=\sqrt{\cos x}
 ### Example 4.6 · Pages 110–111
 
 The graph of $y=f(x)$ has a maximum at $(-1,4)$, roots at $(-2,0)$, $(1,0)$ and $(3,0)$, and $y$-intercept $(0,3)$. Sketch $y^2=f(x)$, showing all turning points and intersections with the axes.
+
+{{< include figures/rational/example-4-6-given.svg >}}
 
 <details class="answer-panel"><summary>Show solution</summary>
 
@@ -330,6 +352,8 @@ $$
 $$
 
 At each non-stationary root the transformed curve meets the $x$-axis vertically. There is no transformed curve on intervals where $f(x)<0$.
+
+{{< include figures/rational/example-4-6.svg >}}
 
 </details>
 
@@ -434,6 +458,8 @@ $$
 
 The asymptotes are $x=2$ and $y=x+1$. The curve has no $x$-intercepts because $x^2-x+1=0$ has negative discriminant, and its $y$-intercept is $\left(0,-\frac12\right)$.
 
+{{< include figures/rational/exercise-4b-q5.svg >}}
+
 </details>
 
 <label class="done-toggle"><input type="checkbox" data-progress="rational-textbook-exam-5"> Completed</label>
@@ -479,6 +505,8 @@ and the intersections with the axes are
 $$
 (-2,0),\qquad(0,0).
 $$
+
+{{< include figures/rational/exercise-4b-q6.svg >}}
 
 </details>
 
@@ -541,6 +569,10 @@ $$
 \boxed{\left(-2-\sqrt3,0\right),\quad\left(-2+\sqrt3,0\right)}.
 $$
 
+{{< include figures/rational/exercise-4b-q7a.svg >}}
+
+{{< include figures/rational/exercise-4b-q7b.svg >}}
+
 </details>
 
 <label class="done-toggle"><input type="checkbox" data-progress="rational-textbook-exam-7"> Completed</label>
@@ -596,6 +628,8 @@ $$
 \boxed{(0,0),\quad(3,0)}.
 $$
 
+{{< include figures/rational/exercise-4b-q8.svg >}}
+
 </details>
 
 <label class="done-toggle"><input type="checkbox" data-progress="rational-textbook-exam-8"> Completed</label>
@@ -605,6 +639,8 @@ $$
 ## 3. Past-paper question bank
 
 {{< include rational-past-papers.qmd >}}
+
+{{< include rational-past-paper-figures.qmd >}}
 
 ## 4. 完成本节的判断标准
 
