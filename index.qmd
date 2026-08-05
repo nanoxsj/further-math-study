@@ -40,4 +40,15 @@ subtitle: "2026–2027 syllabus · 9231"
 - 教材中带 Cambridge 来源的 Exercise 题目
 :::
 
+::: {.topic-card}
+### [1.4 Matrices](paper-1/matrices.qmd)
+
+- 矩阵运算、零矩阵与单位矩阵
+- $2\times2$、$3\times3$ 行列式与逆矩阵
+- 平面变换、复合变换与面积伸缩因子
+- 不动点与不变直线
+- 教材 Chapters 1 and 6 全部相关编号 Example
+- 2019–2025 Paper 1 对应真题
+:::
+
 后续章节将沿用相同结构继续制作。

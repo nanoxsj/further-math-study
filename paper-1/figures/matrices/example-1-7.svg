@@ -1,0 +1,29 @@
+<figure class="math-figure">
+<svg viewBox="0 0 560 360" role="img" aria-label="Unit rectangle and its image under a shear" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-83477" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"/></marker>
+    <style>
+      .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-83477)}
+      .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5}
+      .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round}
+      .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round}
+      .line1{stroke:#7c3aed;stroke-width:3}
+      .line2{stroke:#16a34a;stroke-width:3}
+      .point{fill:#0f172a}
+      .label{font:15px system-ui,sans-serif;fill:#334155}
+      .small{font:13px system-ui,sans-serif;fill:#475569}
+    </style>
+  </defs>
+  <line class="axis" x1="45" y1="300" x2="525" y2="300"/>
+  <line class="axis" x1="280" y1="330" x2="280" y2="35"/>
+  <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text>
+  <text class="small" x="266" y="318">O</text>
+  <polygon class="shape" points="280,300 400,300 400,210 280,210"/>
+  <polygon class="image" points="280,300 400,300 490,210 370,210"/>
+  <text class="label" x="320" y="200">original</text><text class="label" x="430" y="200">image</text>
+  <line class="grid" x1="370" y1="210" x2="370" y2="300"/>
+  <line class="grid" x1="490" y1="210" x2="490" y2="300"/>
+  <text class="small" x="52" y="52">x-axis fixed; horizontal displacement is proportional to y</text>
+</svg>
+<figcaption>Example 1.7: a shear preserves height and area while slanting the vertical sides.</figcaption>
+</figure>

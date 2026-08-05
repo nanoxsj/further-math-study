@@ -1,0 +1,3 @@
+::: {.callout-note}
+经核对教材 Chapter 1 与 Chapter 6 的 Exercise，本节没有标注 Cambridge International AS & A Level Further Mathematics 来源的 Exercise 题目。因此这里不额外复制未标注来源的教材练习。
+:::

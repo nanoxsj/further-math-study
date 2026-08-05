@@ -6,6 +6,7 @@ project:
     - paper-1/roots-of-polynomial-equations.qmd
     - paper-1/rational-functions-and-graphs.qmd
     - paper-1/summation-of-series.qmd
+    - paper-1/matrices.qmd
 
 website:
   title: "CIE Further Mathematics 9231"
@@ -24,6 +25,8 @@ website:
             text: "1.2 Rational functions and graphs"
           - href: paper-1/summation-of-series.qmd
             text: "1.3 Summation of series"
+          - href: paper-1/matrices.qmd
+            text: "1.4 Matrices"
 
 format:
   html:

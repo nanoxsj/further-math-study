@@ -1,0 +1,156 @@
+---
+title: "1.4 Matrices"
+subtitle: "矩阵运算 · 行列式与逆矩阵 · 平面变换 · 不变量"
+description: "CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapters 1 and 6。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 对不超过 $3\times3$ 的矩阵进行加、减、乘运算，并识别零矩阵与单位矩阵；
+2. 判断方阵是 singular 还是 non-singular，计算 $2\times2$、$3\times3$ 行列式和非奇异矩阵的逆；
+3. 使用 $(AB)^{-1}=B^{-1}A^{-1}$，并推广到多个矩阵的乘积；
+4. 用 $2\times2$ 矩阵表示旋转、反射、放大、伸缩、剪切等平面变换；
+5. 理解复合变换的顺序：$AB$ 表示先作 $B$，再作 $A$；
+6. 使用 $|\det M|$ 求面积伸缩因子；
+7. 求矩阵变换下的不动点与不变直线。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 先检查矩阵阶数，再决定加减或乘法是否有定义
+- [ ] 能区分 $AB$ 与 $BA$，并准确解释复合变换顺序
+- [ ] 能计算 $2\times2$、$3\times3$ 行列式及逆矩阵
+- [ ] 能由单位向量的像写出变换矩阵
+- [ ] 能从矩阵识别旋转、反射、伸缩、放大和剪切
+- [ ] 能用矩阵方程求不动点，并用直线映射条件求不变直线
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Matrix operations
+
+只有阶数相同的矩阵可以相加或相减。若 $A$ 为 $m\times n$，$B$ 为 $n\times p$，则 $AB$ 有定义且为 $m\times p$。
+
+矩阵乘法一般不满足交换律：
+
+$$
+AB\ne BA,
+$$
+
+但满足结合律与分配律。单位矩阵 $I$ 满足 $AI=IA=A$，零矩阵记作 $O$。
+
+### 1.2 Determinants and inverses
+
+对于
+
+$$
+A=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+$$
+
+$$
+\det A=ad-bc.
+$$
+
+若 $\det A=0$，则 $A$ singular，不存在逆矩阵；若 $\det A\ne0$，则
+
+$$
+A^{-1}=\frac1{ad-bc}\begin{pmatrix}d&-b\\-c&a\end{pmatrix}.
+$$
+
+对 $3\times3$ 矩阵可按任意一行或一列展开行列式；逆矩阵可由余子式、代数余子式和伴随矩阵求得：
+
+$$
+A^{-1}=\frac1{\det A}\operatorname{adj}A.
+$$
+
+### 1.3 Products and inverse order
+
+若 $A,B$ 均非奇异，
+
+$$
+(AB)^{-1}=B^{-1}A^{-1}.
+$$
+
+右侧顺序必须反转。对三个矩阵，
+
+$$
+(ABC)^{-1}=C^{-1}B^{-1}A^{-1}.
+$$
+
+### 1.4 Matrices as transformations
+
+若
+
+$$
+M=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+$$
+
+则
+
+$$
+\begin{pmatrix}x'\\y'\end{pmatrix}
+=M\begin{pmatrix}x\\y\end{pmatrix}.
+$$
+
+矩阵第一列是 $\binom10$ 的像，第二列是 $\binom01$ 的像。常用矩阵包括
+
+$$
+R_\theta=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix},
+$$
+
+以及
+
+$$
+\begin{pmatrix}k&0\\0&k\end{pmatrix},\quad
+\begin{pmatrix}1&h\\0&1\end{pmatrix},\quad
+\begin{pmatrix}1&0\\k&1\end{pmatrix}.
+$$
+
+### 1.5 Successive transformations and area
+
+若先作 $B$、再作 $A$，复合矩阵为 $AB$。矩阵 $M$ 所表示变换的面积伸缩因子为
+
+
+$$
+|\det M|.
+$$
+
+行列式的符号还反映方向是否翻转。
+
+### 1.6 Invariant points and lines
+
+不动点 $\mathbf{x}$ 满足
+
+$$
+M\mathbf{x}=\mathbf{x},
+$$
+
+即 $(M-I)\mathbf{x}=\mathbf0$。
+
+若过原点的直线 $y=mx$ 在变换后仍映到自身，则方向向量 $\binom1m$ 的像必须仍与 $\binom1m$ 平行。对于一般直线 $y=mx+c$，应把像点代回同一条直线并比较系数。
+
+## 2. Textbook Examples
+
+{{< include matrices-examples.qmd >}}
+
+## 3. Cambridge examination questions in the textbook
+
+{{< include matrices-textbook-exercises.qmd >}}
+
+## 4. Past-paper question bank
+
+{{< include matrices-past-papers.qmd >}}
+
+## 5. 完成本节的判断标准
+
+1. 所有矩阵运算先检查阶数和乘法顺序；
+2. 能在无计算器条件下求 $2\times2$、$3\times3$ 行列式和逆矩阵；
+3. 能从几何描述写出矩阵，也能从矩阵描述变换；
+4. 能正确组合多个变换并解释逆变换顺序；
+5. 能求不动点、不变直线和面积伸缩因子。

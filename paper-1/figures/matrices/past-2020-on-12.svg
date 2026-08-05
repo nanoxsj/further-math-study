@@ -1,0 +1,28 @@
+<figure class="math-figure">
+<svg viewBox="0 0 560 360" role="img" aria-label="Invariant lines of a reflection matrix" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-72469" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"/></marker>
+    <style>
+      .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-72469)}
+      .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5}
+      .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round}
+      .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round}
+      .line1{stroke:#7c3aed;stroke-width:3}
+      .line2{stroke:#16a34a;stroke-width:3}
+      .point{fill:#0f172a}
+      .label{font:15px system-ui,sans-serif;fill:#334155}
+      .small{font:13px system-ui,sans-serif;fill:#475569}
+    </style>
+  </defs>
+  <line class="axis" x1="45" y1="300" x2="525" y2="300"/>
+  <line class="axis" x1="280" y1="330" x2="280" y2="35"/>
+  <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text>
+  <text class="small" x="266" y="318">O</text>
+  <line class="line1" x1="55" y1="360" x2="520" y2="235"/>
+  <line class="line2" x1="235" y1="30" x2="325" y2="355"/>
+  <circle class="point" cx="280" cy="300" r="4"/>
+  <text class="label" x="395" y="248">y = (2 − √3)x</text>
+  <text class="label" x="58" y="75">y = −(2 + √3)x</text>
+</svg>
+<figcaption>2020 O/N 12 Q4: the two invariant directions are perpendicular, as expected for a reflection.</figcaption>
+</figure>

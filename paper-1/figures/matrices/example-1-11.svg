@@ -1,0 +1,29 @@
+<figure class="math-figure">
+<svg viewBox="0 0 560 360" role="img" aria-label="Two invariant lines through the origin" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow-72745" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"/></marker>
+    <style>
+      .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-72745)}
+      .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5}
+      .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round}
+      .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round}
+      .line1{stroke:#7c3aed;stroke-width:3}
+      .line2{stroke:#16a34a;stroke-width:3}
+      .point{fill:#0f172a}
+      .label{font:15px system-ui,sans-serif;fill:#334155}
+      .small{font:13px system-ui,sans-serif;fill:#475569}
+    </style>
+  </defs>
+  <line class="axis" x1="45" y1="300" x2="525" y2="300"/>
+  <line class="axis" x1="280" y1="330" x2="280" y2="35"/>
+  <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text>
+  <text class="small" x="266" y="318">O</text>
+  <line class="line1" x1="80" y1="500" x2="500" y2="80"/>
+  <line class="line2" x1="180" y1="40" x2="360" y2="400"/>
+  <circle class="point" cx="280" cy="300" r="4"/>
+  <text class="label" x="438" y="112">y = x</text>
+  <text class="label" x="190" y="67">y = −2x</text>
+  <text class="small" x="52" y="52">points may move, but each whole line maps onto itself</text>
+</svg>
+<figcaption>Example 1.11: an invariant line need not be a line of invariant points.</figcaption>
+</figure>

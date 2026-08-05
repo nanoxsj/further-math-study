@@ -1,0 +1,1056 @@
+::: {.callout-note}
+2019 Paper 1 中检出的矩阵题属于旧考纲的 eigenvalues、diagonalisation 或四维变换，因此不收入本节。以下题目按完全相同的地区版本合并，答案依据对应的 Cambridge mark scheme 整理。
+:::
+
+### 2020
+
+::: {.question-card #matrices-2020-mj-11-12}
+### 2020 May/June · 9231/11 & 9231/12 · Question 6 · 13 marks
+
+Let
+
+$$
+A=\begin{pmatrix}2&0\\1&1\end{pmatrix}.
+$$
+
+**(a)** The transformation represented by $A^{-1}$ maps a triangle of area $30\text{ cm}^2$ to a triangle of area $d\text{ cm}^2$. Find $d$. **[3]**
+
+**(b)** Prove by induction that, for every positive integer $n$,
+
+$$
+A^n=\begin{pmatrix}2^n&0\\2^n-1&1\end{pmatrix}.
+$$
+
+**[5]**
+
+Let $B=\begin{pmatrix}1&0\\33&0\end{pmatrix}$.
+
+**(c)** The line $y=2x$ is invariant under the transformation represented by $A^nB$. Find $n$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Since $\det A=2$, $|\det A^{-1}|=\frac12$, so $\boxed{d=15}$.
+
+The formula is true for $n=1$. If it holds for $n=k$, then
+
+$$
+A^{k+1}=\begin{pmatrix}2^k&0\\2^k-1&1\end{pmatrix}
+\begin{pmatrix}2&0\\1&1\end{pmatrix}
+=\begin{pmatrix}2^{k+1}&0\\2^{k+1}-1&1\end{pmatrix},
+$$
+
+which completes the induction. Finally,
+
+$$
+A^nB=\begin{pmatrix}2^n&0\\2^n+32&0\end{pmatrix}.
+$$
+
+For its image to have gradient $2$, $(2^n+32)/2^n=2$, giving $2^n=32$ and $\boxed{n=5}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-mj-11-12"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/M/J/2020, Q6; 9231/12/M/J/2020, Q6.</div>
+:::
+
+::: {.question-card #matrices-2020-mj-13}
+### 2020 May/June · 9231/13 · Question 4 · 11 marks
+
+Let
+
+$$
+A=\begin{pmatrix}k&0&2\\0&-1&-1\\1&1&-k\end{pmatrix},\quad
+B=\begin{pmatrix}0&-3\\-1&3\\0&0\end{pmatrix},\quad
+C=\begin{pmatrix}-3&-1&1\\1&1&2\end{pmatrix}.
+$$
+
+**(a)** Show that $A$ is non-singular. **[3]**
+
+It is given that
+
+$$
+CAB=\begin{pmatrix}-2&-\frac32\\-1&-\frac32\end{pmatrix}.
+$$
+
+**(b)** Find $k$. **[3]**
+
+**(c)** Find the invariant lines through the origin of the transformation represented by $CAB$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Expanding $\det A$ gives $k^2+k+2$, whose discriminant is $1-8<0$; hence it is never zero for real $k$.
+
+Multiplying $CAB$ and comparing entries gives $\boxed{k=-\frac12}$. For $y=mx$, the condition $Y=mX$ gives
+
+$$
+-1-\frac32m=m\left(-2-\frac32m\right),
+$$
+
+so $3m^2+m-2=0$. Therefore
+
+$$
+\boxed{y=\frac23x\quad\text{or}\quad y=-x}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-mj-13"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/13/M/J/2020, Q4.</div>
+:::
+
+::: {.question-card #matrices-2020-on-11-13}
+### 2020 October/November · 9231/11 & 9231/13 · Question 1 · 9 marks
+
+Let
+
+$$
+M=\begin{pmatrix}1&b\\0&1\end{pmatrix}
+\begin{pmatrix}a&0\\0&1\end{pmatrix},
+$$
+
+where $a,b>0$.
+
+**(a)** State the two transformations represented by $M$, in the correct order. **[2]**
+
+The unit square is mapped by $M$ onto parallelogram $OPQR$.
+
+**(b)** Find the matrix mapping $OPQR$ back onto the unit square. **[2]**
+
+**(c)** Given that the area of $OPQR$ is $2\text{ cm}^2$ and $x+3y=0$ is invariant, find $a$ and $b$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+First apply a one-way stretch parallel to the $x$-axis with scale factor $a$, then a shear with the $x$-axis fixed and shear factor $b$.
+
+$$
+M=\begin{pmatrix}a&b\\0&1\end{pmatrix},\qquad
+\boxed{M^{-1}=\frac1a\begin{pmatrix}1&-b\\0&a\end{pmatrix}}.
+$$
+
+The area factor is $|\det M|=a$, so $a=2$. A point $(x,-x/3)$ on the invariant line maps to $(ax-bx/3,-x/3)$. Requiring it to remain on the same line gives $1=a-b/3$, hence $\boxed{a=2, b=3}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-on-11-13"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/O/N/2020, Q1; 9231/13/O/N/2020, Q1.</div>
+:::
+
+::: {.question-card #matrices-2020-on-12}
+### 2020 October/November · 9231/12 · Question 4 · 13 marks
+
+Let
+
+$$
+A=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad
+B=\begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}.
+$$
+
+**(a)** Identify the transformation represented by $A$. **[1]**
+
+**(b)** Identify the transformation represented by $B$. **[2]**
+
+Triangle $DEF$ is transformed by $AB$ onto triangle $PQR$.
+
+**(c)** Show that the two triangles have the same area. **[3]**
+
+**(d)** Find the matrix mapping $PQR$ onto $DEF$. **[2]**
+
+**(e)** Find the invariant lines through the origin of the transformation represented by $AB$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$A$ is reflection in $y=x$; $B$ is rotation through $60^\circ$ anticlockwise about the origin. Also
+
+$$
+AB=\begin{pmatrix}\frac{\sqrt3}{2}&\frac12\\[2pt]\frac12&-\frac{\sqrt3}{2}\end{pmatrix},
+\qquad \det(AB)=-1,
+$$
+
+so the absolute area factor is $1$. Since $AB$ is a reflection, it is self-inverse:
+
+$$
+\boxed{(AB)^{-1}=\begin{pmatrix}\frac{\sqrt3}{2}&\frac12\\[2pt]\frac12&-\frac{\sqrt3}{2}\end{pmatrix}}.
+$$
+
+Putting $y=mx$ and using $Y=mX$ gives $m^2+2\sqrt3m-1=0$. Hence
+
+$$
+\boxed{y=(2-\sqrt3)x\quad\text{or}\quad y=-(2+\sqrt3)x}.
+$$
+
+{{< include figures/matrices/past-2020-on-12.svg >}}
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-on-12"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/12/O/N/2020, Q4.</div>
+:::
+
+### 2021
+
+::: {.question-card #matrices-2021-mj-11-12}
+### 2021 May/June · 9231/11 & 9231/12 · Question 4 · 14 marks
+
+A rotation of $60^\circ$ anticlockwise about the origin is followed by a one-way stretch in the $x$-direction with scale factor $d$, where $d\ne0$.
+
+**(a)** Find the matrix $M$ of the combined transformation. **[4]**
+
+**(b)** The unit square is mapped by $M$ onto a parallelogram of area $\frac12d^2$. Show that $d=2$. **[2]**
+
+Let $N$ satisfy
+
+$$
+MN=\begin{pmatrix}1&1\\[2pt]\frac12&\frac12\end{pmatrix}.
+$$
+
+**(c)** Find $N$. **[3]**
+
+**(d)** Find the invariant lines through the origin of the transformation represented by $MN$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$$
+M=\begin{pmatrix}d&0\\0&1\end{pmatrix}
+\begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}
+=\begin{pmatrix}\frac d2&-\frac{d\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}.
+$$
+
+Since $|\det M|=d$, $d=\frac12d^2$ and $d\ne0$, so $\boxed{d=2}$. Then
+
+$$
+\boxed{N=\frac14\begin{pmatrix}1+\sqrt3&1+\sqrt3\\1-\sqrt3&1-\sqrt3\end{pmatrix}}.
+$$
+
+For $MN=\begin{pmatrix}1&1\\1/2&1/2\end{pmatrix}$, the condition $Y=mX$ gives $2m^2+m-1=0$. Thus
+
+$$
+\boxed{y=\frac12x\quad\text{or}\quad y=-x}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-mj-11-12"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/M/J/2021, Q4; 9231/12/M/J/2021, Q4.</div>
+:::
+
+::: {.question-card #matrices-2021-mj-13}
+### 2021 May/June · 9231/13 · Question 4 · 11 marks
+
+Let
+
+$$
+A=\begin{pmatrix}2&k&k\\5&-1&3\\1&0&1\end{pmatrix},\quad
+B=\begin{pmatrix}1&0\\0&1\\1&0\end{pmatrix},\quad
+C=\begin{pmatrix}0&1&1\\-1&2&0\end{pmatrix}.
+$$
+
+**(a)** Find $CAB$. **[3]**
+
+**(b)** Given that $A$ is singular, find $k$. **[3]**
+
+**(c)** Using this value of $k$, find the invariant lines through the origin of the transformation represented by $CAB$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$$
+CAB=\boxed{\begin{pmatrix}10&-1\\14-k&-k-2\end{pmatrix}}.
+$$
+
+Setting $\det A=0$ gives $k=\boxed{-2}$, and hence $CAB=\begin{pmatrix}10&-1\\16&0\end{pmatrix}$. For $y=mx$,
+
+$$
+16=m(10-m),
+$$
+
+so $m^2-10m+16=0$. Therefore $\boxed{y=2x}$ or $\boxed{y=8x}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-mj-13"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/13/M/J/2021, Q4.</div>
+:::
+
+::: {.question-card #matrices-2021-on-11-13}
+### 2021 October/November · 9231/11 & 9231/13 · Question 4 · 11 marks
+
+Let
+
+$$
+M=\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}
+\begin{pmatrix}3&0\\0&1\end{pmatrix}.
+$$
+
+**(a)** State the two transformations represented by $M$, in the correct order. **[2]**
+
+**(b)** For $0\le\theta\le\pi$, find the values of $\theta$ for which the transformation has exactly one invariant line through the origin. **[9]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+First apply a one-way stretch parallel to the $x$-axis with scale factor $3$, then rotate anticlockwise through $\theta$ about the origin.
+
+$$
+M=\begin{pmatrix}3\cos\theta&-\sin\theta\\3\sin\theta&\cos\theta\end{pmatrix}.
+$$
+
+For $y=mx$, $Y=mX$ reduces to
+
+$$
+m^2\sin\theta-2m\cos\theta+3\sin\theta=0.
+$$
+
+Exactly one invariant line requires a repeated root, so
+
+$$
+4\cos^2\theta-12\sin^2\theta=0.
+$$
+
+In the stated interval, $\boxed{\theta=\frac\pi6\text{ or }\frac{5\pi}6}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-on-11-13"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/O/N/2021, Q4; 9231/13/O/N/2021, Q4.</div>
+:::
+
+::: {.question-card #matrices-2021-on-12}
+### 2021 October/November · 9231/12 · Question 1 · 9 marks
+
+**(a)** Describe the transformation represented by $\begin{pmatrix}6&0\\0&6\end{pmatrix}$. **[1]**
+
+Let $A=\begin{pmatrix}3&4\\2&2\end{pmatrix}$.
+
+**(b)** A triangle of area $13\text{ cm}^2$ is transformed by $A$. Find the area of its image. **[2]**
+
+**(c)** Find $B$ such that $AB=\begin{pmatrix}6&0\\0&6\end{pmatrix}$. **[2]**
+
+**(d)** Show that the origin is the only invariant point of the transformation represented by $A$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Part (a) is an enlargement, centre the origin, scale factor $6$. Since $\det A=-2$, the image area is $2(13)=\boxed{26\text{ cm}^2}$.
+
+$$
+\boxed{B=6A^{-1}=\begin{pmatrix}-6&12\\6&-9\end{pmatrix}}.
+$$
+
+An invariant point $(x,y)$ satisfies $3x+4y=x$ and $2x+2y=y$. These reduce to $2x+4y=0$ and $2x+y=0$, whose only solution is $\boxed{(0,0)}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-on-12"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/12/O/N/2021, Q1.</div>
+:::
+
+### 2022
+
+::: {.question-card #matrices-2022-mj-11-12}
+### 2022 May/June · 9231/11 & 9231/12 · Question 7 · 17 marks
+
+Let
+
+$$
+A=\begin{pmatrix}1&2&3\\4&k&6\\7&8&9\end{pmatrix}.
+$$
+
+**(a)** Find the set of values of $k$ for which $A$ is non-singular. **[3]**
+
+**(b)** Given that $A$ is non-singular, find the entries in the top row of $A^{-1}$. **[4]**
+
+Let $B=\begin{pmatrix}1&0&0\\0&1&0\end{pmatrix}$.
+
+**(c)** Give an example of a matrix $C$ such that
+
+$$
+BAC=\begin{pmatrix}2&1\\k&4\end{pmatrix}.
+$$
+
+**[4]**
+
+**(d)** Find the set of values of $k$ for which the transformation represented by $\begin{pmatrix}2&1\\k&4\end{pmatrix}$ has two distinct invariant lines through the origin. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$$
+\det A=60-12k,
+$$
+
+so $\boxed{k\ne5}$. Cofactors give the top row
+
+$$
+\boxed{\left(\frac{3k-16}{4(5-k)},\ \frac1{2(5-k)},\ \frac{4-k}{4(5-k)}\right)}.
+$$
+
+One valid choice is
+
+$$
+\boxed{C=\begin{pmatrix}0&1\\1&0\\0&0\end{pmatrix}}.
+$$
+
+For the final matrix, $y=mx$ gives
+
+$$
+m^2-2m-k=0.
+$$
+
+Two distinct invariant lines require discriminant $4+4k>0$; the represented transformation must also be non-singular, so $8-k\ne0$. Therefore
+
+$$
+\boxed{k>-1,\qquad k\ne8}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2022-mj-11-12"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/M/J/2022, Q7; 9231/12/M/J/2022, Q7.</div>
+:::
+
+::: {.question-card #matrices-2022-mj-13}
+### 2022 May/June · 9231/13 · Question 5 · 12 marks
+
+Let
+
+$$
+A=\begin{pmatrix}1&a\\0&1\end{pmatrix},
+$$
+
+where $a>0$.
+
+**(a)** State the type of transformation represented by $A$. **[1]**
+
+**(b)** Prove by induction that
+
+$$
+A^n=\begin{pmatrix}1&na\\0&1\end{pmatrix}
+$$
+
+for every positive integer $n$. **[5]**
+
+Let
+
+$$
+B=\begin{pmatrix}b&b\\1/a&1/a\end{pmatrix},
+$$
+
+where $b>0$.
+
+**(c)** Find the invariant lines through the origin of the transformation represented by $A^nB$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$A$ represents a shear in the $x$-direction, with the $x$-axis fixed. The formula is true for $n=1$. Assuming it for $n=k$,
+
+$$
+A^{k+1}=\begin{pmatrix}1&ka\\0&1\end{pmatrix}
+\begin{pmatrix}1&a\\0&1\end{pmatrix}
+=\begin{pmatrix}1&(k+1)a\\0&1\end{pmatrix},
+$$
+
+which completes the induction. Also
+
+$$
+A^nB=\begin{pmatrix}b+n&b+n\\1/a&1/a\end{pmatrix}.
+$$
+
+Using $y=mx$ and $Y=mX$ gives $(1+m)\{1/a-m(b+n)\}=0$. Hence
+
+$$
+\boxed{y=-x\quad\text{or}\quad y=\frac{x}{a(b+n)}}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2022-mj-13"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/13/M/J/2022, Q5.</div>
+:::
+
+### 2023
+
+::: {.question-card #matrices-2023-on-11-13}
+### 2023 October/November · 9231/11 & 9231/13 · Question 5 · 15 marks
+
+Let
+
+$$
+A=\begin{pmatrix}1&k&3\\2&1&3\\3&2&5\end{pmatrix},\quad
+B=\begin{pmatrix}0&-2\\-1&3\\0&0\end{pmatrix},\quad
+C=\begin{pmatrix}-2&-1&1\\1&1&3\end{pmatrix}.
+$$
+
+It is given that $A$ is singular.
+
+**(a)** Show that $CAB=\begin{pmatrix}3&-7\\-9&3\end{pmatrix}$. **[5]**
+
+**(b)** Find the invariant lines through the origin of the transformation represented by $CAB$. **[5]**
+
+Matrices $D,E,F$ represent, respectively, an enlargement centred at the origin, a stretch parallel to the $x$-axis, and reflection in $y=x$.
+
+**(c)** Given that $CAB=D-9EF$, find $D,E,F$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$\det A=0$ gives $k=2$; direct multiplication then gives the stated $CAB$. For $y=mx$,
+
+$$
+-9+3m=m(3-7m),
+$$
+
+so $7m^2=9$ and
+
+$$
+\boxed{y=\frac3{\sqrt7}x\quad\text{or}\quad y=-\frac3{\sqrt7}x}.
+$$
+
+Writing $D=\alpha I$, $E=\begin{pmatrix}\beta&0\\0&1\end{pmatrix}$ and $F=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ and comparing entries gives
+
+$$
+\boxed{D=\begin{pmatrix}3&0\\0&3\end{pmatrix},\quad
+E=\begin{pmatrix}7/9&0\\0&1\end{pmatrix},\quad
+F=\begin{pmatrix}0&1\\1&0\end{pmatrix}}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2023-on-11-13"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/O/N/2023, Q5; 9231/13/O/N/2023, Q5.</div>
+:::
+
+::: {.question-card #matrices-2023-on-12}
+### 2023 October/November · 9231/12 · Question 3 · 8 marks
+
+Let
+
+$$
+M=\begin{pmatrix}k&0\\0&1\end{pmatrix}
+\begin{pmatrix}1&0\\1&1\end{pmatrix},
+$$
+
+where $k\ne0,1$.
+
+**(a)** State the two transformations represented by $M$, in the correct order. **[2]**
+
+The unit square is transformed by $M$ onto parallelogram $OPQR$.
+
+**(b)** Find its area and the matrix mapping $OPQR$ back onto the unit square. **[3]**
+
+**(c)** Show that the line through the origin with gradient $1/(k-1)$ is invariant. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+First apply a shear in the $y$-direction with the $y$-axis fixed, then a one-way stretch parallel to the $x$-axis with scale factor $k$. Since
+
+$$
+M=\begin{pmatrix}k&0\\1&1\end{pmatrix},
+$$
+
+the parallelogram has area $\boxed{|k|}$ square units (the official scheme writes $k$, under its geometric scale-factor convention), and
+
+$$
+\boxed{M^{-1}=\frac1k\begin{pmatrix}1&0\\-1&k\end{pmatrix}}.
+$$
+
+For $\mathbf v=\binom{1}{1/(k-1)}$,
+
+$$
+M\mathbf v=\binom{k}{k/(k-1)}=k\mathbf v,
+$$
+
+which proves invariance.
+
+{{< include figures/matrices/past-2023-on-12.svg >}}
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2023-on-12"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/12/O/N/2023, Q3.</div>
+:::
+
+### 2024
+
+::: {.question-card #matrices-2024-mj-11-12}
+### 2024 May/June · 9231/11 & 9231/12 · Question 4 · 13 marks
+
+Let
+
+$$
+M=\begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}
+\begin{pmatrix}14&0\\0&1\end{pmatrix}.
+$$
+
+**(a)** Give full details of the two transformations represented by $M$, in the correct order. **[4]**
+
+**(b)** Write $M^{-1}$ as the product of two matrices, neither equal to $I$. **[2]**
+
+**(c)** Find the invariant lines through the origin of the transformation represented by $M$. **[5]**
+
+Triangle $ABC$ is transformed by $M$ onto triangle $DEF$ of area $28\text{ cm}^2$.
+
+**(d)** Find the area of triangle $ABC$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+First apply a one-way stretch parallel to the $x$-axis with scale factor $14$, then rotate anticlockwise through $\pi/3$ about the origin. Reversing the order and inverting each factor gives
+
+$$
+\boxed{M^{-1}=\begin{pmatrix}1/14&0\\0&1\end{pmatrix}
+\begin{pmatrix}\frac12&\frac{\sqrt3}{2}\\[2pt]-\frac{\sqrt3}{2}&\frac12\end{pmatrix}}.
+$$
+
+Since
+
+$$
+M=\begin{pmatrix}7&-\frac{\sqrt3}{2}\\[2pt]7\sqrt3&\frac12\end{pmatrix},
+$$
+
+putting $y=mx$ gives $2\sqrt3m^2-13m+14\sqrt3=0$. Hence
+
+$$
+\boxed{y=2\sqrt3x\quad\text{or}\quad y=\frac{7\sqrt3}{3}x}.
+$$
+
+Finally $|\det M|=14$, so the original area is $28/14=\boxed{2\text{ cm}^2}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-11-12"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/M/J/2024, Q4; 9231/12/M/J/2024, Q4.</div>
+:::
+
+::: {.question-card #matrices-2024-mj-13-q1}
+### 2024 May/June · 9231/13 · Question 1 · 5 marks
+
+Let
+
+$$
+A=\begin{pmatrix}k&1&0\\6&5&2\\-1&3&-k\end{pmatrix},
+$$
+
+where $k$ is real.
+
+**(a)** Show that $A$ is non-singular. **[3]**
+
+**(b)** Given that
+
+$$
+A^{-1}=\begin{pmatrix}3&0&-1\\1&0&0\\-\frac{23}{2}&\frac12&3\end{pmatrix},
+$$
+
+find $k$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Expansion gives
+
+$$
+\det A=-5k^2-2,
+$$
+
+which is negative for every real $k$ and hence never zero. From $AA^{-1}=I$ (for example, comparing the first entry) one obtains $3k+1=1$, so $\boxed{k=0}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-13-q1"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/13/M/J/2024, Q1.</div>
+:::
+
+::: {.question-card #matrices-2024-mj-13-q3}
+### 2024 May/June · 9231/13 · Question 3 · 11 marks
+
+Let
+
+$$
+M=\begin{pmatrix}1&2\\0&1\end{pmatrix}
+\begin{pmatrix}7&0\\0&1\end{pmatrix}.
+$$
+
+**(a)** Give full details of the two transformations represented by $M$, in the correct order. **[4]**
+
+**(b)** Find the invariant lines through the origin of the transformation represented by $M$. **[5]**
+
+Triangle $DEF$ is transformed by $M$ onto triangle $PQR$ of area $35\text{ cm}^2$.
+
+**(c)** Find the area of triangle $DEF$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+First apply a one-way stretch parallel to the $x$-axis with scale factor $7$, then a shear with the $x$-axis fixed and $(0,1)$ mapped to $(2,1)$. Thus
+
+$$
+M=\begin{pmatrix}7&2\\0&1\end{pmatrix}.
+$$
+
+For $y=mx$, $Y=mX$ gives $2m^2+6m=0$, so
+
+$$
+\boxed{y=0\quad\text{or}\quad y=-3x}.
+$$
+
+The area factor is $7$, hence the original area is $35/7=\boxed{5\text{ cm}^2}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-13-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/13/M/J/2024, Q3.</div>
+:::
+
+::: {.question-card #matrices-2024-on-11-13}
+### 2024 October/November · 9231/11 & 9231/13 · Question 1 · 10 marks
+
+A stretch parallel to the $x$-axis with scale factor $k\ne0$ is followed by a shear with the $x$-axis fixed and $(0,1)$ mapped to $(k,1)$.
+
+**(a)** Show that the combined matrix is $M=\begin{pmatrix}k&k\\0&1\end{pmatrix}$. **[4]**
+
+**(b)** The transformation has a line of invariant points. Find its equation. **[3]**
+
+The unit square $S$ is transformed by $M$ onto parallelogram $P$.
+
+**(c)** Find a matrix mapping $P$ back onto $S$. **[1]**
+
+**(d)** Given that the area of $P$ is $3k^2$, find the possible values of $k$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The product in the stated order is
+
+$$
+\begin{pmatrix}1&k\\0&1\end{pmatrix}
+\begin{pmatrix}k&0\\0&1\end{pmatrix}
+=\begin{pmatrix}k&k\\0&1\end{pmatrix}.
+$$
+
+Solving $M\binom xy=\binom xy$ gives
+
+$$
+\boxed{y=\frac{1-k}{k}x}.
+$$
+
+The reverse matrix is
+
+$$
+\boxed{M^{-1}=\frac1k\begin{pmatrix}1&-k\\0&k\end{pmatrix}}.
+$$
+
+Since the area of $P$ is $|\det M|=|k|$, the condition $|k|=3k^2$ gives $\boxed{k=\pm\frac13}$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-on-11-13"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/O/N/2024, Q1; 9231/13/O/N/2024, Q1.</div>
+:::
+
+::: {.question-card #matrices-2024-on-12}
+### 2024 October/November · 9231/12 · Question 4 · 13 marks
+
+Let
+
+$$
+A=\begin{pmatrix}1&2&3\\2&1&3\\3&2&5\end{pmatrix},\quad
+B=\begin{pmatrix}0&-2\\-1&3\\0&0\end{pmatrix},\quad
+C=\begin{pmatrix}-2&-1&1\\1&1&3\end{pmatrix}.
+$$
+
+**(a)** Show that $CAB=\begin{pmatrix}3&-7\\-9&3\end{pmatrix}$. **[3]**
+
+**(b)** Find the invariant lines through the origin of the transformation represented by $CAB$. **[5]**
+
+Let $M=\begin{pmatrix}3&0\\0&1\end{pmatrix}$.
+
+**(c)** Describe the transformation represented by $M$. **[2]**
+
+**(d)** Find $N$ such that $NM=CAB$. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Direct multiplication gives the stated product. For $y=mx$, the invariance equation gives $7m^2=9$, so
+
+$$
+\boxed{y=\frac3{\sqrt7}x\quad\text{or}\quad y=-\frac3{\sqrt7}x}.
+$$
+
+$M$ is a one-way stretch parallel to the $x$-axis with scale factor $3$. Since $N=(CAB)M^{-1}$,
+
+$$
+\boxed{N=\begin{pmatrix}1&-7\\-3&3\end{pmatrix}}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-on-12"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/12/O/N/2024, Q4.</div>
+:::
+
+### 2025
+
+::: {.question-card #matrices-2025-mj-11-12}
+### 2025 May/June · 9231/11 & 9231/12 · Question 4 · 9 marks
+
+Let
+
+$$
+M=\begin{pmatrix}1&2\\0&1\end{pmatrix}
+\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix},
+\qquad 0<\theta<2\pi.
+$$
+
+**(a)** State the two transformations represented by $M$, in the correct order. **[2]**
+
+**(b)** Find the value of $\theta$ for which the transformation has a line of invariant points. **[7]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+First rotate anticlockwise through $\theta$ about the origin, then apply a shear with the $x$-axis fixed and $(0,1)$ mapped to $(2,1)$. Multiplying gives
+
+$$
+M=\begin{pmatrix}\cos\theta+2\sin\theta&2\cos\theta-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}.
+$$
+
+Solving $M\binom xy=\binom xy$ for a non-zero point leads to
+
+$$
+\sin\theta+\cos\theta=1.
+$$
+
+Within the stated interval the required non-identity case is
+
+$$
+\boxed{\theta=\frac\pi2}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-mj-11-12"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/M/J/2025, Q4; 9231/12/M/J/2025, Q4.</div>
+:::
+
+::: {.question-card #matrices-2025-mj-13}
+### 2025 May/June · 9231/13 · Question 1 · 11 marks
+
+A one-way stretch parallel to the $x$-axis with scale factor $14$ is followed by a rotation anticlockwise about the origin through $\pi/3$. Let the combined matrix be $M$.
+
+**(a)** Show that
+
+$$
+2M=\begin{pmatrix}14&-\sqrt3\\14\sqrt3&1\end{pmatrix}.
+$$
+
+**[4]**
+
+**(b)** Find the invariant lines through the origin of the transformation represented by $M$. **[5]**
+
+**(c)** Find $M^{-1}$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$$
+M=\begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}
+\begin{pmatrix}14&0\\0&1\end{pmatrix}
+=\begin{pmatrix}7&-\frac{\sqrt3}{2}\\[2pt]7\sqrt3&\frac12\end{pmatrix},
+$$
+
+which proves the given result. The condition $Y=mX$ gives
+
+$$
+\sqrt3m^2-13m+14\sqrt3=0,
+$$
+
+so
+
+$$
+\boxed{y=2\sqrt3x\quad\text{or}\quad y=\frac7{\sqrt3}x}.
+$$
+
+Finally,
+
+$$
+\boxed{M^{-1}=\frac12\begin{pmatrix}1/14&\sqrt3/14\\-\sqrt3&1\end{pmatrix}}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-mj-13"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/13/M/J/2025, Q1.</div>
+:::
+
+::: {.question-card #matrices-2025-mj-14}
+### 2025 May/June · 9231/14 · Question 5 · 14 marks
+
+A one-way stretch in the $x$-direction with scale factor $3$ is followed by reflection in $y=x$.
+
+**(a)** Find the combined matrix $M$. **[3]**
+
+**(b)** Give full details of the transformation represented by $M^{-1}$. **[3]**
+
+Let $N$ satisfy $MN=\begin{pmatrix}1&2\\3&2\end{pmatrix}$.
+
+**(c)** Find $N$. **[3]**
+
+**(d)** Find the invariant lines through the origin of the transformation represented by $MN$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$$
+\boxed{M=\begin{pmatrix}0&1\\3&0\end{pmatrix}}.
+$$
+
+$M^{-1}$ represents reflection in $y=x$ followed by a one-way stretch in the $x$-direction with scale factor $1/3$. Also
+
+$$
+\boxed{N=M^{-1}\begin{pmatrix}1&2\\3&2\end{pmatrix}
+=\begin{pmatrix}1&2/3\\1&2\end{pmatrix}}.
+$$
+
+For $MN=\begin{pmatrix}1&2\\3&2\end{pmatrix}$, $Y=mX$ gives $2m^2-m-3=0$. Therefore
+
+$$
+\boxed{y=\frac32x\quad\text{or}\quad y=-x}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-mj-14"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/14/M/J/2025, Q5.</div>
+:::
+
+::: {.question-card #matrices-2025-on-11-13}
+### 2025 October/November · 9231/11 & 9231/13 · Question 2 · 11 marks
+
+Let
+
+$$
+A=\begin{pmatrix}1&\frac32\\0&1\end{pmatrix},\qquad
+B=\begin{pmatrix}1&0\\\frac32&1\end{pmatrix}.
+$$
+
+**(a)** Describe the transformation represented by $A$. **[2]**
+
+**(b)** Describe the transformation represented by $B$. **[2]**
+
+Triangle $DEF$ is transformed by $AB$ onto triangle $PQR$.
+
+**(c)** Show that the two triangles have the same area. **[2]**
+
+**(d)** Find the invariant lines through the origin of the transformation represented by $AB$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$A$ is a shear with the $x$-axis fixed and $(0,1)$ mapped to $(3/2,1)$. $B$ is a shear with the $y$-axis fixed and $(1,0)$ mapped to $(1,3/2)$. Now
+
+$$
+AB=\begin{pmatrix}13/4&3/2\\3/2&1\end{pmatrix},\qquad \det(AB)=1,
+$$
+
+so areas are unchanged. For $y=mx$, $Y=mX$ gives $m^2+\frac32m-1=0$, hence
+
+$$
+\boxed{y=-2x\quad\text{or}\quad y=\frac12x}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-on-11-13"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/11/O/N/2025, Q2; 9231/13/O/N/2025, Q2.</div>
+:::
+
+::: {.question-card #matrices-2025-on-12}
+### 2025 October/November · 9231/12 · Question 4 · 10 marks
+
+Let $k,m$ be non-zero constants and
+
+$$
+A=\begin{pmatrix}0&1\\-1&1\\1&1\end{pmatrix},\quad
+B=\begin{pmatrix}k&0\\0&m\end{pmatrix},\quad
+C=\begin{pmatrix}2&-1&1\\1&1&2\end{pmatrix}.
+$$
+
+**(a)** Describe the transformation represented by $B$ when **(i)** $m=1$, and **(ii)** $m=k$. **[4]**
+
+**(b)** Show that $ABC$ is singular. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+When $m=1$, $B$ is a one-way stretch parallel to the $x$-axis with scale factor $k$. When $m=k$, $B=kI$ is an enlargement centred at the origin with scale factor $k$.
+
+Multiplication gives
+
+$$
+ABC=\begin{pmatrix}
+m&m&2m\\
+-2k+m&k+m&-k+2m\\
+2k+m&-k+m&k+2m
+\end{pmatrix}.
+$$
+
+Expanding its determinant and collecting terms gives
+
+$$
+m(k+m)(k+2m)-m(-k+m)(-k+2m)-m(-2k+m)(k+2m)
+$$
+
+$$
+{}+m(2k+m)(-k+2m)+2m(-2k+m)(-k+m)-2m(2k+m)(k+m)=0.
+$$
+
+Hence $\det(ABC)=0$ and $ABC$ is singular.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-on-12"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/12/O/N/2025, Q4.</div>
+:::
+
+::: {.question-card #matrices-2025-on-14}
+### 2025 October/November · 9231/14 · Question 5 · 14 marks
+
+**(a)** Show that
+
+$$
+\cos\frac\pi{12}=\frac{\sqrt6+\sqrt2}{4},\qquad
+\sin\frac\pi{12}=\frac{\sqrt6-\sqrt2}{4}.
+$$
+
+**[2]**
+
+Let
+
+$$
+M=\begin{pmatrix}\cos(\pi/12)&\sin(\pi/12)\\\sin(\pi/12)&-\cos(\pi/12)\end{pmatrix}.
+$$
+
+**(b)** Give full details of the two transformations represented by $M$, in the correct order. **[4]**
+
+**(c)** Write $M^{-1}$ as the product of two matrices, neither equal to $I$. **[2]**
+
+**(d)** Given that $y=mx$ is invariant, show that
+
+$$
+m^2\sin\frac\pi{12}+2m\cos\frac\pi{12}-\sin\frac\pi{12}=0,
+$$
+
+and find $m$ in the requested cotangent/cosecant form. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Use the angle difference $\pi/12=\pi/4-\pi/6$ to prove the exact values. The matrix factorises as
+
+$$
+M=\begin{pmatrix}\cos(\pi/12)&-\sin(\pi/12)\\\sin(\pi/12)&\cos(\pi/12)\end{pmatrix}
+\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+$$
+
+Thus reflect first in the $x$-axis, then rotate anticlockwise through $\pi/12$ about the origin. Reversing the order gives
+
+$$
+\boxed{M^{-1}=\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+\begin{pmatrix}\cos(\pi/12)&\sin(\pi/12)\\-\sin(\pi/12)&\cos(\pi/12)\end{pmatrix}}.
+$$
+
+Applying $Y=mX$ produces the stated quadratic. The quadratic formula and $\sin^2\theta+\cos^2\theta=1$ give
+
+$$
+\boxed{m=-\cot\frac\pi{12}\pm\cosec\frac\pi{12}}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-on-14"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/14/O/N/2025, Q5.</div>
+:::

@@ -1,0 +1,467 @@
+::: {.study-card}
+### Example 1.1 · Page 8
+
+Find
+
+$$
+\begin{pmatrix}10&3\\-2&7\end{pmatrix}
+\begin{pmatrix}5\\2\end{pmatrix}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Taking each row against the column gives
+
+$$
+\boxed{\begin{pmatrix}56\\4\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.2 · Page 9
+
+Find
+
+$$
+\begin{pmatrix}1&3\\-2&5\end{pmatrix}
+\begin{pmatrix}4&3&0\\-2&-3&1\end{pmatrix}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The product has order $2\times3$:
+
+$$
+\boxed{\begin{pmatrix}-2&-6&3\\-18&-21&5\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.3 · Page 9
+
+Multiply
+
+$$
+\begin{pmatrix}3&2\\-1&4\end{pmatrix}
+\begin{pmatrix}1&0\\0&1\end{pmatrix}
+$$
+
+and state what you notice.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+\boxed{\begin{pmatrix}3&2\\-1&4\end{pmatrix}}.
+$$
+
+Multiplication by the identity matrix has no effect.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.4 · Page 16
+
+Describe the transformations represented by
+
+$$
+\begin{pmatrix}0&1\\1&0\end{pmatrix},
+\qquad
+\begin{pmatrix}2&0\\0&2\end{pmatrix}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The first matrix interchanges the coordinates, so it is reflection in $y=x$. The second multiplies both coordinates by $2$, so it is an enlargement of scale factor $2$ about the origin.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.5 · Pages 16–18
+
+Find the matrices representing:
+
+1. reflection in the $x$-axis;
+2. enlargement of scale factor $3$ about the origin.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Use the images of $\binom10$ and $\binom01$ as the columns:
+
+$$
+\boxed{\begin{pmatrix}1&0\\0&-1\end{pmatrix}},
+\qquad
+\boxed{\begin{pmatrix}3&0\\0&3\end{pmatrix}}.
+$$
+
+{{< include figures/matrices/example-1-5.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.6 · Pages 19–20
+
+**(i)** Find the matrix for anticlockwise rotation through $\theta$ about the origin.
+
+**(ii)** Hence give the matrix for an anticlockwise rotation through $60^\circ$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+\boxed{R_\theta=
+\begin{pmatrix}\cos\theta&-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}}.
+$$
+
+Thus
+
+$$
+\boxed{R_{60^\circ}=
+\begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.7 · Pages 21–22
+
+The rectangle has vertices $A(-1,2)$, $B(1,2)$, $C(1,-1)$ and $D(-1,-1)$. Find its image under
+
+$$
+\begin{pmatrix}1&3\\0&1\end{pmatrix}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Multiplying the coordinate matrix gives
+
+$$
+\begin{pmatrix}1&3\\0&1\end{pmatrix}
+\begin{pmatrix}-1&1&1&-1\\2&2&-1&-1\end{pmatrix}
+=\begin{pmatrix}5&7&-2&-4\\2&2&-1&-1\end{pmatrix}.
+$$
+
+Hence
+
+$$
+\boxed{A'(5,2),\ B'(7,2),\ C'(-2,-1),\ D'(-4,-1)}.
+$$
+
+{{< include figures/matrices/example-1-7.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.8 · Pages 23–24
+
+In a shear $S$, the $y$-axis is fixed and $(1,0)$ maps to $(1,5)$. Find the matrix of $S$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The images of the basis vectors are $\binom15$ and $\binom01$, so
+
+$$
+\boxed{S=\begin{pmatrix}1&0\\5&1\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-8"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.9 · Pages 29–30
+
+Let $A,B,C$ represent anticlockwise rotations through $135^\circ$, $45^\circ$, $90^\circ$, respectively.
+
+1. Write down the matrices.
+2. Verify $A=BC$.
+3. Calculate $B^3$ and comment.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using $R_\theta$ gives the three matrices. Since successive anticlockwise rotations add their angles,
+
+$$
+\boxed{BC=R_{45^\circ}R_{90^\circ}=R_{135^\circ}=A},
+$$
+
+and similarly
+
+$$
+\boxed{B^3=R_{135^\circ}=A}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-9"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.10 · Page 33
+
+Let
+
+$$
+M=\begin{pmatrix}2&-1\\1&0\end{pmatrix}.
+$$
+
+**(i)** Show that $(5,5)$ is invariant. **(ii)** Find all invariant points.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Direct multiplication maps $\binom55$ to itself. In general,
+
+$$
+M\binom{x}{y}=\binom{x}{y}
+$$
+
+gives $2x-y=x$ and $x=y$. Hence every invariant point lies on
+
+$$
+\boxed{y=x}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-10"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 1.11 · Pages 34–35
+
+Find the invariant lines of
+
+$$
+M=\begin{pmatrix}5&1\\2&4\end{pmatrix}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Put $y=mx+c$ and require the image point to satisfy the same equation. Comparing coefficients gives
+
+$$
+m^2+m-2=0,
+\qquad
+(m-3)c=0.
+$$
+
+Therefore $c=0$ and
+
+$$
+\boxed{y=x\quad\text{or}\quad y=-2x}.
+$$
+
+{{< include figures/matrices/example-1-11.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-11"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6.1 · Page 137
+
+A shape of area $8\text{ cm}^2$ is transformed by
+
+$$
+M=\begin{pmatrix}1&-2\\3&0\end{pmatrix}.
+$$
+
+Find the image area.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$\det M=6$, so the area scale factor is $6$. The image area is
+
+$$
+\boxed{48\text{ cm}^2}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6.2 · Pages 137–138
+
+The unit square is transformed by
+
+$$
+M=\begin{pmatrix}2&3\\4&1\end{pmatrix}.
+$$
+
+Find its image vertices, $\det M$, and the image area.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The four vertices map to $(0,0),(2,4),(5,5),(3,1)$. Also
+
+$$
+\det M=2-12=-10.
+$$
+
+Hence the image area is $\boxed{10}$ square units.
+
+{{< include figures/matrices/example-6-2.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6.3 · Page 138
+
+Given
+
+$$
+P=\begin{pmatrix}2&1\\0&1\end{pmatrix},
+\qquad
+Q=\begin{pmatrix}2&1\\1&2\end{pmatrix},
+$$
+
+find $\det P$, $\det Q$, and $\det(PQ)$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+\det P=2,\qquad \det Q=3,
+$$
+
+and
+
+$$
+PQ=\begin{pmatrix}5&4\\1&2\end{pmatrix},
+\qquad
+\det(PQ)=6.
+$$
+
+Thus $\boxed{\det(PQ)=\det P\det Q}$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6.4 · Page 142
+
+Write down matrices $A,B$ for rotations through $90^\circ$ anticlockwise and clockwise, and find $AB$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+A=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\qquad
+B=\begin{pmatrix}0&1\\-1&0\end{pmatrix}.
+$$
+
+Then
+
+$$
+\boxed{AB=I},
+$$
+
+so the two matrices represent inverse transformations.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6.5 · Page 144
+
+Let
+
+$$
+A=\begin{pmatrix}11&3\\6&2\end{pmatrix}.
+$$
+
+**(i)** Find $A^{-1}$. **(ii)** If $A$ maps $P$ to $Q(5,2)$, find $P$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Since $\det A=4$,
+
+$$
+\boxed{A^{-1}=\frac14\begin{pmatrix}2&-3\\-6&11\end{pmatrix}}.
+$$
+
+Then
+
+$$
+A^{-1}\binom52=\binom1{-2},
+$$
+
+so $\boxed{P=(1,-2)}$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6.6 · Page 148
+
+Find the determinant of
+
+$$
+M=\begin{pmatrix}3&0&-4\\7&2&-1\\-2&1&3\end{pmatrix}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Expanding along the top row,
+
+$$
+\det M
+=3\begin{vmatrix}2&-1\\1&3\end{vmatrix}
+-4\begin{vmatrix}7&2\\-2&1\end{vmatrix}
+=21-44.
+$$
+
+Therefore $\boxed{\det M=-23}$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6.7 · Pages 150–151
+
+Find the inverse of
+
+$$
+M=\begin{pmatrix}2&3&4\\2&-5&2\\-3&6&-3\end{pmatrix}
+$$
+
+without a calculator.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The determinant is $-6$. The cofactor matrix is
+
+$$
+\begin{pmatrix}3&0&-3\\33&6&-21\\26&4&-16\end{pmatrix}.
+$$
+
+Transpose and divide by $-6$:
+
+$$
+\boxed{M^{-1}=\frac16
+\begin{pmatrix}-3&-33&-26\\0&-6&-4\\3&21&16\end{pmatrix}}.
+$$
+
+Multiplication verifies $MM^{-1}=I$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-7"> Completed</label>
+:::
