@@ -1,0 +1,617 @@
+---
+title: "1.2 Rational functions and graphs"
+subtitle: "有理函数 · 渐近线 · 值域 · 图像变换"
+description: "CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 4。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 作出分子、分母次数均不超过 2 的简单有理函数图像；
+2. 求水平、竖直及斜渐近线；
+3. 求函数的值域，包括使用判别式的方法；
+4. 在草图中表示转折点、渐近线以及与坐标轴的交点；
+5. 使用 $y=f(x)$ 与 $y=|f(x)|$、$y=f(|x|)$、$y=1/f(x)$、$y^2=f(x)$ 之间的关系；
+6. 使用图像解方程和不等式。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能由分母的零点判断竖直渐近线，并检查函数是否在该点真正无定义
+- [ ] 能比较分子与分母的次数，求水平或斜渐近线
+- [ ] 能求坐标轴交点与驻点，并据此完成有理函数草图
+- [ ] 能用判别式求值域或证明某一段 $y$ 值无法取得
+- [ ] 能准确作出 $|f(x)|$、$f(|x|)$、$1/f(x)$ 与 $y^2=f(x)$
+- [ ] 能从图像读出方程根的个数及不等式的解集
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Rational functions
+
+有理函数写成
+
+$$
+y=\frac{f(x)}{g(x)},
+$$
+
+其中 $f(x)$ 与 $g(x)$ 是多项式，且 $g(x)\ne0$。本章只讨论分子与分母次数不超过 2 的情形。
+
+### 1.2 Intercepts and asymptotes
+
+作图时依次确定以下信息。
+
+1. **与坐标轴的交点**：令 $x=0$ 求 $y$ 轴交点；令分子等于零求 $x$ 轴交点。
+2. **竖直渐近线**：函数在 $g(x)=0$ 处无定义时，检查该点两侧的符号与趋向。
+3. **水平渐近线**：比较 $x\to\pm\infty$ 时分子与分母的最高次项。
+4. **斜渐近线**：当分子的次数比分母高 1 时，作多项式除法，将函数写成
+
+$$
+y=ax+b+\frac{r}{g(x)}.
+$$
+
+当 $x\to\pm\infty$ 时，余项趋于零，所以斜渐近线为 $y=ax+b$。
+
+### 1.3 A five-step sketching method
+
+教材使用以下五步作图法：
+
+1. 求图像与坐标轴的交点；
+2. 求竖直渐近线，并判断曲线在渐近线两侧趋向 $+\infty$ 还是 $-\infty$；
+3. 求水平或斜渐近线，并判断曲线从哪一侧接近；
+4. 求驻点；
+5. 综合所有信息完成草图。
+
+### 1.4 Range by the discriminant method
+
+把有理函数方程重新整理为关于 $x$ 的二次方程。对于给定的 $y$，图像上存在实点的条件是
+
+$$
+\Delta\ge0.
+$$
+
+因此，令 $\Delta<0$ 可以找出函数不能取得的 $y$ 值；再结合渐近线是否能够取到端点，即可写出值域。
+
+### 1.5 Symmetry
+
+- 若 $f(x)=f(-x)$，则 $f$ 是偶函数，图像关于 $y$ 轴对称。
+- 若 $f(x)=-f(-x)$，则 $f$ 是奇函数，图像关于原点具有二阶旋转对称性。
+
+### 1.6 The curve $y=|f(x)|$
+
+先画 $y=f(x)$，再把其中位于 $x$ 轴下方的部分关于 $x$ 轴反射。原图上的根保持不变，但通常在根处形成尖点。
+
+### 1.7 The curve $y=f(|x|)$
+
+保留 $y=f(x)$ 在 $x\ge0$ 的部分，再把这一部分关于 $y$ 轴反射。所得图像一定关于 $y$ 轴对称。
+
+### 1.8 The reciprocal curve $y=1/f(x)$
+
+由 $y=f(x)$ 作 $y=1/f(x)$ 时：
+
+- 两图在 $y=1$ 与 $y=-1$ 处相交；
+- 两图在同一 $x$ 处符号相同；
+- $f(x)=0$ 的根通常变成 $1/f(x)$ 的竖直渐近线；
+- $f(x)$ 的竖直渐近线变成 $1/f(x)$ 在 $x$ 轴上的间断点；
+- 若 $f(x)\to L\ne0$，则 $1/f(x)\to1/L$；
+- $f$ 增加时 $1/f$ 减少，$f$ 减少时 $1/f$ 增加。
+
+### 1.9 The curve $y^2=f(x)$
+
+方程等价于
+
+$$
+y=\pm\sqrt{f(x)}.
+$$
+
+因此：
+
+- 图像关于 $x$ 轴对称；
+- 当 $f(x)<0$ 时没有实点；
+- 与 $y=f(x)$ 在 $y=0$ 和 $y=1$ 处相交；
+- 若 $f(x)$ 的根不是驻点，$y^2=f(x)$ 通常竖直穿过 $x$ 轴；
+- 对应驻点的 $x$ 坐标不变，而 $y$ 坐标变为 $\pm\sqrt{f(x)}$。
+
+## 2. Textbook examples and examination questions
+
+### Textbook Examples
+
+::: {.study-card}
+### Example 4.1 · Pages 96–97
+
+Let
+
+$$
+f(x)=\frac{x^2+1}{x^2+2}.
+$$
+
+**(i)** Sketch the graph of $y=f(x)$.
+
+**(ii)** State the range of $f(x)$.
+
+**(iii)** The equation $f(x)=k$ has no real solutions. Find the values of $k$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+There are no real zeros of either $x^2+1$ or $x^2+2$. Hence the curve has no $x$-intercepts and no vertical asymptotes. It passes through
+
+$$
+\left(0,\frac12\right).
+$$
+
+As $x\to\pm\infty$,
+
+$$
+\frac{x^2+1}{x^2+2}\to1,
+$$
+
+so $y=1$ is a horizontal asymptote, approached from below. Also
+
+$$
+f'(x)=\frac{2x}{(x^2+2)^2},
+$$
+
+so the only stationary point is the minimum $\left(0,\frac12\right)$. The graph is symmetrical about the $y$-axis.
+
+Therefore
+
+$$
+\boxed{\frac12\le f(x)<1}.
+$$
+
+The equation $f(x)=k$ has no real solutions when
+
+$$
+\boxed{k<\frac12\quad\text{or}\quad k\ge1}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4.2 · Pages 103–104
+
+The graph of $y=f(x)$ has stationary points
+
+$$
+P(-1,-10),\qquad Q(3,5).
+$$
+
+Sketch:
+
+1. $y=|f(x)|$;
+2. $y=f(|x|)$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+For $y=|f(x)|$, retain every part of the original curve above the $x$-axis and reflect every part below the $x$-axis in the $x$-axis. In particular, $P(-1,-10)$ is mapped to $(-1,10)$, while $Q(3,5)$ is unchanged.
+
+For $y=f(|x|)$, retain only the original curve for $x\ge0$ and reflect this part in the $y$-axis. Thus $Q(3,5)$ is accompanied by the reflected stationary point $(-3,5)$; the original left-hand part, including $P$, is not used.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4.3 · Pages 105–106
+
+Given
+
+$$
+f(x)=\cos x,
+\qquad
+g(x)=\tan x,
+$$
+
+sketch
+
+$$
+y=\frac1{f(x)}
+\qquad\text{and}\qquad
+y=\frac1{g(x)}
+$$
+
+for $-360^\circ\le x\le360^\circ$, where $g(x)$ is undefined at $x=\pm90^\circ,\pm270^\circ$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The first curve is
+
+$$
+y=\sec x.
+$$
+
+It has vertical asymptotes where $\cos x=0$, namely
+
+$$
+x=\pm90^\circ,\ \pm270^\circ,
+$$
+
+and vertices at the points where $\cos x=\pm1$.
+
+The second curve is
+
+$$
+y=\cot x.
+$$
+
+It has vertical asymptotes where $\tan x=0$, at $x=-360^\circ,-180^\circ,0,180^\circ,360^\circ$. It has zeros at $x=\pm90^\circ,\pm270^\circ$, shown as open points here because the stated function $g$ is itself undefined at those values.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4.4 · Page 107
+
+The curve $y=f(x)$ has asymptotes $x=1$ and $y=2$, and intercepts $(0,4)$ and $(2,0)$. Sketch
+
+$$
+y=\frac1{f(x)}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+- The root $x=2$ becomes the vertical asymptote $x=2$.
+- The horizontal asymptote $y=2$ becomes $y=\frac12$.
+- The vertical asymptote $x=1$ becomes an open point on the $x$-axis because $1/f(1)$ is undefined while $1/f(x)\to0$ as $x\to1$.
+- The point $(0,4)$ maps to $\left(0,\frac14\right)$.
+- The reciprocal graph has the same sign as the original graph and reverses its increasing/decreasing behaviour.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4.5 · Pages 108–109
+
+**(i)** Given $f(x)=(x-3)^2$, sketch $y=f(x)$ and $y^2=f(x)$ on the same axes.
+
+**(ii)** Given $f(x)=\cos x$ for $-2\pi\le x\le2\pi$, sketch $y=f(x)$ and $y^2=f(x)$ on the same axes.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(i)**
+
+$$
+y^2=(x-3)^2
+\quad\Longrightarrow\quad
+y=\pm(x-3).
+$$
+
+Thus the transformed graph is the pair of straight lines $y=x-3$ and $y=3-x$. It meets the parabola at $(3,0)$, $(2,1)$ and $(4,1)$.
+
+**(ii)**
+
+$$
+y=\pm\sqrt{\cos x}.
+$$
+
+Real points occur only where $\cos x\ge0$. Draw the upper curve $y=\sqrt{\cos x}$ on those intervals and reflect it in the $x$-axis. The transformed curves meet $y=\cos x$ where $y=0$ or $y=1$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4.6 · Pages 110–111
+
+The graph of $y=f(x)$ has a maximum at $(-1,4)$, roots at $(-2,0)$, $(1,0)$ and $(3,0)$, and $y$-intercept $(0,3)$. Sketch $y^2=f(x)$, showing all turning points and intersections with the axes.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The transformed graph exists only where $f(x)\ge0$ and is symmetrical about the $x$-axis. The maximum $(-1,4)$ produces two turning points
+
+$$
+(-1,2),\qquad(-1,-2).
+$$
+
+The $y$-intercept produces
+
+$$
+(0,\sqrt3),\qquad(0,-\sqrt3).
+$$
+
+The roots remain
+
+$$
+(-2,0),\qquad(1,0),\qquad(3,0).
+$$
+
+At each non-stationary root the transformed curve meets the $x$-axis vertically. There is no transformed curve on intervals where $f(x)<0$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-example-4-6"> Completed</label>
+:::
+
+### Cambridge examination questions in the textbook
+
+::: {.question-card}
+### Exercise 4B, Question 4
+
+The curve $C$ has equation
+
+$$
+y=\frac{2x^2+x-1}{x-1}.
+$$
+
+Find the equations of the asymptotes of $C$. Show that there is no point on $C$ for which $1<y<9$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Since
+
+$$
+\frac{2x^2+x-1}{x-1}=2x+3+\frac2{x-1},
+$$
+
+the asymptotes are
+
+$$
+\boxed{x=1},\qquad\boxed{y=2x+3}.
+$$
+
+Rearranging as a quadratic in $x$ gives
+
+$$
+2x^2+(1-y)x+(y-1)=0.
+$$
+
+Real $x$ requires
+
+$$
+(1-y)^2-8(y-1)\ge0
+\quad\Longleftrightarrow\quad
+(y-1)(y-9)\ge0.
+$$
+
+Thus $y\le1$ or $y\ge9$, so no point has $1<y<9$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-textbook-exam-4"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International AS & A Level Further Mathematics 9231 Paper 11, Question 4, October/November 2014.</div>
+:::
+
+::: {.question-card}
+### Exercise 4B, Question 5
+
+The curve $C$ has equation
+
+$$
+y=\frac{x^2+px+1}{x-2},
+$$
+
+where $p$ is a constant.
+
+1. Given that $C$ has two asymptotes, find the equation of each asymptote.
+2. Find the set of values of $p$ for which $C$ has two distinct turning points.
+3. Sketch $C$ in the case $p=-1$, indicating the coordinates of any intersections with the axes.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Polynomial division gives
+
+$$
+y=x+p+2+\frac{2p+5}{x-2}.
+$$
+
+Hence the asymptotes are
+
+$$
+\boxed{x=2},\qquad\boxed{y=x+p+2}.
+$$
+
+Also
+
+$$
+\frac{dy}{dx}=1-\frac{2p+5}{(x-2)^2}.
+$$
+
+There are two distinct turning points precisely when $2p+5>0$, so
+
+$$
+\boxed{p>-\frac52}.
+$$
+
+For $p=-1$,
+
+$$
+y=x+1+\frac3{x-2}.
+$$
+
+The asymptotes are $x=2$ and $y=x+1$. The curve has no $x$-intercepts because $x^2-x+1=0$ has negative discriminant, and its $y$-intercept is $\left(0,-\frac12\right)$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-textbook-exam-5"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International AS & A Level Further Mathematics 9231 Paper 11, Question 7, October/November 2011.</div>
+:::
+
+::: {.question-card}
+### Exercise 4B, Question 6
+
+The curve $C$ has equation
+
+$$
+y=\frac{2x^2+kx}{x+1},
+$$
+
+where $k$ is a constant.
+
+1. Find the set of values of $k$ for which $C$ has no stationary points.
+2. For $k=4$, find the equations of the asymptotes and sketch $C$, indicating its intersections with the coordinate axes.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Differentiation gives a stationary-point equation whose discriminant is proportional to $2-k$. Hence there are no stationary points when
+
+$$
+\boxed{k\ge2}.
+$$
+
+For $k=4$,
+
+$$
+y=2x+2-\frac2{x+1}.
+$$
+
+Therefore the asymptotes are
+
+$$
+\boxed{x=-1},\qquad\boxed{y=2x+2},
+$$
+
+and the intersections with the axes are
+
+$$
+(-2,0),\qquad(0,0).
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-textbook-exam-6"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International AS & A Level Further Mathematics 9231 Paper 11, Question 8, October/November 2015.</div>
+:::
+
+::: {.question-card}
+### Exercise 4B, Question 7
+
+The curve $C$ has equation
+
+$$
+y=\frac{px^2+4x+1}{x+1},
+$$
+
+where $p$ is a positive constant and $p\ne3$.
+
+1. Obtain the equations of the asymptotes of $C$.
+2. Find the value of $p$ for which the $x$-axis is tangent to $C$, and sketch $C$ in this case.
+3. For $p=1$, show that $C$ has no turning points, and sketch $C$, giving the exact coordinates of its intersections with the $x$-axis.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Division gives
+
+$$
+y=px+4-p+\frac{p-3}{x+1},
+$$
+
+so the asymptotes are
+
+$$
+\boxed{x=-1},\qquad\boxed{y=px+4-p}.
+$$
+
+Tangency to the $x$-axis requires $px^2+4x+1=0$ to have a repeated root. Hence
+
+$$
+16-4p=0,
+$$
+
+so $\boxed{p=4}$ and the tangent point is $\left(-\frac12,0\right)$.
+
+For $p=1$,
+
+$$
+y=\frac{x^2+4x+1}{x+1}=x+3-\frac2{x+1}.
+$$
+
+Then
+
+$$
+\frac{dy}{dx}=1+\frac2{(x+1)^2}>0,
+$$
+
+so there are no turning points. The $x$-intercepts are
+
+$$
+\boxed{\left(-2-\sqrt3,0\right),\quad\left(-2+\sqrt3,0\right)}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-textbook-exam-7"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International AS & A Level Further Mathematics 9231 Paper 11, Question 10, October/November 2013.</div>
+:::
+
+::: {.question-card}
+### Exercise 4B, Question 8
+
+The curve $C$ has equation
+
+$$
+y=\lambda x+\frac{x}{x-2},
+$$
+
+where $\lambda$ is a non-zero constant.
+
+1. Find the equations of the asymptotes of $C$.
+2. Show that $C$ has no turning points if $\lambda<0$.
+3. Sketch $C$ for $\lambda=-1$, stating the coordinates of the intersections with the axes.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Since
+
+$$
+y=\lambda x+1+\frac2{x-2},
+$$
+
+the asymptotes are
+
+$$
+\boxed{x=2},\qquad\boxed{y=\lambda x+1}.
+$$
+
+Also
+
+$$
+\frac{dy}{dx}=\lambda-\frac2{(x-2)^2}.
+$$
+
+If $\lambda<0$, both terms are negative wherever the function is defined, so there are no turning points.
+
+For $\lambda=-1$,
+
+$$
+y=-x+1+\frac2{x-2},
+$$
+
+with asymptotes $x=2$ and $y=-x+1$. The intersections with the axes are
+
+$$
+\boxed{(0,0),\quad(3,0)}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="rational-textbook-exam-8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International AS & A Level Further Mathematics 9231 Paper 11, Question 7, October/November 2012.</div>
+:::
+
+## 3. Past-paper question bank
+
+{{< include rational-past-papers.qmd >}}
+
+## 4. 完成本节的判断标准
+
+当你能够完成以下任务，本节可以视为基本掌握：
+
+1. 不借助图形软件求出有理函数的全部渐近线、交点和驻点；
+2. 使用判别式准确求值域或证明某段值域不存在；
+3. 根据关键特征画出各分支，并正确表示渐近行为；
+4. 从 $y=f(x)$ 准确得到 $|f(x)|$、$f(|x|)$、$1/f(x)$ 与 $y^2=f(x)$；
+5. 使用图像求方程解的个数和不等式的精确解集。

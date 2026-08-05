@@ -85,7 +85,12 @@ details.answer-panel summary {
 .formula-panel { background: #f8fafc; }
 .small-note { color: var(--fm-muted); font-size: 0.9rem; }
 
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2rem 0;
+}
+
 @media (max-width: 700px) {
   .question-card, .study-card, .formula-panel { padding: 0.9rem; }
 }
-

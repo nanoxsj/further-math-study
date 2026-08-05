@@ -4,6 +4,7 @@ project:
   render:
     - index.qmd
     - paper-1/roots-of-polynomial-equations.qmd
+    - paper-1/rational-functions-and-graphs.qmd
 
 website:
   title: "CIE Further Mathematics 9231"
@@ -18,6 +19,8 @@ website:
         contents:
           - href: paper-1/roots-of-polynomial-equations.qmd
             text: "1.1 Roots of polynomial equations"
+          - href: paper-1/rational-functions-and-graphs.qmd
+            text: "1.2 Rational functions and graphs"
 
 format:
   html:

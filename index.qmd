@@ -18,5 +18,15 @@ subtitle: "2026–2027 syllabus · 9231"
 - 可展开的官方评分标准
 :::
 
-后续章节将沿用相同结构继续制作。
+::: {.topic-card}
+### [1.2 Rational functions and graphs](paper-1/rational-functions-and-graphs.qmd)
 
+- 2026–2027 考纲要求与教材 Chapter 4 知识点
+- 渐近线、驻点、值域与判别式方法
+- $|f(x)|$、$f(|x|)$、$1/f(x)$ 与 $y^2=f(x)$
+- 教材 Example 4.1–4.6
+- 教材中带 Cambridge 来源的 Exercise 4B Q4–Q8
+- 2019–2025 全部现有 Paper 1 对应真题
+:::
+
+后续章节将沿用相同结构继续制作。
