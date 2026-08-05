@@ -1,0 +1,15 @@
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+

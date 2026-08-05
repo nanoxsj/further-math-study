@@ -1,0 +1,1101 @@
+---
+title: "1.1 Roots of polynomial equations"
+subtitle: "根与系数 · 对称函数 · 建立新方程"
+description: "CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 3。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 记忆并使用二次、三次及四次多项式方程的根与系数关系；
+2. 计算根的对称函数，或利用这些关系求方程中的未知系数；
+3. 通过代换建立新方程，新方程的根与原方程的根具有简单关系。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能从系数直接写出二次、三次和四次方程的根与系数关系
+- [ ] 能把平方和、立方和等对称函数化为基本的根之和与根之积
+- [ ] 能利用每个根都满足原方程来求较高次幂和
+- [ ] 能用根与系数关系或代换法建立新方程
+- [ ] 能根据给定的根之间的关系求未知系数并解方程
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Quadratic equations
+
+若 $az^2+bz+c=0$ 的根为 $\alpha,\beta$，则
+
+$$
+\alpha+\beta=-\frac ba,
+\qquad
+\alpha\beta=\frac ca.
+$$
+
+二次方程中所有关于 $\alpha,\beta$ 的对称函数，都可以用
+$\alpha+\beta$ 与 $\alpha\beta$ 表示。例如
+
+$$
+\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta.
+$$
+
+### 1.2 Cubic equations
+
+若 $az^3+bz^2+cz+d=0$ 的根为 $\alpha,\beta,\gamma$，则
+
+$$
+\begin{aligned}
+\sum\alpha
+&=\alpha+\beta+\gamma=-\frac ba,\\
+\sum\alpha\beta
+&=\alpha\beta+\beta\gamma+\gamma\alpha=\frac ca,\\
+\sum\alpha\beta\gamma
+&=\alpha\beta\gamma=-\frac da.
+\end{aligned}
+$$
+
+教材采用以下简写：
+
+$$
+\sum\alpha=\alpha+\beta+\gamma,
+\qquad
+\sum\alpha\beta=\alpha\beta+\beta\gamma+\gamma\alpha.
+$$
+
+计算较高次幂和时，可以先求基本对称函数，也可以利用每个根都满足原方程。
+
+### 1.3 Forming new equations
+
+教材使用两种方法建立新方程：
+
+1. 计算新根的和、两两乘积之和及乘积，再由根与系数关系写出方程；
+2. 令新变量与旧变量满足题目给出的根的变换，写出旧变量并代入原方程。
+
+例如新根为 $2\alpha+1,2\beta+1,2\gamma+1$ 时，令
+
+$$
+w=2z+1,
+\qquad
+z=\frac{w-1}{2}.
+$$
+
+新根为 $\alpha^2,\beta^2,\gamma^2$ 时，可以令 $w=z^2$，再消去 $z$。
+
+### 1.4 Quartic equations
+
+若 $az^4+bz^3+cz^2+dz+e=0$ 的根为
+$\alpha,\beta,\gamma,\delta$，则
+
+$$
+\begin{aligned}
+\sum\alpha
+&=\alpha+\beta+\gamma+\delta=-\frac ba,\\
+\sum\alpha\beta
+&=\alpha\beta+\alpha\gamma+\alpha\delta
++\beta\gamma+\beta\delta+\gamma\delta=\frac ca,\\
+\sum\alpha\beta\gamma
+&=\alpha\beta\gamma+\beta\gamma\delta
++\gamma\delta\alpha+\delta\alpha\beta=-\frac da,\\
+\sum\alpha\beta\gamma\delta
+&=\alpha\beta\gamma\delta=\frac ea.
+\end{aligned}
+$$
+
+::: {.callout-tip}
+## Sign pattern
+
+从最高次项开始，根的基本对称函数对应的符号依次为
+
+$$
+-,\quad +,\quad -,\quad +.
+$$
+:::
+
+## 2. Textbook examples and examination questions
+
+### Textbook Examples
+
+::: {.study-card}
+### Example 3.1 · Page 72
+
+Find a quadratic equation with roots $5$ and $-3$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The sum of the roots is
+
+$$
+5+(-3)=2,
+$$
+
+and the product of the roots is
+
+$$
+5(-3)=-15.
+$$
+
+Taking the coefficient of $z^2$ to be $1$, a quadratic equation with the required roots is
+
+$$
+\boxed{z^2-2z-15=0}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3.2 · Page 73
+
+The roots of the equation
+
+$$
+2z^2+3z+5=0
+$$
+
+are $\alpha$ and $\beta$.
+
+1. Find the values of $\alpha+\beta$ and $\alpha\beta$.
+2. Find the quadratic equation with roots $2\alpha$ and $2\beta$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+From the original equation,
+
+$$
+\alpha+\beta=-\frac32,
+\qquad
+\alpha\beta=\frac52.
+$$
+
+For the new roots,
+
+$$
+2\alpha+2\beta=2(\alpha+\beta)=-3,
+$$
+
+and
+
+$$
+(2\alpha)(2\beta)=4\alpha\beta=10.
+$$
+
+Therefore the required equation is
+
+$$
+\boxed{z^2+3z+10=0}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3.3 · Pages 73–74
+
+The roots of the equation
+
+$$
+3z^2-4z-1=0
+$$
+
+are $\alpha$ and $\beta$. Find the quadratic equation with roots
+$\alpha+1$ and $\beta+1$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+From the original equation,
+
+$$
+\alpha+\beta=\frac43,
+\qquad
+\alpha\beta=-\frac13.
+$$
+
+The sum of the new roots is
+
+$$
+(\alpha+1)+(\beta+1)=\alpha+\beta+2=\frac{10}{3},
+$$
+
+and their product is
+
+$$
+(\alpha+1)(\beta+1)
+=\alpha\beta+(\alpha+\beta)+1
+=2.
+$$
+
+Hence
+
+$$
+\boxed{3z^2-10z+6=0}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3.4 · Pages 74–75
+
+The quadratic equation
+
+$$
+ax^2+bx+c=0,
+$$
+
+where $a,b,c$ are constants, has roots $\alpha$ and $\beta$. Prove that
+
+$$
+\alpha^2+\beta^2=\frac{b^2-2ac}{a^2}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Since
+
+$$
+(\alpha+\beta)^2=\alpha^2+2\alpha\beta+\beta^2,
+$$
+
+we have
+
+$$
+\begin{aligned}
+\alpha^2+\beta^2
+&=(\alpha+\beta)^2-2\alpha\beta\\
+&=\left(-\frac ba\right)^2-2\left(\frac ca\right)\\
+&=\boxed{\frac{b^2-2ac}{a^2}}.
+\end{aligned}
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3.5 · Page 78
+
+The roots of the equation
+
+$$
+2z^3-9z^2-27z+54=0
+$$
+
+form a geometric progression, so they may be written as
+$\dfrac ar,a,ar$. Solve the equation.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using the product of the roots,
+
+$$
+\frac ar\times a\times ar=-\frac{54}{2},
+$$
+
+so
+
+$$
+a^3=-27
+\quad\Longrightarrow\quad
+a=-3.
+$$
+
+Using the sum of the roots,
+
+$$
+-\frac3r-3-3r=\frac92.
+$$
+
+Hence
+
+$$
+2r^2+5r+2=0,
+$$
+
+so
+
+$$
+(2r+1)(r+2)=0
+$$
+
+and therefore $r=-2$ or $r=-\dfrac12$. Either value gives the same three roots:
+
+$$
+\boxed{\frac32,-3,6}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3.6 · Pages 78–79
+
+The roots of the cubic equation
+
+$$
+x^3-4x^2+x+6=0
+$$
+
+are $\alpha,\beta,\gamma$. Find the values of
+
+1. $\alpha^2+\beta^2+\gamma^2$;
+2. $\alpha^3+\beta^3+\gamma^3$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+From the original equation,
+
+$$
+\sum\alpha=4,
+\qquad
+\sum\alpha\beta=1.
+$$
+
+Therefore
+
+$$
+\begin{aligned}
+\alpha^2+\beta^2+\gamma^2
+&=(\alpha+\beta+\gamma)^2
+-2(\alpha\beta+\beta\gamma+\gamma\alpha)\\
+&=4^2-2(1)\\
+&=\boxed{14}.
+\end{aligned}
+$$
+
+Since each root satisfies $x^3-4x^2+x+6=0$,
+
+$$
+\alpha^3=4\alpha^2-\alpha-6,
+$$
+
+with corresponding equations for $\beta$ and $\gamma$. Adding them gives
+
+$$
+\begin{aligned}
+\alpha^3+\beta^3+\gamma^3
+&=4(\alpha^2+\beta^2+\gamma^2)
+-(\alpha+\beta+\gamma)-18\\
+&=4(14)-4-18\\
+&=\boxed{34}.
+\end{aligned}
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3.7 · Pages 79–80
+
+The roots of the cubic equation
+
+$$
+2z^3+5z^2-3z-2=0
+$$
+
+are $\alpha,\beta,\gamma$. Find the cubic equation with roots
+$2\alpha+1,2\beta+1,2\gamma+1$.
+
+<details class="answer-panel"><summary>Show solution 1: relations between roots and coefficients</summary>
+
+For the original equation,
+
+$$
+\sum\alpha=-\frac52,
+\qquad
+\sum\alpha\beta=-\frac32,
+\qquad
+\alpha\beta\gamma=1.
+$$
+
+For the new roots, their sum is
+
+$$
+2(\alpha+\beta+\gamma)+3=-2.
+$$
+
+The sum of their products in pairs is
+
+$$
+\begin{aligned}
+&(2\alpha+1)(2\beta+1)
++(2\beta+1)(2\gamma+1)
++(2\gamma+1)(2\alpha+1)\\
+&=4(\alpha\beta+\beta\gamma+\gamma\alpha)
++4(\alpha+\beta+\gamma)+3\\
+&=4\left(-\frac32\right)+4\left(-\frac52\right)+3\\
+&=-13.
+\end{aligned}
+$$
+
+Their product is
+
+$$
+\begin{aligned}
+&(2\alpha+1)(2\beta+1)(2\gamma+1)\\
+&=8\alpha\beta\gamma
++4(\alpha\beta+\beta\gamma+\gamma\alpha)
++2(\alpha+\beta+\gamma)+1\\
+&=8+4\left(-\frac32\right)
++2\left(-\frac52\right)+1\\
+&=-2.
+\end{aligned}
+$$
+
+Hence the required equation is
+
+$$
+\boxed{z^3+2z^2-13z+2=0}.
+$$
+
+</details>
+
+<details class="answer-panel"><summary>Show solution 2: substitution method</summary>
+
+Let
+
+$$
+w=2z+1,
+\qquad
+z=\frac{w-1}{2}.
+$$
+
+Substituting into the original equation gives
+
+$$
+2\left(\frac{w-1}{2}\right)^3
++5\left(\frac{w-1}{2}\right)^2
+-3\left(\frac{w-1}{2}\right)-2=0.
+$$
+
+Multiplying by $4$ and simplifying,
+
+$$
+(w-1)^3+5(w-1)^2-6(w-1)-8=0,
+$$
+
+so
+
+$$
+\boxed{w^3+2w^2-13w+2=0}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3.8 · Pages 80–81
+
+The roots of the cubic equation
+
+$$
+2z^3-5z^2+z+2=0
+$$
+
+are $\alpha,\beta,\gamma$. Find the cubic equation with roots
+$\alpha^2,\beta^2,\gamma^2$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Let $w=z^2$, so $z=\sqrt w$. Substitution gives
+
+$$
+2w\sqrt w-5w+\sqrt w+2=0.
+$$
+
+Collecting the terms containing $\sqrt w$,
+
+$$
+\sqrt w(2w+1)=5w-2.
+$$
+
+Squaring both sides,
+
+$$
+w(2w+1)^2=(5w-2)^2.
+$$
+
+Therefore
+
+$$
+\begin{aligned}
+4w^3+4w^2+w&=25w^2-20w+4,\\
+4w^3-21w^2+21w-4&=0.
+\end{aligned}
+$$
+
+Therefore the required equation is
+
+$$
+\boxed{4w^3-21w^2+21w-4=0}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-8"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3.9 · Pages 84–85
+
+The roots of the quartic equation
+
+$$
+4z^4+pz^3+qz^2-z+3=0
+$$
+
+are $\alpha,-\alpha,\alpha+\lambda,\alpha-\lambda$, where
+$\alpha$ and $\lambda$ are real numbers.
+
+1. Express $p$ and $q$ in terms of $\alpha$ and $\lambda$.
+2. Show that $\alpha=-\dfrac12$, and find the values of $p$ and $q$.
+3. Give the roots of the quartic equation.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The sum of the roots is
+
+$$
+\alpha-\alpha+(\alpha+\lambda)+(\alpha-\lambda)
+=2\alpha=-\frac p4,
+$$
+
+so
+
+$$
+\boxed{p=-8\alpha}.
+$$
+
+The sum of the products of the roots in pairs simplifies to $-\lambda^2$. Hence
+
+$$
+-\lambda^2=\frac q4
+\quad\Longrightarrow\quad
+\boxed{q=-4\lambda^2}.
+$$
+
+The sum of the products of the roots in threes is
+
+$$
+-2\alpha^3.
+$$
+
+Since this is equal to $-\dfrac{-1}{4}=\dfrac14$,
+
+$$
+-2\alpha^3=\frac14.
+$$
+
+Thus
+
+$$
+\alpha^3=-\frac18
+\quad\Longrightarrow\quad
+\boxed{\alpha=-\frac12},
+$$
+
+and therefore
+
+$$
+\boxed{p=4}.
+$$
+
+Using the product of the four roots,
+
+$$
+-\alpha^2(\alpha^2-\lambda^2)=\frac34.
+$$
+
+Substituting $\alpha=-\dfrac12$ gives
+
+$$
+-\frac14\left(\frac14-\lambda^2\right)=\frac34,
+$$
+
+so
+
+$$
+\lambda^2=\frac{13}{4}
+\qquad\text{and}\qquad
+\boxed{q=-13}.
+$$
+
+The roots are
+
+$$
+\boxed{
+\frac12,
+-\frac12,
+-\frac12+\frac{\sqrt{13}}2,
+-\frac12-\frac{\sqrt{13}}2
+}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-9"> Completed</label>
+:::
+
+### Examination questions printed in the textbook exercises
+
+::: {.study-card}
+### Exercise 3B, Question 16
+
+**Source:** 9231 Paper 11 Q5 October/November 2015
+
+The cubic equation
+
+$$
+x^3+px^2+qx+r=0,
+$$
+
+where $p,q,r$ are integers, has roots $\alpha,\beta,\gamma$ such that
+
+$$
+\alpha+\beta+\gamma=15,
+\qquad
+\alpha^2+\beta^2+\gamma^2=83.
+$$
+
+Write down the value of $p$ and find the value of $q$.
+
+Given that $\alpha,\beta,\gamma$ are all real and that
+$\alpha\beta+\alpha\gamma=36$, find $\alpha$ and hence find the value of $r$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Since $\alpha+\beta+\gamma=-p$,
+
+$$
+\boxed{p=-15}.
+$$
+
+Also,
+
+$$
+\begin{aligned}
+83
+&=(\alpha+\beta+\gamma)^2
+-2(\alpha\beta+\beta\gamma+\gamma\alpha)\\
+&=15^2-2q,
+\end{aligned}
+$$
+
+so
+
+$$
+\boxed{q=71}.
+$$
+
+Now
+
+$$
+\alpha\beta+\alpha\gamma
+=\alpha(\beta+\gamma)
+=\alpha(15-\alpha)=36.
+$$
+
+Thus
+
+$$
+\alpha^2-15\alpha+36=0,
+$$
+
+giving $\alpha=3$ or $\alpha=12$.
+
+If $\alpha=12$, then $\beta+\gamma=3$ and $\beta\gamma=35$, which does not give real values of $\beta,\gamma$. Hence
+
+$$
+\boxed{\alpha=3}.
+$$
+
+Then $\beta+\gamma=12$ and $\beta\gamma=35$, so
+
+$$
+r=-\alpha\beta\gamma=-3(35)=\boxed{-105}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-16"> Completed</label>
+:::
+
+::: {.study-card}
+### Exercise 3B, Question 17
+
+**Source:** 9231 Paper 11 Q2 October/November 2013
+
+The cubic equation
+
+$$
+x^3-px-q=0,
+$$
+
+where $p,q$ are constants, has roots $\alpha,\beta,\gamma$. Show that
+
+1. $\alpha^2+\beta^2+\gamma^2=2p$;
+2. $\alpha^3+\beta^3+\gamma^3=3q$;
+3. 
+   $$
+   6(\alpha^5+\beta^5+\gamma^5)
+   =5(\alpha^3+\beta^3+\gamma^3)
+   (\alpha^2+\beta^2+\gamma^2).
+   $$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+For the original equation,
+
+$$
+\alpha+\beta+\gamma=0,
+\qquad
+\alpha\beta+\beta\gamma+\gamma\alpha=-p.
+$$
+
+Therefore
+
+$$
+\begin{aligned}
+\alpha^2+\beta^2+\gamma^2
+&=(\alpha+\beta+\gamma)^2
+-2(\alpha\beta+\beta\gamma+\gamma\alpha)\\
+&=0-2(-p)\\
+&=\boxed{2p}.
+\end{aligned}
+$$
+
+Each root satisfies $x^3=px+q$. Adding the three corresponding equations gives
+
+$$
+\alpha^3+\beta^3+\gamma^3
+=p(\alpha+\beta+\gamma)+3q
+=\boxed{3q}.
+$$
+
+Multiplying $x^3=px+q$ by $x^2$ gives $x^5=px^3+qx^2$. Hence
+
+$$
+\begin{aligned}
+\alpha^5+\beta^5+\gamma^5
+&=p(\alpha^3+\beta^3+\gamma^3)
++q(\alpha^2+\beta^2+\gamma^2)\\
+&=p(3q)+q(2p)\\
+&=5pq.
+\end{aligned}
+$$
+
+Thus both sides of the required identity are equal to $30pq$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-17"> Completed</label>
+:::
+
+::: {.study-card}
+### Exercise 3B, Question 18
+
+**Source:** 9231 Paper 11 Q1 October/November 2011
+
+The equation
+
+$$
+x^3+px+q=0
+$$
+
+has a repeated root. Prove that
+
+$$
+4p^3+27q^2=0.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Let the repeated root be $\alpha$ and the third root be $\beta$. Since the coefficient of $x^2$ is zero,
+
+$$
+2\alpha+\beta=0
+\quad\Longrightarrow\quad
+\beta=-2\alpha.
+$$
+
+Using the sum of the products in pairs,
+
+$$
+p=\alpha^2+2\alpha\beta
+=\alpha^2-4\alpha^2
+=-3\alpha^2.
+$$
+
+Using the product of the roots,
+
+$$
+-q=\alpha^2\beta=-2\alpha^3,
+$$
+
+so $q=2\alpha^3$. Therefore
+
+$$
+\begin{aligned}
+4p^3+27q^2
+&=4(-3\alpha^2)^3+27(2\alpha^3)^2\\
+&=-108\alpha^6+108\alpha^6\\
+&=\boxed{0}.
+\end{aligned}
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-18"> Completed</label>
+:::
+
+::: {.study-card}
+### Exercise 3C, Question 7
+
+**Source:** 9231 Paper 11 Q11 October/November 2014
+
+The roots of the quartic equation
+
+$$
+x^4+4x^3+2x^2-4x+1=0
+$$
+
+are $\alpha,\beta,\gamma,\delta$. Find the values of
+
+1. $\alpha+\beta+\gamma+\delta$;
+2. $\alpha^2+\beta^2+\gamma^2+\delta^2$;
+3. $\dfrac1\alpha+\dfrac1\beta+\dfrac1\gamma+\dfrac1\delta$;
+4. 
+   $$
+   \frac{\alpha}{\beta\gamma\delta}
+   +\frac{\beta}{\alpha\gamma\delta}
+   +\frac{\gamma}{\alpha\beta\delta}
+   +\frac{\delta}{\alpha\beta\gamma}.
+   $$
+
+Using the substitution $y=x+1$, find a quartic equation in $y$. Solve this quartic equation and hence find the roots of
+
+$$
+x^4+4x^3+2x^2-4x+1=0.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+From the coefficients,
+
+$$
+\sum\alpha=-4,
+\qquad
+\sum\alpha\beta=2,
+\qquad
+\sum\alpha\beta\gamma=4,
+\qquad
+\alpha\beta\gamma\delta=1.
+$$
+
+Therefore
+
+$$
+\boxed{\alpha+\beta+\gamma+\delta=-4},
+$$
+
+$$
+\begin{aligned}
+\alpha^2+\beta^2+\gamma^2+\delta^2
+&=(\alpha+\beta+\gamma+\delta)^2-2\sum\alpha\beta\\
+&=16-4\\
+&=\boxed{12},
+\end{aligned}
+$$
+
+and
+
+$$
+\frac1\alpha+\frac1\beta+\frac1\gamma+\frac1\delta
+=\frac{\sum\alpha\beta\gamma}{\alpha\beta\gamma\delta}
+=\boxed{4}.
+$$
+
+Also,
+
+$$
+\begin{aligned}
+&\frac{\alpha}{\beta\gamma\delta}
++\frac{\beta}{\alpha\gamma\delta}
++\frac{\gamma}{\alpha\beta\delta}
++\frac{\delta}{\alpha\beta\gamma}\\
+&=\frac{\alpha^2+\beta^2+\gamma^2+\delta^2}
+{\alpha\beta\gamma\delta}\\
+&=\boxed{12}.
+\end{aligned}
+$$
+
+Let $y=x+1$, so $x=y-1$. Substitution gives
+
+$$
+y^4-4y^2+4=0,
+$$
+
+or
+
+$$
+(y^2-2)^2=0.
+$$
+
+Thus $y=\pm\sqrt2$, each repeated, and the roots of the original equation are
+
+$$
+\boxed{-1+\sqrt2,\ -1+\sqrt2,\ -1-\sqrt2,\ -1-\sqrt2}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Exercise 3C, Question 8
+
+**Source:** 9231 Paper 11 Q11 October/November 2012
+
+The roots of the equation
+
+$$
+x^4-3x^2+5x-2=0
+$$
+
+are $\alpha,\beta,\gamma,\delta$, and
+
+$$
+S_n=\alpha^n+\beta^n+\gamma^n+\delta^n.
+$$
+
+Show that
+
+$$
+S_{n+4}-3S_{n+2}+5S_{n+1}-2S_n=0.
+$$
+
+Find the values of
+
+1. $S_2$ and $S_4$;
+2. $S_3$ and $S_5$.
+
+Hence find the value of
+
+$$
+\begin{aligned}
+&\alpha^2(\beta^3+\gamma^3+\delta^3)
++\beta^2(\gamma^3+\delta^3+\alpha^3)\\
+&\quad+\gamma^2(\delta^3+\alpha^3+\beta^3)
++\delta^2(\alpha^3+\beta^3+\gamma^3).
+\end{aligned}
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Each root satisfies
+
+$$
+x^4-3x^2+5x-2=0.
+$$
+
+Multiplying by $x^n$ and then adding the four resulting equations gives
+
+$$
+\boxed{S_{n+4}-3S_{n+2}+5S_{n+1}-2S_n=0}.
+$$
+
+From the coefficients,
+
+$$
+S_1=0,
+\qquad
+\sum\alpha\beta=-3,
+$$
+
+so
+
+$$
+S_2=S_1^2-2\sum\alpha\beta=\boxed{6}.
+$$
+
+Taking $n=0$ in the recurrence, with $S_0=4$, gives
+
+$$
+S_4-3S_2+5S_1-2S_0=0,
+$$
+
+and hence
+
+$$
+S_4=\boxed{26}.
+$$
+
+Also, $\sum\alpha\beta\gamma=-5$, so
+
+$$
+\begin{aligned}
+S_3
+&=\left(\sum\alpha\right)^3
+-3\left(\sum\alpha\right)\left(\sum\alpha\beta\right)
++3\sum\alpha\beta\gamma\\
+&=0-0+3(-5)\\
+&=\boxed{-15}.
+\end{aligned}
+$$
+
+Taking $n=1$ in the recurrence gives
+
+$$
+S_5-3S_3+5S_2-2S_1=0,
+$$
+
+so
+
+$$
+S_5=\boxed{-75}.
+$$
+
+The final expression is
+
+$$
+S_2S_3-S_5
+=6(-15)-(-75)
+=\boxed{-15}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-8"> Completed</label>
+:::
+
+## 3. Past-paper question bank
+
+{{< include roots-past-papers.qmd >}}
+
+## 4. 完成本节的判断标准
+
+当你能够在不查看公式表的情况下完成以下任务，本节可以视为基本掌握：
+
+1. 写出二次、三次及四次方程的全部根与系数关系；
+2. 不求根，计算教材中出现的根的对称函数与幂和；
+3. 使用根与系数关系或代换法建立指定新根的方程；
+4. 根据根之间的关系求未知系数并解方程。
