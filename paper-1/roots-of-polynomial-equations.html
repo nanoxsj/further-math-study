@@ -1162,9 +1162,15 @@ S_2S_3-S_5
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(i)</strong> From <span class="math inline">\(x^3-x+1=0\)</span>, <span class="math inline">\(y+1=y^{1/3}\)</span>, so</p>
+<p><strong>(i)</strong> Put <span class="math inline">\(y=x^3\)</span>, so <span class="math inline">\(x=y^{1/3}\)</span>. Then</p>
+<p><span class="math display">\[
+y-y^{1/3}+1=0
+\quad\Longrightarrow\quad
+y+1=y^{1/3}.
+\]</span></p>
+<p>Cubing both sides,</p>
 <p><span class="math display">\[y=(y+1)^3\quad\Longrightarrow\quad y^3+3y^2+2y+1=0. \qquad \text{M1 A1}\]</span></p>
-<p>Therefore <span class="math inline">\(S_3=-3\)</span>. <strong>B1</strong></p>
+<p>The three roots are <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>, so Vieta’s formula gives <span class="math inline">\(\boxed{S_3=-3}\)</span>. <strong>B1</strong></p>
 <p><strong>(ii)</strong> For the roots <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>, the sum of pairwise products is <span class="math inline">\(2\)</span> and the product is <span class="math inline">\(-1\)</span>. Hence</p>
 <p><span class="math display">\[S_{-3}=\frac{2}{-1}=-2. \qquad \text{M1 A1}\]</span></p>
 <p><strong>(iii)</strong></p>
@@ -1206,11 +1212,11 @@ Show answer and mark scheme
 <p>so <span class="math inline">\(c=\alpha\beta+\beta\gamma+\gamma\alpha=5\)</span>. <strong>M1 A1</strong></p>
 <p><strong>(ii)</strong></p>
 <p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=(\alpha+\beta+\gamma)^2-2c=b^2-10. \qquad \text{M1 A1}\]</span></p>
-<p><strong>(iii)</strong> Using the cubic equation for each root and summing,</p>
+<p><strong>(iii)</strong> Since <span class="math inline">\(S_2=b^2-10\)</span> and every root satisfies <span class="math inline">\(x^3=-bx^2-5x-12\)</span>, summing over all three roots gives</p>
 <p><span class="math display">\[90=-b(b^2-10)-5(-b)-36.\]</span></p>
 <p>Hence</p>
 <p><span class="math display">\[b^3-15b+126=0. \qquad \text{M1 M1 A1 A1}\]</span></p>
-<p><strong>(iv)</strong> The conjugate <span class="math inline">\(3-i\sqrt{12}\)</span> is also a root. Since the sum of the roots of <span class="math inline">\(y^3-15y+126=0\)</span> is zero, the third root is <span class="math inline">\(-6\)</span>. Therefore <span class="math inline">\(b=-6\)</span>. <strong>M1 A1</strong></p>
+<p><strong>(iv)</strong> The polynomial has real coefficients, so <span class="math inline">\(3-i\sqrt{12}\)</span> is also a root. These two roots have sum <span class="math inline">\(6\)</span>. Since the coefficient of <span class="math inline">\(y^2\)</span> is zero, the third root is <span class="math inline">\(-6\)</span>. Thus the required real value is <span class="math inline">\(\boxed{b=-6}\)</span>. <strong>M1 A1</strong></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2019-mj-13"> Completed</label>
 <div class="source-line">
@@ -1245,7 +1251,15 @@ Show answer and mark scheme
 </summary>
 <p>Since <span class="math inline">\(\alpha\beta\gamma=-7\)</span>,</p>
 <p><span class="math display">\[\frac{\alpha}{\beta\gamma}=-\frac{\alpha^2}{7},\]</span></p>
-<p>and similarly for the other two roots. Substituting <span class="math inline">\(x^2=-7y\)</span> and eliminating <span class="math inline">\(x\)</span> gives the stated cubic. <strong>M1 M1 A1 A1</strong></p>
+<p>and similarly for the other two roots. With <span class="math inline">\(x^2=-7y\)</span>, the original equation becomes</p>
+<p><span class="math display">\[
+x(1-7y)+7(1-2y)=0,
+\]</span></p>
+<p>so <span class="math inline">\(x=7(2y-1)/(1-7y)\)</span>. Squaring and using <span class="math inline">\(x^2=-7y\)</span> gives</p>
+<p><span class="math display">\[
+49(2y-1)^2=-7y(1-7y)^2,
+\]</span></p>
+<p>which simplifies to the stated cubic. <strong>M1 M1 A1 A1</strong></p>
 <p>For the transformed roots,</p>
 <p><span class="math display">\[e_1=-\frac27,\qquad e_2=-\frac{27}{49},\qquad e_3=-\frac17.\]</span></p>
 <p>Therefore</p>
@@ -1276,7 +1290,7 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^2\)</span>. Squaring <span class="math inline">\(x(6y-3)=5-py\)</span> gives</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^2\)</span>. Rewriting the original equation gives <span class="math inline">\(x(6y-3)=5-py\)</span>. Squaring and using <span class="math inline">\(x^2=y\)</span> gives</p>
 <p><span class="math display">\[y(6y-3)^2=(5-py)^2,\]</span></p>
 <p>hence</p>
 <p><span class="math display">\[36y^3-(p^2+36)y^2+(10p+9)y-25=0. \qquad \text{B1 M1 A1}\]</span></p>
@@ -1287,7 +1301,7 @@ Show answer and mark scheme
 <p><span class="math display">\[\frac{p^2}{36}+1=-\frac p3,\]</span></p>
 <p>so <span class="math inline">\((p+6)^2=0\)</span> and <span class="math inline">\(p=-6\)</span>. <strong>M1 A1 A1</strong></p>
 <p><strong>(b)(ii)</strong> With <span class="math inline">\(p=-6\)</span>,</p>
-<p><span class="math display">\[e_1=1,quad e_2=-\frac12,quad e_3=\frac56,\]</span></p>
+<p><span class="math display">\[e_1=1,\qquad e_2=-\frac12,\qquad e_3=\frac56,\]</span></p>
 <p>and</p>
 <p><span class="math display">\[\alpha^3+\beta^3+\gamma^3=e_1^3-3e_1e_2+3e_3=5. \qquad \text{M1 A1}\]</span></p>
 </details>
@@ -1309,7 +1323,11 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=1/x\)</span> and multiply by <span class="math inline">\(y^3\)</span>:</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=1/x\)</span>. Then</p>
+<p><span class="math display">\[
+\frac7{y^3}+\frac3{y^2}+\frac5y+1=0.
+\]</span></p>
+<p>Multiplying by <span class="math inline">\(y^3\)</span> gives</p>
 <p><span class="math display">\[y^3+5y^2+3y+7=0. \qquad \text{B1 M1 A1}\]</span></p>
 <p>For the reciprocal roots, <span class="math inline">\(e_1=-5\)</span>, <span class="math inline">\(e_2=3\)</span>, <span class="math inline">\(e_3=-7\)</span>.</p>
 <p><strong>(b)</strong></p>
@@ -1343,7 +1361,7 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3\)</span>. Since <span class="math inline">\(y+cx+1=0\)</span>, cubing <span class="math inline">\(cx=-(y+1)\)</span> gives</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3\)</span>. Since <span class="math inline">\(cx=-(y+1)\)</span>, cubing and using <span class="math inline">\(x^3=y\)</span> gives <span class="math inline">\(c^3y=-(y+1)^3\)</span>, hence</p>
 <p><span class="math display">\[y^3+3y^2+(c^3+3)y+1=0. \qquad \text{B1 M1 A1}\]</span></p>
 <p><strong>(b)</strong> For the new roots, <span class="math inline">\(e_1=-3\)</span> and <span class="math inline">\(e_2=c^3+3\)</span>. Hence</p>
 <p><span class="math display">\[\alpha^6+\beta^6+\gamma^6=(-3)^2-2(c^3+3)=3-2c^3. \qquad \text{B1 M1 A1}\]</span></p>
@@ -1378,7 +1396,7 @@ Show answer and mark scheme
 <p><span class="math display">\[e_1'=3-b,\qquad e_2'=c-2b+3,\qquad e_3'=c-b.\]</span></p>
 <p>Thus the required equation is</p>
 <p><span class="math display">\[x^3+(b-3)x^2+(c-2b+3)x+(b-c)=0. \qquad \text{B1 M1 A1}\]</span></p>
-<p><strong>(c)</strong> The transformed roots include a pair <span class="math inline">\(r,-r\)</span>. The third root is <span class="math inline">\(3-b\)</span>, so</p>
+<p><strong>(c)</strong> Write the transformed roots as <span class="math inline">\(r,-r,s\)</span>. Their sum gives <span class="math inline">\(s=3-b\)</span>. Also their pairwise sum is <span class="math inline">\(-r^2=e_2'\)</span> and their product is <span class="math inline">\(-r^2s=e_3'\)</span>. Hence</p>
 <p><span class="math display">\[e_3'=e_2'(3-b).\]</span></p>
 <p>Therefore</p>
 <p><span class="math display">\[c-b=(c-2b+3)(3-b),\]</span></p>
@@ -1406,7 +1424,11 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3\)</span>. Since <span class="math inline">\(x^4=2x^3+1\)</span>, <span class="math inline">\(x=(2y+1)/y\)</span>. Using <span class="math inline">\(x^3=y\)</span> gives</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3\)</span>. Since <span class="math inline">\(x^4=2x^3+1\)</span> and no root is zero,</p>
+<p><span class="math display">\[
+x=2+\frac1y=\frac{2y+1}{y}.
+\]</span></p>
+<p>Cubing and using <span class="math inline">\(x^3=y\)</span> gives</p>
 <p><span class="math display">\[y^4-(2y+1)^3=0,\]</span></p>
 <p>so</p>
 <p><span class="math display">\[y^4-8y^3-12y^2-6y-1=0. \qquad \text{B1 M1 A1}\]</span></p>
@@ -1442,7 +1464,11 @@ Show answer and mark scheme
 <p><span class="math display">\[S_2=S_1^2-2e_2=4. \qquad \text{B1 M1 A1}\]</span></p>
 <p><strong>(b)(i)</strong> From <span class="math inline">\(2x^3-4x^2+3=0\)</span>,</p>
 <p><span class="math display">\[S_{n+3}=2S_{n+2}-\frac32S_n. \qquad \text{B1}\]</span></p>
-<p><strong>(b)(ii)</strong> <span class="math inline">\(S_3=7/2\)</span>, hence</p>
+<p><strong>(b)(ii)</strong> Taking <span class="math inline">\(n=0\)</span> in the recurrence gives</p>
+<p><span class="math display">\[
+S_3=2S_2-\frac32S_0=2(4)-\frac32(3)=\frac72.
+\]</span></p>
+<p>Taking <span class="math inline">\(n=1\)</span> then gives</p>
 <p><span class="math display">\[S_4=2S_3-\frac32S_1=4. \qquad \text{M1 A1}\]</span></p>
 <p><strong>(c)</strong> Put <span class="math inline">\(x=2-y\)</span>:</p>
 <p><span class="math display">\[2(2-y)^3-4(2-y)^2+3=0,\]</span></p>
@@ -1508,7 +1534,12 @@ Show answer and mark scheme
 <p><strong>(b)</strong> Summing the original equation over the roots,</p>
 <p><span class="math display">\[p_3+2p_2+3p_1+9=0,\]</span></p>
 <p>so <span class="math inline">\(p_3=1\)</span>. <strong>M1 A1</strong></p>
-<p><strong>(c)</strong> Expand</p>
+<p><strong>(c)</strong> For each <span class="math inline">\(r\)</span>,</p>
+<p><span class="math display">\[
+(\alpha+r)^3+(\beta+r)^3+(\gamma+r)^3
+=p_3+3rp_2+3r^2p_1+3r^3.
+\]</span></p>
+<p>Using <span class="math inline">\(p_1=-2\)</span>, <span class="math inline">\(p_2=-2\)</span> and <span class="math inline">\(p_3=1\)</span>, expand</p>
 <p><span class="math display">\[\sum_{r=1}^{n}\left(1-6r-6r^2+3r^3\right). \qquad \text{B1 M1 A1}\]</span></p>
 <p>Using the standard sums and simplifying gives</p>
 <p><span class="math display">\[n+\frac14n(n+1)(3n^2-5n-16). \qquad \text{M1 M1 A1}\]</span></p>
@@ -1538,13 +1569,29 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^{-3}\)</span>. Eliminating <span class="math inline">\(x\)</span> gives</p>
+<p><strong>(a)</strong> First put <span class="math inline">\(t=1/x\)</span>. Dividing the original equation by <span class="math inline">\(x^3\)</span> gives</p>
+<p><span class="math display">\[
+2+5t-6t^3=0,
+\]</span></p>
+<p>so the reciprocal roots satisfy <span class="math inline">\(6t^3-5t-2=0\)</span>. Now put <span class="math inline">\(y=t^3\)</span>. Then</p>
+<p><span class="math display">\[
+5t=6y-2.
+\]</span></p>
+<p>Cubing and using <span class="math inline">\(t^3=y\)</span> gives</p>
+<p><span class="math display">\[
+125y=(6y-2)^3.
+\]</span></p>
+<p>Expanding and simplifying gives</p>
 <p><span class="math display">\[216y^3-216y^2-53y-8=0. \qquad \text{B1 M1 A1}\]</span></p>
 <p><strong>(b)</strong> For the transformed roots,</p>
 <p><span class="math display">\[e_1=1,\qquad e_2=-\frac{53}{216}.\]</span></p>
 <p>Therefore</p>
 <p><span class="math display">\[p_2=1-2\left(-\frac{53}{216}\right)=\frac{161}{108}. \qquad \text{B1 M1 A1}\]</span></p>
-<p><strong>(c)</strong> From the transformed equation,</p>
+<p><strong>(c)</strong> If <span class="math inline">\(z\)</span> is one of the transformed roots, then</p>
+<p><span class="math display">\[
+216z^3-216z^2-53z-8=0.
+\]</span></p>
+<p>Summing this equation over all three transformed roots gives</p>
 <p><span class="math display">\[216S_{-9}=216S_{-6}+53S_{-3}+24.\]</span></p>
 <p>Since <span class="math inline">\(S_{-3}=1\)</span>,</p>
 <p><span class="math display">\[S_{-9}=\frac{133}{72}. \qquad \text{M1 A1}\]</span></p>
@@ -1647,7 +1694,13 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=3x+1\)</span>, so <span class="math inline">\(x=(y-1)/3\)</span>. Substitution and simplification give</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=3x+1\)</span>, so <span class="math inline">\(x=(y-1)/3\)</span>. Then</p>
+<p><span class="math display">\[
+27\left(\frac{y-1}{3}\right)^3
++18\left(\frac{y-1}{3}\right)^2
++6\left(\frac{y-1}{3}\right)-1=0.
+\]</span></p>
+<p>Expanding and simplifying gives</p>
 <p><span class="math display">\[y^3-y^2+y-2=0. \qquad \text{B1 M1 A1}\]</span></p>
 <p>For the transformed roots, <span class="math inline">\(e_1=1\)</span>, <span class="math inline">\(e_2=1\)</span>, <span class="math inline">\(e_3=2\)</span>.</p>
 <p><strong>(b)</strong></p>
@@ -1711,7 +1764,19 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^2+1\)</span>. Eliminating <span class="math inline">\(x\)</span> gives</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^2+1\)</span>, so <span class="math inline">\(x^2=y-1\)</span>. The original equation can be written as</p>
+<p><span class="math display">\[
+x(x^2+3)=-(2x^2+1),
+\]</span></p>
+<p>hence</p>
+<p><span class="math display">\[
+x(y+2)=1-2y.
+\]</span></p>
+<p>Squaring and using <span class="math inline">\(x^2=y-1\)</span> gives</p>
+<p><span class="math display">\[
+(y-1)(y+2)^2=(1-2y)^2,
+\]</span></p>
+<p>which simplifies to</p>
 <p><span class="math display">\[y^3-y^2+4y-5=0. \qquad \text{B1 M1 A1}\]</span></p>
 <p>For the transformed roots, <span class="math inline">\(e_1=1\)</span>, <span class="math inline">\(e_2=4\)</span>, <span class="math inline">\(e_3=5\)</span>.</p>
 <p><strong>(b)</strong></p>
@@ -1737,7 +1802,7 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^4\)</span>. From <span class="math inline">\(x^4+2x^3-1=0\)</span>,</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^4\)</span>. From the original equation, <span class="math inline">\(2x^3=1-y\)</span>. Raising both sides to the fourth power and using <span class="math inline">\(x^{12}=y^3\)</span> gives</p>
 <p><span class="math display">\[16y^3=(1-y)^4.\]</span></p>
 <p>Hence</p>
 <p><span class="math display">\[y^4-20y^3+6y^2-4y+1=0. \qquad \text{B1 M1 M1 A1}\]</span></p>
@@ -1787,7 +1852,7 @@ Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong></p>
 <p><span class="math display">\[e_2=\frac{p_1^2-p_2}{2}=\frac{4-3}{2}=\frac12. \qquad \text{M1 A1}\]</span></p>
-<p><strong>(b)</strong> Newton’s identity gives</p>
+<p><strong>(b)</strong> Let the required sum be <span class="math inline">\(T\)</span>. Expanding <span class="math inline">\(e_1e_2\)</span> includes every term in <span class="math inline">\(T\)</span> once and each triple product three times, so <span class="math inline">\(e_1e_2=T+3e_3\)</span>. Newton’s identity gives</p>
 <p><span class="math display">\[4=p_3=e_1p_2-e_2p_1+3e_3=6-1+3e_3,\]</span></p>
 <p>so <span class="math inline">\(e_3=-1/3\)</span>. Also</p>
 <p><span class="math display">\[e_1e_2=(\text{required sum})+3e_3.\]</span></p>
@@ -1823,7 +1888,15 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3-1\)</span>. Eliminating <span class="math inline">\(x\)</span> gives</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3-1\)</span>, so <span class="math inline">\(x^3=y+1\)</span>. The original equation gives</p>
+<p><span class="math display">\[
+2x=-(y+2).
+\]</span></p>
+<p>Cubing and using <span class="math inline">\(x^3=y+1\)</span>,</p>
+<p><span class="math display">\[
+8(y+1)=-(y+2)^3,
+\]</span></p>
+<p>which simplifies to</p>
 <p><span class="math display">\[y^3+6y^2+20y+16=0. \qquad \text{B1 M1 A1}\]</span></p>
 <p>For the transformed roots, <span class="math inline">\(e_1=-6\)</span>, <span class="math inline">\(e_2=20\)</span>, <span class="math inline">\(e_3=-16\)</span>.</p>
 <p><strong>(b)</strong></p>
@@ -1847,7 +1920,7 @@ Show answer and mark scheme
 <p><strong>(c)</strong> Use standard results from the list of formulae (MF19) to find</p>
 <p><span class="math display">\[
 \sum_{r=1}^{10}\left(
-(\alpha^2+r^2)^2+(\beta^2+r^2)^2+(\gamma^2+r^2)^2+(\delta^2+r^2)^2
+(\alpha^2+r)^2+(\beta^2+r)^2+(\gamma^2+r)^2+(\delta^2+r)^2
 \right). \qquad \textbf{[5]}
 \]</span></p>
 <details class="answer-panel">
@@ -1860,9 +1933,20 @@ Show answer and mark scheme
 <p><span class="math display">\[p_4+7p_2+3p_1+88=0,\]</span></p>
 <p>so <span class="math inline">\(p_4=10\)</span>. <strong>M1 A1</strong></p>
 <p><strong>(c)</strong> For each <span class="math inline">\(r\)</span>,</p>
-<p><span class="math display">\[\sum(\alpha^2+r^2)^2=4r^4+2r^2p_2+p_4=4r^4-28r^2+10. \qquad \text{B1 M1 A1FT}\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;(\alpha^2+r)^2+(\beta^2+r)^2+(\gamma^2+r)^2+(\delta^2+r)^2\\
+&amp;\qquad=p_4+2rp_2+4r^2
+=4r^2-28r+10.
+\end{aligned}
+\qquad \text{B1 M1 A1FT}
+\]</span></p>
 <p>Thus</p>
-<p><span class="math display">\[4\sum_{r=1}^{10}r^4-28\sum_{r=1}^{10}r^2+100=100. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">\[
+4\sum_{r=1}^{10}r^2-28\sum_{r=1}^{10}r+100
+=4(385)-28(55)+100
+=\boxed{100}. \qquad \text{M1 A1}
+\]</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-mj-13"> Completed</label>
 <div class="source-line">
@@ -1920,7 +2004,11 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=2x+1\)</span>, so <span class="math inline">\(x=(y-1)/2\)</span>. Substitution gives</p>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=2x+1\)</span>, so <span class="math inline">\(x=(y-1)/2\)</span>. Substitution and multiplication by <span class="math inline">\(16\)</span> give</p>
+<p><span class="math display">\[
+(y-1)^4+2(y-1)^3+4(y-1)^2+8(y-1)+16=0,
+\]</span></p>
+<p>which simplifies to</p>
 <p><span class="math display">\[y^4-2y^3+4y^2+2y+11=0. \qquad \text{B1 M1 A1 A1}\]</span></p>
 <p>For the transformed roots, <span class="math inline">\(e_1=2\)</span> and <span class="math inline">\(e_2=4\)</span>.</p>
 <p><strong>(b)</strong></p>
@@ -1957,11 +2045,11 @@ Show answer and mark scheme
 <p>Also</p>
 <p><span class="math display">\[3=(-2)^2-2c,\]</span></p>
 <p>so <span class="math inline">\(c=1/2\)</span>. <strong>M1 A1</strong></p>
-<p><strong>(b)</strong> Let <span class="math inline">\(S_n=\alpha^n+\beta^n+\gamma^n\)</span>. Then</p>
+<p><strong>(b)</strong> Let <span class="math inline">\(S_n=\alpha^n+\beta^n+\gamma^n\)</span>. Summing the original cubic over its three roots gives</p>
 <p><span class="math display">\[S_3+bS_2+cS_1+3d=0,\]</span></p>
 <p>so</p>
 <p><span class="math display">\[S_3=5-3d. \qquad \text{M1 A1FT}\]</span></p>
-<p>Also</p>
+<p>Multiplying the original cubic by <span class="math inline">\(x\)</span> and summing over its roots gives</p>
 <p><span class="math display">\[S_4+bS_3+cS_2+dS_1=0.\]</span></p>
 <p>Substitution gives</p>
 <p><span class="math display">\[5-2(5-3d)+\frac12(3)+2d=0,\]</span></p>
