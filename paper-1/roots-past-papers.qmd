@@ -26,11 +26,19 @@ Let $S_n=\alpha^n+\beta^n+\gamma^n$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(i)** From $x^3-x+1=0$, $y+1=y^{1/3}$, so
+**(i)** Put $y=x^3$, so $x=y^{1/3}$. Then
+
+$$
+y-y^{1/3}+1=0
+\quad\Longrightarrow\quad
+y+1=y^{1/3}.
+$$
+
+Cubing both sides,
 
 $$y=(y+1)^3\quad\Longrightarrow\quad y^3+3y^2+2y+1=0. \qquad \text{M1 A1}$$
 
-Therefore $S_3=-3$. **B1**
+The three roots are $\alpha^3,\beta^3,\gamma^3$, so Vieta's formula gives $\boxed{S_3=-3}$. **B1**
 
 **(ii)** For the roots $\alpha^3,\beta^3,\gamma^3$, the sum of pairwise products is $2$ and the product is $-1$. Hence
 
@@ -93,7 +101,7 @@ so $c=\alpha\beta+\beta\gamma+\gamma\alpha=5$. **M1 A1**
 
 $$\alpha^2+\beta^2+\gamma^2=(\alpha+\beta+\gamma)^2-2c=b^2-10. \qquad \text{M1 A1}$$
 
-**(iii)** Using the cubic equation for each root and summing,
+**(iii)** Since $S_2=b^2-10$ and every root satisfies $x^3=-bx^2-5x-12$, summing over all three roots gives
 
 $$90=-b(b^2-10)-5(-b)-36.$$
 
@@ -101,7 +109,7 @@ Hence
 
 $$b^3-15b+126=0. \qquad \text{M1 M1 A1 A1}$$
 
-**(iv)** The conjugate $3-i\sqrt{12}$ is also a root. Since the sum of the roots of $y^3-15y+126=0$ is zero, the third root is $-6$. Therefore $b=-6$. **M1 A1**
+**(iv)** The polynomial has real coefficients, so $3-i\sqrt{12}$ is also a root. These two roots have sum $6$. Since the coefficient of $y^2$ is zero, the third root is $-6$. Thus the required real value is $\boxed{b=-6}$. **M1 A1**
 
 </details>
 
@@ -146,7 +154,19 @@ Since $\alpha\beta\gamma=-7$,
 
 $$\frac{\alpha}{\beta\gamma}=-\frac{\alpha^2}{7},$$
 
-and similarly for the other two roots. Substituting $x^2=-7y$ and eliminating $x$ gives the stated cubic. **M1 M1 A1 A1**
+and similarly for the other two roots. With $x^2=-7y$, the original equation becomes
+
+$$
+x(1-7y)+7(1-2y)=0,
+$$
+
+so $x=7(2y-1)/(1-7y)$. Squaring and using $x^2=-7y$ gives
+
+$$
+49(2y-1)^2=-7y(1-7y)^2,
+$$
+
+which simplifies to the stated cubic. **M1 M1 A1 A1**
 
 For the transformed roots,
 
@@ -187,7 +207,7 @@ $$\alpha^2+\beta^2+\gamma^2=2(\alpha+\beta+\gamma).$$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=x^2$. Squaring $x(6y-3)=5-py$ gives
+**(a)** Put $y=x^2$. Rewriting the original equation gives $x(6y-3)=5-py$. Squaring and using $x^2=y$ gives
 
 $$y(6y-3)^2=(5-py)^2,$$
 
@@ -208,7 +228,7 @@ so $(p+6)^2=0$ and $p=-6$. **M1 A1 A1**
 
 **(b)(ii)** With $p=-6$,
 
-$$e_1=1,quad e_2=-\frac12,quad e_3=\frac56,$$
+$$e_1=1,\qquad e_2=-\frac12,\qquad e_3=\frac56,$$
 
 and
 
@@ -235,7 +255,13 @@ The cubic equation $7x^3+3x^2+5x+1=0$ has roots $\alpha,\beta,\gamma$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=1/x$ and multiply by $y^3$:
+**(a)** Put $y=1/x$. Then
+
+$$
+\frac7{y^3}+\frac3{y^2}+\frac5y+1=0.
+$$
+
+Multiplying by $y^3$ gives
 
 $$y^3+5y^2+3y+7=0. \qquad \text{B1 M1 A1}$$
 
@@ -280,7 +306,7 @@ is singular. **[5]**
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=x^3$. Since $y+cx+1=0$, cubing $cx=-(y+1)$ gives
+**(a)** Put $y=x^3$. Since $cx=-(y+1)$, cubing and using $x^3=y$ gives $c^3y=-(y+1)^3$, hence
 
 $$y^3+3y^2+(c^3+3)y+1=0. \qquad \text{B1 M1 A1}$$
 
@@ -333,7 +359,7 @@ Thus the required equation is
 
 $$x^3+(b-3)x^2+(c-2b+3)x+(b-c)=0. \qquad \text{B1 M1 A1}$$
 
-**(c)** The transformed roots include a pair $r,-r$. The third root is $3-b$, so
+**(c)** Write the transformed roots as $r,-r,s$. Their sum gives $s=3-b$. Also their pairwise sum is $-r^2=e_2'$ and their product is $-r^2s=e_3'$. Hence
 
 $$e_3'=e_2'(3-b).$$
 
@@ -368,7 +394,13 @@ $$\frac1{\alpha^3}+\frac1{\beta^3}+\frac1{\gamma^3}+\frac1{\delta^3}. \qquad \te
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=x^3$. Since $x^4=2x^3+1$, $x=(2y+1)/y$. Using $x^3=y$ gives
+**(a)** Put $y=x^3$. Since $x^4=2x^3+1$ and no root is zero,
+
+$$
+x=2+\frac1y=\frac{2y+1}{y}.
+$$
+
+Cubing and using $x^3=y$ gives
 
 $$y^4-(2y+1)^3=0,$$
 
@@ -423,7 +455,13 @@ $$S_2=S_1^2-2e_2=4. \qquad \text{B1 M1 A1}$$
 
 $$S_{n+3}=2S_{n+2}-\frac32S_n. \qquad \text{B1}$$
 
-**(b)(ii)** $S_3=7/2$, hence
+**(b)(ii)** Taking $n=0$ in the recurrence gives
+
+$$
+S_3=2S_2-\frac32S_0=2(4)-\frac32(3)=\frac72.
+$$
+
+Taking $n=1$ then gives
 
 $$S_4=2S_3-\frac32S_1=4. \qquad \text{M1 A1}$$
 
@@ -514,7 +552,14 @@ $$p_3+2p_2+3p_1+9=0,$$
 
 so $p_3=1$. **M1 A1**
 
-**(c)** Expand
+**(c)** For each $r$,
+
+$$
+(\alpha+r)^3+(\beta+r)^3+(\gamma+r)^3
+=p_3+3rp_2+3r^2p_1+3r^3.
+$$
+
+Using $p_1=-2$, $p_2=-2$ and $p_3=1$, expand
 
 $$\sum_{r=1}^{n}\left(1-6r-6r^2+3r^3\right). \qquad \text{B1 M1 A1}$$
 
@@ -553,7 +598,25 @@ $$\frac1{\alpha^9}+\frac1{\beta^9}+\frac1{\gamma^9}. \qquad \textbf{[2]}$$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=x^{-3}$. Eliminating $x$ gives
+**(a)** First put $t=1/x$. Dividing the original equation by $x^3$ gives
+
+$$
+2+5t-6t^3=0,
+$$
+
+so the reciprocal roots satisfy $6t^3-5t-2=0$. Now put $y=t^3$. Then
+
+$$
+5t=6y-2.
+$$
+
+Cubing and using $t^3=y$ gives
+
+$$
+125y=(6y-2)^3.
+$$
+
+Expanding and simplifying gives
 
 $$216y^3-216y^2-53y-8=0. \qquad \text{B1 M1 A1}$$
 
@@ -565,7 +628,13 @@ Therefore
 
 $$p_2=1-2\left(-\frac{53}{216}\right)=\frac{161}{108}. \qquad \text{B1 M1 A1}$$
 
-**(c)** From the transformed equation,
+**(c)** If $z$ is one of the transformed roots, then
+
+$$
+216z^3-216z^2-53z-8=0.
+$$
+
+Summing this equation over all three transformed roots gives
 
 $$216S_{-9}=216S_{-6}+53S_{-3}+24.$$
 
@@ -704,7 +773,15 @@ The sum $(3\alpha+1)^n+(3\beta+1)^n+(3\gamma+1)^n$ is denoted by $S_n$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=3x+1$, so $x=(y-1)/3$. Substitution and simplification give
+**(a)** Put $y=3x+1$, so $x=(y-1)/3$. Then
+
+$$
+27\left(\frac{y-1}{3}\right)^3
++18\left(\frac{y-1}{3}\right)^2
++6\left(\frac{y-1}{3}\right)-1=0.
+$$
+
+Expanding and simplifying gives
 
 $$y^3-y^2+y-2=0. \qquad \text{B1 M1 A1}$$
 
@@ -794,7 +871,25 @@ $$\left(\alpha^2+1\right)^3+\left(\beta^2+1\right)^3+\left(\gamma^2+1\right)^3. 
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=x^2+1$. Eliminating $x$ gives
+**(a)** Put $y=x^2+1$, so $x^2=y-1$. The original equation can be written as
+
+$$
+x(x^2+3)=-(2x^2+1),
+$$
+
+hence
+
+$$
+x(y+2)=1-2y.
+$$
+
+Squaring and using $x^2=y-1$ gives
+
+$$
+(y-1)(y+2)^2=(1-2y)^2,
+$$
+
+which simplifies to
 
 $$y^3-y^2+4y-5=0. \qquad \text{B1 M1 A1}$$
 
@@ -829,7 +924,7 @@ The quartic equation $x^4+2x^3-1=0$ has roots $\alpha,\beta,\gamma,\delta$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=x^4$. From $x^4+2x^3-1=0$,
+**(a)** Put $y=x^4$. From the original equation, $2x^3=1-y$. Raising both sides to the fourth power and using $x^{12}=y^3$ gives
 
 $$16y^3=(1-y)^4.$$
 
@@ -900,7 +995,7 @@ $$6x^4-12x^3+3x^2+2x+6=0.$$
 
 $$e_2=\frac{p_1^2-p_2}{2}=\frac{4-3}{2}=\frac12. \qquad \text{M1 A1}$$
 
-**(b)** Newton's identity gives
+**(b)** Let the required sum be $T$. Expanding $e_1e_2$ includes every term in $T$ once and each triple product three times, so $e_1e_2=T+3e_3$. Newton's identity gives
 
 $$4=p_3=e_1p_2-e_2p_1+3e_3=6-1+3e_3,$$
 
@@ -951,7 +1046,19 @@ $$\left(\alpha^3-1\right)^3+\left(\beta^3-1\right)^3+\left(\gamma^3-1\right)^3. 
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=x^3-1$. Eliminating $x$ gives
+**(a)** Put $y=x^3-1$, so $x^3=y+1$. The original equation gives
+
+$$
+2x=-(y+2).
+$$
+
+Cubing and using $x^3=y+1$,
+
+$$
+8(y+1)=-(y+2)^3,
+$$
+
+which simplifies to
 
 $$y^3+6y^2+20y+16=0. \qquad \text{B1 M1 A1}$$
 
@@ -986,7 +1093,7 @@ The quartic equation $x^4+7x^2+3x+22=0$ has roots $\alpha,\beta,\gamma,\delta$.
 
 $$
 \sum_{r=1}^{10}\left(
-(\alpha^2+r^2)^2+(\beta^2+r^2)^2+(\gamma^2+r^2)^2+(\delta^2+r^2)^2
+(\alpha^2+r)^2+(\beta^2+r)^2+(\gamma^2+r)^2+(\delta^2+r)^2
 \right). \qquad \textbf{[5]}
 $$
 
@@ -1004,11 +1111,22 @@ so $p_4=10$. **M1 A1**
 
 **(c)** For each $r$,
 
-$$\sum(\alpha^2+r^2)^2=4r^4+2r^2p_2+p_4=4r^4-28r^2+10. \qquad \text{B1 M1 A1FT}$$
+$$
+\begin{aligned}
+&(\alpha^2+r)^2+(\beta^2+r)^2+(\gamma^2+r)^2+(\delta^2+r)^2\\
+&\qquad=p_4+2rp_2+4r^2
+=4r^2-28r+10.
+\end{aligned}
+\qquad \text{B1 M1 A1FT}
+$$
 
 Thus
 
-$$4\sum_{r=1}^{10}r^4-28\sum_{r=1}^{10}r^2+100=100. \qquad \text{M1 A1}$$
+$$
+4\sum_{r=1}^{10}r^2-28\sum_{r=1}^{10}r+100
+=4(385)-28(55)+100
+=\boxed{100}. \qquad \text{M1 A1}
+$$
 
 </details>
 
@@ -1084,7 +1202,13 @@ The sum $(2\alpha+1)^n+(2\beta+1)^n+(2\gamma+1)^n+(2\delta+1)^n$ is denoted by $
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-**(a)** Put $y=2x+1$, so $x=(y-1)/2$. Substitution gives
+**(a)** Put $y=2x+1$, so $x=(y-1)/2$. Substitution and multiplication by $16$ give
+
+$$
+(y-1)^4+2(y-1)^3+4(y-1)^2+8(y-1)+16=0,
+$$
+
+which simplifies to
 
 $$y^4-2y^3+4y^2+2y+11=0. \qquad \text{B1 M1 A1 A1}$$
 
@@ -1137,7 +1261,7 @@ $$3=(-2)^2-2c,$$
 
 so $c=1/2$. **M1 A1**
 
-**(b)** Let $S_n=\alpha^n+\beta^n+\gamma^n$. Then
+**(b)** Let $S_n=\alpha^n+\beta^n+\gamma^n$. Summing the original cubic over its three roots gives
 
 $$S_3+bS_2+cS_1+3d=0,$$
 
@@ -1145,7 +1269,7 @@ so
 
 $$S_3=5-3d. \qquad \text{M1 A1FT}$$
 
-Also
+Multiplying the original cubic by $x$ and summing over its roots gives
 
 $$S_4+bS_3+cS_2+dS_1=0.$$
 
