@@ -1,0 +1,548 @@
+---
+title: "1.3 Summation of series"
+subtitle: "标准求和公式 · 错位相减 · 裂项消项 · 无穷和"
+description: "CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 2.1–2.3。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 使用 $\sum r$、$\sum r^2$、$\sum r^3$ 的标准结果求相关级数；
+2. 使用 method of differences 求有限级数之和，必要时先作部分分式分解；
+3. 直接考察前 $n$ 项和，判断级数是否收敛，并在收敛时求无穷和。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能从通项写出前几项，并从具体级数识别通项和求和上下限
+- [ ] 能正确拆分求和符号并使用三个标准公式
+- [ ] 能通过错位相减处理等比型有限和
+- [ ] 能将有理式裂项，使中间项成对消去
+- [ ] 能保留所有未消去的首项和尾项
+- [ ] 能从 $S_n$ 在 $n\to\infty$ 时的极限判断收敛并求无穷和
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Sequences, series and sigma notation
+
+数列是按顺序排列的数；级数是数列各项的和。若通项为 $u_r$，前 $n$ 项和写作
+
+$$
+S_n=\sum_{r=1}^{n}u_r.
+$$
+
+上下限决定所包含的项。若求和式中没有 $r$，仍需按上下限重复相加，例如
+
+$$
+\sum_{r=1}^{n}c=nc.
+$$
+
+若已知前 $n$ 项和，则
+
+$$
+u_1=S_1,\qquad u_r=S_r-S_{r-1}\quad(r\ge2).
+$$
+
+### 1.2 Standard results
+
+$$
+\sum_{r=1}^{n}r=\frac12n(n+1),
+$$
+
+$$
+\sum_{r=1}^{n}r^2=\frac16n(n+1)(2n+1),
+$$
+
+$$
+\sum_{r=1}^{n}r^3=\frac14n^2(n+1)^2.
+$$
+
+使用时先展开通项，再利用求和的线性性质。不要把 $\sum r^2$ 误写成 $\left(\sum r\right)^2$。
+
+### 1.3 Changing limits
+
+对于连续的一段整数，可用“大和减小和”：
+
+$$
+\sum_{r=a}^{b}u_r
+=\sum_{r=1}^{b}u_r-\sum_{r=1}^{a-1}u_r.
+$$
+
+同理，若 $S_n=\sum_{r=1}^{n}u_r$，则
+
+$$
+\sum_{r=n+1}^{2n}u_r=S_{2n}-S_n.
+$$
+
+### 1.4 Method of differences
+
+核心是把通项写成相邻项之差：
+
+$$
+u_r=f(r)-f(r+1).
+$$
+
+于是
+
+$$
+\sum_{r=1}^{n}u_r
+=[f(1)-f(2)]+[f(2)-f(3)]+\cdots+[f(n)-f(n+1)],
+$$
+
+中间项全部消去，只剩
+
+$$
+\boxed{S_n=f(1)-f(n+1)}.
+$$
+
+若裂项跨度大于 1，通常会留下多于一个首项和尾项，必须将前几项与最后几项完整写出。
+
+### 1.5 Sum to infinity
+
+先求有限前 $n$ 项和 $S_n$，再直接考察
+
+$$
+\lim_{n\to\infty}S_n.
+$$
+
+若极限存在且有限，则级数收敛，且该极限就是无穷和。若 $u_n\not\to0$，级数一定不收敛；但 $u_n\to0$ 本身不能保证收敛。
+
+## 2. Textbook Examples
+
+::: {.study-card}
+### Example 2.1 · Pages 43–44
+
+For the series
+
+$$
+2+5+8+\cdots+500,
+$$
+
+**(i)** find a formula for the $r$th term $u_r$; **(ii)** find the number of terms; **(iii)** find the sum by reversing and adding; **(iv)** confirm the answer using sigma notation.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The sequence has common difference $3$, so
+
+$$
+u_r=3r-1.
+$$
+
+Since $3r-1=500$, there are $167$ terms. Reversing and adding gives
+
+$$
+2S=167(2+500),
+$$
+
+so
+
+$$
+\boxed{S=41917}.
+$$
+
+Also
+
+$$
+\sum_{r=1}^{167}(3r-1)
+=3\cdot\frac{167\cdot168}{2}-167
+=41917.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-example-2-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2.2 · Page 44
+
+Calculate the sum of the integers from $100$ to $200$ inclusive.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+\sum_{r=100}^{200}r
+=\sum_{r=1}^{200}r-\sum_{r=1}^{99}r
+=\frac{200\cdot201}{2}-\frac{99\cdot100}{2}.
+$$
+
+Hence
+
+$$
+\boxed{15150}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-example-2-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2.3 · Page 47
+
+Given $u_r=r^2+2r-1$:
+
+1. write down the first three terms;
+2. find $\sum_{r=1}^{n}u_r$;
+3. check the result for $n=3$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The first three terms are $2,7,14$. Also
+
+$$
+\begin{aligned}
+\sum_{r=1}^{n}(r^2+2r-1)
+&=\sum r^2+2\sum r-\sum1\\
+&=\frac16n(n+1)(2n+1)+n(n+1)-n\\
+&=\boxed{\frac16n(2n^2+9n+1)}.
+\end{aligned}
+$$
+
+For $n=3$, the formula gives $23$, and $2+7+14=23$.
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-example-2-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2.4 · Page 48
+
+Write
+
+$$
+(1\times3)+(2\times4)+(3\times5)+\cdots+n(n+2)
+$$
+
+using sigma notation, and hence find its sum.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+\sum_{r=1}^{n}r(r+2)
+=\sum_{r=1}^{n}(r^2+2r).
+$$
+
+Therefore
+
+$$
+\boxed{\sum_{r=1}^{n}r(r+2)=\frac16n(n+1)(2n+7)}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-example-2-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2.5 · Page 50
+
+Calculate
+
+$$
+5+10+20+40+\cdots+2560+5120.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Let the sum be $S$. Then
+
+$$
+\begin{aligned}
+S&=5+10+20+\cdots+2560+5120,\\
+2S&=10+20+40+\cdots+5120+10240.
+\end{aligned}
+$$
+
+Subtracting gives $S=10240-5$, hence
+
+$$
+\boxed{S=10235}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-example-2-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2.6 · Pages 50–51
+
+**(i)** Show that
+
+$$
+\frac1r-\frac1{r+1}=\frac1{r(r+1)}.
+$$
+
+**(ii)** Hence find
+
+$$
+\frac1{1\times2}+\frac1{2\times3}+\cdots+\frac1{30\times31}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The identity follows by combining the two fractions. Therefore
+
+$$
+\sum_{r=1}^{30}\frac1{r(r+1)}
+=\sum_{r=1}^{30}\left(\frac1r-\frac1{r+1}\right)
+=1-\frac1{31}.
+$$
+
+Hence the sum is
+
+$$
+\boxed{\frac{30}{31}}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-example-2-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2.7 · Page 52
+
+**(i)** Show that $(2r+1)^2-(2r-1)^2=8r$.
+
+**(ii)** Hence find $\sum_{r=1}^{n}8r$.
+
+**(iii)** Deduce the standard result for $\sum_{r=1}^{n}r$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Expanding proves the identity. Summing gives
+
+$$
+\sum_{r=1}^{n}8r
+=(3^2-1^2)+(5^2-3^2)+\cdots+[(2n+1)^2-(2n-1)^2].
+$$
+
+Thus
+
+$$
+\sum_{r=1}^{n}8r=(2n+1)^2-1=4n^2+4n,
+$$
+
+and hence
+
+$$
+\boxed{\sum_{r=1}^{n}r=\frac12n(n+1)}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-example-2-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2.8 · Pages 52–53
+
+**(i)** Show that
+
+$$
+\frac2r-\frac3{r+1}+\frac1{r+2}
+=\frac{r+4}{r(r+1)(r+2)}.
+$$
+
+**(ii)** Hence find
+
+$$
+\sum_{r=1}^{n}\frac{r+4}{r(r+1)(r+2)}.
+$$
+
+**(iii)** Deduce the sum to infinity.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+After using the stated decomposition and writing the first and last terms, all middle terms cancel, leaving
+
+$$
+S_n=\frac32-\frac2{n+1}+\frac1{n+2}
+=\frac{n(3n+7)}{2(n+1)(n+2)}.
+$$
+
+Therefore
+
+$$
+\boxed{S_\infty=\frac32}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-example-2-8"> Completed</label>
+:::
+
+## 3. Cambridge examination questions in the textbook
+
+::: {.question-card}
+### Exercise 2B, Question 11
+
+It is given that
+
+$$
+S_n=\sum_{r=1}^{n}u_r=2n^2+n.
+$$
+
+Write down $S_1,S_2,S_3,S_4$. Express $u_r$ in terms of $r$, justifying your answer. Find
+
+$$
+\sum_{r=n+1}^{2n}u_r.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+S_1=3,\quad S_2=10,\quad S_3=21,\quad S_4=36.
+$$
+
+For $r\ge2$,
+
+$$
+u_r=S_r-S_{r-1}=4r-1,
+$$
+
+and this also gives $u_1=3$. Finally,
+
+$$
+\sum_{r=n+1}^{2n}u_r=S_{2n}-S_n
+=\boxed{6n^2+n}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-textbook-exam-11"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231 Paper 11, Question 3, October/November 2013.</div>
+:::
+
+::: {.question-card}
+### Exercise 2C, Question 11
+
+Given that
+
+$$
+u_k=\frac1{2k-1}-\frac1{2k+1},
+$$
+
+express $\sum_{k=13}^{n}u_k$ in terms of $n$ and deduce $\sum_{k=13}^{\infty}u_k$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+\sum_{k=13}^{n}u_k
+=\left(\frac1{25}-\frac1{27}\right)+\cdots+
+\left(\frac1{2n-1}-\frac1{2n+1}\right)
+=\boxed{\frac1{25}-\frac1{2n+1}}.
+$$
+
+Hence
+
+$$
+\boxed{\sum_{k=13}^{\infty}u_k=\frac1{25}}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-textbook-exam-2c11"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231 Paper 11, Question 1, October/November 2014.</div>
+:::
+
+::: {.question-card}
+### Exercise 2C, Question 12
+
+For positive integers $n$,
+
+$$
+a_n=\frac{n+5}{n^2-n+1}-\frac{n+6}{n^2+n+1},
+$$
+
+and $S_N=\sum_{n=1}^{N}a_n$. Find $S_{30}$ correct to 3 decimal places and the least $N$ for which $S_N>4.9$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Successive terms telescope because the second fraction in $a_n$ is the first fraction in $a_{n+1}$. Thus
+
+$$
+S_N=6-\frac{N+6}{N^2+N+1}.
+$$
+
+Therefore
+
+$$
+S_{30}=6-\frac{36}{931}=\boxed{5.961}\quad\text{(3 d.p.)}.
+$$
+
+Checking successive values gives $S_2<4.9$ and $S_3>4.9$, so
+
+$$
+\boxed{N=3}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-textbook-exam-2c12"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231 Paper 11, Question 4, October/November 2015.</div>
+:::
+
+::: {.question-card}
+### Exercise 2C, Question 13
+
+Let $f(r)=r(r+1)(r+2)$.
+
+1. Show that $f(r)-f(r-1)=3r(r+1)$.
+2. Hence show that $\sum_{r=1}^{n}r(r+1)=\frac13n(n+1)(n+2)$.
+3. Using the standard result for $\sum r$, deduce the standard result for $\sum r^2$.
+4. Find the sum
+
+$$
+1^2+2(2^2)+3^2+2(4^2)+\cdots+2(n-1)^2+n^2,
+$$
+
+where $n$ is odd.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Summing $f(r)-f(r-1)=3r(r+1)$ gives
+
+$$
+\sum_{r=1}^{n}r(r+1)=\frac13n(n+1)(n+2).
+$$
+
+Since $r(r+1)=r^2+r$,
+
+$$
+\sum r^2=\frac13n(n+1)(n+2)-\frac12n(n+1)
+=\boxed{\frac16n(n+1)(2n+1)}.
+$$
+
+For the final series, add one extra copy of every even square to the usual sum of squares. With $m=(n-1)/2$,
+
+$$
+\boxed{\frac16n(n+1)(2n+1)+\frac23m(m+1)(2m+1)}.
+$$
+
+</details>
+
+<label class="done-toggle"><input type="checkbox" data-progress="series-textbook-exam-2c13"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231 Paper 11, Question 4, October/November 2012.</div>
+:::
+
+## 4. Past-paper question bank
+
+{{< include summation-past-papers.qmd >}}
+
+## 5. 完成本节的判断标准
+
+1. 能从具体各项准确写出通项及求和上下限；
+2. 能把多项式通项拆开并正确代入三个标准公式；
+3. 能从部分分式或恒等式识别消项结构；
+4. 能完整保留未消去的首项与尾项；
+5. 能从 $S_n$ 的极限判断收敛并求无穷和。
