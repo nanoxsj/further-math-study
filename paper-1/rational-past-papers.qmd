@@ -27,13 +27,19 @@ respectively, where $a>2$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-For $C_1$, the asymptotes are
+**(i)** Since
+
+$$
+\frac{ax}{x+5}=a-\frac{5a}{x+5},
+$$
+
+the asymptotes of $C_1$ are
 
 $$
 \boxed{x=-5},\qquad\boxed{y=a}.
 $$
 
-For $C_2$,
+**(ii)** For $C_2$,
 
 $$
 x^2+(a+10)x+5a+26=(x+5)(x+a+5)+1,
@@ -45,7 +51,7 @@ $$
 \boxed{y=x+a+5}.
 $$
 
-Equating the two functions gives
+**(iii)** Equating the two functions and multiplying by $x+5$ gives
 
 $$
 x^2+10x+5a+26=0.
@@ -59,7 +65,13 @@ $$
 
 so the curves do not intersect.
 
-Differentiating $C_2$ gives the stationary-point equation
+**(iv)** Since $C_2$ is $y=x+a+5+1/(x+5)$,
+
+$$
+\frac{dy}{dx}=1-\frac1{(x+5)^2}.
+$$
+
+Thus the stationary-point equation
 
 $$
 x^2+10x+24=0,
@@ -100,7 +112,13 @@ where $k$ is a positive constant.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The asymptotes are
+**(i)** Long division gives
+
+$$
+\frac{x^2}{kx-1}=\frac{x}{k}+\frac1{k^2}+\frac{1/k^2}{kx-1}.
+$$
+
+Hence the asymptotes are
 
 $$
 \boxed{x=\frac1k},
@@ -149,7 +167,7 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-Matching the quotient $2x+1$ gives
+**(i)** Write $x^2+1=(ax+b)(2x+1)+R$. Comparing the coefficients of $x^2$ and $x$ gives $2a=1$ and $a+2b=0$. Hence
 
 $$
 \boxed{a=\frac12},\qquad\boxed{b=-\frac14}.
@@ -208,7 +226,9 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The original curve has asymptotes $x=-7$ and $y=a$, and passes through $(0,0)$. Reflect its negative part in the $x$-axis to obtain the modulus graph.
+**(a)** Since $ax/(x+7)=a-7a/(x+7)$, the original curve has asymptotes $x=-7$ and $y=a$, and passes through $(0,0)$.
+
+**(b)** The function is negative on $-7<x<0$, so reflect precisely this part in the $x$-axis to obtain the modulus graph.
 
 The critical equations are
 
@@ -216,7 +236,7 @@ $$
 \frac{ax}{x+7}=\pm\frac a2,
 $$
 
-giving $x=7$ and $x=-\frac73$. Hence
+giving $x=7$ and $x=-\frac73$. A sign chart across $-7,-7/3,7$ then gives
 
 $$
 \boxed{x<-7\quad\text{or}\quad-7<x<-\frac73\quad\text{or}\quad x>7}.
@@ -247,7 +267,13 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The asymptotes are
+**(a)** Long division gives
+
+$$
+\frac{x^2}{2x+1}=\frac x2-\frac14+\frac{1/4}{2x+1}.
+$$
+
+Hence the asymptotes are
 
 $$
 \boxed{x=-\frac12},
@@ -255,7 +281,15 @@ $$
 \boxed{y=\frac x2-\frac14}.
 $$
 
-The stationary points are
+**(b)**
+
+$$
+\frac{dy}{dx}
+=\frac{2x(2x+1)-2x^2}{(2x+1)^2}
+=\frac{2x(x+1)}{(2x+1)^2}.
+$$
+
+Thus $x=0,-1$, giving the stationary points
 
 $$
 \boxed{(0,0)},\qquad\boxed{(-1,-1)}.
@@ -314,19 +348,35 @@ $$
 \boxed{x=\frac32},\qquad\boxed{y=-x-1}.
 $$
 
-Differentiation gives
+**(b)** Differentiation gives
 
 $$
 \frac{dy}{dx}=-1-\frac{14}{(2x-3)^2}<0,
 $$
 
-so there are no turning points. The intersections are
+so there are no turning points. **(c)** Since
+
+$$
+10+x-2x^2=-(2x-5)(x+2),
+$$
+
+the intersections are
 
 $$
 \boxed{(-2,0),\quad\left(\frac52,0\right),\quad\left(0,-\frac{10}{3}\right)}.
 $$
 
-For the modulus graph, reflect all negative parts in the $x$-axis. Solving the boundary equations $f(x)=\pm4$ gives
+**(d)** For the modulus graph, reflect all negative parts in the $x$-axis. The boundary equations are
+
+$$
+f(x)=4\Longrightarrow 2x^2+7x-22=0,
+$$
+
+$$
+f(x)=-4\Longrightarrow 2x^2-9x+2=0.
+$$
+
+Using their exact roots and a sign chart gives
 
 $$
 \boxed{-\frac{11}{2}<x<\frac{9-\sqrt{65}}4
@@ -367,19 +417,31 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The asymptotes are
+Since
+
+$$
+\frac{x^2+x-1}{x-1}=x+2+\frac1{x-1},
+$$
+
+the asymptotes are
 
 $$
 \boxed{x=1},\qquad\boxed{y=x+2}.
 $$
 
-Rearranging as a quadratic in $x$ gives
+**(b)** Rearranging as a quadratic in $x$ gives
 
 $$
 x^2+(1-y)x+y-1=0.
 $$
 
-The discriminant is negative precisely for $1<y<5$, proving the statement. The intersections are
+The discriminant is
+
+$$
+\Delta=(1-y)^2-4(y-1)=(y-1)(y-5).
+$$
+
+It is negative precisely for $1<y<5$, proving the statement. **(c)** The intersections are
 
 $$
 \boxed{\left(\frac{-1+\sqrt5}{2},0\right),
@@ -432,19 +494,27 @@ $$
 
 $C_1$ has asymptotes $x=2a$ and $y=1$, and passes through $(a,0)$ and $\left(0,\frac12\right)$.
 
+**(b)(i)** Let $g(x)=(x-a)/(x-2a)$. Since
+
+$$
+\frac{d}{dx}\{g(x)^2\}=2g(x)g'(x),
+\qquad
+g'(x)=\frac{-a}{(x-2a)^2},
+$$
+
 $C_2$ has the stationary point
 
 $$
 \boxed{(a,0)}.
 $$
 
-The intersections of $C_2$ and $C_3$ occur when the absolute value is $0$ or $1$, giving
+**(b)(ii)** Put $u=|g(x)|\ge0$. Then $C_2=C_3$ when $u^2=u$, so $u=0$ or $1$, giving
 
 $$
 \boxed{(a,0),\qquad\left(\frac{3a}{2},1\right)}.
 $$
 
-Reading the relative positions from the sketches gives
+**(c)** The inequality is $u^2\le u$, i.e. $0\le u\le1$. Solving $|g(x)|\le1$, or reading the relative positions from the sketches, gives
 
 $$
 \boxed{x\le\frac{3a}{2}}.
@@ -497,7 +567,14 @@ $$
 \boxed{x=-1},\qquad\boxed{y=x}.
 $$
 
-The stationary points are
+Since $y=x+9/(x+1)$,
+
+$$
+\frac{dy}{dx}=1-\frac9{(x+1)^2}
+=\frac{(x-2)(x+4)}{(x+1)^2}.
+$$
+
+Thus the stationary points are
 
 $$
 \boxed{(2,5),\qquad(-4,-7)}.
@@ -558,7 +635,13 @@ $$
 \boxed{y=-1}.
 $$
 
-The stationary point is
+The quotient rule gives
+
+$$
+\frac{dy}{dx}=\frac{4x-2}{(1+x-x^2)^2}.
+$$
+
+Thus $x=1/2$ and the stationary point is
 
 $$
 \boxed{\left(\frac12,-\frac{13}{5}\right)}.
@@ -627,7 +710,7 @@ $$
 \boxed{x=-1},\qquad\boxed{x=1},\qquad\boxed{y=0}.
 $$
 
-The stationary points are
+The derivative numerator factorises as $2(2x+1)(x+2)$, so the stationary points are
 
 $$
 \boxed{\left(-2,\frac14\right),\qquad\left(-\frac12,1\right)}.
@@ -745,13 +828,19 @@ has four distinct real solutions. **[2]**
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-$x^2+x+1$ has discriminant $-3$, so it has no real zeros. The horizontal asymptote is
+$x^2+x+1$ has discriminant $-3$, so it has no real zeros and there are no vertical asymptotes. The horizontal asymptote is
 
 $$
 \boxed{y=2}.
 $$
 
-The stationary points are
+The quotient rule gives
+
+$$
+\frac{dy}{dx}=\frac{3x(x+2)}{(x^2+x+1)^2}.
+$$
+
+Thus the stationary points are
 
 $$
 \boxed{(0,-1),\qquad(-2,3)}.
@@ -1063,7 +1152,13 @@ Find $a$. **[2]**
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The asymptotes are
+Long division gives
+
+$$
+\frac{x^2+ax+1}{x+2}=x+a-2+\frac{5-2a}{x+2}.
+$$
+
+Hence the asymptotes are
 
 $$
 \boxed{x=-2},\qquad\boxed{y=x+a-2}.
@@ -1126,7 +1221,15 @@ $$
 \boxed{y=0}.
 $$
 
-The stationary points of $C$ are
+Using the quotient rule,
+
+$$
+\frac{dy}{dx}
+=\frac{x^2+3-2x(x+1)}{(x^2+3)^2}
+=\frac{-(x-1)(x+3)}{(x^2+3)^2}.
+$$
+
+Thus the stationary points of $C$ are
 
 $$
 \boxed{\left(-3,-\frac16\right),\qquad\left(1,\frac12\right)}.
@@ -1198,7 +1301,14 @@ $$
 \boxed{x=\frac12},\qquad\boxed{x=3},\qquad\boxed{y=2}.
 $$
 
-The stationary points are
+The quotient rule gives
+
+$$
+\frac{dy}{dx}
+=\frac{-10(3x+1)(x-1)}{(2x^2-7x+3)^2}.
+$$
+
+Hence the stationary points are
 
 $$
 \boxed{\left(-\frac13,\frac15\right),\qquad(1,-3)}.
@@ -1269,7 +1379,13 @@ $$
 y=1+\frac2{x^2+1}
 $$
 
-shows immediately that $1<y\le3$. The only stationary point and axis intersection is
+shows immediately that $1<y\le3$. Also
+
+$$
+\frac{dy}{dx}=-\frac{4x}{(x^2+1)^2},
+$$
+
+so the only stationary point and axis intersection is
 
 $$
 \boxed{(0,3)}.
@@ -1324,13 +1440,20 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The asymptotes are
+Since $2x^2-7x-4=(2x+1)(x-4)$ and the ratio of leading coefficients is $1$, the asymptotes are
 
 $$
 \boxed{x=-\frac12},\qquad\boxed{x=4},\qquad\boxed{y=1}.
 $$
 
-The stationary points are
+The quotient rule gives
+
+$$
+\frac{dy}{dx}
+=\frac{-4(x+5)(x-1)}{(2x^2-7x-4)^2}.
+$$
+
+Therefore the stationary points are
 
 $$
 \boxed{\left(-5,\frac{25}{27}\right),\qquad\left(1,\frac13\right)}.
@@ -1342,7 +1465,7 @@ $$
 \boxed{(0,0),\qquad\left(\frac52,0\right)}.
 $$
 
-Solving the boundary equations $f(x)=\pm\frac19$ gives
+The boundary equations are $9(2x^2-5x)=\pm(2x^2-7x-4)$. Solving both quadratics and using a sign chart gives
 
 $$
 \boxed{
@@ -1394,13 +1517,25 @@ has two real solutions. **[4]**
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The asymptotes are
+Long division gives
+
+$$
+\frac{x^2+a}{x+a}=x-a+\frac{a^2+a}{x+a}.
+$$
+
+Hence the asymptotes are
 
 $$
 \boxed{x=-a},\qquad\boxed{y=x-a}.
 $$
 
-The stationary-point $x$-coordinates are
+Also
+
+$$
+\frac{dy}{dx}=1-\frac{a^2+a}{(x+a)^2}.
+$$
+
+Setting this equal to zero gives the stationary-point $x$-coordinates
 
 $$
 \boxed{x=-a\pm\sqrt{a^2+a}}.
@@ -1412,7 +1547,19 @@ $$
 \boxed{(0,1)}.
 $$
 
-For $|f(x)|=a$, the equation $f(x)=-a$ has no real roots for $a>0$. The equation $f(x)=a$ has two distinct real roots when
+For $|f(x)|=a$, the equation $f(x)=-a$ becomes
+
+$$
+x^2+ax+a+a^2=0,
+$$
+
+whose discriminant is $-3a^2-4a<0$. The equation $f(x)=a$ becomes
+
+$$
+x^2-ax+a-a^2=0,
+$$
+
+and has two distinct real roots when
 
 $$
 5a^2-4a>0.
@@ -1477,13 +1624,31 @@ $$
 \boxed{y=1}.
 $$
 
-Rearranging as a quadratic in $x$ and applying the discriminant gives
+Since
+
+$$
+y=1-\frac6{x^2+x+2}
+$$
+
+and
+
+$$
+x^2+x+2=\left(x+\frac12\right)^2+\frac74\ge\frac74,
+$$
+
+it follows directly that
 
 $$
 \boxed{-\frac{17}{7}\le y<1}.
 $$
 
-The stationary point is
+Furthermore,
+
+$$
+\frac{dy}{dx}=\frac{6(2x+1)}{(x^2+x+2)^2},
+$$
+
+so the stationary point is
 
 $$
 \boxed{\left(-\frac12,-\frac{17}{7}\right)}.
@@ -1497,7 +1662,15 @@ $$
 \left(\frac{-1+\sqrt{17}}2,0\right)}.
 $$
 
-For $f(|x|)$, retain the $x\ge0$ half of $C$ and reflect it in the $y$-axis. Solving the inequality gives
+For $f(|x|)$, retain the $x\ge0$ half of $C$ and reflect it in the $y$-axis. Put $u=|x|$. Then
+
+$$
+1-\frac6{u^2+u+2}< -\frac12
+\quad\Longleftrightarrow\quad
+u^2+u-2<0.
+$$
+
+Since $u\ge0$, this gives $0\le u<1$, hence
 
 $$
 \boxed{-1<x<1}.
@@ -1552,7 +1725,14 @@ $$
 \boxed{y=0}.
 $$
 
-Differentiation gives the numerator $-(x^2+4x+5)$, whose discriminant is negative, so there are no stationary points. The intersections are
+Differentiation gives
+
+$$
+\frac{dy}{dx}
+=-\frac{x^2+4x+5}{(x^2+3x+1)^2}.
+$$
+
+The numerator quadratic has discriminant $16-20=-4<0$ and is always positive, so the derivative is never zero. Hence there are no stationary points. The intersections are
 
 $$
 \boxed{(-2,0),\qquad(0,2)}.
@@ -1610,19 +1790,39 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The asymptotes of $C$ are
+Long division gives
+
+$$
+\frac{x^2+x+1}{x+1}=x+\frac1{x+1}.
+$$
+
+Hence the asymptotes of $C$ are
 
 $$
 \boxed{x=-1},\qquad\boxed{y=x}.
 $$
 
-The stationary points are
+Also
+
+$$
+\frac{dy}{dx}=1-\frac1{(x+1)^2}=0
+$$
+
+gives $x=0,-2$, so the stationary points are
 
 $$
 \boxed{(0,1),\qquad(-2,-3)}.
 $$
 
-For $f(|x|)$, retain the right-hand branch and reflect it in the $y$-axis; the result is smooth at $(0,1)$. Solving the boundary equation with $|x|$ gives
+For $f(|x|)$, retain the right-hand branch and reflect it in the $y$-axis; the result is smooth at $(0,1)$. Put $u=|x|$. Then
+
+$$
+\frac{u^2+u+1}{u+1}<3
+\quad\Longleftrightarrow\quad
+u^2-2u-2<0.
+$$
+
+Thus $0\le u<1+\sqrt3$, giving
 
 $$
 \boxed{-1-\sqrt3<x<1+\sqrt3}.
@@ -1677,13 +1877,20 @@ find $p$ and $q$. **[4]**
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-The asymptotes are
+Long division gives
+
+$$
+\frac{10x^2-11x-18}{10x-18}
+=x+\frac7{10}-\frac{27/5}{10x-18}.
+$$
+
+Hence the asymptotes are
 
 $$
 \boxed{x=\frac95},\qquad\boxed{y=x+\frac7{10}}.
 $$
 
-Also
+Differentiating this form,
 
 $$
 \frac{dy}{dx}=1+\frac{54}{(10x-18)^2}>0,
@@ -1695,7 +1902,7 @@ $$
 \boxed{(0,1),\qquad\left(-\frac9{10},0\right),\qquad(2,0)}.
 $$
 
-The two remaining boundary values come from $f(x)=4$, giving
+For $|f(x)|<4$, the four boundary values come from $f(x)=4$ and $f(x)=-4$. The two values represented by $p,q$ come from $f(x)=4$, giving
 
 $$
 10x^2-51x+54=0.
