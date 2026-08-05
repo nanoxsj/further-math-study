@@ -29,9 +29,32 @@ Let $B=\begin{pmatrix}1&0\\33&0\end{pmatrix}$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-Since $\det A=2$, $|\det A^{-1}|=\frac12$, so $\boxed{d=15}$.
+**(a)** Since
 
-The formula is true for $n=1$. If it holds for $n=k$, then
+$$
+\det A=2,\qquad \det(A^{-1})=(\det A)^{-1}=\frac12,
+$$
+
+the area scale factor is $\left|\det(A^{-1})\right|=\frac12$. Therefore
+
+$$
+\boxed{d=30\times\frac12=15}.
+$$
+
+**(b)** For $n=1$,
+
+$$
+A=\begin{pmatrix}2&0\\1&1\end{pmatrix}
+=\begin{pmatrix}2^1&0\\2^1-1&1\end{pmatrix},
+$$
+
+so the statement is true initially. Assume that it is true for $n=k$, where $k$ is a positive integer:
+
+$$
+A^k=\begin{pmatrix}2^k&0\\2^k-1&1\end{pmatrix}.
+$$
+
+Then
 
 $$
 A^{k+1}=\begin{pmatrix}2^k&0\\2^k-1&1\end{pmatrix}
@@ -39,13 +62,36 @@ A^{k+1}=\begin{pmatrix}2^k&0\\2^k-1&1\end{pmatrix}
 =\begin{pmatrix}2^{k+1}&0\\2^{k+1}-1&1\end{pmatrix},
 $$
 
-which completes the induction. Finally,
+Thus the statement is true for $k+1$ whenever it is true for $k$. Hence, by mathematical induction,
+
+$$
+\boxed{A^n=\begin{pmatrix}2^n&0\\2^n-1&1\end{pmatrix}}
+$$
+
+for every positive integer $n$.
+
+**(c)** Using part (b),
 
 $$
 A^nB=\begin{pmatrix}2^n&0\\2^n+32&0\end{pmatrix}.
 $$
 
-For its image to have gradient $2$, $(2^n+32)/2^n=2$, giving $2^n=32$ and $\boxed{n=5}$.
+For a general point $(x,y)$,
+
+$$
+A^nB\binom xy
+=\binom{2^nx}{(2^n+32)x}.
+$$
+
+The image has gradient $(2^n+32)/2^n$. Since the invariant line has gradient $2$,
+
+$$
+\frac{2^n+32}{2^n}=2
+\quad\Longrightarrow\quad
+2^n=32
+\quad\Longrightarrow\quad
+\boxed{n=5}.
+$$
 
 </details>
 
@@ -78,15 +124,69 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-Expanding $\det A$ gives $k^2+k+2$, whose discriminant is $1-8<0$; hence it is never zero for real $k$.
+**(a)** Expanding along the first row,
 
-Multiplying $CAB$ and comparing entries gives $\boxed{k=-\frac12}$. For $y=mx$, the condition $Y=mX$ gives
+$$
+\det A
+=k\begin{vmatrix}-1&-1\\1&-k\end{vmatrix}
++2\begin{vmatrix}0&-1\\1&1\end{vmatrix}
+=k(k+1)+2
+=k^2+k+2.
+$$
+
+The discriminant of $k^2+k+2$ is
+
+$$
+1^2-4(1)(2)=-7<0.
+$$
+
+Since its leading coefficient is positive, $k^2+k+2>0$ for every real $k$. Thus $\det A\ne0$ and $A$ is non-singular.
+
+**(b)** First,
+
+$$
+AB=\begin{pmatrix}0&-3k\\1&-3\\-1&0\end{pmatrix},
+$$
+
+and hence
+
+$$
+CAB
+=\begin{pmatrix}-2&9k+3\\-1&-3k-3\end{pmatrix}.
+$$
+
+Comparing, for example, the top-right entry with the given matrix,
+
+$$
+9k+3=-\frac32
+\quad\Longrightarrow\quad
+\boxed{k=-\frac12}.
+$$
+
+**(c)** The given $CAB$ maps a point $(x,y)$ to
+
+$$
+\binom XY
+=\begin{pmatrix}-2&-\frac32\\-1&-\frac32\end{pmatrix}
+\binom xy
+=\binom{-2x-\frac32y}{-x-\frac32y}.
+$$
+
+For the line $y=mx$, substitute $y=mx$ and require $Y=mX$:
 
 $$
 -1-\frac32m=m\left(-2-\frac32m\right),
 $$
 
-so $3m^2+m-2=0$. Therefore
+Thus
+
+$$
+3m^2+m-2=0
+\quad\Longrightarrow\quad
+(3m-2)(m+1)=0.
+$$
+
+Therefore
 
 $$
 \boxed{y=\frac23x\quad\text{or}\quad y=-x}.
@@ -120,14 +220,44 @@ The unit square is mapped by $M$ onto parallelogram $OPQR$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-First apply a one-way stretch parallel to the $x$-axis with scale factor $a$, then a shear with the $x$-axis fixed and shear factor $b$.
+**(a)** Reading the product from right to left, first apply a one-way stretch parallel to the $x$-axis with scale factor $a$, then a shear with the $x$-axis fixed, taking $(0,1)$ to $(b,1)$.
 
 $$
-M=\begin{pmatrix}a&b\\0&1\end{pmatrix},\qquad
+M=\begin{pmatrix}1&b\\0&1\end{pmatrix}
+\begin{pmatrix}a&0\\0&1\end{pmatrix}
+=\begin{pmatrix}a&b\\0&1\end{pmatrix}.
+$$
+
+**(b)** Since $\det M=a$,
+
+$$
 \boxed{M^{-1}=\frac1a\begin{pmatrix}1&-b\\0&a\end{pmatrix}}.
 $$
 
-The area factor is $|\det M|=a$, so $a=2$. A point $(x,-x/3)$ on the invariant line maps to $(ax-bx/3,-x/3)$. Requiring it to remain on the same line gives $1=a-b/3$, hence $\boxed{a=2, b=3}$.
+**(c)** The unit square has area $1$, so its image has area
+
+$$
+|\det M|=a.
+$$
+
+As $a>0$ and the given area is $2$, $\boxed{a=2}$. A general point on $x+3y=0$ can be written as $(x,-x/3)$. Its image is
+
+$$
+\binom XY
+=\begin{pmatrix}a&b\\0&1\end{pmatrix}
+\binom{x}{-x/3}
+=\binom{ax-\frac13bx}{-\frac13x}.
+$$
+
+The image must again satisfy $X+3Y=0$:
+
+$$
+ax-\frac13bx-x=0
+\quad\Longrightarrow\quad
+1=a-\frac b3.
+$$
+
+Using $a=2$ gives $\boxed{b=3}$, so $\boxed{a=2, b=3}$.
 
 </details>
 
@@ -159,20 +289,46 @@ Triangle $DEF$ is transformed by $AB$ onto triangle $PQR$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-$A$ is reflection in $y=x$; $B$ is rotation through $60^\circ$ anticlockwise about the origin. Also
+**(a)** $A$ represents reflection in the line $y=x$.
+
+**(b)** Comparing $B$ with the standard rotation matrix shows that it represents a rotation through $60^\circ$ anticlockwise about the origin.
+
+**(c)** Multiplying in the stated order,
 
 $$
 AB=\begin{pmatrix}\frac{\sqrt3}{2}&\frac12\\[2pt]\frac12&-\frac{\sqrt3}{2}\end{pmatrix},
 \qquad \det(AB)=-1,
 $$
 
-so the absolute area factor is $1$. Since $AB$ is a reflection, it is self-inverse:
+Therefore the area scale factor is $|\det(AB)|=1$, so triangles $DEF$ and $PQR$ have equal area.
+
+**(d)** Using the $2\times2$ inverse formula,
 
 $$
 \boxed{(AB)^{-1}=\begin{pmatrix}\frac{\sqrt3}{2}&\frac12\\[2pt]\frac12&-\frac{\sqrt3}{2}\end{pmatrix}}.
 $$
 
-Putting $y=mx$ and using $Y=mX$ gives $m^2+2\sqrt3m-1=0$. Hence
+**(e)** Under $AB$,
+
+$$
+\binom XY
+=\binom{\frac{\sqrt3}{2}x+\frac12y}{\frac12x-\frac{\sqrt3}{2}y}.
+$$
+
+Put $y=mx$ and require $Y=mX$:
+
+$$
+\frac12-\frac{\sqrt3}{2}m
+=m\left(\frac{\sqrt3}{2}+\frac12m\right).
+$$
+
+Hence
+
+$$
+m^2+2\sqrt3m-1=0,
+$$
+
+so $m=-\sqrt3\pm2$. Therefore
 
 $$
 \boxed{y=(2-\sqrt3)x\quad\text{or}\quad y=-(2+\sqrt3)x}.
@@ -209,19 +365,76 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
+**(a)** The rotation matrix is
+
+$$
+\begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix},
+$$
+
+and the following stretch has matrix $\begin{pmatrix}d&0\\0&1\end{pmatrix}$. Hence, in the correct order,
+
 $$
 M=\begin{pmatrix}d&0\\0&1\end{pmatrix}
 \begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}
 =\begin{pmatrix}\frac d2&-\frac{d\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}.
 $$
 
-Since $|\det M|=d$, $d=\frac12d^2$ and $d\ne0$, so $\boxed{d=2}$. Then
+**(b)** Since
+
+$$
+\det M=\frac d4+\frac{3d}{4}=d,
+$$
+
+the image area is $|d|$. In the geometrical stretch context $d>0$, so
+
+$$
+d=\frac12d^2.
+$$
+
+As $d\ne0$, $\boxed{d=2}$.
+
+**(c)** With $d=2$,
+
+$$
+M=\begin{pmatrix}1&-\sqrt3\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix},
+\qquad
+M^{-1}=\frac12\begin{pmatrix}\frac12&\sqrt3\\[2pt]-\frac{\sqrt3}{2}&1\end{pmatrix}.
+$$
+
+Therefore
+
+$$
+N=M^{-1}(MN)
+=\frac12\begin{pmatrix}\frac12&\sqrt3\\[2pt]-\frac{\sqrt3}{2}&1\end{pmatrix}
+\begin{pmatrix}1&1\\[2pt]\frac12&\frac12\end{pmatrix}
+$$
+
+and hence
 
 $$
 \boxed{N=\frac14\begin{pmatrix}1+\sqrt3&1+\sqrt3\\1-\sqrt3&1-\sqrt3\end{pmatrix}}.
 $$
 
-For $MN=\begin{pmatrix}1&1\\1/2&1/2\end{pmatrix}$, the condition $Y=mX$ gives $2m^2+m-1=0$. Thus
+**(d)** Under $MN$,
+
+$$
+\binom XY
+=\begin{pmatrix}1&1\\[2pt]\frac12&\frac12\end{pmatrix}
+\binom xy
+=\binom{x+y}{\frac12x+\frac12y}.
+$$
+
+For $y=mx$, the condition $Y=mX$ gives
+
+$$
+\frac12+\frac12m=m(1+m)
+\quad\Longrightarrow\quad
+2m^2+m-1=0
+\quad\Longrightarrow\quad
+(2m-1)(m+1)=0.
+$$
+
+Thus
 
 $$
 \boxed{y=\frac12x\quad\text{or}\quad y=-x}.
@@ -252,11 +465,40 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
+**(a)** First,
+
 $$
-CAB=\boxed{\begin{pmatrix}10&-1\\14-k&-k-2\end{pmatrix}}.
+AB=\begin{pmatrix}2+k&k\\8&-1\\2&0\end{pmatrix},
 $$
 
-Setting $\det A=0$ gives $k=\boxed{-2}$, and hence $CAB=\begin{pmatrix}10&-1\\16&0\end{pmatrix}$. For $y=mx$,
+so
+
+$$
+CAB
+=\begin{pmatrix}0&1&1\\-1&2&0\end{pmatrix}
+\begin{pmatrix}2+k&k\\8&-1\\2&0\end{pmatrix}
+=\boxed{\begin{pmatrix}10&-1\\14-k&-k-2\end{pmatrix}}.
+$$
+
+**(b)** Expanding $\det A$ along the first row,
+
+$$
+\det A
+=2\begin{vmatrix}-1&3\\0&1\end{vmatrix}
+-k\begin{vmatrix}5&3\\1&1\end{vmatrix}
++k\begin{vmatrix}5&-1\\1&0\end{vmatrix}
+=-2-k.
+$$
+
+Since $A$ is singular, $-2-k=0$, giving $\boxed{k=-2}$.
+
+**(c)** Hence
+
+$$
+CAB=\begin{pmatrix}10&-1\\16&0\end{pmatrix},
+$$
+
+which maps $(x,mx)$ to $(10x-mx,16x)$. Requiring $Y=mX$ gives
 
 $$
 16=m(10-m),
@@ -286,25 +528,48 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-First apply a one-way stretch parallel to the $x$-axis with scale factor $3$, then rotate anticlockwise through $\theta$ about the origin.
+**(a)** Reading the product from right to left, first apply a one-way stretch parallel to the $x$-axis with scale factor $3$, then rotate anticlockwise through $\theta$ about the origin.
+
+**(b)** Multiplying gives
 
 $$
 M=\begin{pmatrix}3\cos\theta&-\sin\theta\\3\sin\theta&\cos\theta\end{pmatrix}.
 $$
 
-For $y=mx$, $Y=mX$ reduces to
+For a point $(x,mx)$,
+
+$$
+X=(3\cos\theta-m\sin\theta)x,
+\qquad
+Y=(3\sin\theta+m\cos\theta)x.
+$$
+
+Requiring $Y=mX$ gives
+
+$$
+3\sin\theta+m\cos\theta
+=3m\cos\theta-m^2\sin\theta,
+$$
+
+which reduces to
 
 $$
 m^2\sin\theta-2m\cos\theta+3\sin\theta=0.
 $$
 
-Exactly one invariant line requires a repeated root, so
+Exactly one finite-gradient invariant line requires a repeated root, so the discriminant must be zero:
 
 $$
 4\cos^2\theta-12\sin^2\theta=0.
 $$
 
-In the stated interval, $\boxed{\theta=\frac\pi6\text{ or }\frac{5\pi}6}$.
+Thus $\tan^2\theta=1/3$. In the stated interval this gives
+
+$$
+\boxed{\theta=\frac\pi6\text{ or }\frac{5\pi}6}.
+$$
+
+At the endpoints $\theta=0,\pi$, both coordinate axes are invariant, so neither endpoint satisfies “exactly one”.
 
 </details>
 
@@ -327,13 +592,57 @@ Let $A=\begin{pmatrix}3&4\\2&2\end{pmatrix}$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-Part (a) is an enlargement, centre the origin, scale factor $6$. Since $\det A=-2$, the image area is $2(13)=\boxed{26\text{ cm}^2}$.
+**(a)** The matrix $6I$ represents an enlargement with centre the origin and scale factor $6$.
+
+**(b)**
+
+$$
+\det A=3(2)-4(2)=-2.
+$$
+
+Hence the area scale factor is $|-2|=2$, and the image area is
+
+$$
+\boxed{2\times13=26\text{ cm}^2}.
+$$
+
+**(c)** Since $AB=6I$,
+
+$$
+B=A^{-1}(6I)=6A^{-1}.
+$$
+
+Now
+
+$$
+A^{-1}=-\frac12\begin{pmatrix}2&-4\\-2&3\end{pmatrix},
+$$
+
+so
 
 $$
 \boxed{B=6A^{-1}=\begin{pmatrix}-6&12\\6&-9\end{pmatrix}}.
 $$
 
-An invariant point $(x,y)$ satisfies $3x+4y=x$ and $2x+2y=y$. These reduce to $2x+4y=0$ and $2x+y=0$, whose only solution is $\boxed{(0,0)}$.
+**(d)** If $(x,y)$ is invariant, then
+
+$$
+\begin{pmatrix}3&4\\2&2\end{pmatrix}\binom xy=\binom xy.
+$$
+
+Thus
+
+$$
+3x+4y=x,\qquad 2x+2y=y,
+$$
+
+or
+
+$$
+2x+4y=0,\qquad 2x+y=0.
+$$
+
+The second equation gives $y=-2x$; substituting into the first gives $-6x=0$. Hence $x=0$ and $y=0$, so the origin is the only invariant point.
 
 </details>
 
@@ -370,29 +679,101 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
+**(a)** Expanding along the first row,
+
 $$
-\det A=60-12k,
+\det A
+=1\begin{vmatrix}k&6\\8&9\end{vmatrix}
+-2\begin{vmatrix}4&6\\7&9\end{vmatrix}
++3\begin{vmatrix}4&k\\7&8\end{vmatrix}
 $$
 
-so $\boxed{k\ne5}$. Cofactors give the top row
+$$
+=(9k-48)-2(36-42)+3(32-7k)
+=60-12k.
+$$
+
+Thus $A$ is non-singular when
+
+$$
+\boxed{k\ne5}.
+$$
+
+**(b)** The top row of $A^{-1}=(\det A)^{-1}\operatorname{adj}A$ is formed from the cofactors of the first column:
+
+$$
+(A^{-1})_{11}=\frac{\begin{vmatrix}k&6\\8&9\end{vmatrix}}{60-12k}
+=\frac{3k-16}{4(5-k)},
+$$
+
+$$
+(A^{-1})_{12}=\frac{-\begin{vmatrix}2&3\\8&9\end{vmatrix}}{60-12k}
+=\frac1{2(5-k)},
+$$
+
+$$
+(A^{-1})_{13}=\frac{\begin{vmatrix}2&3\\k&6\end{vmatrix}}{60-12k}
+=\frac{4-k}{4(5-k)}.
+$$
+
+Therefore the top row is
 
 $$
 \boxed{\left(\frac{3k-16}{4(5-k)},\ \frac1{2(5-k)},\ \frac{4-k}{4(5-k)}\right)}.
 $$
 
-One valid choice is
+**(c)** Since
+
+$$
+BA=\begin{pmatrix}1&2&3\\4&k&6\end{pmatrix},
+$$
+
+one valid choice is
 
 $$
 \boxed{C=\begin{pmatrix}0&1\\1&0\\0&0\end{pmatrix}}.
 $$
 
-For the final matrix, $y=mx$ gives
+Indeed,
+
+$$
+BAC
+=\begin{pmatrix}1&2&3\\4&k&6\end{pmatrix}
+\begin{pmatrix}0&1\\1&0\\0&0\end{pmatrix}
+=\begin{pmatrix}2&1\\k&4\end{pmatrix}.
+$$
+
+**(d)** Let $T=\begin{pmatrix}2&1\\k&4\end{pmatrix}$. Then
+
+$$
+T\binom{x}{mx}=\binom{(2+m)x}{(k+4m)x}.
+$$
+
+For $y=mx$ to be invariant, $Y=mX$:
+
+$$
+k+4m=m(2+m),
+$$
+
+giving
 
 $$
 m^2-2m-k=0.
 $$
 
-Two distinct invariant lines require discriminant $4+4k>0$; the represented transformation must also be non-singular, so $8-k\ne0$. Therefore
+Two distinct invariant lines require
+
+$$
+\Delta=(-2)^2-4(1)(-k)=4+4k>0,
+$$
+
+so $k>-1$. Also $T$ must be non-singular:
+
+$$
+\det T=8-k\ne0.
+$$
+
+Therefore
 
 $$
 \boxed{k>-1,\qquad k\ne8}.
@@ -437,21 +818,44 @@ where $b>0$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-$A$ represents a shear in the $x$-direction, with the $x$-axis fixed. The formula is true for $n=1$. Assuming it for $n=k$,
+**(a)** $A$ represents a shear in the $x$-direction, with the $x$-axis fixed and $(0,1)$ mapped to $(a,1)$.
+
+**(b)** For $n=1$, the stated formula is exactly the given matrix $A$. Assume that it holds for $n=k$:
 
 $$
 A^{k+1}=\begin{pmatrix}1&ka\\0&1\end{pmatrix}
 \begin{pmatrix}1&a\\0&1\end{pmatrix}
-=\begin{pmatrix}1&(k+1)a\\0&1\end{pmatrix},
+=\begin{pmatrix}1&(k+1)a\\0&1\end{pmatrix}.
 $$
 
-which completes the induction. Also
+Therefore the statement holds for $k+1$ whenever it holds for $k$. Hence, by mathematical induction, it is true for every positive integer $n$.
+
+**(c)** Using the result from part (b),
 
 $$
 A^nB=\begin{pmatrix}b+n&b+n\\1/a&1/a\end{pmatrix}.
 $$
 
-Using $y=mx$ and $Y=mX$ gives $(1+m)\{1/a-m(b+n)\}=0$. Hence
+Thus
+
+$$
+\binom XY
+=\binom{(b+n)(x+y)}{(x+y)/a}.
+$$
+
+For $y=mx$, require $Y=mX$:
+
+$$
+\frac{1+m}{a}=m(b+n)(1+m).
+$$
+
+Hence
+
+$$
+(1+m)\left\{\frac1a-m(b+n)\right\}=0,
+$$
+
+so
 
 $$
 \boxed{y=-x\quad\text{or}\quad y=\frac{x}{a(b+n)}}.
@@ -488,7 +892,41 @@ Matrices $D,E,F$ represent, respectively, an enlargement centred at the origin, 
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-$\det A=0$ gives $k=2$; direct multiplication then gives the stated $CAB$. For $y=mx$,
+**(a)** Since $A$ is singular,
+
+$$
+0=\det A
+=1\begin{vmatrix}1&3\\2&5\end{vmatrix}
+-k\begin{vmatrix}2&3\\3&5\end{vmatrix}
++3\begin{vmatrix}2&1\\3&2\end{vmatrix}
+=-1-k+3.
+$$
+
+Thus $\boxed{k=2}$. Then
+
+$$
+AB
+=\begin{pmatrix}1&2&3\\2&1&3\\3&2&5\end{pmatrix}
+\begin{pmatrix}0&-2\\-1&3\\0&0\end{pmatrix}
+=\begin{pmatrix}-2&4\\-1&-1\\-2&0\end{pmatrix},
+$$
+
+and
+
+$$
+CAB
+=\begin{pmatrix}-2&-1&1\\1&1&3\end{pmatrix}
+\begin{pmatrix}-2&4\\-1&-1\\-2&0\end{pmatrix}
+=\boxed{\begin{pmatrix}3&-7\\-9&3\end{pmatrix}}.
+$$
+
+**(b)** This matrix maps $(x,y)$ to
+
+$$
+\binom XY=\binom{3x-7y}{-9x+3y}.
+$$
+
+For $y=mx$, require $Y=mX$:
 
 $$
 -9+3m=m(3-7m),
@@ -500,7 +938,24 @@ $$
 \boxed{y=\frac3{\sqrt7}x\quad\text{or}\quad y=-\frac3{\sqrt7}x}.
 $$
 
-Writing $D=\alpha I$, $E=\begin{pmatrix}\beta&0\\0&1\end{pmatrix}$ and $F=\begin{pmatrix}0&1\\1&0\end{pmatrix}$ and comparing entries gives
+**(c)** The stated geometrical descriptions give
+
+$$
+D=\begin{pmatrix}\alpha&0\\0&\alpha\end{pmatrix},\qquad
+E=\begin{pmatrix}\beta&0\\0&1\end{pmatrix},\qquad
+F=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+$$
+
+Therefore
+
+$$
+D-9EF
+=\begin{pmatrix}\alpha&0\\0&\alpha\end{pmatrix}
+-9\begin{pmatrix}0&\beta\\1&0\end{pmatrix}
+=\begin{pmatrix}\alpha&-9\beta\\-9&\alpha\end{pmatrix}.
+$$
+
+Comparing this with $CAB=\begin{pmatrix}3&-7\\-9&3\end{pmatrix}$ gives $\alpha=3$ and $\beta=7/9$. Hence
 
 $$
 \boxed{D=\begin{pmatrix}3&0\\0&3\end{pmatrix},\quad
@@ -536,19 +991,29 @@ The unit square is transformed by $M$ onto parallelogram $OPQR$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-First apply a shear in the $y$-direction with the $y$-axis fixed, then a one-way stretch parallel to the $x$-axis with scale factor $k$. Since
+**(a)** Reading from right to left, first apply a shear in the $y$-direction, with the $y$-axis fixed and $(1,0)$ mapped to $(1,1)$. Then apply a one-way stretch parallel to the $x$-axis with scale factor $k$.
+
+**(b)** Multiplication gives
 
 $$
 M=\begin{pmatrix}k&0\\1&1\end{pmatrix},
 $$
 
-the parallelogram has area $\boxed{|k|}$ square units (the official scheme writes $k$, under its geometric scale-factor convention), and
+The determinant is $k$, so the image of the unit square has area $\boxed{|k|}$ square units. Under the paper's geometrical scale-factor convention $k>0$, this is written as $\boxed{k}$ in the mark scheme.
+
+Also,
 
 $$
 \boxed{M^{-1}=\frac1k\begin{pmatrix}1&0\\-1&k\end{pmatrix}}.
 $$
 
-For $\mathbf v=\binom{1}{1/(k-1)}$,
+**(c)** A direction vector for the given line is
+
+$$
+\mathbf v=\binom{1}{1/(k-1)}.
+$$
+
+Then
 
 $$
 M\mathbf v=\binom{k}{k/(k-1)}=k\mathbf v,
@@ -588,7 +1053,9 @@ Triangle $ABC$ is transformed by $M$ onto triangle $DEF$ of area $28\text{ cm}^2
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-First apply a one-way stretch parallel to the $x$-axis with scale factor $14$, then rotate anticlockwise through $\pi/3$ about the origin. Reversing the order and inverting each factor gives
+**(a)** Reading from right to left, first apply a one-way stretch parallel to the $x$-axis with scale factor $14$, then rotate anticlockwise through $\pi/3$ about the origin.
+
+**(b)** Using $(AB)^{-1}=B^{-1}A^{-1}$, reverse the order and invert each factor:
 
 $$
 \boxed{M^{-1}=\begin{pmatrix}1/14&0\\0&1\end{pmatrix}
@@ -601,13 +1068,46 @@ $$
 M=\begin{pmatrix}7&-\frac{\sqrt3}{2}\\[2pt]7\sqrt3&\frac12\end{pmatrix},
 $$
 
-putting $y=mx$ gives $2\sqrt3m^2-13m+14\sqrt3=0$. Hence
+**(c)** A point $(x,mx)$ maps to
+
+$$
+X=7x-\frac{\sqrt3}{2}mx,
+\qquad
+Y=7\sqrt3x+\frac12mx.
+$$
+
+Requiring $Y=mX$ gives
+
+$$
+7\sqrt3+\frac12m
+=7m-\frac{\sqrt3}{2}m^2,
+$$
+
+or
+
+$$
+\sqrt3m^2-13m+14\sqrt3=0.
+$$
+
+This factorises through the roots $m=2\sqrt3$ and $m=7\sqrt3/3$. Hence
 
 $$
 \boxed{y=2\sqrt3x\quad\text{or}\quad y=\frac{7\sqrt3}{3}x}.
 $$
 
-Finally $|\det M|=14$, so the original area is $28/14=\boxed{2\text{ cm}^2}$.
+**(d)** Since determinants multiply,
+
+$$
+|\det M|=1\times14=14.
+$$
+
+Therefore
+
+$$
+28=14\times\operatorname{area}(ABC),
+$$
+
+so $\boxed{\operatorname{area}(ABC)=2\text{ cm}^2}$.
 
 </details>
 
@@ -638,13 +1138,25 @@ find $k$. **[2]**
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-Expansion gives
+**(a)** Expanding along the first row,
 
 $$
-\det A=-5k^2-2,
+\det A
+=k\begin{vmatrix}5&2\\3&-k\end{vmatrix}
+-1\begin{vmatrix}6&2\\-1&-k\end{vmatrix}
+=k(-5k-6)-(-6k+2)
+=-5k^2-2.
 $$
 
-which is negative for every real $k$ and hence never zero. From $AA^{-1}=I$ (for example, comparing the first entry) one obtains $3k+1=1$, so $\boxed{k=0}$.
+For real $k$, $-5k^2-2<0$, so $\det A\ne0$ and $A$ is non-singular.
+
+**(b)** Use $AA^{-1}=I$. The top-left entry of the product is
+
+$$
+3k+1,
+$$
+
+which must equal $1$. Thus $3k+1=1$ and $\boxed{k=0}$.
 
 </details>
 
@@ -672,19 +1184,48 @@ Triangle $DEF$ is transformed by $M$ onto triangle $PQR$ of area $35\text{ cm}^2
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-First apply a one-way stretch parallel to the $x$-axis with scale factor $7$, then a shear with the $x$-axis fixed and $(0,1)$ mapped to $(2,1)$. Thus
+**(a)** Reading from right to left, first apply a one-way stretch parallel to the $x$-axis with scale factor $7$, then a shear with the $x$-axis fixed and $(0,1)$ mapped to $(2,1)$. Thus
 
 $$
 M=\begin{pmatrix}7&2\\0&1\end{pmatrix}.
 $$
 
-For $y=mx$, $Y=mX$ gives $2m^2+6m=0$, so
+**(b)** The image of $(x,mx)$ is
+
+$$
+\binom XY
+=\begin{pmatrix}7&2\\0&1\end{pmatrix}
+\binom{x}{mx}
+=\binom{(7+2m)x}{mx}.
+$$
+
+Requiring $Y=mX$ gives
+
+$$
+m=m(7+2m)
+\quad\Longrightarrow\quad
+2m^2+6m=0
+\quad\Longrightarrow\quad
+2m(m+3)=0.
+$$
+
+Hence
 
 $$
 \boxed{y=0\quad\text{or}\quad y=-3x}.
 $$
 
-The area factor is $7$, hence the original area is $35/7=\boxed{5\text{ cm}^2}$.
+**(c)** The area factor is
+
+$$
+|\det M|=|7|=7.
+$$
+
+Thus $35=7\times\operatorname{area}(DEF)$ and
+
+$$
+\boxed{\operatorname{area}(DEF)=5\text{ cm}^2}.
+$$
 
 </details>
 
@@ -709,6 +1250,14 @@ The unit square $S$ is transformed by $M$ onto parallelogram $P$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
+**(a)** The stretch and shear matrices are, respectively,
+
+$$
+\begin{pmatrix}k&0\\0&1\end{pmatrix},
+\qquad
+\begin{pmatrix}1&k\\0&1\end{pmatrix}.
+$$
+
 The product in the stated order is
 
 $$
@@ -717,19 +1266,47 @@ $$
 =\begin{pmatrix}k&k\\0&1\end{pmatrix}.
 $$
 
-Solving $M\binom xy=\binom xy$ gives
+**(b)** A point on the line of invariant points satisfies
+
+$$
+M\binom xy=\binom xy.
+$$
+
+Thus
+
+$$
+kx+ky=x,
+$$
+
+while the second coordinate is already unchanged. Since $k\ne0$,
 
 $$
 \boxed{y=\frac{1-k}{k}x}.
 $$
 
-The reverse matrix is
+**(c)** The required reverse transformation is represented by
 
 $$
 \boxed{M^{-1}=\frac1k\begin{pmatrix}1&-k\\0&k\end{pmatrix}}.
 $$
 
-Since the area of $P$ is $|\det M|=|k|$, the condition $|k|=3k^2$ gives $\boxed{k=\pm\frac13}$.
+**(d)** Since the unit square has area $1$, the area of $P$ is
+
+$$
+|\det M|=|k|.
+$$
+
+Hence
+
+$$
+|k|=3k^2.
+$$
+
+As $k\ne0$, division by $|k|$ gives $1=3|k|$, so
+
+$$
+\boxed{k=\pm\frac13}.
+$$
 
 </details>
 
@@ -760,13 +1337,56 @@ Let $M=\begin{pmatrix}3&0\\0&1\end{pmatrix}$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-Direct multiplication gives the stated product. For $y=mx$, the invariance equation gives $7m^2=9$, so
+**(a)** First,
+
+$$
+AB
+=\begin{pmatrix}1&2&3\\2&1&3\\3&2&5\end{pmatrix}
+\begin{pmatrix}0&-2\\-1&3\\0&0\end{pmatrix}
+=\begin{pmatrix}-2&4\\-1&-1\\-2&0\end{pmatrix}.
+$$
+
+Therefore
+
+$$
+CAB
+=\begin{pmatrix}-2&-1&1\\1&1&3\end{pmatrix}
+\begin{pmatrix}-2&4\\-1&-1\\-2&0\end{pmatrix}
+=\boxed{\begin{pmatrix}3&-7\\-9&3\end{pmatrix}}.
+$$
+
+**(b)** For $y=mx$,
+
+$$
+\binom XY
+=\binom{(3-7m)x}{(-9+3m)x}.
+$$
+
+The condition $Y=mX$ gives
+
+$$
+-9+3m=m(3-7m)
+\quad\Longrightarrow\quad
+7m^2=9.
+$$
+
+Thus
 
 $$
 \boxed{y=\frac3{\sqrt7}x\quad\text{or}\quad y=-\frac3{\sqrt7}x}.
 $$
 
-$M$ is a one-way stretch parallel to the $x$-axis with scale factor $3$. Since $N=(CAB)M^{-1}$,
+**(c)** $M$ is a one-way stretch parallel to the $x$-axis with scale factor $3$.
+
+**(d)** Since $NM=CAB$,
+
+$$
+N=(CAB)M^{-1}
+=\begin{pmatrix}3&-7\\-9&3\end{pmatrix}
+\begin{pmatrix}1/3&0\\0&1\end{pmatrix}.
+$$
+
+Therefore
 
 $$
 \boxed{N=\begin{pmatrix}1&-7\\-3&3\end{pmatrix}}.
@@ -797,19 +1417,51 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-First rotate anticlockwise through $\theta$ about the origin, then apply a shear with the $x$-axis fixed and $(0,1)$ mapped to $(2,1)$. Multiplying gives
+**(a)** Reading the product from right to left, first rotate anticlockwise through $\theta$ about the origin, then apply a shear with the $x$-axis fixed and $(0,1)$ mapped to $(2,1)$.
+
+**(b)** Multiplying gives
 
 $$
 M=\begin{pmatrix}\cos\theta+2\sin\theta&2\cos\theta-\sin\theta\\\sin\theta&\cos\theta\end{pmatrix}.
 $$
 
-Solving $M\binom xy=\binom xy$ for a non-zero point leads to
+For a line of invariant points there must be a non-zero solution of
+
+$$
+M\binom xy=\binom xy.
+$$
+
+Equating coordinates gives
+
+$$
+(\cos\theta+2\sin\theta-1)x
++(2\cos\theta-\sin\theta)y=0,
+$$
+
+$$
+\sin\theta\,x+(\cos\theta-1)y=0.
+$$
+
+These homogeneous equations have a non-zero solution only when the determinant of their coefficient matrix is zero:
+
+$$
+(\cos\theta+2\sin\theta-1)(\cos\theta-1)
+-(2\cos\theta-\sin\theta)\sin\theta=0.
+$$
+
+Using $\sin^2\theta+\cos^2\theta=1$ simplifies this to
 
 $$
 \sin\theta+\cos\theta=1.
 $$
 
-Within the stated interval the required non-identity case is
+Equivalently,
+
+$$
+\sqrt2\sin\left(\theta+\frac\pi4\right)=1.
+$$
+
+In $0<\theta<2\pi$, the solutions of $\sin\theta+\cos\theta=1$ are $\theta=\pi/2$ and the excluded endpoint $\theta=0$ (equivalently $2\pi$). Therefore
 
 $$
 \boxed{\theta=\frac\pi2}.
@@ -840,25 +1492,59 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
+**(a)** The stretch and rotation matrices are
+
+$$
+\begin{pmatrix}14&0\\0&1\end{pmatrix},
+\qquad
+\begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}.
+$$
+
+Since the stretch is performed first,
+
 $$
 M=\begin{pmatrix}\frac12&-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&\frac12\end{pmatrix}
 \begin{pmatrix}14&0\\0&1\end{pmatrix}
 =\begin{pmatrix}7&-\frac{\sqrt3}{2}\\[2pt]7\sqrt3&\frac12\end{pmatrix},
 $$
 
-which proves the given result. The condition $Y=mX$ gives
+and multiplying by $2$ proves the stated result.
+
+**(b)** For a point $(x,mx)$,
 
 $$
-\sqrt3m^2-13m+14\sqrt3=0,
+X=7x-\frac{\sqrt3}{2}mx,
+\qquad
+Y=7\sqrt3x+\frac12mx.
 $$
 
-so
+The condition $Y=mX$ gives
+
+$$
+\sqrt3m^2-13m+14\sqrt3=0.
+$$
+
+The discriminant is $169-168=1$, so
+
+$$
+m=\frac{13\pm1}{2\sqrt3}
+=2\sqrt3\quad\text{or}\quad\frac7{\sqrt3}.
+$$
+
+Hence
 
 $$
 \boxed{y=2\sqrt3x\quad\text{or}\quad y=\frac7{\sqrt3}x}.
 $$
 
-Finally,
+**(c)** Since $\det M=14$,
+
+$$
+M^{-1}
+=\frac1{14}\begin{pmatrix}\frac12&\frac{\sqrt3}{2}\\[2pt]-7\sqrt3&7\end{pmatrix}.
+$$
+
+Equivalently,
 
 $$
 \boxed{M^{-1}=\frac12\begin{pmatrix}1/14&\sqrt3/14\\-\sqrt3&1\end{pmatrix}}.
@@ -887,18 +1573,67 @@ Let $N$ satisfy $MN=\begin{pmatrix}1&2\\3&2\end{pmatrix}$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
+**(a)** The stretch and reflection matrices are
+
 $$
-\boxed{M=\begin{pmatrix}0&1\\3&0\end{pmatrix}}.
+S=\begin{pmatrix}3&0\\0&1\end{pmatrix},
+\qquad
+F=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
 $$
 
-$M^{-1}$ represents reflection in $y=x$ followed by a one-way stretch in the $x$-direction with scale factor $1/3$. Also
+The stretch is followed by the reflection, so
+
+$$
+\boxed{M=FS
+=\begin{pmatrix}0&1\\3&0\end{pmatrix}}.
+$$
+
+**(b)**
+
+$$
+M^{-1}=S^{-1}F^{-1}
+=\begin{pmatrix}1/3&0\\0&1\end{pmatrix}
+\begin{pmatrix}0&1\\1&0\end{pmatrix}
+=\begin{pmatrix}0&1/3\\1&0\end{pmatrix}.
+$$
+
+Thus $M^{-1}$ represents reflection in $y=x$, followed by a one-way stretch parallel to the $x$-axis with scale factor $1/3$.
+
+**(c)** Since $MN=\begin{pmatrix}1&2\\3&2\end{pmatrix}$,
+
+$$
+N=M^{-1}(MN)
+=\begin{pmatrix}0&1/3\\1&0\end{pmatrix}
+\begin{pmatrix}1&2\\3&2\end{pmatrix}.
+$$
+
+Hence
 
 $$
 \boxed{N=M^{-1}\begin{pmatrix}1&2\\3&2\end{pmatrix}
 =\begin{pmatrix}1&2/3\\1&2\end{pmatrix}}.
 $$
 
-For $MN=\begin{pmatrix}1&2\\3&2\end{pmatrix}$, $Y=mX$ gives $2m^2-m-3=0$. Therefore
+**(d)** For $y=mx$,
+
+$$
+\binom XY
+=\begin{pmatrix}1&2\\3&2\end{pmatrix}
+\binom{x}{mx}
+=\binom{(1+2m)x}{(3+2m)x}.
+$$
+
+The condition $Y=mX$ gives
+
+$$
+3+2m=m(1+2m)
+\quad\Longrightarrow\quad
+2m^2-m-3=0
+\quad\Longrightarrow\quad
+(2m-3)(m+1)=0.
+$$
+
+Therefore
 
 $$
 \boxed{y=\frac32x\quad\text{or}\quad y=-x}.
@@ -932,13 +1667,42 @@ Triangle $DEF$ is transformed by $AB$ onto triangle $PQR$.
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-$A$ is a shear with the $x$-axis fixed and $(0,1)$ mapped to $(3/2,1)$. $B$ is a shear with the $y$-axis fixed and $(1,0)$ mapped to $(1,3/2)$. Now
+**(a)** $A$ is a shear with the $x$-axis fixed and $(0,1)$ mapped to $(3/2,1)$.
+
+**(b)** $B$ is a shear with the $y$-axis fixed and $(1,0)$ mapped to $(1,3/2)$.
+
+**(c)** Multiplication gives
 
 $$
 AB=\begin{pmatrix}13/4&3/2\\3/2&1\end{pmatrix},\qquad \det(AB)=1,
 $$
 
-so areas are unchanged. For $y=mx$, $Y=mX$ gives $m^2+\frac32m-1=0$, hence
+Therefore the area scale factor is $|\det(AB)|=1$, so the two triangles have the same area.
+
+**(d)** For $y=mx$,
+
+$$
+\binom XY
+=\begin{pmatrix}13/4&3/2\\3/2&1\end{pmatrix}
+\binom{x}{mx}
+=\binom{(13/4+3m/2)x}{(3/2+m)x}.
+$$
+
+The condition $Y=mX$ gives
+
+$$
+\frac32+m=m\left(\frac{13}{4}+\frac32m\right).
+$$
+
+After simplification,
+
+$$
+m^2+\frac32m-1=0
+\quad\Longrightarrow\quad
+(m+2)\left(m-\frac12\right)=0.
+$$
+
+Hence
 
 $$
 \boxed{y=-2x\quad\text{or}\quad y=\frac12x}.
@@ -967,9 +1731,32 @@ $$
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-When $m=1$, $B$ is a one-way stretch parallel to the $x$-axis with scale factor $k$. When $m=k$, $B=kI$ is an enlargement centred at the origin with scale factor $k$.
+**(a)(i)** When $m=1$,
 
-Multiplication gives
+$$
+B=\begin{pmatrix}k&0\\0&1\end{pmatrix},
+$$
+
+so $B$ represents a one-way stretch parallel to the $x$-axis with scale factor $k$.
+
+**(a)(ii)** When $m=k$,
+
+$$
+B=\begin{pmatrix}k&0\\0&k\end{pmatrix}=kI,
+$$
+
+so $B$ represents an enlargement with centre the origin and scale factor $k$.
+
+**(b)** First,
+
+$$
+AB
+=\begin{pmatrix}0&1\\-1&1\\1&1\end{pmatrix}
+\begin{pmatrix}k&0\\0&m\end{pmatrix}
+=\begin{pmatrix}0&m\\-k&m\\k&m\end{pmatrix}.
+$$
+
+Therefore
 
 $$
 ABC=\begin{pmatrix}
@@ -989,7 +1776,13 @@ $$
 {}+m(2k+m)(-k+2m)+2m(-2k+m)(-k+m)-2m(2k+m)(k+m)=0.
 $$
 
-Hence $\det(ABC)=0$ and $ABC$ is singular.
+The six expanded terms simplify to
+
+$$
+6m^2k+6m^2k-12m^2k=0.
+$$
+
+Hence $\det(ABC)=0$, so $ABC$ is singular.
 
 </details>
 
@@ -1029,21 +1822,66 @@ and find $m$ in the requested cotangent/cosecant form. **[6]**
 
 <details class="answer-panel"><summary>Show answer and mark scheme</summary>
 
-Use the angle difference $\pi/12=\pi/4-\pi/6$ to prove the exact values. The matrix factorises as
+**(a)** Since $\pi/12=\pi/4-\pi/6$,
+
+$$
+\cos\frac\pi{12}
+=\cos\frac\pi4\cos\frac\pi6
++\sin\frac\pi4\sin\frac\pi6
+=\frac{\sqrt6+\sqrt2}{4},
+$$
+
+and
+
+$$
+\sin\frac\pi{12}
+=\sin\frac\pi4\cos\frac\pi6
+-\cos\frac\pi4\sin\frac\pi6
+=\frac{\sqrt6-\sqrt2}{4}.
+$$
+
+**(b)** The matrix factorises as
 
 $$
 M=\begin{pmatrix}\cos(\pi/12)&-\sin(\pi/12)\\\sin(\pi/12)&\cos(\pi/12)\end{pmatrix}
 \begin{pmatrix}1&0\\0&-1\end{pmatrix}.
 $$
 
-Thus reflect first in the $x$-axis, then rotate anticlockwise through $\pi/12$ about the origin. Reversing the order gives
+Reading from right to left, first reflect in the $x$-axis, then rotate anticlockwise through $\pi/12$ about the origin.
+
+**(c)** Reversing the order and inverting each factor gives
 
 $$
 \boxed{M^{-1}=\begin{pmatrix}1&0\\0&-1\end{pmatrix}
 \begin{pmatrix}\cos(\pi/12)&\sin(\pi/12)\\-\sin(\pi/12)&\cos(\pi/12)\end{pmatrix}}.
 $$
 
-Applying $Y=mX$ produces the stated quadratic. The quadratic formula and $\sin^2\theta+\cos^2\theta=1$ give
+**(d)** Write $s=\sin(\pi/12)$ and $c=\cos(\pi/12)$. A point $(x,mx)$ maps to
+
+$$
+\binom XY=\binom{(c+ms)x}{(s-mc)x}.
+$$
+
+The condition $Y=mX$ gives
+
+$$
+s-mc=m(c+ms),
+$$
+
+so
+
+$$
+m^2s+2mc-s=0,
+$$
+
+as required. By the quadratic formula,
+
+$$
+m=\frac{-2c\pm\sqrt{4c^2+4s^2}}{2s}
+=\frac{-c\pm1}{s}.
+$$
+
+Therefore
 
 $$
 \boxed{m=-\cot\frac\pi{12}\pm\cosec\frac\pi{12}}.
