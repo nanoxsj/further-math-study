@@ -51,4 +51,16 @@ subtitle: "2026–2027 syllabus · 9231"
 - 2019–2025 Paper 1 对应真题
 :::
 
+::: {.topic-card}
+### [1.5 Polar coordinates](paper-1/polar-coordinates.qmd)
+
+- Cartesian coordinates 与 polar coordinates 的转换
+- 极坐标曲线的对称性、pole、initial line 与半径极值
+- 点到 initial line 或指定半直线的最远距离
+- 极坐标区域面积
+- 教材 Example 5.1–5.8
+- 教材中带 Cambridge 来源的 Exercise 题目
+- 2019–2025 全部现有 Paper 1 对应真题及原创作图答案
+:::
+
 后续章节将沿用相同结构继续制作。

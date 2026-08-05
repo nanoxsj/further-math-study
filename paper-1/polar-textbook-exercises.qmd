@@ -1,0 +1,165 @@
+::: {.callout-note}
+本节只收录教材 Exercise 中明确标有 Cambridge International AS & A Level Further Mathematics 来源的题目。题目以英文与 LaTeX 重排，图形由方程重新绘制。
+:::
+
+::: {.question-card #polar-textbook-5b-9}
+### Exercise 5B · Question 9 · Page 131
+
+The curves $C_1$ and $C_2$ have polar equations
+
+$$
+C_1:r=\frac12,quad 0\leqslant\theta\leqslant2\pi,
+$$
+
+and
+
+$$
+C_2:r=\sin\frac\theta2,quad 0\leqslant\theta\leqslant\pi.
+$$
+
+Find the polar coordinates of the point of intersection of $C_1$ and $C_2$. Sketch $C_1$ and $C_2$ on the same diagram.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+At an intersection away from the pole, the two curves have the same $r$ and $\theta$:
+
+$$
+\sin\frac\theta2=\frac12.
+$$
+
+Since $0\leqslant\theta/2\leqslant\pi/2$,
+
+$$
+\frac\theta2=\frac\pi6
+\quad\Longrightarrow\quad
+\theta=\frac\pi3.
+$$
+
+Thus the point of intersection is
+
+$$
+\boxed{\left(\frac12,\frac\pi3\right)}.
+$$
+
+$C_1$ is the circle with centre at the pole and radius $1/2$. The curve $C_2$ starts at the pole, passes through the stated intersection and reaches $(-1,0)$ when $\theta=\pi$.
+
+{{< include figures/polar/exercise-5b-9.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-textbook-5b-9"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/11/M/J/2015, Q5 (part question).</div>
+:::
+
+::: {.question-card #polar-textbook-5c-9}
+### Exercise 5C · Question 9 · Page 134
+
+The curve $C$ has polar equation
+
+$$
+r=a(1+\sin\theta),qquad 0\leqslant\theta<2\pi,
+$$
+
+where $a$ is a positive constant. Draw a sketch of $C$.
+
+Find the exact area of the region enclosed by $C$ and the half-lines $\theta=\pi/3$ and $\theta=2\pi/3$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The curve is symmetric about $\theta=\pi/2$. It has
+
+$$
+r=2a\quad\text{at }\theta=\frac\pi2,qquad
+r=0\quad\text{at }\theta=\frac{3\pi}{2},
+$$
+
+and meets the initial line at $r=a$.
+
+The required area is
+
+$$
+A=\frac12a^2\int_{\pi/3}^{2\pi/3}(1+\sin\theta)^2\,\mathrm d\theta.
+$$
+
+Since
+
+$$
+(1+\sin\theta)^2
+=\frac32+2\sin\theta-\frac12\cos2\theta,
+$$
+
+we obtain
+
+$$
+\begin{aligned}
+A
+&=\frac{a^2}{2}
+\left[
+\frac32\theta-2\cos\theta-\frac14\sin2\theta
+\right]_{\pi/3}^{2\pi/3}\\
+&=\frac{a^2}{2}left(\frac\pi2+2+\frac{\sqrt3}{4}\right).
+\end{aligned}
+$$
+
+Therefore
+
+$$
+\boxed{A=\frac{a^2}{8}\left(2\pi+8+\sqrt3\right)}.
+$$
+
+{{< include figures/polar/exercise-5c-9.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-textbook-5c-9"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/11/M/J/2014, Q5.</div>
+:::
+
+::: {.question-card #polar-textbook-5c-10}
+### Exercise 5C · Question 10 · Page 134
+
+The curve $C$ has polar equation
+
+$$
+r=2+2\cos\theta,qquad 0\leqslant\theta<\pi.
+$$
+
+Sketch $C$. Find the area of the region $R$ enclosed by $C$ and the initial line.
+
+The half-line $\theta=\pi/5$ divides $R$ into two parts. Find the area of each part, correct to $3$ decimal places.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The curve starts at $(4,0)$ and reaches the pole at $\theta=\pi$. The required region is the part above the initial line.
+
+$$
+\begin{aligned}
+\operatorname{area}(R)
+&=\frac12\int_0^\pi(2+2\cos\theta)^2\,\mathrm d\theta\\
+&=\int_0^\pi(3+4\cos\theta+\cos2\theta)\,\mathrm d\theta\\
+&=\left[3\theta+4\sin\theta+\frac12\sin2\theta\right]_0^\pi\\
+&=\boxed{3\pi}.
+\end{aligned}
+$$
+
+The area between $\theta=0$ and $\theta=\pi/5$ is
+
+$$
+\begin{aligned}
+A_1
+&=\left[3\theta+4\sin\theta+\frac12\sin2\theta\right]_0^{\pi/5}\\
+&=4.71163\ldots\\
+&=\boxed{4.712}.
+\end{aligned}
+$$
+
+The remaining area is
+
+$$
+A_2=3\pi-A_1=4.71315\ldots=\boxed{4.713}.
+$$
+
+{{< include figures/polar/exercise-5c-10.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-textbook-5c-10"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/11/M/J/2012, Q4.</div>
+:::

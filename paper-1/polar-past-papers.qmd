@@ -1,0 +1,9 @@
+::: {.callout-note}
+以下题目按完全相同的地区版本合并，所有图形均由题目中的极坐标方程重新绘制，答案依据对应的 Cambridge mark scheme 展开。
+:::
+
+{{< include polar-past-2019-2021.qmd >}}
+
+{{< include polar-past-2022-2023.qmd >}}
+
+{{< include polar-past-2024-2025.qmd >}}

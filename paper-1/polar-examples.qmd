@@ -1,0 +1,374 @@
+::: {.study-card}
+### Example 5.1 · Pages 118–119
+
+**(i)** Find the Cartesian coordinates of:
+
+$$
+\left(4,\frac{2\pi}{3}\right),qquad
+\left(12,-\frac\pi6\right).
+$$
+
+**(ii)** Find the principal polar coordinates of:
+
+$$
+(-\sqrt3,1),qquad (4,-4).
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(i)** Using $x=r\cos\theta$ and $y=r\sin\theta$,
+
+$$
+\begin{aligned}
+x&=4\cos\frac{2\pi}{3}=-2,&
+y&=4\sin\frac{2\pi}{3}=2\sqrt3,\\
+x&=12\cos\left(-\frac\pi6\right)=6\sqrt3,&
+y&=12\sin\left(-\frac\pi6\right)=-6.
+\end{aligned}
+$$
+
+Hence the Cartesian coordinates are
+
+$$
+\boxed{(-2,2\sqrt3)},qquad
+\boxed{(6\sqrt3,-6)}.
+$$
+
+**(ii)** For $(-\sqrt3,1)$,
+
+$$
+r=\sqrt{(-\sqrt3)^2+1^2}=2.
+$$
+
+The point is in quadrant II and its reference angle is $\pi/6$, so
+
+$$
+\boxed{\left(2,\frac{5\pi}{6}\right)}.
+$$
+
+For $(4,-4)$,
+
+$$
+r=\sqrt{4^2+(-4)^2}=4\sqrt2.
+$$
+
+The point is in quadrant IV, so the principal angle is $-\pi/4$. Thus
+
+$$
+\boxed{\left(4\sqrt2,-\frac\pi4\right)}.
+$$
+
+{{< include figures/polar/example-5-1.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-example-5-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5.2 · Pages 120–121
+
+Find polar equations of the curves
+
+$$
+\text{(i) }x^2-y^2=9,qquad
+\text{(ii) }y=x+4.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(i)** Substitute $x=r\cos\theta$ and $y=r\sin\theta$:
+
+$$
+r^2(\cos^2\theta-\sin^2\theta)=9.
+$$
+
+Since $\cos^2\theta-\sin^2\theta=\cos2\theta$,
+
+$$
+\boxed{r^2=9\sec2\theta}.
+$$
+
+**(ii)** Substitution gives
+
+$$
+r\sin\theta=r\cos\theta+4,
+$$
+
+so
+
+$$
+r(\sin\theta-\cos\theta)=4.
+$$
+
+Using
+
+$$
+\sin\theta-\cos\theta
+=\sqrt2\sin\left(\theta-\frac\pi4\right),
+$$
+
+the required equation is
+
+$$
+\boxed{r=2\sqrt2\,\cosec\left(\theta-\frac\pi4\right)}.
+$$
+
+{{< include figures/polar/example-5-2.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-example-5-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5.3 · Page 121
+
+Find Cartesian equations of the curves
+
+$$
+\text{(i) }r=5,qquad
+\text{(ii) }r^2=4\sin\theta.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(i)** Since $r^2=x^2+y^2$,
+
+$$
+\boxed{x^2+y^2=25}.
+$$
+
+**(ii)** Multiply by $r$:
+
+$$
+r^3=4r\sin\theta=4y.
+$$
+
+Squaring and using $r^2=x^2+y^2$ gives
+
+$$
+r^6=16y^2,
+$$
+
+and hence
+
+$$
+\boxed{(x^2+y^2)^3=16y^2}.
+$$
+
+{{< include figures/polar/example-5-3.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-example-5-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5.4 · Page 124
+
+Sketch the graphs of
+
+$$
+\text{(i) }r=3,qquad
+\text{(ii) }\theta=\frac\pi4.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+For $r=3$, every point is a distance $3$ from the pole, so the graph is a circle with centre $O$ and radius $3$. It crosses the initial line at $(3,0)$.
+
+For $\theta=\pi/4$, the angle is fixed while $r\geqslant0$ varies. The graph is therefore a half-line from the pole at angle $\pi/4$; it is not the complete Cartesian line $y=x$.
+
+{{< include figures/polar/example-5-4.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-example-5-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5.5 · Page 125
+
+A curve is defined by
+
+$$
+r=5\cos^2\theta.
+$$
+
+**(i)** Create a table of values for $0\leqslant\theta\leqslant\pi$.
+
+**(ii)** Plot the curve for $0\leqslant\theta\leqslant2\pi$.
+
+**(iii)** State the least and greatest values of $r$ and the values of $\theta$ at which they occur.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+At intervals of $\pi/12$ from $0$ to $\pi/2$:
+
+$$
+\begin{array}{c|rrrrrrr}
+\theta&0&\frac\pi{12}&\frac\pi6&\frac\pi4&\frac\pi3&\frac{5\pi}{12}&\frac\pi2\\ \hline
+r&5&4.67&3.75&2.50&1.25&0.34&0
+\end{array}
+$$
+
+The values are reflected between $\pi/2$ and $\pi$ and repeat with period $\pi$. The initial line is an axis of symmetry.
+
+Since $0\leqslant\cos^2\theta\leqslant1$,
+
+$$
+\boxed{r_{\max}=5\text{ at }\theta=0,\pi},
+$$
+
+and
+
+$$
+\boxed{r_{\min}=0\text{ at }\theta=\frac\pi2,\frac{3\pi}{2}}.
+$$
+
+{{< include figures/polar/example-5-5.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-example-5-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5.6 · Page 126
+
+Find the least and greatest values of $r$ for
+
+$$
+r=3+2\cos4\theta
+$$
+
+and the values of $\theta$ at which they occur. Hence sketch the graph.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The least value is
+
+$$
+3-2=1,
+$$
+
+which occurs when $\cos4\theta=-1$. For $-\pi<\theta\leqslant\pi$, this gives
+
+$$
+\theta=\pm\frac\pi4,\ \pm\frac{3\pi}{4}.
+$$
+
+The greatest value is
+
+$$
+3+2=5,
+$$
+
+which occurs when $\cos4\theta=1$, including
+
+$$
+\theta=0,\ \pm\frac\pi2,\ \pi.
+$$
+
+The function has period $\pi/2$, so the graph repeats in each quadrant and has rotational symmetry of order $4$. It never reaches the pole because $r\geqslant1$.
+
+{{< include figures/polar/example-5-6.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-example-5-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5.7 · Pages 126–129
+
+A curve is given by
+
+$$
+r=\theta(\pi-\theta).
+$$
+
+**(i)** Plot the curve for $0\leqslant\theta\leqslant\pi$, where $r$ is non-negative.
+
+**(ii)** Create tables of values for $\pi\leqslant\theta\leqslant3\pi/2$ and $-\pi/2\leqslant\theta\leqslant0$.
+
+**(iii)** Sketch the curve for $-\pi/2\leqslant\theta\leqslant3\pi/2$ using the convention for this course.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+For $0\leqslant\theta\leqslant\pi$, $r\geqslant0$. The curve starts at the pole when $\theta=0$, reaches its greatest radius at $\theta=\pi/2$, and returns to the pole at $\theta=\pi$:
+
+$$
+r_{\max}=\frac\pi2\left(\pi-\frac\pi2\right)=\frac{\pi^2}{4}.
+$$
+
+Outside this interval, $\theta(\pi-\theta)<0$. For instance,
+
+$$
+\begin{array}{c|rrrr}
+\theta&\pi&\frac{7\pi}{6}&\frac{4\pi}{3}&\frac{3\pi}{2}\\ \hline
+r&0&-\frac{7\pi^2}{36}&-\frac{4\pi^2}{9}&-\frac{3\pi^2}{4}
+\end{array}
+$$
+
+and
+
+$$
+\begin{array}{c|rrrr}
+\theta&-\frac\pi2&-\frac\pi3&-\frac\pi6&0\\ \hline
+r&-\frac{3\pi^2}{4}&-\frac{4\pi^2}{9}&-\frac{7\pi^2}{36}&0.
+\end{array}
+$$
+
+Under the convention $r\geqslant0$, these negative-radius portions are omitted. The required graph therefore consists only of the loop traced for $0\leqslant\theta\leqslant\pi$.
+
+{{< include figures/polar/example-5-7.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-example-5-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5.8 · Pages 132–133
+
+The curve has equation
+
+$$
+r=1+2\cos\theta.
+$$
+
+Find the area enclosed, using the convention $r\geqslant0$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The curve reaches the pole when
+
+$$
+1+2\cos\theta=0
+\quad\Longrightarrow\quad
+\cos\theta=-\frac12.
+$$
+
+The relevant limiting angles are $\theta=\pm2\pi/3$. By symmetry about the initial line,
+
+$$
+A=2\left(\frac12\int_0^{2\pi/3}(1+2\cos\theta)^2\,\mathrm d\theta\right).
+$$
+
+Using $4\cos^2\theta=2+2\cos2\theta$,
+
+$$
+\begin{aligned}
+A
+&=\int_0^{2\pi/3}(3+4\cos\theta+2\cos2\theta)\,\mathrm d\theta\\
+&=\left[3\theta+4\sin\theta+\sin2\theta\right]_0^{2\pi/3}\\
+&=2\pi+2\sqrt3-\frac{\sqrt3}{2}.
+\end{aligned}
+$$
+
+Therefore
+
+$$
+\boxed{A=2\pi+\frac{3\sqrt3}{2}}.
+$$
+
+{{< include figures/polar/example-5-8.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="polar-example-5-8"> Completed</label>
+:::

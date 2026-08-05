@@ -1,0 +1,318 @@
+### 2024
+
+::: {.question-card #polar-2024-mj-11-12}
+### 2024 May/June · 9231/11 & /12 · Question 7 · 15 marks
+
+$C:r^2=(\pi-\theta)\tan^{-1}(\pi-\theta)$ for $0\leqslant\theta\leqslant\pi$.
+
+**(a)** Sketch $C$ and state the point furthest from the pole. **[3]**
+
+**(b)** Find the area enclosed by $C$ and the initial line. **[7]**
+
+**(c)** Show that the point furthest from the initial line satisfies
+
+$$2(\pi-\theta)\tan^{-1}(\pi-\theta)\cot\theta-
+\frac{\pi-\theta}{1+(\pi-\theta)^2}-\tan^{-1}(\pi-\theta)=0,$$
+
+and verify a root in $(1.2,1.3)$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r$ decreases to the pole, so the furthest point is
+
+$$\boxed{\left(\sqrt{\pi\tan^{-1}\pi},0\right)}.$$
+
+With $u=\pi-\theta$ and integration by parts,
+
+$$
+\begin{aligned}
+A&=\frac12\int_0^\pi u\tan^{-1}u\,du\\
+&=\frac14(\pi^2+1)\tan^{-1}\pi-\frac\pi4.
+\end{aligned}
+$$
+
+Thus $\boxed{A=\frac14\{(\pi^2+1)\tan^{-1}\pi-\pi\}}$.
+
+For part (c), use $y=r\sin\theta$ and differentiate $y^2=r^2\sin^2\theta$. Clearing non-zero factors yields the stated equation; its two endpoint values have opposite signs.
+
+{{< include figures/polar/past-2024-mj-11-12.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/M/J/2024 Q7; 9231/12/M/J/2024 Q7.</div>
+:::
+
+::: {.question-card #polar-2024-mj-13}
+### 2024 May/June · 9231/13 · Question 7 · 10 marks
+
+$C:r^2=\sin2\theta\cos\theta$ for $0\leqslant\theta\leqslant\pi$.
+
+**(a)** Sketch $C$ and state its symmetry line. **[3]** **(b)** Find a Cartesian equation. **[3]** **(c)** Find the total enclosed area. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Since $r^2\geqslant0$, the two loops occur for $0\leqslant\theta\leqslant\pi/2$ and meet at the pole. They are symmetric about $\boxed{\theta=\pi/2}$.
+
+$$r^2=2\sin\theta\cos^2\theta.$$
+
+Multiplying by $r^3$ gives $r^5=2(r\sin\theta)(r\cos\theta)^2=2yx^2$, so
+
+$$\boxed{(x^2+y^2)^5=4x^4y^2}.$$
+
+For both loops,
+
+$$A=\frac12\int_0^\pi\sin2\theta\cos\theta,d\theta
+=\int_0^\pi\sin\theta\cos^2\theta,d\theta
+=\boxed{\frac23}.$$
+
+{{< include figures/polar/past-2024-mj-13.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/13/M/J/2024 Q7.</div>
+:::
+
+::: {.question-card #polar-2024-on-11-13}
+### 2024 October/November · 9231/11 & /13 · Question 5 · 13 marks
+
+**(a)** Show that $(x^2+y^2)^2=6xy$ has polar equation $r^2=3\sin2\theta$. **[2]**
+
+For $0\leqslant\theta\leqslant\pi/2$, **(b)** sketch $C$ and state its maximum radius; **[3]** **(c)** find the enclosed area; **[2]** **(d)** find the maximum distance from the initial line. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Substitution gives $r^4=6r^2\sin\theta\cos\theta$, hence $\boxed{r^2=3\sin2\theta}$.
+
+The loop is symmetric about $\theta=\pi/4$ and its maximum radius is $\boxed{\sqrt3}$. Its area is
+
+$$\frac12\int_0^{\pi/2}3\sin2\theta,d\theta=\boxed{\frac32}.$$
+
+For the distance $y=r\sin\theta$, maximise
+
+$$y^2=3\sin2\theta\sin^2\theta=6\sin^3\theta\cos\theta.$$
+
+Differentiation gives $3\cos^2\theta=\sin^2\theta$, so $\theta=\pi/3$ and
+
+$$\boxed{y_{\max}=\sqrt{\frac{9\sqrt3}{8}}}.$$
+
+{{< include figures/polar/past-2024-on-11-13.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/O/N/2024 Q5; 9231/13/O/N/2024 Q5.</div>
+:::
+
+::: {.question-card #polar-2024-on-12}
+### 2024 October/November · 9231/12 · Question 7 · 16 marks
+
+$C_1:r=a(\cos\theta+\sin\theta)$ for $-\pi/4\leqslant\theta\leqslant3\pi/4$.
+
+**(a)** Find its Cartesian equation, centre and radius. **[4]** **(b)** Sketch it and state its greatest radius. **[3]**
+
+$C_2:r=a\theta$ meets $C_1$ at the pole and $(a\phi,\phi)$.
+
+**(c)** Verify $1.25<\phi<1.26$. **[2]**
+
+**(d)** Show that the smaller enclosed area is
+
+$$\frac{a^2}{2}\left(\frac{\phi^3}{3}+\frac{3\pi}{4}-\phi+\frac12\cos2\phi\right),$$
+
+and deduce the larger area. **[7]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r^2=a(x+y)$ gives
+
+$$\boxed{(x-a/2)^2+(y-a/2)^2=a^2/2}.$$
+
+Thus the centre is $(a/2,a/2)$, the radius is $a/\sqrt2$, and the greatest polar radius is $\boxed{a\sqrt2}$.
+
+At the non-pole intersection,
+
+$$\cos\phi+\sin\phi-\phi=0.$$
+
+The left side is positive at $1.25$ and negative at $1.26$, verifying the interval.
+
+The smaller area is
+
+$$\frac{a^2}{2}\left\{\int_0^\phi\theta^2d\theta+
+\int_\phi^{3\pi/4}(\cos\theta+\sin\theta)^2d\theta\right\},$$
+
+which gives the stated expression. Since the circle has area $\pi a^2/2$, the larger area is
+
+$$\boxed{\frac{a^2}{2}\left(\frac\pi4+\phi-\frac{\phi^3}{3}-\frac12\cos2\phi\right)}.$$
+
+{{< include figures/polar/past-2024-on-12.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/12/O/N/2024 Q7.</div>
+:::
+
+### 2025
+
+::: {.question-card #polar-2025-mj-11-12}
+### 2025 May/June · 9231/11 & /12 · Question 5 · 13 marks
+
+$C:r=\theta e^{\theta/8}$ for $0\leqslant\theta\leqslant2\pi$.
+
+**(a)** Sketch $C$. **[2]** **(b)** Find the area bounded by $C$ and the initial line in the form $(p\pi^2+q\pi+r)e^{\pi/2}+s$. **[6]**
+
+**(c)** Show that the point furthest from the initial line satisfies
+
+$$\theta\cos\theta+(\theta/8+1)\sin\theta=0,$$
+
+and verify a root in $(5,5.05)$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The curve is an anticlockwise outward spiral from the pole. For the area,
+
+$$
+A=\frac12\int_0^{2\pi}\theta^2e^{\theta/4}d\theta
+=\boxed{(8\pi^2-32\pi+64)e^{\pi/2}-64}.
+$$
+
+Thus $(p,q,r,s)=(8,-32,64,-64)$. Differentiating
+
+$$y=\theta e^{\theta/8}\sin\theta$$
+
+gives the stated stationary equation. Substitution at $5$ and $5.05$ gives opposite signs.
+
+{{< include figures/polar/past-2025-mj-11-12.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/M/J/2025 Q5; 9231/12/M/J/2025 Q5.</div>
+:::
+
+::: {.question-card #polar-2025-mj-13}
+### 2025 May/June · 9231/13 · Question 7 · 10 marks
+
+$C:r^2=e^{\sin\theta}\cos\theta$ for $-\pi/2\leqslant\theta\leqslant\pi/2$.
+
+**(a)** Find to $3$ decimal places the point furthest from the pole. **[5]**
+
+**(b)** Find to $3$ decimal places the point furthest from the half-line $\theta=\pi/2$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+For maximum $r$, differentiate $r^2$:
+
+$$e^{\sin\theta}(\cos^2\theta-\sin\theta)=0.$$
+
+Thus $\sin\theta=(\sqrt5-1)/2$, giving
+
+$$\boxed{(r,\theta)=(1.208,0.666)}.$$
+
+Distance from $\theta=\pi/2$ is $x=r\cos\theta$. Maximising
+
+$$x^2=e^{\sin\theta}\cos^3\theta$$
+
+gives $\cos^2\theta=3\sin\theta$, hence $\sin\theta=(\sqrt{13}-3)/2$. Therefore
+
+$$\boxed{(r,\theta)=(1.136,0.308)}.$$
+
+{{< include figures/polar/past-2025-mj-13.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/13/M/J/2025 Q7.</div>
+:::
+
+::: {.question-card #polar-2025-mj-14}
+### 2025 May/June · 9231/14 · Question 6 · 13 marks
+
+$C:r=a\tan(\theta/8)$ for $a>0$ and $0\leqslant\theta\leqslant2\pi$.
+
+**(a)** Sketch $C$ and state its greatest radius. **[3]** **(b)** Find its enclosed area. **[4]**
+
+**(c)** Show that the point furthest from the initial line satisfies $4\sin(\theta/4)\cos\theta+\sin\theta=0$, and verify a root in $(4.95,5)$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r$ increases from $0$ to $a$, so $\boxed{r_{\max}=a}$.
+
+$$A=\frac{a^2}{2}\int_0^{2\pi}\tan^2(\theta/8)d\theta
+=\boxed{a^2(4-\pi)}.$$
+
+Differentiating $y=a\tan(\theta/8)\sin\theta$ and simplifying with double-angle identities gives the stated equation; its signs at $4.95$ and $5$ differ.
+
+{{< include figures/polar/past-2025-mj-14.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/14/M/J/2025 Q6.</div>
+:::
+
+::: {.question-card #polar-2025-on-11-13}
+### 2025 October/November · 9231/11 & /13 · Question 6 · 15 marks
+
+$C:r=\sin3\theta$ for $0\leqslant\theta\leqslant\pi/3$.
+
+**(a)** Sketch $C$ and state its symmetry line. **[3]** **(b)** Find the enclosed area exactly. **[4]** **(c)** Find the maximum distance from the initial line. **[5]** **(d)** Find a Cartesian equation. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The single first-quadrant loop is symmetric about $\boxed{\theta=\pi/6}$.
+
+$$A=\frac12\int_0^{\pi/3}\sin^23\theta,d\theta=\boxed{\frac\pi{12}}.$$
+
+Using $\sin3\theta=3\sin\theta-4\sin^3\theta$,
+
+$$y=r\sin\theta=3\sin^2\theta-4\sin^4\theta.$$
+
+Stationarity gives $\sin^2\theta=3/8$, and hence $\boxed{y_{\max}=9/16}$.
+
+Multiplying the polar equation by suitable powers of $r$ gives
+
+$$\boxed{(x^2+y^2)^2=y^2(3x^2-y^2)}.$$
+
+{{< include figures/polar/past-2025-on-11-13.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/O/N/2025 Q6; 9231/13/O/N/2025 Q6.</div>
+:::
+
+::: {.question-card #polar-2025-on-12}
+### 2025 October/November · 9231/12 · Question 5 · 10 marks
+
+$C:r^2=\tan2\theta$ for $0\leqslant\theta\leqslant\pi/8$.
+
+**(a)** Sketch $C$ and state its greatest radius. **[2]** **(b)** Find exactly the area bounded by $C$ and $\theta=\pi/8$. **[4]**
+
+**(c)** Show that $C$ has Cartesian equation $x^4-2xy-y^4=0$, with the stated first-quadrant restrictions. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r$ increases from $0$ to $\boxed{1}$.
+
+$$A=\frac12\int_0^{\pi/8}\tan2\theta,d\theta
+=-\frac14[\ln(\cos2\theta)]_0^{\pi/8}
+=\boxed{\frac18\ln2}.$$
+
+Since
+
+$$r^2=\frac{2\sin\theta\cos\theta}{\cos^2\theta-\sin^2\theta},$$
+
+cross-multiplication and substitution give
+
+$$r^2(x^2-y^2)=2xy\Longrightarrow\boxed{x^4-2xy-y^4=0}.$$
+
+{{< include figures/polar/past-2025-on-12.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/12/O/N/2025 Q5.</div>
+:::
+
+::: {.question-card #polar-2025-on-14}
+### 2025 October/November · 9231/14 · Question 6 · 12 marks
+
+$C:r=\cos(\theta/2)$ for $0\leqslant\theta\leqslant\pi$.
+
+**(a)** Sketch $C$. **[2]** **(b)** Find exactly the area enclosed by $C$ and the initial line. **[4]** **(c)** Find the maximum distance from the initial line in the form $p\sqrt q$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The curve is a single arc from $(1,0)$ to the pole, lying in the first and second quadrants.
+
+$$A=\frac12\int_0^\pi\cos^2(\theta/2)d\theta
+=\frac14\int_0^\pi(1+\cos\theta)d\theta
+=\boxed{\frac\pi4}.$$
+
+For $y=\cos(\theta/2)\sin\theta$, differentiation gives
+
+$$\cos(\theta/2)\cos\theta-\frac12\sin\theta\sin(\theta/2)=0.$$
+
+Using the given identities leads to $\cos^2(\theta/2)=2/3$. Therefore
+
+$$\boxed{y_{\max}=\frac{4\sqrt3}{9}}.$$
+
+{{< include figures/polar/past-2025-on-14.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/14/O/N/2025 Q6.</div>
+:::

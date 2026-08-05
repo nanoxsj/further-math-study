@@ -1,0 +1,168 @@
+### 2022
+
+::: {.question-card #polar-2022-mj-11-12}
+### 2022 May/June · 9231/11 & /12 · Question 6 · 13 marks
+
+$C:r^2=\tan^{-1}(\theta/2)$ for $0\leqslant\theta\leqslant2$.
+
+**(a)** Sketch $C$ and state exactly its greatest radius. **[3]**
+
+**(b)** Find exactly the area bounded by $C$ and $\theta=2$. **[5]**
+
+For $0\leqslant\theta\leqslant\pi/2$, **(c)** show that the point furthest from $\theta=\pi/2$ satisfies
+
+$$
+(\theta^2+4)\tan^{-1}(\theta/2)\sin\theta-\cos\theta=0,
+$$
+
+and verify a root in $(0.6,0.7)$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r$ increases throughout the interval, so
+
+$$r_{\max}=\sqrt{\tan^{-1}1}=\boxed{\frac{\sqrt\pi}{2}}.$$
+
+For the area, integration by parts gives
+
+$$
+\begin{aligned}
+A&=\frac12\int_0^2\tan^{-1}(\theta/2)d\theta\\
+&=\frac12\left[\theta\tan^{-1}(\theta/2)-\ln(\theta^2+4)\right]_0^2\\
+&=\boxed{\frac\pi4-\frac12\ln2}.
+\end{aligned}
+$$
+
+For part (c), the perpendicular distance is
+
+$$x=r\cos\theta=\{	an^{-1}(\theta/2)\}^{1/2}\cos\theta.$$
+
+Setting $dx/d\theta=0$ and clearing the positive factors gives the required equation. Its left side is
+
+$$-0.108\quad\text{at }\theta=0.6,qquad 0.209\quad\text{at }\theta=0.7,$$
+
+so the root is verified.
+
+{{< include figures/polar/past-2022-mj-11-12.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/M/J/2022 Q6; 9231/12/M/J/2022 Q6.</div>
+:::
+
+::: {.question-card #polar-2022-mj-13}
+### 2022 May/June · 9231/13 · Question 6 · 13 marks
+
+$C$ has Cartesian equation $x^2+xy+y^2=a$, where $a>0$.
+
+**(a)** Show that
+
+$$r^2=\frac{2a}{2+\sin2\theta}.$$
+
+**[3]** **(b)** Sketch the part for $0\leqslant\theta\leqslant\pi/4$. **[2]**
+
+**(c)** Find exactly the area enclosed by this part, the initial line and $\theta=\pi/4$. **[8]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Substituting $x=r\cos\theta$ and $y=r\sin\theta$ gives
+
+$$r^2(1+\sin\theta\cos\theta)=a,$$
+
+hence
+
+$$\boxed{r^2=\frac{2a}{2+\sin2\theta}}.$$
+
+The radius decreases smoothly from $\sqrt a$ at $\theta=0$ to $\sqrt{2a/3}$ at $\theta=\pi/4$.
+
+Using $t=\tan\theta$ and $dt=(1+t^2)d\theta$,
+
+$$
+\begin{aligned}
+A&=\frac12\int_0^{\pi/4}r^2d\theta
+=\frac a2\int_0^1\frac{dt}{t^2+t+1}\\
+&=\frac a2\int_0^1\frac{dt}{(t+1/2)^2+3/4}\\
+&=\frac a{\sqrt3}\left[\tan^{-1}\frac{2t+1}{\sqrt3}\right]_0^1\\
+&=\boxed{\frac{\pi a}{6\sqrt3}}.
+\end{aligned}
+$$
+
+{{< include figures/polar/past-2022-mj-13.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/13/M/J/2022 Q6.</div>
+:::
+
+### 2023
+
+::: {.question-card #polar-2023-on-11-13}
+### 2023 October/November · 9231/11 & /13 · Question 6 · 15 marks
+
+**(a)** Show that $(x-1/2)^2+y^2=1/4$ has polar equation $r=\cos\theta$. **[3]**
+
+$C_1:r=\cos\theta$ and $C_2:r=\sin2\theta$ for $0\leqslant\theta\leqslant\pi/2$ meet at the pole and $P$.
+
+**(b)** Find $P$. **[3]** **(c)** Sketch both curves and mark $P$. **[3]** **(d)** Find exactly the enclosed area containing $OP$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Expanding the Cartesian equation gives $x^2-x+y^2=0$, hence
+
+$$r^2-r\cos\theta=0\Longrightarrow\boxed{r=\cos\theta}.$$
+
+At the non-pole intersection,
+
+$$\sin2\theta=\cos\theta\Longrightarrow 2\sin\theta=1,$$
+
+so
+
+$$\boxed{P\left(\frac{\sqrt3}{2},\frac\pi6\right)}.$$
+
+$C_2$ bounds the region for $0\leqslant\theta\leqslant\pi/6$, and $C_1$ for $\pi/6\leqslant\theta\leqslant\pi/2$. Therefore
+
+$$
+\begin{aligned}
+A&=\frac12\int_0^{\pi/6}\sin^22\theta\,d\theta
++\frac12\int_{\pi/6}^{\pi/2}\cos^2\theta\,d\theta\\
+&=\boxed{\frac\pi8-\frac{3\sqrt3}{32}}.
+\end{aligned}
+$$
+
+{{< include figures/polar/past-2023-on-11-13.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/O/N/2023 Q6; 9231/13/O/N/2023 Q6.</div>
+:::
+
+::: {.question-card #polar-2023-on-12}
+### 2023 October/November · 9231/12 · Question 6 · 13 marks
+
+$$C:r=e^{-\theta}-e^{-\pi/2},\qquad0\leqslant\theta\leqslant\pi/2.$$
+
+**(a)** Sketch $C$ and state exactly its greatest radius. **[3]** **(b)** Find exactly the area bounded by $C$ and the initial line. **[5]**
+
+**(c)** Show that the point furthest from the initial line satisfies
+
+$$1-e^{\theta-\pi/2}-\tan\theta=0,$$
+
+and verify a root in $(0.56,0.57)$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r$ decreases from $1-e^{-\pi/2}$ to $0$, so the greatest radius is
+
+$$\boxed{1-e^{-\pi/2}}.$$
+
+$$
+\begin{aligned}
+A&=\frac12\int_0^{\pi/2}(e^{-\theta}-e^{-\pi/2})^2d\theta\\
+&=\boxed{\frac14-e^{-\pi/2}+\frac{\pi+3}{4}e^{-\pi}}.
+\end{aligned}
+$$
+
+The distance from the initial line is
+
+$$y=(e^{-\theta}-e^{-\pi/2})\sin\theta.$$
+
+Setting $dy/d\theta=0$ and dividing by $e^{-\theta}\cos\theta$ gives the stated equation. Its values at $0.56$ and $0.57$ have opposite signs, so the root is verified.
+
+{{< include figures/polar/past-2023-on-12.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/12/O/N/2023 Q6.</div>
+:::

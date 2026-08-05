@@ -1,0 +1,341 @@
+### 2019
+
+::: {.question-card #polar-2019-mj-11-12}
+### 2019 May/June · 9231/11 & 9231/12 · Question 11 EITHER · 14 marks
+
+$C_1$ has equation $r^2=2\theta$ for $0\leqslant\theta\leqslant\pi/2$. The point $P$ is furthest from the line $\theta=\pi/2$.
+
+**(i)** Show that $2\theta\tan\theta=1$ at $P$, and verify a root between $0.6$ and $0.7$. **[5]**
+
+$C_2$ has equation $r^2=\theta\sec^2\theta$ for $0\leqslant\theta<\pi/2$. The curves meet at the pole and at $Q$.
+
+**(ii)** Find the exact value of $\theta$ at $Q$. **[2]**
+
+**(iii)** Sketch $C_1$ and $C_2$ together. **[2]**
+
+**(iv)** Find exactly the area enclosed by the curves. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(i)** Distance from $\theta=\pi/2$ is $x=r\cos\theta=(2\theta)^{1/2}\cos\theta$. Hence
+
+$$
+\frac{dx}{d\theta}=(2\theta)^{1/2}\left(\frac{\cos\theta}{2\theta}-\sin\theta\right)=0
+\Longrightarrow \boxed{2\theta\tan\theta=1}.
+$$
+
+For $f(\theta)=2\theta\tan\theta-1$,
+
+$$f(0.6)=-0.179<0,\qquad f(0.7)=0.179>0,$$
+
+so a root lies in $(0.6,0.7)$.
+
+**(ii)** Away from the pole,
+
+$$2\theta=\theta\sec^2\theta\Longrightarrow\cos^2\theta=\frac12,$$
+
+so $\boxed{\theta=\pi/4}$.
+
+**(iv)** $C_1$ is outside $C_2$ for $0<\theta<\pi/4$, so
+
+$$
+\begin{aligned}
+A&=\frac12\int_0^{\pi/4}\left(2\theta-\theta\sec^2\theta\right)d\theta\\
+&=\boxed{\frac{\pi^2}{32}-\frac\pi8+\frac14\ln2}.
+\end{aligned}
+$$
+
+{{< include figures/polar/past-2019-mj-11-12.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/M/J/2019 Q11 EITHER; 9231/12/M/J/2019 Q11 EITHER.</div>
+:::
+
+::: {.question-card #polar-2019-mj-13}
+### 2019 May/June · 9231/13 · Question 2 · 7 marks
+
+$C$ has equation $r^2=\ln(1+\theta)$ for $0\leqslant\theta\leqslant2\pi$.
+
+**(i)** Sketch $C$. **[2]**
+
+**(ii)** Find exactly the area bounded by $C$ and the initial line. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The curve starts at the pole, spirals anticlockwise with increasing $r$, and returns to the initial line at $\theta=2\pi$; it is tangent to the initial line at the pole.
+
+$$
+\begin{aligned}
+A&=\frac12\int_0^{2\pi}\ln(1+\theta)d\theta\\
+&=\frac12\int_1^{2\pi+1}\ln u\,du\\
+&=\frac12[u\ln u-u]_1^{2\pi+1}\\
+&=\boxed{\left(\pi+\frac12\right)\ln(2\pi+1)-\pi}.
+\end{aligned}
+$$
+
+{{< include figures/polar/past-2019-mj-13.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/13/M/J/2019 Q2.</div>
+:::
+
+::: {.question-card #polar-2019-on}
+### 2019 October/November · 9231/11, /12 & /13 · Question 11 EITHER · 14 marks
+
+For $0\leqslant\theta\leqslant\pi/2$,
+
+$$C_1:r=2(e^\theta+e^{-\theta}),\qquad C_2:r=e^{2\theta}-e^{-2\theta}.$$
+
+The curves meet at $P$ where $\theta=\alpha$.
+
+**(i)** Show that $e^{2\alpha}-2e^\alpha-1=0$, find $\alpha$ exactly and show that $r=4\sqrt2$ at $P$. **[6]**
+
+**(ii)** Sketch both curves. **[3]**
+
+**(iii)** Find to $3$ significant figures the area enclosed by the curves and initial line. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Equating radii and dividing by $e^\alpha+e^{-\alpha}$ gives $e^\alpha-e^{-\alpha}=2$, hence
+
+$$e^{2\alpha}-2e^\alpha-1=0,qquad e^\alpha=1+\sqrt2,$$
+
+so
+
+$$\boxed{\alpha=\ln(1+\sqrt2)},\qquad \boxed{r=4\sqrt2}.$$
+
+The required area is
+
+$$
+\frac12\int_0^\alpha\left[4(e^\theta+e^{-\theta})^2-(e^{2\theta}-e^{-2\theta})^2\right]d\theta.
+$$
+
+After expansion this equals
+
+$$
+\left[5\theta+e^{2\theta}-e^{-2\theta}-\frac18e^{4\theta}+\frac18e^{-4\theta}\right]_0^\alpha
+=5\alpha+\sqrt2.
+$$
+
+Thus $\boxed{A=5.82}$ to $3$ significant figures.
+
+{{< include figures/polar/past-2019-on.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/O/N/2019 Q11 EITHER; 9231/12/O/N/2019 Q11 EITHER; 9231/13/O/N/2019 Q11 EITHER.</div>
+:::
+
+### 2020
+
+::: {.question-card #polar-2020-mj-11-12}
+### 2020 May/June · 9231/11 & /12 · Question 7 · 12 marks
+
+$C_1:r=\theta\cos\theta$ and $C_2:r=\theta\sin\theta$, for $0\leqslant\theta\leqslant\pi/2$.
+
+**(a)** Show that the point of $C_1$ furthest from $\theta=\pi/2$ satisfies $2\theta\tan\theta-1=0$, and verify a root in $(0.6,0.7)$. **[5]**
+
+**(b)** Find the non-pole intersection. **[2]** **(c)** Sketch both curves. **[3]** **(d)** Find the enclosed area exactly. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$x=r\cos\theta=\theta\cos^2\theta$, so
+
+$$\frac{dx}{d\theta}=\cos^2\theta-2\theta\sin\theta\cos\theta=0
+\Longrightarrow 2\theta\tan\theta-1=0.$$
+
+The values at $0.6$ and $0.7$ are $-0.179$ and $0.179$, establishing the root. At the other intersection,
+
+$$\theta\cos\theta=\theta\sin\theta\Longrightarrow\boxed{(r,\theta)=\left(\frac\pi{4\sqrt2},\frac\pi4\right)}.$$
+
+Finally,
+
+$$
+A=\frac12\int_0^{\pi/4}\theta^2(\cos^2\theta-\sin^2\theta)d\theta
+=\boxed{\frac{\pi^2}{64}-\frac18}.
+$$
+
+{{< include figures/polar/past-2020-mj-11-12.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/M/J/2020 Q7; 9231/12/M/J/2020 Q7.</div>
+:::
+
+::: {.question-card #polar-2020-mj-13}
+### 2020 May/June · 9231/13 · Question 5 · 6 marks
+
+$C:r=a\tan\theta$, where $a>0$ and $0\leqslant\theta\leqslant\pi/4$.
+
+**(a)** Sketch $C$ and state the greatest distance from the pole. **[2]**
+
+**(b)** Find exactly the area bounded by $C$ and $\theta=\pi/4$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r$ increases from $0$ to $a$, so the greatest distance is $\boxed{a}$.
+
+$$
+A=\frac{a^2}{2}\int_0^{\pi/4}\tan^2\theta\,d\theta
+=\frac{a^2}{2}[\tan\theta-\theta]_0^{\pi/4}
+=\boxed{\frac{a^2}{2}\left(1-\frac\pi4\right)}.
+$$
+
+{{< include figures/polar/past-2020-mj-13.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/13/M/J/2020 Q5.</div>
+:::
+
+::: {.question-card #polar-2020-on-11-13}
+### 2020 October/November · 9231/11 & /13 · Question 7 · 11 marks
+
+**(a)** Show that $(x^2+y^2)^{5/2}=4xy(x^2-y^2)$ has polar equation $r=\sin4\theta$. **[4]**
+
+For $0\leqslant\theta\leqslant\pi/4$, **(b)** sketch the curve and state its symmetry line; **[3]** **(c)** find its enclosed area exactly. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Substitution gives
+
+$$r^5=4r^4\cos\theta\sin\theta(\cos^2\theta-\sin^2\theta),$$
+
+so $r=2\sin2\theta\cos2\theta=\boxed{\sin4\theta}$. The single loop is symmetric about $\boxed{\theta=\pi/8}$.
+
+$$A=\frac12\int_0^{\pi/4}\sin^24\theta\,d\theta
+=\frac14\left[\theta-\frac18\sin8\theta\right]_0^{\pi/4}
+=\boxed{\frac\pi{16}}.$$
+
+{{< include figures/polar/past-2020-on-11-13.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/O/N/2020 Q7; 9231/13/O/N/2020 Q7.</div>
+:::
+
+::: {.question-card #polar-2020-on-12}
+### 2020 October/November · 9231/12 · Question 5 · 8 marks
+
+$C:r=\ln(1+\pi-\theta)$ for $0\leqslant\theta\leqslant\pi$.
+
+**(a)** Sketch $C$ and state the point furthest from the pole. **[3]**
+
+**(b)** Find exactly the area bounded by $C$ and the initial line. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r$ decreases from $\ln(1+\pi)$ to $0$, so the furthest point is $\boxed{(\ln(1+\pi),0)}$.
+
+With $u=1+\pi-\theta$,
+
+$$
+\begin{aligned}
+A&=\frac12\int_1^{1+\pi}\ln^2u\,du\\
+&=\frac12[u(\ln^2u-2\ln u+2)]_1^{1+\pi}\\
+&=\boxed{\frac12(1+\pi)\{\ln^2(1+\pi)-2\ln(1+\pi)+2\}-1}.
+\end{aligned}
+$$
+
+{{< include figures/polar/past-2020-on-12.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/12/O/N/2020 Q5.</div>
+:::
+
+### 2021
+
+::: {.question-card #polar-2021-mj-11-12}
+### 2021 May/June · 9231/11 & /12 · Question 5 · 7 marks
+
+$C:r=a\cot(\pi/3-\theta)$, where $a>0$, $0\leqslant\theta\leqslant\pi/6$, and the greatest radius is $2\sqrt3$.
+
+**(a)** Sketch $C$ and show that $a=2$. **[3]** **(b)** Find the bounded area exactly. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+At $\theta=\pi/6$, $r=a\cot(\pi/6)=a\sqrt3=2\sqrt3$, hence $\boxed{a=2}$.
+
+$$
+\begin{aligned}
+A&=2\int_0^{\pi/6}\cot^2(\pi/3-\theta)d\theta\\
+&=2[-\cot u-u]_{\pi/6}^{\pi/3}
+=\boxed{\frac{4\sqrt3-\pi}{3}}.
+\end{aligned}
+$$
+
+{{< include figures/polar/past-2021-mj-11-12.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/M/J/2021 Q5; 9231/12/M/J/2021 Q5.</div>
+:::
+
+::: {.question-card #polar-2021-mj-13}
+### 2021 May/June · 9231/13 · Question 5 · 9 marks
+
+For $0\leqslant\theta\leqslant\pi/2$,
+
+$$r=\frac1{\pi-\theta}-\frac1\pi.$$
+
+**(a)** Sketch $C$. **[3]** **(b)** Show that the area bounded by $C$ and $\theta=\pi/2$ is $(3-4\ln2)/(4\pi)$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$r$ increases from $0$ and the curve is tangent to the initial line at the pole.
+
+$$
+A=\frac1{2\pi^2}\int_0^{\pi/2}\frac{\theta^2}{(\pi-\theta)^2}d\theta.
+$$
+
+Let $u=\pi-\theta$. Then
+
+$$A=\frac1{2\pi^2}\int_{\pi/2}^{\pi}\left(\frac{\pi^2}{u^2}-\frac{2\pi}{u}+1\right)du
+=\boxed{\frac{3-4\ln2}{4\pi}}.$$
+
+{{< include figures/polar/past-2021-mj-13.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/13/M/J/2021 Q5.</div>
+:::
+
+::: {.question-card #polar-2021-on-11-13}
+### 2021 October/November · 9231/11 & /13 · Question 6 · 7 marks
+
+$C:r=2\cos\theta(1+\sin\theta)$ for $0\leqslant\theta\leqslant\pi/2$.
+
+**(a)** Find the point furthest from the pole. **[5]** **(b)** Sketch $C$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Differentiating gives
+
+$$\frac{dr}{d\theta}=2\{\cos^2\theta-(1+\sin\theta)\sin\theta\}=0.$$
+
+Thus $1-sin\theta-2\sin^2\theta=0$, so $\sin\theta=1/2$ in the interval. Hence
+
+$$\boxed{(r,\theta)=\left(\frac{3\sqrt3}{2},\frac\pi6\right)}.$$
+
+The curve begins at $(2,0)$, reaches this maximum, then is tangent to $\theta=\pi/2$ at the pole.
+
+{{< include figures/polar/past-2021-on-11-13.svg >}}
+</details>
+<div class="source-line"><strong>Sources:</strong> 9231/11/O/N/2021 Q6; 9231/13/O/N/2021 Q6.</div>
+:::
+
+::: {.question-card #polar-2021-on-12}
+### 2021 October/November · 9231/12 · Question 5 · 12 marks
+
+$C:r=3+2\sin\theta$ for $-\pi<\theta\leqslant\pi$, and $l:r\sin\theta=2$.
+
+**(a)** Complete the sketch. **[1]** **(b)** Add $l$ and find both intersections. **[5]** **(c)** Find exactly the area enclosed by $C$ and $l$ that contains the pole. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$l$ is $y=2$. At an intersection,
+
+$$2=(3+2\sin\theta)\sin\theta,$$
+
+giving $\sin\theta=1/2$. Therefore the intersections are
+
+$$\boxed{(4,\pi/6)},\qquad\boxed{(4,5\pi/6)}.$$
+
+Using symmetry, the curved part with two radii has area
+
+$$2\cdot\frac12\int_{-\pi/2}^{\pi/6}(3+2\sin\theta)^2d\theta
+=\frac{22\pi}{3}-\frac{13\sqrt3}{2}.$$
+
+Adding the two congruent triangles gives $4\cos(\pi/6)\times2=4\sqrt3$. Hence
+
+$$\boxed{A=\frac{22\pi}{3}-\frac{5\sqrt3}{2}}.$$
+
+{{< include figures/polar/past-2021-on-12.svg >}}
+</details>
+<div class="source-line"><strong>Source:</strong> 9231/12/O/N/2021 Q5.</div>
+:::

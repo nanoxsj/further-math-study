@@ -1,0 +1,160 @@
+---
+title: "1.5 Polar coordinates"
+subtitle: "坐标转换 · 极坐标曲线 · 极坐标面积"
+description: "CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 5。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 理解 Cartesian coordinates 与 polar coordinates 的关系，并在两种形式之间转换点和曲线方程；
+2. 按照 $r\geqslant0$ 的约定，在指定的 $\theta$ 区间内描绘简单极坐标曲线；
+3. 在图中标出对称性、与 initial line 的交点、曲线在 pole 附近的形状，以及 $r$ 的最大值和最小值；
+4. 使用
+   $$A=\frac12\int r^2\,\mathrm d\theta$$
+   求简单极坐标区域的面积。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能在 Cartesian coordinates 与 principal polar coordinates 之间转换
+- [ ] 能把直线、圆和简单代数曲线的方程转换为极坐标形式或 Cartesian 形式
+- [ ] 作图前能确定定义域、$r=0$、initial-line intersections、对称性和极值
+- [ ] 坚持本课程的约定：只绘制 $r\geqslant0$ 的部分
+- [ ] 能准确确定面积积分的角度上下限，并利用对称性简化积分
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Polar coordinates of a point
+
+点 $P$ 的极坐标写成 $(r,\theta)$：$r$ 是 $P$ 到 pole $O$ 的距离，$\theta$ 是从 initial line 逆时针量到 $OP$ 的角，通常用弧度表示。
+
+同一点有无限多种表示：
+
+$$
+(r,\theta)\equiv(r,\theta+2k\pi),\qquad k\in\mathbb Z.
+$$
+
+本教材的 principal polar coordinates 满足
+
+$$
+r>0,qquad -\pi<\theta\leqslant\pi.
+$$
+
+在 pole 处 $r=0$，而 $\theta$ 没有唯一值。
+
+### 1.2 Converting points and equations
+
+两种坐标之间的基本关系是
+
+$$
+x=r\cos\theta,qquad y=r\sin\theta,qquad
+r=\sqrt{x^2+y^2},qquad \tan\theta=\frac yx.
+$$
+
+由 Cartesian coordinates 求 $\theta$ 时，必须结合点所在象限选择正确的角，不能只使用计算器给出的 $\arctan(y/x)$。
+
+转换曲线方程时常用
+
+$$
+r^2=x^2+y^2,qquad r\cos\theta=x,qquad r\sin\theta=y.
+$$
+
+如果极坐标式中仍含 $\sin\theta$ 或 $\cos\theta$，可乘以适当的 $r$ 的幂，使它们与 $x$、$y$ 配对。平方消去根号时，应保留原极坐标方程所给的 $r$ 与 $\theta$ 范围。
+
+### 1.3 Sketching a polar curve
+
+作图时依次检查：
+
+1. **Range of $\theta$ and the convention $r\geqslant0$**：先确定题目要求的角度范围，再排除使 $r<0$ 的部分；
+2. **Pole**：解 $r=0$，确定曲线从哪些方向到达或离开 pole；
+3. **Initial line**：检查 $\theta=0$，以及区间内与 initial line 同方向的角；
+4. **Symmetry**：比较 $r(-\theta)$、$r(\pi-\theta)$ 或观察函数的周期；
+5. **Least and greatest values of $r$**：由三角函数范围或微分求极值；
+6. **Direction and shape**：取少量关键角，按 $\theta$ 增大的方向连接。
+
+::: {.callout-note}
+## Convention used in this course
+
+若公式给出 $r<0$，本课程不把点画到相反方向，也不以虚线延伸；只绘制 $r\geqslant0$ 的部分。
+:::
+
+### 1.4 Symmetry tests
+
+以下代换可帮助判断对称性：
+
+$$
+\begin{array}{c|c}
+\text{test} & \text{possible symmetry}\\ \hline
+\theta\mapsto-\theta & \text{initial line}\\
+\theta\mapsto\pi-\theta & \theta=\frac\pi2\\
+\theta\mapsto\theta+\pi & \text{pole}
+\end{array}
+$$
+
+即使方程形式在代换后不完全相同，也可根据给定区间、周期和关键点确认实际图形的对称性。
+
+### 1.5 Distances from lines
+
+点 $(r,\theta)$ 到 initial line 的垂直距离为
+
+$$
+|y|=|r\sin\theta|.
+$$
+
+在第一象限内可直接使用 $r\sin\theta$。点到半直线 $\theta=\alpha$ 所在直线的垂直距离为
+
+$$
+|r\sin(\theta-\alpha)|.
+$$
+
+求最远点时，应对相应距离函数微分，并检查端点以及区间内部的 stationary points。
+
+### 1.6 Intersections of polar curves
+
+在共同的 $\theta$ 范围内令两个 $r$ 表达式相等。还必须单独检查 pole，因为不同的 $\theta$ 值都可能表示 $r=0$ 的同一点。
+
+若一条曲线是直线 $r\sin\theta=c$，它的 Cartesian equation 是 $y=c$；这有时能帮助判断交点个数和位置。
+
+### 1.7 Area enclosed by a polar curve
+
+曲线 $r=f(\theta)$、半直线 $\theta=\alpha$ 与 $\theta=\beta$ 所围区域的面积为
+
+$$
+\boxed{A=\frac12\int_\alpha^\beta r^2\,\mathrm d\theta}.
+$$
+
+选择上下限前，应先由 $r=0$、曲线交点或题目给出的半直线确定边界。若图形关于某条直线对称，可只积一半再乘以 $2$。
+
+两条曲线之间的面积通常写成
+
+$$
+A=\frac12\int_\alpha^\beta
+\left(r_{\text{outer}}^2-r_{\text{inner}}^2\right)\,\mathrm d\theta.
+$$
+
+## 2. Textbook Examples
+
+{{< include polar-examples.qmd >}}
+
+## 3. Cambridge examination questions in the textbook
+
+{{< include polar-textbook-exercises.qmd >}}
+
+## 4. Past-paper question bank
+
+{{< include polar-past-papers.qmd >}}
+
+## 5. 完成本节的判断标准
+
+1. 坐标转换时能够正确判断角所在象限；
+2. 极坐标图能标出 pole、initial line、关键角、对称轴和 $r$ 的极值；
+3. 遇到 $r<0$ 时能按本课程约定截取正确区间；
+4. 求最远距离时能写出正确的 Cartesian 距离函数并检查端点；
+5. 面积题能从图形确定积分上下限，并完整写出代入、积分和精确值。
