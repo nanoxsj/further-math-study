@@ -1,0 +1,2147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapters 1 and 6。">
+
+<title>1.4 Matrices – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-1/summation-of-series.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/matrices.html">1.4 Matrices</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#matrix-operations" id="toc-matrix-operations" class="nav-link" data-scroll-target="#matrix-operations">1.1 Matrix operations</a></li>
+  <li><a href="#determinants-and-inverses" id="toc-determinants-and-inverses" class="nav-link" data-scroll-target="#determinants-and-inverses">1.2 Determinants and inverses</a></li>
+  <li><a href="#products-and-inverse-order" id="toc-products-and-inverse-order" class="nav-link" data-scroll-target="#products-and-inverse-order">1.3 Products and inverse order</a></li>
+  <li><a href="#matrices-as-transformations" id="toc-matrices-as-transformations" class="nav-link" data-scroll-target="#matrices-as-transformations">1.4 Matrices as transformations</a></li>
+  <li><a href="#successive-transformations-and-area" id="toc-successive-transformations-and-area" class="nav-link" data-scroll-target="#successive-transformations-and-area">1.5 Successive transformations and area</a></li>
+  <li><a href="#invariant-points-and-lines" id="toc-invariant-points-and-lines" class="nav-link" data-scroll-target="#invariant-points-and-lines">1.6 Invariant points and lines</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1.1-page-8" id="toc-example-1.1-page-8" class="nav-link" data-scroll-target="#example-1.1-page-8">Example 1.1 · Page 8</a></li>
+  <li><a href="#example-1.2-page-9" id="toc-example-1.2-page-9" class="nav-link" data-scroll-target="#example-1.2-page-9">Example 1.2 · Page 9</a></li>
+  <li><a href="#example-1.3-page-9" id="toc-example-1.3-page-9" class="nav-link" data-scroll-target="#example-1.3-page-9">Example 1.3 · Page 9</a></li>
+  <li><a href="#example-1.4-page-16" id="toc-example-1.4-page-16" class="nav-link" data-scroll-target="#example-1.4-page-16">Example 1.4 · Page 16</a></li>
+  <li><a href="#example-1.5-pages-1618" id="toc-example-1.5-pages-1618" class="nav-link" data-scroll-target="#example-1.5-pages-1618">Example 1.5 · Pages 16–18</a></li>
+  <li><a href="#example-1.6-pages-1920" id="toc-example-1.6-pages-1920" class="nav-link" data-scroll-target="#example-1.6-pages-1920">Example 1.6 · Pages 19–20</a></li>
+  <li><a href="#example-1.7-pages-2122" id="toc-example-1.7-pages-2122" class="nav-link" data-scroll-target="#example-1.7-pages-2122">Example 1.7 · Pages 21–22</a></li>
+  <li><a href="#example-1.8-pages-2324" id="toc-example-1.8-pages-2324" class="nav-link" data-scroll-target="#example-1.8-pages-2324">Example 1.8 · Pages 23–24</a></li>
+  <li><a href="#example-1.9-pages-2930" id="toc-example-1.9-pages-2930" class="nav-link" data-scroll-target="#example-1.9-pages-2930">Example 1.9 · Pages 29–30</a></li>
+  <li><a href="#example-1.10-page-33" id="toc-example-1.10-page-33" class="nav-link" data-scroll-target="#example-1.10-page-33">Example 1.10 · Page 33</a></li>
+  <li><a href="#example-1.11-pages-3435" id="toc-example-1.11-pages-3435" class="nav-link" data-scroll-target="#example-1.11-pages-3435">Example 1.11 · Pages 34–35</a></li>
+  <li><a href="#example-6.1-page-137" id="toc-example-6.1-page-137" class="nav-link" data-scroll-target="#example-6.1-page-137">Example 6.1 · Page 137</a></li>
+  <li><a href="#example-6.2-pages-137138" id="toc-example-6.2-pages-137138" class="nav-link" data-scroll-target="#example-6.2-pages-137138">Example 6.2 · Pages 137–138</a></li>
+  <li><a href="#example-6.3-page-138" id="toc-example-6.3-page-138" class="nav-link" data-scroll-target="#example-6.3-page-138">Example 6.3 · Page 138</a></li>
+  <li><a href="#example-6.4-page-142" id="toc-example-6.4-page-142" class="nav-link" data-scroll-target="#example-6.4-page-142">Example 6.4 · Page 142</a></li>
+  <li><a href="#example-6.5-page-144" id="toc-example-6.5-page-144" class="nav-link" data-scroll-target="#example-6.5-page-144">Example 6.5 · Page 144</a></li>
+  <li><a href="#example-6.6-page-148" id="toc-example-6.6-page-148" class="nav-link" data-scroll-target="#example-6.6-page-148">Example 6.6 · Page 148</a></li>
+  <li><a href="#example-6.7-pages-150151" id="toc-example-6.7-pages-150151" class="nav-link" data-scroll-target="#example-6.7-pages-150151">Example 6.7 · Pages 150–151</a></li>
+  </ul></li>
+  <li><a href="#cambridge-examination-questions-in-the-textbook" id="toc-cambridge-examination-questions-in-the-textbook" class="nav-link" data-scroll-target="#cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</a></li>
+  <li><a href="#past-paper-question-bank" id="toc-past-paper-question-bank" class="nav-link" data-scroll-target="#past-paper-question-bank">4. Past-paper question bank</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2020</a></li>
+  <li><a href="#mayjune-923111-923112-question-6-13-marks" id="toc-mayjune-923111-923112-question-6-13-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-6-13-marks">2020 May/June · 9231/11 &amp; 9231/12 · Question 6 · 13 marks</a></li>
+  <li><a href="#mayjune-923113-question-4-11-marks" id="toc-mayjune-923113-question-4-11-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-4-11-marks">2020 May/June · 9231/13 · Question 4 · 11 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-1-9-marks" id="toc-octobernovember-923111-923113-question-1-9-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-1-9-marks">2020 October/November · 9231/11 &amp; 9231/13 · Question 1 · 9 marks</a></li>
+  <li><a href="#octobernovember-923112-question-4-13-marks" id="toc-octobernovember-923112-question-4-13-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-4-13-marks">2020 October/November · 9231/12 · Question 4 · 13 marks</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2021</a></li>
+  <li><a href="#mayjune-923111-923112-question-4-14-marks" id="toc-mayjune-923111-923112-question-4-14-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-4-14-marks">2021 May/June · 9231/11 &amp; 9231/12 · Question 4 · 14 marks</a></li>
+  <li><a href="#mayjune-923113-question-4-11-marks-1" id="toc-mayjune-923113-question-4-11-marks-1" class="nav-link" data-scroll-target="#mayjune-923113-question-4-11-marks-1">2021 May/June · 9231/13 · Question 4 · 11 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-4-11-marks" id="toc-octobernovember-923111-923113-question-4-11-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-4-11-marks">2021 October/November · 9231/11 &amp; 9231/13 · Question 4 · 11 marks</a></li>
+  <li><a href="#octobernovember-923112-question-1-9-marks" id="toc-octobernovember-923112-question-1-9-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-1-9-marks">2021 October/November · 9231/12 · Question 1 · 9 marks</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2022</a></li>
+  <li><a href="#mayjune-923111-923112-question-7-17-marks" id="toc-mayjune-923111-923112-question-7-17-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-7-17-marks">2022 May/June · 9231/11 &amp; 9231/12 · Question 7 · 17 marks</a></li>
+  <li><a href="#mayjune-923113-question-5-12-marks" id="toc-mayjune-923113-question-5-12-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-5-12-marks">2022 May/June · 9231/13 · Question 5 · 12 marks</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2023</a></li>
+  <li><a href="#octobernovember-923111-923113-question-5-15-marks" id="toc-octobernovember-923111-923113-question-5-15-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-5-15-marks">2023 October/November · 9231/11 &amp; 9231/13 · Question 5 · 15 marks</a></li>
+  <li><a href="#octobernovember-923112-question-3-8-marks" id="toc-octobernovember-923112-question-3-8-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-3-8-marks">2023 October/November · 9231/12 · Question 3 · 8 marks</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2024</a></li>
+  <li><a href="#mayjune-923111-923112-question-4-13-marks" id="toc-mayjune-923111-923112-question-4-13-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-4-13-marks">2024 May/June · 9231/11 &amp; 9231/12 · Question 4 · 13 marks</a></li>
+  <li><a href="#mayjune-923113-question-1-5-marks" id="toc-mayjune-923113-question-1-5-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-1-5-marks">2024 May/June · 9231/13 · Question 1 · 5 marks</a></li>
+  <li><a href="#mayjune-923113-question-3-11-marks" id="toc-mayjune-923113-question-3-11-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-3-11-marks">2024 May/June · 9231/13 · Question 3 · 11 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-1-10-marks" id="toc-octobernovember-923111-923113-question-1-10-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-1-10-marks">2024 October/November · 9231/11 &amp; 9231/13 · Question 1 · 10 marks</a></li>
+  <li><a href="#octobernovember-923112-question-4-13-marks-1" id="toc-octobernovember-923112-question-4-13-marks-1" class="nav-link" data-scroll-target="#octobernovember-923112-question-4-13-marks-1">2024 October/November · 9231/12 · Question 4 · 13 marks</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2025</a></li>
+  <li><a href="#mayjune-923111-923112-question-4-9-marks" id="toc-mayjune-923111-923112-question-4-9-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-4-9-marks">2025 May/June · 9231/11 &amp; 9231/12 · Question 4 · 9 marks</a></li>
+  <li><a href="#mayjune-923113-question-1-11-marks" id="toc-mayjune-923113-question-1-11-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-1-11-marks">2025 May/June · 9231/13 · Question 1 · 11 marks</a></li>
+  <li><a href="#mayjune-923114-question-5-14-marks" id="toc-mayjune-923114-question-5-14-marks" class="nav-link" data-scroll-target="#mayjune-923114-question-5-14-marks">2025 May/June · 9231/14 · Question 5 · 14 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-2-11-marks" id="toc-octobernovember-923111-923113-question-2-11-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-2-11-marks">2025 October/November · 9231/11 &amp; 9231/13 · Question 2 · 11 marks</a></li>
+  <li><a href="#octobernovember-923112-question-4-10-marks" id="toc-octobernovember-923112-question-4-10-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-4-10-marks">2025 October/November · 9231/12 · Question 4 · 10 marks</a></li>
+  <li><a href="#octobernovember-923114-question-5-14-marks" id="toc-octobernovember-923114-question-5-14-marks" class="nav-link" data-scroll-target="#octobernovember-923114-question-5-14-marks">2025 October/November · 9231/14 · Question 5 · 14 marks</a></li>
+  </ul></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">5. 完成本节的判断标准</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/matrices.html">1.4 Matrices</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1.4 Matrices</h1>
+<p class="subtitle lead">矩阵运算 · 行列式与逆矩阵 · 平面变换 · 不变量</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapters 1 and 6。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本节考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>对不超过 <span class="math inline">\(3\times3\)</span> 的矩阵进行加、减、乘运算，并识别零矩阵与单位矩阵；</li>
+<li>判断方阵是 singular 还是 non-singular，计算 <span class="math inline">\(2\times2\)</span>、<span class="math inline">\(3\times3\)</span> 行列式和非奇异矩阵的逆；</li>
+<li>使用 <span class="math inline">\((AB)^{-1}=B^{-1}A^{-1}\)</span>，并推广到多个矩阵的乘积；</li>
+<li>用 <span class="math inline">\(2\times2\)</span> 矩阵表示旋转、反射、放大、伸缩、剪切等平面变换；</li>
+<li>理解复合变换的顺序：<span class="math inline">\(AB\)</span> 表示先作 <span class="math inline">\(B\)</span>，再作 <span class="math inline">\(A\)</span>；</li>
+<li>使用 <span class="math inline">\(|\det M|\)</span> 求面积伸缩因子；</li>
+<li>求矩阵变换下的不动点与不变直线。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">先检查矩阵阶数，再决定加减或乘法是否有定义</label></li>
+<li><label><input type="checkbox">能区分 <span class="math inline">\(AB\)</span> 与 <span class="math inline">\(BA\)</span>，并准确解释复合变换顺序</label></li>
+<li><label><input type="checkbox">能计算 <span class="math inline">\(2\times2\)</span>、<span class="math inline">\(3\times3\)</span> 行列式及逆矩阵</label></li>
+<li><label><input type="checkbox">能由单位向量的像写出变换矩阵</label></li>
+<li><label><input type="checkbox">能从矩阵识别旋转、反射、伸缩、放大和剪切</label></li>
+<li><label><input type="checkbox">能用矩阵方程求不动点，并用直线映射条件求不变直线</label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="matrix-operations" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-operations">1.1 Matrix operations</h3>
+<p>只有阶数相同的矩阵可以相加或相减。若 <span class="math inline">\(A\)</span> 为 <span class="math inline">\(m\times n\)</span>，<span class="math inline">\(B\)</span> 为 <span class="math inline">\(n\times p\)</span>，则 <span class="math inline">\(AB\)</span> 有定义且为 <span class="math inline">\(m\times p\)</span>。</p>
+<p>矩阵乘法一般不满足交换律：</p>
+<p><span class="math display">\[
+AB\ne BA,
+\]</span></p>
+<p>但满足结合律与分配律。单位矩阵 <span class="math inline">\(I\)</span> 满足 <span class="math inline">\(AI=IA=A\)</span>，零矩阵记作 <span class="math inline">\(O\)</span>。</p>
+</section>
+<section id="determinants-and-inverses" class="level3">
+<h3 class="anchored" data-anchor-id="determinants-and-inverses">1.2 Determinants and inverses</h3>
+<p>对于</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix},
+\]</span></p>
+<p><span class="math display">\[
+\det A=ad-bc.
+\]</span></p>
+<p>若 <span class="math inline">\(\det A=0\)</span>，则 <span class="math inline">\(A\)</span> singular，不存在逆矩阵；若 <span class="math inline">\(\det A\ne0\)</span>，则</p>
+<p><span class="math display">\[
+A^{-1}=\frac1{ad-bc}\begin{pmatrix}d&amp;-b\\-c&amp;a\end{pmatrix}.
+\]</span></p>
+<p>对 <span class="math inline">\(3\times3\)</span> 矩阵可按任意一行或一列展开行列式；逆矩阵可由余子式、代数余子式和伴随矩阵求得：</p>
+<p><span class="math display">\[
+A^{-1}=\frac1{\det A}\operatorname{adj}A.
+\]</span></p>
+</section>
+<section id="products-and-inverse-order" class="level3">
+<h3 class="anchored" data-anchor-id="products-and-inverse-order">1.3 Products and inverse order</h3>
+<p>若 <span class="math inline">\(A,B\)</span> 均非奇异，</p>
+<p><span class="math display">\[
+(AB)^{-1}=B^{-1}A^{-1}.
+\]</span></p>
+<p>右侧顺序必须反转。对三个矩阵，</p>
+<p><span class="math display">\[
+(ABC)^{-1}=C^{-1}B^{-1}A^{-1}.
+\]</span></p>
+</section>
+<section id="matrices-as-transformations" class="level3">
+<h3 class="anchored" data-anchor-id="matrices-as-transformations">1.4 Matrices as transformations</h3>
+<p>若</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix},
+\]</span></p>
+<p>则</p>
+<p><span class="math display">\[
+\begin{pmatrix}x'\\y'\end{pmatrix}
+=M\begin{pmatrix}x\\y\end{pmatrix}.
+\]</span></p>
+<p>矩阵第一列是 <span class="math inline">\(\binom10\)</span> 的像，第二列是 <span class="math inline">\(\binom01\)</span> 的像。常用矩阵包括</p>
+<p><span class="math display">\[
+R_\theta=\begin{pmatrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix},
+\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[
+\begin{pmatrix}k&amp;0\\0&amp;k\end{pmatrix},\quad
+\begin{pmatrix}1&amp;h\\0&amp;1\end{pmatrix},\quad
+\begin{pmatrix}1&amp;0\\k&amp;1\end{pmatrix}.
+\]</span></p>
+</section>
+<section id="successive-transformations-and-area" class="level3">
+<h3 class="anchored" data-anchor-id="successive-transformations-and-area">1.5 Successive transformations and area</h3>
+<p>若先作 <span class="math inline">\(B\)</span>、再作 <span class="math inline">\(A\)</span>，复合矩阵为 <span class="math inline">\(AB\)</span>。矩阵 <span class="math inline">\(M\)</span> 所表示变换的面积伸缩因子为</p>
+<p><span class="math display">\[
+|\det M|.
+\]</span></p>
+<p>行列式的符号还反映方向是否翻转。</p>
+</section>
+<section id="invariant-points-and-lines" class="level3">
+<h3 class="anchored" data-anchor-id="invariant-points-and-lines">1.6 Invariant points and lines</h3>
+<p>不动点 <span class="math inline">\(\mathbf{x}\)</span> 满足</p>
+<p><span class="math display">\[
+M\mathbf{x}=\mathbf{x},
+\]</span></p>
+<p>即 <span class="math inline">\((M-I)\mathbf{x}=\mathbf0\)</span>。</p>
+<p>若过原点的直线 <span class="math inline">\(y=mx\)</span> 在变换后仍映到自身，则方向向量 <span class="math inline">\(\binom1m\)</span> 的像必须仍与 <span class="math inline">\(\binom1m\)</span> 平行。对于一般直线 <span class="math inline">\(y=mx+c\)</span>，应把像点代回同一条直线并比较系数。</p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-1.1-page-8" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.1-page-8">Example 1.1 · Page 8</h3>
+<p>Find</p>
+<p><span class="math display">\[
+\begin{pmatrix}10&amp;3\\-2&amp;7\end{pmatrix}
+\begin{pmatrix}5\\2\end{pmatrix}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Taking each row against the column gives</p>
+<p><span class="math display">\[
+\boxed{\begin{pmatrix}56\\4\end{pmatrix}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-1"> Completed</label></p>
+</section>
+<section id="example-1.2-page-9" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.2-page-9">Example 1.2 · Page 9</h3>
+<p>Find</p>
+<p><span class="math display">\[
+\begin{pmatrix}1&amp;3\\-2&amp;5\end{pmatrix}
+\begin{pmatrix}4&amp;3&amp;0\\-2&amp;-3&amp;1\end{pmatrix}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The product has order <span class="math inline">\(2\times3\)</span>:</p>
+<p><span class="math display">\[
+\boxed{\begin{pmatrix}-2&amp;-6&amp;3\\-18&amp;-21&amp;5\end{pmatrix}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-2"> Completed</label></p>
+</section>
+<section id="example-1.3-page-9" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.3-page-9">Example 1.3 · Page 9</h3>
+<p>Multiply</p>
+<p><span class="math display">\[
+\begin{pmatrix}3&amp;2\\-1&amp;4\end{pmatrix}
+\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}
+\]</span></p>
+<p>and state what you notice.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+\boxed{\begin{pmatrix}3&amp;2\\-1&amp;4\end{pmatrix}}.
+\]</span></p>
+<p>Multiplication by the identity matrix has no effect.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-3"> Completed</label></p>
+</section>
+<section id="example-1.4-page-16" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.4-page-16">Example 1.4 · Page 16</h3>
+<p>Describe the transformations represented by</p>
+<p><span class="math display">\[
+\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},
+\qquad
+\begin{pmatrix}2&amp;0\\0&amp;2\end{pmatrix}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The first matrix interchanges the coordinates, so it is reflection in <span class="math inline">\(y=x\)</span>. The second multiplies both coordinates by <span class="math inline">\(2\)</span>, so it is an enlargement of scale factor <span class="math inline">\(2\)</span> about the origin.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-4"> Completed</label></p>
+</section>
+<section id="example-1.5-pages-1618" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.5-pages-1618">Example 1.5 · Pages 16–18</h3>
+<p>Find the matrices representing:</p>
+<ol type="1">
+<li>reflection in the <span class="math inline">\(x\)</span>-axis;</li>
+<li>enlargement of scale factor <span class="math inline">\(3\)</span> about the origin.</li>
+</ol>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Use the images of <span class="math inline">\(\binom10\)</span> and <span class="math inline">\(\binom01\)</span> as the columns:</p>
+<p><span class="math display">\[
+\boxed{\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix}},
+\qquad
+\boxed{\begin{pmatrix}3&amp;0\\0&amp;3\end{pmatrix}}.
+\]</span></p>
+<figure class="math-figure figure">
+<svg viewbox="0 0 560 360" role="img" aria-label="Reflection in the x-axis followed by enlargement scale factor 3" xmlns="http://www.w3.org/2000/svg">
+<defs> <marker id="arrow-187667" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"></path></marker> <style> .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-187667)} .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5} .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round} .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round} .line1{stroke:#7c3aed;stroke-width:3} .line2{stroke:#16a34a;stroke-width:3} .point{fill:#0f172a} .label{font:15px system-ui,sans-serif;fill:#334155} .small{font:13px system-ui,sans-serif;fill:#475569} </style> </defs> <line class="axis" x1="45" y1="300" x2="525" y2="300"></line> <line class="axis" x1="280" y1="330" x2="280" y2="35"></line> <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text> <text class="small" x="266" y="318">O</text> <polygon class="shape" points="290,290 310,290 300,275"></polygon> <polygon class="image" points="310,330 370,330 340,375"></polygon> <line class="grid" x1="45" y1="300" x2="525" y2="300"></line> <text class="label" x="302" y="270">S</text><text class="label" x="375" y="360">T(S)</text> <text class="small" x="52" y="52">reflection in x-axis, then enlargement ×3</text>
+</svg>
+<figcaption>
+Example 1.5: the reflected image lies below the x-axis and every distance from the origin is tripled.
+</figcaption>
+</figure>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-5"> Completed</label></p>
+</section>
+<section id="example-1.6-pages-1920" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.6-pages-1920">Example 1.6 · Pages 19–20</h3>
+<p><strong>(i)</strong> Find the matrix for anticlockwise rotation through <span class="math inline">\(\theta\)</span> about the origin.</p>
+<p><strong>(ii)</strong> Hence give the matrix for an anticlockwise rotation through <span class="math inline">\(60^\circ\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+\boxed{R_\theta=
+\begin{pmatrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix}}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{R_{60^\circ}=
+\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-6"> Completed</label></p>
+</section>
+<section id="example-1.7-pages-2122" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.7-pages-2122">Example 1.7 · Pages 21–22</h3>
+<p>The rectangle has vertices <span class="math inline">\(A(-1,2)\)</span>, <span class="math inline">\(B(1,2)\)</span>, <span class="math inline">\(C(1,-1)\)</span> and <span class="math inline">\(D(-1,-1)\)</span>. Find its image under</p>
+<p><span class="math display">\[
+\begin{pmatrix}1&amp;3\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Multiplying the coordinate matrix gives</p>
+<p><span class="math display">\[
+\begin{pmatrix}1&amp;3\\0&amp;1\end{pmatrix}
+\begin{pmatrix}-1&amp;1&amp;1&amp;-1\\2&amp;2&amp;-1&amp;-1\end{pmatrix}
+=\begin{pmatrix}5&amp;7&amp;-2&amp;-4\\2&amp;2&amp;-1&amp;-1\end{pmatrix}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{A'(5,2),\ B'(7,2),\ C'(-2,-1),\ D'(-4,-1)}.
+\]</span></p>
+<figure class="math-figure figure">
+<svg viewbox="0 0 560 360" role="img" aria-label="Unit rectangle and its image under a shear" xmlns="http://www.w3.org/2000/svg">
+<defs> <marker id="arrow-83477" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"></path></marker> <style> .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-83477)} .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5} .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round} .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round} .line1{stroke:#7c3aed;stroke-width:3} .line2{stroke:#16a34a;stroke-width:3} .point{fill:#0f172a} .label{font:15px system-ui,sans-serif;fill:#334155} .small{font:13px system-ui,sans-serif;fill:#475569} </style> </defs> <line class="axis" x1="45" y1="300" x2="525" y2="300"></line> <line class="axis" x1="280" y1="330" x2="280" y2="35"></line> <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text> <text class="small" x="266" y="318">O</text> <polygon class="shape" points="280,300 400,300 400,210 280,210"></polygon> <polygon class="image" points="280,300 400,300 490,210 370,210"></polygon> <text class="label" x="320" y="200">original</text><text class="label" x="430" y="200">image</text> <line class="grid" x1="370" y1="210" x2="370" y2="300"></line> <line class="grid" x1="490" y1="210" x2="490" y2="300"></line> <text class="small" x="52" y="52">x-axis fixed; horizontal displacement is proportional to y</text>
+</svg>
+<figcaption>
+Example 1.7: a shear preserves height and area while slanting the vertical sides.
+</figcaption>
+</figure>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-7"> Completed</label></p>
+</section>
+<section id="example-1.8-pages-2324" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.8-pages-2324">Example 1.8 · Pages 23–24</h3>
+<p>In a shear <span class="math inline">\(S\)</span>, the <span class="math inline">\(y\)</span>-axis is fixed and <span class="math inline">\((1,0)\)</span> maps to <span class="math inline">\((1,5)\)</span>. Find the matrix of <span class="math inline">\(S\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The images of the basis vectors are <span class="math inline">\(\binom15\)</span> and <span class="math inline">\(\binom01\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{S=\begin{pmatrix}1&amp;0\\5&amp;1\end{pmatrix}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-8"> Completed</label></p>
+</section>
+<section id="example-1.9-pages-2930" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.9-pages-2930">Example 1.9 · Pages 29–30</h3>
+<p>Let <span class="math inline">\(A,B,C\)</span> represent anticlockwise rotations through <span class="math inline">\(135^\circ\)</span>, <span class="math inline">\(45^\circ\)</span>, <span class="math inline">\(90^\circ\)</span>, respectively.</p>
+<ol type="1">
+<li>Write down the matrices.</li>
+<li>Verify <span class="math inline">\(A=BC\)</span>.</li>
+<li>Calculate <span class="math inline">\(B^3\)</span> and comment.</li>
+</ol>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Using <span class="math inline">\(R_\theta\)</span> gives the three matrices. Since successive anticlockwise rotations add their angles,</p>
+<p><span class="math display">\[
+\boxed{BC=R_{45^\circ}R_{90^\circ}=R_{135^\circ}=A},
+\]</span></p>
+<p>and similarly</p>
+<p><span class="math display">\[
+\boxed{B^3=R_{135^\circ}=A}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-9"> Completed</label></p>
+</section>
+<section id="example-1.10-page-33" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.10-page-33">Example 1.10 · Page 33</h3>
+<p>Let</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}2&amp;-1\\1&amp;0\end{pmatrix}.
+\]</span></p>
+<p><strong>(i)</strong> Show that <span class="math inline">\((5,5)\)</span> is invariant. <strong>(ii)</strong> Find all invariant points.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Direct multiplication maps <span class="math inline">\(\binom55\)</span> to itself. In general,</p>
+<p><span class="math display">\[
+M\binom{x}{y}=\binom{x}{y}
+\]</span></p>
+<p>gives <span class="math inline">\(2x-y=x\)</span> and <span class="math inline">\(x=y\)</span>. Hence every invariant point lies on</p>
+<p><span class="math display">\[
+\boxed{y=x}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-10"> Completed</label></p>
+</section>
+<section id="example-1.11-pages-3435" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1.11-pages-3435">Example 1.11 · Pages 34–35</h3>
+<p>Find the invariant lines of</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}5&amp;1\\2&amp;4\end{pmatrix}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Put <span class="math inline">\(y=mx+c\)</span> and require the image point to satisfy the same equation. Comparing coefficients gives</p>
+<p><span class="math display">\[
+m^2+m-2=0,
+\qquad
+(m-3)c=0.
+\]</span></p>
+<p>Therefore <span class="math inline">\(c=0\)</span> and</p>
+<p><span class="math display">\[
+\boxed{y=x\quad\text{or}\quad y=-2x}.
+\]</span></p>
+<figure class="math-figure figure">
+<svg viewbox="0 0 560 360" role="img" aria-label="Two invariant lines through the origin" xmlns="http://www.w3.org/2000/svg">
+<defs> <marker id="arrow-72745" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"></path></marker> <style> .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-72745)} .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5} .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round} .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round} .line1{stroke:#7c3aed;stroke-width:3} .line2{stroke:#16a34a;stroke-width:3} .point{fill:#0f172a} .label{font:15px system-ui,sans-serif;fill:#334155} .small{font:13px system-ui,sans-serif;fill:#475569} </style> </defs> <line class="axis" x1="45" y1="300" x2="525" y2="300"></line> <line class="axis" x1="280" y1="330" x2="280" y2="35"></line> <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text> <text class="small" x="266" y="318">O</text> <line class="line1" x1="80" y1="500" x2="500" y2="80"></line> <line class="line2" x1="180" y1="40" x2="360" y2="400"></line> <circle class="point" cx="280" cy="300" r="4"></circle> <text class="label" x="438" y="112">y = x</text> <text class="label" x="190" y="67">y = −2x</text> <text class="small" x="52" y="52">points may move, but each whole line maps onto itself</text>
+</svg>
+<figcaption>
+Example 1.11: an invariant line need not be a line of invariant points.
+</figcaption>
+</figure>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-11"> Completed</label></p>
+</section>
+<section id="example-6.1-page-137" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6.1-page-137">Example 6.1 · Page 137</h3>
+<p>A shape of area <span class="math inline">\(8\text{ cm}^2\)</span> is transformed by</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}1&amp;-2\\3&amp;0\end{pmatrix}.
+\]</span></p>
+<p>Find the image area.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math inline">\(\det M=6\)</span>, so the area scale factor is <span class="math inline">\(6\)</span>. The image area is</p>
+<p><span class="math display">\[
+\boxed{48\text{ cm}^2}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-1"> Completed</label></p>
+</section>
+<section id="example-6.2-pages-137138" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6.2-pages-137138">Example 6.2 · Pages 137–138</h3>
+<p>The unit square is transformed by</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}2&amp;3\\4&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Find its image vertices, <span class="math inline">\(\det M\)</span>, and the image area.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The four vertices map to <span class="math inline">\((0,0),(2,4),(5,5),(3,1)\)</span>. Also</p>
+<p><span class="math display">\[
+\det M=2-12=-10.
+\]</span></p>
+<p>Hence the image area is <span class="math inline">\(\boxed{10}\)</span> square units.</p>
+<figure class="math-figure figure">
+<svg viewbox="0 0 560 360" role="img" aria-label="Unit square transformed to a parallelogram" xmlns="http://www.w3.org/2000/svg">
+<defs> <marker id="arrow-89191" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"></path></marker> <style> .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-89191)} .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5} .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round} .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round} .line1{stroke:#7c3aed;stroke-width:3} .line2{stroke:#16a34a;stroke-width:3} .point{fill:#0f172a} .label{font:15px system-ui,sans-serif;fill:#334155} .small{font:13px system-ui,sans-serif;fill:#475569} </style> </defs> <line class="axis" x1="45" y1="300" x2="525" y2="300"></line> <line class="axis" x1="280" y1="330" x2="280" y2="35"></line> <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text> <text class="small" x="266" y="318">O</text> <polygon class="shape" points="280,300 360,300 360,220 280,220"></polygon> <polygon class="image" points="280,300 430,265 470,155 320,190"></polygon> <text class="label" x="312" y="214">S</text><text class="label" x="418" y="170">M(S)</text> <text class="small" x="52" y="52">area image = |det M| × area original</text>
+</svg>
+<figcaption>
+Example 6.2: the determinant gives the signed area factor; its absolute value gives the area scale factor.
+</figcaption>
+</figure>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-2"> Completed</label></p>
+</section>
+<section id="example-6.3-page-138" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6.3-page-138">Example 6.3 · Page 138</h3>
+<p>Given</p>
+<p><span class="math display">\[
+P=\begin{pmatrix}2&amp;1\\0&amp;1\end{pmatrix},
+\qquad
+Q=\begin{pmatrix}2&amp;1\\1&amp;2\end{pmatrix},
+\]</span></p>
+<p>find <span class="math inline">\(\det P\)</span>, <span class="math inline">\(\det Q\)</span>, and <span class="math inline">\(\det(PQ)\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+\det P=2,\qquad \det Q=3,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+PQ=\begin{pmatrix}5&amp;4\\1&amp;2\end{pmatrix},
+\qquad
+\det(PQ)=6.
+\]</span></p>
+<p>Thus <span class="math inline">\(\boxed{\det(PQ)=\det P\det Q}\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-3"> Completed</label></p>
+</section>
+<section id="example-6.4-page-142" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6.4-page-142">Example 6.4 · Page 142</h3>
+<p>Write down matrices <span class="math inline">\(A,B\)</span> for rotations through <span class="math inline">\(90^\circ\)</span> anticlockwise and clockwise, and find <span class="math inline">\(AB\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+A=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix},
+\qquad
+B=\begin{pmatrix}0&amp;1\\-1&amp;0\end{pmatrix}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\boxed{AB=I},
+\]</span></p>
+<p>so the two matrices represent inverse transformations.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-4"> Completed</label></p>
+</section>
+<section id="example-6.5-page-144" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6.5-page-144">Example 6.5 · Page 144</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}11&amp;3\\6&amp;2\end{pmatrix}.
+\]</span></p>
+<p><strong>(i)</strong> Find <span class="math inline">\(A^{-1}\)</span>. <strong>(ii)</strong> If <span class="math inline">\(A\)</span> maps <span class="math inline">\(P\)</span> to <span class="math inline">\(Q(5,2)\)</span>, find <span class="math inline">\(P\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Since <span class="math inline">\(\det A=4\)</span>,</p>
+<p><span class="math display">\[
+\boxed{A^{-1}=\frac14\begin{pmatrix}2&amp;-3\\-6&amp;11\end{pmatrix}}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+A^{-1}\binom52=\binom1{-2},
+\]</span></p>
+<p>so <span class="math inline">\(\boxed{P=(1,-2)}\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-5"> Completed</label></p>
+</section>
+<section id="example-6.6-page-148" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6.6-page-148">Example 6.6 · Page 148</h3>
+<p>Find the determinant of</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}3&amp;0&amp;-4\\7&amp;2&amp;-1\\-2&amp;1&amp;3\end{pmatrix}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Expanding along the top row,</p>
+<p><span class="math display">\[
+\det M
+=3\begin{vmatrix}2&amp;-1\\1&amp;3\end{vmatrix}
+-4\begin{vmatrix}7&amp;2\\-2&amp;1\end{vmatrix}
+=21-44.
+\]</span></p>
+<p>Therefore <span class="math inline">\(\boxed{\det M=-23}\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-6"> Completed</label></p>
+</section>
+<section id="example-6.7-pages-150151" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6.7-pages-150151">Example 6.7 · Pages 150–151</h3>
+<p>Find the inverse of</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}2&amp;3&amp;4\\2&amp;-5&amp;2\\-3&amp;6&amp;-3\end{pmatrix}
+\]</span></p>
+<p>without a calculator.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The determinant is <span class="math inline">\(-6\)</span>. The cofactor matrix is</p>
+<p><span class="math display">\[
+\begin{pmatrix}3&amp;0&amp;-3\\33&amp;6&amp;-21\\26&amp;4&amp;-16\end{pmatrix}.
+\]</span></p>
+<p>Transpose and divide by <span class="math inline">\(-6\)</span>:</p>
+<p><span class="math display">\[
+\boxed{M^{-1}=\frac16
+\begin{pmatrix}-3&amp;-33&amp;-26\\0&amp;-6&amp;-4\\3&amp;21&amp;16\end{pmatrix}}.
+\]</span></p>
+<p>Multiplication verifies <span class="math inline">\(MM^{-1}=I\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-6-7"> Completed</label></p>
+</section>
+</section>
+<section id="cambridge-examination-questions-in-the-textbook" class="level2">
+<h2 class="anchored" data-anchor-id="cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+注记
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>经核对教材 Chapter 1 与 Chapter 6 的 Exercise，本节没有标注 Cambridge International AS &amp; A Level Further Mathematics 来源的 Exercise 题目。因此这里不额外复制未标注来源的教材练习。</p>
+</div>
+</div>
+</section>
+<section id="past-paper-question-bank" class="level2">
+<h2 class="anchored" data-anchor-id="past-paper-question-bank">4. Past-paper question bank</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+注记
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>2019 Paper 1 中检出的矩阵题属于旧考纲的 eigenvalues、diagonalisation 或四维变换，因此不收入本节。以下题目按完全相同的地区版本合并，答案依据对应的 Cambridge mark scheme 整理。</p>
+</div>
+</div>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2020</h3>
+</section>
+<div id="matrices-2020-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-6-13-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-6-13-marks">2020 May/June · 9231/11 &amp; 9231/12 · Question 6 · 13 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}2&amp;0\\1&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> The transformation represented by <span class="math inline">\(A^{-1}\)</span> maps a triangle of area <span class="math inline">\(30\text{ cm}^2\)</span> to a triangle of area <span class="math inline">\(d\text{ cm}^2\)</span>. Find <span class="math inline">\(d\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Prove by induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+A^n=\begin{pmatrix}2^n&amp;0\\2^n-1&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p>Let <span class="math inline">\(B=\begin{pmatrix}1&amp;0\\33&amp;0\end{pmatrix}\)</span>.</p>
+<p><strong>(c)</strong> The line <span class="math inline">\(y=2x\)</span> is invariant under the transformation represented by <span class="math inline">\(A^nB\)</span>. Find <span class="math inline">\(n\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Since <span class="math inline">\(\det A=2\)</span>, <span class="math inline">\(|\det A^{-1}|=\frac12\)</span>, so <span class="math inline">\(\boxed{d=15}\)</span>.</p>
+<p>The formula is true for <span class="math inline">\(n=1\)</span>. If it holds for <span class="math inline">\(n=k\)</span>, then</p>
+<p><span class="math display">\[
+A^{k+1}=\begin{pmatrix}2^k&amp;0\\2^k-1&amp;1\end{pmatrix}
+\begin{pmatrix}2&amp;0\\1&amp;1\end{pmatrix}
+=\begin{pmatrix}2^{k+1}&amp;0\\2^{k+1}-1&amp;1\end{pmatrix},
+\]</span></p>
+<p>which completes the induction. Finally,</p>
+<p><span class="math display">\[
+A^nB=\begin{pmatrix}2^n&amp;0\\2^n+32&amp;0\end{pmatrix}.
+\]</span></p>
+<p>For its image to have gradient <span class="math inline">\(2\)</span>, <span class="math inline">\((2^n+32)/2^n=2\)</span>, giving <span class="math inline">\(2^n=32\)</span> and <span class="math inline">\(\boxed{n=5}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2020, Q6; 9231/12/M/J/2020, Q6.
+</div>
+</section>
+</div>
+<div id="matrices-2020-mj-13" class="question-card">
+<section id="mayjune-923113-question-4-11-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-4-11-marks">2020 May/June · 9231/13 · Question 4 · 11 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}k&amp;0&amp;2\\0&amp;-1&amp;-1\\1&amp;1&amp;-k\end{pmatrix},\quad
+B=\begin{pmatrix}0&amp;-3\\-1&amp;3\\0&amp;0\end{pmatrix},\quad
+C=\begin{pmatrix}-3&amp;-1&amp;1\\1&amp;1&amp;2\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(A\)</span> is non-singular. <strong>[3]</strong></p>
+<p>It is given that</p>
+<p><span class="math display">\[
+CAB=\begin{pmatrix}-2&amp;-\frac32\\-1&amp;-\frac32\end{pmatrix}.
+\]</span></p>
+<p><strong>(b)</strong> Find <span class="math inline">\(k\)</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(CAB\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Expanding <span class="math inline">\(\det A\)</span> gives <span class="math inline">\(k^2+k+2\)</span>, whose discriminant is <span class="math inline">\(1-8&lt;0\)</span>; hence it is never zero for real <span class="math inline">\(k\)</span>.</p>
+<p>Multiplying <span class="math inline">\(CAB\)</span> and comparing entries gives <span class="math inline">\(\boxed{k=-\frac12}\)</span>. For <span class="math inline">\(y=mx\)</span>, the condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+-1-\frac32m=m\left(-2-\frac32m\right),
+\]</span></p>
+<p>so <span class="math inline">\(3m^2+m-2=0\)</span>. Therefore</p>
+<p><span class="math display">\[
+\boxed{y=\frac23x\quad\text{or}\quad y=-x}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2020, Q4.
+</div>
+</section>
+</div>
+<div id="matrices-2020-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-1-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-1-9-marks">2020 October/November · 9231/11 &amp; 9231/13 · Question 1 · 9 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}1&amp;b\\0&amp;1\end{pmatrix}
+\begin{pmatrix}a&amp;0\\0&amp;1\end{pmatrix},
+\]</span></p>
+<p>where <span class="math inline">\(a,b&gt;0\)</span>.</p>
+<p><strong>(a)</strong> State the two transformations represented by <span class="math inline">\(M\)</span>, in the correct order. <strong>[2]</strong></p>
+<p>The unit square is mapped by <span class="math inline">\(M\)</span> onto parallelogram <span class="math inline">\(OPQR\)</span>.</p>
+<p><strong>(b)</strong> Find the matrix mapping <span class="math inline">\(OPQR\)</span> back onto the unit square. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Given that the area of <span class="math inline">\(OPQR\)</span> is <span class="math inline">\(2\text{ cm}^2\)</span> and <span class="math inline">\(x+3y=0\)</span> is invariant, find <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>First apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(a\)</span>, then a shear with the <span class="math inline">\(x\)</span>-axis fixed and shear factor <span class="math inline">\(b\)</span>.</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}a&amp;b\\0&amp;1\end{pmatrix},\qquad
+\boxed{M^{-1}=\frac1a\begin{pmatrix}1&amp;-b\\0&amp;a\end{pmatrix}}.
+\]</span></p>
+<p>The area factor is <span class="math inline">\(|\det M|=a\)</span>, so <span class="math inline">\(a=2\)</span>. A point <span class="math inline">\((x,-x/3)\)</span> on the invariant line maps to <span class="math inline">\((ax-bx/3,-x/3)\)</span>. Requiring it to remain on the same line gives <span class="math inline">\(1=a-b/3\)</span>, hence <span class="math inline">\(\boxed{a=2, b=3}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2020, Q1; 9231/13/O/N/2020, Q1.
+</div>
+</section>
+</div>
+<div id="matrices-2020-on-12" class="question-card">
+<section id="octobernovember-923112-question-4-13-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-4-13-marks">2020 October/November · 9231/12 · Question 4 · 13 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},\qquad
+B=\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Identify the transformation represented by <span class="math inline">\(A\)</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> Identify the transformation represented by <span class="math inline">\(B\)</span>. <strong>[2]</strong></p>
+<p>Triangle <span class="math inline">\(DEF\)</span> is transformed by <span class="math inline">\(AB\)</span> onto triangle <span class="math inline">\(PQR\)</span>.</p>
+<p><strong>(c)</strong> Show that the two triangles have the same area. <strong>[3]</strong></p>
+<p><strong>(d)</strong> Find the matrix mapping <span class="math inline">\(PQR\)</span> onto <span class="math inline">\(DEF\)</span>. <strong>[2]</strong></p>
+<p><strong>(e)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(AB\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math inline">\(A\)</span> is reflection in <span class="math inline">\(y=x\)</span>; <span class="math inline">\(B\)</span> is rotation through <span class="math inline">\(60^\circ\)</span> anticlockwise about the origin. Also</p>
+<p><span class="math display">\[
+AB=\begin{pmatrix}\frac{\sqrt3}{2}&amp;\frac12\\[2pt]\frac12&amp;-\frac{\sqrt3}{2}\end{pmatrix},
+\qquad \det(AB)=-1,
+\]</span></p>
+<p>so the absolute area factor is <span class="math inline">\(1\)</span>. Since <span class="math inline">\(AB\)</span> is a reflection, it is self-inverse:</p>
+<p><span class="math display">\[
+\boxed{(AB)^{-1}=\begin{pmatrix}\frac{\sqrt3}{2}&amp;\frac12\\[2pt]\frac12&amp;-\frac{\sqrt3}{2}\end{pmatrix}}.
+\]</span></p>
+<p>Putting <span class="math inline">\(y=mx\)</span> and using <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(m^2+2\sqrt3m-1=0\)</span>. Hence</p>
+<p><span class="math display">\[
+\boxed{y=(2-\sqrt3)x\quad\text{or}\quad y=-(2+\sqrt3)x}.
+\]</span></p>
+<figure class="math-figure figure">
+<svg viewbox="0 0 560 360" role="img" aria-label="Invariant lines of a reflection matrix" xmlns="http://www.w3.org/2000/svg">
+<defs> <marker id="arrow-72469" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"></path></marker> <style> .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-72469)} .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5} .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round} .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round} .line1{stroke:#7c3aed;stroke-width:3} .line2{stroke:#16a34a;stroke-width:3} .point{fill:#0f172a} .label{font:15px system-ui,sans-serif;fill:#334155} .small{font:13px system-ui,sans-serif;fill:#475569} </style> </defs> <line class="axis" x1="45" y1="300" x2="525" y2="300"></line> <line class="axis" x1="280" y1="330" x2="280" y2="35"></line> <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text> <text class="small" x="266" y="318">O</text> <line class="line1" x1="55" y1="360" x2="520" y2="235"></line> <line class="line2" x1="235" y1="30" x2="325" y2="355"></line> <circle class="point" cx="280" cy="300" r="4"></circle> <text class="label" x="395" y="248">y = (2 − √3)x</text> <text class="label" x="58" y="75">y = −(2 + √3)x</text>
+</svg>
+<figcaption>
+2020 O/N 12 Q4: the two invariant directions are perpendicular, as expected for a reflection.
+</figcaption>
+</figure>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2020-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2020, Q4.
+</div>
+</section>
+</div>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2021</h3>
+</section>
+<div id="matrices-2021-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-4-14-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-4-14-marks">2021 May/June · 9231/11 &amp; 9231/12 · Question 4 · 14 marks</h3>
+<p>A rotation of <span class="math inline">\(60^\circ\)</span> anticlockwise about the origin is followed by a one-way stretch in the <span class="math inline">\(x\)</span>-direction with scale factor <span class="math inline">\(d\)</span>, where <span class="math inline">\(d\ne0\)</span>.</p>
+<p><strong>(a)</strong> Find the matrix <span class="math inline">\(M\)</span> of the combined transformation. <strong>[4]</strong></p>
+<p><strong>(b)</strong> The unit square is mapped by <span class="math inline">\(M\)</span> onto a parallelogram of area <span class="math inline">\(\frac12d^2\)</span>. Show that <span class="math inline">\(d=2\)</span>. <strong>[2]</strong></p>
+<p>Let <span class="math inline">\(N\)</span> satisfy</p>
+<p><span class="math display">\[
+MN=\begin{pmatrix}1&amp;1\\[2pt]\frac12&amp;\frac12\end{pmatrix}.
+\]</span></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(N\)</span>. <strong>[3]</strong></p>
+<p><strong>(d)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(MN\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+M=\begin{pmatrix}d&amp;0\\0&amp;1\end{pmatrix}
+\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}
+=\begin{pmatrix}\frac d2&amp;-\frac{d\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}.
+\]</span></p>
+<p>Since <span class="math inline">\(|\det M|=d\)</span>, <span class="math inline">\(d=\frac12d^2\)</span> and <span class="math inline">\(d\ne0\)</span>, so <span class="math inline">\(\boxed{d=2}\)</span>. Then</p>
+<p><span class="math display">\[
+\boxed{N=\frac14\begin{pmatrix}1+\sqrt3&amp;1+\sqrt3\\1-\sqrt3&amp;1-\sqrt3\end{pmatrix}}.
+\]</span></p>
+<p>For <span class="math inline">\(MN=\begin{pmatrix}1&amp;1\\1/2&amp;1/2\end{pmatrix}\)</span>, the condition <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(2m^2+m-1=0\)</span>. Thus</p>
+<p><span class="math display">\[
+\boxed{y=\frac12x\quad\text{or}\quad y=-x}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2021, Q4; 9231/12/M/J/2021, Q4.
+</div>
+</section>
+</div>
+<div id="matrices-2021-mj-13" class="question-card">
+<section id="mayjune-923113-question-4-11-marks-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-4-11-marks-1">2021 May/June · 9231/13 · Question 4 · 11 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}2&amp;k&amp;k\\5&amp;-1&amp;3\\1&amp;0&amp;1\end{pmatrix},\quad
+B=\begin{pmatrix}1&amp;0\\0&amp;1\\1&amp;0\end{pmatrix},\quad
+C=\begin{pmatrix}0&amp;1&amp;1\\-1&amp;2&amp;0\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\(CAB\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Given that <span class="math inline">\(A\)</span> is singular, find <span class="math inline">\(k\)</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Using this value of <span class="math inline">\(k\)</span>, find the invariant lines through the origin of the transformation represented by <span class="math inline">\(CAB\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+CAB=\boxed{\begin{pmatrix}10&amp;-1\\14-k&amp;-k-2\end{pmatrix}}.
+\]</span></p>
+<p>Setting <span class="math inline">\(\det A=0\)</span> gives <span class="math inline">\(k=\boxed{-2}\)</span>, and hence <span class="math inline">\(CAB=\begin{pmatrix}10&amp;-1\\16&amp;0\end{pmatrix}\)</span>. For <span class="math inline">\(y=mx\)</span>,</p>
+<p><span class="math display">\[
+16=m(10-m),
+\]</span></p>
+<p>so <span class="math inline">\(m^2-10m+16=0\)</span>. Therefore <span class="math inline">\(\boxed{y=2x}\)</span> or <span class="math inline">\(\boxed{y=8x}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2021, Q4.
+</div>
+</section>
+</div>
+<div id="matrices-2021-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-4-11-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-4-11-marks">2021 October/November · 9231/11 &amp; 9231/13 · Question 4 · 11 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix}
+\begin{pmatrix}3&amp;0\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> State the two transformations represented by <span class="math inline">\(M\)</span>, in the correct order. <strong>[2]</strong></p>
+<p><strong>(b)</strong> For <span class="math inline">\(0\le\theta\le\pi\)</span>, find the values of <span class="math inline">\(\theta\)</span> for which the transformation has exactly one invariant line through the origin. <strong>[9]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>First apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(3\)</span>, then rotate anticlockwise through <span class="math inline">\(\theta\)</span> about the origin.</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}3\cos\theta&amp;-\sin\theta\\3\sin\theta&amp;\cos\theta\end{pmatrix}.
+\]</span></p>
+<p>For <span class="math inline">\(y=mx\)</span>, <span class="math inline">\(Y=mX\)</span> reduces to</p>
+<p><span class="math display">\[
+m^2\sin\theta-2m\cos\theta+3\sin\theta=0.
+\]</span></p>
+<p>Exactly one invariant line requires a repeated root, so</p>
+<p><span class="math display">\[
+4\cos^2\theta-12\sin^2\theta=0.
+\]</span></p>
+<p>In the stated interval, <span class="math inline">\(\boxed{\theta=\frac\pi6\text{ or }\frac{5\pi}6}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2021, Q4; 9231/13/O/N/2021, Q4.
+</div>
+</section>
+</div>
+<div id="matrices-2021-on-12" class="question-card">
+<section id="octobernovember-923112-question-1-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-1-9-marks">2021 October/November · 9231/12 · Question 1 · 9 marks</h3>
+<p><strong>(a)</strong> Describe the transformation represented by <span class="math inline">\(\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}\)</span>. <strong>[1]</strong></p>
+<p>Let <span class="math inline">\(A=\begin{pmatrix}3&amp;4\\2&amp;2\end{pmatrix}\)</span>.</p>
+<p><strong>(b)</strong> A triangle of area <span class="math inline">\(13\text{ cm}^2\)</span> is transformed by <span class="math inline">\(A\)</span>. Find the area of its image. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(B\)</span> such that <span class="math inline">\(AB=\begin{pmatrix}6&amp;0\\0&amp;6\end{pmatrix}\)</span>. <strong>[2]</strong></p>
+<p><strong>(d)</strong> Show that the origin is the only invariant point of the transformation represented by <span class="math inline">\(A\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Part (a) is an enlargement, centre the origin, scale factor <span class="math inline">\(6\)</span>. Since <span class="math inline">\(\det A=-2\)</span>, the image area is <span class="math inline">\(2(13)=\boxed{26\text{ cm}^2}\)</span>.</p>
+<p><span class="math display">\[
+\boxed{B=6A^{-1}=\begin{pmatrix}-6&amp;12\\6&amp;-9\end{pmatrix}}.
+\]</span></p>
+<p>An invariant point <span class="math inline">\((x,y)\)</span> satisfies <span class="math inline">\(3x+4y=x\)</span> and <span class="math inline">\(2x+2y=y\)</span>. These reduce to <span class="math inline">\(2x+4y=0\)</span> and <span class="math inline">\(2x+y=0\)</span>, whose only solution is <span class="math inline">\(\boxed{(0,0)}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2021-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2021, Q1.
+</div>
+</section>
+</div>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2022</h3>
+</section>
+<div id="matrices-2022-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-7-17-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-7-17-marks">2022 May/June · 9231/11 &amp; 9231/12 · Question 7 · 17 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;2&amp;3\\4&amp;k&amp;6\\7&amp;8&amp;9\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Find the set of values of <span class="math inline">\(k\)</span> for which <span class="math inline">\(A\)</span> is non-singular. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Given that <span class="math inline">\(A\)</span> is non-singular, find the entries in the top row of <span class="math inline">\(A^{-1}\)</span>. <strong>[4]</strong></p>
+<p>Let <span class="math inline">\(B=\begin{pmatrix}1&amp;0&amp;0\\0&amp;1&amp;0\end{pmatrix}\)</span>.</p>
+<p><strong>(c)</strong> Give an example of a matrix <span class="math inline">\(C\)</span> such that</p>
+<p><span class="math display">\[
+BAC=\begin{pmatrix}2&amp;1\\k&amp;4\end{pmatrix}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(d)</strong> Find the set of values of <span class="math inline">\(k\)</span> for which the transformation represented by <span class="math inline">\(\begin{pmatrix}2&amp;1\\k&amp;4\end{pmatrix}\)</span> has two distinct invariant lines through the origin. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\det A=60-12k,
+\]</span></p>
+<p>so <span class="math inline">\(\boxed{k\ne5}\)</span>. Cofactors give the top row</p>
+<p><span class="math display">\[
+\boxed{\left(\frac{3k-16}{4(5-k)},\ \frac1{2(5-k)},\ \frac{4-k}{4(5-k)}\right)}.
+\]</span></p>
+<p>One valid choice is</p>
+<p><span class="math display">\[
+\boxed{C=\begin{pmatrix}0&amp;1\\1&amp;0\\0&amp;0\end{pmatrix}}.
+\]</span></p>
+<p>For the final matrix, <span class="math inline">\(y=mx\)</span> gives</p>
+<p><span class="math display">\[
+m^2-2m-k=0.
+\]</span></p>
+<p>Two distinct invariant lines require discriminant <span class="math inline">\(4+4k&gt;0\)</span>; the represented transformation must also be non-singular, so <span class="math inline">\(8-k\ne0\)</span>. Therefore</p>
+<p><span class="math display">\[
+\boxed{k&gt;-1,\qquad k\ne8}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2022-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2022, Q7; 9231/12/M/J/2022, Q7.
+</div>
+</section>
+</div>
+<div id="matrices-2022-mj-13" class="question-card">
+<section id="mayjune-923113-question-5-12-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-5-12-marks">2022 May/June · 9231/13 · Question 5 · 12 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;a\\0&amp;1\end{pmatrix},
+\]</span></p>
+<p>where <span class="math inline">\(a&gt;0\)</span>.</p>
+<p><strong>(a)</strong> State the type of transformation represented by <span class="math inline">\(A\)</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> Prove by induction that</p>
+<p><span class="math display">\[
+A^n=\begin{pmatrix}1&amp;na\\0&amp;1\end{pmatrix}
+\]</span></p>
+<p>for every positive integer <span class="math inline">\(n\)</span>. <strong>[5]</strong></p>
+<p>Let</p>
+<p><span class="math display">\[
+B=\begin{pmatrix}b&amp;b\\1/a&amp;1/a\end{pmatrix},
+\]</span></p>
+<p>where <span class="math inline">\(b&gt;0\)</span>.</p>
+<p><strong>(c)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(A^nB\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math inline">\(A\)</span> represents a shear in the <span class="math inline">\(x\)</span>-direction, with the <span class="math inline">\(x\)</span>-axis fixed. The formula is true for <span class="math inline">\(n=1\)</span>. Assuming it for <span class="math inline">\(n=k\)</span>,</p>
+<p><span class="math display">\[
+A^{k+1}=\begin{pmatrix}1&amp;ka\\0&amp;1\end{pmatrix}
+\begin{pmatrix}1&amp;a\\0&amp;1\end{pmatrix}
+=\begin{pmatrix}1&amp;(k+1)a\\0&amp;1\end{pmatrix},
+\]</span></p>
+<p>which completes the induction. Also</p>
+<p><span class="math display">\[
+A^nB=\begin{pmatrix}b+n&amp;b+n\\1/a&amp;1/a\end{pmatrix}.
+\]</span></p>
+<p>Using <span class="math inline">\(y=mx\)</span> and <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\((1+m)\{1/a-m(b+n)\}=0\)</span>. Hence</p>
+<p><span class="math display">\[
+\boxed{y=-x\quad\text{or}\quad y=\frac{x}{a(b+n)}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2022-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2022, Q5.
+</div>
+</section>
+</div>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2023</h3>
+</section>
+<div id="matrices-2023-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-5-15-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-5-15-marks">2023 October/November · 9231/11 &amp; 9231/13 · Question 5 · 15 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;k&amp;3\\2&amp;1&amp;3\\3&amp;2&amp;5\end{pmatrix},\quad
+B=\begin{pmatrix}0&amp;-2\\-1&amp;3\\0&amp;0\end{pmatrix},\quad
+C=\begin{pmatrix}-2&amp;-1&amp;1\\1&amp;1&amp;3\end{pmatrix}.
+\]</span></p>
+<p>It is given that <span class="math inline">\(A\)</span> is singular.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(CAB=\begin{pmatrix}3&amp;-7\\-9&amp;3\end{pmatrix}\)</span>. <strong>[5]</strong></p>
+<p><strong>(b)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(CAB\)</span>. <strong>[5]</strong></p>
+<p>Matrices <span class="math inline">\(D,E,F\)</span> represent, respectively, an enlargement centred at the origin, a stretch parallel to the <span class="math inline">\(x\)</span>-axis, and reflection in <span class="math inline">\(y=x\)</span>.</p>
+<p><strong>(c)</strong> Given that <span class="math inline">\(CAB=D-9EF\)</span>, find <span class="math inline">\(D,E,F\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math inline">\(\det A=0\)</span> gives <span class="math inline">\(k=2\)</span>; direct multiplication then gives the stated <span class="math inline">\(CAB\)</span>. For <span class="math inline">\(y=mx\)</span>,</p>
+<p><span class="math display">\[
+-9+3m=m(3-7m),
+\]</span></p>
+<p>so <span class="math inline">\(7m^2=9\)</span> and</p>
+<p><span class="math display">\[
+\boxed{y=\frac3{\sqrt7}x\quad\text{or}\quad y=-\frac3{\sqrt7}x}.
+\]</span></p>
+<p>Writing <span class="math inline">\(D=\alpha I\)</span>, <span class="math inline">\(E=\begin{pmatrix}\beta&amp;0\\0&amp;1\end{pmatrix}\)</span> and <span class="math inline">\(F=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\)</span> and comparing entries gives</p>
+<p><span class="math display">\[
+\boxed{D=\begin{pmatrix}3&amp;0\\0&amp;3\end{pmatrix},\quad
+E=\begin{pmatrix}7/9&amp;0\\0&amp;1\end{pmatrix},\quad
+F=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2023-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2023, Q5; 9231/13/O/N/2023, Q5.
+</div>
+</section>
+</div>
+<div id="matrices-2023-on-12" class="question-card">
+<section id="octobernovember-923112-question-3-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-3-8-marks">2023 October/November · 9231/12 · Question 3 · 8 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}k&amp;0\\0&amp;1\end{pmatrix}
+\begin{pmatrix}1&amp;0\\1&amp;1\end{pmatrix},
+\]</span></p>
+<p>where <span class="math inline">\(k\ne0,1\)</span>.</p>
+<p><strong>(a)</strong> State the two transformations represented by <span class="math inline">\(M\)</span>, in the correct order. <strong>[2]</strong></p>
+<p>The unit square is transformed by <span class="math inline">\(M\)</span> onto parallelogram <span class="math inline">\(OPQR\)</span>.</p>
+<p><strong>(b)</strong> Find its area and the matrix mapping <span class="math inline">\(OPQR\)</span> back onto the unit square. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Show that the line through the origin with gradient <span class="math inline">\(1/(k-1)\)</span> is invariant. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>First apply a shear in the <span class="math inline">\(y\)</span>-direction with the <span class="math inline">\(y\)</span>-axis fixed, then a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(k\)</span>. Since</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}k&amp;0\\1&amp;1\end{pmatrix},
+\]</span></p>
+<p>the parallelogram has area <span class="math inline">\(\boxed{|k|}\)</span> square units (the official scheme writes <span class="math inline">\(k\)</span>, under its geometric scale-factor convention), and</p>
+<p><span class="math display">\[
+\boxed{M^{-1}=\frac1k\begin{pmatrix}1&amp;0\\-1&amp;k\end{pmatrix}}.
+\]</span></p>
+<p>For <span class="math inline">\(\mathbf v=\binom{1}{1/(k-1)}\)</span>,</p>
+<p><span class="math display">\[
+M\mathbf v=\binom{k}{k/(k-1)}=k\mathbf v,
+\]</span></p>
+<p>which proves invariance.</p>
+<figure class="math-figure figure">
+<svg viewbox="0 0 560 360" role="img" aria-label="Unit square mapped by a shear and stretch" xmlns="http://www.w3.org/2000/svg">
+<defs> <marker id="arrow-80953" markerwidth="8" markerheight="8" refx="6" refy="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#475569"></path></marker> <style> .axis{stroke:#475569;stroke-width:1.6;marker-end:url(#arrow-80953)} .grid{stroke:#cbd5e1;stroke-width:1;stroke-dasharray:4 5} .shape{fill:#38bdf826;stroke:#0284c7;stroke-width:3;stroke-linejoin:round} .image{fill:#f9731626;stroke:#ea580c;stroke-width:3;stroke-linejoin:round} .line1{stroke:#7c3aed;stroke-width:3} .line2{stroke:#16a34a;stroke-width:3} .point{fill:#0f172a} .label{font:15px system-ui,sans-serif;fill:#334155} .small{font:13px system-ui,sans-serif;fill:#475569} </style> </defs> <line class="axis" x1="45" y1="300" x2="525" y2="300"></line> <line class="axis" x1="280" y1="330" x2="280" y2="35"></line> <text class="label" x="530" y="305">x</text><text class="label" x="286" y="32">y</text> <text class="small" x="266" y="318">O</text> <polygon class="shape" points="280,300 350,300 350,230 280,230"></polygon> <polygon class="image" points="280,300 440,255 440,185 280,230"></polygon> <line class="line1" x1="95" y1="350" x2="510" y2="145"></line> <text class="label" x="375" y="150">y = x/(k − 1)</text> <text class="small" x="52" y="52">schematic for k &gt; 1; the purple direction maps to itself</text>
+</svg>
+<figcaption>
+2023 O/N 12 Q3: the image is a parallelogram and the marked direction is invariant.
+</figcaption>
+</figure>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2023-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2023, Q3.
+</div>
+</section>
+</div>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2024</h3>
+</section>
+<div id="matrices-2024-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-4-13-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-4-13-marks">2024 May/June · 9231/11 &amp; 9231/12 · Question 4 · 13 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}
+\begin{pmatrix}14&amp;0\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Give full details of the two transformations represented by <span class="math inline">\(M\)</span>, in the correct order. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Write <span class="math inline">\(M^{-1}\)</span> as the product of two matrices, neither equal to <span class="math inline">\(I\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(M\)</span>. <strong>[5]</strong></p>
+<p>Triangle <span class="math inline">\(ABC\)</span> is transformed by <span class="math inline">\(M\)</span> onto triangle <span class="math inline">\(DEF\)</span> of area <span class="math inline">\(28\text{ cm}^2\)</span>.</p>
+<p><strong>(d)</strong> Find the area of triangle <span class="math inline">\(ABC\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>First apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(14\)</span>, then rotate anticlockwise through <span class="math inline">\(\pi/3\)</span> about the origin. Reversing the order and inverting each factor gives</p>
+<p><span class="math display">\[
+\boxed{M^{-1}=\begin{pmatrix}1/14&amp;0\\0&amp;1\end{pmatrix}
+\begin{pmatrix}\frac12&amp;\frac{\sqrt3}{2}\\[2pt]-\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}}.
+\]</span></p>
+<p>Since</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}7&amp;-\frac{\sqrt3}{2}\\[2pt]7\sqrt3&amp;\frac12\end{pmatrix},
+\]</span></p>
+<p>putting <span class="math inline">\(y=mx\)</span> gives <span class="math inline">\(2\sqrt3m^2-13m+14\sqrt3=0\)</span>. Hence</p>
+<p><span class="math display">\[
+\boxed{y=2\sqrt3x\quad\text{or}\quad y=\frac{7\sqrt3}{3}x}.
+\]</span></p>
+<p>Finally <span class="math inline">\(|\det M|=14\)</span>, so the original area is <span class="math inline">\(28/14=\boxed{2\text{ cm}^2}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2024, Q4; 9231/12/M/J/2024, Q4.
+</div>
+</section>
+</div>
+<div id="matrices-2024-mj-13-q1" class="question-card">
+<section id="mayjune-923113-question-1-5-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-1-5-marks">2024 May/June · 9231/13 · Question 1 · 5 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}k&amp;1&amp;0\\6&amp;5&amp;2\\-1&amp;3&amp;-k\end{pmatrix},
+\]</span></p>
+<p>where <span class="math inline">\(k\)</span> is real.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(A\)</span> is non-singular. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Given that</p>
+<p><span class="math display">\[
+A^{-1}=\begin{pmatrix}3&amp;0&amp;-1\\1&amp;0&amp;0\\-\frac{23}{2}&amp;\frac12&amp;3\end{pmatrix},
+\]</span></p>
+<p>find <span class="math inline">\(k\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Expansion gives</p>
+<p><span class="math display">\[
+\det A=-5k^2-2,
+\]</span></p>
+<p>which is negative for every real <span class="math inline">\(k\)</span> and hence never zero. From <span class="math inline">\(AA^{-1}=I\)</span> (for example, comparing the first entry) one obtains <span class="math inline">\(3k+1=1\)</span>, so <span class="math inline">\(\boxed{k=0}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-13-q1"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2024, Q1.
+</div>
+</section>
+</div>
+<div id="matrices-2024-mj-13-q3" class="question-card">
+<section id="mayjune-923113-question-3-11-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-3-11-marks">2024 May/June · 9231/13 · Question 3 · 11 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}
+\begin{pmatrix}7&amp;0\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Give full details of the two transformations represented by <span class="math inline">\(M\)</span>, in the correct order. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(M\)</span>. <strong>[5]</strong></p>
+<p>Triangle <span class="math inline">\(DEF\)</span> is transformed by <span class="math inline">\(M\)</span> onto triangle <span class="math inline">\(PQR\)</span> of area <span class="math inline">\(35\text{ cm}^2\)</span>.</p>
+<p><strong>(c)</strong> Find the area of triangle <span class="math inline">\(DEF\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>First apply a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(7\)</span>, then a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((2,1)\)</span>. Thus</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}7&amp;2\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p>For <span class="math inline">\(y=mx\)</span>, <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(2m^2+6m=0\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{y=0\quad\text{or}\quad y=-3x}.
+\]</span></p>
+<p>The area factor is <span class="math inline">\(7\)</span>, hence the original area is <span class="math inline">\(35/7=\boxed{5\text{ cm}^2}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-mj-13-q3"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2024, Q3.
+</div>
+</section>
+</div>
+<div id="matrices-2024-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-1-10-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-1-10-marks">2024 October/November · 9231/11 &amp; 9231/13 · Question 1 · 10 marks</h3>
+<p>A stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(k\ne0\)</span> is followed by a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((k,1)\)</span>.</p>
+<p><strong>(a)</strong> Show that the combined matrix is <span class="math inline">\(M=\begin{pmatrix}k&amp;k\\0&amp;1\end{pmatrix}\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> The transformation has a line of invariant points. Find its equation. <strong>[3]</strong></p>
+<p>The unit square <span class="math inline">\(S\)</span> is transformed by <span class="math inline">\(M\)</span> onto parallelogram <span class="math inline">\(P\)</span>.</p>
+<p><strong>(c)</strong> Find a matrix mapping <span class="math inline">\(P\)</span> back onto <span class="math inline">\(S\)</span>. <strong>[1]</strong></p>
+<p><strong>(d)</strong> Given that the area of <span class="math inline">\(P\)</span> is <span class="math inline">\(3k^2\)</span>, find the possible values of <span class="math inline">\(k\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>The product in the stated order is</p>
+<p><span class="math display">\[
+\begin{pmatrix}1&amp;k\\0&amp;1\end{pmatrix}
+\begin{pmatrix}k&amp;0\\0&amp;1\end{pmatrix}
+=\begin{pmatrix}k&amp;k\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Solving <span class="math inline">\(M\binom xy=\binom xy\)</span> gives</p>
+<p><span class="math display">\[
+\boxed{y=\frac{1-k}{k}x}.
+\]</span></p>
+<p>The reverse matrix is</p>
+<p><span class="math display">\[
+\boxed{M^{-1}=\frac1k\begin{pmatrix}1&amp;-k\\0&amp;k\end{pmatrix}}.
+\]</span></p>
+<p>Since the area of <span class="math inline">\(P\)</span> is <span class="math inline">\(|\det M|=|k|\)</span>, the condition <span class="math inline">\(|k|=3k^2\)</span> gives <span class="math inline">\(\boxed{k=\pm\frac13}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2024, Q1; 9231/13/O/N/2024, Q1.
+</div>
+</section>
+</div>
+<div id="matrices-2024-on-12" class="question-card">
+<section id="octobernovember-923112-question-4-13-marks-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-4-13-marks-1">2024 October/November · 9231/12 · Question 4 · 13 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;2&amp;3\\2&amp;1&amp;3\\3&amp;2&amp;5\end{pmatrix},\quad
+B=\begin{pmatrix}0&amp;-2\\-1&amp;3\\0&amp;0\end{pmatrix},\quad
+C=\begin{pmatrix}-2&amp;-1&amp;1\\1&amp;1&amp;3\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(CAB=\begin{pmatrix}3&amp;-7\\-9&amp;3\end{pmatrix}\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(CAB\)</span>. <strong>[5]</strong></p>
+<p>Let <span class="math inline">\(M=\begin{pmatrix}3&amp;0\\0&amp;1\end{pmatrix}\)</span>.</p>
+<p><strong>(c)</strong> Describe the transformation represented by <span class="math inline">\(M\)</span>. <strong>[2]</strong></p>
+<p><strong>(d)</strong> Find <span class="math inline">\(N\)</span> such that <span class="math inline">\(NM=CAB\)</span>. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Direct multiplication gives the stated product. For <span class="math inline">\(y=mx\)</span>, the invariance equation gives <span class="math inline">\(7m^2=9\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{y=\frac3{\sqrt7}x\quad\text{or}\quad y=-\frac3{\sqrt7}x}.
+\]</span></p>
+<p><span class="math inline">\(M\)</span> is a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(3\)</span>. Since <span class="math inline">\(N=(CAB)M^{-1}\)</span>,</p>
+<p><span class="math display">\[
+\boxed{N=\begin{pmatrix}1&amp;-7\\-3&amp;3\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2024-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2024, Q4.
+</div>
+</section>
+</div>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">2025</h3>
+</section>
+<div id="matrices-2025-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-4-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-4-9-marks">2025 May/June · 9231/11 &amp; 9231/12 · Question 4 · 9 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}1&amp;2\\0&amp;1\end{pmatrix}
+\begin{pmatrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix},
+\qquad 0&lt;\theta&lt;2\pi.
+\]</span></p>
+<p><strong>(a)</strong> State the two transformations represented by <span class="math inline">\(M\)</span>, in the correct order. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\theta\)</span> for which the transformation has a line of invariant points. <strong>[7]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>First rotate anticlockwise through <span class="math inline">\(\theta\)</span> about the origin, then apply a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((2,1)\)</span>. Multiplying gives</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}\cos\theta+2\sin\theta&amp;2\cos\theta-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix}.
+\]</span></p>
+<p>Solving <span class="math inline">\(M\binom xy=\binom xy\)</span> for a non-zero point leads to</p>
+<p><span class="math display">\[
+\sin\theta+\cos\theta=1.
+\]</span></p>
+<p>Within the stated interval the required non-identity case is</p>
+<p><span class="math display">\[
+\boxed{\theta=\frac\pi2}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2025, Q4; 9231/12/M/J/2025, Q4.
+</div>
+</section>
+</div>
+<div id="matrices-2025-mj-13" class="question-card">
+<section id="mayjune-923113-question-1-11-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-1-11-marks">2025 May/June · 9231/13 · Question 1 · 11 marks</h3>
+<p>A one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(14\)</span> is followed by a rotation anticlockwise about the origin through <span class="math inline">\(\pi/3\)</span>. Let the combined matrix be <span class="math inline">\(M\)</span>.</p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+2M=\begin{pmatrix}14&amp;-\sqrt3\\14\sqrt3&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(M\)</span>. <strong>[5]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(M^{-1}\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+M=\begin{pmatrix}\frac12&amp;-\frac{\sqrt3}{2}\\[2pt]\frac{\sqrt3}{2}&amp;\frac12\end{pmatrix}
+\begin{pmatrix}14&amp;0\\0&amp;1\end{pmatrix}
+=\begin{pmatrix}7&amp;-\frac{\sqrt3}{2}\\[2pt]7\sqrt3&amp;\frac12\end{pmatrix},
+\]</span></p>
+<p>which proves the given result. The condition <span class="math inline">\(Y=mX\)</span> gives</p>
+<p><span class="math display">\[
+\sqrt3m^2-13m+14\sqrt3=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{y=2\sqrt3x\quad\text{or}\quad y=\frac7{\sqrt3}x}.
+\]</span></p>
+<p>Finally,</p>
+<p><span class="math display">\[
+\boxed{M^{-1}=\frac12\begin{pmatrix}1/14&amp;\sqrt3/14\\-\sqrt3&amp;1\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2025, Q1.
+</div>
+</section>
+</div>
+<div id="matrices-2025-mj-14" class="question-card">
+<section id="mayjune-923114-question-5-14-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923114-question-5-14-marks">2025 May/June · 9231/14 · Question 5 · 14 marks</h3>
+<p>A one-way stretch in the <span class="math inline">\(x\)</span>-direction with scale factor <span class="math inline">\(3\)</span> is followed by reflection in <span class="math inline">\(y=x\)</span>.</p>
+<p><strong>(a)</strong> Find the combined matrix <span class="math inline">\(M\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Give full details of the transformation represented by <span class="math inline">\(M^{-1}\)</span>. <strong>[3]</strong></p>
+<p>Let <span class="math inline">\(N\)</span> satisfy <span class="math inline">\(MN=\begin{pmatrix}1&amp;2\\3&amp;2\end{pmatrix}\)</span>.</p>
+<p><strong>(c)</strong> Find <span class="math inline">\(N\)</span>. <strong>[3]</strong></p>
+<p><strong>(d)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(MN\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\boxed{M=\begin{pmatrix}0&amp;1\\3&amp;0\end{pmatrix}}.
+\]</span></p>
+<p><span class="math inline">\(M^{-1}\)</span> represents reflection in <span class="math inline">\(y=x\)</span> followed by a one-way stretch in the <span class="math inline">\(x\)</span>-direction with scale factor <span class="math inline">\(1/3\)</span>. Also</p>
+<p><span class="math display">\[
+\boxed{N=M^{-1}\begin{pmatrix}1&amp;2\\3&amp;2\end{pmatrix}
+=\begin{pmatrix}1&amp;2/3\\1&amp;2\end{pmatrix}}.
+\]</span></p>
+<p>For <span class="math inline">\(MN=\begin{pmatrix}1&amp;2\\3&amp;2\end{pmatrix}\)</span>, <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(2m^2-m-3=0\)</span>. Therefore</p>
+<p><span class="math display">\[
+\boxed{y=\frac32x\quad\text{or}\quad y=-x}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-mj-14"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/14/M/J/2025, Q5.
+</div>
+</section>
+</div>
+<div id="matrices-2025-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-2-11-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-2-11-marks">2025 October/November · 9231/11 &amp; 9231/13 · Question 2 · 11 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;\frac32\\0&amp;1\end{pmatrix},\qquad
+B=\begin{pmatrix}1&amp;0\\\frac32&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Describe the transformation represented by <span class="math inline">\(A\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Describe the transformation represented by <span class="math inline">\(B\)</span>. <strong>[2]</strong></p>
+<p>Triangle <span class="math inline">\(DEF\)</span> is transformed by <span class="math inline">\(AB\)</span> onto triangle <span class="math inline">\(PQR\)</span>.</p>
+<p><strong>(c)</strong> Show that the two triangles have the same area. <strong>[2]</strong></p>
+<p><strong>(d)</strong> Find the invariant lines through the origin of the transformation represented by <span class="math inline">\(AB\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math inline">\(A\)</span> is a shear with the <span class="math inline">\(x\)</span>-axis fixed and <span class="math inline">\((0,1)\)</span> mapped to <span class="math inline">\((3/2,1)\)</span>. <span class="math inline">\(B\)</span> is a shear with the <span class="math inline">\(y\)</span>-axis fixed and <span class="math inline">\((1,0)\)</span> mapped to <span class="math inline">\((1,3/2)\)</span>. Now</p>
+<p><span class="math display">\[
+AB=\begin{pmatrix}13/4&amp;3/2\\3/2&amp;1\end{pmatrix},\qquad \det(AB)=1,
+\]</span></p>
+<p>so areas are unchanged. For <span class="math inline">\(y=mx\)</span>, <span class="math inline">\(Y=mX\)</span> gives <span class="math inline">\(m^2+\frac32m-1=0\)</span>, hence</p>
+<p><span class="math display">\[
+\boxed{y=-2x\quad\text{or}\quad y=\frac12x}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2025, Q2; 9231/13/O/N/2025, Q2.
+</div>
+</section>
+</div>
+<div id="matrices-2025-on-12" class="question-card">
+<section id="octobernovember-923112-question-4-10-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-4-10-marks">2025 October/November · 9231/12 · Question 4 · 10 marks</h3>
+<p>Let <span class="math inline">\(k,m\)</span> be non-zero constants and</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}0&amp;1\\-1&amp;1\\1&amp;1\end{pmatrix},\quad
+B=\begin{pmatrix}k&amp;0\\0&amp;m\end{pmatrix},\quad
+C=\begin{pmatrix}2&amp;-1&amp;1\\1&amp;1&amp;2\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Describe the transformation represented by <span class="math inline">\(B\)</span> when <strong>(i)</strong> <span class="math inline">\(m=1\)</span>, and <strong>(ii)</strong> <span class="math inline">\(m=k\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Show that <span class="math inline">\(ABC\)</span> is singular. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>When <span class="math inline">\(m=1\)</span>, <span class="math inline">\(B\)</span> is a one-way stretch parallel to the <span class="math inline">\(x\)</span>-axis with scale factor <span class="math inline">\(k\)</span>. When <span class="math inline">\(m=k\)</span>, <span class="math inline">\(B=kI\)</span> is an enlargement centred at the origin with scale factor <span class="math inline">\(k\)</span>.</p>
+<p>Multiplication gives</p>
+<p><span class="math display">\[
+ABC=\begin{pmatrix}
+m&amp;m&amp;2m\\
+-2k+m&amp;k+m&amp;-k+2m\\
+2k+m&amp;-k+m&amp;k+2m
+\end{pmatrix}.
+\]</span></p>
+<p>Expanding its determinant and collecting terms gives</p>
+<p><span class="math display">\[
+m(k+m)(k+2m)-m(-k+m)(-k+2m)-m(-2k+m)(k+2m)
+\]</span></p>
+<p><span class="math display">\[
+{}+m(2k+m)(-k+2m)+2m(-2k+m)(-k+m)-2m(2k+m)(k+m)=0.
+\]</span></p>
+<p>Hence <span class="math inline">\(\det(ABC)=0\)</span> and <span class="math inline">\(ABC\)</span> is singular.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2025, Q4.
+</div>
+</section>
+</div>
+<div id="matrices-2025-on-14" class="question-card">
+<section id="octobernovember-923114-question-5-14-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923114-question-5-14-marks">2025 October/November · 9231/14 · Question 5 · 14 marks</h3>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+\cos\frac\pi{12}=\frac{\sqrt6+\sqrt2}{4},\qquad
+\sin\frac\pi{12}=\frac{\sqrt6-\sqrt2}{4}.
+\]</span></p>
+<p><strong>[2]</strong></p>
+<p>Let</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}\cos(\pi/12)&amp;\sin(\pi/12)\\\sin(\pi/12)&amp;-\cos(\pi/12)\end{pmatrix}.
+\]</span></p>
+<p><strong>(b)</strong> Give full details of the two transformations represented by <span class="math inline">\(M\)</span>, in the correct order. <strong>[4]</strong></p>
+<p><strong>(c)</strong> Write <span class="math inline">\(M^{-1}\)</span> as the product of two matrices, neither equal to <span class="math inline">\(I\)</span>. <strong>[2]</strong></p>
+<p><strong>(d)</strong> Given that <span class="math inline">\(y=mx\)</span> is invariant, show that</p>
+<p><span class="math display">\[
+m^2\sin\frac\pi{12}+2m\cos\frac\pi{12}-\sin\frac\pi{12}=0,
+\]</span></p>
+<p>and find <span class="math inline">\(m\)</span> in the requested cotangent/cosecant form. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Use the angle difference <span class="math inline">\(\pi/12=\pi/4-\pi/6\)</span> to prove the exact values. The matrix factorises as</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}\cos(\pi/12)&amp;-\sin(\pi/12)\\\sin(\pi/12)&amp;\cos(\pi/12)\end{pmatrix}
+\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix}.
+\]</span></p>
+<p>Thus reflect first in the <span class="math inline">\(x\)</span>-axis, then rotate anticlockwise through <span class="math inline">\(\pi/12\)</span> about the origin. Reversing the order gives</p>
+<p><span class="math display">\[
+\boxed{M^{-1}=\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix}
+\begin{pmatrix}\cos(\pi/12)&amp;\sin(\pi/12)\\-\sin(\pi/12)&amp;\cos(\pi/12)\end{pmatrix}}.
+\]</span></p>
+<p>Applying <span class="math inline">\(Y=mX\)</span> produces the stated quadratic. The quadratic formula and <span class="math inline">\(\sin^2\theta+\cos^2\theta=1\)</span> give</p>
+<p><span class="math display">\[
+\boxed{m=-\cot\frac\pi{12}\pm\cosec\frac\pi{12}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-on-14"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/14/O/N/2025, Q5.
+</div>
+</section>
+</div>
+</section>
+<section id="完成本节的判断标准" class="level2">
+<h2 class="anchored" data-anchor-id="完成本节的判断标准">5. 完成本节的判断标准</h2>
+<ol type="1">
+<li>所有矩阵运算先检查阶数和乘法顺序；</li>
+<li>能在无计算器条件下求 <span class="math inline">\(2\times2\)</span>、<span class="math inline">\(3\times3\)</span> 行列式和逆矩阵；</li>
+<li>能从几何描述写出矩阵，也能从矩阵描述变换；</li>
+<li>能正确组合多个变换并解释逆变换顺序；</li>
+<li>能求不动点、不变直线和面积伸缩因子。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-1/summation-of-series.html" class="pagination-link" aria-label="1.3 Summation of series">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1.3 Summation of series</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

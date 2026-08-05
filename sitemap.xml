@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nanoxsj.github.io/further-math-study/paper-1/summation-of-series.html</loc>
-    <lastmod>2026-08-05T05:48:27.666Z</lastmod>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/matrices.html</loc>
+    <lastmod>2026-08-05T06:14:43.635Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/rational-functions-and-graphs.html</loc>
+    <lastmod>2026-08-05T05:34:44.214Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nanoxsj.github.io/further-math-study/index.html</loc>
+    <lastmod>2026-08-05T06:14:44.704Z</lastmod>
   </url>
   <url>
     <loc>https://nanoxsj.github.io/further-math-study/paper-1/roots-of-polynomial-equations.html</loc>
     <lastmod>2026-08-05T04:04:02.756Z</lastmod>
   </url>
   <url>
-    <loc>https://nanoxsj.github.io/further-math-study/index.html</loc>
-    <lastmod>2026-08-05T05:48:28.524Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nanoxsj.github.io/further-math-study/paper-1/rational-functions-and-graphs.html</loc>
-    <lastmod>2026-08-05T05:34:44.214Z</lastmod>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/summation-of-series.html</loc>
+    <lastmod>2026-08-05T05:48:27.666Z</lastmod>
   </url>
 </urlset>
