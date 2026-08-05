@@ -38,13 +38,13 @@ description: "CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Ma
 同一点有无限多种表示：
 
 $$
-(r,\theta)\equiv(r,\theta+2k\pi),\qquad k\in\mathbb Z.
+(r,\theta)\equiv(r,\theta+2k\pi),\; k\in\mathbb Z.
 $$
 
 本教材的 principal polar coordinates 满足
 
 $$
-r>0,\qquad -\pi<\theta\leqslant\pi.
+r>0,\; -\pi<\theta\leqslant\pi.
 $$
 
 在 pole 处 $r=0$，而 $\theta$ 没有唯一值。
@@ -54,8 +54,8 @@ $$
 两种坐标之间的基本关系是
 
 $$
-x=r\cos\theta,qquad y=r\sin\theta,qquad
-r=\sqrt{x^2+y^2},qquad \tan\theta=\frac yx.
+x=r\cos\theta,\; y=r\sin\theta,
+\; r=\sqrt{x^2+y^2},\; \tan\theta=\frac yx.
 $$
 
 由 Cartesian coordinates 求 $\theta$ 时，必须结合点所在象限选择正确的角，不能只使用计算器给出的 $\arctan(y/x)$。
@@ -63,7 +63,7 @@ $$
 转换曲线方程时常用
 
 $$
-r^2=x^2+y^2,qquad r\cos\theta=x,qquad r\sin\theta=y.
+r^2=x^2+y^2,\; r\cos\theta=x,\; r\sin\theta=y.
 $$
 
 如果极坐标式中仍含 $\sin\theta$ 或 $\cos\theta$，可乘以适当的 $r$ 的幂，使它们与 $x$、$y$ 配对。平方消去根号时，应保留原极坐标方程所给的 $r$ 与 $\theta$ 范围。

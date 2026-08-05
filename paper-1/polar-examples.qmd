@@ -4,14 +4,14 @@
 **(i)** Find the Cartesian coordinates of:
 
 $$
-\left(4,\frac{2\pi}{3}\right),qquad
+\left(4,\frac{2\pi}{3}\right),\;
 \left(12,-\frac\pi6\right).
 $$
 
 **(ii)** Find the principal polar coordinates of:
 
 $$
-(-\sqrt3,1),qquad (4,-4).
+(-\sqrt3,1),\; (4,-4).
 $$
 
 <details class="answer-panel"><summary>Show solution</summary>
@@ -30,7 +30,7 @@ $$
 Hence the Cartesian coordinates are
 
 $$
-\boxed{(-2,2\sqrt3)},qquad
+\boxed{(-2,2\sqrt3)},\;
 \boxed{(6\sqrt3,-6)}.
 $$
 
@@ -70,7 +70,7 @@ $$
 Find polar equations of the curves
 
 $$
-\text{(i) }x^2-y^2=9,qquad
+\text{(i) }x^2-y^2=9,\;
 \text{(ii) }y=x+4.
 $$
 
@@ -125,7 +125,7 @@ $$
 Find Cartesian equations of the curves
 
 $$
-\text{(i) }r=5,qquad
+\text{(i) }r=5,\;
 \text{(ii) }r^2=4\sin\theta.
 $$
 
@@ -167,7 +167,7 @@ $$
 Sketch the graphs of
 
 $$
-\text{(i) }r=3,qquad
+\text{(i) }r=3,\;
 \text{(ii) }\theta=\frac\pi4.
 $$
 
@@ -340,7 +340,7 @@ The curve reaches the pole when
 
 $$
 1+2\cos\theta=0
-\quad\Longrightarrow\quad
+\Longrightarrow
 \cos\theta=-\frac12.
 $$
 

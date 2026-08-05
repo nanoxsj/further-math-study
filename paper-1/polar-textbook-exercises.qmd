@@ -8,13 +8,13 @@
 The curves $C_1$ and $C_2$ have polar equations
 
 $$
-C_1:r=\frac12,\qquad 0\leqslant\theta\leqslant2\pi,
+C_1:r=\frac12,\; 0\leqslant\theta\leqslant2\pi,
 $$
 
 and
 
 $$
-C_2:r=\sin\frac\theta2,\qquad 0\leqslant\theta\leqslant\pi.
+C_2:r=\sin\frac\theta2,\; 0\leqslant\theta\leqslant\pi.
 $$
 
 Find the polar coordinates of the point of intersection of $C_1$ and $C_2$. Sketch $C_1$ and $C_2$ on the same diagram.
@@ -31,7 +31,7 @@ Since $0\leqslant\theta/2\leqslant\pi/2$,
 
 $$
 \frac\theta2=\frac\pi6
-\quad\Longrightarrow\quad
+\Longrightarrow
 \theta=\frac\pi3.
 $$
 
@@ -56,7 +56,7 @@ $C_1$ is the circle with centre at the pole and radius $1/2$. The curve $C_2$ st
 The curve $C$ has polar equation
 
 $$
-r=a(1+\sin\theta),qquad 0\leqslant\theta<2\pi,
+r=a(1+\sin\theta),\; 0\leqslant\theta<2\pi,
 $$
 
 where $a$ is a positive constant. Draw a sketch of $C$.
@@ -68,8 +68,8 @@ Find the exact area of the region enclosed by $C$ and the half-lines $\theta=\pi
 The curve is symmetric about $\theta=\pi/2$. It has
 
 $$
-r=2a\quad\text{at }\theta=\frac\pi2,qquad
-r=0\quad\text{at }\theta=\frac{3\pi}{2},
+r=2a\text{ at }\theta=\frac\pi2,\;
+r=0\text{ at }\theta=\frac{3\pi}{2},
 $$
 
 and meets the initial line at $r=a$.
@@ -119,7 +119,7 @@ $$
 The curve $C$ has polar equation
 
 $$
-r=2+2\cos\theta,qquad 0\leqslant\theta<\pi.
+r=2+2\cos\theta,\; 0\leqslant\theta<\pi.
 $$
 
 Sketch $C$. Find the area of the region $R$ enclosed by $C$ and the initial line.

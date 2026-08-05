@@ -39,7 +39,7 @@ $$x=r\cos\theta=\{	an^{-1}(\theta/2)\}^{1/2}\cos\theta.$$
 
 Setting $dx/d\theta=0$ and clearing the positive factors gives the required equation. Its left side is
 
-$$-0.108\quad\text{at }\theta=0.6,qquad 0.209\quad\text{at }\theta=0.7,$$
+$$-0.108\text{ at }\theta=0.6,\; 0.209\text{ at }\theta=0.7,$$
 
 so the root is verified.
 
@@ -133,7 +133,7 @@ $$
 ::: {.question-card #polar-2023-on-12}
 ### 2023 October/November · 9231/12 · Question 6 · 13 marks
 
-$$C:r=e^{-\theta}-e^{-\pi/2},\qquad0\leqslant\theta\leqslant\pi/2.$$
+$$C:r=e^{-\theta}-e^{-\pi/2},\;0\leqslant\theta\leqslant\pi/2.$$
 
 **(a)** Sketch $C$ and state exactly its greatest radius. **[3]** **(b)** Find exactly the area bounded by $C$ and the initial line. **[5]**
 
