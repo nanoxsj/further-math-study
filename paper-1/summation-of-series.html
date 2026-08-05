@@ -734,13 +734,28 @@ u_n=\frac{4\sin\left(n-\frac12\right)\sin\frac12}{\cos(2n-1)+\cos1}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Using the sum-to-product identities gives the stated difference. Hence</p>
+<p><strong>(i)</strong> Using the sum-to-product identities,</p>
+<p><span class="math display">\[
+\cos(2n-1)+\cos1=2\cos n\cos(n-1),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+2\sin\left(n-\frac12\right)\sin\frac12
+=\cos(n-1)-\cos n.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+u_n
+=\frac{2\{\cos(n-1)-\cos n\}}{2\cos n\cos(n-1)}
+=\boxed{\sec n-\sec(n-1)}.
+\]</span></p>
+<p><strong>(ii)</strong> Writing the first few and final terms,</p>
 <p><span class="math display">\[
 \sum_{n=1}^{N}u_n
 =(\sec1-1)+(\sec2-\sec1)+\cdots+(\sec N-\sec(N-1))
 =\boxed{\sec N-1}.
 \]</span></p>
-<p>Since <span class="math inline">\(\cos N\)</span> oscillates as <span class="math inline">\(N\to\infty\)</span>, <span class="math inline">\(\sec N-1\)</span> has no limit. The infinite series therefore diverges.</p>
+<p><strong>(iii)</strong> The sequence <span class="math inline">\(\sec N\)</span> does not approach a finite limit as <span class="math inline">\(N\to\infty\)</span>; in particular, <span class="math inline">\(\cos N\)</span> oscillates and can be arbitrarily close to <span class="math inline">\(0\)</span>. Hence the sequence of partial sums <span class="math inline">\(\sec N-1\)</span> has no limit, so the infinite series diverges.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="series-2019-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -768,14 +783,43 @@ S_N=\frac13N(25N^2+90N+83).
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Expanding <span class="math inline">\((5r+1)(5r+6)=25r^2+35r+6\)</span> and using the standard results gives the stated <span class="math inline">\(S_N\)</span>. Also</p>
+<p><strong>(i)</strong> Expanding the summand,</p>
+<p><span class="math display">\[
+S_N=\sum_{r=1}^{N}(25r^2+35r+6)
+=25\sum_{r=1}^{N}r^2+35\sum_{r=1}^{N}r+6N.
+\]</span></p>
+<p>Substituting the standard results,</p>
+<p><span class="math display">\[
+S_N
+=\frac{25}{6}N(N+1)(2N+1)
++\frac{35}{2}N(N+1)+6N
+\]</span></p>
+<p><span class="math display">\[
+=\boxed{\frac13N(25N^2+90N+83)}.
+\]</span></p>
+<p><strong>(ii)</strong> Partial fractions give</p>
 <p><span class="math display">\[
 \frac1{(5r+1)(5r+6)}
 =\frac15\left(\frac1{5r+1}-\frac1{5r+6}\right),
 \]</span></p>
-<p>so</p>
+<p>Hence</p>
+<p><span class="math display">\[
+T_N=\frac15\left[
+\left(\frac16-\frac1{11}\right)
++\left(\frac1{11}-\frac1{16}\right)
++\cdots
++\left(\frac1{5N+1}-\frac1{5N+6}\right)
+\right].
+\]</span></p>
+<p>All intermediate terms cancel, so</p>
 <p><span class="math display">\[
 \boxed{T_N=\frac1{30}-\frac1{5(5N+6)}}.
+\]</span></p>
+<p><strong>(iii)</strong> From the leading terms,</p>
+<p><span class="math display">\[
+\frac{S_N}{N^3}\longrightarrow\frac{25}{3},
+\qquad
+T_N\longrightarrow\frac1{30}.
 \]</span></p>
 <p>Therefore</p>
 <p><span class="math display">\[
@@ -806,14 +850,42 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> Since <span class="math inline">\(r^2-1=(r-1)(r+1)\)</span>,</p>
 <p><span class="math display">\[
-\frac1{r^2-1}=\frac12\left(\frac1{r-1}-\frac1{r+1}\right).
+\frac1{r^2-1}
+=\frac12\left(\frac1{r-1}-\frac1{r+1}\right).
 \]</span></p>
-<p>Writing the first and last terms gives the required result. Hence</p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sum_{r=2}^{n}\frac1{r^2-1}
+=\frac12\left[
+\left(1-\frac13\right)
++\left(\frac12-\frac14\right)
++\left(\frac13-\frac15\right)
++\cdots
++\left(\frac1{n-1}-\frac1{n+1}\right)
+\right]
+\]</span></p>
+<p><span class="math display">\[
+=\frac12\left(1+\frac12-\frac1n-\frac1{n+1}\right)
+=\frac34-\frac{2n+1}{2n(n+1)},
+\]</span></p>
+<p>as required.</p>
+<p><strong>(b)</strong> Put <span class="math inline">\(n=3\)</span> in part (a):</p>
 <p><span class="math display">\[
 \sum_{r=2}^{3}\frac1{r^2-1}=\boxed{\frac{11}{24}}.
 \]</span></p>
-<p>For part (c), subtract the formula for the sum to <span class="math inline">\(n\)</span> from that for the sum to <span class="math inline">\(2n\)</span>; all remaining terms tend to zero, so the limit is</p>
+<p><strong>(c)</strong> Let <span class="math inline">\(F(n)=\sum_{r=2}^{n}1/(r^2-1)\)</span>. Then</p>
+<p><span class="math display">\[
+\sum_{r=n+1}^{2n}\frac1{r^2-1}=F(2n)-F(n).
+\]</span></p>
+<p>Using part (a),</p>
+<p><span class="math display">\[
+F(2n)-F(n)
+=\left(\frac34-\frac{4n+1}{4n(2n+1)}\right)
+-\left(\frac34-\frac{2n+1}{2n(n+1)}\right).
+\]</span></p>
+<p>Both remaining fractions tend to <span class="math inline">\(0\)</span>, so</p>
 <p><span class="math display">\[
 \boxed{0}.
 \]</span></p>
@@ -841,10 +913,34 @@ S_n=\frac43n(4n^2-1).
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Expand <span class="math inline">\((4r-2)^2\)</span> and sum to obtain the stated result. Then</p>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[
+S_n=\sum_{r=1}^{n}(4r-2)^2
+=\sum_{r=1}^{n}(16r^2-16r+4).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+S_n
+=\frac{16}{6}n(n+1)(2n+1)-8n(n+1)+4n
+\]</span></p>
+<p><span class="math display">\[
+=\frac43n(4n^2-1),
+\]</span></p>
+<p>as required.</p>
+<p><strong>(b)</strong> Therefore</p>
 <p><span class="math display">\[
 \frac{n}{S_n}=\frac3{4(2n-1)(2n+1)}
 =\frac38\left(\frac1{2n-1}-\frac1{2n+1}\right).
+\]</span></p>
+<p>Writing the terms explicitly,</p>
+<p><span class="math display">\[
+\sum_{n=1}^{N}\frac{n}{S_n}
+=\frac38\left[
+\left(1-\frac13\right)
++\left(\frac13-\frac15\right)
++\cdots
++\left(\frac1{2N-1}-\frac1{2N+1}\right)
+\right].
 \]</span></p>
 <p>Thus</p>
 <p><span class="math display">\[
@@ -875,14 +971,35 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> Since</p>
+<p><span class="math display">\[
+(7r+1)(7r+8)=49r^2+63r+8,
+\]</span></p>
 <p><span class="math display">\[
 \sum_{r=1}^{n}(7r+1)(7r+8)
+=49\frac{n(n+1)(2n+1)}6
++63\frac{n(n+1)}2+8n
+\]</span></p>
+<p><span class="math display">\[
 =\boxed{\frac n3(49n^2+168n+143)}.
 \]</span></p>
-<p>Also</p>
+<p><strong>(b)</strong> Partial fractions give</p>
 <p><span class="math display">\[
 \frac1{(7r+1)(7r+8)}
 =\frac17\left(\frac1{7r+1}-\frac1{7r+8}\right),
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{(7r+1)(7r+8)}
+=\frac17\left[
+\left(\frac18-\frac1{15}\right)
++\left(\frac1{15}-\frac1{22}\right)
++\cdots
++\left(\frac1{7n+1}-\frac1{7n+8}\right)
+\right]
+\]</span></p>
+<p><span class="math display">\[
+=\frac17\left(\frac18-\frac1{7n+8}\right),
 \]</span></p>
 <p>so</p>
 <p><span class="math display">\[
@@ -919,17 +1036,36 @@ u_n=x^{n+1}+\sqrt{x^{2n+2}+1}
 <summary>
 Show answer and mark scheme
 </summary>
-<p>The product in part (a) is <span class="math inline">\(-1\)</span>, proving the identity. Hence</p>
+<p><strong>(a)</strong> The product is a difference of two squares:</p>
+<p><span class="math display">\[
+(x^n-\sqrt{x^{2n}+1})(x^n+\sqrt{x^{2n}+1})
+=x^{2n}-(x^{2n}+1)=-1.
+\]</span></p>
+<p>Dividing by <span class="math inline">\(x^n-\sqrt{x^{2n}+1}\)</span> gives the stated identity.</p>
+<p><strong>(b)</strong> Using part (a),</p>
 <p><span class="math display">\[
 u_n=\left(x^{n+1}+\sqrt{x^{2n+2}+1}\right)
 -\left(x^n+\sqrt{x^{2n}+1}\right).
 \]</span></p>
-<p>Therefore</p>
+<p>Thus the sum is</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{n=1}^{N}u_n
+={}&amp;\left(x^2+\sqrt{x^4+1}-x-\sqrt{x^2+1}\right)\\
+&amp;+\left(x^3+\sqrt{x^6+1}-x^2-\sqrt{x^4+1}\right)+\cdots\\
+&amp;+\left(x^{N+1}+\sqrt{x^{2N+2}+1}-x^N-\sqrt{x^{2N}+1}\right).
+\end{aligned}
+\]</span></p>
+<p>All intermediate terms cancel, giving</p>
 <p><span class="math display">\[
 \boxed{\sum_{n=1}^{N}u_n
 =x^{N+1}+\sqrt{x^{2N+2}+1}-x-\sqrt{x^2+1}}.
 \]</span></p>
-<p>The official mark scheme gives <span class="math inline">\(-1&lt;x&lt;1\)</span>. In that interval the sum to infinity is</p>
+<p><strong>(c)</strong> A finite limit requires <span class="math inline">\(x^{N+1}\to0\)</span>, which occurs precisely when <span class="math inline">\(|x|&lt;1\)</span>. Then</p>
+<p><span class="math display">\[
+\sqrt{x^{2N+2}+1}\longrightarrow1.
+\]</span></p>
+<p>Therefore the series converges for <span class="math inline">\(-1&lt;x&lt;1\)</span>, and its sum is</p>
 <p><span class="math display">\[
 \boxed{1-x-\sqrt{x^2+1}}.
 \]</span></p>
@@ -958,15 +1094,42 @@ u_n=\left(x^{n+1}+\sqrt{x^{2n+2}+1}\right)
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong></p>
 <p><span class="math display">\[
-\boxed{\sum_{r=1}^{n}(1-r-r^2)=-\frac13n(n^2+3n-1)}.
+\sum_{r=1}^{n}(1-r-r^2)
+=n-\frac{n(n+1)}2-\frac{n(n+1)(2n+1)}6
 \]</span></p>
-<p>The stated difference telescopes, giving</p>
+<p><span class="math display">\[
+=\boxed{-\frac13n(n^2+3n-1)}.
+\]</span></p>
+<p><strong>(b)</strong> Combining the fractions on the right gives</p>
+<p><span class="math display">\[
+\frac{(r+1)(r^2+1)-r\{(r+1)^2+1\}}
+{\{(r+1)^2+1\}(r^2+1)}
+=\frac{1-r-r^2}{(r^2+2r+2)(r^2+1)},
+\]</span></p>
+<p>which proves the identity. Therefore</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\left[
+\frac{r+1}{(r+1)^2+1}-\frac r{r^2+1}
+\right]
+\]</span></p>
+<p><span class="math display">\[
+=\left(\frac25-\frac12\right)
++\left(\frac3{10}-\frac25\right)
++\cdots
++\left(\frac{n+1}{(n+1)^2+1}-\frac n{n^2+1}\right).
+\]</span></p>
+<p>The intermediate terms cancel, giving</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}\frac{1-r-r^2}{(r^2+2r+2)(r^2+1)}
 =\frac{n+1}{(n+1)^2+1}-\frac12}.
 \]</span></p>
-<p>Hence the sum to infinity is <span class="math inline">\(\boxed{-\frac12}\)</span>.</p>
+<p><strong>(c)</strong> Since</p>
+<p><span class="math display">\[
+\frac{n+1}{(n+1)^2+1}\longrightarrow0,
+\]</span></p>
+<p>the sum to infinity is <span class="math inline">\(\boxed{-\frac12}\)</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="series-2021-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -988,18 +1151,24 @@ u_r=\frac1{\cos(r+1)\cos r}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Since</p>
+<p><strong>(a)</strong> Since</p>
 <p><span class="math display">\[
 \tan(r+1)-\tan r=\frac{\sin1}{\cos(r+1)\cos r},
 \]</span></p>
 <p><span class="math display">\[
 u_r=\frac{\tan(r+1)-\tan r}{\sin1}.
 \]</span></p>
-<p>Therefore</p>
+<p><strong>(b)</strong> Therefore</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}u_r
+=\frac1{\sin1}\{(\tan2-\tan1)+(\tan3-\tan2)+\cdots
++(\tan(n+1)-\tan n)\}.
+\]</span></p>
+<p>After cancellation,</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}u_r=\frac{\tan(n+1)-\tan1}{\sin1}}.
 \]</span></p>
-<p>The tangent term does not approach a limit, so the infinite series diverges.</p>
+<p><strong>(c)</strong> The sequence <span class="math inline">\(\tan(n+1)\)</span> does not approach a finite limit, so the partial sums have no limit. Hence the infinite series diverges.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="series-2021-mj-13"> Completed</label>
 <div class="source-line">
@@ -1016,13 +1185,35 @@ u_r=\frac{\tan(r+1)-\tan r}{\sin1}.
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> Expand and use the standard results:</p>
 <p><span class="math display">\[
-\boxed{\sum_{r=1}^{n}r(r+1)(r+2)=\frac14n(n+1)(n+2)(n+3)}.
+\sum_{r=1}^{n}r(r+1)(r+2)
+=\sum_{r=1}^{n}(r^3+3r^2+2r)
 \]</span></p>
-<p>Also</p>
+<p><span class="math display">\[
+=\left\{\frac{n(n+1)}2\right\}^2
++\frac12n(n+1)(2n+1)+n(n+1)
+\]</span></p>
+<p><span class="math display">\[
+=\boxed{\frac14n(n+1)(n+2)(n+3)}.
+\]</span></p>
+<p><strong>(b)</strong> Write</p>
 <p><span class="math display">\[
 \frac1{r(r+1)(r+2)}
 =\frac12\left[\frac1{r(r+1)}-\frac1{(r+1)(r+2)}\right],
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{r(r+1)(r+2)}
+=\frac12\left[
+\frac1{1\cdot2}-\frac1{2\cdot3}
++\frac1{2\cdot3}-\frac1{3\cdot4}
++\cdots
++\frac1{n(n+1)}-\frac1{(n+1)(n+2)}
+\right]
+\]</span></p>
+<p><span class="math display">\[
+=\frac12\left(\frac12-\frac1{(n+1)(n+2)}\right),
 \]</span></p>
 <p>so</p>
 <p><span class="math display">\[
@@ -1054,20 +1245,42 @@ S_n=\ln\frac{n+2}{2(n+1)}.
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Write the summand as</p>
+<p><strong>(a)</strong> Write the summand as</p>
 <p><span class="math display">\[
 \ln r-2\ln(r+1)+\ln(r+2).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+S_n={}&amp;(\ln1-2\ln2+\ln3)
++(\ln2-2\ln3+\ln4)+\cdots\\
+&amp;+(\ln n-2\ln(n+1)+\ln(n+2)).
+\end{aligned}
 \]</span></p>
 <p>After cancellation,</p>
 <p><span class="math display">\[
 S_n=-\ln2-\ln(n+1)+\ln(n+2)
 =\ln\frac{n+2}{2(n+1)}.
 \]</span></p>
-<p>Thus <span class="math inline">\(S=-\ln2\)</span>. Solving</p>
+<p><strong>(b)</strong> Taking <span class="math inline">\(n\to\infty\)</span> gives</p>
+<p><span class="math display">\[
+S=\ln\frac12=-\ln2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+S_n-S=\ln\frac{n+2}{n+1}.
+\]</span></p>
+<p>We require</p>
 <p><span class="math display">\[
 \ln\frac{n+2}{n+1}&lt;0.01
 \]</span></p>
-<p>gives the least value</p>
+<p>Exponentiating,</p>
+<p><span class="math display">\[
+\frac{n+2}{n+1}&lt;e^{0.01}
+\quad\Longrightarrow\quad
+n&gt;\frac{2-e^{0.01}}{e^{0.01}-1}=98.5008\ldots.
+\]</span></p>
+<p>Therefore the least integer value is</p>
 <p><span class="math display">\[
 \boxed{n=99}.
 \]</span></p>
@@ -1092,11 +1305,26 @@ S_n=-\ln2-\ln(n+1)+\ln(n+2)
 <summary>
 Show answer and mark scheme
 </summary>
+<p>Partial fractions give</p>
 <p><span class="math display">\[
 \frac1{(ar+1)(ar+a+1)}
 =\frac1a\left(\frac1{ar+1}-\frac1{ar+a+1}\right).
 \]</span></p>
 <p>Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{r=1}^{n}\frac1{(ar+1)(ar+a+1)}
+=\frac1a\bigg[&amp;\left(\frac1{a+1}-\frac1{2a+1}\right)\\
+&amp;+\left(\frac1{2a+1}-\frac1{3a+1}\right)+\cdots\\
+&amp;+\left(\frac1{an+1}-\frac1{an+a+1}\right)\bigg].
+\end{aligned}
+\]</span></p>
+<p>All intermediate terms cancel, so</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{(ar+1)(ar+a+1)}
+=\frac1a\left(\frac1{a+1}-\frac1{an+a+1}\right),
+\]</span></p>
+<p>and therefore</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}\frac1{(ar+1)(ar+a+1)}
 =\frac{n}{(a+1)(an+a+1)}}.
@@ -1121,11 +1349,25 @@ u_r=e^{rx}(e^{2x}-2e^x+1).
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Since <span class="math inline">\(e^{2x}-2e^x+1=(e^x-1)^2\)</span>,</p>
+<p><strong>(a)</strong> Since <span class="math inline">\(e^{2x}-2e^x+1=(e^x-1)^2\)</span>,</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}u_r
+=(e^x-1)^2\sum_{r=1}^{n}e^{rx}.
+\]</span></p>
+<p>For <span class="math inline">\(x\ne0\)</span>, the geometric sum is</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}e^{rx}
+=\frac{e^x(e^{nx}-1)}{e^x-1}.
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}u_r=e^x(e^x-1)(e^{nx}-1)}.
 \]</span></p>
-<p>The finite sum has a limit precisely when <span class="math inline">\(x&lt;0\)</span>. In that case</p>
+<p><strong>(b)</strong> Since <span class="math inline">\(x\ne0\)</span>, the only <span class="math inline">\(n\)</span>-dependent factor is <span class="math inline">\(e^{nx}\)</span>. A finite limit exists precisely when <span class="math inline">\(e^{nx}\to0\)</span>, i.e.&nbsp;when <span class="math inline">\(x&lt;0\)</span>. Then</p>
+<p><span class="math display">\[
+e^x(e^x-1)(e^{nx}-1)longrightarrow-e^x(e^x-1),
+\]</span></p>
+<p>so</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{\infty}u_r=e^x(1-e^x)}.
 \]</span></p>
@@ -1152,11 +1394,32 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Summing <span class="math inline">\((r+1)^2-r^2=2r+1\)</span> gives <span class="math inline">\((n+1)^2-1=2\sum r+n\)</span>, which rearranges to the stated result. Then</p>
+<p><strong>(a)</strong> Since</p>
+<p><span class="math display">\[
+(r+1)^2-r^2=2r+1,
+\]</span></p>
+<p>summing from <span class="math inline">\(r=1\)</span> to <span class="math inline">\(n\)</span> gives</p>
+<p><span class="math display">\[
+(2^2-1^2)+(3^2-2^2)+\cdots+\{(n+1)^2-n^2\}
+=2\sum_{r=1}^{n}r+n.
+\]</span></p>
+<p>The left side telescopes to <span class="math inline">\((n+1)^2-1\)</span>, so</p>
+<p><span class="math display">\[
+2\sum_{r=1}^{n}r=(n+1)^2-1-n=n(n+1).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}r=\frac12n(n+1)}.
+\]</span></p>
+<p><strong>(b)</strong> Using part (a),</p>
 <p><span class="math display">\[
 \frac12n(n+1)+an=n^2,
 \]</span></p>
-<p>so</p>
+<p>As <span class="math inline">\(n&gt;0\)</span>, divide by <span class="math inline">\(n\)</span>:</p>
+<p><span class="math display">\[
+\frac{n+1}{2}+a=n.
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{a=\frac{n-1}{2}}.
 \]</span></p>
@@ -1181,10 +1444,30 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong></p>
 <p><span class="math display">\[
-\boxed{\sum_{r=1}^{n}(3r^2+3r+1)=(n+1)^3-1}.
+\sum_{r=1}^{n}(3r^2+3r+1)
+=3\frac{n(n+1)(2n+1)}6
++3\frac{n(n+1)}2+n
 \]</span></p>
-<p>The stated identity telescopes immediately, giving</p>
+<p><span class="math display">\[
+=n^3+3n^2+3n
+=\boxed{(n+1)^3-1}.
+\]</span></p>
+<p><strong>(b)</strong> Combining the left side of the stated identity,</p>
+<p><span class="math display">\[
+\frac1{r^3}-\frac1{(r+1)^3}
+=\frac{(r+1)^3-r^3}{r^3(r+1)^3}
+=\frac{3r^2+3r+1}{r^3(r+1)^3}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac{3r^2+3r+1}{r^3(r+1)^3}
+=\left(1-\frac1{2^3}\right)
++\left(\frac1{2^3}-\frac1{3^3}\right)+\cdots
++\left(\frac1{n^3}-\frac1{(n+1)^3}\right).
+\]</span></p>
+<p>The intermediate terms cancel, giving</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}\frac{3r^2+3r+1}{r^3(r+1)^3}
 =1-\frac1{(n+1)^3}}.
@@ -1217,11 +1500,39 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Expanding the summand and applying the standard results gives part (a). For part (b),</p>
+<p><strong>(a)</strong> Expanding,</p>
+<p><span class="math display">\[
+r(r+1)(3r+4)=3r^3+7r^2+4r.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}r(r+1)(3r+4)
+=3\left\{\frac{N(N+1)}2\right\}^2
++\frac76N(N+1)(2N+1)+2N(N+1)
+\]</span></p>
+<p><span class="math display">\[
+=\frac1{12}N(N+1)(9N^2+37N+38)
+\]</span></p>
+<p><span class="math display">\[
+=\boxed{\frac1{12}N(N+1)(N+2)(9N+19)}.
+\]</span></p>
+<p><strong>(b)</strong> Partial fractions give</p>
 <p><span class="math display">\[
 \frac{3r+4}{r(r+1)}=\frac4r-\frac1{r+1}.
 \]</span></p>
-<p>After including the power of <span class="math inline">\(1/4\)</span>, consecutive terms cancel:</p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{3r+4}{r(r+1)}\left(\frac14\right)^{r+1}
+=\frac1{r4^r}-\frac1{(r+1)4^{r+1}}.
+\]</span></p>
+<p>The sum is</p>
+<p><span class="math display">\[
+\left(\frac14-\frac1{2\cdot4^2}\right)
++\left(\frac1{2\cdot4^2}-\frac1{3\cdot4^3}\right)
++\cdots
++\left(\frac1{N4^N}-\frac1{(N+1)4^{N+1}}\right).
+\]</span></p>
+<p>Consecutive terms cancel, giving</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{N}\frac{3r+4}{r(r+1)}\left(\frac14\right)^{r+1}
 =\frac14-\frac1{(N+1)4^{N+1}}}.
@@ -1242,7 +1553,7 @@ Show answer and mark scheme
 \sum_{r=1}^{n}\frac{5k}{(5r+k)(5r+5+k)}.
 \]</span></p>
 <p><strong>[4]</strong></p>
-<p><strong>(b)</strong> It is given that the sum of the first three terms is <span class="math inline">\(1/3\)</span>. Find <span class="math inline">\(k\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> It is given that the corresponding infinite series has sum <span class="math inline">\(1/3\)</span>. Find <span class="math inline">\(k\)</span>. <strong>[2]</strong></p>
 <p><strong>(c)</strong> Hence find</p>
 <p><span class="math display">\[
 \sum_{r=n}^{n^2}\frac{5k}{(5r+k)(5r+5+k)}.
@@ -1252,16 +1563,46 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong> Partial fractions give</p>
 <p><span class="math display">\[
 \frac{5k}{(5r+k)(5r+5+k)}
 =k\left(\frac1{5r+k}-\frac1{5r+5+k}\right).
 \]</span></p>
-<p>Therefore</p>
+<p>Thus</p>
+<p><span class="math display">\[
+k\left[
+\left(\frac1{5+k}-\frac1{10+k}\right)
++\left(\frac1{10+k}-\frac1{15+k}\right)+\cdots
++\left(\frac1{5n+k}-\frac1{5n+5+k}\right)
+\right].
+\]</span></p>
+<p>After cancellation,</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}\frac{5k}{(5r+k)(5r+5+k)}
 =k\left(\frac1{5+k}-\frac1{5n+5+k}\right)}.
 \]</span></p>
-<p>For <span class="math inline">\(n=3\)</span>, the condition gives <span class="math inline">\(k/(5+k)=1/3\)</span>, so <span class="math inline">\(\boxed{k=5/2}\)</span>. Subtracting two finite sums then gives</p>
+<p><strong>(b)</strong> Letting <span class="math inline">\(n\to\infty\)</span> in part (a), the infinite sum is</p>
+<p><span class="math display">\[
+\frac{k}{5+k}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{k}{5+k}=\frac13
+\quad\Longrightarrow\quad
+3k=5+k.
+\]</span></p>
+<p>Hence <span class="math inline">\(\boxed{k=5/2}\)</span>.</p>
+<p><strong>(c)</strong> For <span class="math inline">\(k=5/2\)</span>, the summand becomes</p>
+<p><span class="math display">\[
+\frac1{2r+1}-\frac1{2r+3}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sum_{r=n}^{n^2}\left(\frac1{2r+1}-\frac1{2r+3}\right)
+=\left(\frac1{2n+1}-\frac1{2n+3}\right)+\cdots
++\left(\frac1{2n^2+1}-\frac1{2n^2+3}\right),
+\]</span></p>
+<p>so</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=n}^{n^2}\frac{5k}{(5r+k)(5r+5+k)}
 =\frac1{2n+1}-\frac1{2n^2+3}}.
@@ -1290,16 +1631,42 @@ u_r=x^{f(r)}-x^{f(r+1)},
 <summary>
 Show answer and mark scheme
 </summary>
-<p>The defining difference telescopes:</p>
+<p><strong>(a)</strong> The defining difference telescopes:</p>
+<p><span class="math display">\[
+\begin{aligned}
+S_n={}&amp;\{x^{f(1)}-x^{f(2)}\}
++\{x^{f(2)}-x^{f(3)}\}+\cdots\\
+&amp;+\{x^{f(n)}-x^{f(n+1)}\}.
+\end{aligned}
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{S_n=x^{f(1)}-x^{f(n+1)}}.
 \]</span></p>
-<p>For <span class="math inline">\(f(r)=\ln r\)</span>, <span class="math inline">\(x^{\ln r}=r^{\ln x}\)</span>. The series converges for <span class="math inline">\(0&lt;x&lt;1\)</span>, with sum <span class="math inline">\(1\)</span>, and for <span class="math inline">\(x=1\)</span>, with sum <span class="math inline">\(0\)</span>.</p>
-<p>For <span class="math inline">\(f(r)=2\log_x r\)</span>, <span class="math inline">\(x^{f(r)}=r^2\)</span>, so</p>
+<p><strong>(b)</strong> For <span class="math inline">\(f(r)=\ln r\)</span>,</p>
+<p><span class="math display">\[
+x^{f(r)}=x^{\ln r}=r^{\ln x}.
+\]</span></p>
+<p>Since <span class="math inline">\(f(1)=0\)</span>,</p>
+<p><span class="math display">\[
+S_n=1-(n+1)^{\ln x}.
+\]</span></p>
+<p>If <span class="math inline">\(0&lt;x&lt;1\)</span>, then <span class="math inline">\(\ln x&lt;0\)</span> and <span class="math inline">\((n+1)^{\ln x}\to0\)</span>, so the sum is <span class="math inline">\(1\)</span>. If <span class="math inline">\(x=1\)</span>, every term is zero and the sum is <span class="math inline">\(0\)</span>. If <span class="math inline">\(x&gt;1\)</span>, then <span class="math inline">\(\ln x&gt;0\)</span> and the partial sums have no finite limit. Thus the series converges for <span class="math inline">\(0&lt;x\le1\)</span>, with the two sums stated above.</p>
+<p><strong>(c)</strong> For <span class="math inline">\(f(r)=2\log_x r\)</span> and <span class="math inline">\(x\ne1\)</span>,</p>
+<p><span class="math display">\[
+x^{f(r)}=x^{2\log_x r}=r^2,
+\]</span></p>
+<p>so</p>
 <p><span class="math display">\[
 S_n=1-(n+1)^2=-n(n+2).
 \]</span></p>
 <p>Therefore</p>
+<p><span class="math display">\[
+\sum_{n=1}^{N}S_n
+=-\sum_{n=1}^{N}(n^2+2n)
+=-\frac{N(N+1)(2N+1)}6-N(N+1)
+\]</span></p>
+<p>and hence</p>
 <p><span class="math display">\[
 \boxed{\sum_{n=1}^{N}S_n=-\frac16N(N+1)(2N+7)}.
 \]</span></p>
@@ -1330,16 +1697,44 @@ S_n=1-(n+1)^2=-n(n+2).
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Expanding gives <span class="math inline">\(9r^2-21r+10\)</span>. Hence</p>
+<p><strong>(a)</strong> Expanding,</p>
+<p><span class="math display">\[
+(2-3r)(5-3r)=9r^2-21r+10.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}(2-3r)(5-3r)
+=9\frac{n(n+1)(2n+1)}6
+-21\frac{n(n+1)}2+10n
+\]</span></p>
+<p><span class="math display">\[
+=3n^3-6n^2+n.
+\]</span></p>
+<p>Hence</p>
 <p><span class="math display">\[
 \boxed{a=3,\quad b=-6,\quad c=1}.
 \]</span></p>
-<p>Also</p>
+<p><strong>(b)</strong> Partial fractions give</p>
 <p><span class="math display">\[
 \frac1{(2-3r)(5-3r)}
-=\frac13\left(\frac1{2-3r}-\frac1{5-3r}\right),
+=\frac13\left(\frac1{2-3r}-\frac1{5-3r}\right).
 \]</span></p>
-<p>so</p>
+<p>Writing the terms,</p>
+<p><span class="math display">\[
+\frac13\left[
+\left(-1-\frac12\right)
++\left(-\frac14+1\right)
++\left(-\frac17+\frac14\right)
++\cdots
++\left(\frac1{2-3n}-\frac1{5-3n}\right)
+\right].
+\]</span></p>
+<p>Since <span class="math inline">\(5-3r=2-3(r-1)\)</span>, the intermediate terms cancel. The remaining expression is</p>
+<p><span class="math display">\[
+\frac13\left(\frac1{2-3n}-\frac12\right)
+=\frac{n}{2(2-3n)}.
+\]</span></p>
+<p>Thus</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}\frac1{(2-3r)(5-3r)}
 =\frac{n}{2(2-3n)}}.
@@ -1367,15 +1762,33 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong></p>
 <p><span class="math display">\[
-\boxed{\sum_{r=1}^{n}(2r+1)=n(n+2)}.
+\sum_{r=1}^{n}(2r+1)
+=2\frac{n(n+1)}2+n
+=\boxed{n(n+2)}.
 \]</span></p>
-<p>Since <span class="math inline">\(r^2+2r+2=(r+1)^2+1\)</span>, the stated difference telescopes:</p>
+<p><strong>(b)</strong> Since <span class="math inline">\(r^2+2r+2=(r+1)^2+1\)</span>,</p>
+<p><span class="math display">\[
+\frac1{r^2+1}-\frac1{r^2+2r+2}
+=\frac{(r^2+2r+2)-(r^2+1)}{(r^2+1)(r^2+2r+2)}
+\]</span></p>
+<p><span class="math display">\[
+=\frac{2r+1}{(r^2+1)(r^2+2r+2)},
+\]</span></p>
+<p>as required.</p>
+<p><strong>(c)</strong> Therefore the sum is</p>
+<p><span class="math display">\[
+\left(\frac12-\frac15\right)
++\left(\frac15-\frac1{10}\right)+\cdots
++\left(\frac1{n^2+1}-\frac1{(n+1)^2+1}\right).
+\]</span></p>
+<p>The intermediate terms cancel, giving</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}\frac{2r+1}{(r^2+1)(r^2+2r+2)}
 =\frac12-\frac1{(n+1)^2+1}}.
 \]</span></p>
-<p>Thus the sum to infinity is <span class="math inline">\(\boxed{\frac12}\)</span>.</p>
+<p><strong>(d)</strong> Since <span class="math inline">\(1/\{(n+1)^2+1\}\to0\)</span>, the sum to infinity is <span class="math inline">\(\boxed{\frac12}\)</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="series-2025-mj-14"> Completed</label>
 <div class="source-line">
@@ -1402,17 +1815,38 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Using the standard formulae,</p>
+<p><strong>(a)</strong> Using the standard formulae,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{r=1}^{n}(8r^3+12r^2+4r+3)
+={}&amp;8\left\{\frac{n(n+1)}2\right\}^2\\
+&amp;+2n(n+1)(2n+1)+2n(n+1)+3n.
+\end{aligned}
+\]</span></p>
+<p>Collecting and factorising gives</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}(8r^3+12r^2+4r+3)
 =n(2n^3+8n^2+10n+7)}.
 \]</span></p>
-<p>The stated identity telescopes directly:</p>
+<p><strong>(b)</strong> First,</p>
+<p><span class="math display">\[
+\frac1{r^4}-\frac1{(r+1)^4}
+=\frac{(r+1)^4-r^4}{r^4(r+1)^4}
+=\frac{4r^3+6r^2+4r+1}{r^4(r+1)^4},
+\]</span></p>
+<p>as required. Hence</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac{4r^3+6r^2+4r+1}{r^4(r+1)^4}
+=\left(1-\frac1{2^4}\right)
++\left(\frac1{2^4}-\frac1{3^4}\right)+\cdots
++\left(\frac1{n^4}-\frac1{(n+1)^4}\right).
+\]</span></p>
+<p>The intermediate terms cancel, so</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}\frac{4r^3+6r^2+4r+1}{r^4(r+1)^4}
 =1-\frac1{(n+1)^4}}.
 \]</span></p>
-<p>The sum to infinity is therefore <span class="math inline">\(\boxed{1}\)</span>.</p>
+<p><strong>(c)</strong> Since <span class="math inline">\(1/(n+1)^4\to0\)</span>, the sum to infinity is <span class="math inline">\(\boxed{1}\)</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="series-2025-on-11-13"> Completed</label>
 <div class="source-line">
@@ -1434,19 +1868,43 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
+<p><strong>(a)</strong></p>
 <p><span class="math display">\[
-\boxed{\sum_{r=1}^{n}(r^3-r)=\frac14n(n-1)(n+1)(n+2)}.
+\sum_{r=1}^{n}(r^3-r)
+=\left\{\frac{n(n+1)}2\right\}^2-\frac{n(n+1)}2
 \]</span></p>
-<p>Partial fractions give</p>
+<p><span class="math display">\[
+=\frac14n(n+1)\{n(n+1)-2\}
+=\boxed{\frac14n(n-1)(n+1)(n+2)}.
+\]</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">\(r^3-r=(r-1)r(r+1)\)</span>, set</p>
+<p><span class="math display">\[
+\frac{r+3}{(r-1)r(r+1)}
+=\frac{A}{r-1}+\frac Br+\frac C{r+1}.
+\]</span></p>
+<p>Multiplying through by <span class="math inline">\((r-1)r(r+1)\)</span> gives</p>
+<p><span class="math display">\[
+r+3=Ar(r+1)+B(r-1)(r+1)+Cr(r-1).
+\]</span></p>
+<p>Using <span class="math inline">\(r=1,0,-1\)</span> gives <span class="math inline">\(A=2\)</span>, <span class="math inline">\(B=-3\)</span>, <span class="math inline">\(C=1\)</span>. Thus</p>
 <p><span class="math display">\[
 \frac{r+3}{r^3-r}=\frac2{r-1}-\frac3r+\frac1{r+1}.
 \]</span></p>
-<p>Thus</p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{r=2}^{n}\frac{r+3}{r^3-r}
+={}&amp;\left(2-\frac32+\frac13\right)
++\left(1-1+\frac14\right)+\cdots\\
+&amp;+\left(\frac2{n-1}-\frac3n+\frac1{n+1}\right).
+\end{aligned}
+\]</span></p>
+<p>Collecting the uncancelled terms gives</p>
 <p><span class="math display">\[
 \boxed{\sum_{r=2}^{n}\frac{r+3}{r^3-r}
 =\frac32-\frac2n+\frac1{n+1}}.
 \]</span></p>
-<p>The sum to infinity is <span class="math inline">\(\boxed{\frac32}\)</span>.</p>
+<p><strong>(c)</strong> Letting <span class="math inline">\(n\to\infty\)</span>, the two remaining <span class="math inline">\(n\)</span>-dependent fractions tend to zero, so the sum to infinity is <span class="math inline">\(\boxed{\frac32}\)</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="series-2025-on-12"> Completed</label>
 <div class="source-line">
@@ -1469,21 +1927,44 @@ Show answer and mark scheme
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Expanding and summing gives</p>
+<p><strong>(a)</strong> Expand the summand:</p>
+<p><span class="math display">\[
+(r+1)(r+2)(r+3)=r^3+6r^2+11r+6.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}(r+1)(r+2)(r+3)
+=\left\{\frac{n(n+1)}2\right\}^2
++n(n+1)(2n+1)
++\frac{11}{2}n(n+1)+6n
+\]</span></p>
+<p><span class="math display">\[
+=\frac14n(n^3+10n^2+35n+50).
+\]</span></p>
+<p>Therefore</p>
 <p><span class="math display">\[
 \boxed{b=10,\quad c=35,\quad d=50}.
 \]</span></p>
-<p>Use</p>
+<p><strong>(b)</strong> Use</p>
 <p><span class="math display">\[
 \frac2{(r+1)(r+2)(r+3)}
 =\frac1{(r+1)(r+2)}-\frac1{(r+2)(r+3)}.
 \]</span></p>
 <p>Hence</p>
 <p><span class="math display">\[
+\begin{aligned}
+\sum_{r=1}^{n}\frac2{(r+1)(r+2)(r+3)}
+={}&amp;\left(\frac1{2\cdot3}-\frac1{3\cdot4}\right)\\
+&amp;+\left(\frac1{3\cdot4}-\frac1{4\cdot5}\right)+\cdots\\
+&amp;+\left(\frac1{(n+1)(n+2)}-\frac1{(n+2)(n+3)}\right).
+\end{aligned}
+\]</span></p>
+<p>After cancellation,</p>
+<p><span class="math display">\[
 \boxed{\sum_{r=1}^{n}\frac2{(r+1)(r+2)(r+3)}
 =\frac16-\frac1{(n+2)(n+3)}}.
 \]</span></p>
-<p>The sum to infinity is <span class="math inline">\(\boxed{\frac16}\)</span>.</p>
+<p><strong>(c)</strong> The final fraction tends to zero, so the sum to infinity is <span class="math inline">\(\boxed{\frac16}\)</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="series-2025-on-14"> Completed</label>
 <div class="source-line">
