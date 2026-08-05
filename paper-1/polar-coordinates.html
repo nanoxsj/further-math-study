@@ -331,11 +331,11 @@ window.Quarto = {
 <p>点 <span class="math inline">\(P\)</span> 的极坐标写成 <span class="math inline">\((r,\theta)\)</span>：<span class="math inline">\(r\)</span> 是 <span class="math inline">\(P\)</span> 到 pole <span class="math inline">\(O\)</span> 的距离，<span class="math inline">\(\theta\)</span> 是从 initial line 逆时针量到 <span class="math inline">\(OP\)</span> 的角，通常用弧度表示。</p>
 <p>同一点有无限多种表示：</p>
 <p><span class="math display">\[
-(r,\theta)\equiv(r,\theta+2k\pi),\qquad k\in\mathbb Z.
+(r,\theta)\equiv(r,\theta+2k\pi),\; k\in\mathbb Z.
 \]</span></p>
 <p>本教材的 principal polar coordinates 满足</p>
 <p><span class="math display">\[
-r&gt;0,qquad -\pi&lt;\theta\leqslant\pi.
+r&gt;0,\; -\pi&lt;\theta\leqslant\pi.
 \]</span></p>
 <p>在 pole 处 <span class="math inline">\(r=0\)</span>，而 <span class="math inline">\(\theta\)</span> 没有唯一值。</p>
 </section>
@@ -343,13 +343,13 @@ r&gt;0,qquad -\pi&lt;\theta\leqslant\pi.
 <h3 class="anchored" data-anchor-id="converting-points-and-equations">1.2 Converting points and equations</h3>
 <p>两种坐标之间的基本关系是</p>
 <p><span class="math display">\[
-x=r\cos\theta,qquad y=r\sin\theta,qquad
-r=\sqrt{x^2+y^2},qquad \tan\theta=\frac yx.
+x=r\cos\theta,\; y=r\sin\theta,
+\; r=\sqrt{x^2+y^2},\; \tan\theta=\frac yx.
 \]</span></p>
 <p>由 Cartesian coordinates 求 <span class="math inline">\(\theta\)</span> 时，必须结合点所在象限选择正确的角，不能只使用计算器给出的 <span class="math inline">\(\arctan(y/x)\)</span>。</p>
 <p>转换曲线方程时常用</p>
 <p><span class="math display">\[
-r^2=x^2+y^2,qquad r\cos\theta=x,qquad r\sin\theta=y.
+r^2=x^2+y^2,\; r\cos\theta=x,\; r\sin\theta=y.
 \]</span></p>
 <p>如果极坐标式中仍含 <span class="math inline">\(\sin\theta\)</span> 或 <span class="math inline">\(\cos\theta\)</span>，可乘以适当的 <span class="math inline">\(r\)</span> 的幂，使它们与 <span class="math inline">\(x\)</span>、<span class="math inline">\(y\)</span> 配对。平方消去根号时，应保留原极坐标方程所给的 <span class="math inline">\(r\)</span> 与 <span class="math inline">\(\theta\)</span> 范围。</p>
 </section>
@@ -428,12 +428,12 @@ A=\frac12\int_\alpha^\beta
 <h3 class="anchored" data-anchor-id="example-5.1-pages-118119">Example 5.1 · Pages 118–119</h3>
 <p><strong>(i)</strong> Find the Cartesian coordinates of:</p>
 <p><span class="math display">\[
-\left(4,\frac{2\pi}{3}\right),qquad
+\left(4,\frac{2\pi}{3}\right),\;
 \left(12,-\frac\pi6\right).
 \]</span></p>
 <p><strong>(ii)</strong> Find the principal polar coordinates of:</p>
 <p><span class="math display">\[
-(-\sqrt3,1),qquad (4,-4).
+(-\sqrt3,1),\; (4,-4).
 \]</span></p>
 <details class="answer-panel">
 <summary>
@@ -450,7 +450,7 @@ y&amp;=12\sin\left(-\frac\pi6\right)=-6.
 \]</span></p>
 <p>Hence the Cartesian coordinates are</p>
 <p><span class="math display">\[
-\boxed{(-2,2\sqrt3)},qquad
+\boxed{(-2,2\sqrt3)},\;
 \boxed{(6\sqrt3,-6)}.
 \]</span></p>
 <p><strong>(ii)</strong> For <span class="math inline">\((-\sqrt3,1)\)</span>,</p>
@@ -487,7 +487,7 @@ Each point is located by a radius from the pole and an angle from the initial li
 <h3 class="anchored" data-anchor-id="example-5.2-pages-120121">Example 5.2 · Pages 120–121</h3>
 <p>Find polar equations of the curves</p>
 <p><span class="math display">\[
-\text{(i) }x^2-y^2=9,qquad
+\text{(i) }x^2-y^2=9,\;
 \text{(ii) }y=x+4.
 \]</span></p>
 <details class="answer-panel">
@@ -537,7 +537,7 @@ The same geometric curves can be described by polar equations.
 <h3 class="anchored" data-anchor-id="example-5.3-page-121">Example 5.3 · Page 121</h3>
 <p>Find Cartesian equations of the curves</p>
 <p><span class="math display">\[
-\text{(i) }r=5,qquad
+\text{(i) }r=5,\;
 \text{(ii) }r^2=4\sin\theta.
 \]</span></p>
 <details class="answer-panel">
@@ -578,7 +578,7 @@ The plotted polar curves correspond to the derived Cartesian equations.
 <h3 class="anchored" data-anchor-id="example-5.4-page-124">Example 5.4 · Page 124</h3>
 <p>Sketch the graphs of</p>
 <p><span class="math display">\[
-\text{(i) }r=3,qquad
+\text{(i) }r=3,\;
 \text{(ii) }\theta=\frac\pi4.
 \]</span></p>
 <details class="answer-panel">
@@ -746,7 +746,7 @@ Show solution
 <p>The curve reaches the pole when</p>
 <p><span class="math display">\[
 1+2\cos\theta=0
-\quad\Longrightarrow\quad
+\Longrightarrow
 \cos\theta=-\frac12.
 \]</span></p>
 <p>The relevant limiting angles are <span class="math inline">\(\theta=\pm2\pi/3\)</span>. By symmetry about the initial line,</p>
@@ -801,11 +801,11 @@ The curve reaches the pole at θ = ±2π/3 and is symmetric about the initial li
 <h3 class="anchored" data-anchor-id="exercise-5b-question-9-page-131">Exercise 5B · Question 9 · Page 131</h3>
 <p>The curves <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> have polar equations</p>
 <p><span class="math display">\[
-C_1:r=\frac12,quad 0\leqslant\theta\leqslant2\pi,
+C_1:r=\frac12,\; 0\leqslant\theta\leqslant2\pi,
 \]</span></p>
 <p>and</p>
 <p><span class="math display">\[
-C_2:r=\sin\frac\theta2,quad 0\leqslant\theta\leqslant\pi.
+C_2:r=\sin\frac\theta2,\; 0\leqslant\theta\leqslant\pi.
 \]</span></p>
 <p>Find the polar coordinates of the point of intersection of <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>. Sketch <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> on the same diagram.</p>
 <details class="answer-panel">
@@ -819,7 +819,7 @@ Show solution
 <p>Since <span class="math inline">\(0\leqslant\theta/2\leqslant\pi/2\)</span>,</p>
 <p><span class="math display">\[
 \frac\theta2=\frac\pi6
-\quad\Longrightarrow\quad
+\Longrightarrow
 \theta=\frac\pi3.
 \]</span></p>
 <p>Thus the point of intersection is</p>
@@ -850,7 +850,7 @@ The circle and C₂ meet at θ = π/3.
 <h3 class="anchored" data-anchor-id="exercise-5c-question-9-page-134">Exercise 5C · Question 9 · Page 134</h3>
 <p>The curve <span class="math inline">\(C\)</span> has polar equation</p>
 <p><span class="math display">\[
-r=a(1+\sin\theta),qquad 0\leqslant\theta&lt;2\pi,
+r=a(1+\sin\theta),\; 0\leqslant\theta&lt;2\pi,
 \]</span></p>
 <p>where <span class="math inline">\(a\)</span> is a positive constant. Draw a sketch of <span class="math inline">\(C\)</span>.</p>
 <p>Find the exact area of the region enclosed by <span class="math inline">\(C\)</span> and the half-lines <span class="math inline">\(\theta=\pi/3\)</span> and <span class="math inline">\(\theta=2\pi/3\)</span>.</p>
@@ -860,8 +860,8 @@ Show solution
 </summary>
 <p>The curve is symmetric about <span class="math inline">\(\theta=\pi/2\)</span>. It has</p>
 <p><span class="math display">\[
-r=2a\quad\text{at }\theta=\frac\pi2,qquad
-r=0\quad\text{at }\theta=\frac{3\pi}{2},
+r=2a\text{ at }\theta=\frac\pi2,\;
+r=0\text{ at }\theta=\frac{3\pi}{2},
 \]</span></p>
 <p>and meets the initial line at <span class="math inline">\(r=a\)</span>.</p>
 <p>The required area is</p>
@@ -911,7 +911,7 @@ The required sector lies between the two coral half-lines; the drawing is scaled
 <h3 class="anchored" data-anchor-id="exercise-5c-question-10-page-134">Exercise 5C · Question 10 · Page 134</h3>
 <p>The curve <span class="math inline">\(C\)</span> has polar equation</p>
 <p><span class="math display">\[
-r=2+2\cos\theta,qquad 0\leqslant\theta&lt;\pi.
+r=2+2\cos\theta,\; 0\leqslant\theta&lt;\pi.
 \]</span></p>
 <p>Sketch <span class="math inline">\(C\)</span>. Find the area of the region <span class="math inline">\(R\)</span> enclosed by <span class="math inline">\(C\)</span> and the initial line.</p>
 <p>The half-line <span class="math inline">\(\theta=\pi/5\)</span> divides <span class="math inline">\(R\)</span> into two parts. Find the area of each part, correct to <span class="math inline">\(3\)</span> decimal places.</p>
@@ -998,7 +998,7 @@ Show answer and mark scheme
 \Longrightarrow \boxed{2\theta\tan\theta=1}.
 \]</span></p>
 <p>For <span class="math inline">\(f(\theta)=2\theta\tan\theta-1\)</span>,</p>
-<p><span class="math display">\[f(0.6)=-0.179&lt;0,\qquad f(0.7)=0.179&gt;0,\]</span></p>
+<p><span class="math display">\[f(0.6)=-0.179&lt;0,\; f(0.7)=0.179&gt;0,\]</span></p>
 <p>so a root lies in <span class="math inline">\((0.6,0.7)\)</span>.</p>
 <p><strong>(ii)</strong> Away from the pole,</p>
 <p><span class="math display">\[2\theta=\theta\sec^2\theta\Longrightarrow\cos^2\theta=\frac12,\]</span></p>
@@ -1067,7 +1067,7 @@ An increasing anticlockwise spiral, tangent to the initial line at the pole.
 <section id="octobernovember-923111-12-13-question-11-either-14-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-12-13-question-11-either-14-marks">2019 October/November · 9231/11, /12 &amp; /13 · Question 11 EITHER · 14 marks</h3>
 <p>For <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>,</p>
-<p><span class="math display">\[C_1:r=2(e^\theta+e^{-\theta}),\qquad C_2:r=e^{2\theta}-e^{-2\theta}.\]</span></p>
+<p><span class="math display">\[C_1:r=2(e^\theta+e^{-\theta}),\; C_2:r=e^{2\theta}-e^{-2\theta}.\]</span></p>
 <p>The curves meet at <span class="math inline">\(P\)</span> where <span class="math inline">\(\theta=\alpha\)</span>.</p>
 <p><strong>(i)</strong> Show that <span class="math inline">\(e^{2\alpha}-2e^\alpha-1=0\)</span>, find <span class="math inline">\(\alpha\)</span> exactly and show that <span class="math inline">\(r=4\sqrt2\)</span> at <span class="math inline">\(P\)</span>. <strong>[6]</strong></p>
 <p><strong>(ii)</strong> Sketch both curves. <strong>[3]</strong></p>
@@ -1077,9 +1077,9 @@ An increasing anticlockwise spiral, tangent to the initial line at the pole.
 Show answer and mark scheme
 </summary>
 <p>Equating radii and dividing by <span class="math inline">\(e^\alpha+e^{-\alpha}\)</span> gives <span class="math inline">\(e^\alpha-e^{-\alpha}=2\)</span>, hence</p>
-<p><span class="math display">\[e^{2\alpha}-2e^\alpha-1=0,qquad e^\alpha=1+\sqrt2,\]</span></p>
+<p><span class="math display">\[e^{2\alpha}-2e^\alpha-1=0,\; e^\alpha=1+\sqrt2,\]</span></p>
 <p>so</p>
-<p><span class="math display">\[\boxed{\alpha=\ln(1+\sqrt2)},\qquad \boxed{r=4\sqrt2}.\]</span></p>
+<p><span class="math display">\[\boxed{\alpha=\ln(1+\sqrt2)},\; \boxed{r=4\sqrt2}.\]</span></p>
 <p>The required area is</p>
 <p><span class="math display">\[
 \frac12\int_0^\alpha\left[4(e^\theta+e^{-\theta})^2-(e^{2\theta}-e^{-2\theta})^2\right]d\theta.
@@ -1362,7 +1362,7 @@ Show answer and mark scheme
 <p><span class="math inline">\(l\)</span> is <span class="math inline">\(y=2\)</span>. At an intersection,</p>
 <p><span class="math display">\[2=(3+2\sin\theta)\sin\theta,\]</span></p>
 <p>giving <span class="math inline">\(\sin\theta=1/2\)</span>. Therefore the intersections are</p>
-<p><span class="math display">\[\boxed{(4,\pi/6)},\qquad\boxed{(4,5\pi/6)}.\]</span></p>
+<p><span class="math display">\[\boxed{(4,\pi/6)},\;\boxed{(4,5\pi/6)}.\]</span></p>
 <p>Using symmetry, the curved part with two radii has area</p>
 <p><span class="math display">\[2\cdot\frac12\int_{-\pi/2}^{\pi/6}(3+2\sin\theta)^2d\theta
 =\frac{22\pi}{3}-\frac{13\sqrt3}{2}.\]</span></p>
@@ -1416,7 +1416,7 @@ A&amp;=\frac12\int_0^2\tan^{-1}(\theta/2)d\theta\\
 <p>For part (c), the perpendicular distance is</p>
 <p><span class="math display">\[x=r\cos\theta=\{  an^{-1}(\theta/2)\}^{1/2}\cos\theta.\]</span></p>
 <p>Setting <span class="math inline">\(dx/d\theta=0\)</span> and clearing the positive factors gives the required equation. Its left side is</p>
-<p><span class="math display">\[-0.108\quad\text{at }\theta=0.6,qquad 0.209\quad\text{at }\theta=0.7,\]</span></p>
+<p><span class="math display">\[-0.108\text{ at }\theta=0.6,\; 0.209\text{ at }\theta=0.7,\]</span></p>
 <p>so the root is verified.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2022-mj-11-12-title past-2022-mj-11-12-desc" xmlns="http://www.w3.org/2000/svg">
@@ -1526,7 +1526,7 @@ The required region is bounded by different curves on either side of P.
 <div id="polar-2023-on-12" class="question-card">
 <section id="octobernovember-923112-question-6-13-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-6-13-marks">2023 October/November · 9231/12 · Question 6 · 13 marks</h3>
-<p><span class="math display">\[C:r=e^{-\theta}-e^{-\pi/2},\qquad0\leqslant\theta\leqslant\pi/2.\]</span></p>
+<p><span class="math display">\[C:r=e^{-\theta}-e^{-\pi/2},\;0\leqslant\theta\leqslant\pi/2.\]</span></p>
 <p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state exactly its greatest radius. <strong>[3]</strong> <strong>(b)</strong> Find exactly the area bounded by <span class="math inline">\(C\)</span> and the initial line. <strong>[5]</strong></p>
 <p><strong>(c)</strong> Show that the point furthest from the initial line satisfies</p>
 <p><span class="math display">\[1-e^{\theta-\pi/2}-\tan\theta=0,\]</span></p>
