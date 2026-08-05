@@ -198,8 +198,11 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#quadratic-equations" id="toc-quadratic-equations" class="nav-link" data-scroll-target="#quadratic-equations">1.1 Quadratic equations</a></li>
   <li><a href="#cubic-equations" id="toc-cubic-equations" class="nav-link" data-scroll-target="#cubic-equations">1.2 Cubic equations</a></li>
-  <li><a href="#forming-new-equations" id="toc-forming-new-equations" class="nav-link" data-scroll-target="#forming-new-equations">1.3 Forming new equations</a></li>
-  <li><a href="#quartic-equations" id="toc-quartic-equations" class="nav-link" data-scroll-target="#quartic-equations">1.4 Quartic equations</a></li>
+  <li><a href="#common-symmetric-identities" id="toc-common-symmetric-identities" class="nav-link" data-scroll-target="#common-symmetric-identities">1.3 Common symmetric identities</a></li>
+  <li><a href="#power-sums" id="toc-power-sums" class="nav-link" data-scroll-target="#power-sums">1.4 Power sums</a></li>
+  <li><a href="#reciprocal-roots-and-negative-powers" id="toc-reciprocal-roots-and-negative-powers" class="nav-link" data-scroll-target="#reciprocal-roots-and-negative-powers">1.5 Reciprocal roots and negative powers</a></li>
+  <li><a href="#forming-new-equations" id="toc-forming-new-equations" class="nav-link" data-scroll-target="#forming-new-equations">1.6 Forming new equations</a></li>
+  <li><a href="#quartic-equations" id="toc-quartic-equations" class="nav-link" data-scroll-target="#quartic-equations">1.7 Quartic equations</a></li>
   </ul></li>
   <li><a href="#textbook-examples-and-examination-questions" id="toc-textbook-examples-and-examination-questions" class="nav-link" data-scroll-target="#textbook-examples-and-examination-questions">2. Textbook examples and examination questions</a>
   <ul class="collapse">
@@ -351,10 +354,118 @@ window.Quarto = {
 \qquad
 \sum\alpha\beta=\alpha\beta+\beta\gamma+\gamma\alpha.
 \]</span></p>
-<p>计算较高次幂和时，可以先求基本对称函数，也可以利用每个根都满足原方程。</p>
+</section>
+<section id="common-symmetric-identities" class="level3">
+<h3 class="anchored" data-anchor-id="common-symmetric-identities">1.3 Common symmetric identities</h3>
+<p>对称函数的值不因根的排列次序改变。计算时通常先把所求式化为 <span class="math inline">\(\sum\alpha\)</span>、<span class="math inline">\(\sum\alpha\beta\)</span>、<span class="math inline">\(\alpha\beta\gamma\)</span> 等基本对称函数。</p>
+<p>对二次或三次方程的根，有</p>
+<p><span class="math display">\[
+\sum\alpha^2
+=\left(\sum\alpha\right)^2-2\sum\alpha\beta.
+\]</span></p>
+<p>对三次方程的根，有</p>
+<p><span class="math display">\[
+\sum\alpha^3
+=\left(\sum\alpha\right)^3
+-3\left(\sum\alpha\right)\left(\sum\alpha\beta\right)
++3\alpha\beta\gamma,
+\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[
+\sum\alpha^2\beta^2
+=\left(\sum\alpha\beta\right)^2
+-2\left(\sum\alpha\right)\alpha\beta\gamma,
+\]</span></p>
+<p>其中</p>
+<p><span class="math display">\[
+\sum\alpha^2\beta^2
+=\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2.
+\]</span></p>
+<p>展开或因式分解时，应让最终表达式只含原方程系数能够确定的基本对称函数。</p>
+</section>
+<section id="power-sums" class="level3">
+<h3 class="anchored" data-anchor-id="power-sums">1.4 Power sums</h3>
+<p>设三次方程的根为 <span class="math inline">\(\alpha,\beta,\gamma\)</span>，并定义</p>
+<p><span class="math display">\[
+S_n=\alpha^n+\beta^n+\gamma^n.
+\]</span></p>
+<p>若先把方程化为首一形式</p>
+<p><span class="math display">\[
+z^3+pz^2+qz+r=0,
+\]</span></p>
+<p>则</p>
+<p><span class="math display">\[
+S_0=3,
+\qquad
+S_1=-p,
+\qquad
+S_2=p^2-2q.
+\]</span></p>
+<p>因为每个根都满足原方程，将根的三个等式相加可得</p>
+<p><span class="math display">\[
+S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}=0
+\qquad(n\geqslant3).
+\]</span></p>
+<p>特别地，当 <span class="math inline">\(n=3\)</span> 时，常数项会出现三次：</p>
+<p><span class="math display">\[
+S_3+pS_2+qS_1+3r=0.
+\]</span></p>
+<p>同理，若四次方程写成</p>
+<p><span class="math display">\[
+z^4+pz^3+qz^2+rz+s=0
+\]</span></p>
+<p>且 <span class="math inline">\(S_n\)</span> 表示四个根的 <span class="math inline">\(n\)</span> 次幂之和，则</p>
+<p><span class="math display">\[
+S_0=4
+\]</span></p>
+<p>并且</p>
+<p><span class="math display">\[
+S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}+sS_{n-4}=0
+\qquad(n\geqslant4).
+\]</span></p>
+<p>这种方法适合连续计算较高次幂和；开始递推前，应先由根与系数关系求出所需的较低次幂和。</p>
+</section>
+<section id="reciprocal-roots-and-negative-powers" class="level3">
+<h3 class="anchored" data-anchor-id="reciprocal-roots-and-negative-powers">1.5 Reciprocal roots and negative powers</h3>
+<p>若原方程的常数项不为零，则所有根都不为零，可以讨论倒数根。 对三次方程的根，</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac1\alpha+\frac1\beta+\frac1\gamma
+&amp;=\frac{\alpha\beta+\beta\gamma+\gamma\alpha}{\alpha\beta\gamma},\\
+\frac1{\alpha\beta}+\frac1{\beta\gamma}+\frac1{\gamma\alpha}
+&amp;=\frac{\alpha+\beta+\gamma}{\alpha\beta\gamma},\\
+\frac1\alpha\frac1\beta\frac1\gamma
+&amp;=\frac1{\alpha\beta\gamma}.
+\end{aligned}
+\]</span></p>
+<p>因此，若 <span class="math inline">\(az^3+bz^2+cz+d=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta,\gamma\)</span>，其中 <span class="math inline">\(d\ne0\)</span>，则</p>
+<p><span class="math display">\[
+\sum\frac1\alpha=-\frac cd,
+\qquad
+\sum\frac1{\alpha\beta}=\frac bd,
+\qquad
+\frac1{\alpha\beta\gamma}=-\frac ad.
+\]</span></p>
+<p>求倒数根方程时，令 <span class="math inline">\(z=1/w\)</span> 并乘以适当的 <span class="math inline">\(w\)</span> 的幂。例如，</p>
+<p><span class="math display">\[
+az^3+bz^2+cz+d=0
+\]</span></p>
+<p>对应的倒数根方程为</p>
+<p><span class="math display">\[
+dw^3+cw^2+bw+a=0.
+\]</span></p>
+<p>也就是说，系数的次序反转。相同方法适用于二次及四次方程。</p>
+<p>负次幂和可以看作倒数根的正次幂和。例如</p>
+<p><span class="math display">\[
+\sum\alpha^{-n}
+=\left(\frac1\alpha\right)^n
++\left(\frac1\beta\right)^n
++\left(\frac1\gamma\right)^n,
+\]</span></p>
+<p>所以可以先建立倒数根方程，再使用上一节的幂和方法。</p>
 </section>
 <section id="forming-new-equations" class="level3">
-<h3 class="anchored" data-anchor-id="forming-new-equations">1.3 Forming new equations</h3>
+<h3 class="anchored" data-anchor-id="forming-new-equations">1.6 Forming new equations</h3>
 <p>教材使用两种方法建立新方程：</p>
 <ol type="1">
 <li>计算新根的和、两两乘积之和及乘积，再由根与系数关系写出方程；</li>
@@ -369,7 +480,7 @@ z=\frac{w-1}{2}.
 <p>新根为 <span class="math inline">\(\alpha^2,\beta^2,\gamma^2\)</span> 时，可以令 <span class="math inline">\(w=z^2\)</span>，再消去 <span class="math inline">\(z\)</span>。</p>
 </section>
 <section id="quartic-equations" class="level3">
-<h3 class="anchored" data-anchor-id="quartic-equations">1.4 Quartic equations</h3>
+<h3 class="anchored" data-anchor-id="quartic-equations">1.7 Quartic equations</h3>
 <p>若 <span class="math inline">\(az^4+bz^3+cz^2+dz+e=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>，则</p>
 <p><span class="math display">\[
 \begin{aligned}
