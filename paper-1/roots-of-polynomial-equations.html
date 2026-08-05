@@ -1,0 +1,2441 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 3。">
+
+<title>1.1 Roots of polynomial equations – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">1.1 Roots of polynomial equations</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#quadratic-equations" id="toc-quadratic-equations" class="nav-link" data-scroll-target="#quadratic-equations">1.1 Quadratic equations</a></li>
+  <li><a href="#cubic-equations" id="toc-cubic-equations" class="nav-link" data-scroll-target="#cubic-equations">1.2 Cubic equations</a></li>
+  <li><a href="#forming-new-equations" id="toc-forming-new-equations" class="nav-link" data-scroll-target="#forming-new-equations">1.3 Forming new equations</a></li>
+  <li><a href="#quartic-equations" id="toc-quartic-equations" class="nav-link" data-scroll-target="#quartic-equations">1.4 Quartic equations</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples-and-examination-questions" id="toc-textbook-examples-and-examination-questions" class="nav-link" data-scroll-target="#textbook-examples-and-examination-questions">2. Textbook examples and examination questions</a>
+  <ul class="collapse">
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">Textbook Examples</a></li>
+  <li><a href="#example-3.1-page-72" id="toc-example-3.1-page-72" class="nav-link" data-scroll-target="#example-3.1-page-72">Example 3.1 · Page 72</a></li>
+  <li><a href="#example-3.2-page-73" id="toc-example-3.2-page-73" class="nav-link" data-scroll-target="#example-3.2-page-73">Example 3.2 · Page 73</a></li>
+  <li><a href="#example-3.3-pages-7374" id="toc-example-3.3-pages-7374" class="nav-link" data-scroll-target="#example-3.3-pages-7374">Example 3.3 · Pages 73–74</a></li>
+  <li><a href="#example-3.4-pages-7475" id="toc-example-3.4-pages-7475" class="nav-link" data-scroll-target="#example-3.4-pages-7475">Example 3.4 · Pages 74–75</a></li>
+  <li><a href="#example-3.5-page-78" id="toc-example-3.5-page-78" class="nav-link" data-scroll-target="#example-3.5-page-78">Example 3.5 · Page 78</a></li>
+  <li><a href="#example-3.6-pages-7879" id="toc-example-3.6-pages-7879" class="nav-link" data-scroll-target="#example-3.6-pages-7879">Example 3.6 · Pages 78–79</a></li>
+  <li><a href="#example-3.7-pages-7980" id="toc-example-3.7-pages-7980" class="nav-link" data-scroll-target="#example-3.7-pages-7980">Example 3.7 · Pages 79–80</a></li>
+  <li><a href="#example-3.8-pages-8081" id="toc-example-3.8-pages-8081" class="nav-link" data-scroll-target="#example-3.8-pages-8081">Example 3.8 · Pages 80–81</a></li>
+  <li><a href="#example-3.9-pages-8485" id="toc-example-3.9-pages-8485" class="nav-link" data-scroll-target="#example-3.9-pages-8485">Example 3.9 · Pages 84–85</a></li>
+  <li><a href="#examination-questions-printed-in-the-textbook-exercises" id="toc-examination-questions-printed-in-the-textbook-exercises" class="nav-link" data-scroll-target="#examination-questions-printed-in-the-textbook-exercises">Examination questions printed in the textbook exercises</a></li>
+  <li><a href="#exercise-3b-question-16" id="toc-exercise-3b-question-16" class="nav-link" data-scroll-target="#exercise-3b-question-16">Exercise 3B, Question 16</a></li>
+  <li><a href="#exercise-3b-question-17" id="toc-exercise-3b-question-17" class="nav-link" data-scroll-target="#exercise-3b-question-17">Exercise 3B, Question 17</a></li>
+  <li><a href="#exercise-3b-question-18" id="toc-exercise-3b-question-18" class="nav-link" data-scroll-target="#exercise-3b-question-18">Exercise 3B, Question 18</a></li>
+  <li><a href="#exercise-3c-question-7" id="toc-exercise-3c-question-7" class="nav-link" data-scroll-target="#exercise-3c-question-7">Exercise 3C, Question 7</a></li>
+  <li><a href="#exercise-3c-question-8" id="toc-exercise-3c-question-8" class="nav-link" data-scroll-target="#exercise-3c-question-8">Exercise 3C, Question 8</a></li>
+  </ul></li>
+  <li><a href="#past-paper-question-bank" id="toc-past-paper-question-bank" class="nav-link" data-scroll-target="#past-paper-question-bank">3. Past-paper question bank</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2019</a></li>
+  <li><a href="#mayjune-923111-923112-question-6-9-marks" id="toc-mayjune-923111-923112-question-6-9-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-6-9-marks">2019 May/June · 9231/11 &amp; 9231/12 · Question 6 · 9 marks</a></li>
+  <li><a href="#mayjune-923113-question-9-11-marks" id="toc-mayjune-923113-question-9-11-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-9-11-marks">2019 May/June · 9231/13 · Question 9 · 11 marks</a></li>
+  <li><a href="#octobernovember-923111-923112-923113-question-7-9-marks" id="toc-octobernovember-923111-923112-923113-question-7-9-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923112-923113-question-7-9-marks">2019 October/November · 9231/11, 9231/12 &amp; 9231/13 · Question 7 · 9 marks</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2020</a></li>
+  <li><a href="#mayjune-923111-923112-question-2-8-marks" id="toc-mayjune-923111-923112-question-2-8-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-2-8-marks">2020 May/June · 9231/11 &amp; 9231/12 · Question 2 · 8 marks</a></li>
+  <li><a href="#mayjune-923113-question-1-7-marks" id="toc-mayjune-923113-question-1-7-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-1-7-marks">2020 May/June · 9231/13 · Question 1 · 7 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-3-11-marks" id="toc-octobernovember-923111-923113-question-3-11-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-3-11-marks">2020 October/November · 9231/11 &amp; 9231/13 · Question 3 · 11 marks</a></li>
+  <li><a href="#octobernovember-923112-question-1-8-marks" id="toc-octobernovember-923112-question-1-8-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-1-8-marks">2020 October/November · 9231/12 · Question 1 · 8 marks</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2021</a></li>
+  <li><a href="#mayjune-923111-923112-question-3-9-marks" id="toc-mayjune-923111-923112-question-3-9-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-3-9-marks">2021 May/June · 9231/11 &amp; 9231/12 · Question 3 · 9 marks</a></li>
+  <li><a href="#mayjune-923113-question-2-11-marks" id="toc-mayjune-923113-question-2-11-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-2-11-marks">2021 May/June · 9231/13 · Question 2 · 11 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-1-6-marks" id="toc-octobernovember-923111-923113-question-1-6-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-1-6-marks">2021 October/November · 9231/11 &amp; 9231/13 · Question 1 · 6 marks</a></li>
+  <li><a href="#octobernovember-923112-question-4-10-marks" id="toc-octobernovember-923112-question-4-10-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-4-10-marks">2021 October/November · 9231/12 · Question 4 · 10 marks</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2022</a></li>
+  <li><a href="#mayjune-923111-923112-question-4-8-marks" id="toc-mayjune-923111-923112-question-4-8-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-4-8-marks">2022 May/June · 9231/11 &amp; 9231/12 · Question 4 · 8 marks</a></li>
+  <li><a href="#mayjune-923113-question-2-7-marks" id="toc-mayjune-923113-question-2-7-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-2-7-marks">2022 May/June · 9231/13 · Question 2 · 7 marks</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2023</a></li>
+  <li><a href="#octobernovember-923111-923113-question-3-8-marks" id="toc-octobernovember-923111-923113-question-3-8-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-3-8-marks">2023 October/November · 9231/11 &amp; 9231/13 · Question 3 · 8 marks</a></li>
+  <li><a href="#octobernovember-923112-question-4-10-marks-1" id="toc-octobernovember-923112-question-4-10-marks-1" class="nav-link" data-scroll-target="#octobernovember-923112-question-4-10-marks-1">2023 October/November · 9231/12 · Question 4 · 10 marks</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2024</a></li>
+  <li><a href="#mayjune-923111-923112-question-1-6-marks" id="toc-mayjune-923111-923112-question-1-6-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-1-6-marks">2024 May/June · 9231/11 &amp; 9231/12 · Question 1 · 6 marks</a></li>
+  <li><a href="#mayjune-923113-question-2-7-marks-1" id="toc-mayjune-923113-question-2-7-marks-1" class="nav-link" data-scroll-target="#mayjune-923113-question-2-7-marks-1">2024 May/June · 9231/13 · Question 2 · 7 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-3-10-marks" id="toc-octobernovember-923111-923113-question-3-10-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-3-10-marks">2024 October/November · 9231/11 &amp; 9231/13 · Question 3 · 10 marks</a></li>
+  <li><a href="#octobernovember-923112-question-3-10-marks" id="toc-octobernovember-923112-question-3-10-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-3-10-marks">2024 October/November · 9231/12 · Question 3 · 10 marks</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">2025</a></li>
+  <li><a href="#mayjune-923111-923112-question-2-7-marks" id="toc-mayjune-923111-923112-question-2-7-marks" class="nav-link" data-scroll-target="#mayjune-923111-923112-question-2-7-marks">2025 May/June · 9231/11 &amp; 9231/12 · Question 2 · 7 marks</a></li>
+  <li><a href="#mayjune-923113-question-3-9-marks" id="toc-mayjune-923113-question-3-9-marks" class="nav-link" data-scroll-target="#mayjune-923113-question-3-9-marks">2025 May/June · 9231/13 · Question 3 · 9 marks</a></li>
+  <li><a href="#mayjune-923114-question-4-10-marks" id="toc-mayjune-923114-question-4-10-marks" class="nav-link" data-scroll-target="#mayjune-923114-question-4-10-marks">2025 May/June · 9231/14 · Question 4 · 10 marks</a></li>
+  <li><a href="#octobernovember-923111-923113-question-4-8-marks" id="toc-octobernovember-923111-923113-question-4-8-marks" class="nav-link" data-scroll-target="#octobernovember-923111-923113-question-4-8-marks">2025 October/November · 9231/11 &amp; 9231/13 · Question 4 · 8 marks</a></li>
+  <li><a href="#octobernovember-923112-question-2-8-marks" id="toc-octobernovember-923112-question-2-8-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-2-8-marks">2025 October/November · 9231/12 · Question 2 · 8 marks</a></li>
+  <li><a href="#octobernovember-923114-question-2-9-marks" id="toc-octobernovember-923114-question-2-9-marks" class="nav-link" data-scroll-target="#octobernovember-923114-question-2-9-marks">2025 October/November · 9231/14 · Question 2 · 9 marks</a></li>
+  </ul></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">1.1 Roots of polynomial equations</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1.1 Roots of polynomial equations</h1>
+<p class="subtitle lead">根与系数 · 对称函数 · 建立新方程</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 3。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本节考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>记忆并使用二次、三次及四次多项式方程的根与系数关系；</li>
+<li>计算根的对称函数，或利用这些关系求方程中的未知系数；</li>
+<li>通过代换建立新方程，新方程的根与原方程的根具有简单关系。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">能从系数直接写出二次、三次和四次方程的根与系数关系</label></li>
+<li><label><input type="checkbox">能把平方和、立方和等对称函数化为基本的根之和与根之积</label></li>
+<li><label><input type="checkbox">能利用每个根都满足原方程来求较高次幂和</label></li>
+<li><label><input type="checkbox">能用根与系数关系或代换法建立新方程</label></li>
+<li><label><input type="checkbox">能根据给定的根之间的关系求未知系数并解方程</label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="quadratic-equations" class="level3">
+<h3 class="anchored" data-anchor-id="quadratic-equations">1.1 Quadratic equations</h3>
+<p>若 <span class="math inline">\(az^2+bz+c=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta\)</span>，则</p>
+<p><span class="math display">\[
+\alpha+\beta=-\frac ba,
+\qquad
+\alpha\beta=\frac ca.
+\]</span></p>
+<p>二次方程中所有关于 <span class="math inline">\(\alpha,\beta\)</span> 的对称函数，都可以用 <span class="math inline">\(\alpha+\beta\)</span> 与 <span class="math inline">\(\alpha\beta\)</span> 表示。例如</p>
+<p><span class="math display">\[
+\alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta.
+\]</span></p>
+</section>
+<section id="cubic-equations" class="level3">
+<h3 class="anchored" data-anchor-id="cubic-equations">1.2 Cubic equations</h3>
+<p>若 <span class="math inline">\(az^3+bz^2+cz+d=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta,\gamma\)</span>，则</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum\alpha
+&amp;=\alpha+\beta+\gamma=-\frac ba,\\
+\sum\alpha\beta
+&amp;=\alpha\beta+\beta\gamma+\gamma\alpha=\frac ca,\\
+\sum\alpha\beta\gamma
+&amp;=\alpha\beta\gamma=-\frac da.
+\end{aligned}
+\]</span></p>
+<p>教材采用以下简写：</p>
+<p><span class="math display">\[
+\sum\alpha=\alpha+\beta+\gamma,
+\qquad
+\sum\alpha\beta=\alpha\beta+\beta\gamma+\gamma\alpha.
+\]</span></p>
+<p>计算较高次幂和时，可以先求基本对称函数，也可以利用每个根都满足原方程。</p>
+</section>
+<section id="forming-new-equations" class="level3">
+<h3 class="anchored" data-anchor-id="forming-new-equations">1.3 Forming new equations</h3>
+<p>教材使用两种方法建立新方程：</p>
+<ol type="1">
+<li>计算新根的和、两两乘积之和及乘积，再由根与系数关系写出方程；</li>
+<li>令新变量与旧变量满足题目给出的根的变换，写出旧变量并代入原方程。</li>
+</ol>
+<p>例如新根为 <span class="math inline">\(2\alpha+1,2\beta+1,2\gamma+1\)</span> 时，令</p>
+<p><span class="math display">\[
+w=2z+1,
+\qquad
+z=\frac{w-1}{2}.
+\]</span></p>
+<p>新根为 <span class="math inline">\(\alpha^2,\beta^2,\gamma^2\)</span> 时，可以令 <span class="math inline">\(w=z^2\)</span>，再消去 <span class="math inline">\(z\)</span>。</p>
+</section>
+<section id="quartic-equations" class="level3">
+<h3 class="anchored" data-anchor-id="quartic-equations">1.4 Quartic equations</h3>
+<p>若 <span class="math inline">\(az^4+bz^3+cz^2+dz+e=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>，则</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum\alpha
+&amp;=\alpha+\beta+\gamma+\delta=-\frac ba,\\
+\sum\alpha\beta
+&amp;=\alpha\beta+\alpha\gamma+\alpha\delta
++\beta\gamma+\beta\delta+\gamma\delta=\frac ca,\\
+\sum\alpha\beta\gamma
+&amp;=\alpha\beta\gamma+\beta\gamma\delta
++\gamma\delta\alpha+\delta\alpha\beta=-\frac da,\\
+\sum\alpha\beta\gamma\delta
+&amp;=\alpha\beta\gamma\delta=\frac ea.
+\end{aligned}
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Sign pattern
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>从最高次项开始，根的基本对称函数对应的符号依次为</p>
+<p><span class="math display">\[
+-,\quad +,\quad -,\quad +.
+\]</span></p>
+</div>
+</div>
+</section>
+</section>
+<section id="textbook-examples-and-examination-questions" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples-and-examination-questions">2. Textbook examples and examination questions</h2>
+<section id="textbook-examples" class="level3">
+<h3 class="anchored" data-anchor-id="textbook-examples">Textbook Examples</h3>
+</section>
+<section id="example-3.1-page-72" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.1-page-72">Example 3.1 · Page 72</h3>
+<p>Find a quadratic equation with roots <span class="math inline">\(5\)</span> and <span class="math inline">\(-3\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The sum of the roots is</p>
+<p><span class="math display">\[
+5+(-3)=2,
+\]</span></p>
+<p>and the product of the roots is</p>
+<p><span class="math display">\[
+5(-3)=-15.
+\]</span></p>
+<p>Taking the coefficient of <span class="math inline">\(z^2\)</span> to be <span class="math inline">\(1\)</span>, a quadratic equation with the required roots is</p>
+<p><span class="math display">\[
+\boxed{z^2-2z-15=0}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-1"> Completed</label></p>
+</section>
+<section id="example-3.2-page-73" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.2-page-73">Example 3.2 · Page 73</h3>
+<p>The roots of the equation</p>
+<p><span class="math display">\[
+2z^2+3z+5=0
+\]</span></p>
+<p>are <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>.</p>
+<ol type="1">
+<li>Find the values of <span class="math inline">\(\alpha+\beta\)</span> and <span class="math inline">\(\alpha\beta\)</span>.</li>
+<li>Find the quadratic equation with roots <span class="math inline">\(2\alpha\)</span> and <span class="math inline">\(2\beta\)</span>.</li>
+</ol>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>From the original equation,</p>
+<p><span class="math display">\[
+\alpha+\beta=-\frac32,
+\qquad
+\alpha\beta=\frac52.
+\]</span></p>
+<p>For the new roots,</p>
+<p><span class="math display">\[
+2\alpha+2\beta=2(\alpha+\beta)=-3,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+(2\alpha)(2\beta)=4\alpha\beta=10.
+\]</span></p>
+<p>Therefore the required equation is</p>
+<p><span class="math display">\[
+\boxed{z^2+3z+10=0}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-2"> Completed</label></p>
+</section>
+<section id="example-3.3-pages-7374" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.3-pages-7374">Example 3.3 · Pages 73–74</h3>
+<p>The roots of the equation</p>
+<p><span class="math display">\[
+3z^2-4z-1=0
+\]</span></p>
+<p>are <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Find the quadratic equation with roots <span class="math inline">\(\alpha+1\)</span> and <span class="math inline">\(\beta+1\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>From the original equation,</p>
+<p><span class="math display">\[
+\alpha+\beta=\frac43,
+\qquad
+\alpha\beta=-\frac13.
+\]</span></p>
+<p>The sum of the new roots is</p>
+<p><span class="math display">\[
+(\alpha+1)+(\beta+1)=\alpha+\beta+2=\frac{10}{3},
+\]</span></p>
+<p>and their product is</p>
+<p><span class="math display">\[
+(\alpha+1)(\beta+1)
+=\alpha\beta+(\alpha+\beta)+1
+=2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{3z^2-10z+6=0}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-3"> Completed</label></p>
+</section>
+<section id="example-3.4-pages-7475" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.4-pages-7475">Example 3.4 · Pages 74–75</h3>
+<p>The quadratic equation</p>
+<p><span class="math display">\[
+ax^2+bx+c=0,
+\]</span></p>
+<p>where <span class="math inline">\(a,b,c\)</span> are constants, has roots <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Prove that</p>
+<p><span class="math display">\[
+\alpha^2+\beta^2=\frac{b^2-2ac}{a^2}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Since</p>
+<p><span class="math display">\[
+(\alpha+\beta)^2=\alpha^2+2\alpha\beta+\beta^2,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha^2+\beta^2
+&amp;=(\alpha+\beta)^2-2\alpha\beta\\
+&amp;=\left(-\frac ba\right)^2-2\left(\frac ca\right)\\
+&amp;=\boxed{\frac{b^2-2ac}{a^2}}.
+\end{aligned}
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-4"> Completed</label></p>
+</section>
+<section id="example-3.5-page-78" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.5-page-78">Example 3.5 · Page 78</h3>
+<p>The roots of the equation</p>
+<p><span class="math display">\[
+2z^3-9z^2-27z+54=0
+\]</span></p>
+<p>form a geometric progression, so they may be written as <span class="math inline">\(\dfrac ar,a,ar\)</span>. Solve the equation.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Using the product of the roots,</p>
+<p><span class="math display">\[
+\frac ar\times a\times ar=-\frac{54}{2},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+a^3=-27
+\quad\Longrightarrow\quad
+a=-3.
+\]</span></p>
+<p>Using the sum of the roots,</p>
+<p><span class="math display">\[
+-\frac3r-3-3r=\frac92.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+2r^2+5r+2=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+(2r+1)(r+2)=0
+\]</span></p>
+<p>and therefore <span class="math inline">\(r=-2\)</span> or <span class="math inline">\(r=-\dfrac12\)</span>. Either value gives the same three roots:</p>
+<p><span class="math display">\[
+\boxed{\frac32,-3,6}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-5"> Completed</label></p>
+</section>
+<section id="example-3.6-pages-7879" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.6-pages-7879">Example 3.6 · Pages 78–79</h3>
+<p>The roots of the cubic equation</p>
+<p><span class="math display">\[
+x^3-4x^2+x+6=0
+\]</span></p>
+<p>are <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Find the values of</p>
+<ol type="1">
+<li><span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>;</li>
+<li><span class="math inline">\(\alpha^3+\beta^3+\gamma^3\)</span>.</li>
+</ol>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>From the original equation,</p>
+<p><span class="math display">\[
+\sum\alpha=4,
+\qquad
+\sum\alpha\beta=1.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha^2+\beta^2+\gamma^2
+&amp;=(\alpha+\beta+\gamma)^2
+-2(\alpha\beta+\beta\gamma+\gamma\alpha)\\
+&amp;=4^2-2(1)\\
+&amp;=\boxed{14}.
+\end{aligned}
+\]</span></p>
+<p>Since each root satisfies <span class="math inline">\(x^3-4x^2+x+6=0\)</span>,</p>
+<p><span class="math display">\[
+\alpha^3=4\alpha^2-\alpha-6,
+\]</span></p>
+<p>with corresponding equations for <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span>. Adding them gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha^3+\beta^3+\gamma^3
+&amp;=4(\alpha^2+\beta^2+\gamma^2)
+-(\alpha+\beta+\gamma)-18\\
+&amp;=4(14)-4-18\\
+&amp;=\boxed{34}.
+\end{aligned}
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-6"> Completed</label></p>
+</section>
+<section id="example-3.7-pages-7980" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.7-pages-7980">Example 3.7 · Pages 79–80</h3>
+<p>The roots of the cubic equation</p>
+<p><span class="math display">\[
+2z^3+5z^2-3z-2=0
+\]</span></p>
+<p>are <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Find the cubic equation with roots <span class="math inline">\(2\alpha+1,2\beta+1,2\gamma+1\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution 1: relations between roots and coefficients
+</summary>
+<p>For the original equation,</p>
+<p><span class="math display">\[
+\sum\alpha=-\frac52,
+\qquad
+\sum\alpha\beta=-\frac32,
+\qquad
+\alpha\beta\gamma=1.
+\]</span></p>
+<p>For the new roots, their sum is</p>
+<p><span class="math display">\[
+2(\alpha+\beta+\gamma)+3=-2.
+\]</span></p>
+<p>The sum of their products in pairs is</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;(2\alpha+1)(2\beta+1)
++(2\beta+1)(2\gamma+1)
++(2\gamma+1)(2\alpha+1)\\
+&amp;=4(\alpha\beta+\beta\gamma+\gamma\alpha)
++4(\alpha+\beta+\gamma)+3\\
+&amp;=4\left(-\frac32\right)+4\left(-\frac52\right)+3\\
+&amp;=-13.
+\end{aligned}
+\]</span></p>
+<p>Their product is</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;(2\alpha+1)(2\beta+1)(2\gamma+1)\\
+&amp;=8\alpha\beta\gamma
++4(\alpha\beta+\beta\gamma+\gamma\alpha)
++2(\alpha+\beta+\gamma)+1\\
+&amp;=8+4\left(-\frac32\right)
++2\left(-\frac52\right)+1\\
+&amp;=-2.
+\end{aligned}
+\]</span></p>
+<p>Hence the required equation is</p>
+<p><span class="math display">\[
+\boxed{z^3+2z^2-13z+2=0}.
+\]</span></p>
+</details>
+<details class="answer-panel">
+<summary>
+Show solution 2: substitution method
+</summary>
+<p>Let</p>
+<p><span class="math display">\[
+w=2z+1,
+\qquad
+z=\frac{w-1}{2}.
+\]</span></p>
+<p>Substituting into the original equation gives</p>
+<p><span class="math display">\[
+2\left(\frac{w-1}{2}\right)^3
++5\left(\frac{w-1}{2}\right)^2
+-3\left(\frac{w-1}{2}\right)-2=0.
+\]</span></p>
+<p>Multiplying by <span class="math inline">\(4\)</span> and simplifying,</p>
+<p><span class="math display">\[
+(w-1)^3+5(w-1)^2-6(w-1)-8=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{w^3+2w^2-13w+2=0}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-7"> Completed</label></p>
+</section>
+<section id="example-3.8-pages-8081" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.8-pages-8081">Example 3.8 · Pages 80–81</h3>
+<p>The roots of the cubic equation</p>
+<p><span class="math display">\[
+2z^3-5z^2+z+2=0
+\]</span></p>
+<p>are <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Find the cubic equation with roots <span class="math inline">\(\alpha^2,\beta^2,\gamma^2\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Let <span class="math inline">\(w=z^2\)</span>, so <span class="math inline">\(z=\sqrt w\)</span>. Substitution gives</p>
+<p><span class="math display">\[
+2w\sqrt w-5w+\sqrt w+2=0.
+\]</span></p>
+<p>Collecting the terms containing <span class="math inline">\(\sqrt w\)</span>,</p>
+<p><span class="math display">\[
+\sqrt w(2w+1)=5w-2.
+\]</span></p>
+<p>Squaring both sides,</p>
+<p><span class="math display">\[
+w(2w+1)^2=(5w-2)^2.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+4w^3+4w^2+w&amp;=25w^2-20w+4,\\
+4w^3-21w^2+21w-4&amp;=0.
+\end{aligned}
+\]</span></p>
+<p>Therefore the required equation is</p>
+<p><span class="math display">\[
+\boxed{4w^3-21w^2+21w-4=0}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-8"> Completed</label></p>
+</section>
+<section id="example-3.9-pages-8485" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3.9-pages-8485">Example 3.9 · Pages 84–85</h3>
+<p>The roots of the quartic equation</p>
+<p><span class="math display">\[
+4z^4+pz^3+qz^2-z+3=0
+\]</span></p>
+<p>are <span class="math inline">\(\alpha,-\alpha,\alpha+\lambda,\alpha-\lambda\)</span>, where <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\lambda\)</span> are real numbers.</p>
+<ol type="1">
+<li>Express <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> in terms of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\lambda\)</span>.</li>
+<li>Show that <span class="math inline">\(\alpha=-\dfrac12\)</span>, and find the values of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>.</li>
+<li>Give the roots of the quartic equation.</li>
+</ol>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The sum of the roots is</p>
+<p><span class="math display">\[
+\alpha-\alpha+(\alpha+\lambda)+(\alpha-\lambda)
+=2\alpha=-\frac p4,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{p=-8\alpha}.
+\]</span></p>
+<p>The sum of the products of the roots in pairs simplifies to <span class="math inline">\(-\lambda^2\)</span>. Hence</p>
+<p><span class="math display">\[
+-\lambda^2=\frac q4
+\quad\Longrightarrow\quad
+\boxed{q=-4\lambda^2}.
+\]</span></p>
+<p>The sum of the products of the roots in threes is</p>
+<p><span class="math display">\[
+-2\alpha^3.
+\]</span></p>
+<p>Since this is equal to <span class="math inline">\(-\dfrac{-1}{4}=\dfrac14\)</span>,</p>
+<p><span class="math display">\[
+-2\alpha^3=\frac14.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\alpha^3=-\frac18
+\quad\Longrightarrow\quad
+\boxed{\alpha=-\frac12},
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\boxed{p=4}.
+\]</span></p>
+<p>Using the product of the four roots,</p>
+<p><span class="math display">\[
+-\alpha^2(\alpha^2-\lambda^2)=\frac34.
+\]</span></p>
+<p>Substituting <span class="math inline">\(\alpha=-\dfrac12\)</span> gives</p>
+<p><span class="math display">\[
+-\frac14\left(\frac14-\lambda^2\right)=\frac34,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\lambda^2=\frac{13}{4}
+\qquad\text{and}\qquad
+\boxed{q=-13}.
+\]</span></p>
+<p>The roots are</p>
+<p><span class="math display">\[
+\boxed{
+\frac12,
+-\frac12,
+-\frac12+\frac{\sqrt{13}}2,
+-\frac12-\frac{\sqrt{13}}2
+}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-9"> Completed</label></p>
+</section>
+<section id="examination-questions-printed-in-the-textbook-exercises" class="level3">
+<h3 class="anchored" data-anchor-id="examination-questions-printed-in-the-textbook-exercises">Examination questions printed in the textbook exercises</h3>
+</section>
+<section id="exercise-3b-question-16" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="exercise-3b-question-16">Exercise 3B, Question 16</h3>
+<p><strong>Source:</strong> 9231 Paper 11 Q5 October/November 2015</p>
+<p>The cubic equation</p>
+<p><span class="math display">\[
+x^3+px^2+qx+r=0,
+\]</span></p>
+<p>where <span class="math inline">\(p,q,r\)</span> are integers, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span> such that</p>
+<p><span class="math display">\[
+\alpha+\beta+\gamma=15,
+\qquad
+\alpha^2+\beta^2+\gamma^2=83.
+\]</span></p>
+<p>Write down the value of <span class="math inline">\(p\)</span> and find the value of <span class="math inline">\(q\)</span>.</p>
+<p>Given that <span class="math inline">\(\alpha,\beta,\gamma\)</span> are all real and that <span class="math inline">\(\alpha\beta+\alpha\gamma=36\)</span>, find <span class="math inline">\(\alpha\)</span> and hence find the value of <span class="math inline">\(r\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Since <span class="math inline">\(\alpha+\beta+\gamma=-p\)</span>,</p>
+<p><span class="math display">\[
+\boxed{p=-15}.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\begin{aligned}
+83
+&amp;=(\alpha+\beta+\gamma)^2
+-2(\alpha\beta+\beta\gamma+\gamma\alpha)\\
+&amp;=15^2-2q,
+\end{aligned}
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{q=71}.
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+\alpha\beta+\alpha\gamma
+=\alpha(\beta+\gamma)
+=\alpha(15-\alpha)=36.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\alpha^2-15\alpha+36=0,
+\]</span></p>
+<p>giving <span class="math inline">\(\alpha=3\)</span> or <span class="math inline">\(\alpha=12\)</span>.</p>
+<p>If <span class="math inline">\(\alpha=12\)</span>, then <span class="math inline">\(\beta+\gamma=3\)</span> and <span class="math inline">\(\beta\gamma=35\)</span>, which does not give real values of <span class="math inline">\(\beta,\gamma\)</span>. Hence</p>
+<p><span class="math display">\[
+\boxed{\alpha=3}.
+\]</span></p>
+<p>Then <span class="math inline">\(\beta+\gamma=12\)</span> and <span class="math inline">\(\beta\gamma=35\)</span>, so</p>
+<p><span class="math display">\[
+r=-\alpha\beta\gamma=-3(35)=\boxed{-105}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-16"> Completed</label></p>
+</section>
+<section id="exercise-3b-question-17" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="exercise-3b-question-17">Exercise 3B, Question 17</h3>
+<p><strong>Source:</strong> 9231 Paper 11 Q2 October/November 2013</p>
+<p>The cubic equation</p>
+<p><span class="math display">\[
+x^3-px-q=0,
+\]</span></p>
+<p>where <span class="math inline">\(p,q\)</span> are constants, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Show that</p>
+<ol type="1">
+<li><span class="math inline">\(\alpha^2+\beta^2+\gamma^2=2p\)</span>;</li>
+<li><span class="math inline">\(\alpha^3+\beta^3+\gamma^3=3q\)</span>;</li>
+<li><span class="math display">\[
+6(\alpha^5+\beta^5+\gamma^5)
+=5(\alpha^3+\beta^3+\gamma^3)
+(\alpha^2+\beta^2+\gamma^2).
+\]</span></li>
+</ol>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>For the original equation,</p>
+<p><span class="math display">\[
+\alpha+\beta+\gamma=0,
+\qquad
+\alpha\beta+\beta\gamma+\gamma\alpha=-p.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha^2+\beta^2+\gamma^2
+&amp;=(\alpha+\beta+\gamma)^2
+-2(\alpha\beta+\beta\gamma+\gamma\alpha)\\
+&amp;=0-2(-p)\\
+&amp;=\boxed{2p}.
+\end{aligned}
+\]</span></p>
+<p>Each root satisfies <span class="math inline">\(x^3=px+q\)</span>. Adding the three corresponding equations gives</p>
+<p><span class="math display">\[
+\alpha^3+\beta^3+\gamma^3
+=p(\alpha+\beta+\gamma)+3q
+=\boxed{3q}.
+\]</span></p>
+<p>Multiplying <span class="math inline">\(x^3=px+q\)</span> by <span class="math inline">\(x^2\)</span> gives <span class="math inline">\(x^5=px^3+qx^2\)</span>. Hence</p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha^5+\beta^5+\gamma^5
+&amp;=p(\alpha^3+\beta^3+\gamma^3)
++q(\alpha^2+\beta^2+\gamma^2)\\
+&amp;=p(3q)+q(2p)\\
+&amp;=5pq.
+\end{aligned}
+\]</span></p>
+<p>Thus both sides of the required identity are equal to <span class="math inline">\(30pq\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-17"> Completed</label></p>
+</section>
+<section id="exercise-3b-question-18" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="exercise-3b-question-18">Exercise 3B, Question 18</h3>
+<p><strong>Source:</strong> 9231 Paper 11 Q1 October/November 2011</p>
+<p>The equation</p>
+<p><span class="math display">\[
+x^3+px+q=0
+\]</span></p>
+<p>has a repeated root. Prove that</p>
+<p><span class="math display">\[
+4p^3+27q^2=0.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Let the repeated root be <span class="math inline">\(\alpha\)</span> and the third root be <span class="math inline">\(\beta\)</span>. Since the coefficient of <span class="math inline">\(x^2\)</span> is zero,</p>
+<p><span class="math display">\[
+2\alpha+\beta=0
+\quad\Longrightarrow\quad
+\beta=-2\alpha.
+\]</span></p>
+<p>Using the sum of the products in pairs,</p>
+<p><span class="math display">\[
+p=\alpha^2+2\alpha\beta
+=\alpha^2-4\alpha^2
+=-3\alpha^2.
+\]</span></p>
+<p>Using the product of the roots,</p>
+<p><span class="math display">\[
+-q=\alpha^2\beta=-2\alpha^3,
+\]</span></p>
+<p>so <span class="math inline">\(q=2\alpha^3\)</span>. Therefore</p>
+<p><span class="math display">\[
+\begin{aligned}
+4p^3+27q^2
+&amp;=4(-3\alpha^2)^3+27(2\alpha^3)^2\\
+&amp;=-108\alpha^6+108\alpha^6\\
+&amp;=\boxed{0}.
+\end{aligned}
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-18"> Completed</label></p>
+</section>
+<section id="exercise-3c-question-7" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="exercise-3c-question-7">Exercise 3C, Question 7</h3>
+<p><strong>Source:</strong> 9231 Paper 11 Q11 October/November 2014</p>
+<p>The roots of the quartic equation</p>
+<p><span class="math display">\[
+x^4+4x^3+2x^2-4x+1=0
+\]</span></p>
+<p>are <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>. Find the values of</p>
+<ol type="1">
+<li><span class="math inline">\(\alpha+\beta+\gamma+\delta\)</span>;</li>
+<li><span class="math inline">\(\alpha^2+\beta^2+\gamma^2+\delta^2\)</span>;</li>
+<li><span class="math inline">\(\dfrac1\alpha+\dfrac1\beta+\dfrac1\gamma+\dfrac1\delta\)</span>;</li>
+<li><span class="math display">\[
+\frac{\alpha}{\beta\gamma\delta}
++\frac{\beta}{\alpha\gamma\delta}
++\frac{\gamma}{\alpha\beta\delta}
++\frac{\delta}{\alpha\beta\gamma}.
+\]</span></li>
+</ol>
+<p>Using the substitution <span class="math inline">\(y=x+1\)</span>, find a quartic equation in <span class="math inline">\(y\)</span>. Solve this quartic equation and hence find the roots of</p>
+<p><span class="math display">\[
+x^4+4x^3+2x^2-4x+1=0.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>From the coefficients,</p>
+<p><span class="math display">\[
+\sum\alpha=-4,
+\qquad
+\sum\alpha\beta=2,
+\qquad
+\sum\alpha\beta\gamma=4,
+\qquad
+\alpha\beta\gamma\delta=1.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\alpha+\beta+\gamma+\delta=-4},
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+\alpha^2+\beta^2+\gamma^2+\delta^2
+&amp;=(\alpha+\beta+\gamma+\delta)^2-2\sum\alpha\beta\\
+&amp;=16-4\\
+&amp;=\boxed{12},
+\end{aligned}
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac1\alpha+\frac1\beta+\frac1\gamma+\frac1\delta
+=\frac{\sum\alpha\beta\gamma}{\alpha\beta\gamma\delta}
+=\boxed{4}.
+\]</span></p>
+<p>Also,</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\frac{\alpha}{\beta\gamma\delta}
++\frac{\beta}{\alpha\gamma\delta}
++\frac{\gamma}{\alpha\beta\delta}
++\frac{\delta}{\alpha\beta\gamma}\\
+&amp;=\frac{\alpha^2+\beta^2+\gamma^2+\delta^2}
+{\alpha\beta\gamma\delta}\\
+&amp;=\boxed{12}.
+\end{aligned}
+\]</span></p>
+<p>Let <span class="math inline">\(y=x+1\)</span>, so <span class="math inline">\(x=y-1\)</span>. Substitution gives</p>
+<p><span class="math display">\[
+y^4-4y^2+4=0,
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+(y^2-2)^2=0.
+\]</span></p>
+<p>Thus <span class="math inline">\(y=\pm\sqrt2\)</span>, each repeated, and the roots of the original equation are</p>
+<p><span class="math display">\[
+\boxed{-1+\sqrt2,\ -1+\sqrt2,\ -1-\sqrt2,\ -1-\sqrt2}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-7"> Completed</label></p>
+</section>
+<section id="exercise-3c-question-8" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="exercise-3c-question-8">Exercise 3C, Question 8</h3>
+<p><strong>Source:</strong> 9231 Paper 11 Q11 October/November 2012</p>
+<p>The roots of the equation</p>
+<p><span class="math display">\[
+x^4-3x^2+5x-2=0
+\]</span></p>
+<p>are <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>, and</p>
+<p><span class="math display">\[
+S_n=\alpha^n+\beta^n+\gamma^n+\delta^n.
+\]</span></p>
+<p>Show that</p>
+<p><span class="math display">\[
+S_{n+4}-3S_{n+2}+5S_{n+1}-2S_n=0.
+\]</span></p>
+<p>Find the values of</p>
+<ol type="1">
+<li><span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_4\)</span>;</li>
+<li><span class="math inline">\(S_3\)</span> and <span class="math inline">\(S_5\)</span>.</li>
+</ol>
+<p>Hence find the value of</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\alpha^2(\beta^3+\gamma^3+\delta^3)
++\beta^2(\gamma^3+\delta^3+\alpha^3)\\
+&amp;\quad+\gamma^2(\delta^3+\alpha^3+\beta^3)
++\delta^2(\alpha^3+\beta^3+\gamma^3).
+\end{aligned}
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Each root satisfies</p>
+<p><span class="math display">\[
+x^4-3x^2+5x-2=0.
+\]</span></p>
+<p>Multiplying by <span class="math inline">\(x^n\)</span> and then adding the four resulting equations gives</p>
+<p><span class="math display">\[
+\boxed{S_{n+4}-3S_{n+2}+5S_{n+1}-2S_n=0}.
+\]</span></p>
+<p>From the coefficients,</p>
+<p><span class="math display">\[
+S_1=0,
+\qquad
+\sum\alpha\beta=-3,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+S_2=S_1^2-2\sum\alpha\beta=\boxed{6}.
+\]</span></p>
+<p>Taking <span class="math inline">\(n=0\)</span> in the recurrence, with <span class="math inline">\(S_0=4\)</span>, gives</p>
+<p><span class="math display">\[
+S_4-3S_2+5S_1-2S_0=0,
+\]</span></p>
+<p>and hence</p>
+<p><span class="math display">\[
+S_4=\boxed{26}.
+\]</span></p>
+<p>Also, <span class="math inline">\(\sum\alpha\beta\gamma=-5\)</span>, so</p>
+<p><span class="math display">\[
+\begin{aligned}
+S_3
+&amp;=\left(\sum\alpha\right)^3
+-3\left(\sum\alpha\right)\left(\sum\alpha\beta\right)
++3\sum\alpha\beta\gamma\\
+&amp;=0-0+3(-5)\\
+&amp;=\boxed{-15}.
+\end{aligned}
+\]</span></p>
+<p>Taking <span class="math inline">\(n=1\)</span> in the recurrence gives</p>
+<p><span class="math display">\[
+S_5-3S_3+5S_2-2S_1=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+S_5=\boxed{-75}.
+\]</span></p>
+<p>The final expression is</p>
+<p><span class="math display">\[
+S_2S_3-S_5
+=6(-15)-(-75)
+=\boxed{-15}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-8"> Completed</label></p>
+</section>
+</section>
+<section id="past-paper-question-bank" class="level2">
+<h2 class="anchored" data-anchor-id="past-paper-question-bank">3. Past-paper question bank</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2019</h3>
+</section>
+<div id="text-roots-2019-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-6-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-6-9-marks">2019 May/June · 9231/11 &amp; 9231/12 · Question 6 · 9 marks</h3>
+<p><span class="tag">Power sums</span><span class="tag">Transformed roots</span><span class="tag">★★★☆☆</span></p>
+<p>The equation</p>
+<p><span class="math display">\[x^3-x+1=0\]</span></p>
+<p>has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(i)</strong> Use the relation <span class="math inline">\(x=y^{1/3}\)</span> to show that the equation</p>
+<p><span class="math display">\[y^3+3y^2+2y+1=0\]</span></p>
+<p>has roots <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>. Hence write down the value of <span class="math inline">\(\alpha^3+\beta^3+\gamma^3\)</span>. <strong>[3]</strong></p>
+<p>Let <span class="math inline">\(S_n=\alpha^n+\beta^n+\gamma^n\)</span>.</p>
+<p><strong>(ii)</strong> Find the value of <span class="math inline">\(S_{-3}\)</span>. <strong>[2]</strong></p>
+<p><strong>(iii)</strong> Show that <span class="math inline">\(S_6=5\)</span> and find the value of <span class="math inline">\(S_9\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(i)</strong> From <span class="math inline">\(x^3-x+1=0\)</span>, <span class="math inline">\(y+1=y^{1/3}\)</span>, so</p>
+<p><span class="math display">\[y=(y+1)^3\quad\Longrightarrow\quad y^3+3y^2+2y+1=0. \qquad \text{M1 A1}\]</span></p>
+<p>Therefore <span class="math inline">\(S_3=-3\)</span>. <strong>B1</strong></p>
+<p><strong>(ii)</strong> For the roots <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>, the sum of pairwise products is <span class="math inline">\(2\)</span> and the product is <span class="math inline">\(-1\)</span>. Hence</p>
+<p><span class="math display">\[S_{-3}=\frac{2}{-1}=-2. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(iii)</strong></p>
+<p><span class="math display">\[S_6=S_3^2-2(2)=(-3)^2-4=5. \qquad \text{M1 A1}\]</span></p>
+<p>Summing the transformed equation over its three roots gives</p>
+<p><span class="math display">\[S_9+3S_6+2S_3+3=0,\]</span></p>
+<p>so</p>
+<p><span class="math display">\[S_9=-3(5)-2(-3)-3=-12. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2019-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2019, Q6; 9231/12/M/J/2019, Q6.
+</div>
+</section>
+</div>
+<div id="text-roots-2019-mj-13" class="question-card">
+<section id="mayjune-923113-question-9-11-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-9-11-marks">2019 May/June · 9231/13 · Question 9 · 11 marks</h3>
+<p><span class="tag">Unknown coefficients</span><span class="tag">Symmetric sums</span><span class="tag">★★★★☆</span></p>
+<p>A cubic equation</p>
+<p><span class="math display">\[x^3+bx^2+cx+d=0\]</span></p>
+<p>has real roots <span class="math inline">\(\alpha,\beta,\gamma\)</span> such that</p>
+<p><span class="math display">\[
+\frac1\alpha+\frac1\beta+\frac1\gamma=-\frac5{12},
+\qquad \alpha\beta\gamma=-12,
+\qquad \alpha^3+\beta^3+\gamma^3=90.
+\]</span></p>
+<p><strong>(i)</strong> Find the values of <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span>. <strong>[3]</strong></p>
+<p><strong>(ii)</strong> Express <span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span> in terms of <span class="math inline">\(b\)</span>. <strong>[2]</strong></p>
+<p><strong>(iii)</strong> Show that <span class="math inline">\(b^3-15b+126=0\)</span>. <strong>[4]</strong></p>
+<p><strong>(iv)</strong> Given that <span class="math inline">\(3+i\sqrt{12}\)</span> is a root of <span class="math inline">\(y^3-15y+126=0\)</span>, deduce the value of <span class="math inline">\(b\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(i)</strong> Since <span class="math inline">\(\alpha\beta\gamma=-d=-12\)</span>, <span class="math inline">\(d=12\)</span>. <strong>B1</strong></p>
+<p>Also</p>
+<p><span class="math display">\[\frac{\alpha\beta+\beta\gamma+\gamma\alpha}{\alpha\beta\gamma}=-\frac5{12},\]</span></p>
+<p>so <span class="math inline">\(c=\alpha\beta+\beta\gamma+\gamma\alpha=5\)</span>. <strong>M1 A1</strong></p>
+<p><strong>(ii)</strong></p>
+<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=(\alpha+\beta+\gamma)^2-2c=b^2-10. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(iii)</strong> Using the cubic equation for each root and summing,</p>
+<p><span class="math display">\[90=-b(b^2-10)-5(-b)-36.\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[b^3-15b+126=0. \qquad \text{M1 M1 A1 A1}\]</span></p>
+<p><strong>(iv)</strong> The conjugate <span class="math inline">\(3-i\sqrt{12}\)</span> is also a root. Since the sum of the roots of <span class="math inline">\(y^3-15y+126=0\)</span> is zero, the third root is <span class="math inline">\(-6\)</span>. Therefore <span class="math inline">\(b=-6\)</span>. <strong>M1 A1</strong></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2019-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2019, Q9.
+</div>
+</section>
+</div>
+<div id="text-roots-2019-on" class="question-card">
+<section id="octobernovember-923111-923112-923113-question-7-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923112-923113-question-7-9-marks">2019 October/November · 9231/11, 9231/12 &amp; 9231/13 · Question 7 · 9 marks</h3>
+<p><span class="tag">Transformed roots</span><span class="tag">Power sums</span><span class="tag">★★★★☆</span></p>
+<p>The equation <span class="math inline">\(x^3+2x^2+x+7=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(i)</strong> Use the relation <span class="math inline">\(x^2=-7y\)</span> to show that</p>
+<p><span class="math display">\[49y^3+14y^2-27y+7=0\]</span></p>
+<p>has roots</p>
+<p><span class="math display">\[\frac{\alpha}{\beta\gamma},\qquad
+\frac{\beta}{\gamma\alpha},\qquad
+\frac{\gamma}{\alpha\beta}. \qquad \textbf{[4]}\]</span></p>
+<p><strong>(ii)</strong> Show that</p>
+<p><span class="math display">\[\frac{\alpha^2}{\beta^2\gamma^2}+
+\frac{\beta^2}{\gamma^2\alpha^2}+
+\frac{\gamma^2}{\alpha^2\beta^2}=\frac{58}{49}. \qquad \textbf{[3]}\]</span></p>
+<p><strong>(iii)</strong> Find the exact value of</p>
+<p><span class="math display">\[
+\frac{\alpha^3}{\beta^3\gamma^3}+
+\frac{\beta^3}{\gamma^3\alpha^3}+
+\frac{\gamma^3}{\alpha^3\beta^3}. \qquad \textbf{[2]}
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Since <span class="math inline">\(\alpha\beta\gamma=-7\)</span>,</p>
+<p><span class="math display">\[\frac{\alpha}{\beta\gamma}=-\frac{\alpha^2}{7},\]</span></p>
+<p>and similarly for the other two roots. Substituting <span class="math inline">\(x^2=-7y\)</span> and eliminating <span class="math inline">\(x\)</span> gives the stated cubic. <strong>M1 M1 A1 A1</strong></p>
+<p>For the transformed roots,</p>
+<p><span class="math display">\[e_1=-\frac27,\qquad e_2=-\frac{27}{49},\qquad e_3=-\frac17.\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[p_2=e_1^2-2e_2=\frac4{49}+\frac{54}{49}=\frac{58}{49}. \qquad \text{M1 A1 A1}\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[p_3=e_1p_2-e_2p_1+3e_3=-\frac{317}{343}. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2019-on"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2019, Q7; 9231/12/O/N/2019, Q7; 9231/13/O/N/2019, Q7.
+</div>
+</section>
+</div>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2020</h3>
+</section>
+<div id="text-roots-2020-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-2-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-2-8-marks">2020 May/June · 9231/11 &amp; 9231/12 · Question 2 · 8 marks</h3>
+<p><span class="tag">Squared roots</span><span class="tag">Unknown coefficient</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(6x^3+px^2-3x-5=0\)</span>, where <span class="math inline">\(p\)</span> is a constant, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^2,\beta^2,\gamma^2\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> It is given that</p>
+<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=2(\alpha+\beta+\gamma).\]</span></p>
+<p><strong>(i)</strong> Find the value of <span class="math inline">\(p\)</span>. <strong>[3]</strong></p>
+<p><strong>(ii)</strong> Find the value of <span class="math inline">\(\alpha^3+\beta^3+\gamma^3\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^2\)</span>. Squaring <span class="math inline">\(x(6y-3)=5-py\)</span> gives</p>
+<p><span class="math display">\[y(6y-3)^2=(5-py)^2,\]</span></p>
+<p>hence</p>
+<p><span class="math display">\[36y^3-(p^2+36)y^2+(10p+9)y-25=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(b)(i)</strong></p>
+<p><span class="math display">\[\alpha+\beta+\gamma=-\frac p6,\qquad
+\alpha\beta+\beta\gamma+\gamma\alpha=-\frac12.\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[\frac{p^2}{36}+1=-\frac p3,\]</span></p>
+<p>so <span class="math inline">\((p+6)^2=0\)</span> and <span class="math inline">\(p=-6\)</span>. <strong>M1 A1 A1</strong></p>
+<p><strong>(b)(ii)</strong> With <span class="math inline">\(p=-6\)</span>,</p>
+<p><span class="math display">\[e_1=1,quad e_2=-\frac12,quad e_3=\frac56,\]</span></p>
+<p>and</p>
+<p><span class="math display">\[\alpha^3+\beta^3+\gamma^3=e_1^3-3e_1e_2+3e_3=5. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2020-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2020, Q2; 9231/12/M/J/2020, Q2.
+</div>
+</section>
+</div>
+<div id="text-roots-2020-mj-13" class="question-card">
+<section id="mayjune-923113-question-1-7-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-1-7-marks">2020 May/June · 9231/13 · Question 1 · 7 marks</h3>
+<p><span class="tag">Reciprocal roots</span><span class="tag">Negative powers</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(7x^3+3x^2+5x+1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^{-1},\beta^{-1},\gamma^{-1}\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\(\alpha^{-2}+\beta^{-2}+\gamma^{-2}\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(\alpha^{-3}+\beta^{-3}+\gamma^{-3}\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=1/x\)</span> and multiply by <span class="math inline">\(y^3\)</span>:</p>
+<p><span class="math display">\[y^3+5y^2+3y+7=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p>For the reciprocal roots, <span class="math inline">\(e_1=-5\)</span>, <span class="math inline">\(e_2=3\)</span>, <span class="math inline">\(e_3=-7\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[p_2=e_1^2-2e_2=25-6=19. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(c)</strong></p>
+<p><span class="math display">\[p_3=e_1p_2-e_2p_1+3e_3=-5(19)-3(-5)-21=-101. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2020-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2020, Q1.
+</div>
+</section>
+</div>
+<div id="text-roots-2020-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-3-11-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-3-11-marks">2020 October/November · 9231/11 &amp; 9231/13 · Question 3 · 11 marks</h3>
+<p><span class="tag">Cubed roots</span><span class="tag">Singular matrix</span><span class="tag">★★★★☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+cx+1=0\)</span>, where <span class="math inline">\(c\)</span> is a constant, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Show that <span class="math inline">\(\alpha^6+\beta^6+\gamma^6=3-2c^3\)</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Find the real value of <span class="math inline">\(c\)</span> for which</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;\alpha^3&amp;\beta^3\\
+\alpha^3&amp;1&amp;\gamma^3\\
+\beta^3&amp;\gamma^3&amp;1
+\end{pmatrix}
+\]</span></p>
+<p>is singular. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3\)</span>. Since <span class="math inline">\(y+cx+1=0\)</span>, cubing <span class="math inline">\(cx=-(y+1)\)</span> gives</p>
+<p><span class="math display">\[y^3+3y^2+(c^3+3)y+1=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(b)</strong> For the new roots, <span class="math inline">\(e_1=-3\)</span> and <span class="math inline">\(e_2=c^3+3\)</span>. Hence</p>
+<p><span class="math display">\[\alpha^6+\beta^6+\gamma^6=(-3)^2-2(c^3+3)=3-2c^3. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">\(\alpha\beta\gamma=-1\)</span>,</p>
+<p><span class="math display">\[\alpha^3\beta^3\gamma^3=-1.\]</span></p>
+<p>The determinant is</p>
+<p><span class="math display">\[1-(\alpha^6+\beta^6+\gamma^6)+2\alpha^3\beta^3\gamma^3=2c^3-4.\]</span></p>
+<p>Therefore <span class="math inline">\(c^3=2\)</span> and</p>
+<p><span class="math display">\[c=\sqrt[3]{2}. \qquad \text{B1 M1 A1 M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2020-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2020, Q3; 9231/13/O/N/2020, Q3.
+</div>
+</section>
+</div>
+<div id="text-roots-2020-on-12" class="question-card">
+<section id="octobernovember-923112-question-1-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-1-8-marks">2020 October/November · 9231/12 · Question 1 · 8 marks</h3>
+<p><span class="tag">Linear transformation</span><span class="tag">Unknown coefficients</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx+d=0\)</span>, where <span class="math inline">\(b,c,d\)</span> are constants, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. It is given that <span class="math inline">\(\alpha\beta\gamma=-1\)</span>.</p>
+<p><strong>(a)</strong> State the value of <span class="math inline">\(d\)</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> Find a cubic equation, with coefficients in terms of <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>, whose roots are <span class="math inline">\(\alpha+1,\beta+1,\gamma+1\)</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Given also that <span class="math inline">\(\gamma+1=-\alpha-1\)</span>, deduce that</p>
+<p><span class="math display">\[(c-2b+3)(b-3)=b-c. \qquad \textbf{[4]}\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Since <span class="math inline">\(\alpha\beta\gamma=-d=-1\)</span>, <span class="math inline">\(d=1\)</span>. <strong>B1</strong></p>
+<p><strong>(b)</strong> The transformed roots have</p>
+<p><span class="math display">\[e_1'=3-b,\qquad e_2'=c-2b+3,\qquad e_3'=c-b.\]</span></p>
+<p>Thus the required equation is</p>
+<p><span class="math display">\[x^3+(b-3)x^2+(c-2b+3)x+(b-c)=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(c)</strong> The transformed roots include a pair <span class="math inline">\(r,-r\)</span>. The third root is <span class="math inline">\(3-b\)</span>, so</p>
+<p><span class="math display">\[e_3'=e_2'(3-b).\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[c-b=(c-2b+3)(3-b),\]</span></p>
+<p>which is equivalent to the required result. <strong>B1 B1 M1 A1</strong></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2020-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2020, Q1.
+</div>
+</section>
+</div>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2021</h3>
+</section>
+<div id="text-roots-2021-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-3-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-3-9-marks">2021 May/June · 9231/11 &amp; 9231/12 · Question 3 · 9 marks</h3>
+<p><span class="tag">Quartic equation</span><span class="tag">Power sums</span><span class="tag">★★★★☆</span></p>
+<p>The equation <span class="math inline">\(x^4-2x^3-1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>.</p>
+<p><strong>(a)</strong> Find a quartic equation whose roots are <span class="math inline">\(\alpha^3,\beta^3,\gamma^3,\delta^3\)</span> and state the value of <span class="math inline">\(\alpha^3+\beta^3+\gamma^3+\delta^3\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Find</p>
+<p><span class="math display">\[\frac1{\alpha^3}+\frac1{\beta^3}+\frac1{\gamma^3}+\frac1{\delta^3}. \qquad \textbf{[3]}\]</span></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3\)</span>. Since <span class="math inline">\(x^4=2x^3+1\)</span>, <span class="math inline">\(x=(2y+1)/y\)</span>. Using <span class="math inline">\(x^3=y\)</span> gives</p>
+<p><span class="math display">\[y^4-(2y+1)^3=0,\]</span></p>
+<p>so</p>
+<p><span class="math display">\[y^4-8y^3-12y^2-6y-1=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p>Hence <span class="math inline">\(\alpha^3+\beta^3+\gamma^3+\delta^3=8\)</span>. <strong>B1</strong></p>
+<p><strong>(b)</strong> For the transformed equation, <span class="math inline">\(e_3=6\)</span> and <span class="math inline">\(e_4=-1\)</span>. Therefore</p>
+<p><span class="math display">\[\sum\frac1{\alpha^3}=\frac{e_3}{e_4}=-6. \qquad \text{M1 A1 A1}\]</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">\(x^4=2x^3+1\)</span> for every root,</p>
+<p><span class="math display">\[\alpha^4+\beta^4+\gamma^4+\delta^4=2(8)+4=20. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2021-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2021, Q3; 9231/12/M/J/2021, Q3.
+</div>
+</section>
+</div>
+<div id="text-roots-2021-mj-13" class="question-card">
+<section id="mayjune-923113-question-2-11-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-2-11-marks">2021 May/June · 9231/13 · Question 2 · 11 marks</h3>
+<p><span class="tag">Power sums</span><span class="tag">Pair sums</span><span class="tag">★★★★☆</span></p>
+<p>The cubic equation <span class="math inline">\(2x^3-4x^2+3=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Let</p>
+<p><span class="math display">\[S_n=\alpha^n+\beta^n+\gamma^n.\]</span></p>
+<p><strong>(a)</strong> State the value of <span class="math inline">\(S_1\)</span> and find the value of <span class="math inline">\(S_2\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)(i)</strong> Express <span class="math inline">\(S_{n+3}\)</span> in terms of <span class="math inline">\(S_{n+2}\)</span> and <span class="math inline">\(S_n\)</span>. <strong>[1]</strong></p>
+<p><strong>(b)(ii)</strong> Hence, or otherwise, find <span class="math inline">\(S_4\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Use the substitution <span class="math inline">\(y=S_1-x\)</span>, where <span class="math inline">\(S_1\)</span> is the numerical value found in part (a), to find and simplify an equation whose roots are <span class="math inline">\(\alpha+\beta,\beta+\gamma,\gamma+\alpha\)</span>. <strong>[3]</strong></p>
+<p><strong>(d)</strong> Find</p>
+<p><span class="math display">\[\frac1{\alpha+\beta}+\frac1{\beta+\gamma}+\frac1{\gamma+\alpha}. \qquad \textbf{[2]}\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> <span class="math inline">\(S_1=2\)</span>. Since <span class="math inline">\(e_2=0\)</span>,</p>
+<p><span class="math display">\[S_2=S_1^2-2e_2=4. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(b)(i)</strong> From <span class="math inline">\(2x^3-4x^2+3=0\)</span>,</p>
+<p><span class="math display">\[S_{n+3}=2S_{n+2}-\frac32S_n. \qquad \text{B1}\]</span></p>
+<p><strong>(b)(ii)</strong> <span class="math inline">\(S_3=7/2\)</span>, hence</p>
+<p><span class="math display">\[S_4=2S_3-\frac32S_1=4. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(c)</strong> Put <span class="math inline">\(x=2-y\)</span>:</p>
+<p><span class="math display">\[2(2-y)^3-4(2-y)^2+3=0,\]</span></p>
+<p>which simplifies to</p>
+<p><span class="math display">\[2y^3-8y^2+8y-3=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(d)</strong> For the new roots,</p>
+<p><span class="math display">\[\sum\frac1y=\frac{8}{3}. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2021-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2021, Q2.
+</div>
+</section>
+</div>
+<div id="text-roots-2021-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-1-6-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-1-6-marks">2021 October/November · 9231/11 &amp; 9231/13 · Question 1 · 6 marks</h3>
+<p><span class="tag">Recovering coefficients</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
+<p>It is given that</p>
+<p><span class="math display">\[
+\alpha+\beta+\gamma=3,\qquad
+\alpha^2+\beta^2+\gamma^2=5,\qquad
+\alpha^3+\beta^3+\gamma^3=6.
+\]</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx+d=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Find <span class="math inline">\(b,c,d\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[b=-(\alpha+\beta+\gamma)=-3. \qquad \text{B1}\]</span></p>
+<p>Using <span class="math inline">\(5=3^2-2c\)</span> gives <span class="math inline">\(c=2\)</span>. <strong>M1 A1</strong></p>
+<p>Using</p>
+<p><span class="math display">\[p_3=e_1p_2-e_2p_1+3e_3\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[6=3(5)-2(3)-3d,\]</span></p>
+<p>so <span class="math inline">\(d=1\)</span>. <strong>M1 A1 A1</strong></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2021-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2021, Q1; 9231/13/O/N/2021, Q1.
+</div>
+</section>
+</div>
+<div id="text-roots-2021-on-12" class="question-card">
+<section id="octobernovember-923112-question-4-10-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-4-10-marks">2021 October/November · 9231/12 · Question 4 · 10 marks</h3>
+<p><span class="tag">Power sums</span><span class="tag">Summation</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+2x^2+3x+3=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Show that <span class="math inline">\(\alpha^3+\beta^3+\gamma^3=1\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Use standard results from the list of formulae (MF19) to show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\left((\alpha+r)^3+(\beta+r)^3+(\gamma+r)^3\right)
+=n+\frac14n(n+1)(an^2+bn+c),
+\]</span></p>
+<p>where <span class="math inline">\(a,b,c\)</span> are constants to be determined. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[p_2=(-2)^2-2(3)=-2. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(b)</strong> Summing the original equation over the roots,</p>
+<p><span class="math display">\[p_3+2p_2+3p_1+9=0,\]</span></p>
+<p>so <span class="math inline">\(p_3=1\)</span>. <strong>M1 A1</strong></p>
+<p><strong>(c)</strong> Expand</p>
+<p><span class="math display">\[\sum_{r=1}^{n}\left(1-6r-6r^2+3r^3\right). \qquad \text{B1 M1 A1}\]</span></p>
+<p>Using the standard sums and simplifying gives</p>
+<p><span class="math display">\[n+\frac14n(n+1)(3n^2-5n-16). \qquad \text{M1 M1 A1}\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[a=3,\qquad b=-5,\qquad c=-16.\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2021-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2021, Q4.
+</div>
+</section>
+</div>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2022</h3>
+</section>
+<div id="text-roots-2022-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-4-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-4-8-marks">2022 May/June · 9231/11 &amp; 9231/12 · Question 4 · 8 marks</h3>
+<p><span class="tag">Reciprocal powers</span><span class="tag">Transformed roots</span><span class="tag">★★★★☆</span></p>
+<p>The cubic equation <span class="math inline">\(2x^3+5x^2-6=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(1/\alpha^3,1/\beta^3,1/\gamma^3\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find</p>
+<p><span class="math display">\[\frac1{\alpha^6}+\frac1{\beta^6}+\frac1{\gamma^6}. \qquad \textbf{[3]}\]</span></p>
+<p><strong>(c)</strong> Find also</p>
+<p><span class="math display">\[\frac1{\alpha^9}+\frac1{\beta^9}+\frac1{\gamma^9}. \qquad \textbf{[2]}\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^{-3}\)</span>. Eliminating <span class="math inline">\(x\)</span> gives</p>
+<p><span class="math display">\[216y^3-216y^2-53y-8=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(b)</strong> For the transformed roots,</p>
+<p><span class="math display">\[e_1=1,\qquad e_2=-\frac{53}{216}.\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[p_2=1-2\left(-\frac{53}{216}\right)=\frac{161}{108}. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(c)</strong> From the transformed equation,</p>
+<p><span class="math display">\[216S_{-9}=216S_{-6}+53S_{-3}+24.\]</span></p>
+<p>Since <span class="math inline">\(S_{-3}=1\)</span>,</p>
+<p><span class="math display">\[S_{-9}=\frac{133}{72}. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2022-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2022, Q4; 9231/12/M/J/2022, Q4.
+</div>
+</section>
+</div>
+<div id="text-roots-2022-mj-13" class="question-card">
+<section id="mayjune-923113-question-2-7-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-2-7-marks">2022 May/June · 9231/13 · Question 2 · 7 marks</h3>
+<p><span class="tag">Symmetric sums</span><span class="tag">Singular matrix</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+5x^2+10x-2=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Show that</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;\alpha&amp;\beta\\
+\alpha&amp;1&amp;\gamma\\
+\beta&amp;\gamma&amp;1
+\end{pmatrix}
+\]</span></p>
+<p>is singular. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> <span class="math inline">\(e_1=-5\)</span>, <span class="math inline">\(e_2=10\)</span>, so</p>
+<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=25-20=5. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(b)</strong> The determinant is</p>
+<p><span class="math display">\[1-\alpha^2-\beta^2-\gamma^2+2\alpha\beta\gamma.\]</span></p>
+<p>Since <span class="math inline">\(\alpha\beta\gamma=2\)</span>,</p>
+<p><span class="math display">\[1-5+2(2)=0.\]</span></p>
+<p>Therefore the matrix is singular. <strong>M1 A1 M1 A1</strong></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2022-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2022, Q2.
+</div>
+</section>
+</div>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2023</h3>
+</section>
+<div id="text-roots-2023-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-3-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-3-8-marks">2023 October/November · 9231/11 &amp; 9231/13 · Question 3 · 8 marks</h3>
+<p><span class="tag">Quartic equation</span><span class="tag">Unknown coefficients</span><span class="tag">★★★☆☆</span></p>
+<p>The quartic equation</p>
+<p><span class="math display">\[x^4+bx^3+cx^2+dx-2=0\]</span></p>
+<p>has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>. It is given that</p>
+<p><span class="math display">\[
+\alpha+\beta+\gamma+\delta=3,
+\]</span></p>
+<p><span class="math display">\[
+\alpha^2+\beta^2+\gamma^2+\delta^2=5,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\alpha^{-1}+\beta^{-1}+\gamma^{-1}+\delta^{-1}=6.
+\]</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\(b,c,d\)</span>. <strong>[6]</strong></p>
+<p><strong>(b)</strong> Given also that <span class="math inline">\(\alpha^3+\beta^3+\gamma^3+\delta^3=-27\)</span>, find <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[b=-3. \qquad \text{B1}\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[5=3^2-2c,\]</span></p>
+<p>so <span class="math inline">\(c=2\)</span>. <strong>M1 A1</strong></p>
+<p>Here <span class="math inline">\(e_4=-2\)</span> and <span class="math inline">\(e_3=-d\)</span>. Since the reciprocal sum is <span class="math inline">\(e_3/e_4\)</span>,</p>
+<p><span class="math display">\[\frac{-d}{-2}=6,\]</span></p>
+<p>so <span class="math inline">\(d=12\)</span>. <strong>M1 A1 A1</strong></p>
+<p><strong>(b)</strong> Summing the quartic equation over the roots gives</p>
+<p><span class="math display">\[p_4-3p_3+2p_2+12p_1-8=0.\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[p_4=3(-27)-2(5)-12(3)+8=-119. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2023-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2023, Q3; 9231/13/O/N/2023, Q3.
+</div>
+</section>
+</div>
+<div id="text-roots-2023-on-12" class="question-card">
+<section id="octobernovember-923112-question-4-10-marks-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-4-10-marks-1">2023 October/November · 9231/12 · Question 4 · 10 marks</h3>
+<p><span class="tag">Linear transformation</span><span class="tag">Positive and negative powers</span><span class="tag">★★★★☆</span></p>
+<p>The cubic equation <span class="math inline">\(27x^3+18x^2+6x-1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Show that a cubic equation with roots <span class="math inline">\(3\alpha+1,3\beta+1,3\gamma+1\)</span> is</p>
+<p><span class="math display">\[y^3-y^2+y-2=0. \qquad \textbf{[3]}\]</span></p>
+<p>The sum <span class="math inline">\((3\alpha+1)^n+(3\beta+1)^n+(3\gamma+1)^n\)</span> is denoted by <span class="math inline">\(S_n\)</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>. <strong>[4]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(S_{-1}\)</span> and <span class="math inline">\(S_{-2}\)</span>. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=3x+1\)</span>, so <span class="math inline">\(x=(y-1)/3\)</span>. Substitution and simplification give</p>
+<p><span class="math display">\[y^3-y^2+y-2=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p>For the transformed roots, <span class="math inline">\(e_1=1\)</span>, <span class="math inline">\(e_2=1\)</span>, <span class="math inline">\(e_3=2\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[S_2=e_1^2-2e_2=-1, \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">\[S_3=e_1S_2-e_2S_1+3e_3=4. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(c)</strong></p>
+<p><span class="math display">\[S_{-1}=\frac{e_2}{e_3}=\frac12. \qquad \text{B1}\]</span></p>
+<p>For the reciprocal roots, the pairwise sum is <span class="math inline">\(e_1/e_3=1/2\)</span>. Hence</p>
+<p><span class="math display">\[S_{-2}=\left(\frac12\right)^2-2\left(\frac12\right)=-\frac34. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2023-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2023, Q4.
+</div>
+</section>
+</div>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">2024</h3>
+</section>
+<div id="text-roots-2024-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-1-6-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-1-6-marks">2024 May/June · 9231/11 &amp; 9231/12 · Question 1 · 6 marks</h3>
+<p><span class="tag">Pairwise products</span><span class="tag">Unknown coefficient</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(2x^3+x^2-px-5=0\)</span>, where <span class="math inline">\(p\)</span> is a positive constant, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> State, in terms of <span class="math inline">\(p\)</span>, the value of <span class="math inline">\(\alpha\beta+\beta\gamma+\gamma\alpha\)</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\(\alpha^2\beta\gamma+\alpha\beta^2\gamma+\alpha\beta\gamma^2\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Deduce a cubic equation whose roots are <span class="math inline">\(\alpha\beta,\beta\gamma,\alpha\gamma\)</span>. <strong>[1]</strong></p>
+<p><strong>(d)</strong> Given that <span class="math inline">\(\alpha^2+\beta^2+\gamma^2=\frac13\)</span>, find <span class="math inline">\(p\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[\alpha\beta+\beta\gamma+\gamma\alpha=-\frac p2. \qquad \text{B1}\]</span></p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[\alpha\beta\gamma(\alpha+\beta+\gamma)=\frac52\left(-\frac12\right)=-\frac54. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(c)</strong> The new roots have sum <span class="math inline">\(-p/2\)</span>, pairwise sum <span class="math inline">\(-5/4\)</span>, and product <span class="math inline">\(25/4\)</span>. Thus</p>
+<p><span class="math display">\[4y^3+2py^2-5y-25=0. \qquad \text{B1}\]</span></p>
+<p><strong>(d)</strong></p>
+<p><span class="math display">\[\frac13=\left(-\frac12\right)^2-2\left(-\frac p2\right)=\frac14+p,\]</span></p>
+<p>so</p>
+<p><span class="math display">\[p=\frac1{12}. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2024-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2024, Q1; 9231/12/M/J/2024, Q1.
+</div>
+</section>
+</div>
+<div id="text-roots-2024-mj-13" class="question-card">
+<section id="mayjune-923113-question-2-7-marks-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-2-7-marks-1">2024 May/June · 9231/13 · Question 2 · 7 marks</h3>
+<p><span class="tag">Squared roots</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+2x^2+3x+1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^2+1,\beta^2+1,\gamma^2+1\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find</p>
+<p><span class="math display">\[\left(\alpha^2+1\right)^2+\left(\beta^2+1\right)^2+\left(\gamma^2+1\right)^2. \qquad \textbf{[2]}\]</span></p>
+<p><strong>(c)</strong> Find</p>
+<p><span class="math display">\[\left(\alpha^2+1\right)^3+\left(\beta^2+1\right)^3+\left(\gamma^2+1\right)^3. \qquad \textbf{[2]}\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^2+1\)</span>. Eliminating <span class="math inline">\(x\)</span> gives</p>
+<p><span class="math display">\[y^3-y^2+4y-5=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p>For the transformed roots, <span class="math inline">\(e_1=1\)</span>, <span class="math inline">\(e_2=4\)</span>, <span class="math inline">\(e_3=5\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[p_2=e_1^2-2e_2=1-8=-7. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(c)</strong></p>
+<p><span class="math display">\[p_3=e_1p_2-e_2p_1+3e_3=-7-4+15=4. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2024-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2024, Q2.
+</div>
+</section>
+</div>
+<div id="text-roots-2024-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-3-10-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-3-10-marks">2024 October/November · 9231/11 &amp; 9231/13 · Question 3 · 10 marks</h3>
+<p><span class="tag">Quartic equation</span><span class="tag">Higher power sums</span><span class="tag">★★★★☆</span></p>
+<p>The quartic equation <span class="math inline">\(x^4+2x^3-1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>.</p>
+<p><strong>(a)</strong> Find a quartic equation whose roots are <span class="math inline">\(\alpha^4,\beta^4,\gamma^4,\delta^4\)</span> and state the value of <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[5]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\(\alpha^5+\beta^5+\gamma^5+\delta^5\)</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(\alpha^8+\beta^8+\gamma^8+\delta^8\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^4\)</span>. From <span class="math inline">\(x^4+2x^3-1=0\)</span>,</p>
+<p><span class="math display">\[16y^3=(1-y)^4.\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[y^4-20y^3+6y^2-4y+1=0. \qquad \text{B1 M1 M1 A1}\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[\alpha^4+\beta^4+\gamma^4+\delta^4=20. \qquad \text{B1}\]</span></p>
+<p><strong>(b)</strong> Multiplying the original equation by <span class="math inline">\(x\)</span> and summing over the roots,</p>
+<p><span class="math display">\[p_5+2p_4-p_1=0.\]</span></p>
+<p>Since <span class="math inline">\(p_1=-2\)</span>,</p>
+<p><span class="math display">\[p_5=-2(20)-2=-42. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(c)</strong> For the roots <span class="math inline">\(\alpha^4,\beta^4,\gamma^4,\delta^4\)</span>, the pairwise sum is <span class="math inline">\(6\)</span>. Thus</p>
+<p><span class="math display">\[p_8=20^2-2(6)=388. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2024-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2024, Q3; 9231/13/O/N/2024, Q3.
+</div>
+</section>
+</div>
+<div id="text-roots-2024-on-12" class="question-card">
+<section id="octobernovember-923112-question-3-10-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-3-10-marks">2024 October/November · 9231/12 · Question 3 · 10 marks</h3>
+<p><span class="tag">Quartic symmetric sums</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
+<p>It is given that</p>
+<p><span class="math display">\[
+\alpha+\beta+\gamma+\delta=2,\qquad
+\alpha^2+\beta^2+\gamma^2+\delta^2=3,\qquad
+\alpha^3+\beta^3+\gamma^3+\delta^3=4.
+\]</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\alpha\beta+\alpha\gamma+\alpha\delta+\beta\gamma+\beta\delta+\gamma\delta\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Find</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;\alpha^2\beta+\alpha^2\gamma+\alpha^2\delta
++\beta^2\alpha+\beta^2\gamma+\beta^2\delta\\
+&amp;\quad+\gamma^2\alpha+\gamma^2\beta+\gamma^2\delta
++\delta^2\alpha+\delta^2\beta+\delta^2\gamma.
+\end{aligned}
+\qquad \textbf{[3]}
+\]</span></p>
+<p><strong>(c)</strong> It is given that <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span> are the roots of</p>
+<p><span class="math display">\[6x^4-12x^3+3x^2+2x+6=0.\]</span></p>
+<p><strong>(i)</strong> Find <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[3]</strong></p>
+<p><strong>(ii)</strong> Find <span class="math inline">\(\alpha^5+\beta^5+\gamma^5+\delta^5\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[e_2=\frac{p_1^2-p_2}{2}=\frac{4-3}{2}=\frac12. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(b)</strong> Newton’s identity gives</p>
+<p><span class="math display">\[4=p_3=e_1p_2-e_2p_1+3e_3=6-1+3e_3,\]</span></p>
+<p>so <span class="math inline">\(e_3=-1/3\)</span>. Also</p>
+<p><span class="math display">\[e_1e_2=(\text{required sum})+3e_3.\]</span></p>
+<p>Therefore the required sum is</p>
+<p><span class="math display">\[2\left(\frac12\right)-3\left(-\frac13\right)=2. \qquad \text{M1 M1 A1}\]</span></p>
+<p><strong>(c)</strong> The monic equation is</p>
+<p><span class="math display">\[x^4-2x^3+\frac12x^2+\frac13x+1=0.\]</span></p>
+<p><strong>(i)</strong></p>
+<p><span class="math display">\[p_4=2p_3-\frac12p_2-\frac13p_1-4=\frac{11}{6}. \qquad \text{M1 M1 A1}\]</span></p>
+<p><strong>(ii)</strong></p>
+<p><span class="math display">\[p_5=2p_4-\frac12p_3-\frac13p_2-p_1=-\frac43. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2024-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2024, Q3.
+</div>
+</section>
+</div>
+<section id="section-6" class="level3">
+<h3 class="anchored" data-anchor-id="section-6">2025</h3>
+</section>
+<div id="text-roots-2025-mj-11-12" class="question-card">
+<section id="mayjune-923111-923112-question-2-7-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-2-7-marks">2025 May/June · 9231/11 &amp; 9231/12 · Question 2 · 7 marks</h3>
+<p><span class="tag">Cubed-root transformation</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+2x+1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^3-1,\beta^3-1,\gamma^3-1\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find</p>
+<p><span class="math display">\[\left(\alpha^3-1\right)^2+\left(\beta^3-1\right)^2+\left(\gamma^3-1\right)^2. \qquad \textbf{[2]}\]</span></p>
+<p><strong>(c)</strong> Find</p>
+<p><span class="math display">\[\left(\alpha^3-1\right)^3+\left(\beta^3-1\right)^3+\left(\gamma^3-1\right)^3. \qquad \textbf{[2]}\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3-1\)</span>. Eliminating <span class="math inline">\(x\)</span> gives</p>
+<p><span class="math display">\[y^3+6y^2+20y+16=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p>For the transformed roots, <span class="math inline">\(e_1=-6\)</span>, <span class="math inline">\(e_2=20\)</span>, <span class="math inline">\(e_3=-16\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[p_2=(-6)^2-2(20)=-4. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(c)</strong></p>
+<p><span class="math display">\[p_3=-6(-4)-20(-6)+3(-16)=96. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-mj-11-12"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/M/J/2025, Q2; 9231/12/M/J/2025, Q2.
+</div>
+</section>
+</div>
+<div id="text-roots-2025-mj-13" class="question-card">
+<section id="mayjune-923113-question-3-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923113-question-3-9-marks">2025 May/June · 9231/13 · Question 3 · 9 marks</h3>
+<p><span class="tag">Quartic power sums</span><span class="tag">Standard sums</span><span class="tag">★★★☆☆</span></p>
+<p>The quartic equation <span class="math inline">\(x^4+7x^2+3x+22=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\alpha^2+\beta^2+\gamma^2+\delta^2\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Use standard results from the list of formulae (MF19) to find</p>
+<p><span class="math display">\[
+\sum_{r=1}^{10}\left(
+(\alpha^2+r^2)^2+(\beta^2+r^2)^2+(\gamma^2+r^2)^2+(\delta^2+r^2)^2
+\right). \qquad \textbf{[5]}
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Since <span class="math inline">\(e_1=0\)</span> and <span class="math inline">\(e_2=7\)</span>,</p>
+<p><span class="math display">\[p_2=0-2(7)=-14. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(b)</strong> Summing the original equation over the roots,</p>
+<p><span class="math display">\[p_4+7p_2+3p_1+88=0,\]</span></p>
+<p>so <span class="math inline">\(p_4=10\)</span>. <strong>M1 A1</strong></p>
+<p><strong>(c)</strong> For each <span class="math inline">\(r\)</span>,</p>
+<p><span class="math display">\[\sum(\alpha^2+r^2)^2=4r^4+2r^2p_2+p_4=4r^4-28r^2+10. \qquad \text{B1 M1 A1FT}\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[4\sum_{r=1}^{10}r^4-28\sum_{r=1}^{10}r^2+100=100. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-mj-13"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/13/M/J/2025, Q3.
+</div>
+</section>
+</div>
+<div id="text-roots-2025-mj-14" class="question-card">
+<section id="mayjune-923114-question-4-10-marks" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923114-question-4-10-marks">2025 May/June · 9231/14 · Question 4 · 10 marks</h3>
+<p><span class="tag">Symmetric sums</span><span class="tag">Singular matrix</span><span class="tag">★★★★☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx-1=0\)</span>, where <span class="math inline">\(b,c\)</span> are constants, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p>It is given that</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1&amp;\alpha&amp;\beta\\
+\alpha&amp;1&amp;\gamma\\
+\beta&amp;\gamma&amp;1
+\end{pmatrix}
+\]</span></p>
+<p>is singular.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(\alpha^2+\beta^2+\gamma^2=3\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> It is given that <span class="math inline">\(\alpha^3+\beta^3+\gamma^3=3\)</span> and that <span class="math inline">\(b,c\)</span> are positive. Find <span class="math inline">\(b,c\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The determinant is</p>
+<p><span class="math display">\[1-\alpha^2-\beta^2-\gamma^2+2\alpha\beta\gamma.\]</span></p>
+<p>Since <span class="math inline">\(\alpha\beta\gamma=1\)</span> and the determinant is zero,</p>
+<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=1+2=3. \qquad \text{M1 A1 M1 A1}\]</span></p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[3=b^2-2c. \qquad \text{M1 A1}\]</span></p>
+<p>Summing the original equation over the roots gives</p>
+<p><span class="math display">\[3=-3b+bc+3,\]</span></p>
+<p>so <span class="math inline">\(b(c-3)=0\)</span>. Since <span class="math inline">\(b&gt;0\)</span>, <span class="math inline">\(c=3\)</span>. Substitution gives <span class="math inline">\(b=3\)</span>. <strong>M1 A1 DM1 A1</strong></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-mj-14"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/14/M/J/2025, Q4.
+</div>
+</section>
+</div>
+<div id="text-roots-2025-on-11-13" class="question-card">
+<section id="octobernovember-923111-923113-question-4-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-4-8-marks">2025 October/November · 9231/11 &amp; 9231/13 · Question 4 · 8 marks</h3>
+<p><span class="tag">Quartic linear transformation</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
+<p>The quartic equation <span class="math inline">\(x^4+x^3+x^2+x+1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>.</p>
+<p><strong>(a)</strong> Show that a quartic equation with roots <span class="math inline">\(2\alpha+1,2\beta+1,2\gamma+1,2\delta+1\)</span> is</p>
+<p><span class="math display">\[y^4-2y^3+4y^2+2y+11=0. \qquad \textbf{[4]}\]</span></p>
+<p>The sum <span class="math inline">\((2\alpha+1)^n+(2\beta+1)^n+(2\gamma+1)^n+(2\delta+1)^n\)</span> is denoted by <span class="math inline">\(S_n\)</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(S_2\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Given that <span class="math inline">\(S_3=-22\)</span>, find <span class="math inline">\(S_4\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(y=2x+1\)</span>, so <span class="math inline">\(x=(y-1)/2\)</span>. Substitution gives</p>
+<p><span class="math display">\[y^4-2y^3+4y^2+2y+11=0. \qquad \text{B1 M1 A1 A1}\]</span></p>
+<p>For the transformed roots, <span class="math inline">\(e_1=2\)</span> and <span class="math inline">\(e_2=4\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[S_2=2^2-2(4)=-4. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(c)</strong> Summing the transformed quartic over its four roots,</p>
+<p><span class="math display">\[S_4-2S_3+4S_2+2S_1+44=0.\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[S_4=-76. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-on-11-13"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/11/O/N/2025, Q4; 9231/13/O/N/2025, Q4.
+</div>
+</section>
+</div>
+<div id="text-roots-2025-on-12" class="question-card">
+<section id="octobernovember-923112-question-2-8-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923112-question-2-8-marks">2025 October/November · 9231/12 · Question 2 · 8 marks</h3>
+<p><span class="tag">Recovering coefficients</span><span class="tag">Fourth power sum</span><span class="tag">★★★★☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx+d=0\)</span>, where <span class="math inline">\(b,c,d\)</span> are constants, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. It is given that</p>
+<p><span class="math display">\[
+\alpha+\beta+\gamma=2,\qquad
+\alpha^2+\beta^2+\gamma^2=3,\qquad
+\alpha^4+\beta^4+\gamma^4=5.
+\]</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\(b,c\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\(d\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[b=-2. \qquad \text{B1}\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[3=(-2)^2-2c,\]</span></p>
+<p>so <span class="math inline">\(c=1/2\)</span>. <strong>M1 A1</strong></p>
+<p><strong>(b)</strong> Let <span class="math inline">\(S_n=\alpha^n+\beta^n+\gamma^n\)</span>. Then</p>
+<p><span class="math display">\[S_3+bS_2+cS_1+3d=0,\]</span></p>
+<p>so</p>
+<p><span class="math display">\[S_3=5-3d. \qquad \text{M1 A1FT}\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[S_4+bS_3+cS_2+dS_1=0.\]</span></p>
+<p>Substitution gives</p>
+<p><span class="math display">\[5-2(5-3d)+\frac12(3)+2d=0,\]</span></p>
+<p>so</p>
+<p><span class="math display">\[d=\frac7{16}. \qquad \text{M1 A1FT A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-on-12"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/12/O/N/2025, Q2.
+</div>
+</section>
+</div>
+<div id="text-roots-2025-on-14" class="question-card">
+<section id="octobernovember-923114-question-2-9-marks" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923114-question-2-9-marks">2025 October/November · 9231/14 · Question 2 · 9 marks</h3>
+<p><span class="tag">Reciprocal relation</span><span class="tag">Unknown coefficients</span><span class="tag">★★★☆☆</span></p>
+<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx+d=0\)</span>, where <span class="math inline">\(d\ne0\)</span>, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span> such that</p>
+<p><span class="math display">\[\gamma=\frac1\beta.\]</span></p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[\beta+\frac1\beta=d-b. \qquad \textbf{[3]}\]</span></p>
+<p><strong>(b)</strong> Show also that</p>
+<p><span class="math display">\[\beta+\frac1\beta=\frac{1-c}{d}. \qquad \textbf{[2]}\]</span></p>
+<p><strong>(c)</strong> It is given that <span class="math inline">\(b=3\)</span>, <span class="math inline">\(c=-3\)</span> and <span class="math inline">\(d&gt;0\)</span>.</p>
+<p><strong>(i)</strong> Find <span class="math inline">\(d\)</span>. <strong>[2]</strong></p>
+<p><strong>(ii)</strong> Find <span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Since <span class="math inline">\(\alpha\beta\gamma=-d\)</span> and <span class="math inline">\(\gamma=1/\beta\)</span>, <span class="math inline">\(\alpha=-d\)</span>. <strong>B1</strong></p>
+<p><strong>(a)</strong> Using the sum of roots,</p>
+<p><span class="math display">\[-d+\beta+\frac1\beta=-b,\]</span></p>
+<p>so</p>
+<p><span class="math display">\[\beta+\frac1\beta=d-b. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(b)</strong> Using the sum of pairwise products,</p>
+<p><span class="math display">\[-d\beta+1-\frac d\beta=c,\]</span></p>
+<p>which gives</p>
+<p><span class="math display">\[\beta+\frac1\beta=\frac{1-c}{d}. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(c)(i)</strong></p>
+<p><span class="math display">\[d-3=\frac4d,\]</span></p>
+<p>so <span class="math inline">\(d^2-3d-4=0\)</span>. Since <span class="math inline">\(d&gt;0\)</span>, <span class="math inline">\(d=4\)</span>. <strong>M1 A1</strong></p>
+<p><strong>(c)(ii)</strong></p>
+<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=b^2-2c=9+6=15. \qquad \text{M1 A1}\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-on-14"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/14/O/N/2025, Q2.
+</div>
+</section>
+</div>
+</section>
+<section id="完成本节的判断标准" class="level2">
+<h2 class="anchored" data-anchor-id="完成本节的判断标准">4. 完成本节的判断标准</h2>
+<p>当你能够在不查看公式表的情况下完成以下任务，本节可以视为基本掌握：</p>
+<ol type="1">
+<li>写出二次、三次及四次方程的全部根与系数关系；</li>
+<li>不求根，计算教材中出现的根的对称函数与幂和；</li>
+<li>使用根与系数关系或代换法建立指定新根的方程；</li>
+<li>根据根之间的关系求未知系数并解方程。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link" aria-label="学习首页">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">学习首页</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
