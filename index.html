@@ -73,6 +73,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -132,6 +161,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">1.1 Roots of polynomial equations</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -147,6 +182,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#已完成内容" id="toc-已完成内容" class="nav-link active" data-scroll-target="#已完成内容">已完成内容</a>
   <ul class="collapse">
   <li><a href="#roots-of-polynomial-equations" id="toc-roots-of-polynomial-equations" class="nav-link" data-scroll-target="#roots-of-polynomial-equations">1.1 Roots of polynomial equations</a></li>
+  <li><a href="#rational-functions-and-graphs" id="toc-rational-functions-and-graphs" class="nav-link" data-scroll-target="#rational-functions-and-graphs">1.2 Rational functions and graphs</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -186,6 +222,17 @@ ul.task-list li input[type="checkbox"] {
 <li>教材精选练习</li>
 <li>2019–2025 全部现有 Paper 1 对应真题</li>
 <li>可展开的官方评分标准</li>
+</ul>
+</section>
+<section id="rational-functions-and-graphs" class="level3 topic-card">
+<h3 class="anchored" data-anchor-id="rational-functions-and-graphs"><a href="./paper-1/rational-functions-and-graphs.html">1.2 Rational functions and graphs</a></h3>
+<ul>
+<li>2026–2027 考纲要求与教材 Chapter 4 知识点</li>
+<li>渐近线、驻点、值域与判别式方法</li>
+<li><span class="math inline">\(|f(x)|\)</span>、<span class="math inline">\(f(|x|)\)</span>、<span class="math inline">\(1/f(x)\)</span> 与 <span class="math inline">\(y^2=f(x)\)</span></li>
+<li>教材 Example 4.1–4.6</li>
+<li>教材中带 Cambridge 来源的 Exercise 4B Q4–Q8</li>
+<li>2019–2025 全部现有 Paper 1 对应真题</li>
 </ul>
 </section>
 <p>后续章节将沿用相同结构继续制作。</p>
