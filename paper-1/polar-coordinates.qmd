@@ -44,7 +44,7 @@ $$
 本教材的 principal polar coordinates 满足
 
 $$
-r>0,qquad -\pi<\theta\leqslant\pi.
+r>0,\qquad -\pi<\theta\leqslant\pi.
 $$
 
 在 pole 处 $r=0$，而 $\theta$ 没有唯一值。

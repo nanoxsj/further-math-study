@@ -8,13 +8,13 @@
 The curves $C_1$ and $C_2$ have polar equations
 
 $$
-C_1:r=\frac12,quad 0\leqslant\theta\leqslant2\pi,
+C_1:r=\frac12,\qquad 0\leqslant\theta\leqslant2\pi,
 $$
 
 and
 
 $$
-C_2:r=\sin\frac\theta2,quad 0\leqslant\theta\leqslant\pi.
+C_2:r=\sin\frac\theta2,\qquad 0\leqslant\theta\leqslant\pi.
 $$
 
 Find the polar coordinates of the point of intersection of $C_1$ and $C_2$. Sketch $C_1$ and $C_2$ on the same diagram.
