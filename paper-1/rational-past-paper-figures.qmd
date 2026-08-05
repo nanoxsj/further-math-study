@@ -1,71 +1,81 @@
-### 历年真题作图答案图册
-
-以下图形均由题目函数重新计算并绘制。含参数的题目选用一个满足题设的代表值展示通用拓扑，标题和图注会明确标示该代表值。
-
-#### 2019
-
+<template data-answer-target="rational-2019-mj-11-12">
 {{< include figures/rational/pp-2019-mj-11-12.svg >}}
-
+</template>
+<template data-answer-target="rational-2019-mj-13">
 {{< include figures/rational/pp-2019-mj-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2019-on">
 {{< include figures/rational/pp-2019-on.svg >}}
-
-#### 2020
-
+</template>
+<template data-answer-target="rational-2020-mj-11-12-q1">
 {{< include figures/rational/pp-2020-mj-q1.svg >}}
-
+</template>
+<template data-answer-target="rational-2020-mj-11-12-q3">
 {{< include figures/rational/pp-2020-mj-q3.svg >}}
-
+</template>
+<template data-answer-target="rational-2020-mj-13">
 {{< include figures/rational/pp-2020-mj-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2020-on-11-13">
 {{< include figures/rational/pp-2020-on-11-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2020-on-12">
 {{< include figures/rational/pp-2020-on-12.svg >}}
-
-#### 2021
-
+</template>
+<template data-answer-target="rational-2021-mj-11-12">
 {{< include figures/rational/pp-2021-mj-11-12.svg >}}
-
+</template>
+<template data-answer-target="rational-2021-mj-13">
 {{< include figures/rational/pp-2021-mj-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2021-on-11-13">
 {{< include figures/rational/pp-2021-on-11-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2021-on-12">
 {{< include figures/rational/pp-2021-on-12.svg >}}
-
-#### 2022
-
+</template>
+<template data-answer-target="rational-2022-mj-11-12">
 {{< include figures/rational/pp-2022-mj-11-12.svg >}}
-
+</template>
+<template data-answer-target="rational-2022-mj-13-q1">
 {{< include figures/rational/pp-2022-mj-13-q1.svg >}}
-
+</template>
+<template data-answer-target="rational-2022-mj-13-q3">
 {{< include figures/rational/pp-2022-mj-13-q3.svg >}}
-
-#### 2023
-
+</template>
+<template data-answer-target="rational-2023-on-11-13">
 {{< include figures/rational/pp-2023-on-11-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2023-on-12">
 {{< include figures/rational/pp-2023-on-12.svg >}}
-
-#### 2024
-
+</template>
+<template data-answer-target="rational-2024-mj-11-12">
 {{< include figures/rational/pp-2024-mj-11-12.svg >}}
-
+</template>
+<template data-answer-target="rational-2024-mj-13">
 {{< include figures/rational/pp-2024-mj-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2024-on-11-13">
 {{< include figures/rational/pp-2024-on-11-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2024-on-12">
 {{< include figures/rational/pp-2024-on-12.svg >}}
-
-#### 2025
-
+</template>
+<template data-answer-target="rational-2025-mj-11-12">
 {{< include figures/rational/pp-2025-mj-11-12.svg >}}
-
+</template>
+<template data-answer-target="rational-2025-mj-13">
 {{< include figures/rational/pp-2025-mj-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2025-mj-14">
 {{< include figures/rational/pp-2025-mj-14.svg >}}
-
+</template>
+<template data-answer-target="rational-2025-on-11-13">
 {{< include figures/rational/pp-2025-on-11-13.svg >}}
-
+</template>
+<template data-answer-target="rational-2025-on-12">
 {{< include figures/rational/pp-2025-on-12.svg >}}
-
+</template>
+<template data-answer-target="rational-2025-on-14">
 {{< include figures/rational/pp-2025-on-14.svg >}}
+</template>
