@@ -1,0 +1,167 @@
+这里只收录教材 Exercise 中明确标注 **Cambridge International AS & A Level Further Mathematics 9231** 来源的题目。
+
+::: {.callout-note title="Exercise 2E, Question 10"}
+It is given that $u_r=r\cdot r!$ for $r=1,2,3,\ldots$ and
+
+$$
+S_n=u_1+u_2+\cdots+u_n.
+$$
+
+(i) Write down the values of $2!-S_1$, $3!-S_2$, $4!-S_3$ and $5!-S_4$.
+
+(ii) Conjecture a formula for $S_n$.
+
+(iii) Prove the formula by mathematical induction for every positive integer $n$.
+
+*Source: 9231 Paper 11 Question 3, October/November 2014.*
+
+::: {.callout-tip collapse="true" title="Answer"}
+(i)
+
+$$
+S_1=1,
+\; S_2=1+4=5,
+\; S_3=5+18=23,
+\; S_4=23+96=119.
+$$
+
+Hence
+
+$$
+2!-S_1=3!-S_2=4!-S_3=5!-S_4=1.
+$$
+
+(ii) The conjecture is
+
+$$
+\boxed{S_n=(n+1)!-1}.
+$$
+
+(iii) For $n=1$, $S_1=1$ and $2!-1=1$, so the formula is true.
+
+Assume that for $n=k$,
+
+$$
+S_k=(k+1)!-1.
+$$
+
+Then
+
+$$
+\begin{aligned}
+S_{k+1}
+&=S_k+(k+1)(k+1)!\\
+&=(k+1)!-1+(k+1)(k+1)!\\
+&=(k+1)![1+(k+1)]-1\\
+&=(k+2)!-1.
+\end{aligned}
+$$
+
+This is the formula for $n=k+1$. Therefore $S_n=(n+1)!-1$ for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="Exercise 2E, Question 11"}
+It is given that
+
+$$
+y=(1+x)^2\ln(1+x).
+$$
+
+(i) Find $d^3y/dx^3$.
+
+(ii) Prove by mathematical induction that, for every integer $n\ge3$,
+
+$$
+\frac{d^ny}{dx^n}
+=(-1)^{n-1}\frac{2(n-3)!}{(1+x)^{n-2}}.
+$$
+
+*Source: 9231 Paper 11 Question 5, October/November 2015.*
+
+::: {.callout-tip collapse="true" title="Answer"}
+(i) Put $v=1+x$. Then
+
+$$
+y'=2v\ln v+v,
+$$
+
+$$
+y''=2\ln v+3,
+$$
+
+and therefore
+
+$$
+\boxed{y'''=\frac2{1+x}}.
+$$
+
+(ii) The result for $n=3$ gives
+
+$$
+(-1)^2\frac{2(0)!}{1+x}=\frac2{1+x},
+$$
+
+which agrees with part (i).
+
+Assume that for some $k\ge3$,
+
+$$
+\frac{d^ky}{dx^k}=(-1)^{k-1}2(k-3)!(1+x)^{-(k-2)}.
+$$
+
+Differentiate once:
+
+$$
+\begin{aligned}
+\frac{d^{k+1}y}{dx^{k+1}}
+&=(-1)^{k-1}2(k-3)![-(k-2)](1+x)^{-(k-1)}\\
+&=(-1)^k\frac{2(k-2)!}{(1+x)^{k-1}}.
+\end{aligned}
+$$
+
+This is the proposed result with $n=k+1$. Hence the formula holds for every integer $n\ge3$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="Exercise 2E, Question 12"}
+Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\frac{d^n}{dx^n}(e^x\sin x)
+=2^{n/2}e^x\sin\left(x+\frac{n\pi}{4}\right).
+$$
+
+*Source: 9231 Paper 11 Question 3, October/November 2011.*
+
+::: {.callout-tip collapse="true" title="Answer"}
+For $n=1$,
+
+$$
+\frac d{dx}(e^x\sin x)=e^x(\sin x+\cos x)
+=\sqrt2e^x\sin\left(x+\frac\pi4\right),
+$$
+
+so the formula is true.
+
+Assume that for $n=k$,
+
+$$
+\frac{d^k}{dx^k}(e^x\sin x)
+=2^{k/2}e^x\sin\left(x+\frac{k\pi}{4}\right).
+$$
+
+Let $\theta=x+k\pi/4$. Differentiating gives
+
+$$
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(e^x\sin x)
+&=2^{k/2}e^x(\sin\theta+\cos\theta)\\
+&=2^{k/2}\sqrt2e^x\sin\left(\theta+\frac\pi4\right)\\
+&=2^{(k+1)/2}e^x\sin\left(x+\frac{(k+1)\pi}{4}\right).
+\end{aligned}
+$$
+
+This is the target for $n=k+1$. Therefore the formula holds for every positive integer $n$ by mathematical induction.
+:::
+:::

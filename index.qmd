@@ -74,4 +74,13 @@ subtitle: "2026–2027 syllabus · 9231"
 - 教材 Example 7.1–7.19
 :::
 
+::: {.topic-card}
+### [1.7 Proof by induction](paper-1/proof-by-induction.qmd)
+
+- base case、inductive hypothesis 与 inductive step
+- 级数、递推数列与不等式证明
+- 高阶导数与矩阵幂证明
+- 教材 Example 2.9–2.13
+:::
+
 后续章节将沿用相同结构继续制作。

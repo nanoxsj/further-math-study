@@ -1,0 +1,1088 @@
+完全相同的地区版本合并为一题，并列出全部来源。答案保留 base case、hypothesis、inductive step 与 conclusion。
+
+### 2019
+
+::: {.callout-note title="May/June 2019, Paper 11/12, Question 8"}
+(i) Prove by mathematical induction that, for $z\ne1$ and every positive integer $n$,
+
+$$
+1+z+z^2+\cdots+z^{n-1}=\frac{z^n-1}{z-1}.
+$$
+
+[5]
+
+(ii) By taking
+
+$$
+z=\frac12(\cos\theta+i\sin\theta),
+$$
+
+use de Moivre's theorem to deduce that
+
+$$
+\sum_{m=1}^{\infty}2^{-m}\sin(m\theta)
+=\frac{2\sin\theta}{5-4\cos\theta}.
+$$
+
+[5]
+
+*Sources: 9231/11/M/J/19 Q8; 9231/12/M/J/19 Q8.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(i) For $n=1$,
+
+$$
+1=\frac{z-1}{z-1}.
+$$
+
+Assume that
+
+$$
+1+z+\cdots+z^{k-1}=\frac{z^k-1}{z-1}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+1+z+\cdots+z^{k-1}+z^k
+&=\frac{z^k-1}{z-1}+z^k\\
+&=\frac{z^k-1+z^k(z-1)}{z-1}\\
+&=\frac{z^{k+1}-1}{z-1}.
+\end{aligned}
+$$
+
+This is the target for $n=k+1$. Hence the identity holds for every positive integer $n$ by mathematical induction.
+
+(ii) Here $|z|=1/2<1$, so the infinite geometric series gives
+
+$$
+\sum_{m=0}^{\infty}z^m=\frac1{1-z}.
+$$
+
+Taking imaginary parts and applying de Moivre's theorem,
+
+$$
+\sum_{m=1}^{\infty}2^{-m}\sin(m\theta)
+=\operatorname{Im}\left(\frac1{1-\frac12(\cos\theta+i\sin\theta)}\right).
+$$
+
+Multiply numerator and denominator by the conjugate. The denominator is
+
+$$
+1-\cos\theta+\frac14
+=\frac14(5-4\cos\theta),
+$$
+
+and the imaginary part of the numerator is $\frac12\sin\theta$. Therefore
+
+$$
+\boxed{\sum_{m=1}^{\infty}2^{-m}\sin(m\theta)
+=\frac{2\sin\theta}{5-4\cos\theta}}.
+$$
+:::
+:::
+
+::: {.callout-note title="May/June 2019, Paper 13, Question 1"}
+Prove by mathematical induction that $3^{3n}-1$ is divisible by $13$ for every positive integer $n$. [5]
+
+*Source: 9231/13/M/J/19 Q1.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+3^3-1=26=2\cdot13.
+$$
+
+Assume that $3^{3k}-1=13m$ for some integer $m$. Then
+
+$$
+\begin{aligned}
+3^{3(k+1)}-1
+&=27\cdot3^{3k}-1\\
+&=26\cdot3^{3k}+(3^{3k}-1)\\
+&=13(2\cdot3^{3k}+m).
+\end{aligned}
+$$
+
+Thus the result holds for $k+1$, and hence for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="October/November 2019, Paper 11/12/13, Question 2"}
+It is given that $y=\ln(ax+1)$, where $a>0$. Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\frac{d^ny}{dx^n}
+=(-1)^{n-1}\frac{(n-1)!a^n}{(ax+1)^n}.
+$$
+
+[6]
+
+*Sources: 9231/11/O/N/19 Q2; 9231/12/O/N/19 Q2; 9231/13/O/N/19 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+y'=\frac{a}{ax+1},
+$$
+
+which agrees with the formula.
+
+Assume that
+
+$$
+\frac{d^ky}{dx^k}
+=(-1)^{k-1}(k-1)!a^k(ax+1)^{-k}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\frac{d^{k+1}y}{dx^{k+1}}
+&=(-1)^{k-1}(k-1)!a^k(-k)a(ax+1)^{-k-1}\\
+&=(-1)^k\frac{k!a^{k+1}}{(ax+1)^{k+1}}.
+\end{aligned}
+$$
+
+This is the formula for $n=k+1$. Hence it holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+### 2020
+
+::: {.callout-note title="May/June 2020, Paper 11/12, Question 6"}
+Let
+
+$$
+A=\begin{pmatrix}2&0\\1&1\end{pmatrix}.
+$$
+
+(a) The transformation represented by $A^{-1}$ maps a triangle of area $30\text{ cm}^2$ onto one of area $d\text{ cm}^2$. Find $d$. [3]
+
+(b) Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+A^n=\begin{pmatrix}2^n&0\\2^n-1&1\end{pmatrix}.
+$$
+
+[5]
+
+*Sources: 9231/11/M/J/20 Q6; 9231/12/M/J/20 Q6.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) Since $\det A=2$,
+
+$$
+|\det A^{-1}|=\frac12.
+$$
+
+Thus $\boxed{d=15}$.
+
+(b) For $n=1$, the proposed expression is $A$.
+
+Assume that
+
+$$
+A^k=\begin{pmatrix}2^k&0\\2^k-1&1\end{pmatrix}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+A^{k+1}
+&=A^kA\\
+&=\begin{pmatrix}2^k&0\\2^k-1&1\end{pmatrix}
+\begin{pmatrix}2&0\\1&1\end{pmatrix}\\
+&=\begin{pmatrix}2^{k+1}&0\\2(2^k-1)+1&1\end{pmatrix}\\
+&=\begin{pmatrix}2^{k+1}&0\\2^{k+1}-1&1\end{pmatrix}.
+\end{aligned}
+$$
+
+This is the formula for $n=k+1$. Hence it holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="May/June 2020, Paper 13, Question 2"}
+The sequence satisfies $u_1=1$ and
+
+$$
+u_{n+1}=2u_n+1.
+$$
+
+(a) Prove by induction that $u_n=2^n-1$ for every positive integer $n$. [5]
+
+(b) Deduce that $u_{2n}$ is divisible by $u_n$ for $n\ge1$. [2]
+
+*Source: 9231/13/M/J/20 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) For $n=1$, $2^1-1=1=u_1$.
+
+Assume that $u_k=2^k-1$. Then
+
+$$
+u_{k+1}=2u_k+1=2(2^k-1)+1=2^{k+1}-1.
+$$
+
+Thus the result holds for $k+1$, and hence for every positive integer $n$ by mathematical induction.
+
+(b)
+
+$$
+u_{2n}=2^{2n}-1=(2^n-1)(2^n+1)=u_n(2^n+1).
+$$
+
+Since $2^n+1$ is an integer, $\boxed{u_n\mid u_{2n}}$.
+:::
+:::
+
+::: {.callout-note title="October/November 2020, Paper 11/13, Question 5"}
+Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\frac{d^{2n-1}}{dx^{2n-1}}(x\sin x)
+=(-1)^{n-1}\{x\cos x+(2n-1)\sin x\}.
+$$
+
+[7]
+
+*Sources: 9231/11/O/N/20 Q5; 9231/13/O/N/20 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+\frac d{dx}(x\sin x)=x\cos x+\sin x,
+$$
+
+which is the proposed expression.
+
+Assume that
+
+$$
+\frac{d^{2k-1}}{dx^{2k-1}}(x\sin x)
+=(-1)^{k-1}\{x\cos x+(2k-1)\sin x\}.
+$$
+
+Differentiate twice. First,
+
+$$
+\frac{d^{2k}}{dx^{2k}}(x\sin x)
+=(-1)^{k-1}\{-x\sin x+2k\cos x\}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\frac{d^{2k+1}}{dx^{2k+1}}(x\sin x)
+&=(-1)^{k-1}\{-x\cos x-(2k+1)\sin x\}\\
+&=(-1)^k\{x\cos x+(2k+1)\sin x\}.
+\end{aligned}
+$$
+
+This is the target for $n=k+1$. Hence the formula holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="October/November 2020, Paper 12, Question 2"}
+Prove by mathematical induction that $7^{2n}-1$ is divisible by $12$ for every positive integer $n$. [5]
+
+*Source: 9231/12/O/N/20 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+7^2-1=48=4\cdot12.
+$$
+
+Assume that $7^{2k}-1=12m$ for some integer $m$. Then
+
+$$
+\begin{aligned}
+7^{2(k+1)}-1
+&=49\cdot7^{2k}-1\\
+&=49(7^{2k}-1)+48\\
+&=12(49m+4).
+\end{aligned}
+$$
+
+Thus the expression is divisible by $12$ for $n=k+1$. Hence the result follows for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+### 2021
+
+::: {.callout-note title="May/June 2021, Paper 11/12, Question 1"}
+Prove by mathematical induction that $2^{4n}+31^n-2$ is divisible by $15$ for every positive integer $n$. [6]
+
+*Sources: 9231/11/M/J/21 Q1; 9231/12/M/J/21 Q1.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+2^4+31-2=45=3\cdot15.
+$$
+
+Assume that $2^{4k}+31^k-2=15m$ for some integer $m$. Then
+
+$$
+\begin{aligned}
+2^{4(k+1)}+31^{k+1}-2
+&=(15+1)2^{4k}+(30+1)31^k-2\\
+&=(2^{4k}+31^k-2)+15\cdot2^{4k}+30\cdot31^k\\
+&=15\{m+2^{4k}+2\cdot31^k\}.
+\end{aligned}
+$$
+
+The bracket is an integer. Hence the expression is divisible by $15$ for $n=k+1$, and therefore for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="May/June 2021, Paper 13, Question 3"}
+(a) Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\sum_{r=1}^{n}(5r^4+r^2)
+=\frac12n^2(n+1)^2(2n+1).
+$$
+
+[6]
+
+(b) Hence, using the standard formula for $\sum r^2$, find $\sum_{r=1}^{n}r^4$ in fully factorised form. [3]
+
+*Source: 9231/13/M/J/21 Q3.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) For $n=1$, the left side is $6$ and the right side is
+
+$$
+\frac12(1)^2(2)^2(3)=6.
+$$
+
+Assume that
+
+$$
+\sum_{r=1}^{k}(5r^4+r^2)
+=\frac12k^2(k+1)^2(2k+1).
+$$
+
+Then
+
+$$
+\begin{aligned}
+\sum_{r=1}^{k+1}(5r^4+r^2)
+&=\frac12k^2(k+1)^2(2k+1)+5(k+1)^4+(k+1)^2\\
+&=\frac12(k+1)^2\{2k^3+11k^2+20k+12\}\\
+&=\frac12(k+1)^2(k+2)^2(2k+3).
+\end{aligned}
+$$
+
+This is the result for $n=k+1$. Hence part (a) follows by mathematical induction.
+
+(b)
+
+$$
+5\sum_{r=1}^{n}r^4+\frac16n(n+1)(2n+1)
+=\frac12n^2(n+1)^2(2n+1).
+$$
+
+Therefore
+
+$$
+\boxed{\sum_{r=1}^{n}r^4
+=\frac1{30}n(n+1)(2n+1)(3n^2+3n-1)}.
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2021, Paper 11/13, Question 3"}
+The sequence satisfies $a_1=1$ and
+
+$$
+a_{n+1}=\left(a_n+\frac1{a_n}\right)^3.
+$$
+
+(a) Prove by mathematical induction that
+
+$$
+\ln a_n\ge3^{n-1}\ln2
+$$
+
+for every integer $n\ge2$. [6]
+
+(b) Show that
+
+$$
+\ln a_{n+1}-\ln a_n>3^{n-1}\ln4
+$$
+
+for $n\ge2$. [2]
+
+*Sources: 9231/11/O/N/21 Q3; 9231/13/O/N/21 Q3.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) Since $a_2=(1+1)^3=8$,
+
+$$
+\ln a_2=3\ln2=3^{2-1}\ln2.
+$$
+
+Assume that $\ln a_k\ge3^{k-1}\ln2$ for some $k\ge2$. Since $a_k>0$,
+
+$$
+\begin{aligned}
+\ln a_{k+1}
+&=3\ln\left(a_k+\frac1{a_k}\right)\\
+&>3\ln a_k\\
+&\ge3^k\ln2.
+\end{aligned}
+$$
+
+Thus the result holds for $k+1$, and hence for every integer $n\ge2$ by mathematical induction.
+
+(b)
+
+$$
+\begin{aligned}
+\ln a_{n+1}-\ln a_n
+&=3\ln\left(a_n+\frac1{a_n}\right)-\ln a_n\\
+&>2\ln a_n\\
+&\ge2\cdot3^{n-1}\ln2\\
+&=3^{n-1}\ln4.
+\end{aligned}
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2021, Paper 12, Question 2"}
+It is given that $y=xe^{ax}$, where $a$ is constant. Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\frac{d^ny}{dx^n}=(a^nx+na^{n-1})e^{ax}.
+$$
+
+[6]
+
+*Source: 9231/12/O/N/21 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+y'=(ax+1)e^{ax},
+$$
+
+which agrees with the formula.
+
+Assume
+
+$$
+\frac{d^ky}{dx^k}=(a^kx+ka^{k-1})e^{ax}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\frac{d^{k+1}y}{dx^{k+1}}
+&=a(a^kx+ka^{k-1})e^{ax}+a^ke^{ax}\\
+&=\{a^{k+1}x+(k+1)a^k\}e^{ax}.
+\end{aligned}
+$$
+
+This is the target for $n=k+1$. Hence the result holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+### 2022
+
+::: {.callout-note title="May/June 2022, Paper 11/12, Question 3"}
+The sequence of positive numbers satisfies $u_1>4$ and
+
+$$
+u_{n+1}=\frac{u_n^2+u_n+12}{2u_n}.
+$$
+
+(a) By considering $u_{n+1}-4$, prove by mathematical induction that $u_n>4$ for every positive integer $n$. [5]
+
+(b) Show that $u_{n+1}<u_n$ for $n\ge1$. [3]
+
+*Sources: 9231/11/M/J/22 Q3; 9231/12/M/J/22 Q3.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) The base case $u_1>4$ is given.
+
+Assume that $u_k>4$. Since $u_k$ is positive,
+
+$$
+\begin{aligned}
+u_{k+1}-4
+&=\frac{u_k^2+u_k+12}{2u_k}-4\\
+&=\frac{u_k^2-7u_k+12}{2u_k}\\
+&=\frac{(u_k-3)(u_k-4)}{2u_k}>0.
+\end{aligned}
+$$
+
+Thus $u_{k+1}>4$. Since the base case is true, $u_n>4$ for every positive integer $n$ by mathematical induction.
+
+(b)
+
+$$
+\begin{aligned}
+u_{n+1}-u_n
+&=\frac{-u_n^2+u_n+12}{2u_n}\\
+&=-\frac{(u_n-4)(u_n+3)}{2u_n}<0,
+\end{aligned}
+$$
+
+because $u_n>4$. Hence $\boxed{u_{n+1}<u_n}$.
+:::
+:::
+
+::: {.callout-note title="May/June 2022, Paper 13, Question 5"}
+Let
+
+$$
+A=\begin{pmatrix}1&a\\0&1\end{pmatrix},
+$$
+
+where $a>0$.
+
+(a) State the geometrical transformation represented by $A$. [1]
+
+(b) Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+A^n=\begin{pmatrix}1&na\\0&1\end{pmatrix}.
+$$
+
+[5]
+
+*Source: 9231/13/M/J/22 Q5.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) $A$ represents a shear in the $x$-direction, with shear factor $a$.
+
+(b) For $n=1$, the proposed matrix is $A$.
+
+Assume that
+
+$$
+A^k=\begin{pmatrix}1&ka\\0&1\end{pmatrix}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+A^{k+1}
+&=A^kA\\
+&=\begin{pmatrix}1&ka\\0&1\end{pmatrix}
+\begin{pmatrix}1&a\\0&1\end{pmatrix}\\
+&=\begin{pmatrix}1&(k+1)a\\0&1\end{pmatrix}.
+\end{aligned}
+$$
+
+This is the target for $n=k+1$. Hence the formula holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+### 2023
+
+::: {.callout-note title="October/November 2023, Paper 11/13, Question 2"}
+For $x\ne1$, prove by mathematical induction that, for every positive integer $n$,
+
+$$
+1+2x+3x^2+\cdots+nx^{n-1}
+=\frac{1-(n+1)x^n+nx^{n+1}}{(1-x)^2}.
+$$
+
+[6]
+
+*Sources: 9231/11/O/N/23 Q2; 9231/13/O/N/23 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+\text{LHS}=1,
+\;
+\text{RHS}=\frac{1-2x+x^2}{(1-x)^2}=1.
+$$
+
+Assume that
+
+$$
+\sum_{r=1}^{k}rx^{r-1}
+=\frac{1-(k+1)x^k+kx^{k+1}}{(1-x)^2}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\sum_{r=1}^{k+1}rx^{r-1}
+&=\frac{1-(k+1)x^k+kx^{k+1}}{(1-x)^2}+(k+1)x^k\\
+&=\frac{1-(k+1)x^k+kx^{k+1}+(k+1)x^k(1-x)^2}{(1-x)^2}\\
+&=\frac{1-(k+2)x^{k+1}+(k+1)x^{k+2}}{(1-x)^2}.
+\end{aligned}
+$$
+
+This is the target for $n=k+1$. Hence the identity holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="October/November 2023, Paper 12, Question 2"}
+Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\frac{d^n}{dx^n}(x^2e^x)
+=\{x^2+2nx+n(n-1)\}e^x.
+$$
+
+[6]
+
+*Source: 9231/12/O/N/23 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+\frac d{dx}(x^2e^x)=(x^2+2x)e^x,
+$$
+
+which agrees with the formula.
+
+Assume that
+
+$$
+\frac{d^k}{dx^k}(x^2e^x)
+=\{x^2+2kx+k(k-1)\}e^x.
+$$
+
+Differentiate once:
+
+$$
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(x^2e^x)
+&=\{x^2+2kx+k(k-1)+2x+2k\}e^x\\
+&=\{x^2+2(k+1)x+k(k+1)\}e^x.
+\end{aligned}
+$$
+
+This is the proposed formula for $n=k+1$. Hence it holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+### 2024
+
+::: {.callout-note title="May/June 2024, Paper 11/12, Question 2"}
+Prove by mathematical induction that
+
+$$
+6^{4n}+38^n-2
+$$
+
+is divisible by $74$ for every positive integer $n$. [6]
+
+*Sources: 9231/11/M/J/24 Q2; 9231/12/M/J/24 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+6^4+38-2=1332=18\cdot74.
+$$
+
+Assume that
+
+$$
+6^{4k}+38^k-2=74m
+$$
+
+for some integer $m$. Then
+
+$$
+\begin{aligned}
+6^{4(k+1)}+38^{k+1}-2
+&=1296\cdot6^{4k}+38\cdot38^k-2\\
+&=1296(6^{4k}+38^k-2)-1258\cdot38^k+2590\\
+&=74\{1296m-17\cdot38^k+35\}.
+\end{aligned}
+$$
+
+The bracket is an integer, so the expression is divisible by $74$ for $n=k+1$. Hence the result follows for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="May/June 2024, Paper 13, Question 4"}
+(a) Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\sum_{r=1}^{n}r^2=\frac16n(n+1)(2n+1).
+$$
+
+[5]
+
+The sum $S_n$ is defined by $S_n=\sum_{r=1}^{n}r^4$.
+
+(b) Using
+
+$$
+(2r+1)^5-(2r-1)^5=160r^4+80r^2+2,
+$$
+
+show that
+
+$$
+S_n=\frac1{30}n(n+1)(2n+1)(3n^2+3n-1).
+$$
+
+[6]
+
+*Source: 9231/13/M/J/24 Q4.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+(a) For $n=1$, both sides equal $1$.
+
+Assume
+
+$$
+\sum_{r=1}^{k}r^2=\frac16k(k+1)(2k+1).
+$$
+
+Then
+
+$$
+\begin{aligned}
+\sum_{r=1}^{k+1}r^2
+&=\frac16k(k+1)(2k+1)+(k+1)^2\\
+&=\frac16(k+1)(2k^2+7k+6)\\
+&=\frac16(k+1)(k+2)(2k+3).
+\end{aligned}
+$$
+
+This is the result for $n=k+1$. Therefore the formula holds for every positive integer $n$ by mathematical induction.
+
+(b) Sum the given identity from $r=1$ to $r=n$. The left side telescopes:
+
+$$
+\sum_{r=1}^{n}\{(2r+1)^5-(2r-1)^5\}=(2n+1)^5-1.
+$$
+
+Hence
+
+$$
+(2n+1)^5-1=160S_n+80\sum_{r=1}^{n}r^2+2n.
+$$
+
+Using part (a),
+
+$$
+160S_n=(2n+1)^5-1-\frac{40}{3}n(n+1)(2n+1)-2n.
+$$
+
+Factorising and dividing by $160$ gives
+
+$$
+\boxed{S_n=\frac1{30}n(n+1)(2n+1)(3n^2+3n-1)}.
+$$
+:::
+:::
+
+::: {.callout-note title="October/November 2024, Paper 11/13, Question 2"}
+Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\frac{d^n}{dx^n}(\tan^{-1}x)=P_n(x)(1+x^2)^{-n},
+$$
+
+where $P_n(x)$ is a polynomial of degree $n-1$. [6]
+
+*Sources: 9231/11/O/N/24 Q2; 9231/13/O/N/24 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+\frac d{dx}(\tan^{-1}x)=(1+x^2)^{-1}.
+$$
+
+Thus $P_1(x)=1$, which has degree $0=1-1$.
+
+Assume that
+
+$$
+\frac{d^k}{dx^k}(\tan^{-1}x)=P_k(x)(1+x^2)^{-k},
+$$
+
+where $P_k$ has degree $k-1$. Differentiating,
+
+$$
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(\tan^{-1}x)
+&=P_k'(x)(1+x^2)^{-k}-2kxP_k(x)(1+x^2)^{-k-1}\\
+&=\{(1+x^2)P_k'(x)-2kxP_k(x)\}(1+x^2)^{-k-1}.
+\end{aligned}
+$$
+
+Define
+
+$$
+P_{k+1}(x)=(1+x^2)P_k'(x)-2kxP_k(x).
+$$
+
+Both terms have degree at most $k$, and the leading coefficient is non-zero, so $P_{k+1}$ has degree $k$. This is the required form for $n=k+1$. Hence the result follows for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="October/November 2024, Paper 12, Question 1"}
+The sequence satisfies $u_1=4$ and
+
+$$
+u_{n+1}=3u_n-2.
+$$
+
+Prove by induction that $u_n=3^n+1$ for every positive integer $n$. [5]
+
+*Source: 9231/12/O/N/24 Q1.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$, $3^1+1=4=u_1$.
+
+Assume $u_k=3^k+1$. Then
+
+$$
+\begin{aligned}
+u_{k+1}&=3u_k-2\\
+&=3(3^k+1)-2\\
+&=3^{k+1}+1.
+\end{aligned}
+$$
+
+Therefore the result for $k$ implies the result for $k+1$. Since the base case is true, $u_n=3^n+1$ for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+### 2025
+
+::: {.callout-note title="May/June 2025, Paper 11/12, Question 3(a)"}
+The sequence satisfies $u_1=5$ and
+
+$$
+u_{n+1}=6u_n+5.
+$$
+
+Prove by induction that $u_n=6^n-1$ for every positive integer $n$. [5]
+
+*Sources: 9231/11/M/J/25 Q3(a); 9231/12/M/J/25 Q3(a).*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$, $6^1-1=5=u_1$.
+
+Assume that $u_k=6^k-1$. Then
+
+$$
+\begin{aligned}
+u_{k+1}&=6u_k+5\\
+&=6(6^k-1)+5\\
+&=6^{k+1}-1.
+\end{aligned}
+$$
+
+Thus the result for $k$ implies the result for $k+1$. Since the base case is true, $u_n=6^n-1$ for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="May/June 2025, Paper 13, Question 2"}
+Prove by mathematical induction that $2025^n+47^n-2$ is divisible by $46$ for every positive integer $n$. [6]
+
+*Source: 9231/13/M/J/25 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+2025+47-2=2070=45\cdot46.
+$$
+
+Assume that for $n=k$,
+
+$$
+2025^k+47^k-2=46m
+$$
+
+for some integer $m$. Then
+
+$$
+\begin{aligned}
+2025^{k+1}+47^{k+1}-2
+&=47(2025^k+47^k-2)+(2025-47)2025^k+92\\
+&=47(46m)+1978\cdot2025^k+92\\
+&=46\left(47m+43\cdot2025^k+2\right).
+\end{aligned}
+$$
+
+The bracket is an integer, so the expression is divisible by $46$ for $n=k+1$. Hence the result holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="May/June 2025, Paper 14, Question 2"}
+Prove by mathematical induction that, for every integer $n\ge2$,
+
+$$
+\frac{d^n}{dx^n}(x\ln x)=(-1)^n(n-2)!x^{1-n}.
+$$
+
+[6]
+
+*Source: 9231/14/M/J/25 Q2.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=2$,
+
+$$
+\frac{d}{dx}(x\ln x)=\ln x+1,
+\;
+\frac{d^2}{dx^2}(x\ln x)=\frac1x.
+$$
+
+The proposed expression gives $(-1)^2(0)!x^{-1}=1/x$, so the base case holds.
+
+Assume that for some $k\ge2$,
+
+$$
+\frac{d^k}{dx^k}(x\ln x)=(-1)^k(k-2)!x^{1-k}.
+$$
+
+Then
+
+$$
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(x\ln x)
+&=(-1)^k(k-2)!(1-k)x^{-k}\\
+&=(-1)^{k+1}(k-1)!x^{-k}.
+\end{aligned}
+$$
+
+This is the result with $n=k+1$. Therefore it holds for every integer $n\ge2$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="October/November 2025, Paper 11/13, Question 3"}
+Prove by mathematical induction that, for every positive integer $n$,
+
+$$
+\frac{d^{2n-1}}{dx^{2n-1}}(x\cos x)
+=(-1)^n\{x\sin x-(2n-1)\cos x\}.
+$$
+
+[7]
+
+*Sources: 9231/11/O/N/25 Q3; 9231/13/O/N/25 Q3.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$,
+
+$$
+\frac d{dx}(x\cos x)=\cos x-x\sin x
+=(-1)\{x\sin x-\cos x\}.
+$$
+
+Assume that for $n=k$,
+
+$$
+\frac{d^{2k-1}}{dx^{2k-1}}(x\cos x)
+=(-1)^k\{x\sin x-(2k-1)\cos x\}.
+$$
+
+The next required order is $2(k+1)-1=2k+1$, so differentiate twice. The first derivative is
+
+$$
+(-1)^k\{x\cos x+2k\sin x\}.
+$$
+
+The second is
+
+$$
+\begin{aligned}
+(-1)^k\{(2k+1)\cos x-x\sin x\}
+&=(-1)^{k+1}\{x\sin x-(2k+1)\cos x\}.
+\end{aligned}
+$$
+
+This is the formula for $n=k+1$. Hence the result holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="October/November 2025, Paper 12, Question 3(a)"}
+The sequence of positive numbers satisfies $u_1<5$ and
+
+$$
+u_{n+1}=\frac{6u_n+5}{u_n+2}.
+$$
+
+By considering $5-u_{n+1}$, prove by mathematical induction that $u_n<5$ for every positive integer $n$. [5]
+
+*Source: 9231/12/O/N/25 Q3(a).*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+The base case $u_1<5$ is given.
+
+Assume that $u_k<5$. Since the terms are positive, $u_k+2>0$. Now
+
+$$
+\begin{aligned}
+5-u_{k+1}
+&=5-\frac{6u_k+5}{u_k+2}\\
+&=\frac{5u_k+10-6u_k-5}{u_k+2}\\
+&=\frac{5-u_k}{u_k+2}>0.
+\end{aligned}
+$$
+
+Hence $u_{k+1}<5$. Since the base case is true, $u_n<5$ for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-note title="October/November 2025, Paper 14, Question 1"}
+Prove by mathematical induction that
+
+$$
+\left(\frac65\right)^n\ge1+\frac n5
+$$
+
+for every positive integer $n$. [5]
+
+*Source: 9231/14/O/N/25 Q1.*
+
+::: {.callout-tip collapse="true" title="Mark-scheme-style answer"}
+For $n=1$, both sides equal $6/5$.
+
+Assume that
+
+$$
+\left(\frac65\right)^k\ge1+\frac k5.
+$$
+
+Since $6/5>0$,
+
+$$
+\begin{aligned}
+\left(\frac65\right)^{k+1}
+&\ge\frac65\left(1+\frac k5\right)\\
+&=1+\frac{k+1}{5}+\frac{k}{25}\\
+&\ge1+\frac{k+1}{5},
+\end{aligned}
+$$
+
+because $k/25\ge0$. Therefore the inequality holds for $k+1$, and hence for every positive integer $n$ by mathematical induction.
+:::
+:::

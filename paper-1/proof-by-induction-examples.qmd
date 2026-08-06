@@ -1,0 +1,191 @@
+本节保留教材 Sections 2.4–2.5 的全部编号 Example 2.9–2.13。
+
+::: {.callout-example title="Example 2.9 — Sum of squares"}
+Prove, for every positive integer $n$, that
+
+$$
+1^2+2^2+\cdots+n^2=\frac16n(n+1)(2n+1).
+$$
+
+::: {.callout-tip collapse="true" title="Solution"}
+For $n=1$,
+
+$$
+\text{LHS}=1,
+\;
+\text{RHS}=\frac16(1)(2)(3)=1.
+$$
+
+Assume the result is true for $n=k$:
+
+$$
+1^2+2^2+\cdots+k^2=\frac16k(k+1)(2k+1).
+$$
+
+Then
+
+$$
+\begin{aligned}
+1^2+\cdots+k^2+(k+1)^2
+&=\frac16k(k+1)(2k+1)+(k+1)^2\\
+&=\frac16(k+1)\{k(2k+1)+6(k+1)\}\\
+&=\frac16(k+1)(2k^2+7k+6)\\
+&=\frac16(k+1)(k+2)(2k+3).
+\end{aligned}
+$$
+
+This is the required formula with $n=k+1$. Therefore the implication from $k$ to $k+1$ holds. Since the result is true for $n=1$, it is true for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-example title="Example 2.10 — A recursively defined sequence"}
+The sequence is defined by
+
+$$
+u_{n+1}=4u_n-3,
+\;
+u_1=2.
+$$
+
+Prove that $u_n=4^{n-1}+1$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+For $n=1$, the formula gives $u_1=4^0+1=2$, so the base case is true.
+
+Assume that for $n=k$,
+
+$$
+u_k=4^{k-1}+1.
+$$
+
+Using the recurrence,
+
+$$
+\begin{aligned}
+u_{k+1}&=4u_k-3\\
+&=4(4^{k-1}+1)-3\\
+&=4^k+1.
+\end{aligned}
+$$
+
+This is the proposed formula for $n=k+1$. Hence the result is true for all positive integers $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-example title="Example 2.11 — An inequality"}
+Prove that $n!>2^n$ for every integer $n\ge4$.
+
+::: {.callout-tip collapse="true" title="Solution"}
+For $n=4$,
+
+$$
+4!=24>16=2^4.
+$$
+
+Assume that $k!>2^k$ for some integer $k\ge4$. Then
+
+$$
+\begin{aligned}
+(k+1)!&=(k+1)k!\\
+&>(k+1)2^k\\
+&>2\cdot2^k\\
+&=2^{k+1},
+\end{aligned}
+$$
+
+because $k+1>2$. Thus the result for $k$ implies the result for $k+1$. Since it is true for $n=4$, it follows by mathematical induction that $n!>2^n$ for every integer $n\ge4$.
+:::
+:::
+
+::: {.callout-example title="Example 2.12 — Repeated differentiation"}
+Prove that, for every positive integer $n$,
+
+$$
+\frac{d^n}{dx^n}(xe^{ax})=na^{n-1}e^{ax}+a^nxe^{ax},
+$$
+
+where $a$ is constant.
+
+::: {.callout-tip collapse="true" title="Solution"}
+For $n=1$, the product rule gives
+
+$$
+\frac d{dx}(xe^{ax})=e^{ax}+axe^{ax},
+$$
+
+which agrees with the formula.
+
+Assume that
+
+$$
+\frac{d^k}{dx^k}(xe^{ax})=ka^{k-1}e^{ax}+a^kxe^{ax}.
+$$
+
+Differentiate once more:
+
+$$
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(xe^{ax})
+&=\frac d{dx}\left(ka^{k-1}e^{ax}+a^kxe^{ax}\right)\\
+&=ka^ke^{ax}+a^ke^{ax}+a^{k+1}xe^{ax}\\
+&=(k+1)a^ke^{ax}+a^{k+1}xe^{ax}.
+\end{aligned}
+$$
+
+This is the required expression for $n=k+1$. The formula therefore holds for every positive integer $n$ by mathematical induction.
+:::
+:::
+
+::: {.callout-example title="Example 2.13 — A matrix power"}
+Given
+
+$$
+A=\begin{pmatrix}4&1\\3&2\end{pmatrix},
+$$
+
+prove that
+
+$$
+A^n=\frac14
+\begin{pmatrix}
+3\cdot5^n+1&5^n-1\\
+3\cdot5^n-3&5^n+3
+\end{pmatrix}.
+$$
+
+::: {.callout-tip collapse="true" title="Solution"}
+For $n=1$, the right-hand side is
+
+$$
+\frac14\begin{pmatrix}16&4\\12&8\end{pmatrix}
+=\begin{pmatrix}4&1\\3&2\end{pmatrix}=A.
+$$
+
+Assume the formula holds for $n=k$. Then
+
+$$
+\begin{aligned}
+A^{k+1}
+&=A^kA\\
+&=\frac14
+\begin{pmatrix}
+3\cdot5^k+1&5^k-1\\
+3\cdot5^k-3&5^k+3
+\end{pmatrix}
+\begin{pmatrix}4&1\\3&2\end{pmatrix}\\
+&=\frac14
+\begin{pmatrix}
+15\cdot5^k+1&5\cdot5^k-1\\
+15\cdot5^k-3&5\cdot5^k+3
+\end{pmatrix}\\
+&=\frac14
+\begin{pmatrix}
+3\cdot5^{k+1}+1&5^{k+1}-1\\
+3\cdot5^{k+1}-3&5^{k+1}+3
+\end{pmatrix}.
+\end{aligned}
+$$
+
+This is the target for $n=k+1$. Hence the formula holds for every positive integer $n$ by mathematical induction.
+:::
+:::

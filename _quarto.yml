@@ -9,6 +9,7 @@ project:
     - paper-1/matrices.qmd
     - paper-1/polar-coordinates.qmd
     - paper-1/vectors.qmd
+    - paper-1/proof-by-induction.qmd
 
 website:
   title: "CIE Further Mathematics 9231"
@@ -33,6 +34,8 @@ website:
             text: "1.5 Polar coordinates"
           - href: paper-1/vectors.qmd
             text: "1.6 Vectors"
+          - href: paper-1/proof-by-induction.qmd
+            text: "1.7 Proof by induction"
 
 format:
   html:
