@@ -110,7 +110,7 @@ $$
 the required equation is
 
 $$
-\boxed{r=2\sqrt2\,\cosec\left(\theta-\frac\pi4\right)}.
+\boxed{r=2\sqrt2\,\operatorname{cosec}\left(\theta-\frac\pi4\right)}.
 $$
 
 {{< include figures/polar/example-5-2.svg >}}

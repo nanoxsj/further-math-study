@@ -122,7 +122,7 @@ $$
 
 $$
 \boxed{
-\cos\theta=rac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}
+\cos\theta=\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}
 {|\mathbf n_1|\,|\mathbf n_2|}
 }.
 $$

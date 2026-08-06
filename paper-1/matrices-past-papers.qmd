@@ -1884,7 +1884,7 @@ $$
 Therefore
 
 $$
-\boxed{m=-\cot\frac\pi{12}\pm\cosec\frac\pi{12}}.
+\boxed{m=-\cot\frac\pi{12}\pm\operatorname{cosec}\frac\pi{12}}.
 $$
 
 </details>
