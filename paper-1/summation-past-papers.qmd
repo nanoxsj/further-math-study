@@ -807,7 +807,7 @@ $$
 **(b)** Since $x\ne0$, the only $n$-dependent factor is $e^{nx}$. A finite limit exists precisely when $e^{nx}\to0$, i.e. when $x<0$. Then
 
 $$
-e^x(e^x-1)(e^{nx}-1)longrightarrow-e^x(e^x-1),
+e^x(e^x-1)(e^{nx}-1)\longrightarrow-e^x(e^x-1),
 $$
 
 so

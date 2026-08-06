@@ -2,3 +2,8 @@
 /.quarto/
 /assets/
 .DS_Store
+
+**/*.quarto_ipynb
+/tmp/
+/paper-1/*-past-papers.html
+/paper-1/*-past-papers_files/
