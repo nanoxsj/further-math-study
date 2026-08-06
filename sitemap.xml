@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nanoxsj.github.io/further-math-study/paper-1/vectors.html</loc>
-    <lastmod>2026-08-05T13:04:47.028Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nanoxsj.github.io/further-math-study/paper-1/matrices.html</loc>
-    <lastmod>2026-08-05T13:04:47.020Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nanoxsj.github.io/further-math-study/paper-1/rational-functions-and-graphs.html</loc>
-    <lastmod>2026-08-05T13:04:47.024Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nanoxsj.github.io/further-math-study/index.html</loc>
-    <lastmod>2026-08-05T13:04:46.977Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nanoxsj.github.io/further-math-study/paper-1/roots-of-polynomial-equations.html</loc>
-    <lastmod>2026-08-05T13:04:47.025Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nanoxsj.github.io/further-math-study/paper-1/summation-of-series.html</loc>
-    <lastmod>2026-08-05T13:04:47.026Z</lastmod>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/proof-by-induction.html</loc>
+    <lastmod>2026-08-06T01:00:18.885Z</lastmod>
   </url>
   <url>
     <loc>https://nanoxsj.github.io/further-math-study/paper-1/polar-coordinates.html</loc>
-    <lastmod>2026-08-05T13:04:47.021Z</lastmod>
+    <lastmod>2026-08-06T01:00:18.881Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/summation-of-series.html</loc>
+    <lastmod>2026-08-06T01:00:18.887Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/roots-of-polynomial-equations.html</loc>
+    <lastmod>2026-08-06T01:00:18.887Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nanoxsj.github.io/further-math-study/index.html</loc>
+    <lastmod>2026-08-06T01:00:18.849Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/rational-functions-and-graphs.html</loc>
+    <lastmod>2026-08-06T01:00:18.886Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/matrices.html</loc>
+    <lastmod>2026-08-06T01:00:18.880Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nanoxsj.github.io/further-math-study/paper-1/vectors.html</loc>
+    <lastmod>2026-08-06T01:00:18.890Z</lastmod>
   </url>
 </urlset>

@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Sections 2.4–2.5。">
+
+<title>1.7 Proof by induction – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-1/vectors.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/proof-by-induction.html">1.7 Proof by induction</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#syllabus-knowledge" id="toc-syllabus-knowledge" class="nav-link active" data-scroll-target="#syllabus-knowledge">1. Syllabus knowledge</a>
+  <ul class="collapse">
+  <li><a href="#the-logical-chain" id="toc-the-logical-chain" class="nav-link" data-scroll-target="#the-logical-chain">1.1 The logical chain</a></li>
+  <li><a href="#a-mark-scheme-ready-template" id="toc-a-mark-scheme-ready-template" class="nav-link" data-scroll-target="#a-mark-scheme-ready-template">1.2 A mark-scheme-ready template</a></li>
+  <li><a href="#sums-of-series" id="toc-sums-of-series" class="nav-link" data-scroll-target="#sums-of-series">1.3 Sums of series</a></li>
+  <li><a href="#recursively-defined-sequences" id="toc-recursively-defined-sequences" class="nav-link" data-scroll-target="#recursively-defined-sequences">1.4 Recursively defined sequences</a></li>
+  <li><a href="#inequalities" id="toc-inequalities" class="nav-link" data-scroll-target="#inequalities">1.5 Inequalities</a></li>
+  <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives">1.6 Derivatives</a></li>
+  <li><a href="#matrix-powers" id="toc-matrix-powers" class="nav-link" data-scroll-target="#matrix-powers">1.7 Matrix powers</a></li>
+  <li><a href="#why-all-parts-are-necessary" id="toc-why-all-parts-are-necessary" class="nav-link" data-scroll-target="#why-all-parts-are-necessary">1.8 Why all parts are necessary</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a></li>
+  <li><a href="#cambridge-examination-questions-in-the-textbook" id="toc-cambridge-examination-questions-in-the-textbook" class="nav-link" data-scroll-target="#cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</a></li>
+  <li><a href="#past-paper-question-bank" id="toc-past-paper-question-bank" class="nav-link" data-scroll-target="#past-paper-question-bank">4. Past-paper question bank</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2019</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2020</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2021</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2022</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2023</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2024</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">2025</a></li>
+  </ul></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">5. 完成本节的判断标准</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/proof-by-induction.html">1.7 Proof by induction</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1.7 Proof by induction</h1>
+<p class="subtitle lead">Base case · Inductive hypothesis · Inductive step · Conclusion</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Sections 2.4–2.5。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="syllabus-knowledge" class="level2">
+<h2 class="anchored" data-anchor-id="syllabus-knowledge">1. Syllabus knowledge</h2>
+<div class="callout callout-style-default callout-important callout-titled" title="Syllabus objective">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>Syllabus objective
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use the method of mathematical induction to establish a given result.</p>
+<p>题目可以涉及有限和、递推数列、不等式、导数或矩阵幂；证明结构相同，但 inductive step 的运算对象不同。</p>
+</div>
+</div>
+<section id="the-logical-chain" class="level3">
+<h3 class="anchored" data-anchor-id="the-logical-chain">1.1 The logical chain</h3>
+<p>设命题为 <span class="math inline">\(P(n)\)</span>，起始整数为 <span class="math inline">\(n=n_0\)</span>。完整证明必须包含：</p>
+<ol type="1">
+<li><strong>Base case:</strong> 验证 <span class="math inline">\(P(n_0)\)</span>；</li>
+<li><strong>Inductive hypothesis:</strong> 假设 <span class="math inline">\(P(k)\)</span> 对某个 <span class="math inline">\(k\ge n_0\)</span> 成立；</li>
+<li><strong>Target:</strong> 明确 <span class="math inline">\(P(k+1)\)</span> 应是什么；</li>
+<li><strong>Inductive step:</strong> 只使用 <span class="math inline">\(P(k)\)</span> 与已知事实推出 <span class="math inline">\(P(k+1)\)</span>；</li>
+<li><strong>Conclusion:</strong> 写出由 mathematical induction，<span class="math inline">\(P(n)\)</span> 对所有 <span class="math inline">\(n\ge n_0\)</span> 成立。</li>
+</ol>
+<p><span class="math display">\[
+P(n_0),\; P(k)\Longrightarrow P(k+1)
+\;\Longrightarrow\;
+P(n)\text{ for every integer }n\ge n_0.
+\]</span></p>
+</section>
+<section id="a-mark-scheme-ready-template" class="level3">
+<h3 class="anchored" data-anchor-id="a-mark-scheme-ready-template">1.2 A mark-scheme-ready template</h3>
+<div class="callout callout-style-default callout-tip callout-titled" title="Proof template">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Proof template
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Base case.</strong> When <span class="math inline">\(n=n_0\)</span>, show that LHS = RHS (or that the stated inequality is true).</p>
+<p><strong>Hypothesis.</strong> Assume the result is true for <span class="math inline">\(n=k\)</span>, where <span class="math inline">\(k\ge n_0\)</span>:</p>
+<p><span class="math display">\[
+P(k).
+\]</span></p>
+<p><strong>Step.</strong> For <span class="math inline">\(n=k+1\)</span>, begin from the side that contains the <span class="math inline">\(k\)</span>-case, apply the hypothesis, and simplify until the target <span class="math inline">\(P(k+1)\)</span> is obtained.</p>
+<p><strong>Conclusion.</strong> Therefore <span class="math inline">\(P(k)\Rightarrow P(k+1)\)</span>. Since <span class="math inline">\(P(n_0)\)</span> is true, the result follows by mathematical induction for all integers <span class="math inline">\(n\ge n_0\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="sums-of-series" class="level3">
+<h3 class="anchored" data-anchor-id="sums-of-series">1.3 Sums of series</h3>
+<p>If</p>
+<p><span class="math display">\[
+S_n=\sum_{r=1}^{n}f(r)=F(n),
+\]</span></p>
+<p>then the <span class="math inline">\((k+1)\)</span> case begins with</p>
+<p><span class="math display">\[
+S_{k+1}=S_k+f(k+1).
+\]</span></p>
+<p>Use the hypothesis <span class="math inline">\(S_k=F(k)\)</span>, then show</p>
+<p><span class="math display">\[
+F(k)+f(k+1)=F(k+1).
+\]</span></p>
+<p>Do not assume the target <span class="math inline">\(F(k+1)\)</span> at the beginning of the inductive step.</p>
+</section>
+<section id="recursively-defined-sequences" class="level3">
+<h3 class="anchored" data-anchor-id="recursively-defined-sequences">1.4 Recursively defined sequences</h3>
+<p>For <span class="math inline">\(u_{n+1}=g(u_n)\)</span> and a proposed formula <span class="math inline">\(u_n=F(n)\)</span>, assume <span class="math inline">\(u_k=F(k)\)</span> and write</p>
+<p><span class="math display">\[
+u_{k+1}=g(u_k)=g(F(k)).
+\]</span></p>
+<p>The target is <span class="math inline">\(F(k+1)\)</span>. The recurrence, not the proposed answer, must be the starting point.</p>
+</section>
+<section id="inequalities" class="level3">
+<h3 class="anchored" data-anchor-id="inequalities">1.5 Inequalities</h3>
+<p>For an inequality, the hypothesis supplies a bound rather than an equality. Every multiplication or division must respect signs. A typical step is</p>
+<p><span class="math display">\[
+A_{k+1}=c_kA_k&gt;c_kB_k\ge B_{k+1},
+\]</span></p>
+<p>where the proof must explain why <span class="math inline">\(c_k&gt;0\)</span> and why the second comparison holds.</p>
+<p>The base case must use the first value for which the statement is claimed, which need not be <span class="math inline">\(1\)</span>.</p>
+</section>
+<section id="derivatives" class="level3">
+<h3 class="anchored" data-anchor-id="derivatives">1.6 Derivatives</h3>
+<p>If a formula is proposed for <span class="math inline">\(D^n[f(x)]\)</span>, then</p>
+<p><span class="math display">\[
+D^{k+1}[f(x)]=\frac{d}{dx}\left(D^k[f(x)]\right).
+\]</span></p>
+<p>Differentiate the expression supplied by the hypothesis and simplify to the target with <span class="math inline">\(k\)</span> replaced by <span class="math inline">\(k+1\)</span>.</p>
+</section>
+<section id="matrix-powers" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-powers">1.7 Matrix powers</h3>
+<p>For a proposed expression <span class="math inline">\(A^n=M_n\)</span>, use</p>
+<p><span class="math display">\[
+A^{k+1}=A^kA=M_kA.
+\]</span></p>
+<p>Carry out the matrix multiplication explicitly and transform every entry into the corresponding entry of <span class="math inline">\(M_{k+1}\)</span>. Do not treat matrix multiplication as elementwise multiplication.</p>
+</section>
+<section id="why-all-parts-are-necessary" class="level3">
+<h3 class="anchored" data-anchor-id="why-all-parts-are-necessary">1.8 Why all parts are necessary</h3>
+<ul>
+<li>Checking several numerical cases gives evidence, not proof.</li>
+<li>Proving only <span class="math inline">\(P(k)\Rightarrow P(k+1)\)</span> is insufficient without a valid base case.</li>
+<li>A correct base case alone does not establish later cases.</li>
+<li>The conclusion must state the domain, such as all positive integers or all integers <span class="math inline">\(n\ge4\)</span>.</li>
+</ul>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<p>本节保留教材 Sections 2.4–2.5 的全部编号 Example 2.9–2.13。</p>
+<div class="callout-example" title="Example 2.9 — Sum of squares">
+<p>Prove, for every positive integer <span class="math inline">\(n\)</span>, that</p>
+<p><span class="math display">\[
+1^2+2^2+\cdots+n^2=\frac16n(n+1)(2n+1).
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+\text{LHS}=1,
+\;
+\text{RHS}=\frac16(1)(2)(3)=1.
+\]</span></p>
+<p>Assume the result is true for <span class="math inline">\(n=k\)</span>:</p>
+<p><span class="math display">\[
+1^2+2^2+\cdots+k^2=\frac16k(k+1)(2k+1).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+1^2+\cdots+k^2+(k+1)^2
+&amp;=\frac16k(k+1)(2k+1)+(k+1)^2\\
+&amp;=\frac16(k+1)\{k(2k+1)+6(k+1)\}\\
+&amp;=\frac16(k+1)(2k^2+7k+6)\\
+&amp;=\frac16(k+1)(k+2)(2k+3).
+\end{aligned}
+\]</span></p>
+<p>This is the required formula with <span class="math inline">\(n=k+1\)</span>. Therefore the implication from <span class="math inline">\(k\)</span> to <span class="math inline">\(k+1\)</span> holds. Since the result is true for <span class="math inline">\(n=1\)</span>, it is true for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 2.10 — A recursively defined sequence">
+<p>The sequence is defined by</p>
+<p><span class="math display">\[
+u_{n+1}=4u_n-3,
+\;
+u_1=2.
+\]</span></p>
+<p>Prove that <span class="math inline">\(u_n=4^{n-1}+1\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>, the formula gives <span class="math inline">\(u_1=4^0+1=2\)</span>, so the base case is true.</p>
+<p>Assume that for <span class="math inline">\(n=k\)</span>,</p>
+<p><span class="math display">\[
+u_k=4^{k-1}+1.
+\]</span></p>
+<p>Using the recurrence,</p>
+<p><span class="math display">\[
+\begin{aligned}
+u_{k+1}&amp;=4u_k-3\\
+&amp;=4(4^{k-1}+1)-3\\
+&amp;=4^k+1.
+\end{aligned}
+\]</span></p>
+<p>This is the proposed formula for <span class="math inline">\(n=k+1\)</span>. Hence the result is true for all positive integers <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 2.11 — An inequality">
+<p>Prove that <span class="math inline">\(n!&gt;2^n\)</span> for every integer <span class="math inline">\(n\ge4\)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=4\)</span>,</p>
+<p><span class="math display">\[
+4!=24&gt;16=2^4.
+\]</span></p>
+<p>Assume that <span class="math inline">\(k!&gt;2^k\)</span> for some integer <span class="math inline">\(k\ge4\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+(k+1)!&amp;=(k+1)k!\\
+&amp;&gt;(k+1)2^k\\
+&amp;&gt;2\cdot2^k\\
+&amp;=2^{k+1},
+\end{aligned}
+\]</span></p>
+<p>because <span class="math inline">\(k+1&gt;2\)</span>. Thus the result for <span class="math inline">\(k\)</span> implies the result for <span class="math inline">\(k+1\)</span>. Since it is true for <span class="math inline">\(n=4\)</span>, it follows by mathematical induction that <span class="math inline">\(n!&gt;2^n\)</span> for every integer <span class="math inline">\(n\ge4\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 2.12 — Repeated differentiation">
+<p>Prove that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^n}{dx^n}(xe^{ax})=na^{n-1}e^{ax}+a^nxe^{ax},
+\]</span></p>
+<p>where <span class="math inline">\(a\)</span> is constant.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>, the product rule gives</p>
+<p><span class="math display">\[
+\frac d{dx}(xe^{ax})=e^{ax}+axe^{ax},
+\]</span></p>
+<p>which agrees with the formula.</p>
+<p>Assume that</p>
+<p><span class="math display">\[
+\frac{d^k}{dx^k}(xe^{ax})=ka^{k-1}e^{ax}+a^kxe^{ax}.
+\]</span></p>
+<p>Differentiate once more:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(xe^{ax})
+&amp;=\frac d{dx}\left(ka^{k-1}e^{ax}+a^kxe^{ax}\right)\\
+&amp;=ka^ke^{ax}+a^ke^{ax}+a^{k+1}xe^{ax}\\
+&amp;=(k+1)a^ke^{ax}+a^{k+1}xe^{ax}.
+\end{aligned}
+\]</span></p>
+<p>This is the required expression for <span class="math inline">\(n=k+1\)</span>. The formula therefore holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 2.13 — A matrix power">
+<p>Given</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}4&amp;1\\3&amp;2\end{pmatrix},
+\]</span></p>
+<p>prove that</p>
+<p><span class="math display">\[
+A^n=\frac14
+\begin{pmatrix}
+3\cdot5^n+1&amp;5^n-1\\
+3\cdot5^n-3&amp;5^n+3
+\end{pmatrix}.
+\]</span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>, the right-hand side is</p>
+<p><span class="math display">\[
+\frac14\begin{pmatrix}16&amp;4\\12&amp;8\end{pmatrix}
+=\begin{pmatrix}4&amp;1\\3&amp;2\end{pmatrix}=A.
+\]</span></p>
+<p>Assume the formula holds for <span class="math inline">\(n=k\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+A^{k+1}
+&amp;=A^kA\\
+&amp;=\frac14
+\begin{pmatrix}
+3\cdot5^k+1&amp;5^k-1\\
+3\cdot5^k-3&amp;5^k+3
+\end{pmatrix}
+\begin{pmatrix}4&amp;1\\3&amp;2\end{pmatrix}\\
+&amp;=\frac14
+\begin{pmatrix}
+15\cdot5^k+1&amp;5\cdot5^k-1\\
+15\cdot5^k-3&amp;5\cdot5^k+3
+\end{pmatrix}\\
+&amp;=\frac14
+\begin{pmatrix}
+3\cdot5^{k+1}+1&amp;5^{k+1}-1\\
+3\cdot5^{k+1}-3&amp;5^{k+1}+3
+\end{pmatrix}.
+\end{aligned}
+\]</span></p>
+<p>This is the target for <span class="math inline">\(n=k+1\)</span>. Hence the formula holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cambridge-examination-questions-in-the-textbook" class="level2">
+<h2 class="anchored" data-anchor-id="cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</h2>
+<p>这里只收录教材 Exercise 中明确标注 <strong>Cambridge International AS &amp; A Level Further Mathematics 9231</strong> 来源的题目。</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Exercise 2E, Question 10">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>Exercise 2E, Question 10
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is given that <span class="math inline">\(u_r=r\cdot r!\)</span> for <span class="math inline">\(r=1,2,3,\ldots\)</span> and</p>
+<p><span class="math display">\[
+S_n=u_1+u_2+\cdots+u_n.
+\]</span></p>
+<ol type="i">
+<li><p>Write down the values of <span class="math inline">\(2!-S_1\)</span>, <span class="math inline">\(3!-S_2\)</span>, <span class="math inline">\(4!-S_3\)</span> and <span class="math inline">\(5!-S_4\)</span>.</p></li>
+<li><p>Conjecture a formula for <span class="math inline">\(S_n\)</span>.</p></li>
+<li><p>Prove the formula by mathematical induction for every positive integer <span class="math inline">\(n\)</span>.</p></li>
+</ol>
+<p><em>Source: 9231 Paper 11 Question 3, October/November 2014.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li></li>
+</ol>
+<p><span class="math display">\[
+S_1=1,
+\; S_2=1+4=5,
+\; S_3=5+18=23,
+\; S_4=23+96=119.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+2!-S_1=3!-S_2=4!-S_3=5!-S_4=1.
+\]</span></p>
+<ol start="2" type="i">
+<li>The conjecture is</li>
+</ol>
+<p><span class="math display">\[
+\boxed{S_n=(n+1)!-1}.
+\]</span></p>
+<ol start="3" type="i">
+<li>For <span class="math inline">\(n=1\)</span>, <span class="math inline">\(S_1=1\)</span> and <span class="math inline">\(2!-1=1\)</span>, so the formula is true.</li>
+</ol>
+<p>Assume that for <span class="math inline">\(n=k\)</span>,</p>
+<p><span class="math display">\[
+S_k=(k+1)!-1.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+S_{k+1}
+&amp;=S_k+(k+1)(k+1)!\\
+&amp;=(k+1)!-1+(k+1)(k+1)!\\
+&amp;=(k+1)![1+(k+1)]-1\\
+&amp;=(k+2)!-1.
+\end{aligned}
+\]</span></p>
+<p>This is the formula for <span class="math inline">\(n=k+1\)</span>. Therefore <span class="math inline">\(S_n=(n+1)!-1\)</span> for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Exercise 2E, Question 11">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>Exercise 2E, Question 11
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is given that</p>
+<p><span class="math display">\[
+y=(1+x)^2\ln(1+x).
+\]</span></p>
+<ol type="i">
+<li><p>Find <span class="math inline">\(d^3y/dx^3\)</span>.</p></li>
+<li><p>Prove by mathematical induction that, for every integer <span class="math inline">\(n\ge3\)</span>,</p></li>
+</ol>
+<p><span class="math display">\[
+\frac{d^ny}{dx^n}
+=(-1)^{n-1}\frac{2(n-3)!}{(1+x)^{n-2}}.
+\]</span></p>
+<p><em>Source: 9231 Paper 11 Question 5, October/November 2015.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li>Put <span class="math inline">\(v=1+x\)</span>. Then</li>
+</ol>
+<p><span class="math display">\[
+y'=2v\ln v+v,
+\]</span></p>
+<p><span class="math display">\[
+y''=2\ln v+3,
+\]</span></p>
+<p>and therefore</p>
+<p><span class="math display">\[
+\boxed{y'''=\frac2{1+x}}.
+\]</span></p>
+<ol start="2" type="i">
+<li>The result for <span class="math inline">\(n=3\)</span> gives</li>
+</ol>
+<p><span class="math display">\[
+(-1)^2\frac{2(0)!}{1+x}=\frac2{1+x},
+\]</span></p>
+<p>which agrees with part (i).</p>
+<p>Assume that for some <span class="math inline">\(k\ge3\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^ky}{dx^k}=(-1)^{k-1}2(k-3)!(1+x)^{-(k-2)}.
+\]</span></p>
+<p>Differentiate once:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{k+1}y}{dx^{k+1}}
+&amp;=(-1)^{k-1}2(k-3)![-(k-2)](1+x)^{-(k-1)}\\
+&amp;=(-1)^k\frac{2(k-2)!}{(1+x)^{k-1}}.
+\end{aligned}
+\]</span></p>
+<p>This is the proposed result with <span class="math inline">\(n=k+1\)</span>. Hence the formula holds for every integer <span class="math inline">\(n\ge3\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Exercise 2E, Question 12">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>Exercise 2E, Question 12
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^n}{dx^n}(e^x\sin x)
+=2^{n/2}e^x\sin\left(x+\frac{n\pi}{4}\right).
+\]</span></p>
+<p><em>Source: 9231 Paper 11 Question 3, October/November 2011.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+\frac d{dx}(e^x\sin x)=e^x(\sin x+\cos x)
+=\sqrt2e^x\sin\left(x+\frac\pi4\right),
+\]</span></p>
+<p>so the formula is true.</p>
+<p>Assume that for <span class="math inline">\(n=k\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^k}{dx^k}(e^x\sin x)
+=2^{k/2}e^x\sin\left(x+\frac{k\pi}{4}\right).
+\]</span></p>
+<p>Let <span class="math inline">\(\theta=x+k\pi/4\)</span>. Differentiating gives</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(e^x\sin x)
+&amp;=2^{k/2}e^x(\sin\theta+\cos\theta)\\
+&amp;=2^{k/2}\sqrt2e^x\sin\left(\theta+\frac\pi4\right)\\
+&amp;=2^{(k+1)/2}e^x\sin\left(x+\frac{(k+1)\pi}{4}\right).
+\end{aligned}
+\]</span></p>
+<p>This is the target for <span class="math inline">\(n=k+1\)</span>. Therefore the formula holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="past-paper-question-bank" class="level2">
+<h2 class="anchored" data-anchor-id="past-paper-question-bank">4. Past-paper question bank</h2>
+<p>完全相同的地区版本合并为一题，并列出全部来源。答案保留 base case、hypothesis、inductive step 与 conclusion。</p>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2019</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2019, Paper 11/12, Question 8">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2019, Paper 11/12, Question 8
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li>Prove by mathematical induction that, for <span class="math inline">\(z\ne1\)</span> and every positive integer <span class="math inline">\(n\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+1+z+z^2+\cdots+z^{n-1}=\frac{z^n-1}{z-1}.
+\]</span></p>
+<p>[5]</p>
+<ol start="2" type="i">
+<li>By taking</li>
+</ol>
+<p><span class="math display">\[
+z=\frac12(\cos\theta+i\sin\theta),
+\]</span></p>
+<p>use de Moivre’s theorem to deduce that</p>
+<p><span class="math display">\[
+\sum_{m=1}^{\infty}2^{-m}\sin(m\theta)
+=\frac{2\sin\theta}{5-4\cos\theta}.
+\]</span></p>
+<p>[5]</p>
+<p><em>Sources: 9231/11/M/J/19 Q8; 9231/12/M/J/19 Q8.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li>For <span class="math inline">\(n=1\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+1=\frac{z-1}{z-1}.
+\]</span></p>
+<p>Assume that</p>
+<p><span class="math display">\[
+1+z+\cdots+z^{k-1}=\frac{z^k-1}{z-1}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+1+z+\cdots+z^{k-1}+z^k
+&amp;=\frac{z^k-1}{z-1}+z^k\\
+&amp;=\frac{z^k-1+z^k(z-1)}{z-1}\\
+&amp;=\frac{z^{k+1}-1}{z-1}.
+\end{aligned}
+\]</span></p>
+<p>This is the target for <span class="math inline">\(n=k+1\)</span>. Hence the identity holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+<ol start="2" type="i">
+<li>Here <span class="math inline">\(|z|=1/2&lt;1\)</span>, so the infinite geometric series gives</li>
+</ol>
+<p><span class="math display">\[
+\sum_{m=0}^{\infty}z^m=\frac1{1-z}.
+\]</span></p>
+<p>Taking imaginary parts and applying de Moivre’s theorem,</p>
+<p><span class="math display">\[
+\sum_{m=1}^{\infty}2^{-m}\sin(m\theta)
+=\operatorname{Im}\left(\frac1{1-\frac12(\cos\theta+i\sin\theta)}\right).
+\]</span></p>
+<p>Multiply numerator and denominator by the conjugate. The denominator is</p>
+<p><span class="math display">\[
+1-\cos\theta+\frac14
+=\frac14(5-4\cos\theta),
+\]</span></p>
+<p>and the imaginary part of the numerator is <span class="math inline">\(\frac12\sin\theta\)</span>. Therefore</p>
+<p><span class="math display">\[
+\boxed{\sum_{m=1}^{\infty}2^{-m}\sin(m\theta)
+=\frac{2\sin\theta}{5-4\cos\theta}}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2019, Paper 13, Question 1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2019, Paper 13, Question 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that <span class="math inline">\(3^{3n}-1\)</span> is divisible by <span class="math inline">\(13\)</span> for every positive integer <span class="math inline">\(n\)</span>. [5]</p>
+<p><em>Source: 9231/13/M/J/19 Q1.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+3^3-1=26=2\cdot13.
+\]</span></p>
+<p>Assume that <span class="math inline">\(3^{3k}-1=13m\)</span> for some integer <span class="math inline">\(m\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+3^{3(k+1)}-1
+&amp;=27\cdot3^{3k}-1\\
+&amp;=26\cdot3^{3k}+(3^{3k}-1)\\
+&amp;=13(2\cdot3^{3k}+m).
+\end{aligned}
+\]</span></p>
+<p>Thus the result holds for <span class="math inline">\(k+1\)</span>, and hence for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2019, Paper 11/12/13, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2019, Paper 11/12/13, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is given that <span class="math inline">\(y=\ln(ax+1)\)</span>, where <span class="math inline">\(a&gt;0\)</span>. Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^ny}{dx^n}
+=(-1)^{n-1}\frac{(n-1)!a^n}{(ax+1)^n}.
+\]</span></p>
+<p>[6]</p>
+<p><em>Sources: 9231/11/O/N/19 Q2; 9231/12/O/N/19 Q2; 9231/13/O/N/19 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+y'=\frac{a}{ax+1},
+\]</span></p>
+<p>which agrees with the formula.</p>
+<p>Assume that</p>
+<p><span class="math display">\[
+\frac{d^ky}{dx^k}
+=(-1)^{k-1}(k-1)!a^k(ax+1)^{-k}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{k+1}y}{dx^{k+1}}
+&amp;=(-1)^{k-1}(k-1)!a^k(-k)a(ax+1)^{-k-1}\\
+&amp;=(-1)^k\frac{k!a^{k+1}}{(ax+1)^{k+1}}.
+\end{aligned}
+\]</span></p>
+<p>This is the formula for <span class="math inline">\(n=k+1\)</span>. Hence it holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2020</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2020, Paper 11/12, Question 6">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2020, Paper 11/12, Question 6
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}2&amp;0\\1&amp;1\end{pmatrix}.
+\]</span></p>
+<ol type="a">
+<li><p>The transformation represented by <span class="math inline">\(A^{-1}\)</span> maps a triangle of area <span class="math inline">\(30\text{ cm}^2\)</span> onto one of area <span class="math inline">\(d\text{ cm}^2\)</span>. Find <span class="math inline">\(d\)</span>. [3]</p></li>
+<li><p>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p></li>
+</ol>
+<p><span class="math display">\[
+A^n=\begin{pmatrix}2^n&amp;0\\2^n-1&amp;1\end{pmatrix}.
+\]</span></p>
+<p>[5]</p>
+<p><em>Sources: 9231/11/M/J/20 Q6; 9231/12/M/J/20 Q6.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Since <span class="math inline">\(\det A=2\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+|\det A^{-1}|=\frac12.
+\]</span></p>
+<p>Thus <span class="math inline">\(\boxed{d=15}\)</span>.</p>
+<ol start="2" type="a">
+<li>For <span class="math inline">\(n=1\)</span>, the proposed expression is <span class="math inline">\(A\)</span>.</li>
+</ol>
+<p>Assume that</p>
+<p><span class="math display">\[
+A^k=\begin{pmatrix}2^k&amp;0\\2^k-1&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+A^{k+1}
+&amp;=A^kA\\
+&amp;=\begin{pmatrix}2^k&amp;0\\2^k-1&amp;1\end{pmatrix}
+\begin{pmatrix}2&amp;0\\1&amp;1\end{pmatrix}\\
+&amp;=\begin{pmatrix}2^{k+1}&amp;0\\2(2^k-1)+1&amp;1\end{pmatrix}\\
+&amp;=\begin{pmatrix}2^{k+1}&amp;0\\2^{k+1}-1&amp;1\end{pmatrix}.
+\end{aligned}
+\]</span></p>
+<p>This is the formula for <span class="math inline">\(n=k+1\)</span>. Hence it holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2020, Paper 13, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2020, Paper 13, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sequence satisfies <span class="math inline">\(u_1=1\)</span> and</p>
+<p><span class="math display">\[
+u_{n+1}=2u_n+1.
+\]</span></p>
+<ol type="a">
+<li><p>Prove by induction that <span class="math inline">\(u_n=2^n-1\)</span> for every positive integer <span class="math inline">\(n\)</span>. [5]</p></li>
+<li><p>Deduce that <span class="math inline">\(u_{2n}\)</span> is divisible by <span class="math inline">\(u_n\)</span> for <span class="math inline">\(n\ge1\)</span>. [2]</p></li>
+</ol>
+<p><em>Source: 9231/13/M/J/20 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>For <span class="math inline">\(n=1\)</span>, <span class="math inline">\(2^1-1=1=u_1\)</span>.</li>
+</ol>
+<p>Assume that <span class="math inline">\(u_k=2^k-1\)</span>. Then</p>
+<p><span class="math display">\[
+u_{k+1}=2u_k+1=2(2^k-1)+1=2^{k+1}-1.
+\]</span></p>
+<p>Thus the result holds for <span class="math inline">\(k+1\)</span>, and hence for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">\[
+u_{2n}=2^{2n}-1=(2^n-1)(2^n+1)=u_n(2^n+1).
+\]</span></p>
+<p>Since <span class="math inline">\(2^n+1\)</span> is an integer, <span class="math inline">\(\boxed{u_n\mid u_{2n}}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2020, Paper 11/13, Question 5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2020, Paper 11/13, Question 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^{2n-1}}{dx^{2n-1}}(x\sin x)
+=(-1)^{n-1}\{x\cos x+(2n-1)\sin x\}.
+\]</span></p>
+<p>[7]</p>
+<p><em>Sources: 9231/11/O/N/20 Q5; 9231/13/O/N/20 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+\frac d{dx}(x\sin x)=x\cos x+\sin x,
+\]</span></p>
+<p>which is the proposed expression.</p>
+<p>Assume that</p>
+<p><span class="math display">\[
+\frac{d^{2k-1}}{dx^{2k-1}}(x\sin x)
+=(-1)^{k-1}\{x\cos x+(2k-1)\sin x\}.
+\]</span></p>
+<p>Differentiate twice. First,</p>
+<p><span class="math display">\[
+\frac{d^{2k}}{dx^{2k}}(x\sin x)
+=(-1)^{k-1}\{-x\sin x+2k\cos x\}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{2k+1}}{dx^{2k+1}}(x\sin x)
+&amp;=(-1)^{k-1}\{-x\cos x-(2k+1)\sin x\}\\
+&amp;=(-1)^k\{x\cos x+(2k+1)\sin x\}.
+\end{aligned}
+\]</span></p>
+<p>This is the target for <span class="math inline">\(n=k+1\)</span>. Hence the formula holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2020, Paper 12, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2020, Paper 12, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that <span class="math inline">\(7^{2n}-1\)</span> is divisible by <span class="math inline">\(12\)</span> for every positive integer <span class="math inline">\(n\)</span>. [5]</p>
+<p><em>Source: 9231/12/O/N/20 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+7^2-1=48=4\cdot12.
+\]</span></p>
+<p>Assume that <span class="math inline">\(7^{2k}-1=12m\)</span> for some integer <span class="math inline">\(m\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+7^{2(k+1)}-1
+&amp;=49\cdot7^{2k}-1\\
+&amp;=49(7^{2k}-1)+48\\
+&amp;=12(49m+4).
+\end{aligned}
+\]</span></p>
+<p>Thus the expression is divisible by <span class="math inline">\(12\)</span> for <span class="math inline">\(n=k+1\)</span>. Hence the result follows for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2021</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2021, Paper 11/12, Question 1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2021, Paper 11/12, Question 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that <span class="math inline">\(2^{4n}+31^n-2\)</span> is divisible by <span class="math inline">\(15\)</span> for every positive integer <span class="math inline">\(n\)</span>. [6]</p>
+<p><em>Sources: 9231/11/M/J/21 Q1; 9231/12/M/J/21 Q1.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+2^4+31-2=45=3\cdot15.
+\]</span></p>
+<p>Assume that <span class="math inline">\(2^{4k}+31^k-2=15m\)</span> for some integer <span class="math inline">\(m\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+2^{4(k+1)}+31^{k+1}-2
+&amp;=(15+1)2^{4k}+(30+1)31^k-2\\
+&amp;=(2^{4k}+31^k-2)+15\cdot2^{4k}+30\cdot31^k\\
+&amp;=15\{m+2^{4k}+2\cdot31^k\}.
+\end{aligned}
+\]</span></p>
+<p>The bracket is an integer. Hence the expression is divisible by <span class="math inline">\(15\)</span> for <span class="math inline">\(n=k+1\)</span>, and therefore for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2021, Paper 13, Question 3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2021, Paper 13, Question 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+\sum_{r=1}^{n}(5r^4+r^2)
+=\frac12n^2(n+1)^2(2n+1).
+\]</span></p>
+<p>[6]</p>
+<ol start="2" type="a">
+<li>Hence, using the standard formula for <span class="math inline">\(\sum r^2\)</span>, find <span class="math inline">\(\sum_{r=1}^{n}r^4\)</span> in fully factorised form. [3]</li>
+</ol>
+<p><em>Source: 9231/13/M/J/21 Q3.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>For <span class="math inline">\(n=1\)</span>, the left side is <span class="math inline">\(6\)</span> and the right side is</li>
+</ol>
+<p><span class="math display">\[
+\frac12(1)^2(2)^2(3)=6.
+\]</span></p>
+<p>Assume that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{k}(5r^4+r^2)
+=\frac12k^2(k+1)^2(2k+1).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{r=1}^{k+1}(5r^4+r^2)
+&amp;=\frac12k^2(k+1)^2(2k+1)+5(k+1)^4+(k+1)^2\\
+&amp;=\frac12(k+1)^2\{2k^3+11k^2+20k+12\}\\
+&amp;=\frac12(k+1)^2(k+2)^2(2k+3).
+\end{aligned}
+\]</span></p>
+<p>This is the result for <span class="math inline">\(n=k+1\)</span>. Hence part (a) follows by mathematical induction.</p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">\[
+5\sum_{r=1}^{n}r^4+\frac16n(n+1)(2n+1)
+=\frac12n^2(n+1)^2(2n+1).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}r^4
+=\frac1{30}n(n+1)(2n+1)(3n^2+3n-1)}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2021, Paper 11/13, Question 3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2021, Paper 11/13, Question 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sequence satisfies <span class="math inline">\(a_1=1\)</span> and</p>
+<p><span class="math display">\[
+a_{n+1}=\left(a_n+\frac1{a_n}\right)^3.
+\]</span></p>
+<ol type="a">
+<li>Prove by mathematical induction that</li>
+</ol>
+<p><span class="math display">\[
+\ln a_n\ge3^{n-1}\ln2
+\]</span></p>
+<p>for every integer <span class="math inline">\(n\ge2\)</span>. [6]</p>
+<ol start="2" type="a">
+<li>Show that</li>
+</ol>
+<p><span class="math display">\[
+\ln a_{n+1}-\ln a_n&gt;3^{n-1}\ln4
+\]</span></p>
+<p>for <span class="math inline">\(n\ge2\)</span>. [2]</p>
+<p><em>Sources: 9231/11/O/N/21 Q3; 9231/13/O/N/21 Q3.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Since <span class="math inline">\(a_2=(1+1)^3=8\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+\ln a_2=3\ln2=3^{2-1}\ln2.
+\]</span></p>
+<p>Assume that <span class="math inline">\(\ln a_k\ge3^{k-1}\ln2\)</span> for some <span class="math inline">\(k\ge2\)</span>. Since <span class="math inline">\(a_k&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\ln a_{k+1}
+&amp;=3\ln\left(a_k+\frac1{a_k}\right)\\
+&amp;&gt;3\ln a_k\\
+&amp;\ge3^k\ln2.
+\end{aligned}
+\]</span></p>
+<p>Thus the result holds for <span class="math inline">\(k+1\)</span>, and hence for every integer <span class="math inline">\(n\ge2\)</span> by mathematical induction.</p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+\ln a_{n+1}-\ln a_n
+&amp;=3\ln\left(a_n+\frac1{a_n}\right)-\ln a_n\\
+&amp;&gt;2\ln a_n\\
+&amp;\ge2\cdot3^{n-1}\ln2\\
+&amp;=3^{n-1}\ln4.
+\end{aligned}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2021, Paper 12, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2021, Paper 12, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is given that <span class="math inline">\(y=xe^{ax}\)</span>, where <span class="math inline">\(a\)</span> is constant. Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^ny}{dx^n}=(a^nx+na^{n-1})e^{ax}.
+\]</span></p>
+<p>[6]</p>
+<p><em>Source: 9231/12/O/N/21 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+y'=(ax+1)e^{ax},
+\]</span></p>
+<p>which agrees with the formula.</p>
+<p>Assume</p>
+<p><span class="math display">\[
+\frac{d^ky}{dx^k}=(a^kx+ka^{k-1})e^{ax}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{k+1}y}{dx^{k+1}}
+&amp;=a(a^kx+ka^{k-1})e^{ax}+a^ke^{ax}\\
+&amp;=\{a^{k+1}x+(k+1)a^k\}e^{ax}.
+\end{aligned}
+\]</span></p>
+<p>This is the target for <span class="math inline">\(n=k+1\)</span>. Hence the result holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2022</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2022, Paper 11/12, Question 3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2022, Paper 11/12, Question 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sequence of positive numbers satisfies <span class="math inline">\(u_1&gt;4\)</span> and</p>
+<p><span class="math display">\[
+u_{n+1}=\frac{u_n^2+u_n+12}{2u_n}.
+\]</span></p>
+<ol type="a">
+<li><p>By considering <span class="math inline">\(u_{n+1}-4\)</span>, prove by mathematical induction that <span class="math inline">\(u_n&gt;4\)</span> for every positive integer <span class="math inline">\(n\)</span>. [5]</p></li>
+<li><p>Show that <span class="math inline">\(u_{n+1}&lt;u_n\)</span> for <span class="math inline">\(n\ge1\)</span>. [3]</p></li>
+</ol>
+<p><em>Sources: 9231/11/M/J/22 Q3; 9231/12/M/J/22 Q3.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>The base case <span class="math inline">\(u_1&gt;4\)</span> is given.</li>
+</ol>
+<p>Assume that <span class="math inline">\(u_k&gt;4\)</span>. Since <span class="math inline">\(u_k\)</span> is positive,</p>
+<p><span class="math display">\[
+\begin{aligned}
+u_{k+1}-4
+&amp;=\frac{u_k^2+u_k+12}{2u_k}-4\\
+&amp;=\frac{u_k^2-7u_k+12}{2u_k}\\
+&amp;=\frac{(u_k-3)(u_k-4)}{2u_k}&gt;0.
+\end{aligned}
+\]</span></p>
+<p>Thus <span class="math inline">\(u_{k+1}&gt;4\)</span>. Since the base case is true, <span class="math inline">\(u_n&gt;4\)</span> for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">\[
+\begin{aligned}
+u_{n+1}-u_n
+&amp;=\frac{-u_n^2+u_n+12}{2u_n}\\
+&amp;=-\frac{(u_n-4)(u_n+3)}{2u_n}&lt;0,
+\end{aligned}
+\]</span></p>
+<p>because <span class="math inline">\(u_n&gt;4\)</span>. Hence <span class="math inline">\(\boxed{u_{n+1}&lt;u_n}\)</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2022, Paper 13, Question 5">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2022, Paper 13, Question 5
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;a\\0&amp;1\end{pmatrix},
+\]</span></p>
+<p>where <span class="math inline">\(a&gt;0\)</span>.</p>
+<ol type="a">
+<li><p>State the geometrical transformation represented by <span class="math inline">\(A\)</span>. [1]</p></li>
+<li><p>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p></li>
+</ol>
+<p><span class="math display">\[
+A^n=\begin{pmatrix}1&amp;na\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p>[5]</p>
+<p><em>Source: 9231/13/M/J/22 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><p><span class="math inline">\(A\)</span> represents a shear in the <span class="math inline">\(x\)</span>-direction, with shear factor <span class="math inline">\(a\)</span>.</p></li>
+<li><p>For <span class="math inline">\(n=1\)</span>, the proposed matrix is <span class="math inline">\(A\)</span>.</p></li>
+</ol>
+<p>Assume that</p>
+<p><span class="math display">\[
+A^k=\begin{pmatrix}1&amp;ka\\0&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+A^{k+1}
+&amp;=A^kA\\
+&amp;=\begin{pmatrix}1&amp;ka\\0&amp;1\end{pmatrix}
+\begin{pmatrix}1&amp;a\\0&amp;1\end{pmatrix}\\
+&amp;=\begin{pmatrix}1&amp;(k+1)a\\0&amp;1\end{pmatrix}.
+\end{aligned}
+\]</span></p>
+<p>This is the target for <span class="math inline">\(n=k+1\)</span>. Hence the formula holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2023</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2023, Paper 11/13, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2023, Paper 11/13, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(x\ne1\)</span>, prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+1+2x+3x^2+\cdots+nx^{n-1}
+=\frac{1-(n+1)x^n+nx^{n+1}}{(1-x)^2}.
+\]</span></p>
+<p>[6]</p>
+<p><em>Sources: 9231/11/O/N/23 Q2; 9231/13/O/N/23 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+\text{LHS}=1,
+\;
+\text{RHS}=\frac{1-2x+x^2}{(1-x)^2}=1.
+\]</span></p>
+<p>Assume that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{k}rx^{r-1}
+=\frac{1-(k+1)x^k+kx^{k+1}}{(1-x)^2}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{r=1}^{k+1}rx^{r-1}
+&amp;=\frac{1-(k+1)x^k+kx^{k+1}}{(1-x)^2}+(k+1)x^k\\
+&amp;=\frac{1-(k+1)x^k+kx^{k+1}+(k+1)x^k(1-x)^2}{(1-x)^2}\\
+&amp;=\frac{1-(k+2)x^{k+1}+(k+1)x^{k+2}}{(1-x)^2}.
+\end{aligned}
+\]</span></p>
+<p>This is the target for <span class="math inline">\(n=k+1\)</span>. Hence the identity holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2023, Paper 12, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2023, Paper 12, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^n}{dx^n}(x^2e^x)
+=\{x^2+2nx+n(n-1)\}e^x.
+\]</span></p>
+<p>[6]</p>
+<p><em>Source: 9231/12/O/N/23 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+\frac d{dx}(x^2e^x)=(x^2+2x)e^x,
+\]</span></p>
+<p>which agrees with the formula.</p>
+<p>Assume that</p>
+<p><span class="math display">\[
+\frac{d^k}{dx^k}(x^2e^x)
+=\{x^2+2kx+k(k-1)\}e^x.
+\]</span></p>
+<p>Differentiate once:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(x^2e^x)
+&amp;=\{x^2+2kx+k(k-1)+2x+2k\}e^x\\
+&amp;=\{x^2+2(k+1)x+k(k+1)\}e^x.
+\end{aligned}
+\]</span></p>
+<p>This is the proposed formula for <span class="math inline">\(n=k+1\)</span>. Hence it holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">2024</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2024, Paper 11/12, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2024, Paper 11/12, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that</p>
+<p><span class="math display">\[
+6^{4n}+38^n-2
+\]</span></p>
+<p>is divisible by <span class="math inline">\(74\)</span> for every positive integer <span class="math inline">\(n\)</span>. [6]</p>
+<p><em>Sources: 9231/11/M/J/24 Q2; 9231/12/M/J/24 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+6^4+38-2=1332=18\cdot74.
+\]</span></p>
+<p>Assume that</p>
+<p><span class="math display">\[
+6^{4k}+38^k-2=74m
+\]</span></p>
+<p>for some integer <span class="math inline">\(m\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+6^{4(k+1)}+38^{k+1}-2
+&amp;=1296\cdot6^{4k}+38\cdot38^k-2\\
+&amp;=1296(6^{4k}+38^k-2)-1258\cdot38^k+2590\\
+&amp;=74\{1296m-17\cdot38^k+35\}.
+\end{aligned}
+\]</span></p>
+<p>The bracket is an integer, so the expression is divisible by <span class="math inline">\(74\)</span> for <span class="math inline">\(n=k+1\)</span>. Hence the result follows for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2024, Paper 13, Question 4">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2024, Paper 13, Question 4
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</li>
+</ol>
+<p><span class="math display">\[
+\sum_{r=1}^{n}r^2=\frac16n(n+1)(2n+1).
+\]</span></p>
+<p>[5]</p>
+<p>The sum <span class="math inline">\(S_n\)</span> is defined by <span class="math inline">\(S_n=\sum_{r=1}^{n}r^4\)</span>.</p>
+<ol start="2" type="a">
+<li>Using</li>
+</ol>
+<p><span class="math display">\[
+(2r+1)^5-(2r-1)^5=160r^4+80r^2+2,
+\]</span></p>
+<p>show that</p>
+<p><span class="math display">\[
+S_n=\frac1{30}n(n+1)(2n+1)(3n^2+3n-1).
+\]</span></p>
+<p>[6]</p>
+<p><em>Source: 9231/13/M/J/24 Q4.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>For <span class="math inline">\(n=1\)</span>, both sides equal <span class="math inline">\(1\)</span>.</li>
+</ol>
+<p>Assume</p>
+<p><span class="math display">\[
+\sum_{r=1}^{k}r^2=\frac16k(k+1)(2k+1).
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\sum_{r=1}^{k+1}r^2
+&amp;=\frac16k(k+1)(2k+1)+(k+1)^2\\
+&amp;=\frac16(k+1)(2k^2+7k+6)\\
+&amp;=\frac16(k+1)(k+2)(2k+3).
+\end{aligned}
+\]</span></p>
+<p>This is the result for <span class="math inline">\(n=k+1\)</span>. Therefore the formula holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+<ol start="2" type="a">
+<li>Sum the given identity from <span class="math inline">\(r=1\)</span> to <span class="math inline">\(r=n\)</span>. The left side telescopes:</li>
+</ol>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\{(2r+1)^5-(2r-1)^5\}=(2n+1)^5-1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+(2n+1)^5-1=160S_n+80\sum_{r=1}^{n}r^2+2n.
+\]</span></p>
+<p>Using part (a),</p>
+<p><span class="math display">\[
+160S_n=(2n+1)^5-1-\frac{40}{3}n(n+1)(2n+1)-2n.
+\]</span></p>
+<p>Factorising and dividing by <span class="math inline">\(160\)</span> gives</p>
+<p><span class="math display">\[
+\boxed{S_n=\frac1{30}n(n+1)(2n+1)(3n^2+3n-1)}.
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2024, Paper 11/13, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2024, Paper 11/13, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^n}{dx^n}(\tan^{-1}x)=P_n(x)(1+x^2)^{-n},
+\]</span></p>
+<p>where <span class="math inline">\(P_n(x)\)</span> is a polynomial of degree <span class="math inline">\(n-1\)</span>. [6]</p>
+<p><em>Sources: 9231/11/O/N/24 Q2; 9231/13/O/N/24 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+\frac d{dx}(\tan^{-1}x)=(1+x^2)^{-1}.
+\]</span></p>
+<p>Thus <span class="math inline">\(P_1(x)=1\)</span>, which has degree <span class="math inline">\(0=1-1\)</span>.</p>
+<p>Assume that</p>
+<p><span class="math display">\[
+\frac{d^k}{dx^k}(\tan^{-1}x)=P_k(x)(1+x^2)^{-k},
+\]</span></p>
+<p>where <span class="math inline">\(P_k\)</span> has degree <span class="math inline">\(k-1\)</span>. Differentiating,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(\tan^{-1}x)
+&amp;=P_k'(x)(1+x^2)^{-k}-2kxP_k(x)(1+x^2)^{-k-1}\\
+&amp;=\{(1+x^2)P_k'(x)-2kxP_k(x)\}(1+x^2)^{-k-1}.
+\end{aligned}
+\]</span></p>
+<p>Define</p>
+<p><span class="math display">\[
+P_{k+1}(x)=(1+x^2)P_k'(x)-2kxP_k(x).
+\]</span></p>
+<p>Both terms have degree at most <span class="math inline">\(k\)</span>, and the leading coefficient is non-zero, so <span class="math inline">\(P_{k+1}\)</span> has degree <span class="math inline">\(k\)</span>. This is the required form for <span class="math inline">\(n=k+1\)</span>. Hence the result follows for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2024, Paper 12, Question 1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2024, Paper 12, Question 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sequence satisfies <span class="math inline">\(u_1=4\)</span> and</p>
+<p><span class="math display">\[
+u_{n+1}=3u_n-2.
+\]</span></p>
+<p>Prove by induction that <span class="math inline">\(u_n=3^n+1\)</span> for every positive integer <span class="math inline">\(n\)</span>. [5]</p>
+<p><em>Source: 9231/12/O/N/24 Q1.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-50" class="callout-50-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>, <span class="math inline">\(3^1+1=4=u_1\)</span>.</p>
+<p>Assume <span class="math inline">\(u_k=3^k+1\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+u_{k+1}&amp;=3u_k-2\\
+&amp;=3(3^k+1)-2\\
+&amp;=3^{k+1}+1.
+\end{aligned}
+\]</span></p>
+<p>Therefore the result for <span class="math inline">\(k\)</span> implies the result for <span class="math inline">\(k+1\)</span>. Since the base case is true, <span class="math inline">\(u_n=3^n+1\)</span> for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-6" class="level3">
+<h3 class="anchored" data-anchor-id="section-6">2025</h3>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2025, Paper 11/12, Question 3(a)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2025, Paper 11/12, Question 3(a)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sequence satisfies <span class="math inline">\(u_1=5\)</span> and</p>
+<p><span class="math display">\[
+u_{n+1}=6u_n+5.
+\]</span></p>
+<p>Prove by induction that <span class="math inline">\(u_n=6^n-1\)</span> for every positive integer <span class="math inline">\(n\)</span>. [5]</p>
+<p><em>Sources: 9231/11/M/J/25 Q3(a); 9231/12/M/J/25 Q3(a).</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>, <span class="math inline">\(6^1-1=5=u_1\)</span>.</p>
+<p>Assume that <span class="math inline">\(u_k=6^k-1\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+u_{k+1}&amp;=6u_k+5\\
+&amp;=6(6^k-1)+5\\
+&amp;=6^{k+1}-1.
+\end{aligned}
+\]</span></p>
+<p>Thus the result for <span class="math inline">\(k\)</span> implies the result for <span class="math inline">\(k+1\)</span>. Since the base case is true, <span class="math inline">\(u_n=6^n-1\)</span> for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2025, Paper 13, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2025, Paper 13, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that <span class="math inline">\(2025^n+47^n-2\)</span> is divisible by <span class="math inline">\(46\)</span> for every positive integer <span class="math inline">\(n\)</span>. [6]</p>
+<p><em>Source: 9231/13/M/J/25 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-54-contents" aria-controls="callout-54" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-54" class="callout-54-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+2025+47-2=2070=45\cdot46.
+\]</span></p>
+<p>Assume that for <span class="math inline">\(n=k\)</span>,</p>
+<p><span class="math display">\[
+2025^k+47^k-2=46m
+\]</span></p>
+<p>for some integer <span class="math inline">\(m\)</span>. Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+2025^{k+1}+47^{k+1}-2
+&amp;=47(2025^k+47^k-2)+(2025-47)2025^k+92\\
+&amp;=47(46m)+1978\cdot2025^k+92\\
+&amp;=46\left(47m+43\cdot2025^k+2\right).
+\end{aligned}
+\]</span></p>
+<p>The bracket is an integer, so the expression is divisible by <span class="math inline">\(46\)</span> for <span class="math inline">\(n=k+1\)</span>. Hence the result holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="May/June 2025, Paper 14, Question 2">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>May/June 2025, Paper 14, Question 2
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that, for every integer <span class="math inline">\(n\ge2\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^n}{dx^n}(x\ln x)=(-1)^n(n-2)!x^{1-n}.
+\]</span></p>
+<p>[6]</p>
+<p><em>Source: 9231/14/M/J/25 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-56-contents" aria-controls="callout-56" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-56" class="callout-56-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=2\)</span>,</p>
+<p><span class="math display">\[
+\frac{d}{dx}(x\ln x)=\ln x+1,
+\;
+\frac{d^2}{dx^2}(x\ln x)=\frac1x.
+\]</span></p>
+<p>The proposed expression gives <span class="math inline">\((-1)^2(0)!x^{-1}=1/x\)</span>, so the base case holds.</p>
+<p>Assume that for some <span class="math inline">\(k\ge2\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^k}{dx^k}(x\ln x)=(-1)^k(k-2)!x^{1-k}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\begin{aligned}
+\frac{d^{k+1}}{dx^{k+1}}(x\ln x)
+&amp;=(-1)^k(k-2)!(1-k)x^{-k}\\
+&amp;=(-1)^{k+1}(k-1)!x^{-k}.
+\end{aligned}
+\]</span></p>
+<p>This is the result with <span class="math inline">\(n=k+1\)</span>. Therefore it holds for every integer <span class="math inline">\(n\ge2\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2025, Paper 11/13, Question 3">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2025, Paper 11/13, Question 3
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that, for every positive integer <span class="math inline">\(n\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^{2n-1}}{dx^{2n-1}}(x\cos x)
+=(-1)^n\{x\sin x-(2n-1)\cos x\}.
+\]</span></p>
+<p>[7]</p>
+<p><em>Sources: 9231/11/O/N/25 Q3; 9231/13/O/N/25 Q3.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-58-contents" aria-controls="callout-58" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-58" class="callout-58-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>,</p>
+<p><span class="math display">\[
+\frac d{dx}(x\cos x)=\cos x-x\sin x
+=(-1)\{x\sin x-\cos x\}.
+\]</span></p>
+<p>Assume that for <span class="math inline">\(n=k\)</span>,</p>
+<p><span class="math display">\[
+\frac{d^{2k-1}}{dx^{2k-1}}(x\cos x)
+=(-1)^k\{x\sin x-(2k-1)\cos x\}.
+\]</span></p>
+<p>The next required order is <span class="math inline">\(2(k+1)-1=2k+1\)</span>, so differentiate twice. The first derivative is</p>
+<p><span class="math display">\[
+(-1)^k\{x\cos x+2k\sin x\}.
+\]</span></p>
+<p>The second is</p>
+<p><span class="math display">\[
+\begin{aligned}
+(-1)^k\{(2k+1)\cos x-x\sin x\}
+&amp;=(-1)^{k+1}\{x\sin x-(2k+1)\cos x\}.
+\end{aligned}
+\]</span></p>
+<p>This is the formula for <span class="math inline">\(n=k+1\)</span>. Hence the result holds for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2025, Paper 12, Question 3(a)">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2025, Paper 12, Question 3(a)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The sequence of positive numbers satisfies <span class="math inline">\(u_1&lt;5\)</span> and</p>
+<p><span class="math display">\[
+u_{n+1}=\frac{6u_n+5}{u_n+2}.
+\]</span></p>
+<p>By considering <span class="math inline">\(5-u_{n+1}\)</span>, prove by mathematical induction that <span class="math inline">\(u_n&lt;5\)</span> for every positive integer <span class="math inline">\(n\)</span>. [5]</p>
+<p><em>Source: 9231/12/O/N/25 Q3(a).</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-60-contents" aria-controls="callout-60" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-60" class="callout-60-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The base case <span class="math inline">\(u_1&lt;5\)</span> is given.</p>
+<p>Assume that <span class="math inline">\(u_k&lt;5\)</span>. Since the terms are positive, <span class="math inline">\(u_k+2&gt;0\)</span>. Now</p>
+<p><span class="math display">\[
+\begin{aligned}
+5-u_{k+1}
+&amp;=5-\frac{6u_k+5}{u_k+2}\\
+&amp;=\frac{5u_k+10-6u_k-5}{u_k+2}\\
+&amp;=\frac{5-u_k}{u_k+2}&gt;0.
+\end{aligned}
+\]</span></p>
+<p>Hence <span class="math inline">\(u_{k+1}&lt;5\)</span>. Since the base case is true, <span class="math inline">\(u_n&lt;5\)</span> for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="October/November 2025, Paper 14, Question 1">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>October/November 2025, Paper 14, Question 1
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Prove by mathematical induction that</p>
+<p><span class="math display">\[
+\left(\frac65\right)^n\ge1+\frac n5
+\]</span></p>
+<p>for every positive integer <span class="math inline">\(n\)</span>. [5]</p>
+<p><em>Source: 9231/14/O/N/25 Q1.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-62-contents" aria-controls="callout-62" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-62" class="callout-62-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For <span class="math inline">\(n=1\)</span>, both sides equal <span class="math inline">\(6/5\)</span>.</p>
+<p>Assume that</p>
+<p><span class="math display">\[
+\left(\frac65\right)^k\ge1+\frac k5.
+\]</span></p>
+<p>Since <span class="math inline">\(6/5&gt;0\)</span>,</p>
+<p><span class="math display">\[
+\begin{aligned}
+\left(\frac65\right)^{k+1}
+&amp;\ge\frac65\left(1+\frac k5\right)\\
+&amp;=1+\frac{k+1}{5}+\frac{k}{25}\\
+&amp;\ge1+\frac{k+1}{5},
+\end{aligned}
+\]</span></p>
+<p>because <span class="math inline">\(k/25\ge0\)</span>. Therefore the inequality holds for <span class="math inline">\(k+1\)</span>, and hence for every positive integer <span class="math inline">\(n\)</span> by mathematical induction.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="完成本节的判断标准" class="level2">
+<h2 class="anchored" data-anchor-id="完成本节的判断标准">5. 完成本节的判断标准</h2>
+<ol type="1">
+<li>能清楚写出 base case、hypothesis、step 和 conclusion；</li>
+<li>能先写出 <span class="math inline">\(P(k+1)\)</span> 的 target，而不循环论证；</li>
+<li>级数题会加入第 <span class="math inline">\((k+1)\)</span> 项；</li>
+<li>递推、导数和矩阵题会从定义或 recurrence 开始；</li>
+<li>不等式题会说明每次比较的方向和适用条件。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-1/vectors.html" class="pagination-link" aria-label="1.6 Vectors">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1.6 Vectors</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
