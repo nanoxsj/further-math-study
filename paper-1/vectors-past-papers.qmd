@@ -2,7 +2,7 @@
 
 ### 2019
 
-::: {.callout-note title="May/June 2019, Paper 11/12, Question 3"}
+::: {.question-card title="May/June 2019, Paper 11/12, Question 3"}
 The lines are
 
 $$
@@ -51,7 +51,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="May/June 2019, Paper 13, Question 7"}
+::: {.question-card title="May/June 2019, Paper 13, Question 7"}
 Line $l_1$ passes through $A(-3,1,4)$ and $B(-1,5,9)$. Line $l_2$ passes through $C(-2,6,5)$ and $D(-1,7,5)$.
 
 (i) Find the shortest distance between $l_1$ and $l_2$. [5]
@@ -96,7 +96,7 @@ Hence $\boxed{\alpha=27.6^\circ}$.
 :::
 :::
 
-::: {.callout-note title="October/November 2019, Paper 11/12/13, Question 6"}
+::: {.question-card title="October/November 2019, Paper 11/12/13, Question 6"}
 With $O$ as origin, $A,B,C$ have position vectors $\mathbf i-\mathbf j$, $2\mathbf i+\mathbf j+7\mathbf k$ and $\mathbf i-\mathbf j+\mathbf k$.
 
 (i) Find the shortest distance between lines $OC$ and $AB$. [5]
@@ -135,7 +135,7 @@ $$
 
 ### 2020
 
-::: {.callout-note title="May/June 2020, Paper 11/12, Question 5"}
+::: {.question-card title="May/June 2020, Paper 11/12, Question 5"}
 $l_1:\mathbf r=(3,0,3)+m(1,4,4)$ and $l_2:\mathbf r=(3,-5,-6)+n(0,5,6)$.
 
 (a) Find their shortest distance. [5]
@@ -164,7 +164,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="May/June 2020, Paper 13, Question 7"}
+::: {.question-card title="May/June 2020, Paper 13, Question 7"}
 $l_1:\mathbf r=-5\mathbf j+m(5\mathbf i+2\mathbf k)$ and $l_2:\mathbf r=4\mathbf i+2\mathbf j-2\mathbf k+n(\mathbf j+\mathbf k)$. A plane $\Pi$ contains $l_1$ and is parallel to $l_2$.
 
 (a) Find the Cartesian equation of $\Pi$. [4]
@@ -197,7 +197,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2020, Paper 11/13, Question 4"}
+::: {.question-card title="October/November 2020, Paper 11/13, Question 4"}
 $A,B,C$ have position vectors $(-1,1,2)$, $(-2,-1,0)$ and $(2,0,2)$.
 
 (a) Find plane $ABC$. [5] (b) Find its distance from $O$. [2] (c) Find the acute angle between planes $OAB$ and $ABC$. [4]
@@ -223,7 +223,7 @@ so $\boxed{\theta=36.2^\circ}$.
 :::
 :::
 
-::: {.callout-note title="October/November 2020, Paper 12, Question 7"}
+::: {.question-card title="October/November 2020, Paper 12, Question 7"}
 $A,B,C$ have position vectors $(-2,2,-1)$, $(-2,1,2)$ and $(0,-2,1)$.
 
 (a) Find plane $ABC$. [5] (b) Find the acute angle between planes $OBC$ and $ABC$. [4]
@@ -259,7 +259,7 @@ Squaring reduces to $80t=24$, so $\boxed{t=3/10}$.
 
 ### 2021
 
-::: {.callout-note title="May/June 2021, Paper 11/12, Question 6"}
+::: {.question-card title="May/June 2021, Paper 11/12, Question 6"}
 Let $t>0$. The line $l_1$ passes through $t\mathbf i+\mathbf j$ and is parallel to $-2\mathbf i-\mathbf j$. The line $l_2$ passes through $\mathbf j+t\mathbf k$ and is parallel to $-2\mathbf j+\mathbf k$. The shortest distance between the lines is $\sqrt{21}$.
 
 (a) Find $t$. [5]
@@ -316,7 +316,7 @@ giving $\boxed{\theta=76.8^\circ}$.
 :::
 :::
 
-::: {.callout-note title="May/June 2021, Paper 13, Question 6"}
+::: {.question-card title="May/June 2021, Paper 13, Question 6"}
 The lines are
 
 $$
@@ -369,7 +369,7 @@ so $\boxed{\theta=48.4^\circ}$.
 :::
 :::
 
-::: {.callout-note title="October/November 2021, Paper 11/13, Question 5"}
+::: {.question-card title="October/November 2021, Paper 11/13, Question 5"}
 The plane $\Pi$ is
 
 $$
@@ -426,7 +426,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2021, Paper 12, Question 7"}
+::: {.question-card title="October/November 2021, Paper 12, Question 7"}
 The points $A,B,C$ have position vectors $2\mathbf i+2\mathbf j$, $-\mathbf j+\mathbf k$ and $2\mathbf i+\mathbf j-7\mathbf k$.
 
 (a) Find the equation of plane $OAB$ in the form $\mathbf r\boldsymbol\cdot\mathbf n=p$. [3]
@@ -480,7 +480,7 @@ $$
 
 ### 2022
 
-::: {.callout-note title="May/June 2022, Paper 11/12, Question 2"}
+::: {.question-card title="May/June 2022, Paper 11/12, Question 2"}
 The points $A,B,C$ have position vectors
 
 $$
@@ -537,7 +537,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="May/June 2022, Paper 13, Question 7"}
+::: {.question-card title="May/June 2022, Paper 13, Question 7"}
 The position vectors of $A,B,C,D$ are
 
 $$
@@ -637,7 +637,7 @@ Hence $\boxed{\theta=12.1^\circ}$.
 
 ### 2023
 
-::: {.callout-note title="October/November 2023, Paper 11/13, Question 4"}
+::: {.question-card title="October/November 2023, Paper 11/13, Question 4"}
 The lines are
 
 $$
@@ -686,7 +686,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2023, Paper 12, Question 5"}
+::: {.question-card title="October/November 2023, Paper 12, Question 5"}
 The plane $\Pi_1$ has equation
 
 $$
@@ -758,7 +758,7 @@ $$
 
 ### 2024
 
-::: {.callout-note title="May/June 2024, Paper 11/12, Question 5"}
+::: {.question-card title="May/June 2024, Paper 11/12, Question 5"}
 The points $A,B,C$ have position vectors
 
 $$
@@ -817,7 +817,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="May/June 2024, Paper 13, Question 5"}
+::: {.question-card title="May/June 2024, Paper 13, Question 5"}
 The lines are
 
 $$
@@ -874,7 +874,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2024, Paper 11/13, Question 7"}
+::: {.question-card title="October/November 2024, Paper 11/13, Question 7"}
 The lines are
 
 $$
@@ -954,7 +954,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2024, Paper 12, Question 2"}
+::: {.question-card title="October/November 2024, Paper 12, Question 2"}
 The line
 
 $$
@@ -1001,7 +1001,7 @@ $$
 
 ### 2025
 
-::: {.callout-note title="May/June 2025, Paper 11/12, Question 6"}
+::: {.question-card title="May/June 2025, Paper 11/12, Question 6"}
 The points $A,B,C$ have position vectors
 
 $$
@@ -1080,7 +1080,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="May/June 2025, Paper 13, Question 5"}
+::: {.question-card title="May/June 2025, Paper 13, Question 5"}
 The plane $\Pi$ has equation
 
 $$
@@ -1134,7 +1134,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="May/June 2025, Paper 14, Question 3"}
+::: {.question-card title="May/June 2025, Paper 14, Question 3"}
 The points $A,B,C$ have position vectors
 
 $$
@@ -1189,7 +1189,7 @@ Thus $\boxed{\alpha=25.7^\circ}$.
 :::
 :::
 
-::: {.callout-note title="October/November 2025, Paper 11/13, Question 5"}
+::: {.question-card title="October/November 2025, Paper 11/13, Question 5"}
 The plane $\Pi_1$ has equation
 
 $$
@@ -1243,7 +1243,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2025, Paper 12, Question 6"}
+::: {.question-card title="October/November 2025, Paper 12, Question 6"}
 The plane $\Pi$ is $x+3y+2z=1$.
 
 (a) Find the perpendicular distance from $O$ to $\Pi$. [2]
@@ -1285,7 +1285,7 @@ Hence $\boxed{\theta=7.49^\circ}$.
 :::
 :::
 
-::: {.callout-note title="October/November 2025, Paper 14, Question 4"}
+::: {.question-card title="October/November 2025, Paper 14, Question 4"}
 The points $A,B,C$ have position vectors
 
 $$

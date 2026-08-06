@@ -1,6 +1,6 @@
 这里只收录教材 Exercise 中明确标注 **Cambridge International AS & A Level Further Mathematics 9231** 来源的题目；标注为 Mathematics 9709 的题目不在本节重复收录。
 
-::: {.callout-note title="Exercise 7B, Question 13"}
+::: {.question-card title="Exercise 7B, Question 13"}
 The lines $l_1$ and $l_2$ have equations
 
 $$
@@ -56,7 +56,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="Exercise 7C, Question 10"}
+::: {.question-card title="Exercise 7C, Question 10"}
 The plane $\Pi_1$ has equation
 
 $$
@@ -119,7 +119,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="Exercise 7D, Question 11"}
+::: {.question-card title="Exercise 7D, Question 11"}
 The line $l_1$ passes through $A(2,3,-5)$ and $B(8,7,-13)$. The line $l_2$ passes through $C(-2,1,8)$ and $D(3,-1,4)$.
 
 (i) Find the shortest distance between $l_1$ and $l_2$.
@@ -178,7 +178,7 @@ Hence the acute angle is $\boxed{36.7^\circ}$.
 :::
 :::
 
-::: {.callout-note title="Exercise 7D, Question 12"}
+::: {.question-card title="Exercise 7D, Question 12"}
 The position vectors of $A,B,C,D$ are
 
 $$

@@ -4,9 +4,11 @@ subtitle: "Base case · Inductive hypothesis · Inductive step · Conclusion"
 description: "CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Sections 2.4–2.5。"
 ---
 
-## 1. Syllabus knowledge
+## 1. 教材知识点
 
-::: {.callout-important title="Syllabus objective"}
+::: {.callout-important}
+## 本节考纲要求
+
 Use the method of mathematical induction to establish a given result.
 
 题目可以涉及有限和、递推数列、不等式、导数或矩阵幂；证明结构相同，但 inductive step 的运算对象不同。

@@ -1,6 +1,6 @@
 这里只收录教材 Exercise 中明确标注 **Cambridge International AS & A Level Further Mathematics 9231** 来源的题目。
 
-::: {.callout-note title="Exercise 2E, Question 10"}
+::: {.question-card title="Exercise 2E, Question 10"}
 It is given that $u_r=r\cdot r!$ for $r=1,2,3,\ldots$ and
 
 $$
@@ -61,7 +61,7 @@ This is the formula for $n=k+1$. Therefore $S_n=(n+1)!-1$ for every positive int
 :::
 :::
 
-::: {.callout-note title="Exercise 2E, Question 11"}
+::: {.question-card title="Exercise 2E, Question 11"}
 It is given that
 
 $$
@@ -124,7 +124,7 @@ This is the proposed result with $n=k+1$. Hence the formula holds for every inte
 :::
 :::
 
-::: {.callout-note title="Exercise 2E, Question 12"}
+::: {.question-card title="Exercise 2E, Question 12"}
 Prove by mathematical induction that, for every positive integer $n$,
 
 $$

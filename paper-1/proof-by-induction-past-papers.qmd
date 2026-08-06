@@ -2,7 +2,7 @@
 
 ### 2019
 
-::: {.callout-note title="May/June 2019, Paper 11/12, Question 8"}
+::: {.question-card title="May/June 2019, Paper 11/12, Question 8"}
 (i) Prove by mathematical induction that, for $z\ne1$ and every positive integer $n$,
 
 $$
@@ -83,7 +83,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="May/June 2019, Paper 13, Question 1"}
+::: {.question-card title="May/June 2019, Paper 13, Question 1"}
 Prove by mathematical induction that $3^{3n}-1$ is divisible by $13$ for every positive integer $n$. [5]
 
 *Source: 9231/13/M/J/19 Q1.*
@@ -110,7 +110,7 @@ Thus the result holds for $k+1$, and hence for every positive integer $n$ by mat
 :::
 :::
 
-::: {.callout-note title="October/November 2019, Paper 11/12/13, Question 2"}
+::: {.question-card title="October/November 2019, Paper 11/12/13, Question 2"}
 It is given that $y=\ln(ax+1)$, where $a>0$. Prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -154,7 +154,7 @@ This is the formula for $n=k+1$. Hence it holds for every positive integer $n$ b
 
 ### 2020
 
-::: {.callout-note title="May/June 2020, Paper 11/12, Question 6"}
+::: {.question-card title="May/June 2020, Paper 11/12, Question 6"}
 Let
 
 $$
@@ -207,7 +207,7 @@ This is the formula for $n=k+1$. Hence it holds for every positive integer $n$ b
 :::
 :::
 
-::: {.callout-note title="May/June 2020, Paper 13, Question 2"}
+::: {.question-card title="May/June 2020, Paper 13, Question 2"}
 The sequence satisfies $u_1=1$ and
 
 $$
@@ -241,7 +241,7 @@ Since $2^n+1$ is an integer, $\boxed{u_n\mid u_{2n}}$.
 :::
 :::
 
-::: {.callout-note title="October/November 2020, Paper 11/13, Question 5"}
+::: {.question-card title="October/November 2020, Paper 11/13, Question 5"}
 Prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -290,7 +290,7 @@ This is the target for $n=k+1$. Hence the formula holds for every positive integ
 :::
 :::
 
-::: {.callout-note title="October/November 2020, Paper 12, Question 2"}
+::: {.question-card title="October/November 2020, Paper 12, Question 2"}
 Prove by mathematical induction that $7^{2n}-1$ is divisible by $12$ for every positive integer $n$. [5]
 
 *Source: 9231/12/O/N/20 Q2.*
@@ -319,7 +319,7 @@ Thus the expression is divisible by $12$ for $n=k+1$. Hence the result follows f
 
 ### 2021
 
-::: {.callout-note title="May/June 2021, Paper 11/12, Question 1"}
+::: {.question-card title="May/June 2021, Paper 11/12, Question 1"}
 Prove by mathematical induction that $2^{4n}+31^n-2$ is divisible by $15$ for every positive integer $n$. [6]
 
 *Sources: 9231/11/M/J/21 Q1; 9231/12/M/J/21 Q1.*
@@ -346,7 +346,7 @@ The bracket is an integer. Hence the expression is divisible by $15$ for $n=k+1$
 :::
 :::
 
-::: {.callout-note title="May/June 2021, Paper 13, Question 3"}
+::: {.question-card title="May/June 2021, Paper 13, Question 3"}
 (a) Prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -403,7 +403,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2021, Paper 11/13, Question 3"}
+::: {.question-card title="October/November 2021, Paper 11/13, Question 3"}
 The sequence satisfies $a_1=1$ and
 
 $$
@@ -462,7 +462,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2021, Paper 12, Question 2"}
+::: {.question-card title="October/November 2021, Paper 12, Question 2"}
 It is given that $y=xe^{ax}$, where $a$ is constant. Prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -504,7 +504,7 @@ This is the target for $n=k+1$. Hence the result holds for every positive intege
 
 ### 2022
 
-::: {.callout-note title="May/June 2022, Paper 11/12, Question 3"}
+::: {.question-card title="May/June 2022, Paper 11/12, Question 3"}
 The sequence of positive numbers satisfies $u_1>4$ and
 
 $$
@@ -547,7 +547,7 @@ because $u_n>4$. Hence $\boxed{u_{n+1}<u_n}$.
 :::
 :::
 
-::: {.callout-note title="May/June 2022, Paper 13, Question 5"}
+::: {.question-card title="May/June 2022, Paper 13, Question 5"}
 Let
 
 $$
@@ -597,7 +597,7 @@ This is the target for $n=k+1$. Hence the formula holds for every positive integ
 
 ### 2023
 
-::: {.callout-note title="October/November 2023, Paper 11/13, Question 2"}
+::: {.question-card title="October/November 2023, Paper 11/13, Question 2"}
 For $x\ne1$, prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -640,7 +640,7 @@ This is the target for $n=k+1$. Hence the identity holds for every positive inte
 :::
 :::
 
-::: {.callout-note title="October/November 2023, Paper 12, Question 2"}
+::: {.question-card title="October/November 2023, Paper 12, Question 2"}
 Prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -684,7 +684,7 @@ This is the proposed formula for $n=k+1$. Hence it holds for every positive inte
 
 ### 2024
 
-::: {.callout-note title="May/June 2024, Paper 11/12, Question 2"}
+::: {.question-card title="May/June 2024, Paper 11/12, Question 2"}
 Prove by mathematical induction that
 
 $$
@@ -723,7 +723,7 @@ The bracket is an integer, so the expression is divisible by $74$ for $n=k+1$. H
 :::
 :::
 
-::: {.callout-note title="May/June 2024, Paper 13, Question 4"}
+::: {.question-card title="May/June 2024, Paper 13, Question 4"}
 (a) Prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -798,7 +798,7 @@ $$
 :::
 :::
 
-::: {.callout-note title="October/November 2024, Paper 11/13, Question 2"}
+::: {.question-card title="October/November 2024, Paper 11/13, Question 2"}
 Prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -844,7 +844,7 @@ Both terms have degree at most $k$, and the leading coefficient is non-zero, so 
 :::
 :::
 
-::: {.callout-note title="October/November 2024, Paper 12, Question 1"}
+::: {.question-card title="October/November 2024, Paper 12, Question 1"}
 The sequence satisfies $u_1=4$ and
 
 $$
@@ -874,7 +874,7 @@ Therefore the result for $k$ implies the result for $k+1$. Since the base case i
 
 ### 2025
 
-::: {.callout-note title="May/June 2025, Paper 11/12, Question 3(a)"}
+::: {.question-card title="May/June 2025, Paper 11/12, Question 3(a)"}
 The sequence satisfies $u_1=5$ and
 
 $$
@@ -902,7 +902,7 @@ Thus the result for $k$ implies the result for $k+1$. Since the base case is tru
 :::
 :::
 
-::: {.callout-note title="May/June 2025, Paper 13, Question 2"}
+::: {.question-card title="May/June 2025, Paper 13, Question 2"}
 Prove by mathematical induction that $2025^n+47^n-2$ is divisible by $46$ for every positive integer $n$. [6]
 
 *Source: 9231/13/M/J/25 Q2.*
@@ -935,7 +935,7 @@ The bracket is an integer, so the expression is divisible by $46$ for $n=k+1$. H
 :::
 :::
 
-::: {.callout-note title="May/June 2025, Paper 14, Question 2"}
+::: {.question-card title="May/June 2025, Paper 14, Question 2"}
 Prove by mathematical induction that, for every integer $n\ge2$,
 
 $$
@@ -977,7 +977,7 @@ This is the result with $n=k+1$. Therefore it holds for every integer $n\ge2$ by
 :::
 :::
 
-::: {.callout-note title="October/November 2025, Paper 11/13, Question 3"}
+::: {.question-card title="October/November 2025, Paper 11/13, Question 3"}
 Prove by mathematical induction that, for every positive integer $n$,
 
 $$
@@ -1023,7 +1023,7 @@ This is the formula for $n=k+1$. Hence the result holds for every positive integ
 :::
 :::
 
-::: {.callout-note title="October/November 2025, Paper 12, Question 3(a)"}
+::: {.question-card title="October/November 2025, Paper 12, Question 3(a)"}
 The sequence of positive numbers satisfies $u_1<5$ and
 
 $$
@@ -1052,7 +1052,7 @@ Hence $u_{k+1}<5$. Since the base case is true, $u_n<5$ for every positive integ
 :::
 :::
 
-::: {.callout-note title="October/November 2025, Paper 14, Question 1"}
+::: {.question-card title="October/November 2025, Paper 14, Question 1"}
 Prove by mathematical induction that
 
 $$
