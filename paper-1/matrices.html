@@ -2301,7 +2301,7 @@ m=\frac{-2c\pm\sqrt{4c^2+4s^2}}{2s}
 \]</span></p>
 <p>Therefore</p>
 <p><span class="math display">\[
-\boxed{m=-\cot\frac\pi{12}\pm\cosec\frac\pi{12}}.
+\boxed{m=-\cot\frac\pi{12}\pm\operatorname{cosec}\frac\pi{12}}.
 \]</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="matrices-2025-on-14"> Completed</label>
@@ -2419,7 +2419,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }

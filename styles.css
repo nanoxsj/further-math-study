@@ -12,7 +12,8 @@ body { color: var(--fm-ink); }
 .topic-card,
 .question-card,
 .formula-panel,
-.study-card {
+.study-card,
+.callout-example {
   border: 1px solid var(--fm-border);
   border-radius: 16px;
   padding: 1.15rem 1.25rem;
@@ -23,6 +24,54 @@ body { color: var(--fm-ink); }
 
 .question-card { scroll-margin-top: 5rem; }
 .question-card h3 { margin-top: 0; }
+
+/* Chapters 1.6–1.7 use attribute-titled source blocks.  Give them the
+   same card hierarchy as the earlier chapters instead of Quarto defaults. */
+.callout-example,
+.question-card[title] {
+  position: relative;
+  padding-top: 3.25rem;
+}
+
+.callout-example::before,
+.question-card[title]::before {
+  content: attr(title);
+  position: absolute;
+  inset: 0 0 auto;
+  padding: 0.78rem 1.25rem;
+  border-bottom: 1px solid var(--fm-border);
+  border-radius: 16px 16px 0 0;
+  background: var(--fm-blue-soft);
+  color: #1e40af;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.callout-example > :first-child,
+.question-card[title] > :first-child { margin-top: 0; }
+
+.callout-example .callout-tip,
+.question-card .callout-tip {
+  margin: 0.9rem 0 0;
+  border: 1px solid #a7f3d0;
+  border-radius: 10px;
+  background: var(--fm-green-soft);
+  box-shadow: none;
+}
+
+.callout-example .callout-tip .callout-header,
+.question-card .callout-tip .callout-header {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid #a7f3d0;
+  background: transparent;
+  color: #065f46;
+  font-weight: 650;
+}
+
+.callout-example .callout-tip .callout-body-container,
+.question-card .callout-tip .callout-body-container {
+  padding: 0.75rem 0.9rem;
+}
 
 .question-meta {
   color: var(--fm-muted);
@@ -121,7 +170,9 @@ mjx-container[display="true"] {
 }
 
 @media (max-width: 700px) {
-  .question-card, .study-card, .formula-panel { padding: 0.9rem; }
+  .question-card, .study-card, .formula-panel, .callout-example { padding: 0.9rem; }
+  .callout-example, .question-card[title] { padding-top: 3.1rem; }
+  .callout-example::before, .question-card[title]::before { padding: 0.72rem 0.9rem; }
   .math-figure { margin-inline: -0.35rem; }
   .math-plot .point-label, .math-plot .asym-label, .math-plot .legend { font-size: 15px; }
 }
