@@ -1,3 +1,138 @@
+### 2020
+
+::: {.question-card}
+### 2020 May/June · 9231/21 & 9231/22 · Question 5 · 11 marks
+
+The curves $C_1:y=\cosh x$ and $C_2:y=\sinh 2x$ intersect at the point where $x=a$.
+
+**(a)** Find the exact value of $a$, giving your answer in logarithmic form. **[4]**
+
+**(b)** Sketch $C_1$ and $C_2$ on the same diagram. **[2]**
+
+**(c)** Find the exact value of the length of the arc of $C_1$ from $x=0$ to $x=a$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** At the intersection, $\cosh a=\sinh 2a=2\sinh a\cosh a$. Since $\cosh a\neq0$,
+
+$$
+\sinh a=\frac12.
+$$
+
+Using the logarithmic form of $\sinh^{-1}$,
+
+$$
+\boxed{a=\sinh^{-1}\!\left(\frac12\right)
+=\ln\left(\frac12+\sqrt{\frac14+1}\right)
+=\ln\left(\frac12+\frac{\sqrt5}2\right)}.
+$$
+
+**(b)** $C_1$ is the even U-shaped curve $\cosh x$, and $C_2$ is the odd increasing curve $\sinh 2x$. They intersect in the first quadrant at $x=a=\ln\left(\frac12+\frac{\sqrt5}2\right)$ and, by symmetry, also at $x=-a$.
+
+**(c)** For $C_1:y=\cosh x$,
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\sinh x,
+\qquad
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+\sinh^2x}
+=\cosh x.
+$$
+
+Hence
+
+$$
+s=\int_0^a\cosh x\,\mathrm dx
+=\bigl[\sinh x\bigr]_0^a
+=\sinh a
+=\boxed{\frac12}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-2020-mj-21-22-q5"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q5; 9231/22/M/J/2020, Q5.</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/23 · Question 6(a) · 3 marks
+
+Starting from the definitions of $\tanh$ and $\operatorname{sech}$ in terms of exponentials, prove that
+
+$$
+1-\tanh^2\theta=\operatorname{sech}^2\theta.
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Starting from
+
+$$
+\tanh\theta=\frac{e^\theta-e^{-\theta}}{e^\theta+e^{-\theta}},\qquad
+\operatorname{sech}\theta=\frac2{e^\theta+e^{-\theta}},
+$$
+
+$$
+\begin{aligned}
+1-\tanh^2\theta
+&=1-\left(\frac{e^\theta-e^{-\theta}}{e^\theta+e^{-\theta}}\right)^2\\
+&=\frac{(e^\theta+e^{-\theta})^2-(e^\theta-e^{-\theta})^2}{(e^\theta+e^{-\theta})^2}\\
+&=\frac4{(e^\theta+e^{-\theta})^2}\\
+&=\boxed{\operatorname{sech}^2\theta}.
+\end{aligned}
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-2020-mj-23-q6a"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q6(a).</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/21 & 9231/23 · Question 8(a)–(b) · 5 marks
+
+**(a)** Sketch the graph of $y=\coth x$ for $x\geqslant0$ and state the equations of the asymptotes. **[2]**
+
+**(b)** Starting from the definitions of $\coth$ and $\operatorname{cosech}$ in terms of exponentials, prove that
+
+$$
+\coth^2x-\operatorname{cosech}^2x=1.
+$$
+
+**[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** For $x\geqslant0$, $y=\coth x$ starts at the vertical asymptote $x=0$ and decreases towards $y=1$.
+
+{{< include figures/hyperbolic/graph-coth.svg >}}
+
+The asymptotes are
+
+$$
+\boxed{x=0\ \text{and}\ y=1}.
+$$
+
+**(b)** Starting from
+
+$$
+\coth x=\frac{e^x+e^{-x}}{e^x-e^{-x}},\qquad
+\operatorname{cosech}x=\frac2{e^x-e^{-x}},
+$$
+
+$$
+\begin{aligned}
+\coth^2x-\operatorname{cosech}^2x
+&=\left(\frac{e^x+e^{-x}}{e^x-e^{-x}}\right)^2-\left(\frac2{e^x-e^{-x}}\right)^2\\
+&=\frac{e^{2x}+2+e^{-2x}-4}{(e^x-e^{-x})^2}\\
+&=\frac{e^{2x}-2+e^{-2x}}{(e^x-e^{-x})^2}\\
+&=1.
+\end{aligned}
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-2020-on-21-23-q8ab"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q8(a)–(b); 9231/23/O/N/2020, Q8(a)–(b).</div>
+:::
+
 ### 2021
 
 ::: {.question-card}
@@ -279,3 +414,112 @@ $$
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2023-on-21-23-q6a"> Completed</label>
 <div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2023, Q6(a); 9231/23/O/N/2023, Q6(a).</div>
 :::
+
+### 2024
+
+::: {.question-card}
+### 2024 May/June · 9231/21 & 9231/22 · Question 6(a) · 2 marks
+
+Show that
+
+$$
+\left(\cosh x+\sinh x\right)^{1/2}=e^{\frac12x}.
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Substituting the exponential definitions,
+
+$$
+\begin{aligned}
+\left(\cosh x+\sinh x\right)^{1/2}
+&=\left(\frac{e^x+e^{-x}}2+\frac{e^x-e^{-x}}2\right)^{1/2}\\
+&=\left(e^x\right)^{1/2}\\
+&=\boxed{e^{\frac12x}}.
+\end{aligned}
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-2024-mj-21-22-q6a"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2024, Q6(a); 9231/22/M/J/2024, Q6(a).</div>
+:::
+
+### 2025
+
+::: {.question-card}
+### 2025 May/June · 9231/23 · Question 2(a) · 3 marks
+
+Starting from the definitions of $\tanh$ and $\operatorname{sech}$ in terms of exponentials, prove that
+
+$$
+\tanh^2t+\operatorname{sech}^2t=1.
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Starting from
+
+$$
+\tanh t=\frac{e^t-e^{-t}}{e^t+e^{-t}},\qquad
+\operatorname{sech}t=\frac2{e^t+e^{-t}},
+$$
+
+$$
+\begin{aligned}
+\tanh^2t+\operatorname{sech}^2t
+&=\left(\frac{e^t-e^{-t}}{e^t+e^{-t}}\right)^2+\left(\frac2{e^t+e^{-t}}\right)^2\\
+&=\frac{e^{2t}-2+e^{-2t}+4}{(e^t+e^{-t})^2}\\
+&=\frac{e^{2t}+2+e^{-2t}}{(e^t+e^{-t})^2}\\
+&=1.
+\end{aligned}
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-2025-mj-23-q2a"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2025, Q2(a).</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/24 · Question 2 · 6 marks
+
+**(a)** Find the exact values of $x$ for which
+
+$$
+\cosh 2x=6\sinh^2x,
+$$
+
+giving your answers in logarithmic form. **[4]**
+
+**(b)** Sketch the curves $C_1:y=\cosh 2x$ and $C_2:y=6\sinh^2x$ on the same diagram. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Using $\cosh2x=1+2\sinh^2x$,
+
+$$
+1+2\sinh^2x=6\sinh^2x
+\;\Longrightarrow\;
+4\sinh^2x=1
+\;\Longrightarrow\;
+\sinh x=\pm\frac12.
+$$
+
+Therefore
+
+$$
+\boxed{x=\pm\ln\left(\frac12+\frac{\sqrt5}2\right)}.
+$$
+
+**(b)** $C_1:y=\cosh2x$ is even with minimum $(0,1)$; $C_2:y=6\sinh^2x$ is even, passes through the origin and increases rapidly. The curves intersect at
+
+$$
+x=\pm\ln\left(\frac12+\frac{\sqrt5}2\right),
+$$
+
+with $C_1$ above $C_2$ between these points and below it outside.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-2025-on-24-q2"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/24/O/N/2025, Q2.</div>
+:::
+
