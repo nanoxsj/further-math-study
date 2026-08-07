@@ -1,0 +1,2260 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 2。">
+
+<title>2.2 Matrices – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-2/hyperbolic-functions.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-2/hyperbolic-functions.html">Paper 2 · Further Pure Mathematics 2</a></li><li class="breadcrumb-item"><a href="../paper-2/matrices.html">2.2 Matrices</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Hyperbolic functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.2 Matrices</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#solving-simultaneous-linear-equations-with-unique-solutions" id="toc-solving-simultaneous-linear-equations-with-unique-solutions" class="nav-link" data-scroll-target="#solving-simultaneous-linear-equations-with-unique-solutions">1.1 Solving simultaneous linear equations: with unique solutions</a></li>
+  <li><a href="#geometrical-interpretation-three-planes" id="toc-geometrical-interpretation-three-planes" class="nav-link" data-scroll-target="#geometrical-interpretation-three-planes">1.2 Geometrical interpretation: three planes</a></li>
+  <li><a href="#eigenvalues-and-eigenvectors" id="toc-eigenvalues-and-eigenvectors" class="nav-link" data-scroll-target="#eigenvalues-and-eigenvectors">1.3 Eigenvalues and eigenvectors</a></li>
+  <li><a href="#diagonalisation-and-powers-of-matrices" id="toc-diagonalisation-and-powers-of-matrices" class="nav-link" data-scroll-target="#diagonalisation-and-powers-of-matrices">1.4 Diagonalisation and powers of matrices</a></li>
+  <li><a href="#the-characteristic-equation" id="toc-the-characteristic-equation" class="nav-link" data-scroll-target="#the-characteristic-equation">1.5 The characteristic equation</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-page-21" id="toc-example-1-page-21" class="nav-link" data-scroll-target="#example-1-page-21">Example 1 · Page 21</a></li>
+  <li><a href="#example-2-page-27" id="toc-example-2-page-27" class="nav-link" data-scroll-target="#example-2-page-27">Example 2 · Page 27</a></li>
+  <li><a href="#example-3-page-28" id="toc-example-3-page-28" class="nav-link" data-scroll-target="#example-3-page-28">Example 3 · Page 28</a></li>
+  <li><a href="#example-4-page-35" id="toc-example-4-page-35" class="nav-link" data-scroll-target="#example-4-page-35">Example 4 · Page 35</a></li>
+  <li><a href="#example-5-page-38" id="toc-example-5-page-38" class="nav-link" data-scroll-target="#example-5-page-38">Example 5 · Page 38</a></li>
+  <li><a href="#example-6-page-40" id="toc-example-6-page-40" class="nav-link" data-scroll-target="#example-6-page-40">Example 6 · Page 40</a></li>
+  <li><a href="#example-7-page-45" id="toc-example-7-page-45" class="nav-link" data-scroll-target="#example-7-page-45">Example 7 · Page 45</a></li>
+  <li><a href="#example-8-page-47" id="toc-example-8-page-47" class="nav-link" data-scroll-target="#example-8-page-47">Example 8 · Page 47</a></li>
+  </ul></li>
+  <li><a href="#past-paper-question-bank" id="toc-past-paper-question-bank" class="nav-link" data-scroll-target="#past-paper-question-bank">3. Past-paper question bank</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2020</a></li>
+  <li><a href="#mayjune-923121-923122-question-8-14-marks" id="toc-mayjune-923121-923122-question-8-14-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-8-14-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 8 · 14 marks</a></li>
+  <li><a href="#mayjune-923123-question-3-8-marks" id="toc-mayjune-923123-question-3-8-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-3-8-marks">2020 May/June · 9231/23 · Question 3 · 8 marks</a></li>
+  <li><a href="#octobernovember-923121-923123-question-7-9-marks" id="toc-octobernovember-923121-923123-question-7-9-marks" class="nav-link" data-scroll-target="#octobernovember-923121-923123-question-7-9-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 7 · 9 marks</a></li>
+  <li><a href="#octobernovember-923122-question-9-15-marks" id="toc-octobernovember-923122-question-9-15-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-9-15-marks">2020 October/November · 9231/22 · Question 9 · 15 marks</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2021</a></li>
+  <li><a href="#mayjune-923123-question-8-13-marks" id="toc-mayjune-923123-question-8-13-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-8-13-marks">2021 May/June · 9231/23 · Question 8 · 13 marks</a></li>
+  <li><a href="#octobernovember-923122-question-6-11-marks" id="toc-octobernovember-923122-question-6-11-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-6-11-marks">2021 October/November · 9231/22 · Question 6 · 11 marks</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2022</a></li>
+  <li><a href="#mayjune-923123-question-3-7-marks" id="toc-mayjune-923123-question-3-7-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-3-7-marks">2022 May/June · 9231/23 · Question 3 · 7 marks</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2023</a></li>
+  <li><a href="#mayjune-923121-question-1-5-marks" id="toc-mayjune-923121-question-1-5-marks" class="nav-link" data-scroll-target="#mayjune-923121-question-1-5-marks">2023 May/June · 9231/21 · Question 1 · 5 marks</a></li>
+  <li><a href="#mayjune-923121-question-5-10-marks" id="toc-mayjune-923121-question-5-10-marks" class="nav-link" data-scroll-target="#mayjune-923121-question-5-10-marks">2023 May/June · 9231/21 · Question 5 · 10 marks</a></li>
+  <li><a href="#octobernovember-923122-question-6-10-marks" id="toc-octobernovember-923122-question-6-10-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-6-10-marks">2023 October/November · 9231/22 · Question 6 · 10 marks</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2024</a></li>
+  <li><a href="#mayjune-923121-923122-question-8-16-marks" id="toc-mayjune-923121-923122-question-8-16-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-8-16-marks">2024 May/June · 9231/21 &amp; 9231/22 · Question 8 · 16 marks</a></li>
+  <li><a href="#mayjune-923123-question-8-14-marks" id="toc-mayjune-923123-question-8-14-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-8-14-marks">2024 May/June · 9231/23 · Question 8 · 14 marks</a></li>
+  <li><a href="#octobernovember-923121-923123-question-4-9-marks" id="toc-octobernovember-923121-923123-question-4-9-marks" class="nav-link" data-scroll-target="#octobernovember-923121-923123-question-4-9-marks">2024 October/November · 9231/21 &amp; 9231/23 · Question 4 · 9 marks</a></li>
+  <li><a href="#octobernovember-923122-question-8-14-marks" id="toc-octobernovember-923122-question-8-14-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-8-14-marks">2024 October/November · 9231/22 · Question 8 · 14 marks</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2025</a></li>
+  <li><a href="#mayjune-923121-923122-question-8-13-marks" id="toc-mayjune-923121-923122-question-8-13-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-8-13-marks">2025 May/June · 9231/21 &amp; 9231/22 · Question 8 · 13 marks</a></li>
+  <li><a href="#octobernovember-923121-923123-question-6-10-marks" id="toc-octobernovember-923121-923123-question-6-10-marks" class="nav-link" data-scroll-target="#octobernovember-923121-923123-question-6-10-marks">2025 October/November · 9231/21 &amp; 9231/23 · Question 6 · 10 marks</a></li>
+  <li><a href="#octobernovember-923122-question-8-15-marks" id="toc-octobernovember-923122-question-8-15-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-8-15-marks">2025 October/November · 9231/22 · Question 8 · 15 marks</a></li>
+  </ul></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-2/hyperbolic-functions.html">Paper 2 · Further Pure Mathematics 2</a></li><li class="breadcrumb-item"><a href="../paper-2/matrices.html">2.2 Matrices</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">2.2 Matrices</h1>
+<p class="subtitle lead">线性方程组 · 特征值特征向量 · 对角化 · 特征方程</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 2。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本节考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>把三个未知数、三个线性方程组的求解问题写成矩阵方程，或反过来把矩阵方程写成方程组；</li>
+<li>理解方程组一致与不一致的各种情形，联系系数矩阵的 singular/non-singular 性质，解一致方程组，并从直线和平面的角度作出几何解释；</li>
+<li>理解 square matrix 的 characteristic equation、eigenvalue 与 eigenvector 的含义，并用定义 <span class="math inline">\(A\mathbf e=\lambda\mathbf e\)</span> 证明简单性质（例如 <span class="math inline">\(\lambda^n\)</span> 是 <span class="math inline">\(A^n\)</span> 的特征值）；</li>
+<li>求 <span class="math inline">\(2\times2\)</span> 与 <span class="math inline">\(3\times3\)</span> 矩阵的特征值和特征向量（只要求实且互异的特征值）；</li>
+<li>把方阵写成 <span class="math inline">\(QDQ^{-1}\)</span>，其中 <span class="math inline">\(D\)</span> 是以特征值为对角元的对角矩阵，<span class="math inline">\(Q\)</span> 的列是对应特征向量，并利用该形式计算矩阵幂；</li>
+<li>使用方阵满足自身特征方程这一事实（仅限 <span class="math inline">\(2\times2\)</span>、<span class="math inline">\(3\times3\)</span> 矩阵）。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">能把三元一次方程组写成 <span class="math inline">\(M\mathbf x=\mathbf b\)</span>，并先检查 <span class="math inline">\(\det M\)</span> 是否为零</label></li>
+<li><label><input type="checkbox">能区分三平面交于一点、交于一条直线（sheaf）、重合以及无公共点（含 parallel planes 与 triangular prism）</label></li>
+<li><label><input type="checkbox">能从 <span class="math inline">\(A\mathbf e=\lambda\mathbf e\)</span> 出发解释 eigenvalue 与 eigenvector 的几何意义</label></li>
+<li><label><input type="checkbox">能写出 characteristic equation <span class="math inline">\(\det(A-\lambda I)=0\)</span> 并求实特征值</label></li>
+<li><label><input type="checkbox">能对每个特征值解 <span class="math inline">\((A-\lambda I)\mathbf e=0\)</span> 求特征向量</label></li>
+<li><label><input type="checkbox">能构造 <span class="math inline">\(Q\)</span>、<span class="math inline">\(D\)</span> 使 <span class="math inline">\(A=QDQ^{-1}\)</span>，并计算 <span class="math inline">\(A^n\)</span></label></li>
+<li><label><input type="checkbox">会用 <span class="math inline">\(A\)</span> 满足自身特征方程来化简矩阵多项式或求 <span class="math inline">\(A^{-1}\)</span></label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="solving-simultaneous-linear-equations-with-unique-solutions" class="level3">
+<h3 class="anchored" data-anchor-id="solving-simultaneous-linear-equations-with-unique-solutions">1.1 Solving simultaneous linear equations: with unique solutions</h3>
+<p>三个未知数、三个方程的线性方程组</p>
+<p><span class="math display">\[
+a_1x+b_1y+c_1z=d_1,\quad
+a_2x+b_2y+c_2z=d_2,\quad
+a_3x+b_3y+c_3z=d_3
+\]</span></p>
+<p>可以写成矩阵方程</p>
+<p><span class="math display">\[
+M\mathbf x=\mathbf b,
+\]</span></p>
+<p>其中 <span class="math inline">\(M\)</span> 是系数矩阵，<span class="math inline">\(\mathbf x=(x,y,z)^{\mathsf T}\)</span>。若 <span class="math inline">\(\det M\ne0\)</span>，则 <span class="math inline">\(M\)</span> non-singular，存在唯一解</p>
+<p><span class="math display">\[
+\mathbf x=M^{-1}\mathbf b.
+\]</span></p>
+<p>求 <span class="math inline">\(3\times3\)</span> 逆矩阵时，先求余子式（co-factors）、代数余子式矩阵及其转置（adjugate matrix），再除以 <span class="math inline">\(\det M\)</span>。</p>
+</section>
+<section id="geometrical-interpretation-three-planes" class="level3">
+<h3 class="anchored" data-anchor-id="geometrical-interpretation-three-planes">1.2 Geometrical interpretation: three planes</h3>
+<p>三个方程对应三个平面，解的几何情形由 <span class="math inline">\(\det M\)</span> 与平面之间的位置关系决定：</p>
+<ul>
+<li><span class="math inline">\(\det M\ne0\)</span>：三平面交于唯一一点；</li>
+<li><span class="math inline">\(\det M=0\)</span> 且有解：三平面共线交于一条直线（sheaf of planes），或三平面重合；</li>
+<li><span class="math inline">\(\det M=0\)</span> 且无解：如三平面构成 triangular prism，或存在平行平面。</li>
+</ul>
+<p>判别方法：先看 <span class="math inline">\(\det M\)</span>；再看有无平面平行（法向量成比例）；若平行则检查是否相同；最后检查能否由两个平面的线性组合得到第三个（左右两边同时成立则为 sheaf，仅系数成立则为 prism）。</p>
+</section>
+<section id="eigenvalues-and-eigenvectors" class="level3">
+<h3 class="anchored" data-anchor-id="eigenvalues-and-eigenvectors">1.3 Eigenvalues and eigenvectors</h3>
+<p>若 <span class="math inline">\(M\mathbf e=\lambda\mathbf e\)</span> 且 <span class="math inline">\(\mathbf e\ne\mathbf0\)</span>，则 <span class="math inline">\(\lambda\)</span> 是 <span class="math inline">\(M\)</span> 的 eigenvalue，<span class="math inline">\(\mathbf e\)</span> 是对应的 eigenvector。几何上，<span class="math inline">\(M\)</span> 把方向 <span class="math inline">\(\mathbf e\)</span> 上的向量放大 <span class="math inline">\(\lambda\)</span> 倍（invariant line 上的缩放）。</p>
+<p>特征方程为</p>
+<p><span class="math display">\[
+\boxed{\det(M-\lambda I)=0}.
+\]</span></p>
+<p>特征值 <span class="math inline">\(\lambda\)</span> 的全体非零特征向量（连同零向量）构成对应特征子空间。若 <span class="math inline">\(M\mathbf e=\lambda\mathbf e\)</span>，则</p>
+<p><span class="math display">\[
+M^2\mathbf e=\lambda^2\mathbf e,\qquad
+M^n\mathbf e=\lambda^n\mathbf e.
+\]</span></p>
+</section>
+<section id="diagonalisation-and-powers-of-matrices" class="level3">
+<h3 class="anchored" data-anchor-id="diagonalisation-and-powers-of-matrices">1.4 Diagonalisation and powers of matrices</h3>
+<p>若 <span class="math inline">\(3\times3\)</span> 矩阵 <span class="math inline">\(M\)</span> 有互异的实特征值 <span class="math inline">\(\lambda_1,\lambda_2,\lambda_3\)</span> 与对应特征向量 <span class="math inline">\(\mathbf e_1,\mathbf e_2,\mathbf e_3\)</span>，令</p>
+<p><span class="math display">\[
+Q=\bigl(\mathbf e_1\ \mathbf e_2\ \mathbf e_3\bigr),
+\qquad
+D=\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3),
+\]</span></p>
+<p>则 <span class="math inline">\(Q\)</span> non-singular 且</p>
+<p><span class="math display">\[
+\boxed{M=QDQ^{-1}}.
+\]</span></p>
+<p>于是</p>
+<p><span class="math display">\[
+\boxed{M^n=QD^nQ^{-1}}.
+\]</span></p>
+<p>计算矩阵幂时，只需把每个特征值取 <span class="math inline">\(n\)</span> 次幂，再乘回 <span class="math inline">\(Q\)</span> 与 <span class="math inline">\(Q^{-1}\)</span>。</p>
+</section>
+<section id="the-characteristic-equation" class="level3">
+<h3 class="anchored" data-anchor-id="the-characteristic-equation">1.5 The characteristic equation</h3>
+<p>Cayley–Hamilton 定理（本课程范围内）：每个方阵满足自己的特征方程。若特征方程为</p>
+<p><span class="math display">\[
+\lambda^3+p\lambda^2+q\lambda+r=0,
+\]</span></p>
+<p>则</p>
+<p><span class="math display">\[
+M^3+pM^2+qM+rI=O.
+\]</span></p>
+<p>这一结果可用来化简 <span class="math inline">\(M\)</span> 的高次幂；若 <span class="math inline">\(r\ne0\)</span>，两边左乘 <span class="math inline">\(M^{-1}\)</span> 还可以把 <span class="math inline">\(M^{-1}\)</span> 表示成 <span class="math inline">\(M^2\)</span>、<span class="math inline">\(M\)</span> 与 <span class="math inline">\(I\)</span> 的线性组合。</p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-1-page-21" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1-page-21">Example 1 · Page 21</h3>
+<p>You invest a total of <span class="math inline">\(\$22000\)</span> in three different funds:</p>
+<ul>
+<li>Fund <span class="math inline">\(x\)</span> offers <span class="math inline">\(4\%\)</span> interest per year with low risk.</li>
+<li>Fund <span class="math inline">\(y\)</span> offers <span class="math inline">\(5\%\)</span> interest per year with medium risk.</li>
+<li>Fund <span class="math inline">\(z\)</span> offers <span class="math inline">\(10\%\)</span> interest per year with high risk.</li>
+<li>Fund <span class="math inline">\(z\)</span> appears more promising than fund <span class="math inline">\(y\)</span>, so you invest three times more with <span class="math inline">\(z\)</span> than with <span class="math inline">\(y\)</span>.</li>
+</ul>
+<p>In the first year you earn a total of <span class="math inline">\(\$1450\)</span> in interest, but you forget how much you invested in <span class="math inline">\(x\)</span>, <span class="math inline">\(y\)</span> and <span class="math inline">\(z\)</span>. Work out what your initial investments were.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The information can be written as</p>
+<p><span class="math display">\[
+x+y+z=22000,\qquad 0.04x+0.05y+0.1z=1450,\qquad 3y=z,
+\]</span></p>
+<p>or</p>
+<p><span class="math display">\[
+4x+5y+10z=145000,\qquad 3y-z=0.
+\]</span></p>
+<p>In matrix form,</p>
+<p><span class="math display">\[
+\begin{pmatrix}1&amp;1&amp;1\\4&amp;5&amp;10\\0&amp;3&amp;-1\end{pmatrix}
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}22000\\145000\\0\end{pmatrix}.
+\]</span></p>
+<p>The inverse of the coefficient matrix is</p>
+<p><span class="math display">\[
+M^{-1}=-\frac1{19}
+\begin{pmatrix}-35&amp;4&amp;5\\4&amp;-1&amp;-6\\12&amp;-3&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=-\frac1{19}
+\begin{pmatrix}-35&amp;4&amp;5\\4&amp;-1&amp;-6\\12&amp;-3&amp;1\end{pmatrix}
+\begin{pmatrix}22000\\145000\\0\end{pmatrix}
+=\boxed{\begin{pmatrix}8000\\3000\\9000\end{pmatrix}}.
+\]</span></p>
+<p>So the initial investments were <span class="math inline">\(\$8000\)</span> in <span class="math inline">\(x\)</span>, <span class="math inline">\(\$3000\)</span> in <span class="math inline">\(y\)</span> and <span class="math inline">\(\$9000\)</span> in <span class="math inline">\(z\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-1"> Completed</label></p>
+</section>
+<section id="example-2-page-27" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2-page-27">Example 2 · Page 27</h3>
+<p>Determine the nature of the intersection of the following planes. If they have a solution, state clearly the solution as a single point or the equation of the line or the equation of the plane of intersection.</p>
+<p><span class="math display">\[
+\Pi_1:-x+2y=8,\qquad
+\Pi_2:2x+3y-z=23,\qquad
+\Pi_3:-x+4y-2z=26.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Write the left-hand side as a matrix:</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}-1&amp;2&amp;0\\2&amp;3&amp;-1\\-1&amp;4&amp;-2\end{pmatrix}.
+\]</span></p>
+<p>Calculating the determinant using the first row,</p>
+<p><span class="math display">\[
+\det M=-1\bigl(3(-2)-(-1)(4)\bigr)-2\bigl(2(-2)-(-1)(-1)\bigr)+0=12.
+\]</span></p>
+<p>As <span class="math inline">\(\det M\ne0\)</span>, the planes meet at a unique point. Solving</p>
+<p><span class="math display">\[
+M^{-1}\begin{pmatrix}8\\23\\26\end{pmatrix}
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+\boxed{x=2,\quad y=5,\quad z=-4}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-2"> Completed</label></p>
+</section>
+<section id="example-3-page-28" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3-page-28">Example 3 · Page 28</h3>
+<p>Determine whether or not the following planes have any solution, and state the configuration of the planes.</p>
+<p><span class="math display">\[
+\Pi_1:3x+3y+4z=6,\qquad
+\Pi_2:x+z=1,\qquad
+\Pi_3:-6x+3y-5z=-3.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>This can be written as</p>
+<p><span class="math display">\[
+\begin{pmatrix}3&amp;3&amp;4\\1&amp;0&amp;1\\-6&amp;3&amp;-5\end{pmatrix}
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}6\\1\\-3\end{pmatrix}.
+\]</span></p>
+<p>The determinant of the coefficient matrix is</p>
+<p><span class="math display">\[
+\det M=3\bigl(0(-5)-1(3)\bigr)-0+3\bigl(1(3)-1(4)\bigr)=0.
+\]</span></p>
+<p>So there is not a unique solution. None of the planes is parallel (no left-hand sides are scalar multiples), so the configuration is either a triangular prism or a sheaf.</p>
+<p>By inspecting the equations, <span class="math inline">\(7\Pi_1+\Pi_3=\Pi_2\)</span> for both the left-hand sides and the right-hand sides:</p>
+<p><span class="math display">\[
+7(3x+3y+4z)+(-6x+3y-5z)=15x+24y+23z,
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+7(6)+(-3)=39.
+\]</span></p>
+<p>This confirms the planes form a sheaf. Let <span class="math inline">\(z=\lambda\)</span>. From <span class="math inline">\(\Pi_2\)</span>, <span class="math inline">\(x=1-\lambda\)</span>. Substituting into <span class="math inline">\(\Pi_1\)</span>,</p>
+<p><span class="math display">\[
+3(1-\lambda)+3y+4\lambda=6
+\;\Longrightarrow\;
+y=1-\frac{\lambda}3.
+\]</span></p>
+<p>Hence the line of intersection is</p>
+<p><span class="math display">\[
+\boxed{\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}1\\1\\0\end{pmatrix}
++\lambda\begin{pmatrix}-1\\-\frac13\\1\end{pmatrix}}
+\]</span></p>
+<p>or, equivalently,</p>
+<p><span class="math display">\[
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}1\\1\\0\end{pmatrix}
++\mu\begin{pmatrix}-3\\-1\\3\end{pmatrix}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-3"> Completed</label></p>
+</section>
+<section id="example-4-page-35" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-4-page-35">Example 4 · Page 35</h3>
+<p>A village has a population of 700. Every person belongs to one of two competing fitness clubs. Each month, Hardrock Gym keeps <span class="math inline">\(50\%\)</span> of its members but loses the other <span class="math inline">\(50\%\)</span> to its rival; Pure Gym keeps <span class="math inline">\(80\%\)</span> of its members but loses the other <span class="math inline">\(20\%\)</span> to its rival. At the start of January the clubs have 350 members each.</p>
+<p><strong>(a)</strong> Show that the matrix calculation for finding the following month’s membership is</p>
+<p><span class="math display">\[
+\begin{pmatrix}0.5&amp;0.2\\0.5&amp;0.8\end{pmatrix}
+\begin{pmatrix}350\\350\end{pmatrix},
+\]</span></p>
+<p>and explain what the numbers represent.</p>
+<p><strong>(b)</strong> How many members does each gym have at the start of February?</p>
+<p><strong>(c)</strong> Find the eigenvalues and eigenvectors for <span class="math inline">\(\begin{pmatrix}0.5&amp;0.2\\0.5&amp;0.8\end{pmatrix}\)</span>.</p>
+<p><strong>(d)</strong> Which eigenvector represents the long-term membership? What is the stable number of members for Hardrock Gym and Pure Gym?</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><strong>(a)</strong> The first row gives Hardrock’s members: they keep <span class="math inline">\(0.5\times350\)</span> of their own and gain <span class="math inline">\(0.2\times350\)</span> from Pure. The second row gives Pure’s members: they gain <span class="math inline">\(0.5\times350\)</span> and keep <span class="math inline">\(0.8\times350\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[
+\begin{pmatrix}0.5&amp;0.2\\0.5&amp;0.8\end{pmatrix}
+\begin{pmatrix}350\\350\end{pmatrix}
+=\begin{pmatrix}245\\455\end{pmatrix}.
+\]</span></p>
+<p>So Hardrock has <span class="math inline">\(\boxed{245}\)</span> members and Pure has <span class="math inline">\(\boxed{455}\)</span>.</p>
+<p><strong>(c)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+\det\begin{pmatrix}0.5-\lambda&amp;0.2\\0.5&amp;0.8-\lambda\end{pmatrix}=0,
+\]</span></p>
+<p>giving</p>
+<p><span class="math display">\[
+\lambda^2-1.3\lambda+0.3=0
+\;\Longrightarrow\;
+(\lambda-0.3)(\lambda-1)=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\lambda=0.3\ \text{or}\ 1.
+\]</span></p>
+<p>For <span class="math inline">\(\lambda=0.3\)</span>, <span class="math inline">\((M-0.3I)\mathbf e=0\)</span> gives <span class="math inline">\(y=-x\)</span>, so an eigenvector is</p>
+<p><span class="math display">\[
+\mathbf e_1=\begin{pmatrix}1\\-1\end{pmatrix}.
+\]</span></p>
+<p>For <span class="math inline">\(\lambda=1\)</span>, <span class="math inline">\((M-I)\mathbf e=0\)</span> gives <span class="math inline">\(y=\frac52x\)</span>, so an eigenvector is</p>
+<p><span class="math display">\[
+\mathbf e_2=\begin{pmatrix}2\\5\end{pmatrix}.
+\]</span></p>
+<p><strong>(d)</strong> The eigenvector <span class="math inline">\(\begin{pmatrix}1\\-1\end{pmatrix}\)</span> does not make sense in terms of members, so the long-term membership is described by <span class="math inline">\(\begin{pmatrix}2\\5\end{pmatrix}\)</span> with eigenvalue <span class="math inline">\(1\)</span>. Since the total is 700,</p>
+<p><span class="math display">\[
+2k+5k=700\;\Longrightarrow\;k=100.
+\]</span></p>
+<p>So the stable membership is</p>
+<p><span class="math display">\[
+\boxed{200\ \text{members for Hardrock Gym and}\ 500\ \text{for Pure Gym}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-4"> Completed</label></p>
+</section>
+<section id="example-5-page-38" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-5-page-38">Example 5 · Page 38</h3>
+<p>Find the eigenvectors and eigenvalues of the matrix</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}-2&amp;6&amp;-6\\-11&amp;13&amp;2\\-17&amp;6&amp;9\end{pmatrix}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The characteristic equation is <span class="math inline">\(\det(M-\lambda I)=0\)</span>:</p>
+<p><span class="math display">\[
+\begin{vmatrix}-2-\lambda&amp;6&amp;-6\\-11&amp;13-\lambda&amp;2\\-17&amp;6&amp;9-\lambda\end{vmatrix}=0.
+\]</span></p>
+<p>Expanding gives</p>
+<p><span class="math display">\[
+\lambda^3-20\lambda^2+25\lambda+750=0
+\;\Longrightarrow\;
+(\lambda+5)(\lambda-10)(\lambda-15)=0.
+\]</span></p>
+<p>So the eigenvalues are</p>
+<p><span class="math display">\[
+\boxed{\lambda=-5,\ 10,\ 15}.
+\]</span></p>
+<p>For <span class="math inline">\(\lambda=-5\)</span>, solving <span class="math inline">\((M+5I)\mathbf e=0\)</span> gives</p>
+<p><span class="math display">\[
+\mathbf e=\begin{pmatrix}1\\\frac12\\1\end{pmatrix}
+\sim\begin{pmatrix}2\\1\\2\end{pmatrix}.
+\]</span></p>
+<p>For <span class="math inline">\(\lambda=10\)</span>, solving <span class="math inline">\((M-10I)\mathbf e=0\)</span> gives</p>
+<p><span class="math display">\[
+\mathbf e=\begin{pmatrix}-1\\3\\1\end{pmatrix}.
+\]</span></p>
+<p>For <span class="math inline">\(\lambda=15\)</span>, solving <span class="math inline">\((M-15I)\mathbf e=0\)</span> gives</p>
+<p><span class="math display">\[
+\mathbf e=\begin{pmatrix}0\\1\\1\end{pmatrix}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-5"> Completed</label></p>
+</section>
+<section id="example-6-page-40" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6-page-40">Example 6 · Page 40</h3>
+<p>Show that if <span class="math inline">\(M\)</span> has an eigenvector <span class="math inline">\(\mathbf e\)</span> with an eigenvalue <span class="math inline">\(\lambda\)</span>, then <span class="math inline">\(M^2\)</span> has an eigenvalue <span class="math inline">\(\lambda^2\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The properties of eigenvalues and eigenvectors give</p>
+<p><span class="math display">\[
+M\mathbf e=\lambda\mathbf e.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+M^2\mathbf e=M(M\mathbf e)=M(\lambda\mathbf e)=\lambda(M\mathbf e)=\lambda^2\mathbf e.
+\]</span></p>
+<p>So <span class="math inline">\(\lambda^2\)</span> is an eigenvalue of <span class="math inline">\(M^2\)</span>, with the same eigenvector <span class="math inline">\(\mathbf e\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-6"> Completed</label></p>
+</section>
+<section id="example-7-page-45" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-7-page-45">Example 7 · Page 45</h3>
+<p>Given the matrix</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}-3&amp;2&amp;-2\\-3&amp;2&amp;-15\\1&amp;-1&amp;15\end{pmatrix},
+\]</span></p>
+<p><strong>(a)</strong> find the eigenvalues and eigenvectors of <span class="math inline">\(A\)</span>;</p>
+<p><strong>(b)</strong> find a non-singular matrix <span class="math inline">\(Q\)</span> and a diagonal matrix <span class="math inline">\(D\)</span> such that <span class="math inline">\(A=QDQ^{-1}\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><strong>(a)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+\begin{vmatrix}-3-\lambda&amp;2&amp;-2\\-3&amp;2-\lambda&amp;-15\\1&amp;-1&amp;15-\lambda\end{vmatrix}=0,
+\]</span></p>
+<p>which expands to</p>
+<p><span class="math display">\[
+2\lambda^3-\lambda^2-2\lambda+1=0
+\;\Longrightarrow\;
+(\lambda-1)(\lambda+1)(2\lambda-1)=0.
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+\boxed{\lambda=-1,\ \tfrac12,\ 1}.
+\]</span></p>
+<p>For <span class="math inline">\(\lambda=-1\)</span>, <span class="math inline">\((A+I)\mathbf e=0\)</span> gives <span class="math inline">\(x=y\)</span>, so</p>
+<p><span class="math display">\[
+\mathbf e_1=\begin{pmatrix}1\\1\\0\end{pmatrix}.
+\]</span></p>
+<p>For <span class="math inline">\(\lambda=\frac12\)</span>, <span class="math inline">\((A-\frac12 I)\mathbf e=0\)</span> gives <span class="math inline">\(y=z\)</span>, so</p>
+<p><span class="math display">\[
+\mathbf e_2=\begin{pmatrix}0\\1\\1\end{pmatrix}.
+\]</span></p>
+<p>For <span class="math inline">\(\lambda=1\)</span>, <span class="math inline">\((A-I)\mathbf e=0\)</span> gives <span class="math inline">\(z=-2x\)</span>, so</p>
+<p><span class="math display">\[
+\mathbf e_3=\begin{pmatrix}1\\0\\-2\end{pmatrix}.
+\]</span></p>
+<p><strong>(b)</strong> Taking the eigenvectors as columns,</p>
+<p><span class="math display">\[
+Q=\begin{pmatrix}1&amp;0&amp;1\\1&amp;1&amp;0\\0&amp;1&amp;-2\end{pmatrix},
+\qquad
+Q^{-1}=\begin{pmatrix}2&amp;-1&amp;1\\-2&amp;2&amp;-1\\-1&amp;1&amp;-1\end{pmatrix},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+D=\begin{pmatrix}-1&amp;0&amp;0\\0&amp;\frac12&amp;0\\0&amp;0&amp;1\end{pmatrix}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{A=QDQ^{-1}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-7"> Completed</label></p>
+</section>
+<section id="example-8-page-47" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-8-page-47">Example 8 · Page 47</h3>
+<p>Given</p>
+<p><span class="math display">\[
+M=\begin{pmatrix}-2&amp;2&amp;0\\1&amp;1&amp;-2\\0&amp;2&amp;-1\end{pmatrix},
+\]</span></p>
+<p><strong>(a)</strong> show that the characteristic equation for <span class="math inline">\(M\)</span> is</p>
+<p><span class="math display">\[
+\lambda^3+2\lambda^2+\lambda+4=0;
+\]</span></p>
+<p><strong>(b)</strong> verify that <span class="math inline">\(M\)</span> satisfies its own characteristic equation;</p>
+<p><strong>(c)</strong> use the result to find <span class="math inline">\(M^{-1}\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><strong>(a)</strong> The characteristic equation is <span class="math inline">\(\det(M-\lambda I)=0\)</span>:</p>
+<p><span class="math display">\[
+\begin{vmatrix}-2-\lambda&amp;2&amp;0\\1&amp;1-\lambda&amp;-2\\0&amp;2&amp;-1-\lambda\end{vmatrix}=0.
+\]</span></p>
+<p>Expanding,</p>
+<p><span class="math display">\[
+(-2-\lambda)\bigl((1-\lambda)(-1-\lambda)-(-2)(2)\bigr)-2\bigl(1(-1-\lambda)-0\bigr)=0,
+\]</span></p>
+<p>which simplifies to</p>
+<p><span class="math display">\[
+\boxed{\lambda^3+2\lambda^2+\lambda+4=0}.
+\]</span></p>
+<p><strong>(b)</strong> Directly computing</p>
+<p><span class="math display">\[
+M^2=\begin{pmatrix}6&amp;-2&amp;-4\\-1&amp;-1&amp;0\\2&amp;0&amp;-3\end{pmatrix},
+\qquad
+M^3=\begin{pmatrix}-14&amp;2&amp;8\\1&amp;-3&amp;2\\4&amp;-2&amp;3\end{pmatrix},
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+M^3+2M^2+M+4I
+=\begin{pmatrix}0&amp;0&amp;0\\0&amp;0&amp;0\\0&amp;0&amp;0\end{pmatrix}.
+\]</span></p>
+<p>So <span class="math inline">\(M\)</span> satisfies its own characteristic equation.</p>
+<p><strong>(c)</strong> From</p>
+<p><span class="math display">\[
+M^3+2M^2+M+4I=0,
+\]</span></p>
+<p>multiplying through by <span class="math inline">\(M^{-1}\)</span> gives</p>
+<p><span class="math display">\[
+M^2+2M+I+4M^{-1}=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{M^{-1}=-\frac14\left(M^2+2M+I\right)}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-8"> Completed</label></p>
+</section>
+</section>
+<section id="past-paper-question-bank" class="level2">
+<h2 class="anchored" data-anchor-id="past-paper-question-bank">3. Past-paper question bank</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2020</h3>
+</section>
+<section id="mayjune-923121-923122-question-8-14-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-8-14-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 8 · 14 marks</h3>
+<p><strong>(a)</strong> Find the values of <span class="math inline">\(a\)</span> for which the system of equations</p>
+<p><span class="math display">\[
+3x+y+z=0,\qquad ax+6y-z=0,\qquad ay-2z=0
+\]</span></p>
+<p>does not have a unique solution. <strong>[3]</strong></p>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}3&amp;1&amp;1\\0&amp;6&amp;-1\\0&amp;0&amp;-2\end{pmatrix}.
+\]</span></p>
+<p><strong>(b)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to find the inverse of <span class="math inline">\(A^2\)</span>. <strong>[4]</strong></p>
+<p><strong>(c)</strong> Find a matrix <span class="math inline">\(P\)</span> and a diagonal matrix <span class="math inline">\(D\)</span> such that <span class="math inline">\(A^5=PDP^{-1}\)</span>. <strong>[7]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The system fails to have a unique solution exactly when <span class="math inline">\(\det M=0\)</span>:</p>
+<p><span class="math display">\[
+\begin{vmatrix}3&amp;1&amp;1\\a&amp;6&amp;-1\\0&amp;a&amp;-2\end{vmatrix}
+=3(-12+a)-(-2a)+a^2
+=a^2+5a-36=0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{a=4\ \text{or}\ a=-9}.
+\]</span></p>
+<p><strong>(b)</strong> The eigenvalues of <span class="math inline">\(A\)</span> are <span class="math inline">\(3\)</span>, <span class="math inline">\(6\)</span>, <span class="math inline">\(-2\)</span>, so the characteristic equation is</p>
+<p><span class="math display">\[
+(\lambda-3)(\lambda-6)(\lambda+2)=\lambda^3-7\lambda^2+36=0.
+\]</span></p>
+<p>Thus <span class="math inline">\(A^3-7A^2+36I=0\)</span>, and multiplying through by <span class="math inline">\((A^{-1})^2\)</span> gives</p>
+<p><span class="math display">\[
+36(A^{-1})^2=7I-A.
+\]</span></p>
+<p>Computing <span class="math inline">\((A^{-1})^2\)</span> from this,</p>
+<p><span class="math display">\[
+\boxed{(A^{-1})^2=\frac1{36}
+\begin{pmatrix}4&amp;-1&amp;-1\\0&amp;1&amp;1\\0&amp;0&amp;9\end{pmatrix}}.
+\]</span></p>
+<p><strong>(c)</strong> With eigenvalues <span class="math inline">\(3,6,-2\)</span> and corresponding eigenvectors</p>
+<p><span class="math display">\[
+\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}1\\3\\0\end{pmatrix},\quad
+\begin{pmatrix}-9\\5\\40\end{pmatrix},
+\]</span></p>
+<p>taking them as columns,</p>
+<p><span class="math display">\[
+P=\begin{pmatrix}1&amp;1&amp;-9\\0&amp;3&amp;5\\0&amp;0&amp;40\end{pmatrix},
+\qquad
+D=\begin{pmatrix}3^5&amp;0&amp;0\\0&amp;6^5&amp;0\\0&amp;0&amp;(-2)^5\end{pmatrix}
+=\begin{pmatrix}243&amp;0&amp;0\\0&amp;7776&amp;0\\0&amp;0&amp;-32\end{pmatrix}.
+\]</span></p>
+<p>Thus <span class="math inline">\(\boxed{A^5=PDP^{-1}}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2020-mj-21-22-q8"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q8; 9231/22/M/J/2020, Q8.
+</div>
+</section>
+<section id="mayjune-923123-question-3-8-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-3-8-marks">2020 May/June · 9231/23 · Question 3 · 8 marks</h3>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}5&amp;-1&amp;7\\0&amp;6&amp;0\\7&amp;7&amp;5\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Find the eigenvalues of <span class="math inline">\(A\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to find <span class="math inline">\(A^{-1}\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+\begin{vmatrix}5-\lambda&amp;-1&amp;7\\0&amp;6-\lambda&amp;0\\7&amp;7&amp;5-\lambda\end{vmatrix}=0,
+\]</span></p>
+<p>which expands to</p>
+<p><span class="math display">\[
+-\lambda^3+16\lambda^2-36\lambda-144=0
+\;\Longrightarrow\;
+(\lambda+2)(\lambda-6)(\lambda-12)=0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\lambda=-2,\ 6,\ 12}.
+\]</span></p>
+<p><strong>(b)</strong> The characteristic equation gives</p>
+<p><span class="math display">\[
+-A^3+16A^2-36A-144I=0
+\;\Longrightarrow\;
+144A^{-1}=-A^2+16A-36I.
+\]</span></p>
+<p>Computing</p>
+<p><span class="math display">\[
+A^2=\begin{pmatrix}74&amp;38&amp;70\\0&amp;36&amp;0\\70&amp;70&amp;74\end{pmatrix},
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+\boxed{A^{-1}=\frac1{24}
+\begin{pmatrix}-5&amp;-9&amp;7\\0&amp;4&amp;0\\7&amp;7&amp;-5\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2020-mj-23-q3"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q3.
+</div>
+</section>
+<section id="octobernovember-923121-923123-question-7-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-7-9-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 7 · 9 marks</h3>
+<p>The matrix <span class="math inline">\(P\)</span> is given by</p>
+<p><span class="math display">\[
+P=\begin{pmatrix}1&amp;4&amp;2\\0&amp;-1&amp;1\\0&amp;0&amp;2\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> State the eigenvalues of <span class="math inline">\(P\)</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> Use the characteristic equation of <span class="math inline">\(P\)</span> to find <span class="math inline">\(P^{-1}\)</span>. <strong>[4]</strong></p>
+<p>The <span class="math inline">\(3\times3\)</span> matrix <span class="math inline">\(A\)</span> has distinct eigenvalues <span class="math inline">\(b\)</span>, <span class="math inline">\(-1\)</span>, <span class="math inline">\(1\)</span> with corresponding eigenvectors</p>
+<p><span class="math display">\[
+\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}4\\-1\\0\end{pmatrix},\quad
+\begin{pmatrix}2\\1\\2\end{pmatrix}.
+\]</span></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(A\)</span> in terms of <span class="math inline">\(b\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> For an upper triangular matrix the eigenvalues are the diagonal entries:</p>
+<p><span class="math display">\[
+\boxed{1,\ -1,\ 2}.
+\]</span></p>
+<p><strong>(b)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+(\lambda-1)(\lambda+1)(\lambda-2)=\lambda^3-2\lambda^2-\lambda+2=0,
+\]</span></p>
+<p>so <span class="math inline">\(P^3-2P^2-P+2I=0\)</span>. Multiplying through by <span class="math inline">\(P^{-1}\)</span>,</p>
+<p><span class="math display">\[
+2P^{-1}=I+2P-P^2.
+\]</span></p>
+<p>Computing</p>
+<p><span class="math display">\[
+P^2=\begin{pmatrix}1&amp;0&amp;10\\0&amp;1&amp;1\\0&amp;0&amp;4\end{pmatrix},
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+\boxed{P^{-1}=\begin{pmatrix}1&amp;4&amp;-3\\0&amp;-1&amp;\frac12\\0&amp;0&amp;\frac12\end{pmatrix}}.
+\]</span></p>
+<p><strong>(c)</strong> Using <span class="math inline">\(A=PDP^{-1}\)</span> with</p>
+<p><span class="math display">\[
+D=\begin{pmatrix}b&amp;0&amp;0\\0&amp;-1&amp;0\\0&amp;0&amp;1\end{pmatrix},
+\qquad
+P=\begin{pmatrix}1&amp;4&amp;2\\0&amp;-1&amp;1\\0&amp;0&amp;2\end{pmatrix},
+\]</span></p>
+<p>the eigenvectors are the columns of <span class="math inline">\(P\)</span> in the same order as the eigenvalues in <span class="math inline">\(D\)</span>. Hence</p>
+<p><span class="math display">\[
+\boxed{A=\begin{pmatrix}b&amp;4b+4&amp;-3b-1\\0&amp;-1&amp;1\\0&amp;0&amp;1\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2020-on-21-23-q7"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q7; 9231/23/O/N/2020, Q7.
+</div>
+</section>
+<section id="octobernovember-923122-question-9-15-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-9-15-marks">2020 October/November · 9231/22 · Question 9 · 15 marks</h3>
+<p>It is given that <span class="math inline">\(a\)</span> is a positive constant.</p>
+<p><strong>(a)</strong> Show that the system of equations</p>
+<p><span class="math display">\[
+ax+(2a+5)y+(a+1)z=1,\qquad -4y=2,\qquad 3y-z=3
+\]</span></p>
+<p>has a unique solution, and interpret this situation geometrically. <strong>[3]</strong></p>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}a&amp;2a+5&amp;a+1\\0&amp;-4&amp;0\\0&amp;3&amp;-1\end{pmatrix}.
+\]</span></p>
+<p><strong>(b)</strong> Show that the eigenvalues of <span class="math inline">\(A\)</span> are <span class="math inline">\(a\)</span>, <span class="math inline">\(-1\)</span> and <span class="math inline">\(-4\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find a matrix <span class="math inline">\(P\)</span> such that</p>
+<p><span class="math display">\[
+A=P\begin{pmatrix}a&amp;0&amp;0\\0&amp;-1&amp;0\\0&amp;0&amp;-4\end{pmatrix}P^{-1}.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p><strong>(d)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to find <span class="math inline">\(A^{-1}\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The determinant of the coefficient matrix is</p>
+<p><span class="math display">\[
+\begin{vmatrix}a&amp;2a+5&amp;a+1\\0&amp;-4&amp;0\\0&amp;3&amp;-1\end{vmatrix}=4a\ne0
+\]</span></p>
+<p>since <span class="math inline">\(a&gt;0\)</span>. Therefore the system has a unique solution: the three planes intersect at a single point.</p>
+<p><strong>(b)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+\begin{vmatrix}a-\lambda&amp;2a+5&amp;a+1\\0&amp;-4-\lambda&amp;0\\0&amp;3&amp;-1-\lambda\end{vmatrix}=0,
+\]</span></p>
+<p>giving</p>
+<p><span class="math display">\[
+(a-\lambda)(-4-\lambda)(-1-\lambda)=0
+\;\Longrightarrow\;
+\boxed{\lambda=a,\ -1,\ -4}.
+\]</span></p>
+<p><strong>(c)</strong> Corresponding eigenvectors are</p>
+<p><span class="math display">\[
+\lambda=a:\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
+\lambda=-1:\begin{pmatrix}1\\0\\-1\end{pmatrix},\qquad
+\lambda=-4:\begin{pmatrix}1\\-1\\1\end{pmatrix}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{P=\begin{pmatrix}1&amp;1&amp;1\\0&amp;0&amp;-1\\0&amp;-1&amp;1\end{pmatrix}}.
+\]</span></p>
+<p><strong>(d)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+(\lambda-a)(\lambda+1)(\lambda+4)
+=\lambda^3+(5-a)\lambda^2+(4-5a)\lambda-4a=0.
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+A^3+(5-a)A^2+(4-5a)A-4aI=0,
+\]</span></p>
+<p>and multiplying through by <span class="math inline">\(A^{-1}\)</span>,</p>
+<p><span class="math display">\[
+4aA^{-1}=A^2+(5-a)A+(4-5a)I.
+\]</span></p>
+<p>Computing <span class="math inline">\(A^2\)</span> and substituting gives</p>
+<p><span class="math display">\[
+\boxed{A^{-1}=\frac1{4a}
+\begin{pmatrix}4&amp;5a+8&amp;4a+4\\0&amp;-a&amp;0\\0&amp;-3a&amp;-4a\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2020-on-22-q9"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q9.
+</div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2021</h3>
+</section>
+<section id="mayjune-923123-question-8-13-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-8-13-marks">2021 May/June · 9231/23 · Question 8 · 13 marks</h3>
+<p><strong>(a)</strong> Find the value of <span class="math inline">\(a\)</span> for which the system of equations</p>
+<p><span class="math display">\[
+13x+18y-28z=0,\qquad -4x-ay+8z=0,\qquad 2x+6y-5z=0
+\]</span></p>
+<p>does not have a unique solution. <strong>[2]</strong></p>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}13&amp;18&amp;-28\\-4&amp;-1&amp;8\\2&amp;6&amp;-5\end{pmatrix}.
+\]</span></p>
+<p><strong>(b)</strong> Find the eigenvalue of <span class="math inline">\(A\)</span> corresponding to the eigenvector <span class="math inline">\(\begin{pmatrix}2\\0\\1\end{pmatrix}\)</span>. <strong>[1]</strong></p>
+<p><strong>(c)</strong> Find a matrix <span class="math inline">\(P\)</span> and a diagonal matrix <span class="math inline">\(D\)</span> such that <span class="math inline">\(A=PDP^{-1}\)</span>. <strong>[8]</strong></p>
+<p><strong>(d)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to find <span class="math inline">\(A^{-1}\)</span> in terms of <span class="math inline">\(A\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The system fails to have a unique solution when</p>
+<p><span class="math display">\[
+\det\begin{pmatrix}13&amp;18&amp;-28\\-4&amp;-a&amp;8\\2&amp;6&amp;-5\end{pmatrix}
+=8-\frac{9a}{4}=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{a=\frac{32}9}.
+\]</span></p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[
+A\begin{pmatrix}2\\0\\1\end{pmatrix}
+=\begin{pmatrix}13&amp;18&amp;-28\\-4&amp;-1&amp;8\\2&amp;6&amp;-5\end{pmatrix}
+\begin{pmatrix}2\\0\\1\end{pmatrix}
+=\begin{pmatrix}-2\\0\\-1\end{pmatrix}
+=-\begin{pmatrix}2\\0\\1\end{pmatrix},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\lambda=-1}.
+\]</span></p>
+<p><strong>(c)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+\det(A-\lambda I)=0
+\;\Longrightarrow\;
+-\lambda^3+7\lambda^2-7\lambda-15=0
+\;\Longrightarrow\;
+(\lambda+1)(\lambda-3)(\lambda-5)=0.
+\]</span></p>
+<p>So <span class="math inline">\(\lambda=-1,\ 3,\ 5\)</span> with corresponding eigenvectors</p>
+<p><span class="math display">\[
+\begin{pmatrix}2\\0\\1\end{pmatrix},\quad
+\begin{pmatrix}1\\1\\1\end{pmatrix},\quad
+\begin{pmatrix}-1\\2\\1\end{pmatrix}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{P=\begin{pmatrix}2&amp;1&amp;-1\\0&amp;1&amp;2\\1&amp;1&amp;1\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}-1&amp;0&amp;0\\0&amp;3&amp;0\\0&amp;0&amp;5\end{pmatrix}}.
+\]</span></p>
+<p><strong>(d)</strong> Since <span class="math inline">\(A\)</span> satisfies its characteristic equation,</p>
+<p><span class="math display">\[
+A^3-7A^2+7A+15I=0.
+\]</span></p>
+<p>Multiplying through by <span class="math inline">\(A^{-1}\)</span>,</p>
+<p><span class="math display">\[
+A^2-7A+7I+15A^{-1}=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{A^{-1}=\frac1{15}\left(-A^2+7A-7I\right)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2021-mj-23-q8"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q8.
+</div>
+</section>
+<section id="octobernovember-923122-question-6-11-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-6-11-marks">2021 October/November · 9231/22 · Question 6 · 11 marks</h3>
+<p>The matrix <span class="math inline">\(P\)</span> is given by</p>
+<p><span class="math display">\[
+P=\begin{pmatrix}1&amp;6&amp;6\\0&amp;2&amp;6\\0&amp;0&amp;-3\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Use the characteristic equation of <span class="math inline">\(P\)</span> to find <span class="math inline">\(P^{-1}\)</span>. <strong>[5]</strong></p>
+<p><strong>(b)</strong> Find the matrix <span class="math inline">\(A\)</span> such that</p>
+<p><span class="math display">\[
+P^{-1}AP=\begin{pmatrix}4&amp;0&amp;0\\0&amp;5&amp;0\\0&amp;0&amp;6\end{pmatrix}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(c)</strong> State the eigenvalues and corresponding eigenvectors of <span class="math inline">\(A^3\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+(\lambda-1)(\lambda-2)(\lambda+3)=\lambda^3-7\lambda+6=0.
+\]</span></p>
+<p>So <span class="math inline">\(P^3-7P+6I=0\)</span>, and multiplying through by <span class="math inline">\(P^{-1}\)</span> gives</p>
+<p><span class="math display">\[
+P^2-7I+6P^{-1}=0.
+\]</span></p>
+<p>Computing</p>
+<p><span class="math display">\[
+P^2=\begin{pmatrix}1&amp;18&amp;24\\0&amp;4&amp;6\\0&amp;0&amp;9\end{pmatrix},
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+\boxed{P^{-1}=\begin{pmatrix}1&amp;-3&amp;-4\\0&amp;\frac12&amp;1\\0&amp;0&amp;-\frac13\end{pmatrix}}.
+\]</span></p>
+<p><strong>(b)</strong> <span class="math inline">\(P^{-1}AP=D\)</span> gives <span class="math inline">\(A=PDP^{-1}\)</span> with <span class="math inline">\(D=\operatorname{diag}(4,5,6)\)</span>:</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;6&amp;6\\0&amp;2&amp;6\\0&amp;0&amp;-3\end{pmatrix}
+\begin{pmatrix}4&amp;0&amp;0\\0&amp;5&amp;0\\0&amp;0&amp;6\end{pmatrix}
+P^{-1}
+=\boxed{\begin{pmatrix}4&amp;3&amp;2\\0&amp;5&amp;-2\\0&amp;0&amp;6\end{pmatrix}}.
+\]</span></p>
+<p><strong>(c)</strong> The eigenvalues of <span class="math inline">\(A^3\)</span> are</p>
+<p><span class="math display">\[
+\boxed{64,\ 125,\ 216},
+\]</span></p>
+<p>with corresponding eigenvectors</p>
+<p><span class="math display">\[
+\boxed{\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}6\\2\\0\end{pmatrix},\quad
+\begin{pmatrix}6\\6\\-3\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2021-on-22-q6"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q6.
+</div>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2022</h3>
+</section>
+<section id="mayjune-923123-question-3-7-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-3-7-marks">2022 May/June · 9231/23 · Question 3 · 7 marks</h3>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}6&amp;-9&amp;5\\5&amp;-8&amp;5\\1&amp;-1&amp;2\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Find the eigenvalues of <span class="math inline">\(A\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to show that</p>
+<p><span class="math display">\[
+A^{-1}=pA^2+qI,
+\]</span></p>
+<p>where <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are constants to be determined. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+\begin{vmatrix}6-\lambda&amp;-9&amp;5\\5&amp;-8-\lambda&amp;5\\1&amp;-1&amp;2-\lambda\end{vmatrix}=0,
+\]</span></p>
+<p>which expands to</p>
+<p><span class="math display">\[
+\lambda^3-7\lambda+6=0
+\;\Longrightarrow\;
+(\lambda-1)(\lambda-2)(\lambda+3)=0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\lambda=1,\ 2,\ -3}.
+\]</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">\(A\)</span> satisfies its own characteristic equation,</p>
+<p><span class="math display">\[
+A^3-7A+6I=0.
+\]</span></p>
+<p>Multiplying through by <span class="math inline">\(A^{-1}\)</span>,</p>
+<p><span class="math display">\[
+A^2-7I+6A^{-1}=0
+\;\Longrightarrow\;
+\boxed{A^{-1}=-\frac16A^2+\frac76I}.
+\]</span></p>
+<p>So <span class="math inline">\(p=-\dfrac16\)</span> and <span class="math inline">\(q=\dfrac76\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2022-mj-23-q3"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2022, Q3.
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2023</h3>
+</section>
+<section id="mayjune-923121-question-1-5-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-question-1-5-marks">2023 May/June · 9231/21 · Question 1 · 5 marks</h3>
+<p><strong>(a)</strong> Show that the system of equations</p>
+<p><span class="math display">\[
+x+2y+3z=1,\qquad 4x+5y+6z=1,\qquad 7x+8y+9z=1
+\]</span></p>
+<p>does not have a unique solution. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Show that the system of equations in part (a) is consistent. Interpret this situation geometrically. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The determinant of the coefficient matrix is</p>
+<p><span class="math display">\[
+\begin{vmatrix}1&amp;2&amp;3\\4&amp;5&amp;6\\7&amp;8&amp;9\end{vmatrix}
+=(45-48)-2(36-42)+3(32-35)=-3+12-9=0.
+\]</span></p>
+<p>Since the determinant is zero, the system does not have a unique solution.</p>
+<p><strong>(b)</strong> Using row operations (or eliminating variables), the three equations reduce to a single consistent relation, for example</p>
+<p><span class="math display">\[
+z=\frac13(1-x-2y),\qquad y=-2x-1.
+\]</span></p>
+<p>The system is therefore consistent, with infinitely many solutions. Geometrically, the three planes form a sheaf: they intersect along a common line.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2023-mj-21-q1"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/21/M/J/2023, Q1.
+</div>
+</section>
+<section id="mayjune-923121-question-5-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-question-5-10-marks">2023 May/June · 9231/21 · Question 5 · 10 marks</h3>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}18&amp;5&amp;-11\\8&amp;6&amp;-4\\32&amp;10&amp;-20\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Show that the characteristic equation of <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+m^3-4m^2-20m+48=0
+\]</span></p>
+<p>and hence find the eigenvalues of <span class="math inline">\(A\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Find a matrix <span class="math inline">\(P\)</span> and a diagonal matrix <span class="math inline">\(D\)</span> such that <span class="math inline">\(A^5=PDP^{-1}\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Expanding <span class="math inline">\(\det(A-mI)=0\)</span> gives</p>
+<p><span class="math display">\[
+m^3-4m^2-20m+48=0,
+\]</span></p>
+<p>which factorises as</p>
+<p><span class="math display">\[
+(m-2)(m+4)(m-6)=0.
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+\boxed{m=2,\ -4,\ 6}.
+\]</span></p>
+<p><strong>(b)</strong> Corresponding eigenvectors are</p>
+<p><span class="math display">\[
+m=2:\begin{pmatrix}1\\-1\\1\end{pmatrix},\qquad
+m=-4:\begin{pmatrix}1\\0\\2\end{pmatrix},\qquad
+m=6:\begin{pmatrix}1\\2\\2\end{pmatrix}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{P=\begin{pmatrix}1&amp;1&amp;1\\-1&amp;0&amp;2\\1&amp;2&amp;2\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}2^5&amp;0&amp;0\\0&amp;(-4)^5&amp;0\\0&amp;0&amp;6^5\end{pmatrix}
+=\begin{pmatrix}32&amp;0&amp;0\\0&amp;-1024&amp;0\\0&amp;0&amp;7776\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2023-mj-21-q5"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/21/M/J/2023, Q5.
+</div>
+</section>
+<section id="octobernovember-923122-question-6-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-6-10-marks">2023 October/November · 9231/22 · Question 6 · 10 marks</h3>
+<p>The matrix <span class="math inline">\(P\)</span> is given by</p>
+<p><span class="math display">\[
+P=\begin{pmatrix}1&amp;-1&amp;1\\0&amp;2&amp;1\\0&amp;0&amp;-1\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> State the eigenvalues of <span class="math inline">\(P\)</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> Use the characteristic equation of <span class="math inline">\(P\)</span> to find <span class="math inline">\(P^{-1}\)</span>. <strong>[4]</strong></p>
+<p>The <span class="math inline">\(3\times3\)</span> matrix <span class="math inline">\(A\)</span> has distinct non-zero eigenvalues <span class="math inline">\(a\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span> with corresponding eigenvectors</p>
+<p><span class="math display">\[
+\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}-1\\2\\0\end{pmatrix},\quad
+\begin{pmatrix}1\\1\\-1\end{pmatrix}.
+\]</span></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(A^{-1}\)</span> in terms of <span class="math inline">\(a\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> For an upper triangular matrix,</p>
+<p><span class="math display">\[
+\boxed{1,\ 2,\ -1}.
+\]</span></p>
+<p><strong>(b)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+(\lambda-1)(\lambda-2)(\lambda+1)=\lambda^3-2\lambda^2-\lambda+2=0,
+\]</span></p>
+<p>so <span class="math inline">\(P^3-2P^2-P+2I=0\)</span>. Multiplying through by <span class="math inline">\(P^{-1}\)</span>,</p>
+<p><span class="math display">\[
+2P^{-1}=I+2P-P^2.
+\]</span></p>
+<p>Computing</p>
+<p><span class="math display">\[
+P^2=\begin{pmatrix}1&amp;-3&amp;-1\\0&amp;4&amp;1\\0&amp;0&amp;1\end{pmatrix},
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+\boxed{P^{-1}=\begin{pmatrix}1&amp;\frac12&amp;\frac32\\0&amp;\frac12&amp;\frac12\\0&amp;0&amp;-1\end{pmatrix}}.
+\]</span></p>
+<p><strong>(c)</strong> With eigenvectors as the columns of <span class="math inline">\(P\)</span> and eigenvalues <span class="math inline">\(a,1,2\)</span>,</p>
+<p><span class="math display">\[
+A^{-1}=P
+\begin{pmatrix}\frac1a&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;\frac12\end{pmatrix}
+P^{-1}
+=\boxed{\frac12\begin{pmatrix}\frac2a&amp;-1&amp;1\\0&amp;2&amp;1\\0&amp;0&amp;1\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2023-on-22-q6"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q6.
+</div>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2024</h3>
+</section>
+<section id="mayjune-923121-923122-question-8-16-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-8-16-marks">2024 May/June · 9231/21 &amp; 9231/22 · Question 8 · 16 marks</h3>
+<p><strong>(a)</strong> Find the set of values of <span class="math inline">\(a\)</span> for which the system of equations</p>
+<p><span class="math display">\[
+6x+ay=3,\qquad 2x-y=1,\qquad x+5y+4z=2
+\]</span></p>
+<p>has a unique solution. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Show that the system of equations in part (a) is consistent for all values of <span class="math inline">\(a\)</span>. <strong>[3]</strong></p>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}6&amp;0&amp;0\\2&amp;-1&amp;0\\1&amp;5&amp;4\end{pmatrix}.
+\]</span></p>
+<p><strong>(c)</strong> Find a matrix <span class="math inline">\(P\)</span> and a diagonal matrix <span class="math inline">\(D\)</span> such that</p>
+<p><span class="math display">\[
+(14A+24I)^2=PDP^{-1}.
+\]</span></p>
+<p><strong>[7]</strong></p>
+<p><strong>(d)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to show that</p>
+<p><span class="math display">\[
+(14A+24I)^2=A^4(A+bI)^2,
+\]</span></p>
+<p>where <span class="math inline">\(b\)</span> is an integer to be determined. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The system has a unique solution when the determinant is non-zero:</p>
+<p><span class="math display">\[
+\begin{vmatrix}6&amp;a&amp;0\\2&amp;-1&amp;0\\1&amp;5&amp;4\end{vmatrix}
+=4(-6-2a)=-8a-24.
+\]</span></p>
+<p>So the unique-solution set is</p>
+<p><span class="math display">\[
+\boxed{a\ne-3}.
+\]</span></p>
+<p><strong>(b)</strong> If <span class="math inline">\(a\ne-3\)</span> the system has a unique solution, so it is consistent. If <span class="math inline">\(a=-3\)</span>, the equations reduce to</p>
+<p><span class="math display">\[
+6x-3y=3,\qquad 2x-y=1,\qquad x+5y+4z=2,
+\]</span></p>
+<p>which are consistent (e.g.&nbsp;<span class="math inline">\((1,0,\frac14)\)</span> is a solution). Hence the system is consistent for all <span class="math inline">\(a\)</span>.</p>
+<p><strong>(c)</strong> The eigenvalues of <span class="math inline">\(A\)</span> are <span class="math inline">\(6\)</span>, <span class="math inline">\(-1\)</span>, <span class="math inline">\(4\)</span>, with corresponding eigenvectors</p>
+<p><span class="math display">\[
+\begin{pmatrix}14\\4\\17\end{pmatrix},\quad
+\begin{pmatrix}0\\-1\\1\end{pmatrix},\quad
+\begin{pmatrix}0\\0\\1\end{pmatrix}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{P=\begin{pmatrix}14&amp;0&amp;0\\4&amp;-1&amp;0\\17&amp;1&amp;1\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}(14\cdot6+24)^2&amp;0&amp;0\\0&amp;(-14+24)^2&amp;0\\0&amp;0&amp;(56+24)^2\end{pmatrix}
+=\begin{pmatrix}11664&amp;0&amp;0\\0&amp;100&amp;0\\0&amp;0&amp;6400\end{pmatrix}}.
+\]</span></p>
+<p><strong>(d)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+(\lambda-6)(\lambda+1)(\lambda-4)=\lambda^3-9\lambda^2+14\lambda+24=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+14A+24I=-A^3+9A^2=A^2(9I-A).
+\]</span></p>
+<p>Squaring,</p>
+<p><span class="math display">\[
+(14A+24I)^2=A^4(9I-A)^2=A^4(A-9I)^2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{b=-9}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2024-mj-21-22-q8"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2024, Q8; 9231/22/M/J/2024, Q8.
+</div>
+</section>
+<section id="mayjune-923123-question-8-14-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-8-14-marks">2024 May/June · 9231/23 · Question 8 · 14 marks</h3>
+<p>The planes <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span> do not intersect and are both perpendicular to <span class="math inline">\(\mathbf i+2\mathbf j+3\mathbf k\)</span>. The line <span class="math inline">\(l\)</span> intersects <span class="math inline">\(P_1\)</span> at the point <span class="math inline">\((1,6,0)\)</span> and intersects <span class="math inline">\(P_2\)</span> at the point <span class="math inline">\((3,-6,0)\)</span>.</p>
+<p><strong>(a)</strong> Find Cartesian equations of <span class="math inline">\(P_1\)</span> and <span class="math inline">\(P_2\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Express the vector equation of <span class="math inline">\(l\)</span> in the form <span class="math inline">\(\mathbf r=\mathbf a+\lambda\mathbf b\)</span>, where <span class="math inline">\(\mathbf a\)</span> and <span class="math inline">\(\mathbf b\)</span> are vectors to be determined, and hence show that for points on <span class="math inline">\(l\)</span>,</p>
+<p><span class="math display">\[
+\frac12x+\frac1{12}y=1
+\qquad\text{and}\qquad z=0.
+\]</span></p>
+<p><strong>[2]</strong></p>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;2&amp;3\\1&amp;2&amp;3\\\frac12&amp;\frac1{12}&amp;0\end{pmatrix}.
+\]</span></p>
+<p><strong>(c)</strong> Show that the characteristic equation of <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+-\lambda^3+3\lambda^2+\frac74\lambda=0
+\]</span></p>
+<p>and hence find the eigenvalues of <span class="math inline">\(A\)</span>. <strong>[3]</strong></p>
+<p><strong>(d)</strong> Find a matrix <span class="math inline">\(P\)</span> and a diagonal matrix <span class="math inline">\(D\)</span> such that <span class="math inline">\(A^n=PDP^{-1}\)</span>, where <span class="math inline">\(n\)</span> is a positive integer. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Since both planes are perpendicular to <span class="math inline">\(\mathbf i+2\mathbf j+3\mathbf k\)</span>, their equations are <span class="math inline">\(x+2y+3z=d\)</span>. Substituting the two given points,</p>
+<p><span class="math display">\[
+\boxed{P_1:x+2y+3z=13},\qquad
+\boxed{P_2:x+2y+3z=-9}.
+\]</span></p>
+<p><strong>(b)</strong> The direction of <span class="math inline">\(l\)</span> is</p>
+<p><span class="math display">\[
+\begin{pmatrix}3\\-6\\0\end{pmatrix}-\begin{pmatrix}1\\6\\0\end{pmatrix}
+=\begin{pmatrix}2\\-12\\0\end{pmatrix},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\mathbf r=\begin{pmatrix}1\\6\\0\end{pmatrix}
++\lambda\begin{pmatrix}2\\-12\\0\end{pmatrix}}.
+\]</span></p>
+<p>Thus <span class="math inline">\(z=0\)</span>, and</p>
+<p><span class="math display">\[
+x=1+2\lambda,\qquad y=6-12\lambda.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac12x+\frac1{12}y
+=\frac12(1+2\lambda)+\frac1{12}(6-12\lambda)
+=\frac12+\lambda+\frac12-\lambda
+=1.
+\]</span></p>
+<p><strong>(c)</strong> Expanding <span class="math inline">\(\det(A-\lambda I)=0\)</span>,</p>
+<p><span class="math display">\[
+(1-\lambda)\left(-\lambda(2-\lambda)-\frac14\right)-2\left(-\lambda-\frac32\right)+3\left(\frac1{12}-\frac12(2-\lambda)\right)=0,
+\]</span></p>
+<p>which simplifies to</p>
+<p><span class="math display">\[
+-\lambda^3+3\lambda^2+\frac74\lambda=0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\lambda\left(\lambda^2-3\lambda-\frac74\right)=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\lambda=0,\ \frac72,\ -\frac12}.
+\]</span></p>
+<p><strong>(d)</strong> Corresponding eigenvectors are</p>
+<p><span class="math display">\[
+\lambda=0:\begin{pmatrix}3\\-18\\11\end{pmatrix},
+\qquad
+\lambda=\frac72:\begin{pmatrix}6\\6\\1\end{pmatrix},
+\qquad
+\lambda=-\frac12:\begin{pmatrix}-6\\-6\\7\end{pmatrix}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{P=\begin{pmatrix}3&amp;6&amp;-6\\-18&amp;6&amp;-6\\11&amp;1&amp;7\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}0&amp;0&amp;0\\0&amp;(\frac72)^n&amp;0\\0&amp;0&amp;(-\frac12)^n\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2024-mj-23-q8"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q8.
+</div>
+</section>
+<section id="octobernovember-923121-923123-question-4-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-4-9-marks">2024 October/November · 9231/21 &amp; 9231/23 · Question 4 · 9 marks</h3>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}-11&amp;1&amp;8\\0&amp;-2&amp;0\\-16&amp;1&amp;13\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(\begin{pmatrix}1\\1\\1\end{pmatrix}\)</span> is an eigenvector of <span class="math inline">\(A\)</span> and state the corresponding eigenvalue. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Show that the characteristic equation of <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+m^3-19m-30=0
+\]</span></p>
+<p>and hence find the other eigenvalues of <span class="math inline">\(A\)</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to find <span class="math inline">\(A^{-1}\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[
+A\begin{pmatrix}1\\1\\1\end{pmatrix}
+=\begin{pmatrix}-11+1+8\\-2\\-16+1+13\end{pmatrix}
+=\begin{pmatrix}-2\\-2\\-2\end{pmatrix}
+=-2\begin{pmatrix}1\\1\\1\end{pmatrix}.
+\]</span></p>
+<p>So the corresponding eigenvalue is</p>
+<p><span class="math display">\[
+\boxed{\lambda=-2}.
+\]</span></p>
+<p><strong>(b)</strong> Expanding <span class="math inline">\(\det(A-mI)=0\)</span>,</p>
+<p><span class="math display">\[
+(-11-m)(-2-m)(13-m)+128(-2-m)=0,
+\]</span></p>
+<p>which simplifies to</p>
+<p><span class="math display">\[
+m^3-19m-30=0
+\;\Longrightarrow\;
+(m+2)(m-5)(m+3)=0.
+\]</span></p>
+<p>The other eigenvalues are</p>
+<p><span class="math display">\[
+\boxed{m=5\ \text{and}\ m=-3}.
+\]</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">\(A\)</span> satisfies <span class="math inline">\(A^3-19A-30I=0\)</span>,</p>
+<p><span class="math display">\[
+30A^{-1}=A^2-19I.
+\]</span></p>
+<p>Computing</p>
+<p><span class="math display">\[
+A^2=\begin{pmatrix}-7&amp;-5&amp;16\\0&amp;4&amp;0\\-32&amp;-5&amp;41\end{pmatrix},
+\]</span></p>
+<p>gives</p>
+<p><span class="math display">\[
+\boxed{A^{-1}=\frac1{30}
+\begin{pmatrix}-26&amp;-5&amp;16\\0&amp;-15&amp;0\\-32&amp;-5&amp;22\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2024-on-21-23-q4"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/O/N/2024, Q4; 9231/23/O/N/2024, Q4.
+</div>
+</section>
+<section id="octobernovember-923122-question-8-14-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-8-14-marks">2024 October/November · 9231/22 · Question 8 · 14 marks</h3>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}-2&amp;0&amp;0\\0&amp;7&amp;9\\4&amp;1&amp;7\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> Show that the characteristic equation of <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+m^3-12m^2+12m+80=0
+\]</span></p>
+<p>and find the eigenvalues of <span class="math inline">\(A\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to show that</p>
+<p><span class="math display">\[
+A^4=pA^2+qA+rI,
+\]</span></p>
+<p>where <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span> are integers to be determined. <strong>[4]</strong></p>
+<p><strong>(c)</strong> Find a matrix <span class="math inline">\(P\)</span> and a diagonal matrix <span class="math inline">\(D\)</span> such that <span class="math inline">\((A-3I)^4=PDP^{-1}\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Expanding <span class="math inline">\(\det(A-mI)=0\)</span>,</p>
+<p><span class="math display">\[
+(-2-m)\bigl((7-m)^2-9\bigr)=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+m^3-12m^2+12m+80=0
+\;\Longrightarrow\;
+(m+2)(m-4)(m-10)=0.
+\]</span></p>
+<p>The eigenvalues are</p>
+<p><span class="math display">\[
+\boxed{m=-2,\ 4,\ 10}.
+\]</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">\(A^3-12A^2+12A+80I=0\)</span>,</p>
+<p><span class="math display">\[
+A^4-12A^3+12A^2+80A=0.
+\]</span></p>
+<p>Substituting <span class="math inline">\(A^3=12A^2-12A-80I\)</span>,</p>
+<p><span class="math display">\[
+A^4=12(12A^2-12A-80I)-12A^2-80A
+=\boxed{132A^2-224A-960I}.
+\]</span></p>
+<p>So <span class="math inline">\(p=132\)</span>, <span class="math inline">\(q=-224\)</span>, <span class="math inline">\(r=-960\)</span>.</p>
+<p><strong>(c)</strong> Corresponding eigenvectors are</p>
+<p><span class="math display">\[
+m=-2:\begin{pmatrix}2\\1\\-1\end{pmatrix},\qquad
+m=4:\begin{pmatrix}0\\3\\-1\end{pmatrix},\qquad
+m=10:\begin{pmatrix}0\\3\\1\end{pmatrix}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{P=\begin{pmatrix}2&amp;0&amp;0\\1&amp;3&amp;3\\-1&amp;-1&amp;1\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}(-5)^4&amp;0&amp;0\\0&amp;1^4&amp;0\\0&amp;0&amp;7^4\end{pmatrix}
+=\begin{pmatrix}625&amp;0&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;2401\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2024-on-22-q8"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2024, Q8.
+</div>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">2025</h3>
+</section>
+<section id="mayjune-923121-923122-question-8-13-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-8-13-marks">2025 May/June · 9231/21 &amp; 9231/22 · Question 8 · 13 marks</h3>
+<p><strong>(a)</strong> It is given that <span class="math inline">\(m\)</span> is an eigenvalue of the non-singular square matrix <span class="math inline">\(A\)</span>, with corresponding eigenvector <span class="math inline">\(\mathbf e\)</span>. Show that <span class="math inline">\(\mathbf e\)</span> is an eigenvector of <span class="math inline">\(A^3\)</span> with corresponding eigenvalue <span class="math inline">\(m^3\)</span>. <strong>[2]</strong></p>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}-1&amp;3&amp;4\\0&amp;1&amp;0\\0&amp;-2&amp;5\end{pmatrix}.
+\]</span></p>
+<p><strong>(b)</strong> Show that the eigenvalues of <span class="math inline">\(A\)</span> are <span class="math inline">\(-1\)</span>, <span class="math inline">\(1\)</span> and <span class="math inline">\(5\)</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find a matrix <span class="math inline">\(P\)</span> and a diagonal matrix <span class="math inline">\(D\)</span> such that <span class="math inline">\(A-2I=PDP^{-1}\)</span>. <strong>[6]</strong></p>
+<p><strong>(d)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to show that</p>
+<p><span class="math display">\[
+(A-2I)^3=aA^2+bA+cI,
+\]</span></p>
+<p>where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are constants to be determined. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Since <span class="math inline">\(A\mathbf e=m\mathbf e\)</span>,</p>
+<p><span class="math display">\[
+A^3\mathbf e=A^2(A\mathbf e)=A^2(m\mathbf e)=mA(A\mathbf e)=m^2A\mathbf e=m^3\mathbf e.
+\]</span></p>
+<p>So <span class="math inline">\(\mathbf e\)</span> is an eigenvector of <span class="math inline">\(A^3\)</span> with eigenvalue <span class="math inline">\(m^3\)</span>.</p>
+<p><strong>(b)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+\begin{vmatrix}-1-\lambda&amp;3&amp;4\\0&amp;1-\lambda&amp;0\\0&amp;-2&amp;5-\lambda\end{vmatrix}
+=(-1-\lambda)(1-\lambda)(5-\lambda)=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\lambda=-1,\ 1,\ 5}.
+\]</span></p>
+<p><strong>(c)</strong> Corresponding eigenvectors are</p>
+<p><span class="math display">\[
+\lambda=-1:\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
+\lambda=1:\begin{pmatrix}5\\2\\1\end{pmatrix},\qquad
+\lambda=5:\begin{pmatrix}2\\0\\3\end{pmatrix}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{P=\begin{pmatrix}1&amp;5&amp;2\\0&amp;2&amp;0\\0&amp;1&amp;3\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}-3&amp;0&amp;0\\0&amp;-1&amp;0\\0&amp;0&amp;3\end{pmatrix}}.
+\]</span></p>
+<p><strong>(d)</strong> The characteristic equation of <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+(\lambda+1)(\lambda-1)(\lambda-5)=\lambda^3-5\lambda^2-\lambda+5=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+A^3=5A^2+A-5I.
+\]</span></p>
+<p>Expanding <span class="math inline">\((A-2I)^3=A^3-6A^2+12A-8I\)</span> and substituting,</p>
+<p><span class="math display">\[
+(A-2I)^3=-A^2+13A-13I.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{a=-1,\ b=13,\ c=-13}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2025-mj-21-22-q8"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2025, Q8; 9231/22/M/J/2025, Q8.
+</div>
+</section>
+<section id="octobernovember-923121-923123-question-6-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-6-10-marks">2025 October/November · 9231/21 &amp; 9231/23 · Question 6 · 10 marks</h3>
+<p>The matrix <span class="math inline">\(P\)</span> has non-zero eigenvalues and is given by</p>
+<p><span class="math display">\[
+P=\begin{pmatrix}a&amp;1&amp;1\\0&amp;2a&amp;-1\\0&amp;0&amp;-3a\end{pmatrix}.
+\]</span></p>
+<p><strong>(a)</strong> State, in terms of <span class="math inline">\(a\)</span>, the eigenvalues of <span class="math inline">\(P\)</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> <strong>(i)</strong> Find <span class="math inline">\(P^2\)</span> in terms of <span class="math inline">\(a\)</span>. <strong>[1]</strong></p>
+<p><strong>(ii)</strong> Use the characteristic equation of <span class="math inline">\(P\)</span> to find <span class="math inline">\(P^{-1}\)</span> in terms of <span class="math inline">\(a\)</span>. <strong>[3]</strong></p>
+<p>The <span class="math inline">\(3\times3\)</span> matrix <span class="math inline">\(A\)</span> has eigenvalues <span class="math inline">\(1\)</span>, <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> with corresponding eigenvectors</p>
+<p><span class="math display">\[
+\begin{pmatrix}a\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}1\\2a\\0\end{pmatrix},\quad
+\begin{pmatrix}1\\-1\\-3a\end{pmatrix}.
+\]</span></p>
+<p><strong>(c)</strong> Find <span class="math inline">\(A\)</span> in terms of <span class="math inline">\(a\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> For an upper triangular matrix,</p>
+<p><span class="math display">\[
+\boxed{a,\ 2a,\ -3a}.
+\]</span></p>
+<p><strong>(b)(i)</strong></p>
+<p><span class="math display">\[
+\boxed{P^2=\begin{pmatrix}a^2&amp;3a&amp;-2a-1\\0&amp;4a^2&amp;a\\0&amp;0&amp;9a^2\end{pmatrix}}.
+\]</span></p>
+<p><strong>(ii)</strong> The characteristic equation is</p>
+<p><span class="math display">\[
+(\lambda-a)(\lambda-2a)(\lambda+3a)=\lambda^3-7a^2\lambda+6a^3=0,
+\]</span></p>
+<p>so <span class="math inline">\(P^3-7a^2P+6a^3I=0\)</span>. Multiplying through by <span class="math inline">\(P^{-1}\)</span>,</p>
+<p><span class="math display">\[
+6a^3P^{-1}=7a^2I-P^2.
+\]</span></p>
+<p>Using part (b)(i),</p>
+<p><span class="math display">\[
+\boxed{P^{-1}=\frac1{6a^3}
+\begin{pmatrix}6a^2&amp;-3a&amp;2a+1\\0&amp;3a^2&amp;-a\\0&amp;0&amp;-2a^2\end{pmatrix}}.
+\]</span></p>
+<p><strong>(c)</strong> With the eigenvectors as columns,</p>
+<p><span class="math display">\[
+P=\begin{pmatrix}a&amp;1&amp;1\\0&amp;2a&amp;-1\\0&amp;0&amp;-3a\end{pmatrix},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+A=P\begin{pmatrix}1&amp;0&amp;0\\0&amp;2&amp;0\\0&amp;0&amp;3\end{pmatrix}P^{-1}
+=\boxed{\begin{pmatrix}1&amp;\frac1{2a}&amp;\frac{1-4a}{6a^2}\\0&amp;2&amp;\frac1{3a}\\0&amp;0&amp;3\end{pmatrix}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2025-on-21-23-q6"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/O/N/2025, Q6; 9231/23/O/N/2025, Q6.
+</div>
+</section>
+<section id="octobernovember-923122-question-8-15-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-8-15-marks">2025 October/November · 9231/22 · Question 8 · 15 marks</h3>
+<p><strong>(a)</strong> Find the values of <span class="math inline">\(k\)</span> for which the system of equations</p>
+<p><span class="math display">\[
+x-y+2kz=1,\qquad kx+y+2z=2,\qquad 2x-y+z=3
+\]</span></p>
+<p>does not have a unique solution. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Given that <span class="math inline">\(k=-\frac12\)</span>, show that the system of equations in part (a) is inconsistent. Interpret this situation geometrically. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Given instead that <span class="math inline">\(k=-1\)</span>, show that the system of equations in part (a) is also inconsistent. Interpret this situation geometrically. <strong>[4]</strong></p>
+<p>The matrix <span class="math inline">\(A\)</span> is given by</p>
+<p><span class="math display">\[
+A=\begin{pmatrix}1&amp;-1&amp;-2\\-1&amp;1&amp;2\\2&amp;-1&amp;1\end{pmatrix}.
+\]</span></p>
+<p><strong>(d)</strong> Use the characteristic equation of <span class="math inline">\(A\)</span> to show that</p>
+<p><span class="math display">\[
+A^4=pA^2+qA
+\]</span></p>
+<p>where <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are integers to be determined. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The determinant of the coefficient matrix is</p>
+<p><span class="math display">\[
+\begin{vmatrix}1&amp;-1&amp;2k\\k&amp;1&amp;2\\2&amp;-1&amp;1\end{vmatrix}=2k^2+3k+1=0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{k=-1\ \text{or}\ k=-\frac12}.
+\]</span></p>
+<p><strong>(b)</strong> When <span class="math inline">\(k=-\frac12\)</span>, the equations become</p>
+<p><span class="math display">\[
+x-y-z=1,\qquad -\frac12x+y+2z=2,\qquad 2x-y+z=3.
+\]</span></p>
+<p>Adding the first two equations gives <span class="math inline">\(\frac12x+z=3\)</span>, while the third equation gives <span class="math inline">\(2x-y+z=3\)</span>; eliminating variables leads to the contradiction <span class="math inline">\(1=-2\)</span>. Therefore the system is inconsistent. Geometrically, the planes form a triangular prism (no common point).</p>
+<p><strong>(c)</strong> When <span class="math inline">\(k=-1\)</span>, the equations become</p>
+<p><span class="math display">\[
+x-y-2z=1,\qquad -x+y+2z=2,\qquad 2x-y+z=3.
+\]</span></p>
+<p>The first two equations give <span class="math inline">\(1=-2\)</span>, a contradiction. So the system is inconsistent. Geometrically, two planes are parallel (and not identical), with the third plane not parallel to them.</p>
+<p><strong>(d)</strong> The characteristic equation of <span class="math inline">\(A\)</span> is</p>
+<p><span class="math display">\[
+\begin{vmatrix}1-\lambda&amp;-1&amp;-2\\-1&amp;1-\lambda&amp;2\\2&amp;-1&amp;1-\lambda\end{vmatrix}
+=-\lambda^3+3\lambda^2-8\lambda=0.
+\]</span></p>
+<p>So <span class="math inline">\(A^3=3A^2-8A\)</span>. Multiplying by <span class="math inline">\(A\)</span>,</p>
+<p><span class="math display">\[
+A^4=3A^3-8A^2=3(3A^2-8A)-8A^2=A^2-24A.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{p=1,\ q=-24}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2025-on-22-q8"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2025, Q8.
+</div>
+</section>
+</section>
+<section id="完成本节的判断标准" class="level2">
+<h2 class="anchored" data-anchor-id="完成本节的判断标准">4. 完成本节的判断标准</h2>
+<ol type="1">
+<li>能正确列出三元一次方程组的系数矩阵并判断解的存在性与唯一性；</li>
+<li>能把三平面的几何情形与行列式、平面法向量的关系对应起来；</li>
+<li>能熟练写出并求解 characteristic equation，求出每个特征值对应的特征向量；</li>
+<li>能构造 <span class="math inline">\(Q\)</span>、<span class="math inline">\(D\)</span> 并利用 <span class="math inline">\(A^n=QD^nQ^{-1}\)</span> 计算矩阵幂；</li>
+<li>能利用方阵满足自身特征方程来化简矩阵多项式或求 <span class="math inline">\(A^{-1}\)</span>。 本节保留教材 Chapter 2 的全部编号 Example（Example 1–8）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-2/hyperbolic-functions.html" class="pagination-link" aria-label="2.1 Hyperbolic functions">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.1 Hyperbolic functions</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
