@@ -1,0 +1,482 @@
+::: {.study-card}
+### Example 1 · Page 21
+
+You invest a total of $\$22000$ in three different funds:
+
+- Fund $x$ offers $4\%$ interest per year with low risk.
+- Fund $y$ offers $5\%$ interest per year with medium risk.
+- Fund $z$ offers $10\%$ interest per year with high risk.
+- Fund $z$ appears more promising than fund $y$, so you invest three times more with $z$ than with $y$.
+
+In the first year you earn a total of $\$1450$ in interest, but you forget how much you invested in $x$, $y$ and $z$. Work out what your initial investments were.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The information can be written as
+
+$$
+x+y+z=22000,\qquad 0.04x+0.05y+0.1z=1450,\qquad 3y=z,
+$$
+
+or
+
+$$
+4x+5y+10z=145000,\qquad 3y-z=0.
+$$
+
+In matrix form,
+
+$$
+\begin{pmatrix}1&1&1\\4&5&10\\0&3&-1\end{pmatrix}
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}22000\\145000\\0\end{pmatrix}.
+$$
+
+The inverse of the coefficient matrix is
+
+$$
+M^{-1}=-\frac1{19}
+\begin{pmatrix}-35&4&5\\4&-1&-6\\12&-3&1\end{pmatrix}.
+$$
+
+Hence
+
+$$
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=-\frac1{19}
+\begin{pmatrix}-35&4&5\\4&-1&-6\\12&-3&1\end{pmatrix}
+\begin{pmatrix}22000\\145000\\0\end{pmatrix}
+=\boxed{\begin{pmatrix}8000\\3000\\9000\end{pmatrix}}.
+$$
+
+So the initial investments were $\$8000$ in $x$, $\$3000$ in $y$ and $\$9000$ in $z$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2 · Page 27
+
+Determine the nature of the intersection of the following planes. If they have a solution, state clearly the solution as a single point or the equation of the line or the equation of the plane of intersection.
+
+$$
+\Pi_1:-x+2y=8,\qquad
+\Pi_2:2x+3y-z=23,\qquad
+\Pi_3:-x+4y-2z=26.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Write the left-hand side as a matrix:
+
+$$
+M=\begin{pmatrix}-1&2&0\\2&3&-1\\-1&4&-2\end{pmatrix}.
+$$
+
+Calculating the determinant using the first row,
+
+$$
+\det M=-1\bigl(3(-2)-(-1)(4)\bigr)-2\bigl(2(-2)-(-1)(-1)\bigr)+0=12.
+$$
+
+As $\det M\ne0$, the planes meet at a unique point. Solving
+
+$$
+M^{-1}\begin{pmatrix}8\\23\\26\end{pmatrix}
+$$
+
+gives
+
+$$
+\boxed{x=2,\quad y=5,\quad z=-4}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3 · Page 28
+
+Determine whether or not the following planes have any solution, and state the configuration of the planes.
+
+$$
+\Pi_1:3x+3y+4z=6,\qquad
+\Pi_2:x+z=1,\qquad
+\Pi_3:-6x+3y-5z=-3.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+This can be written as
+
+$$
+\begin{pmatrix}3&3&4\\1&0&1\\-6&3&-5\end{pmatrix}
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}6\\1\\-3\end{pmatrix}.
+$$
+
+The determinant of the coefficient matrix is
+
+$$
+\det M=3\bigl(0(-5)-1(3)\bigr)-0+3\bigl(1(3)-1(4)\bigr)=0.
+$$
+
+So there is not a unique solution. None of the planes is parallel (no left-hand sides are scalar multiples), so the configuration is either a triangular prism or a sheaf.
+
+By inspecting the equations, $7\Pi_1+\Pi_3=\Pi_2$ for both the left-hand sides and the right-hand sides:
+
+$$
+7(3x+3y+4z)+(-6x+3y-5z)=15x+24y+23z,
+$$
+
+and
+
+$$
+7(6)+(-3)=39.
+$$
+
+This confirms the planes form a sheaf. Let $z=\lambda$. From $\Pi_2$, $x=1-\lambda$. Substituting into $\Pi_1$,
+
+$$
+3(1-\lambda)+3y+4\lambda=6
+\;\Longrightarrow\;
+y=1-\frac{\lambda}3.
+$$
+
+Hence the line of intersection is
+
+$$
+\boxed{\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}1\\1\\0\end{pmatrix}
++\lambda\begin{pmatrix}-1\\-\frac13\\1\end{pmatrix}}
+$$
+
+or, equivalently,
+
+$$
+\begin{pmatrix}x\\y\\z\end{pmatrix}
+=\begin{pmatrix}1\\1\\0\end{pmatrix}
++\mu\begin{pmatrix}-3\\-1\\3\end{pmatrix}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4 · Page 35
+
+A village has a population of 700. Every person belongs to one of two competing fitness clubs. Each month, Hardrock Gym keeps $50\%$ of its members but loses the other $50\%$ to its rival; Pure Gym keeps $80\%$ of its members but loses the other $20\%$ to its rival. At the start of January the clubs have 350 members each.
+
+**(a)** Show that the matrix calculation for finding the following month's membership is
+
+$$
+\begin{pmatrix}0.5&0.2\\0.5&0.8\end{pmatrix}
+\begin{pmatrix}350\\350\end{pmatrix},
+$$
+
+and explain what the numbers represent.
+
+**(b)** How many members does each gym have at the start of February?
+
+**(c)** Find the eigenvalues and eigenvectors for $\begin{pmatrix}0.5&0.2\\0.5&0.8\end{pmatrix}$.
+
+**(d)** Which eigenvector represents the long-term membership? What is the stable number of members for Hardrock Gym and Pure Gym?
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** The first row gives Hardrock's members: they keep $0.5\times350$ of their own and gain $0.2\times350$ from Pure. The second row gives Pure's members: they gain $0.5\times350$ and keep $0.8\times350$.
+
+**(b)**
+
+$$
+\begin{pmatrix}0.5&0.2\\0.5&0.8\end{pmatrix}
+\begin{pmatrix}350\\350\end{pmatrix}
+=\begin{pmatrix}245\\455\end{pmatrix}.
+$$
+
+So Hardrock has $\boxed{245}$ members and Pure has $\boxed{455}$.
+
+**(c)** The characteristic equation is
+
+$$
+\det\begin{pmatrix}0.5-\lambda&0.2\\0.5&0.8-\lambda\end{pmatrix}=0,
+$$
+
+giving
+
+$$
+\lambda^2-1.3\lambda+0.3=0
+\;\Longrightarrow\;
+(\lambda-0.3)(\lambda-1)=0,
+$$
+
+so
+
+$$
+\lambda=0.3\ \text{or}\ 1.
+$$
+
+For $\lambda=0.3$, $(M-0.3I)\mathbf e=0$ gives $y=-x$, so an eigenvector is
+
+$$
+\mathbf e_1=\begin{pmatrix}1\\-1\end{pmatrix}.
+$$
+
+For $\lambda=1$, $(M-I)\mathbf e=0$ gives $y=\frac52x$, so an eigenvector is
+
+$$
+\mathbf e_2=\begin{pmatrix}2\\5\end{pmatrix}.
+$$
+
+**(d)** The eigenvector $\begin{pmatrix}1\\-1\end{pmatrix}$ does not make sense in terms of members, so the long-term membership is described by $\begin{pmatrix}2\\5\end{pmatrix}$ with eigenvalue $1$. Since the total is 700,
+
+$$
+2k+5k=700\;\Longrightarrow\;k=100.
+$$
+
+So the stable membership is
+
+$$
+\boxed{200\ \text{members for Hardrock Gym and}\ 500\ \text{for Pure Gym}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5 · Page 38
+
+Find the eigenvectors and eigenvalues of the matrix
+
+$$
+M=\begin{pmatrix}-2&6&-6\\-11&13&2\\-17&6&9\end{pmatrix}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The characteristic equation is $\det(M-\lambda I)=0$:
+
+$$
+\begin{vmatrix}-2-\lambda&6&-6\\-11&13-\lambda&2\\-17&6&9-\lambda\end{vmatrix}=0.
+$$
+
+Expanding gives
+
+$$
+\lambda^3-20\lambda^2+25\lambda+750=0
+\;\Longrightarrow\;
+(\lambda+5)(\lambda-10)(\lambda-15)=0.
+$$
+
+So the eigenvalues are
+
+$$
+\boxed{\lambda=-5,\ 10,\ 15}.
+$$
+
+For $\lambda=-5$, solving $(M+5I)\mathbf e=0$ gives
+
+$$
+\mathbf e=\begin{pmatrix}1\\\frac12\\1\end{pmatrix}
+\sim\begin{pmatrix}2\\1\\2\end{pmatrix}.
+$$
+
+For $\lambda=10$, solving $(M-10I)\mathbf e=0$ gives
+
+$$
+\mathbf e=\begin{pmatrix}-1\\3\\1\end{pmatrix}.
+$$
+
+For $\lambda=15$, solving $(M-15I)\mathbf e=0$ gives
+
+$$
+\mathbf e=\begin{pmatrix}0\\1\\1\end{pmatrix}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6 · Page 40
+
+Show that if $M$ has an eigenvector $\mathbf e$ with an eigenvalue $\lambda$, then $M^2$ has an eigenvalue $\lambda^2$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The properties of eigenvalues and eigenvectors give
+
+$$
+M\mathbf e=\lambda\mathbf e.
+$$
+
+Then
+
+$$
+M^2\mathbf e=M(M\mathbf e)=M(\lambda\mathbf e)=\lambda(M\mathbf e)=\lambda^2\mathbf e.
+$$
+
+So $\lambda^2$ is an eigenvalue of $M^2$, with the same eigenvector $\mathbf e$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 7 · Page 45
+
+Given the matrix
+
+$$
+A=\begin{pmatrix}-3&2&-2\\-3&2&-15\\1&-1&15\end{pmatrix},
+$$
+
+**(a)** find the eigenvalues and eigenvectors of $A$;
+
+**(b)** find a non-singular matrix $Q$ and a diagonal matrix $D$ such that $A=QDQ^{-1}$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** The characteristic equation is
+
+$$
+\begin{vmatrix}-3-\lambda&2&-2\\-3&2-\lambda&-15\\1&-1&15-\lambda\end{vmatrix}=0,
+$$
+
+which expands to
+
+$$
+2\lambda^3-\lambda^2-2\lambda+1=0
+\;\Longrightarrow\;
+(\lambda-1)(\lambda+1)(2\lambda-1)=0.
+$$
+
+So
+
+$$
+\boxed{\lambda=-1,\ \tfrac12,\ 1}.
+$$
+
+For $\lambda=-1$, $(A+I)\mathbf e=0$ gives $x=y$, so
+
+$$
+\mathbf e_1=\begin{pmatrix}1\\1\\0\end{pmatrix}.
+$$
+
+For $\lambda=\frac12$, $(A-\frac12 I)\mathbf e=0$ gives $y=z$, so
+
+$$
+\mathbf e_2=\begin{pmatrix}0\\1\\1\end{pmatrix}.
+$$
+
+For $\lambda=1$, $(A-I)\mathbf e=0$ gives $z=-2x$, so
+
+$$
+\mathbf e_3=\begin{pmatrix}1\\0\\-2\end{pmatrix}.
+$$
+
+**(b)** Taking the eigenvectors as columns,
+
+$$
+Q=\begin{pmatrix}1&0&1\\1&1&0\\0&1&-2\end{pmatrix},
+\qquad
+Q^{-1}=\begin{pmatrix}2&-1&1\\-2&2&-1\\-1&1&-1\end{pmatrix},
+$$
+
+and
+
+$$
+D=\begin{pmatrix}-1&0&0\\0&\frac12&0\\0&0&1\end{pmatrix}.
+$$
+
+Thus
+
+$$
+\boxed{A=QDQ^{-1}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 8 · Page 47
+
+Given
+
+$$
+M=\begin{pmatrix}-2&2&0\\1&1&-2\\0&2&-1\end{pmatrix},
+$$
+
+**(a)** show that the characteristic equation for $M$ is
+
+$$
+\lambda^3+2\lambda^2+\lambda+4=0;
+$$
+
+**(b)** verify that $M$ satisfies its own characteristic equation;
+
+**(c)** use the result to find $M^{-1}$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** The characteristic equation is $\det(M-\lambda I)=0$:
+
+$$
+\begin{vmatrix}-2-\lambda&2&0\\1&1-\lambda&-2\\0&2&-1-\lambda\end{vmatrix}=0.
+$$
+
+Expanding,
+
+$$
+(-2-\lambda)\bigl((1-\lambda)(-1-\lambda)-(-2)(2)\bigr)-2\bigl(1(-1-\lambda)-0\bigr)=0,
+$$
+
+which simplifies to
+
+$$
+\boxed{\lambda^3+2\lambda^2+\lambda+4=0}.
+$$
+
+**(b)** Directly computing
+
+$$
+M^2=\begin{pmatrix}6&-2&-4\\-1&-1&0\\2&0&-3\end{pmatrix},
+\qquad
+M^3=\begin{pmatrix}-14&2&8\\1&-3&2\\4&-2&3\end{pmatrix},
+$$
+
+gives
+
+$$
+M^3+2M^2+M+4I
+=\begin{pmatrix}0&0&0\\0&0&0\\0&0&0\end{pmatrix}.
+$$
+
+So $M$ satisfies its own characteristic equation.
+
+**(c)** From
+
+$$
+M^3+2M^2+M+4I=0,
+$$
+
+multiplying through by $M^{-1}$ gives
+
+$$
+M^2+2M+I+4M^{-1}=0,
+$$
+
+so
+
+$$
+\boxed{M^{-1}=-\frac14\left(M^2+2M+I\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-example-8"> Completed</label>
+:::

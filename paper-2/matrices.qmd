@@ -1,0 +1,142 @@
+---
+title: "2.2 Matrices"
+subtitle: "线性方程组 · 特征值特征向量 · 对角化 · 特征方程"
+description: "CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 2。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 把三个未知数、三个线性方程组的求解问题写成矩阵方程，或反过来把矩阵方程写成方程组；
+2. 理解方程组一致与不一致的各种情形，联系系数矩阵的 singular/non-singular 性质，解一致方程组，并从直线和平面的角度作出几何解释；
+3. 理解 square matrix 的 characteristic equation、eigenvalue 与 eigenvector 的含义，并用定义 $A\mathbf e=\lambda\mathbf e$ 证明简单性质（例如 $\lambda^n$ 是 $A^n$ 的特征值）；
+4. 求 $2\times2$ 与 $3\times3$ 矩阵的特征值和特征向量（只要求实且互异的特征值）；
+5. 把方阵写成 $QDQ^{-1}$，其中 $D$ 是以特征值为对角元的对角矩阵，$Q$ 的列是对应特征向量，并利用该形式计算矩阵幂；
+6. 使用方阵满足自身特征方程这一事实（仅限 $2\times2$、$3\times3$ 矩阵）。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能把三元一次方程组写成 $M\mathbf x=\mathbf b$，并先检查 $\det M$ 是否为零
+- [ ] 能区分三平面交于一点、交于一条直线（sheaf）、重合以及无公共点（含 parallel planes 与 triangular prism）
+- [ ] 能从 $A\mathbf e=\lambda\mathbf e$ 出发解释 eigenvalue 与 eigenvector 的几何意义
+- [ ] 能写出 characteristic equation $\det(A-\lambda I)=0$ 并求实特征值
+- [ ] 能对每个特征值解 $(A-\lambda I)\mathbf e=0$ 求特征向量
+- [ ] 能构造 $Q$、$D$ 使 $A=QDQ^{-1}$，并计算 $A^n$
+- [ ] 会用 $A$ 满足自身特征方程来化简矩阵多项式或求 $A^{-1}$
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Solving simultaneous linear equations: with unique solutions
+
+三个未知数、三个方程的线性方程组
+
+$$
+a_1x+b_1y+c_1z=d_1,\quad
+a_2x+b_2y+c_2z=d_2,\quad
+a_3x+b_3y+c_3z=d_3
+$$
+
+可以写成矩阵方程
+
+$$
+M\mathbf x=\mathbf b,
+$$
+
+其中 $M$ 是系数矩阵，$\mathbf x=(x,y,z)^{\mathsf T}$。若 $\det M\ne0$，则 $M$ non-singular，存在唯一解
+
+$$
+\mathbf x=M^{-1}\mathbf b.
+$$
+
+求 $3\times3$ 逆矩阵时，先求余子式（co-factors）、代数余子式矩阵及其转置（adjugate matrix），再除以 $\det M$。
+
+### 1.2 Geometrical interpretation: three planes
+
+三个方程对应三个平面，解的几何情形由 $\det M$ 与平面之间的位置关系决定：
+
+- $\det M\ne0$：三平面交于唯一一点；
+- $\det M=0$ 且有解：三平面共线交于一条直线（sheaf of planes），或三平面重合；
+- $\det M=0$ 且无解：如三平面构成 triangular prism，或存在平行平面。
+
+判别方法：先看 $\det M$；再看有无平面平行（法向量成比例）；若平行则检查是否相同；最后检查能否由两个平面的线性组合得到第三个（左右两边同时成立则为 sheaf，仅系数成立则为 prism）。
+
+### 1.3 Eigenvalues and eigenvectors
+
+若 $M\mathbf e=\lambda\mathbf e$ 且 $\mathbf e\ne\mathbf0$，则 $\lambda$ 是 $M$ 的 eigenvalue，$\mathbf e$ 是对应的 eigenvector。几何上，$M$ 把方向 $\mathbf e$ 上的向量放大 $\lambda$ 倍（invariant line 上的缩放）。
+
+特征方程为
+
+$$
+\boxed{\det(M-\lambda I)=0}.
+$$
+
+特征值 $\lambda$ 的全体非零特征向量（连同零向量）构成对应特征子空间。若 $M\mathbf e=\lambda\mathbf e$，则
+
+$$
+M^2\mathbf e=\lambda^2\mathbf e,\qquad
+M^n\mathbf e=\lambda^n\mathbf e.
+$$
+
+### 1.4 Diagonalisation and powers of matrices
+
+若 $3\times3$ 矩阵 $M$ 有互异的实特征值 $\lambda_1,\lambda_2,\lambda_3$ 与对应特征向量 $\mathbf e_1,\mathbf e_2,\mathbf e_3$，令
+
+$$
+Q=\bigl(\mathbf e_1\ \mathbf e_2\ \mathbf e_3\bigr),
+\qquad
+D=\operatorname{diag}(\lambda_1,\lambda_2,\lambda_3),
+$$
+
+则 $Q$ non-singular 且
+
+$$
+\boxed{M=QDQ^{-1}}.
+$$
+
+于是
+
+$$
+\boxed{M^n=QD^nQ^{-1}}.
+$$
+
+计算矩阵幂时，只需把每个特征值取 $n$ 次幂，再乘回 $Q$ 与 $Q^{-1}$。
+
+### 1.5 The characteristic equation
+
+Cayley–Hamilton 定理（本课程范围内）：每个方阵满足自己的特征方程。若特征方程为
+
+$$
+\lambda^3+p\lambda^2+q\lambda+r=0,
+$$
+
+则
+
+$$
+M^3+pM^2+qM+rI=O.
+$$
+
+这一结果可用来化简 $M$ 的高次幂；若 $r\ne0$，两边左乘 $M^{-1}$ 还可以把 $M^{-1}$ 表示成 $M^2$、$M$ 与 $I$ 的线性组合。
+
+## 2. Textbook Examples
+
+{{< include matrices-examples.qmd >}}
+
+## 3. Past-paper question bank
+
+{{< include matrices-past-papers.qmd >}}
+
+## 4. 完成本节的判断标准
+
+1. 能正确列出三元一次方程组的系数矩阵并判断解的存在性与唯一性；
+2. 能把三平面的几何情形与行列式、平面法向量的关系对应起来；
+3. 能熟练写出并求解 characteristic equation，求出每个特征值对应的特征向量；
+4. 能构造 $Q$、$D$ 并利用 $A^n=QD^nQ^{-1}$ 计算矩阵幂；
+5. 能利用方阵满足自身特征方程来化简矩阵多项式或求 $A^{-1}$。
+本节保留教材 Chapter 2 的全部编号 Example（Example 1–8）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。

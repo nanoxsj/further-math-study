@@ -1,0 +1,1372 @@
+### 2020
+
+::: {.question-card}
+### 2020 May/June · 9231/21 & 9231/22 · Question 8 · 14 marks
+
+**(a)** Find the values of $a$ for which the system of equations
+
+$$
+3x+y+z=0,\qquad ax+6y-z=0,\qquad ay-2z=0
+$$
+
+does not have a unique solution. **[3]**
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}3&1&1\\0&6&-1\\0&0&-2\end{pmatrix}.
+$$
+
+**(b)** Use the characteristic equation of $A$ to find the inverse of $A^2$. **[4]**
+
+**(c)** Find a matrix $P$ and a diagonal matrix $D$ such that $A^5=PDP^{-1}$. **[7]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The system fails to have a unique solution exactly when $\det M=0$:
+
+$$
+\begin{vmatrix}3&1&1\\a&6&-1\\0&a&-2\end{vmatrix}
+=3(-12+a)-(-2a)+a^2
+=a^2+5a-36=0.
+$$
+
+Hence
+
+$$
+\boxed{a=4\ \text{or}\ a=-9}.
+$$
+
+**(b)** The eigenvalues of $A$ are $3$, $6$, $-2$, so the characteristic equation is
+
+$$
+(\lambda-3)(\lambda-6)(\lambda+2)=\lambda^3-7\lambda^2+36=0.
+$$
+
+Thus $A^3-7A^2+36I=0$, and multiplying through by $(A^{-1})^2$ gives
+
+$$
+36(A^{-1})^2=7I-A.
+$$
+
+Computing $(A^{-1})^2$ from this,
+
+$$
+\boxed{(A^{-1})^2=\frac1{36}
+\begin{pmatrix}4&-1&-1\\0&1&1\\0&0&9\end{pmatrix}}.
+$$
+
+**(c)** With eigenvalues $3,6,-2$ and corresponding eigenvectors
+
+$$
+\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}1\\3\\0\end{pmatrix},\quad
+\begin{pmatrix}-9\\5\\40\end{pmatrix},
+$$
+
+taking them as columns,
+
+$$
+P=\begin{pmatrix}1&1&-9\\0&3&5\\0&0&40\end{pmatrix},
+\qquad
+D=\begin{pmatrix}3^5&0&0\\0&6^5&0\\0&0&(-2)^5\end{pmatrix}
+=\begin{pmatrix}243&0&0\\0&7776&0\\0&0&-32\end{pmatrix}.
+$$
+
+Thus $\boxed{A^5=PDP^{-1}}$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2020-mj-21-22-q8"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q8; 9231/22/M/J/2020, Q8.</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/23 · Question 3 · 8 marks
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}5&-1&7\\0&6&0\\7&7&5\end{pmatrix}.
+$$
+
+**(a)** Find the eigenvalues of $A$. **[4]**
+
+**(b)** Use the characteristic equation of $A$ to find $A^{-1}$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The characteristic equation is
+
+$$
+\begin{vmatrix}5-\lambda&-1&7\\0&6-\lambda&0\\7&7&5-\lambda\end{vmatrix}=0,
+$$
+
+which expands to
+
+$$
+-\lambda^3+16\lambda^2-36\lambda-144=0
+\;\Longrightarrow\;
+(\lambda+2)(\lambda-6)(\lambda-12)=0.
+$$
+
+Hence
+
+$$
+\boxed{\lambda=-2,\ 6,\ 12}.
+$$
+
+**(b)** The characteristic equation gives
+
+$$
+-A^3+16A^2-36A-144I=0
+\;\Longrightarrow\;
+144A^{-1}=-A^2+16A-36I.
+$$
+
+Computing
+
+$$
+A^2=\begin{pmatrix}74&38&70\\0&36&0\\70&70&74\end{pmatrix},
+$$
+
+gives
+
+$$
+\boxed{A^{-1}=\frac1{24}
+\begin{pmatrix}-5&-9&7\\0&4&0\\7&7&-5\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2020-mj-23-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q3.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/21 & 9231/23 · Question 7 · 9 marks
+
+The matrix $P$ is given by
+
+$$
+P=\begin{pmatrix}1&4&2\\0&-1&1\\0&0&2\end{pmatrix}.
+$$
+
+**(a)** State the eigenvalues of $P$. **[1]**
+
+**(b)** Use the characteristic equation of $P$ to find $P^{-1}$. **[4]**
+
+The $3\times3$ matrix $A$ has distinct eigenvalues $b$, $-1$, $1$ with corresponding eigenvectors
+
+$$
+\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}4\\-1\\0\end{pmatrix},\quad
+\begin{pmatrix}2\\1\\2\end{pmatrix}.
+$$
+
+**(c)** Find $A$ in terms of $b$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** For an upper triangular matrix the eigenvalues are the diagonal entries:
+
+$$
+\boxed{1,\ -1,\ 2}.
+$$
+
+**(b)** The characteristic equation is
+
+$$
+(\lambda-1)(\lambda+1)(\lambda-2)=\lambda^3-2\lambda^2-\lambda+2=0,
+$$
+
+so $P^3-2P^2-P+2I=0$. Multiplying through by $P^{-1}$,
+
+$$
+2P^{-1}=I+2P-P^2.
+$$
+
+Computing
+
+$$
+P^2=\begin{pmatrix}1&0&10\\0&1&1\\0&0&4\end{pmatrix},
+$$
+
+gives
+
+$$
+\boxed{P^{-1}=\begin{pmatrix}1&4&-3\\0&-1&\frac12\\0&0&\frac12\end{pmatrix}}.
+$$
+
+**(c)** Using $A=PDP^{-1}$ with
+
+$$
+D=\begin{pmatrix}b&0&0\\0&-1&0\\0&0&1\end{pmatrix},
+\qquad
+P=\begin{pmatrix}1&4&2\\0&-1&1\\0&0&2\end{pmatrix},
+$$
+
+the eigenvectors are the columns of $P$ in the same order as the eigenvalues in $D$. Hence
+
+$$
+\boxed{A=\begin{pmatrix}b&4b+4&-3b-1\\0&-1&1\\0&0&1\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2020-on-21-23-q7"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q7; 9231/23/O/N/2020, Q7.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/22 · Question 9 · 15 marks
+
+It is given that $a$ is a positive constant.
+
+**(a)** Show that the system of equations
+
+$$
+ax+(2a+5)y+(a+1)z=1,\qquad -4y=2,\qquad 3y-z=3
+$$
+
+has a unique solution, and interpret this situation geometrically. **[3]**
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}a&2a+5&a+1\\0&-4&0\\0&3&-1\end{pmatrix}.
+$$
+
+**(b)** Show that the eigenvalues of $A$ are $a$, $-1$ and $-4$. **[2]**
+
+**(c)** Find a matrix $P$ such that
+
+$$
+A=P\begin{pmatrix}a&0&0\\0&-1&0\\0&0&-4\end{pmatrix}P^{-1}.
+$$
+
+**[5]**
+
+**(d)** Use the characteristic equation of $A$ to find $A^{-1}$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The determinant of the coefficient matrix is
+
+$$
+\begin{vmatrix}a&2a+5&a+1\\0&-4&0\\0&3&-1\end{vmatrix}=4a\ne0
+$$
+
+since $a>0$. Therefore the system has a unique solution: the three planes intersect at a single point.
+
+**(b)** The characteristic equation is
+
+$$
+\begin{vmatrix}a-\lambda&2a+5&a+1\\0&-4-\lambda&0\\0&3&-1-\lambda\end{vmatrix}=0,
+$$
+
+giving
+
+$$
+(a-\lambda)(-4-\lambda)(-1-\lambda)=0
+\;\Longrightarrow\;
+\boxed{\lambda=a,\ -1,\ -4}.
+$$
+
+**(c)** Corresponding eigenvectors are
+
+$$
+\lambda=a:\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
+\lambda=-1:\begin{pmatrix}1\\0\\-1\end{pmatrix},\qquad
+\lambda=-4:\begin{pmatrix}1\\-1\\1\end{pmatrix}.
+$$
+
+Hence
+
+$$
+\boxed{P=\begin{pmatrix}1&1&1\\0&0&-1\\0&-1&1\end{pmatrix}}.
+$$
+
+**(d)** The characteristic equation is
+
+$$
+(\lambda-a)(\lambda+1)(\lambda+4)
+=\lambda^3+(5-a)\lambda^2+(4-5a)\lambda-4a=0.
+$$
+
+So
+
+$$
+A^3+(5-a)A^2+(4-5a)A-4aI=0,
+$$
+
+and multiplying through by $A^{-1}$,
+
+$$
+4aA^{-1}=A^2+(5-a)A+(4-5a)I.
+$$
+
+Computing $A^2$ and substituting gives
+
+$$
+\boxed{A^{-1}=\frac1{4a}
+\begin{pmatrix}4&5a+8&4a+4\\0&-a&0\\0&-3a&-4a\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2020-on-22-q9"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q9.</div>
+:::
+
+### 2021
+
+::: {.question-card}
+### 2021 May/June · 9231/23 · Question 8 · 13 marks
+
+**(a)** Find the value of $a$ for which the system of equations
+
+$$
+13x+18y-28z=0,\qquad -4x-ay+8z=0,\qquad 2x+6y-5z=0
+$$
+
+does not have a unique solution. **[2]**
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}13&18&-28\\-4&-1&8\\2&6&-5\end{pmatrix}.
+$$
+
+**(b)** Find the eigenvalue of $A$ corresponding to the eigenvector $\begin{pmatrix}2\\0\\1\end{pmatrix}$. **[1]**
+
+**(c)** Find a matrix $P$ and a diagonal matrix $D$ such that $A=PDP^{-1}$. **[8]**
+
+**(d)** Use the characteristic equation of $A$ to find $A^{-1}$ in terms of $A$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The system fails to have a unique solution when
+
+$$
+\det\begin{pmatrix}13&18&-28\\-4&-a&8\\2&6&-5\end{pmatrix}
+=8-\frac{9a}{4}=0,
+$$
+
+so
+
+$$
+\boxed{a=\frac{32}9}.
+$$
+
+**(b)**
+
+$$
+A\begin{pmatrix}2\\0\\1\end{pmatrix}
+=\begin{pmatrix}13&18&-28\\-4&-1&8\\2&6&-5\end{pmatrix}
+\begin{pmatrix}2\\0\\1\end{pmatrix}
+=\begin{pmatrix}-2\\0\\-1\end{pmatrix}
+=-\begin{pmatrix}2\\0\\1\end{pmatrix},
+$$
+
+so
+
+$$
+\boxed{\lambda=-1}.
+$$
+
+**(c)** The characteristic equation is
+
+$$
+\det(A-\lambda I)=0
+\;\Longrightarrow\;
+-\lambda^3+7\lambda^2-7\lambda-15=0
+\;\Longrightarrow\;
+(\lambda+1)(\lambda-3)(\lambda-5)=0.
+$$
+
+So $\lambda=-1,\ 3,\ 5$ with corresponding eigenvectors
+
+$$
+\begin{pmatrix}2\\0\\1\end{pmatrix},\quad
+\begin{pmatrix}1\\1\\1\end{pmatrix},\quad
+\begin{pmatrix}-1\\2\\1\end{pmatrix}.
+$$
+
+Thus
+
+$$
+\boxed{P=\begin{pmatrix}2&1&-1\\0&1&2\\1&1&1\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}-1&0&0\\0&3&0\\0&0&5\end{pmatrix}}.
+$$
+
+**(d)** Since $A$ satisfies its characteristic equation,
+
+$$
+A^3-7A^2+7A+15I=0.
+$$
+
+Multiplying through by $A^{-1}$,
+
+$$
+A^2-7A+7I+15A^{-1}=0,
+$$
+
+so
+
+$$
+\boxed{A^{-1}=\frac1{15}\left(-A^2+7A-7I\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2021-mj-23-q8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q8.</div>
+:::
+
+::: {.question-card}
+### 2021 October/November · 9231/22 · Question 6 · 11 marks
+
+The matrix $P$ is given by
+
+$$
+P=\begin{pmatrix}1&6&6\\0&2&6\\0&0&-3\end{pmatrix}.
+$$
+
+**(a)** Use the characteristic equation of $P$ to find $P^{-1}$. **[5]**
+
+**(b)** Find the matrix $A$ such that
+
+$$
+P^{-1}AP=\begin{pmatrix}4&0&0\\0&5&0\\0&0&6\end{pmatrix}.
+$$
+
+**[4]**
+
+**(c)** State the eigenvalues and corresponding eigenvectors of $A^3$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The characteristic equation is
+
+$$
+(\lambda-1)(\lambda-2)(\lambda+3)=\lambda^3-7\lambda+6=0.
+$$
+
+So $P^3-7P+6I=0$, and multiplying through by $P^{-1}$ gives
+
+$$
+P^2-7I+6P^{-1}=0.
+$$
+
+Computing
+
+$$
+P^2=\begin{pmatrix}1&18&24\\0&4&6\\0&0&9\end{pmatrix},
+$$
+
+gives
+
+$$
+\boxed{P^{-1}=\begin{pmatrix}1&-3&-4\\0&\frac12&1\\0&0&-\frac13\end{pmatrix}}.
+$$
+
+**(b)** $P^{-1}AP=D$ gives $A=PDP^{-1}$ with $D=\operatorname{diag}(4,5,6)$:
+
+$$
+A=\begin{pmatrix}1&6&6\\0&2&6\\0&0&-3\end{pmatrix}
+\begin{pmatrix}4&0&0\\0&5&0\\0&0&6\end{pmatrix}
+P^{-1}
+=\boxed{\begin{pmatrix}4&3&2\\0&5&-2\\0&0&6\end{pmatrix}}.
+$$
+
+**(c)** The eigenvalues of $A^3$ are
+
+$$
+\boxed{64,\ 125,\ 216},
+$$
+
+with corresponding eigenvectors
+
+$$
+\boxed{\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}6\\2\\0\end{pmatrix},\quad
+\begin{pmatrix}6\\6\\-3\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2021-on-22-q6"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q6.</div>
+:::
+
+### 2022
+
+::: {.question-card}
+### 2022 May/June · 9231/23 · Question 3 · 7 marks
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}6&-9&5\\5&-8&5\\1&-1&2\end{pmatrix}.
+$$
+
+**(a)** Find the eigenvalues of $A$. **[4]**
+
+**(b)** Use the characteristic equation of $A$ to show that
+
+$$
+A^{-1}=pA^2+qI,
+$$
+
+where $p$ and $q$ are constants to be determined. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The characteristic equation is
+
+$$
+\begin{vmatrix}6-\lambda&-9&5\\5&-8-\lambda&5\\1&-1&2-\lambda\end{vmatrix}=0,
+$$
+
+which expands to
+
+$$
+\lambda^3-7\lambda+6=0
+\;\Longrightarrow\;
+(\lambda-1)(\lambda-2)(\lambda+3)=0.
+$$
+
+Hence
+
+$$
+\boxed{\lambda=1,\ 2,\ -3}.
+$$
+
+**(b)** Since $A$ satisfies its own characteristic equation,
+
+$$
+A^3-7A+6I=0.
+$$
+
+Multiplying through by $A^{-1}$,
+
+$$
+A^2-7I+6A^{-1}=0
+\;\Longrightarrow\;
+\boxed{A^{-1}=-\frac16A^2+\frac76I}.
+$$
+
+So $p=-\dfrac16$ and $q=\dfrac76$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2022-mj-23-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2022, Q3.</div>
+:::
+
+### 2023
+
+::: {.question-card}
+### 2023 May/June · 9231/21 · Question 1 · 5 marks
+
+**(a)** Show that the system of equations
+
+$$
+x+2y+3z=1,\qquad 4x+5y+6z=1,\qquad 7x+8y+9z=1
+$$
+
+does not have a unique solution. **[2]**
+
+**(b)** Show that the system of equations in part (a) is consistent. Interpret this situation geometrically. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The determinant of the coefficient matrix is
+
+$$
+\begin{vmatrix}1&2&3\\4&5&6\\7&8&9\end{vmatrix}
+=(45-48)-2(36-42)+3(32-35)=-3+12-9=0.
+$$
+
+Since the determinant is zero, the system does not have a unique solution.
+
+**(b)** Using row operations (or eliminating variables), the three equations reduce to a single consistent relation, for example
+
+$$
+z=\frac13(1-x-2y),\qquad y=-2x-1.
+$$
+
+The system is therefore consistent, with infinitely many solutions. Geometrically, the three planes form a sheaf: they intersect along a common line.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2023-mj-21-q1"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/21/M/J/2023, Q1.</div>
+:::
+
+::: {.question-card}
+### 2023 May/June · 9231/21 · Question 5 · 10 marks
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}18&5&-11\\8&6&-4\\32&10&-20\end{pmatrix}.
+$$
+
+**(a)** Show that the characteristic equation of $A$ is
+
+$$
+m^3-4m^2-20m+48=0
+$$
+
+and hence find the eigenvalues of $A$. **[4]**
+
+**(b)** Find a matrix $P$ and a diagonal matrix $D$ such that $A^5=PDP^{-1}$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Expanding $\det(A-mI)=0$ gives
+
+$$
+m^3-4m^2-20m+48=0,
+$$
+
+which factorises as
+
+$$
+(m-2)(m+4)(m-6)=0.
+$$
+
+So
+
+$$
+\boxed{m=2,\ -4,\ 6}.
+$$
+
+**(b)** Corresponding eigenvectors are
+
+$$
+m=2:\begin{pmatrix}1\\-1\\1\end{pmatrix},\qquad
+m=-4:\begin{pmatrix}1\\0\\2\end{pmatrix},\qquad
+m=6:\begin{pmatrix}1\\2\\2\end{pmatrix}.
+$$
+
+Thus
+
+$$
+\boxed{P=\begin{pmatrix}1&1&1\\-1&0&2\\1&2&2\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}2^5&0&0\\0&(-4)^5&0\\0&0&6^5\end{pmatrix}
+=\begin{pmatrix}32&0&0\\0&-1024&0\\0&0&7776\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2023-mj-21-q5"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/21/M/J/2023, Q5.</div>
+:::
+
+::: {.question-card}
+### 2023 October/November · 9231/22 · Question 6 · 10 marks
+
+The matrix $P$ is given by
+
+$$
+P=\begin{pmatrix}1&-1&1\\0&2&1\\0&0&-1\end{pmatrix}.
+$$
+
+**(a)** State the eigenvalues of $P$. **[1]**
+
+**(b)** Use the characteristic equation of $P$ to find $P^{-1}$. **[4]**
+
+The $3\times3$ matrix $A$ has distinct non-zero eigenvalues $a$, $1$, $2$ with corresponding eigenvectors
+
+$$
+\begin{pmatrix}1\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}-1\\2\\0\end{pmatrix},\quad
+\begin{pmatrix}1\\1\\-1\end{pmatrix}.
+$$
+
+**(c)** Find $A^{-1}$ in terms of $a$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** For an upper triangular matrix,
+
+$$
+\boxed{1,\ 2,\ -1}.
+$$
+
+**(b)** The characteristic equation is
+
+$$
+(\lambda-1)(\lambda-2)(\lambda+1)=\lambda^3-2\lambda^2-\lambda+2=0,
+$$
+
+so $P^3-2P^2-P+2I=0$. Multiplying through by $P^{-1}$,
+
+$$
+2P^{-1}=I+2P-P^2.
+$$
+
+Computing
+
+$$
+P^2=\begin{pmatrix}1&-3&-1\\0&4&1\\0&0&1\end{pmatrix},
+$$
+
+gives
+
+$$
+\boxed{P^{-1}=\begin{pmatrix}1&\frac12&\frac32\\0&\frac12&\frac12\\0&0&-1\end{pmatrix}}.
+$$
+
+**(c)** With eigenvectors as the columns of $P$ and eigenvalues $a,1,2$,
+
+$$
+A^{-1}=P
+\begin{pmatrix}\frac1a&0&0\\0&1&0\\0&0&\frac12\end{pmatrix}
+P^{-1}
+=\boxed{\frac12\begin{pmatrix}\frac2a&-1&1\\0&2&1\\0&0&1\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2023-on-22-q6"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q6.</div>
+:::
+
+### 2024
+
+::: {.question-card}
+### 2024 May/June · 9231/21 & 9231/22 · Question 8 · 16 marks
+
+**(a)** Find the set of values of $a$ for which the system of equations
+
+$$
+6x+ay=3,\qquad 2x-y=1,\qquad x+5y+4z=2
+$$
+
+has a unique solution. **[2]**
+
+**(b)** Show that the system of equations in part (a) is consistent for all values of $a$. **[3]**
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}6&0&0\\2&-1&0\\1&5&4\end{pmatrix}.
+$$
+
+**(c)** Find a matrix $P$ and a diagonal matrix $D$ such that
+
+$$
+(14A+24I)^2=PDP^{-1}.
+$$
+
+**[7]**
+
+**(d)** Use the characteristic equation of $A$ to show that
+
+$$
+(14A+24I)^2=A^4(A+bI)^2,
+$$
+
+where $b$ is an integer to be determined. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The system has a unique solution when the determinant is non-zero:
+
+$$
+\begin{vmatrix}6&a&0\\2&-1&0\\1&5&4\end{vmatrix}
+=4(-6-2a)=-8a-24.
+$$
+
+So the unique-solution set is
+
+$$
+\boxed{a\ne-3}.
+$$
+
+**(b)** If $a\ne-3$ the system has a unique solution, so it is consistent. If $a=-3$, the equations reduce to
+
+$$
+6x-3y=3,\qquad 2x-y=1,\qquad x+5y+4z=2,
+$$
+
+which are consistent (e.g. $(1,0,\frac14)$ is a solution). Hence the system is consistent for all $a$.
+
+**(c)** The eigenvalues of $A$ are $6$, $-1$, $4$, with corresponding eigenvectors
+
+$$
+\begin{pmatrix}14\\4\\17\end{pmatrix},\quad
+\begin{pmatrix}0\\-1\\1\end{pmatrix},\quad
+\begin{pmatrix}0\\0\\1\end{pmatrix}.
+$$
+
+Hence
+
+$$
+\boxed{P=\begin{pmatrix}14&0&0\\4&-1&0\\17&1&1\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}(14\cdot6+24)^2&0&0\\0&(-14+24)^2&0\\0&0&(56+24)^2\end{pmatrix}
+=\begin{pmatrix}11664&0&0\\0&100&0\\0&0&6400\end{pmatrix}}.
+$$
+
+**(d)** The characteristic equation is
+
+$$
+(\lambda-6)(\lambda+1)(\lambda-4)=\lambda^3-9\lambda^2+14\lambda+24=0,
+$$
+
+so
+
+$$
+14A+24I=-A^3+9A^2=A^2(9I-A).
+$$
+
+Squaring,
+
+$$
+(14A+24I)^2=A^4(9I-A)^2=A^4(A-9I)^2.
+$$
+
+Hence
+
+$$
+\boxed{b=-9}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2024-mj-21-22-q8"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2024, Q8; 9231/22/M/J/2024, Q8.</div>
+:::
+
+::: {.question-card}
+### 2024 May/June · 9231/23 · Question 8 · 14 marks
+
+The planes $P_1$ and $P_2$ do not intersect and are both perpendicular to $\mathbf i+2\mathbf j+3\mathbf k$. The line $l$ intersects $P_1$ at the point $(1,6,0)$ and intersects $P_2$ at the point $(3,-6,0)$.
+
+**(a)** Find Cartesian equations of $P_1$ and $P_2$. **[3]**
+
+**(b)** Express the vector equation of $l$ in the form $\mathbf r=\mathbf a+\lambda\mathbf b$, where $\mathbf a$ and $\mathbf b$ are vectors to be determined, and hence show that for points on $l$,
+
+$$
+\frac12x+\frac1{12}y=1
+\qquad\text{and}\qquad z=0.
+$$
+
+**[2]**
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}1&2&3\\1&2&3\\\frac12&\frac1{12}&0\end{pmatrix}.
+$$
+
+**(c)** Show that the characteristic equation of $A$ is
+
+$$
+-\lambda^3+3\lambda^2+\frac74\lambda=0
+$$
+
+and hence find the eigenvalues of $A$. **[3]**
+
+**(d)** Find a matrix $P$ and a diagonal matrix $D$ such that $A^n=PDP^{-1}$, where $n$ is a positive integer. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Since both planes are perpendicular to $\mathbf i+2\mathbf j+3\mathbf k$, their equations are $x+2y+3z=d$. Substituting the two given points,
+
+$$
+\boxed{P_1:x+2y+3z=13},\qquad
+\boxed{P_2:x+2y+3z=-9}.
+$$
+
+**(b)** The direction of $l$ is
+
+$$
+\begin{pmatrix}3\\-6\\0\end{pmatrix}-\begin{pmatrix}1\\6\\0\end{pmatrix}
+=\begin{pmatrix}2\\-12\\0\end{pmatrix},
+$$
+
+so
+
+$$
+\boxed{\mathbf r=\begin{pmatrix}1\\6\\0\end{pmatrix}
++\lambda\begin{pmatrix}2\\-12\\0\end{pmatrix}}.
+$$
+
+Thus $z=0$, and
+
+$$
+x=1+2\lambda,\qquad y=6-12\lambda.
+$$
+
+Therefore
+
+$$
+\frac12x+\frac1{12}y
+=\frac12(1+2\lambda)+\frac1{12}(6-12\lambda)
+=\frac12+\lambda+\frac12-\lambda
+=1.
+$$
+
+**(c)** Expanding $\det(A-\lambda I)=0$,
+
+$$
+(1-\lambda)\left(-\lambda(2-\lambda)-\frac14\right)-2\left(-\lambda-\frac32\right)+3\left(\frac1{12}-\frac12(2-\lambda)\right)=0,
+$$
+
+which simplifies to
+
+$$
+-\lambda^3+3\lambda^2+\frac74\lambda=0.
+$$
+
+Hence
+
+$$
+\lambda\left(\lambda^2-3\lambda-\frac74\right)=0,
+$$
+
+so
+
+$$
+\boxed{\lambda=0,\ \frac72,\ -\frac12}.
+$$
+
+**(d)** Corresponding eigenvectors are
+
+$$
+\lambda=0:\begin{pmatrix}3\\-18\\11\end{pmatrix},
+\qquad
+\lambda=\frac72:\begin{pmatrix}6\\6\\1\end{pmatrix},
+\qquad
+\lambda=-\frac12:\begin{pmatrix}-6\\-6\\7\end{pmatrix}.
+$$
+
+Thus
+
+$$
+\boxed{P=\begin{pmatrix}3&6&-6\\-18&6&-6\\11&1&7\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}0&0&0\\0&(\frac72)^n&0\\0&0&(-\frac12)^n\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2024-mj-23-q8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q8.</div>
+:::
+
+::: {.question-card}
+### 2024 October/November · 9231/21 & 9231/23 · Question 4 · 9 marks
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}-11&1&8\\0&-2&0\\-16&1&13\end{pmatrix}.
+$$
+
+**(a)** Show that $\begin{pmatrix}1\\1\\1\end{pmatrix}$ is an eigenvector of $A$ and state the corresponding eigenvalue. **[2]**
+
+**(b)** Show that the characteristic equation of $A$ is
+
+$$
+m^3-19m-30=0
+$$
+
+and hence find the other eigenvalues of $A$. **[3]**
+
+**(c)** Use the characteristic equation of $A$ to find $A^{-1}$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)**
+
+$$
+A\begin{pmatrix}1\\1\\1\end{pmatrix}
+=\begin{pmatrix}-11+1+8\\-2\\-16+1+13\end{pmatrix}
+=\begin{pmatrix}-2\\-2\\-2\end{pmatrix}
+=-2\begin{pmatrix}1\\1\\1\end{pmatrix}.
+$$
+
+So the corresponding eigenvalue is
+
+$$
+\boxed{\lambda=-2}.
+$$
+
+**(b)** Expanding $\det(A-mI)=0$,
+
+$$
+(-11-m)(-2-m)(13-m)+128(-2-m)=0,
+$$
+
+which simplifies to
+
+$$
+m^3-19m-30=0
+\;\Longrightarrow\;
+(m+2)(m-5)(m+3)=0.
+$$
+
+The other eigenvalues are
+
+$$
+\boxed{m=5\ \text{and}\ m=-3}.
+$$
+
+**(c)** Since $A$ satisfies $A^3-19A-30I=0$,
+
+$$
+30A^{-1}=A^2-19I.
+$$
+
+Computing
+
+$$
+A^2=\begin{pmatrix}-7&-5&16\\0&4&0\\-32&-5&41\end{pmatrix},
+$$
+
+gives
+
+$$
+\boxed{A^{-1}=\frac1{30}
+\begin{pmatrix}-26&-5&16\\0&-15&0\\-32&-5&22\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2024-on-21-23-q4"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2024, Q4; 9231/23/O/N/2024, Q4.</div>
+:::
+
+::: {.question-card}
+### 2024 October/November · 9231/22 · Question 8 · 14 marks
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}-2&0&0\\0&7&9\\4&1&7\end{pmatrix}.
+$$
+
+**(a)** Show that the characteristic equation of $A$ is
+
+$$
+m^3-12m^2+12m+80=0
+$$
+
+and find the eigenvalues of $A$. **[4]**
+
+**(b)** Use the characteristic equation of $A$ to show that
+
+$$
+A^4=pA^2+qA+rI,
+$$
+
+where $p$, $q$ and $r$ are integers to be determined. **[4]**
+
+**(c)** Find a matrix $P$ and a diagonal matrix $D$ such that $(A-3I)^4=PDP^{-1}$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Expanding $\det(A-mI)=0$,
+
+$$
+(-2-m)\bigl((7-m)^2-9\bigr)=0,
+$$
+
+so
+
+$$
+m^3-12m^2+12m+80=0
+\;\Longrightarrow\;
+(m+2)(m-4)(m-10)=0.
+$$
+
+The eigenvalues are
+
+$$
+\boxed{m=-2,\ 4,\ 10}.
+$$
+
+**(b)** Since $A^3-12A^2+12A+80I=0$,
+
+$$
+A^4-12A^3+12A^2+80A=0.
+$$
+
+Substituting $A^3=12A^2-12A-80I$,
+
+$$
+A^4=12(12A^2-12A-80I)-12A^2-80A
+=\boxed{132A^2-224A-960I}.
+$$
+
+So $p=132$, $q=-224$, $r=-960$.
+
+**(c)** Corresponding eigenvectors are
+
+$$
+m=-2:\begin{pmatrix}2\\1\\-1\end{pmatrix},\qquad
+m=4:\begin{pmatrix}0\\3\\-1\end{pmatrix},\qquad
+m=10:\begin{pmatrix}0\\3\\1\end{pmatrix}.
+$$
+
+Thus
+
+$$
+\boxed{P=\begin{pmatrix}2&0&0\\1&3&3\\-1&-1&1\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}(-5)^4&0&0\\0&1^4&0\\0&0&7^4\end{pmatrix}
+=\begin{pmatrix}625&0&0\\0&1&0\\0&0&2401\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2024-on-22-q8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2024, Q8.</div>
+:::
+
+### 2025
+
+::: {.question-card}
+### 2025 May/June · 9231/21 & 9231/22 · Question 8 · 13 marks
+
+**(a)** It is given that $m$ is an eigenvalue of the non-singular square matrix $A$, with corresponding eigenvector $\mathbf e$. Show that $\mathbf e$ is an eigenvector of $A^3$ with corresponding eigenvalue $m^3$. **[2]**
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}-1&3&4\\0&1&0\\0&-2&5\end{pmatrix}.
+$$
+
+**(b)** Show that the eigenvalues of $A$ are $-1$, $1$ and $5$. **[2]**
+
+**(c)** Find a matrix $P$ and a diagonal matrix $D$ such that $A-2I=PDP^{-1}$. **[6]**
+
+**(d)** Use the characteristic equation of $A$ to show that
+
+$$
+(A-2I)^3=aA^2+bA+cI,
+$$
+
+where $a$, $b$ and $c$ are constants to be determined. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Since $A\mathbf e=m\mathbf e$,
+
+$$
+A^3\mathbf e=A^2(A\mathbf e)=A^2(m\mathbf e)=mA(A\mathbf e)=m^2A\mathbf e=m^3\mathbf e.
+$$
+
+So $\mathbf e$ is an eigenvector of $A^3$ with eigenvalue $m^3$.
+
+**(b)** The characteristic equation is
+
+$$
+\begin{vmatrix}-1-\lambda&3&4\\0&1-\lambda&0\\0&-2&5-\lambda\end{vmatrix}
+=(-1-\lambda)(1-\lambda)(5-\lambda)=0,
+$$
+
+so
+
+$$
+\boxed{\lambda=-1,\ 1,\ 5}.
+$$
+
+**(c)** Corresponding eigenvectors are
+
+$$
+\lambda=-1:\begin{pmatrix}1\\0\\0\end{pmatrix},\qquad
+\lambda=1:\begin{pmatrix}5\\2\\1\end{pmatrix},\qquad
+\lambda=5:\begin{pmatrix}2\\0\\3\end{pmatrix}.
+$$
+
+Thus
+
+$$
+\boxed{P=\begin{pmatrix}1&5&2\\0&2&0\\0&1&3\end{pmatrix}},
+\qquad
+\boxed{D=\begin{pmatrix}-3&0&0\\0&-1&0\\0&0&3\end{pmatrix}}.
+$$
+
+**(d)** The characteristic equation of $A$ is
+
+$$
+(\lambda+1)(\lambda-1)(\lambda-5)=\lambda^3-5\lambda^2-\lambda+5=0,
+$$
+
+so
+
+$$
+A^3=5A^2+A-5I.
+$$
+
+Expanding $(A-2I)^3=A^3-6A^2+12A-8I$ and substituting,
+
+$$
+(A-2I)^3=-A^2+13A-13I.
+$$
+
+Hence
+
+$$
+\boxed{a=-1,\ b=13,\ c=-13}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2025-mj-21-22-q8"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2025, Q8; 9231/22/M/J/2025, Q8.</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/21 & 9231/23 · Question 6 · 10 marks
+
+The matrix $P$ has non-zero eigenvalues and is given by
+
+$$
+P=\begin{pmatrix}a&1&1\\0&2a&-1\\0&0&-3a\end{pmatrix}.
+$$
+
+**(a)** State, in terms of $a$, the eigenvalues of $P$. **[1]**
+
+**(b)** **(i)** Find $P^2$ in terms of $a$. **[1]**
+
+**(ii)** Use the characteristic equation of $P$ to find $P^{-1}$ in terms of $a$. **[3]**
+
+The $3\times3$ matrix $A$ has eigenvalues $1$, $2$, $3$ with corresponding eigenvectors
+
+$$
+\begin{pmatrix}a\\0\\0\end{pmatrix},\quad
+\begin{pmatrix}1\\2a\\0\end{pmatrix},\quad
+\begin{pmatrix}1\\-1\\-3a\end{pmatrix}.
+$$
+
+**(c)** Find $A$ in terms of $a$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** For an upper triangular matrix,
+
+$$
+\boxed{a,\ 2a,\ -3a}.
+$$
+
+**(b)(i)**
+
+$$
+\boxed{P^2=\begin{pmatrix}a^2&3a&-2a-1\\0&4a^2&a\\0&0&9a^2\end{pmatrix}}.
+$$
+
+**(ii)** The characteristic equation is
+
+$$
+(\lambda-a)(\lambda-2a)(\lambda+3a)=\lambda^3-7a^2\lambda+6a^3=0,
+$$
+
+so $P^3-7a^2P+6a^3I=0$. Multiplying through by $P^{-1}$,
+
+$$
+6a^3P^{-1}=7a^2I-P^2.
+$$
+
+Using part (b)(i),
+
+$$
+\boxed{P^{-1}=\frac1{6a^3}
+\begin{pmatrix}6a^2&-3a&2a+1\\0&3a^2&-a\\0&0&-2a^2\end{pmatrix}}.
+$$
+
+**(c)** With the eigenvectors as columns,
+
+$$
+P=\begin{pmatrix}a&1&1\\0&2a&-1\\0&0&-3a\end{pmatrix},
+$$
+
+so
+
+$$
+A=P\begin{pmatrix}1&0&0\\0&2&0\\0&0&3\end{pmatrix}P^{-1}
+=\boxed{\begin{pmatrix}1&\frac1{2a}&\frac{1-4a}{6a^2}\\0&2&\frac1{3a}\\0&0&3\end{pmatrix}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2025-on-21-23-q6"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2025, Q6; 9231/23/O/N/2025, Q6.</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/22 · Question 8 · 15 marks
+
+**(a)** Find the values of $k$ for which the system of equations
+
+$$
+x-y+2kz=1,\qquad kx+y+2z=2,\qquad 2x-y+z=3
+$$
+
+does not have a unique solution. **[3]**
+
+**(b)** Given that $k=-\frac12$, show that the system of equations in part (a) is inconsistent. Interpret this situation geometrically. **[3]**
+
+**(c)** Given instead that $k=-1$, show that the system of equations in part (a) is also inconsistent. Interpret this situation geometrically. **[4]**
+
+The matrix $A$ is given by
+
+$$
+A=\begin{pmatrix}1&-1&-2\\-1&1&2\\2&-1&1\end{pmatrix}.
+$$
+
+**(d)** Use the characteristic equation of $A$ to show that
+
+$$
+A^4=pA^2+qA
+$$
+
+where $p$ and $q$ are integers to be determined. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The determinant of the coefficient matrix is
+
+$$
+\begin{vmatrix}1&-1&2k\\k&1&2\\2&-1&1\end{vmatrix}=2k^2+3k+1=0.
+$$
+
+Hence
+
+$$
+\boxed{k=-1\ \text{or}\ k=-\frac12}.
+$$
+
+**(b)** When $k=-\frac12$, the equations become
+
+$$
+x-y-z=1,\qquad -\frac12x+y+2z=2,\qquad 2x-y+z=3.
+$$
+
+Adding the first two equations gives $\frac12x+z=3$, while the third equation gives $2x-y+z=3$; eliminating variables leads to the contradiction $1=-2$. Therefore the system is inconsistent. Geometrically, the planes form a triangular prism (no common point).
+
+**(c)** When $k=-1$, the equations become
+
+$$
+x-y-2z=1,\qquad -x+y+2z=2,\qquad 2x-y+z=3.
+$$
+
+The first two equations give $1=-2$, a contradiction. So the system is inconsistent. Geometrically, two planes are parallel (and not identical), with the third plane not parallel to them.
+
+**(d)** The characteristic equation of $A$ is
+
+$$
+\begin{vmatrix}1-\lambda&-1&-2\\-1&1-\lambda&2\\2&-1&1-\lambda\end{vmatrix}
+=-\lambda^3+3\lambda^2-8\lambda=0.
+$$
+
+So $A^3=3A^2-8A$. Multiplying by $A$,
+
+$$
+A^4=3A^3-8A^2=3(3A^2-8A)-8A^2=A^2-24A.
+$$
+
+Hence
+
+$$
+\boxed{p=1,\ q=-24}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="matrices-p2-2025-on-22-q8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2025, Q8.</div>
+:::
