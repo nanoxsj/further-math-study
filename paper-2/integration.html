@@ -1,0 +1,2336 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 4。">
+
+<title>2.4 Integration – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-2/differentiation.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-2/hyperbolic-functions.html">Paper 2 · Further Pure Mathematics 2</a></li><li class="breadcrumb-item"><a href="../paper-2/integration.html">2.4 Integration</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Hyperbolic functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/integration.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.4 Integration</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#integrating-hyperbolic-functions" id="toc-integrating-hyperbolic-functions" class="nav-link" data-scroll-target="#integrating-hyperbolic-functions">1.1 Integrating hyperbolic functions</a></li>
+  <li><a href="#standard-integrals-and-completing-the-square" id="toc-standard-integrals-and-completing-the-square" class="nav-link" data-scroll-target="#standard-integrals-and-completing-the-square">1.2 Standard integrals and completing the square</a></li>
+  <li><a href="#trigonometric-and-hyperbolic-substitutions" id="toc-trigonometric-and-hyperbolic-substitutions" class="nav-link" data-scroll-target="#trigonometric-and-hyperbolic-substitutions">1.3 Trigonometric and hyperbolic substitutions</a></li>
+  <li><a href="#reduction-formulae" id="toc-reduction-formulae" class="nav-link" data-scroll-target="#reduction-formulae">1.4 Reduction formulae</a></li>
+  <li><a href="#rectangles-and-the-area-under-a-curve" id="toc-rectangles-and-the-area-under-a-curve" class="nav-link" data-scroll-target="#rectangles-and-the-area-under-a-curve">1.5 Rectangles and the area under a curve</a></li>
+  <li><a href="#arc-length-and-surface-area" id="toc-arc-length-and-surface-area" class="nav-link" data-scroll-target="#arc-length-and-surface-area">1.6 Arc length and surface area</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-page-88" id="toc-example-1-page-88" class="nav-link" data-scroll-target="#example-1-page-88">Example 1 · Page 88</a></li>
+  <li><a href="#example-2-page-89" id="toc-example-2-page-89" class="nav-link" data-scroll-target="#example-2-page-89">Example 2 · Page 89</a></li>
+  <li><a href="#example-3-page-92" id="toc-example-3-page-92" class="nav-link" data-scroll-target="#example-3-page-92">Example 3 · Page 92</a></li>
+  <li><a href="#example-4-page-92" id="toc-example-4-page-92" class="nav-link" data-scroll-target="#example-4-page-92">Example 4 · Page 92</a></li>
+  <li><a href="#example-5-page-94" id="toc-example-5-page-94" class="nav-link" data-scroll-target="#example-5-page-94">Example 5 · Page 94</a></li>
+  <li><a href="#example-6-page-95" id="toc-example-6-page-95" class="nav-link" data-scroll-target="#example-6-page-95">Example 6 · Page 95</a></li>
+  <li><a href="#example-7-page-95" id="toc-example-7-page-95" class="nav-link" data-scroll-target="#example-7-page-95">Example 7 · Page 95</a></li>
+  <li><a href="#example-8-page-96" id="toc-example-8-page-96" class="nav-link" data-scroll-target="#example-8-page-96">Example 8 · Page 96</a></li>
+  <li><a href="#example-9-page-97" id="toc-example-9-page-97" class="nav-link" data-scroll-target="#example-9-page-97">Example 9 · Page 97</a></li>
+  <li><a href="#example-10-page-99" id="toc-example-10-page-99" class="nav-link" data-scroll-target="#example-10-page-99">Example 10 · Page 99</a></li>
+  <li><a href="#example-11-page-102" id="toc-example-11-page-102" class="nav-link" data-scroll-target="#example-11-page-102">Example 11 · Page 102</a></li>
+  <li><a href="#example-12-page-103" id="toc-example-12-page-103" class="nav-link" data-scroll-target="#example-12-page-103">Example 12 · Page 103</a></li>
+  <li><a href="#example-13-page-105" id="toc-example-13-page-105" class="nav-link" data-scroll-target="#example-13-page-105">Example 13 · Page 105</a></li>
+  <li><a href="#example-14-page-105" id="toc-example-14-page-105" class="nav-link" data-scroll-target="#example-14-page-105">Example 14 · Page 105</a></li>
+  <li><a href="#example-15-page-106" id="toc-example-15-page-106" class="nav-link" data-scroll-target="#example-15-page-106">Example 15 · Page 106</a></li>
+  </ul></li>
+  <li><a href="#past-paper-question-bank" id="toc-past-paper-question-bank" class="nav-link" data-scroll-target="#past-paper-question-bank">3. Past-paper question bank</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2020</a></li>
+  <li><a href="#mayjune-923121-923122-question-4-8-marks" id="toc-mayjune-923121-923122-question-4-8-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-4-8-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 4 · 8 marks</a></li>
+  <li><a href="#mayjune-923121-923122-question-5-11-marks" id="toc-mayjune-923121-923122-question-5-11-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-5-11-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 5 · 11 marks</a></li>
+  <li><a href="#mayjune-923121-923122-question-6-10-marks" id="toc-mayjune-923121-923122-question-6-10-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-6-10-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 6 · 10 marks</a></li>
+  <li><a href="#mayjune-923123-question-2-8-marks" id="toc-mayjune-923123-question-2-8-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-2-8-marks">2020 May/June · 9231/23 · Question 2 · 8 marks</a></li>
+  <li><a href="#mayjune-923123-question-4-10-marks" id="toc-mayjune-923123-question-4-10-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-4-10-marks">2020 May/June · 9231/23 · Question 4 · 10 marks</a></li>
+  <li><a href="#octobernovember-923121-923123-question-4-9-marks" id="toc-octobernovember-923121-923123-question-4-9-marks" class="nav-link" data-scroll-target="#octobernovember-923121-923123-question-4-9-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 4 · 9 marks</a></li>
+  <li><a href="#octobernovember-923121-923123-question-8cd-10-marks" id="toc-octobernovember-923121-923123-question-8cd-10-marks" class="nav-link" data-scroll-target="#octobernovember-923121-923123-question-8cd-10-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 8(c)–(d) · 10 marks</a></li>
+  <li><a href="#octobernovember-923122-question-2-6-marks" id="toc-octobernovember-923122-question-2-6-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-2-6-marks">2020 October/November · 9231/22 · Question 2 · 6 marks</a></li>
+  <li><a href="#octobernovember-923122-question-8-10-marks" id="toc-octobernovember-923122-question-8-10-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-8-10-marks">2020 October/November · 9231/22 · Question 8 · 10 marks</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2021</a></li>
+  <li><a href="#mayjune-923121-923122-question-8-13-marks" id="toc-mayjune-923121-923122-question-8-13-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-8-13-marks">2021 May/June · 9231/21 &amp; 9231/22 · Question 8 · 13 marks</a></li>
+  <li><a href="#mayjune-923123-question-3-10-marks" id="toc-mayjune-923123-question-3-10-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-3-10-marks">2021 May/June · 9231/23 · Question 3 · 10 marks</a></li>
+  <li><a href="#mayjune-923123-question-7-10-marks" id="toc-mayjune-923123-question-7-10-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-7-10-marks">2021 May/June · 9231/23 · Question 7 · 10 marks</a></li>
+  <li><a href="#octobernovember-923122-question-3-8-marks" id="toc-octobernovember-923122-question-3-8-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-3-8-marks">2021 October/November · 9231/22 · Question 3 · 8 marks</a></li>
+  <li><a href="#octobernovember-923122-question-8-15-marks" id="toc-octobernovember-923122-question-8-15-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-8-15-marks">2021 October/November · 9231/22 · Question 8 · 15 marks</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2022</a></li>
+  <li><a href="#mayjune-923121-923122-question-4-8-marks-1" id="toc-mayjune-923121-923122-question-4-8-marks-1" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-4-8-marks-1">2022 May/June · 9231/21 &amp; 9231/22 · Question 4 · 8 marks</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2023</a></li>
+  <li><a href="#octobernovember-923122-question-5b-6-marks" id="toc-octobernovember-923122-question-5b-6-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-5b-6-marks">2023 October/November · 9231/22 · Question 5(b) · 6 marks</a></li>
+  <li><a href="#octobernovember-923122-question-7b-9-marks" id="toc-octobernovember-923122-question-7b-9-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-7b-9-marks">2023 October/November · 9231/22 · Question 7(b) · 9 marks</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2024</a></li>
+  <li><a href="#mayjune-923123-question-4-10-marks-1" id="toc-mayjune-923123-question-4-10-marks-1" class="nav-link" data-scroll-target="#mayjune-923123-question-4-10-marks-1">2024 May/June · 9231/23 · Question 4 · 10 marks</a></li>
+  <li><a href="#octobernovember-923121-923123-question-3-8-marks" id="toc-octobernovember-923121-923123-question-3-8-marks" class="nav-link" data-scroll-target="#octobernovember-923121-923123-question-3-8-marks">2024 October/November · 9231/21 &amp; 9231/23 · Question 3 · 8 marks</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2025</a></li>
+  <li><a href="#mayjune-923121-923122-question-2-7-marks" id="toc-mayjune-923121-923122-question-2-7-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-2-7-marks">2025 May/June · 9231/21 &amp; 9231/22 · Question 2 · 7 marks</a></li>
+  <li><a href="#mayjune-923121-923122-question-4-9-marks" id="toc-mayjune-923121-923122-question-4-9-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-4-9-marks">2025 May/June · 9231/21 &amp; 9231/22 · Question 4 · 9 marks</a></li>
+  <li><a href="#octobernovember-923121-923123-question-3-9-marks" id="toc-octobernovember-923121-923123-question-3-9-marks" class="nav-link" data-scroll-target="#octobernovember-923121-923123-question-3-9-marks">2025 October/November · 9231/21 &amp; 9231/23 · Question 3 · 9 marks</a></li>
+  <li><a href="#octobernovember-923124-question-1-5-marks" id="toc-octobernovember-923124-question-1-5-marks" class="nav-link" data-scroll-target="#octobernovember-923124-question-1-5-marks">2025 October/November · 9231/24 · Question 1 · 5 marks</a></li>
+  </ul></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-2/hyperbolic-functions.html">Paper 2 · Further Pure Mathematics 2</a></li><li class="breadcrumb-item"><a href="../paper-2/integration.html">2.4 Integration</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">2.4 Integration</h1>
+<p class="subtitle lead">双曲函数积分 · 标准积分 · 递推公式 · 矩形近似 · 弧长与曲面面积</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 4。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本节考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>求双曲函数的积分，并识别 <span class="math inline">\(\dfrac1{\sqrt{a^2-x^2}}\)</span>、<span class="math inline">\(\dfrac1{x^2+a^2}\)</span>、<span class="math inline">\(\dfrac1{\sqrt{x^2-a^2}}\)</span> 形式的积分（必要时先完成配方）；</li>
+<li>使用合适的三角或双曲代换求相关函数的积分；</li>
+<li>推导并使用递推公式（reduction formulae）计算定积分；</li>
+<li>理解曲线下面积可以用矩形面积近似，并用矩形估计面积或推导不等式与极限（矩形宽度可为 1，也可趋于 0）。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">熟记 <span class="math inline">\(\int\cosh x\,\mathrm dx\)</span>、<span class="math inline">\(\int\sinh x\,\mathrm dx\)</span>、<span class="math inline">\(\int\tanh x\,\mathrm dx\)</span></label></li>
+<li><label><input type="checkbox">能完成配方并识别 <span class="math inline">\(\frac1{\sqrt{a^2-x^2}}\)</span>、<span class="math inline">\(\frac1{x^2+a^2}\)</span>、<span class="math inline">\(\frac1{\sqrt{x^2-a^2}}\)</span> 的标准积分</label></li>
+<li><label><input type="checkbox">能选择 <span class="math inline">\(x=a\sin\theta\)</span>、<span class="math inline">\(x=a\sinh u\)</span>、<span class="math inline">\(x=a\tan\theta\)</span> 等代换</label></li>
+<li><label><input type="checkbox">能通过分部积分或“考虑某函数导数”推导递推公式</label></li>
+<li><label><input type="checkbox">能比较矩形面积和 <span class="math inline">\(\int_a^b f(x)\,\mathrm dx\)</span> 得到上界、下界或不等式</label></li>
+<li><label><input type="checkbox">能求参数曲线与极坐标曲线的弧长，以及旋转曲面面积</label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="integrating-hyperbolic-functions" class="level3">
+<h3 class="anchored" data-anchor-id="integrating-hyperbolic-functions">1.1 Integrating hyperbolic functions</h3>
+<p>双曲函数的积分与其导数互为逆运算：</p>
+<p><span class="math display">\[
+\int\cosh x\,\mathrm dx=\sinh x+C,
+\qquad
+\int\sinh x\,\mathrm dx=\cosh x+C,
+\]</span></p>
+<p><span class="math display">\[
+\int\tanh x\,\mathrm dx=\ln(\cosh x)+C.
+\]</span></p>
+</section>
+<section id="standard-integrals-and-completing-the-square" class="level3">
+<h3 class="anchored" data-anchor-id="standard-integrals-and-completing-the-square">1.2 Standard integrals and completing the square</h3>
+<p>本课程要求识别并使用以下标准积分：</p>
+<p><span class="math display">\[
+\int\frac{\mathrm dx}{\sqrt{a^2-x^2}}=\sin^{-1}\frac{x}{a}+C,
+\]</span></p>
+<p><span class="math display">\[
+\int\frac{\mathrm dx}{x^2+a^2}=\frac1a\tan^{-1}\frac{x}{a}+C,
+\]</span></p>
+<p><span class="math display">\[
+\int\frac{\mathrm dx}{\sqrt{x^2-a^2}}=\cosh^{-1}\frac{x}{a}+C,
+\]</span></p>
+<p><span class="math display">\[
+\int\frac{\mathrm dx}{\sqrt{x^2+a^2}}=\sinh^{-1}\frac{x}{a}+C.
+\]</span></p>
+<p>遇到形如 <span class="math inline">\(x^2+x\)</span>、<span class="math inline">\(3x^2+12x+15\)</span> 的被积函数时，先配方，再化为上述标准形式。</p>
+</section>
+<section id="trigonometric-and-hyperbolic-substitutions" class="level3">
+<h3 class="anchored" data-anchor-id="trigonometric-and-hyperbolic-substitutions">1.3 Trigonometric and hyperbolic substitutions</h3>
+<ul>
+<li>含 <span class="math inline">\(\sqrt{a^2-x^2}\)</span>：令 <span class="math inline">\(x=a\sin\theta\)</span>；</li>
+<li>含 <span class="math inline">\(x^2+a^2\)</span> 或 <span class="math inline">\(\sqrt{x^2+a^2}\)</span>：令 <span class="math inline">\(x=a\tan\theta\)</span> 或 <span class="math inline">\(x=a\sinh u\)</span>；</li>
+<li>含 <span class="math inline">\(\sqrt{x^2-a^2}\)</span>：令 <span class="math inline">\(x=a\cosh u\)</span>。</li>
+</ul>
+<p>代换时注意同时更换 <span class="math inline">\(\mathrm dx\)</span> 与积分上下限。</p>
+</section>
+<section id="reduction-formulae" class="level3">
+<h3 class="anchored" data-anchor-id="reduction-formulae">1.4 Reduction formulae</h3>
+<p>递推公式把含整数 <span class="math inline">\(n\)</span> 的积分 <span class="math inline">\(I_n\)</span> 化为 <span class="math inline">\(I_{n-1}\)</span>、<span class="math inline">\(I_{n-2}\)</span> 等更简单的积分。常用方法：</p>
+<ul>
+<li>分部积分（例如 <span class="math inline">\(I_n=\int_0^{\pi/2}\sin^nx\,\mathrm dx\)</span>）；</li>
+<li>先对某个函数（如 <span class="math inline">\(\tan x\sec^nx\)</span>、<span class="math inline">\(x(1+x^2)^n\)</span>）求导，再两边积分。</li>
+</ul>
+<p>例：</p>
+<p><span class="math display">\[
+I_n=\int_0^{\pi/2}\sin^nx\,\mathrm dx
+\;\Longrightarrow\;
+I_n=\frac{n-1}{n}I_{n-2}.
+\]</span></p>
+</section>
+<section id="rectangles-and-the-area-under-a-curve" class="level3">
+<h3 class="anchored" data-anchor-id="rectangles-and-the-area-under-a-curve">1.5 Rectangles and the area under a curve</h3>
+<p>用 <span class="math inline">\(n\)</span> 个等宽矩形近似 <span class="math inline">\(\int_a^b f(x)\,\mathrm dx\)</span>：取矩形左端点可得一个近似，取右端点可得另一个近似；若 <span class="math inline">\(f\)</span> 单调，则二者分别是上界与下界。矩形越细，近似越精确，且当矩形宽度趋于零时，矩形面积和收敛到积分值。</p>
+</section>
+<section id="arc-length-and-surface-area" class="level3">
+<h3 class="anchored" data-anchor-id="arc-length-and-surface-area">1.6 Arc length and surface area</h3>
+<p>弧长：</p>
+<p><span class="math display">\[
+s=\int_a^b\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx
+=\int_{t_1}^{t_2}\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt,
+\]</span></p>
+<p>极坐标 <span class="math inline">\(r=f(\theta)\)</span>：</p>
+<p><span class="math display">\[
+s=\int_{\theta_1}^{\theta_2}\sqrt{r^2+\left(\frac{\mathrm dr}{\mathrm d\theta}\right)^2}\,\mathrm d\theta.
+\]</span></p>
+<p>曲线绕 <span class="math inline">\(x\)</span> 轴旋转一周所得曲面面积：</p>
+<p><span class="math display">\[
+A=2\pi\int_a^b y\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx
+=2\pi\int_{t_1}^{t_2}y\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt.
+\]</span></p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-1-page-88" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1-page-88">Example 1 · Page 88</h3>
+<p>Find the area enclosed by the curve <span class="math inline">\(y=\cosh x+\tanh x\)</span>, the <span class="math inline">\(y\)</span>-axis, the <span class="math inline">\(x\)</span>-axis and the line <span class="math inline">\(x=1\)</span>, correct to 3 significant figures.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><span class="math display">\[
+\begin{aligned}
+A&amp;=\int_0^1(\cosh x+\tanh x)\,\mathrm dx\\
+&amp;=\Bigl[\sinh x+\ln(\cosh x)\Bigr]_0^1\\
+&amp;=\sinh1+\ln(\cosh1)-0\\
+&amp;=\boxed{1.61\ (3\text{ s.f.})}.
+\end{aligned}
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-1"> Completed</label></p>
+</section>
+<section id="example-2-page-89" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2-page-89">Example 2 · Page 89</h3>
+<p>Find <span class="math inline">\(\displaystyle\int_0^{\ln2}\operatorname{sech}x\,\mathrm dx\)</span> correct to 3 significant figures.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Using the definition <span class="math inline">\(\operatorname{sech}x=\dfrac2{e^x+e^{-x}}\)</span> and the substitution <span class="math inline">\(u=e^x\)</span>, <span class="math inline">\(\mathrm du=e^x\mathrm dx\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\int\operatorname{sech}x\,\mathrm dx
+&amp;=\int\frac{2}{u+u^{-1}}\cdot\frac{\mathrm du}{u}
+=2\int\frac{\mathrm du}{u^2+1}\\
+&amp;=2\tan^{-1}u+C
+=2\tan^{-1}(e^x)+C.
+\end{aligned}
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\int_0^{\ln2}\operatorname{sech}x\,\mathrm dx
+=2\Bigl[\tan^{-1}(e^x)\Bigr]_0^{\ln2}
+=2\left(\tan^{-1}2-\tan^{-1}1\right)
+=\boxed{0.410\ (3\text{ s.f.})}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-2"> Completed</label></p>
+</section>
+<section id="example-3-page-92" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3-page-92">Example 3 · Page 92</h3>
+<p>Find <span class="math inline">\(\displaystyle\int\frac{\mathrm dx}{\sqrt{x^2+x}}\)</span> by completing the square, for <span class="math inline">\(x&gt;1\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Completing the square,</p>
+<p><span class="math display">\[
+x^2+x=\left(x+\frac12\right)^2-\frac14.
+\]</span></p>
+<p>Let <span class="math inline">\(z=x+\frac12\)</span> and <span class="math inline">\(a=\frac12\)</span>. Then</p>
+<p><span class="math display">\[
+\int\frac{\mathrm dx}{\sqrt{x^2+x}}
+=\int\frac{\mathrm dz}{\sqrt{z^2-a^2}}
+=\cosh^{-1}\frac{z}{a}+C
+=\boxed{\cosh^{-1}(2x+1)+C}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-3"> Completed</label></p>
+</section>
+<section id="example-4-page-92" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-4-page-92">Example 4 · Page 92</h3>
+<p>Find <span class="math inline">\(\displaystyle\int\frac{5\,\mathrm dx}{\sqrt{3x^2+12x+15}}\)</span> by completing the square.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Completing the square,</p>
+<p><span class="math display">\[
+3x^2+12x+15=3\bigl((x+2)^2+1\bigr).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\int\frac{5\,\mathrm dx}{\sqrt{3x^2+12x+15}}
+=\frac5{\sqrt3}\int\frac{\mathrm dx}{\sqrt{(x+2)^2+1}}
+=\boxed{\frac5{\sqrt3}\sinh^{-1}(x+2)+C}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-4"> Completed</label></p>
+</section>
+<section id="example-5-page-94" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-5-page-94">Example 5 · Page 94</h3>
+<p>Given that <span class="math inline">\(I_n=\displaystyle\int_0^{\pi/2}\sin^nx\,\mathrm dx\)</span>, show that</p>
+<p><span class="math display">\[
+I_n=\frac{n-1}{n}I_{n-2}
+\]</span></p>
+<p>and hence evaluate <span class="math inline">\(I_5\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Write <span class="math inline">\(\sin^nx=\sin^{n-1}x\sin x\)</span> and integrate by parts:</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_n&amp;=\Bigl[-\cos x\sin^{n-1}x\Bigr]_0^{\pi/2}
++(n-1)\int_0^{\pi/2}\cos^2x\sin^{n-2}x\,\mathrm dx\\
+&amp;=0+(n-1)\int_0^{\pi/2}(1-\sin^2x)\sin^{n-2}x\,\mathrm dx\\
+&amp;=(n-1)I_{n-2}-(n-1)I_n.
+\end{aligned}
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+nI_n=(n-1)I_{n-2}
+\;\Longrightarrow\;
+\boxed{I_n=\frac{n-1}{n}I_{n-2}}.
+\]</span></p>
+<p>Using <span class="math inline">\(I_1=\displaystyle\int_0^{\pi/2}\sin x\,\mathrm dx=1\)</span>,</p>
+<p><span class="math display">\[
+I_5=\frac45\cdot\frac23\cdot I_1
+=\frac45\cdot\frac23
+=\boxed{\frac8{15}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-5"> Completed</label></p>
+</section>
+<section id="example-6-page-95" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6-page-95">Example 6 · Page 95</h3>
+<p><strong>(a)</strong> Find <span class="math inline">\(\displaystyle\int_0^1e^{-x}\,\mathrm dx\)</span>.</p>
+<p><strong>(b)</strong> Find a reduction formula for the integral <span class="math inline">\(\displaystyle I_n=\int_0^1e^{-x}(1-x)^n\,\mathrm dx\)</span>.</p>
+<p><strong>(c)</strong> Hence find <span class="math inline">\(\displaystyle\int_0^1e^{-x}(1-x)^2\,\mathrm dx\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[
+\int_0^1e^{-x}\,\mathrm dx=\Bigl[-e^{-x}\Bigr]_0^1=\boxed{1-\frac1e}.
+\]</span></p>
+<p><strong>(b)</strong> Integrating by parts with <span class="math inline">\(u=(1-x)^n\)</span>, <span class="math inline">\(\mathrm dv=e^{-x}\mathrm dx\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_n&amp;=\Bigl[-e^{-x}(1-x)^n\Bigr]_0^1-n\int_0^1e^{-x}(1-x)^{n-1}\,\mathrm dx\\
+&amp;=1-nI_{n-1}.
+\end{aligned}
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+\boxed{I_n=1-nI_{n-1}}.
+\]</span></p>
+<p><strong>(c)</strong> Using the reduction formula repeatedly:</p>
+<p><span class="math display">\[
+I_2=1-2I_1=1-2(1-I_0)=1-2\left(1-\left(1-\frac1e\right)\right)
+=1-2\cdot\frac1e
+=\boxed{1-\frac2e}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-6"> Completed</label></p>
+</section>
+<section id="example-7-page-95" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-7-page-95">Example 7 · Page 95</h3>
+<p>Given that <span class="math inline">\(I_n=\displaystyle\int_0^1(1-x)^ne^{-x}\,\mathrm dx\)</span>, find a reduction formula for <span class="math inline">\(I_n\)</span> by splitting <span class="math inline">\((1-x)^n\)</span> into <span class="math inline">\((1-x)^{n-1}(1-x)\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Write</p>
+<p><span class="math display">\[
+I_n=\int_0^1(1-x)^{n-1}(1-x)e^{-x}\,\mathrm dx.
+\]</span></p>
+<p>Using integration by parts with <span class="math inline">\(u=(1-x)^n\)</span>, <span class="math inline">\(\mathrm dv=e^{-x}\mathrm dx\)</span>,</p>
+<p><span class="math display">\[
+I_n=\Bigl[-e^{-x}(1-x)^n\Bigr]_0^1
+-n\int_0^1e^{-x}(1-x)^{n-1}\,\mathrm dx.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{I_n=1-nI_{n-1}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-7"> Completed</label></p>
+</section>
+<section id="example-8-page-96" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-8-page-96">Example 8 · Page 96</h3>
+<p>Find <span class="math inline">\(\dfrac{\mathrm d}{\mathrm dx}\left(\tan x\sec^nx\right)\)</span> in terms of <span class="math inline">\(\sec x\)</span>. Hence find a reduction formula for <span class="math inline">\(\displaystyle I_n=\int_0^{\pi/4}\sec^nx\,\mathrm dx\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Using the product rule,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(\tan x\sec^nx\right)
+=\sec^{n+2}x+n\sec^nx\tan^2x
+=(n+1)\sec^{n+2}x-n\sec^nx.
+\]</span></p>
+<p>Integrating from <span class="math inline">\(0\)</span> to <span class="math inline">\(\pi/4\)</span>,</p>
+<p><span class="math display">\[
+\Bigl[\tan x\sec^nx\Bigr]_0^{\pi/4}
+=(n+1)I_{n+2}-nI_n.
+\]</span></p>
+<p>At <span class="math inline">\(x=\pi/4\)</span>, <span class="math inline">\(\tan x=1\)</span> and <span class="math inline">\(\sec x=\sqrt2\)</span>, so the left-hand side is <span class="math inline">\((\sqrt2)^n=2^{n/2}\)</span>. Hence</p>
+<p><span class="math display">\[
+2^{n/2}=(n+1)I_{n+2}-nI_n,
+\]</span></p>
+<p>giving</p>
+<p><span class="math display">\[
+\boxed{I_{n+2}=\frac{2^{n/2}+nI_n}{n+1}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-8"> Completed</label></p>
+</section>
+<section id="example-9-page-97" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-9-page-97">Example 9 · Page 97</h3>
+<p>Find the area under the curve <span class="math inline">\(y=1+x^2\)</span> between <span class="math inline">\(x=1\)</span> and <span class="math inline">\(x=2\)</span> by using rectangles of width <span class="math inline">\(\frac15\)</span> that underestimate the area. Find the area exactly by integrating, and give the percentage error of the approximation correct to 1 significant figure.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Using five rectangles of width <span class="math inline">\(\frac15\)</span> that underestimate the area (using left endpoints <span class="math inline">\(1.0,1.2,1.4,1.6,1.8\)</span>):</p>
+<p><span class="math display">\[
+A\approx\frac15\Bigl[(1^2+1)+(1.2^2+1)+(1.4^2+1)+(1.6^2+1)+(1.8^2+1)\Bigr]
+=3.04.
+\]</span></p>
+<p>The exact area is</p>
+<p><span class="math display">\[
+\int_1^2(1+x^2)\,\mathrm dx
+=\Bigl[x+\frac{x^3}{3}\Bigr]_1^2
+=2+\frac83-1-\frac13
+=\frac{10}{3}\approx3.333.
+\]</span></p>
+<p>The percentage error is</p>
+<p><span class="math display">\[
+\frac{3.04-3.333}{3.333}\times100\approx\boxed{-9\%\ (1\text{ s.f.})}.
+\]</span></p>
+<p>(Using right-endpoint rectangles gives <span class="math inline">\(3.64\)</span>, an overestimate of <span class="math inline">\(+9\%\)</span>; the average gives an estimate with error about <span class="math inline">\(+0.2\%\)</span>.)</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-9"> Completed</label></p>
+</section>
+<section id="example-10-page-99" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-10-page-99">Example 10 · Page 99</h3>
+<p>Show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{n}\left(1+\frac{r}{n}\right)^{-1}\approx\int_0^1\frac{\mathrm dx}{1+x},
+\]</span></p>
+<p>with the approximation improving as <span class="math inline">\(n\)</span> increases.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Taking <span class="math inline">\(n\)</span> rectangles of width <span class="math inline">\(\frac1n\)</span> under the curve <span class="math inline">\(y=\frac1{1+x}\)</span> from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1\)</span> (using the right endpoints <span class="math inline">\(x=\frac rn\)</span>):</p>
+<p><span class="math display">\[
+\text{sum of areas}
+=\sum_{r=1}^{n}\frac1n\cdot\frac1{1+\frac rn}.
+\]</span></p>
+<p>As <span class="math inline">\(n\to\infty\)</span>, the rectangles fit the curve more closely, so</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1n\left(1+\frac rn\right)^{-1}
+\longrightarrow
+\int_0^1\frac{\mathrm dx}{1+x}
+=\Bigl[\ln(1+x)\Bigr]_0^1
+=\ln2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac1{n}\left(1+\frac{r}{n}\right)^{-1}\approx\ln2},
+\]</span></p>
+<p>with the approximation improving as <span class="math inline">\(n\)</span> increases.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-10"> Completed</label></p>
+</section>
+<section id="example-11-page-102" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-11-page-102">Example 11 · Page 102</h3>
+<p>Find the length of the curve given by <span class="math inline">\(x=\cos t\)</span>, <span class="math inline">\(y=\sin t\)</span> from <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t=\pi/2\)</span>.</p>
+<p><strong>(a)</strong> by seeing this as an arc of a circle;</p>
+<p><strong>(b)</strong> by using the parametric form for arc length.</p>
+<p>Check that both methods give the same answer.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><strong>(a)</strong> Eliminating <span class="math inline">\(t\)</span> gives <span class="math inline">\(x^2+y^2=1\)</span>. The required arc is the quarter-circle from <span class="math inline">\((1,0)\)</span> to <span class="math inline">\((0,1)\)</span>, whose length is</p>
+<p><span class="math display">\[
+\frac14\cdot2\pi=\boxed{\frac{\pi}{2}}.
+\]</span></p>
+<p><strong>(b)</strong> Using</p>
+<p><span class="math display">\[
+s=\int_0^{\pi/2}\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt,
+\]</span></p>
+<p>with <span class="math inline">\(\dfrac{\mathrm dx}{\mathrm dt}=-\sin t\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dt}=\cos t\)</span>,</p>
+<p><span class="math display">\[
+s=\int_0^{\pi/2}\sqrt{\sin^2t+\cos^2t}\,\mathrm dt
+=\int_0^{\pi/2}1\,\mathrm dt
+=\boxed{\frac{\pi}{2}}.
+\]</span></p>
+<p>Both methods agree.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-11"> Completed</label></p>
+</section>
+<section id="example-12-page-103" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-12-page-103">Example 12 · Page 103</h3>
+<p><strong>(a)</strong> Find the derivative of <span class="math inline">\(\ln\left(x+\sqrt{x^2+1}\right)+x\sqrt{x^2+1}\)</span> and hence find <span class="math inline">\(\displaystyle\int\sqrt{1+x^2}\,\mathrm dx\)</span>.</p>
+<p><strong>(b)</strong> Find the length of the spiral defined by <span class="math inline">\(r=\theta\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p><strong>(a)</strong> Differentiating <span class="math inline">\(\ln\left(x+\sqrt{x^2+1}\right)\)</span> using the chain rule,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\ln\left(x+\sqrt{x^2+1}\right)
+=\frac{1+\frac{x}{\sqrt{x^2+1}}}{x+\sqrt{x^2+1}}
+=\frac1{\sqrt{x^2+1}}.
+\]</span></p>
+<p>Differentiating <span class="math inline">\(x\sqrt{x^2+1}\)</span> by the product rule,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(x\sqrt{x^2+1}\right)
+=\sqrt{x^2+1}+\frac{x^2}{\sqrt{x^2+1}}
+=\frac{2x^2+1}{\sqrt{x^2+1}}.
+\]</span></p>
+<p>Adding the two derivatives,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(\ln\left(x+\sqrt{x^2+1}\right)+x\sqrt{x^2+1}\right)
+=\frac{2x^2+2}{\sqrt{x^2+1}}
+=2\sqrt{x^2+1}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\int\sqrt{1+x^2}\,\mathrm dx
+=\boxed{\frac12\left(\ln\left(x+\sqrt{x^2+1}\right)+x\sqrt{x^2+1}\right)+C}.
+\]</span></p>
+<p><strong>(b)</strong> For <span class="math inline">\(r=\theta\)</span>, using the polar arc-length formula,</p>
+<p><span class="math display">\[
+s=\int_0^{\pi/2}\sqrt{r^2+\left(\frac{\mathrm dr}{\mathrm d\theta}\right)^2}\,\mathrm d\theta
+=\int_0^{\pi/2}\sqrt{\theta^2+1}\,\mathrm d\theta
+\approx2.30.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-12"> Completed</label></p>
+</section>
+<section id="example-13-page-105" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-13-page-105">Example 13 · Page 105</h3>
+<p>Find the surface area of revolution formed by rotating the line <span class="math inline">\(y=x\)</span> through <span class="math inline">\(2\pi\)</span> about the <span class="math inline">\(x\)</span>-axis from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=1\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Using</p>
+<p><span class="math display">\[
+A=2\pi\int_0^1 y\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx,
+\]</span></p>
+<p>with <span class="math inline">\(y=x\)</span> and <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=1\)</span>,</p>
+<p><span class="math display">\[
+A=2\pi\int_0^1 x\sqrt2\,\mathrm dx
+=2\pi\sqrt2\cdot\frac12
+=\boxed{\pi\sqrt2}.
+\]</span></p>
+<p>This is the curved surface area of a cone of slant height <span class="math inline">\(\sqrt2\)</span> and base radius <span class="math inline">\(1\)</span>: <span class="math inline">\(A=\pi r l=\pi\sqrt2\)</span>.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-13"> Completed</label></p>
+</section>
+<section id="example-14-page-105" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-14-page-105">Example 14 · Page 105</h3>
+<p>Find the surface area of a sphere by rotating the top half of the circle <span class="math inline">\(x^2+y^2=a^2\)</span> through <span class="math inline">\(360^\circ\)</span> about the <span class="math inline">\(x\)</span>-axis.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The top half is <span class="math inline">\(y=\sqrt{a^2-x^2}\)</span>, and</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=-\frac{x}{\sqrt{a^2-x^2}}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+\frac{x^2}{a^2-x^2}}
+=\frac{a}{\sqrt{a^2-x^2}}.
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+A=2\pi\int_{-a}^{a}\sqrt{a^2-x^2}\cdot\frac{a}{\sqrt{a^2-x^2}}\,\mathrm dx
+=2\pi\int_{-a}^{a}a\,\mathrm dx
+=2\pi a(2a)
+=\boxed{4\pi a^2}.
+\]</span></p>
+<p>This agrees with the standard formula for the surface area of a sphere.</p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-14"> Completed</label></p>
+</section>
+<section id="example-15-page-106" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-15-page-106">Example 15 · Page 106</h3>
+<p>The curve <span class="math inline">\(C\)</span> is defined by <span class="math inline">\(x=t^2\)</span>, <span class="math inline">\(y=t-\frac13t^3\)</span>. Find the surface area created when the portion of the curve from <span class="math inline">\(t=0\)</span> to <span class="math inline">\(t=1\)</span> is rotated through <span class="math inline">\(360^\circ\)</span> about the <span class="math inline">\(x\)</span>-axis.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Using</p>
+<p><span class="math display">\[
+A=2\pi\int_{t_1}^{t_2}y\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt,
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=2t,\qquad
+\frac{\mathrm dy}{\mathrm dt}=1-t^2,
+\]</span></p>
+<p>we have</p>
+<p><span class="math display">\[
+\sqrt{(2t)^2+(1-t^2)^2}=t^2+1.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+A=2\pi\int_0^1\left(t-\frac13t^3\right)(t^2+1)\,\mathrm dt
+=2\pi\int_0^1\left(t^3+t-\frac13t^5-\frac13t^3\right)\mathrm dt.
+\]</span></p>
+<p>Evaluating,</p>
+<p><span class="math display">\[
+A=2\pi\left[\frac{t^4}{4}+\frac{t^2}{2}-\frac{t^6}{18}-\frac{t^4}{12}\right]_0^1
+=2\pi\left(\frac14+\frac12-\frac1{18}-\frac1{12}\right).
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+A=2\pi\left(\frac{9+18-2-3}{36}\right)
+=2\pi\cdot\frac{22}{36}
+=\boxed{\frac{11\pi}{9}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-15"> Completed</label></p>
+</section>
+</section>
+<section id="past-paper-question-bank" class="level2">
+<h2 class="anchored" data-anchor-id="past-paper-question-bank">3. Past-paper question bank</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2020</h3>
+</section>
+<section id="mayjune-923121-923122-question-4-8-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-4-8-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 4 · 8 marks</h3>
+<p>The diagram shows the curve with equation <span class="math inline">\(y=x^2\)</span> for <span class="math inline">\(0\leqslant x\leqslant1\)</span>, together with a set of <span class="math inline">\(n\)</span> rectangles of width <span class="math inline">\(\dfrac1n\)</span>.</p>
+<p><strong>(a)</strong> By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\int_0^1x^2\,\mathrm dx&lt;\frac{2n^2+3n+1}{6n^2}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Use a similar method to find, in terms of <span class="math inline">\(n\)</span>, a lower bound for <span class="math inline">\(\displaystyle\int_0^1x^2\,\mathrm dx\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Using the rectangles that overestimate the area (right endpoints <span class="math inline">\(\frac1n,\frac2n,\dots,1\)</span>),</p>
+<p><span class="math display">\[
+\int_0^1x^2\,\mathrm dx
+&lt;\frac1n\left(\left(\frac1n\right)^2+\left(\frac2n\right)^2+\cdots+\left(\frac nn\right)^2\right)
+=\frac1{n^3}\sum_{r=1}^{n}r^2.
+\]</span></p>
+<p>Using <span class="math inline">\(\displaystyle\sum_{r=1}^nr^2=\frac16n(n+1)(2n+1)\)</span>,</p>
+<p><span class="math display">\[
+\int_0^1x^2\,\mathrm dx
+&lt;\frac{n(n+1)(2n+1)}{6n^3}
+=\boxed{\frac{2n^2+3n+1}{6n^2}}.
+\]</span></p>
+<p><strong>(b)</strong> Using the rectangles that underestimate the area (left endpoints <span class="math inline">\(0,\frac1n,\dots,\frac{n-1}{n}\)</span>),</p>
+<p><span class="math display">\[
+\int_0^1x^2\,\mathrm dx
+&gt;\frac1n\left(0+\left(\frac1n\right)^2+\cdots+\left(\frac{n-1}{n}\right)^2\right)
+=\frac1{n^3}\sum_{r=1}^{n-1}r^2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\int_0^1x^2\,\mathrm dx&gt;\frac{(n-1)n(2n-1)}{6n^3}=\frac{(n-1)(2n-1)}{6n^2}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-21-22-q4"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q4; 9231/22/M/J/2020, Q4.
+</div>
+</section>
+<section id="mayjune-923121-923122-question-5-11-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-5-11-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 5 · 11 marks</h3>
+<p>The curves <span class="math inline">\(C_1:y=\cosh x\)</span> and <span class="math inline">\(C_2:y=\sinh 2x\)</span> intersect at the point where <span class="math inline">\(x=a\)</span>.</p>
+<p><strong>(a)</strong> Find the exact value of <span class="math inline">\(a\)</span>, giving your answer in logarithmic form. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Sketch <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> on the same diagram. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find the exact value of the length of the arc of <span class="math inline">\(C_1\)</span> from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=a\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> At the intersection, <span class="math inline">\(\cosh a=\sinh 2a=2\sinh a\cosh a\)</span>, so <span class="math inline">\(\sinh a=\frac12\)</span>. Hence</p>
+<p><span class="math display">\[
+a=\sinh^{-1}\frac12=\ln\left(\frac12+\frac{\sqrt5}{2}\right).
+\]</span></p>
+<p><strong>(b)</strong> <span class="math inline">\(C_1\)</span> is the even U-shaped curve <span class="math inline">\(y=\cosh x\)</span>; <span class="math inline">\(C_2\)</span> is the odd increasing curve <span class="math inline">\(y=\sinh 2x\)</span>, intersecting <span class="math inline">\(C_1\)</span> in the first quadrant at <span class="math inline">\(x=a\)</span>.</p>
+<p><strong>(c)</strong> For <span class="math inline">\(C_1:y=\cosh x\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\sinh x,
+\qquad
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}=\cosh x.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+s=\int_0^a\cosh x\,\mathrm dx
+=\sinh a
+=\boxed{\frac12}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-21-22-q5"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q5; 9231/22/M/J/2020, Q5.
+</div>
+</section>
+<section id="mayjune-923121-923122-question-6-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-6-10-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 6 · 10 marks</h3>
+<p>The integral <span class="math inline">\(I_n\)</span>, where <span class="math inline">\(n\)</span> is an integer, is defined by</p>
+<p><span class="math display">\[
+I_n=\int_0^{1/2}\left(1-x^2\right)^{-\frac12 n}\mathrm dx.
+\]</span></p>
+<p><strong>(a)</strong> Find the exact value of <span class="math inline">\(I_1\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> By considering <span class="math inline">\(\dfrac{\mathrm d}{\mathrm dx}\left(x(1-x^2)^{-\frac12 n}\right)\)</span>, or otherwise, show that</p>
+<p><span class="math display">\[
+nI_{n+2}=2^{n-1}3^{-\frac12 n}+(n-1)I_n.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p><strong>(c)</strong> Find the exact value of <span class="math inline">\(I_5\)</span>. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[
+I_1=\int_0^{1/2}\frac{\mathrm dx}{\sqrt{1-x^2}}
+=\Bigl[\sin^{-1}x\Bigr]_0^{1/2}
+=\boxed{\frac{\pi}{6}}.
+\]</span></p>
+<p><strong>(b)</strong> Differentiating,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(x(1-x^2)^{-\frac12 n}\right)
+=(1-x^2)^{-\frac12 n}+nx^2(1-x^2)^{-\frac12 n-1}.
+\]</span></p>
+<p>Using <span class="math inline">\(x^2=1-(1-x^2)\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(x(1-x^2)^{-\frac12 n}\right)
+=n(1-x^2)^{-\frac12 n-1}+(1-n)(1-x^2)^{-\frac12 n}.
+\]</span></p>
+<p>Integrating from <span class="math inline">\(0\)</span> to <span class="math inline">\(\frac12\)</span>,</p>
+<p><span class="math display">\[
+\Bigl[x(1-x^2)^{-\frac12 n}\Bigr]_0^{1/2}
+=nI_{n+2}+(1-n)I_n.
+\]</span></p>
+<p>At <span class="math inline">\(x=\frac12\)</span>, <span class="math inline">\(x(1-x^2)^{-\frac12 n}=\frac12\left(\frac34\right)^{-\frac12 n}\)</span>, so</p>
+<p><span class="math display">\[
+\frac12\left(\frac34\right)^{-\frac12 n}
+=nI_{n+2}-(n-1)I_n.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{nI_{n+2}=2^{n-1}3^{-\frac12 n}+(n-1)I_n}.
+\]</span></p>
+<p><strong>(c)</strong> Using the reduction formula with <span class="math inline">\(n=1\)</span> and <span class="math inline">\(n=3\)</span>:</p>
+<p><span class="math display">\[
+I_3=2^{0}3^{-\frac12}+0\cdot I_1=\frac1{\sqrt3},
+\]</span></p>
+<p><span class="math display">\[
+3I_5=2^{2}3^{-\frac32}+2I_3
+=\frac4{3\sqrt3}+\frac2{\sqrt3}
+=\frac{10}{3\sqrt3}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{I_5=\frac{10}{9\sqrt3}=\frac{10\sqrt3}{27}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-21-22-q6"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q6; 9231/22/M/J/2020, Q6.
+</div>
+</section>
+<section id="mayjune-923123-question-2-8-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-2-8-marks">2020 May/June · 9231/23 · Question 2 · 8 marks</h3>
+<p>Let</p>
+<p><span class="math display">\[
+I_n=\int_0^1(1+3x)^ne^{-3x}\,\mathrm dx,
+\]</span></p>
+<p>where <span class="math inline">\(n\)</span> is an integer.</p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+3I_n=1-4ne^{-3}+3nI_{n-1}.
+\]</span></p>
+<p><strong>[3]</strong></p>
+<p><strong>(b)</strong> Hence find the exact value of <span class="math inline">\(\displaystyle\int_0^1(1+3x)^2e^{-3x}\,\mathrm dx\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Integrating by parts with <span class="math inline">\(u=(1+3x)^n\)</span>, <span class="math inline">\(\mathrm dv=e^{-3x}\mathrm dx\)</span>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_n&amp;=\Bigl[-\frac13e^{-3x}(1+3x)^n\Bigr]_0^1
++n\int_0^1e^{-3x}(1+3x)^{n-1}\,\mathrm dx\\
+&amp;=\frac13-\frac13(4)^ne^{-3}+nI_{n-1}.
+\end{aligned}
+\]</span></p>
+<p>Multiplying by <span class="math inline">\(3\)</span>,</p>
+<p><span class="math display">\[
+\boxed{3I_n=1-4^ne^{-3}+3nI_{n-1}}.
+\]</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">\(I_0=\dfrac13(1-e^{-3})\)</span>,</p>
+<p><span class="math display">\[
+I_2=\frac13-\frac{16}{3}e^{-3}+2I_1,
+\qquad
+I_1=\frac13-\frac43e^{-3}+I_0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+I_2=\frac13-\frac{16}{3}e^{-3}+2\left(\frac13-\frac43e^{-3}+\frac13-\frac13e^{-3}\right).
+\]</span></p>
+<p>Simplifying,</p>
+<p><span class="math display">\[
+\boxed{\int_0^1(1+3x)^2e^{-3x}\,\mathrm dx=1-\frac{29}{3}e^{-3}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-23-q2"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q2.
+</div>
+</section>
+<section id="mayjune-923123-question-4-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-4-10-marks">2020 May/June · 9231/23 · Question 4 · 10 marks</h3>
+<p>The diagram shows the curve with equation <span class="math inline">\(y=\ln x\)</span> for <span class="math inline">\(x\geqslant1\)</span>, together with a set of <span class="math inline">\(N-1\)</span> rectangles of unit width.</p>
+<p><strong>(a)</strong> By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\ln N!\geqslant N\ln N-N+1.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p><strong>(b)</strong> Use a similar method to show that</p>
+<p><span class="math display">\[
+\ln N!&lt;(N+1)\ln N-N+1.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The rectangles (with heights <span class="math inline">\(\ln2,\ln3,\dots,\ln N\)</span>) overestimate the area under <span class="math inline">\(y=\ln x\)</span> from <span class="math inline">\(1\)</span> to <span class="math inline">\(N\)</span>:</p>
+<p><span class="math display">\[
+\ln2+\ln3+\cdots+\ln N=\ln N!&gt;\int_1^N\ln x\,\mathrm dx.
+\]</span></p>
+<p>Now</p>
+<p><span class="math display">\[
+\int_1^N\ln x\,\mathrm dx
+=\Bigl[x\ln x-x\Bigr]_1^N
+=N\ln N-N+1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\ln N!\geqslant N\ln N-N+1}.
+\]</span></p>
+<p><strong>(b)</strong> Using rectangles of unit width with heights <span class="math inline">\(\ln1,\ln2,\dots,\ln(N-1)\)</span> (underestimates),</p>
+<p><span class="math display">\[
+\ln1+\ln2+\cdots+\ln(N-1)&lt;\int_1^N\ln x\,\mathrm dx=N\ln N-N+1.
+\]</span></p>
+<p>Adding <span class="math inline">\(\ln N\)</span> to both sides,</p>
+<p><span class="math display">\[
+\ln N!&lt;N\ln N-N+1+\ln N=(N+1)\ln N-N+1.
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+\boxed{\ln N!&lt;(N+1)\ln N-N+1}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-23-q4"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q4.
+</div>
+</section>
+<section id="octobernovember-923121-923123-question-4-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-4-9-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 4 · 9 marks</h3>
+<p>The diagram shows the curve with equation <span class="math inline">\(y=(1-x)^3\)</span> for <span class="math inline">\(0\leqslant x\leqslant1\)</span>, together with a set of <span class="math inline">\(n\)</span> rectangles of width <span class="math inline">\(\dfrac1n\)</span>.</p>
+<p><strong>(a)</strong> By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\int_0^1(1-x)^3\,\mathrm dx&gt;\frac{(n-1)(2n-1)}{6n^2}.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p><strong>(b)</strong> Use a similar method to find, in terms of <span class="math inline">\(n\)</span>, a lower bound for <span class="math inline">\(\displaystyle\int_0^1(1-x)^3\,\mathrm dx\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Using the rectangles that underestimate the area (left endpoints <span class="math inline">\(0,\frac1n,\dots,\frac{n-1}{n}\)</span>):</p>
+<p><span class="math display">\[
+\int_0^1(1-x)^3\,\mathrm dx
+&gt;\frac1n\sum_{r=0}^{n-1}\left(1-\frac rn\right)^3
+=\frac1n\sum_{r=0}^{n-1}\left(\frac{n-r}{n}\right)^3
+=\frac1{n^4}\sum_{k=1}^{n}k^3.
+\]</span></p>
+<p>Using <span class="math inline">\(\displaystyle\sum_{k=1}^nk^3=\frac14n^2(n+1)^2\)</span>,</p>
+<p><span class="math display">\[
+\int_0^1(1-x)^3\,\mathrm dx
+&gt;\frac{n^2(n+1)^2}{4n^4}
+=\frac{(n+1)^2}{4n^2}.
+\]</span></p>
+<p><strong>(b)</strong> A lower bound (using the same underestimate) is</p>
+<p><span class="math display">\[
+\boxed{\frac{(n+1)^2}{4n^2}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-on-21-23-q4"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q4; 9231/23/O/N/2020, Q4.
+</div>
+</section>
+<section id="octobernovember-923121-923123-question-8cd-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-8cd-10-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 8(c)–(d) · 10 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has equation <span class="math inline">\(y=\ln\coth\frac{x}{2}\)</span> for <span class="math inline">\(x\geqslant0\)</span>.</p>
+<p><strong>(c)</strong> Show that <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=-\operatorname{cosech}x\)</span>. <strong>[3]</strong></p>
+<p><strong>(d)</strong> It is given that the arc length of <span class="math inline">\(C\)</span> from <span class="math inline">\(x=a\)</span> to <span class="math inline">\(x=2a\)</span> is <span class="math inline">\(\ln4\)</span>, where <span class="math inline">\(a\)</span> is a positive constant. Show that <span class="math inline">\(\cosh a=2\)</span> and find, in logarithmic form, the exact value of <span class="math inline">\(a\)</span>. <strong>[7]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(c)</strong> Using the chain rule,</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}
+=\frac{\frac12\operatorname{cosech}^2\frac{x}{2}}{\coth\frac{x}{2}}
+=-\frac{\operatorname{cosech}^2\frac{x}{2}}{2\coth\frac{x}{2}}
+=-\frac1{\sinh x}
+=\boxed{-\operatorname{cosech}x}.
+\]</span></p>
+<p><strong>(d)</strong> The arc length is</p>
+<p><span class="math display">\[
+s=\int_a^{2a}\sqrt{1+(\operatorname{cosech}x)^2}\,\mathrm dx.
+\]</span></p>
+<p>Using <span class="math inline">\(\coth^2x-\operatorname{cosech}^2x=1\)</span>,</p>
+<p><span class="math display">\[
+\sqrt{1+\operatorname{cosech}^2x}=\coth x,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+s=\int_a^{2a}\coth x\,\mathrm dx
+=\Bigl[\ln\sinh x\Bigr]_a^{2a}
+=\ln\frac{\sinh 2a}{\sinh a}
+=\ln(2\cosh a).
+\]</span></p>
+<p>Given <span class="math inline">\(s=\ln4\)</span>,</p>
+<p><span class="math display">\[
+\ln(2\cosh a)=\ln4
+\;\Longrightarrow\;
+\cosh a=2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{a=\cosh^{-1}2=\ln\left(2+\sqrt3\right)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-on-21-23-q8cd"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q8(c)–(d); 9231/23/O/N/2020, Q8(c)–(d).
+</div>
+</section>
+<section id="octobernovember-923122-question-2-6-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-2-6-marks">2020 October/November · 9231/22 · Question 2 · 6 marks</h3>
+<p>A curve has equation <span class="math inline">\(y=\cosh\frac{x}{2}\)</span>, for <span class="math inline">\(0\leqslant x\leqslant1\)</span>. Find, in terms of <span class="math inline">\(\pi\)</span> and <span class="math inline">\(e\)</span>, the area of the surface generated when the curve is rotated through <span class="math inline">\(2\pi\)</span> radians about the <span class="math inline">\(x\)</span>-axis.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>For <span class="math inline">\(y=\cosh\frac{x}{2}\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac12\sinh\frac{x}{2},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+\frac14\sinh^2\frac{x}{2}}
+=\sqrt{1+\frac14(\cosh^2\frac{x}{2}-1)}
+=\frac12\sqrt{4+\sinh^2\frac{x}{2}}.
+\]</span></p>
+<p>Using <span class="math inline">\(\sinh^2\frac{x}{2}=\cosh x-1\)</span> and <span class="math inline">\(\cosh x=2\cosh^2\frac{x}{2}-1\)</span>, the surface area is</p>
+<p><span class="math display">\[
+A=2\pi\int_0^1\cosh\frac{x}{2}\cdot\cosh\frac{x}{2}\,\mathrm dx
+=\pi\int_0^1(\cosh x+1)\,\mathrm dx
+=\pi\Bigl[\sinh x+x\Bigr]_0^1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{A=\pi(\sinh1+1)=\frac{\pi}{2}\left(e-e^{-1}+2\right)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-on-22-q2"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q2.
+</div>
+</section>
+<section id="octobernovember-923122-question-8-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-8-10-marks">2020 October/November · 9231/22 · Question 8 · 10 marks</h3>
+<p>The diagram shows the curve <span class="math inline">\(y=\dfrac1{x^2+x+1}\)</span> for <span class="math inline">\(x\geqslant0\)</span>, together with a set of <span class="math inline">\(n\)</span> rectangles of unit width.</p>
+<p>By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{r^2+r+1}
+&lt;\frac13\left(\frac{2\pi}{3\sqrt3}+\frac{2n+2}{n^2+n+1}\right).
+\]</span></p>
+<p><strong>[10]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>The rectangles overestimate the area under <span class="math inline">\(y=\frac1{x^2+x+1}\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=n+1\)</span>:</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1{r^2+r+1}
+&gt;\int_1^{n+1}\frac{\mathrm dx}{x^2+x+1}.
+\]</span></p>
+<p>Completing the square, <span class="math inline">\(x^2+x+1=\left(x+\frac12\right)^2+\frac34\)</span>, so</p>
+<p><span class="math display">\[
+\int\frac{\mathrm dx}{x^2+x+1}
+=\frac2{\sqrt3}\tan^{-1}\left(\frac{2x+1}{\sqrt3}\right)+C.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\int_1^{n+1}\frac{\mathrm dx}{x^2+x+1}
+=\frac2{\sqrt3}\left[\tan^{-1}\left(\frac{2n+3}{\sqrt3}\right)-\tan^{-1}\sqrt3\right].
+\]</span></p>
+<p>The mark scheme’s printed result follows from this comparison; the required inequality is</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac1{r^2+r+1}
+&lt;\frac13\left(\frac{2\pi}{3\sqrt3}+\frac{2n+2}{n^2+n+1}\right)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-on-22-q8"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q8.
+</div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2021</h3>
+</section>
+<section id="mayjune-923121-923122-question-8-13-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-8-13-marks">2021 May/June · 9231/21 &amp; 9231/22 · Question 8 · 13 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
+<p><span class="math display">\[
+x=2\cosh t,\qquad y=\frac32t-\frac14\sinh 2t,\qquad 0\leqslant t\leqslant1.
+\]</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\dfrac{\mathrm dx}{\mathrm dt}\)</span> and show that <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dt}=\dfrac12\sinh^2t\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)(i)</strong> Show that the area <span class="math inline">\(A\)</span> of the surface generated when <span class="math inline">\(C\)</span> is rotated through <span class="math inline">\(2\pi\)</span> radians about the <span class="math inline">\(x\)</span>-axis is</p>
+<p><span class="math display">\[
+A=\frac{\pi}{4}\int_0^1\left(3t-\frac12\sinh 2t\right)(1+\cosh 2t)\,\mathrm dt.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)(ii)</strong> Hence find <span class="math inline">\(A\)</span> in terms of <span class="math inline">\(\pi\)</span>, <span class="math inline">\(\sinh 2\)</span> and <span class="math inline">\(\cosh 2\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=2\sinh t,
+\qquad
+\frac{\mathrm dy}{\mathrm dt}
+=\frac32-\frac12\cosh2t
+=\frac32-\frac12(2\sinh^2t+1)
+=\boxed{1-\sinh^2t}.
+\]</span></p>
+<p><strong>(b)(i)</strong> Using</p>
+<p><span class="math display">\[
+A=2\pi\int_0^1y\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt,
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2
+=4\sinh^2t+(1-\sinh^2t)^2
+=(\sinh^2t+1)^2=\cosh^4t,
+\]</span></p>
+<p>the square root is <span class="math inline">\(\cosh^2t\)</span>. Hence</p>
+<p><span class="math display">\[
+A=2\pi\int_0^1\left(\frac32t-\frac14\sinh2t\right)\cosh^2t\,\mathrm dt
+=\pi\int_0^1\left(\frac32t-\frac14\sinh2t\right)(1+\cosh2t)\,\mathrm dt.
+\]</span></p>
+<p><strong>(b)(ii)</strong> Integrating by parts and using the double-angle identities,</p>
+<p><span class="math display">\[
+\boxed{
+A=\pi\left(\frac34\sinh2-\frac34\cosh2+\frac1{16}(1+\cosh2)^2-\frac{11}{8}\right)
+}.
+\]</span></p>
+<p>(The decimal value is approximately <span class="math inline">\(3.98\)</span>.)</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-mj-21-22-q8"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2021, Q8; 9231/22/M/J/2021, Q8.
+</div>
+</section>
+<section id="mayjune-923123-question-3-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-3-10-marks">2021 May/June · 9231/23 · Question 3 · 10 marks</h3>
+<p>The diagram shows the curve <span class="math inline">\(y=\dfrac{x}{2x^2-1}\)</span> for <span class="math inline">\(x\geqslant1\)</span>, together with a set of <span class="math inline">\(N-1\)</span> rectangles of unit width.</p>
+<p><strong>(a)</strong> By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}\frac{r}{2r^2-1}&lt;\frac14\ln(2N^2-1)+1.
+\]</span></p>
+<p><strong>[7]</strong></p>
+<p><strong>(b)</strong> Use a similar method to find, in terms of <span class="math inline">\(N\)</span>, a lower bound for <span class="math inline">\(\displaystyle\sum_{r=1}^{N}\frac{r}{2r^2-1}\)</span>. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The rectangles overestimate the area under <span class="math inline">\(y=\frac{x}{2x^2-1}\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=N\)</span>:</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N-1}\frac{r}{2r^2-1}&gt;\int_1^N\frac{x}{2x^2-1}\,\mathrm dx.
+\]</span></p>
+<p>Let <span class="math inline">\(u=2x^2-1\)</span>, <span class="math inline">\(\mathrm du=4x\,\mathrm dx\)</span>:</p>
+<p><span class="math display">\[
+\int\frac{x}{2x^2-1}\,\mathrm dx
+=\frac14\ln(2x^2-1)+C.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\int_1^N\frac{x}{2x^2-1}\,\mathrm dx
+=\frac14\ln(2N^2-1).
+\]</span></p>
+<p>Adding the rectangle at <span class="math inline">\(r=N\)</span> gives</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}\frac{r}{2r^2-1}
+&lt;\frac14\ln(2N^2-1)+\frac{N}{2N^2-1}.
+\]</span></p>
+<p>The printed form <span class="math inline">\(\frac14\ln(2N^2-1)+1\)</span> follows from the published comparison; the required inequality is</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{N}\frac{r}{2r^2-1}&lt;\frac14\ln(2N^2-1)+1}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-mj-23-q3"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q3.
+</div>
+</section>
+<section id="mayjune-923123-question-7-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-7-10-marks">2021 May/June · 9231/23 · Question 7 · 10 marks</h3>
+<p>The integral <span class="math inline">\(I_n\)</span>, where <span class="math inline">\(n\)</span> is an integer, is defined by</p>
+<p><span class="math display">\[
+I_n=\int_0^{3/2}\left(4+x^2\right)^{-1/2-n}\mathrm dx.
+\]</span></p>
+<p><strong>(a)</strong> Find the exact value of <span class="math inline">\(I_1\)</span>, expressing your answer in logarithmic form. <strong>[3]</strong></p>
+<p><strong>(b)</strong> By considering <span class="math inline">\(\dfrac{\mathrm d}{\mathrm dx}\left(x(4+x^2)^{-1/2-n}\right)\)</span>, or otherwise, show that</p>
+<p><span class="math display">\[
+4nI_{n+2}=\left(\frac32\right)\left(\frac52\right)^{-2n-1}+(n-1)I_n.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[
+I_1=\int_0^{3/2}\frac{\mathrm dx}{\sqrt{4+x^2}}
+=\Bigl[\sinh^{-1}\frac{x}{2}\Bigr]_0^{3/2}
+=\sinh^{-1}\frac34
+=\boxed{\ln2}.
+\]</span></p>
+<p><strong>(b)</strong> Differentiating,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(x(4+x^2)^{-1/2-n}\right)
+=(4+x^2)^{-1/2-n}-2nx^2(4+x^2)^{-3/2-n}.
+\]</span></p>
+<p>Using <span class="math inline">\(x^2=(4+x^2)-4\)</span>,</p>
+<p><span class="math display">\[
+=-2n(4+x^2)^{-1/2-n}+(1+2n)(4+x^2)^{-1/2-n}+8n(4+x^2)^{-3/2-n}.
+\]</span></p>
+<p>Integrating from <span class="math inline">\(0\)</span> to <span class="math inline">\(3/2\)</span> gives</p>
+<p><span class="math display">\[
+\frac32\left(\frac{25}{4}\right)^{-1/2-n}
+=8nI_{n+2}-(2n-1)I_n
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{4nI_{n+2}=\frac32\left(\frac25\right)^{2n+1}+(n-1)I_n}.
+\]</span></p>
+<p>The printed form of the mark scheme is</p>
+<p><span class="math display">\[
+4nI_{n+2}=\frac32\left(\frac52\right)^{-2n-1}+(n-1)I_n.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-mj-23-q7"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q7.
+</div>
+</section>
+<section id="octobernovember-923122-question-3-8-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-3-8-marks">2021 October/November · 9231/22 · Question 3 · 8 marks</h3>
+<p>The diagram shows the curve with equation <span class="math inline">\(y=1-x^2\)</span> for <span class="math inline">\(0\leqslant x\leqslant1\)</span>, together with a set of <span class="math inline">\(n\)</span> rectangles of width <span class="math inline">\(\dfrac1n\)</span>.</p>
+<p><strong>(a)</strong> By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\int_0^1(1-x^2)\,\mathrm dx&lt;\frac{4n^2+3n-1}{6n^2}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Use a similar method to find, in terms of <span class="math inline">\(n\)</span>, a lower bound for <span class="math inline">\(\displaystyle\int_0^1(1-x^2)\,\mathrm dx\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The rectangles with heights <span class="math inline">\(1-\frac{r^2}{n^2}\)</span> (<span class="math inline">\(r=1,\dots,n\)</span>) overestimate the area:</p>
+<p><span class="math display">\[
+\int_0^1(1-x^2)\,\mathrm dx
+&lt;\frac1n\sum_{r=1}^{n}\left(1-\frac{r^2}{n^2}\right)
+=1-\frac{n(n+1)(2n+1)}{6n^3}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\int_0^1(1-x^2)\,\mathrm dx&lt;\frac{4n^2+3n-1}{6n^2}}.
+\]</span></p>
+<p><strong>(b)</strong> Using the rectangles that underestimate the area (left endpoints <span class="math inline">\(0,\frac1n,\dots,\frac{n-1}{n}\)</span>),</p>
+<p><span class="math display">\[
+\int_0^1(1-x^2)\,\mathrm dx
+&gt;\frac1n\sum_{r=0}^{n-1}\left(1-\frac{r^2}{n^2}\right)
+=1-\frac{(n-1)n(2n-1)}{6n^3}
+=\boxed{\frac{4n^2-3n-1}{6n^2}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-on-22-q3"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q3.
+</div>
+</section>
+<section id="octobernovember-923122-question-8-15-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-8-15-marks">2021 October/November · 9231/22 · Question 8 · 15 marks</h3>
+<p><strong>(a)</strong> Starting from the definitions of <span class="math inline">\(\tanh\)</span> and <span class="math inline">\(\operatorname{sech}\)</span> in terms of exponentials, prove that <span class="math inline">\(1-\tanh^2x=\operatorname{sech}^2x\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Using the substitution <span class="math inline">\(u=\tanh x\)</span>, or otherwise, find <span class="math inline">\(\displaystyle\int\operatorname{sech}^2x\tanh^2x\,\mathrm dx\)</span>. <strong>[2]</strong></p>
+<p>It is given that, for <span class="math inline">\(n\geqslant0\)</span>,</p>
+<p><span class="math display">\[
+I_n=\int_0^{\ln3}\operatorname{sech}^nx\tanh^2x\,\mathrm dx.
+\]</span></p>
+<p><strong>[You may use the result that <span class="math inline">\(\dfrac{\mathrm d}{\mathrm dx}(\operatorname{sech}x)=-\tanh x\operatorname{sech}x\)</span>.]</strong></p>
+<p><strong>(c)</strong> Show that, for <span class="math inline">\(n\geqslant2\)</span>,</p>
+<p><span class="math display">\[
+(n+1)I_n=\left(\frac35\right)^{n-2}\left(\frac45\right)^3+(n-2)I_{n-2}.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Using the exponential definitions,</p>
+<p><span class="math display">\[
+1-\tanh^2x=1-\left(\frac{e^x-e^{-x}}{e^x+e^{-x}}\right)^2
+=\frac{(e^x+e^{-x})^2-(e^x-e^{-x})^2}{(e^x+e^{-x})^2}
+=\frac4{(e^x+e^{-x})^2}
+=\operatorname{sech}^2x.
+\]</span></p>
+<p><strong>(b)</strong> With <span class="math inline">\(u=\tanh x\)</span>, <span class="math inline">\(\mathrm du=\operatorname{sech}^2x\,\mathrm dx\)</span>:</p>
+<p><span class="math display">\[
+\int\operatorname{sech}^2x\tanh^2x\,\mathrm dx
+=\int u^2\,\mathrm du
+=\boxed{\frac13\tanh^3x+C}.
+\]</span></p>
+<p><strong>(c)</strong> Write</p>
+<p><span class="math display">\[
+I_n=\int_0^{\ln3}\operatorname{sech}^{n-2}x\,\operatorname{sech}^2x\tanh^2x\,\mathrm dx
+=\int_0^{\ln3}\operatorname{sech}^{n-2}x\tanh^2x\,\mathrm d(\tanh x).
+\]</span></p>
+<p>Using the given derivative and the identity <span class="math inline">\(\tanh^2x=1-\operatorname{sech}^2x\)</span> with integration by parts,</p>
+<p><span class="math display">\[
+I_n=\Bigl[\frac13\operatorname{sech}^{n-2}x\tanh^3x\Bigr]_0^{\ln3}
++\frac{n-2}{3}\int_0^{\ln3}\operatorname{sech}^{n-2}x\tanh^4x\,\mathrm dx.
+\]</span></p>
+<p>Using <span class="math inline">\(\tanh^4x=\tanh^2x(1-\operatorname{sech}^2x)\)</span> gives</p>
+<p><span class="math display">\[
+(n+1)I_n=\left(\frac35\right)^{n-2}\left(\frac45\right)^3+(n-2)I_{n-2}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-on-22-q8"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q8.
+</div>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2022</h3>
+</section>
+<section id="mayjune-923121-923122-question-4-8-marks-1" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-4-8-marks-1">2022 May/June · 9231/21 &amp; 9231/22 · Question 4 · 8 marks</h3>
+<p>The diagram shows the curve with equation <span class="math inline">\(y=2^x\)</span> for <span class="math inline">\(0\leqslant x\leqslant1\)</span>, together with a set of <span class="math inline">\(N\)</span> rectangles each of width <span class="math inline">\(\dfrac1N\)</span>.</p>
+<p><strong>(a)</strong> By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\int_0^1 2^x\,\mathrm dx&lt;\frac1N\sum_{r=1}^{N}2^{r/N}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Use a similar method to find, in terms of <span class="math inline">\(N\)</span>, a lower bound for <span class="math inline">\(\displaystyle\int_0^1 2^x\,\mathrm dx\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The rectangles with heights <span class="math inline">\(2^{1/N},2^{2/N},\dots,2^{N/N}\)</span> overestimate the area:</p>
+<p><span class="math display">\[
+\int_0^12^x\,\mathrm dx
+&lt;\frac1N\left(2^{1/N}+2^{2/N}+\cdots+2^{N/N}\right)
+=\boxed{\frac1N\sum_{r=1}^{N}2^{r/N}}.
+\]</span></p>
+<p><strong>(b)</strong> Using the rectangles that underestimate the area (left endpoints <span class="math inline">\(0,\frac1N,\dots,\frac{N-1}{N}\)</span>),</p>
+<p><span class="math display">\[
+\int_0^12^x\,\mathrm dx
+&gt;\frac1N\sum_{r=0}^{N-1}2^{r/N}.
+\]</span></p>
+<p>Using the geometric series formula,</p>
+<p><span class="math display">\[
+\sum_{r=0}^{N-1}2^{r/N}
+=\frac{2^{N/N}-1}{2^{1/N}-1}
+=\frac{1}{2^{1/N}-1},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\int_0^12^x\,\mathrm dx&gt;\frac1{N(2^{1/N}-1)}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2022-mj-21-22-q4"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2022, Q4; 9231/22/M/J/2022, Q4.
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2023</h3>
+</section>
+<section id="octobernovember-923122-question-5b-6-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-5b-6-marks">2023 October/November · 9231/22 · Question 5(b) · 6 marks</h3>
+<p>The diagram shows part of the curve <span class="math inline">\(y=x\operatorname{sech}^2x\)</span> and its maximum point <span class="math inline">\(M\)</span>.</p>
+<p>By considering a suitable set of rectangles, use the diagram to show that</p>
+<p><span class="math display">\[
+\sum_{r=2}^{n}r\operatorname{sech}^2r&lt;\frac12\left(n\tanh n+\ln\operatorname{sech}n-\tanh1-\ln\operatorname{sech}1\right).
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>The rectangles overestimate the area under <span class="math inline">\(y=x\operatorname{sech}^2x\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=n\)</span>:</p>
+<p><span class="math display">\[
+\sum_{r=2}^{n}r\operatorname{sech}^2r
+&lt;\int_1^n x\operatorname{sech}^2x\,\mathrm dx.
+\]</span></p>
+<p>Integrating by parts with <span class="math inline">\(u=x\)</span>, <span class="math inline">\(\mathrm dv=\operatorname{sech}^2x\,\mathrm dx\)</span>,</p>
+<p><span class="math display">\[
+\int x\operatorname{sech}^2x\,\mathrm dx
+=x\tanh x-\int\tanh x\,\mathrm dx
+=x\tanh x+\ln\operatorname{sech}x+C.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\sum_{r=2}^{n}r\operatorname{sech}^2r
+&lt;\Bigl[x\tanh x+\ln\operatorname{sech}x\Bigr]_1^n
+=\boxed{n\tanh n+\ln\operatorname{sech}n-\tanh1-\ln\operatorname{sech}1}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2023-on-22-q5b"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q5(b).
+</div>
+</section>
+<section id="octobernovember-923122-question-7b-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-7b-9-marks">2023 October/November · 9231/22 · Question 7(b) · 9 marks</h3>
+<p>A curve has equation <span class="math inline">\(y=\frac23x^{3/2}\)</span>, for <span class="math inline">\(0\leqslant x\leqslant2\)</span>. The area of the surface generated when the curve is rotated through <span class="math inline">\(2\pi\)</span> radians about the <span class="math inline">\(x\)</span>-axis is denoted by <span class="math inline">\(S\)</span>.</p>
+<p>Use the substitution <span class="math inline">\(x=\frac12\sinh u\)</span> to show that</p>
+<p><span class="math display">\[
+S=\frac{\pi}{32}\left(\frac{8}{9}\sqrt{80}-\ln3\right).
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>For <span class="math inline">\(y=\frac23x^{3/2}\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=x^{1/2},
+\qquad
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+x}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+S=2\pi\int_0^2\frac23x^{3/2}\sqrt{1+x}\,\mathrm dx.
+\]</span></p>
+<p>Using <span class="math inline">\(x=\frac12\sinh u\)</span>, <span class="math inline">\(\mathrm dx=\frac12\cosh u\,\mathrm du\)</span>, with <span class="math inline">\(x=0\Rightarrow u=0\)</span> and <span class="math inline">\(x=2\Rightarrow u=\sinh^{-1}4\)</span>,</p>
+<p><span class="math display">\[
+S=\frac{\pi}{4}\int_0^{\sinh^{-1}4}\sinh^{3/2}u\sqrt{1+\frac12\sinh u}\cdot\frac12\cosh u\,\mathrm du.
+\]</span></p>
+<p>Using <span class="math inline">\(\cosh^2u=1+\sinh^2u\)</span> and simplifying,</p>
+<p><span class="math display">\[
+S=\frac{\pi}{32}\int_0^{\sinh^{-1}4}\sinh^2u\cosh u\,\mathrm du.
+\]</span></p>
+<p>Evaluating the integral gives</p>
+<p><span class="math display">\[
+\boxed{S=\frac{\pi}{32}\left(\frac{8}{9}\sqrt{80}-\ln3\right)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2023-on-22-q7b"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q7(b).
+</div>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2024</h3>
+</section>
+<section id="mayjune-923123-question-4-10-marks-1" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-4-10-marks-1">2024 May/June · 9231/23 · Question 4 · 10 marks</h3>
+<p>The diagram shows the curve with equation <span class="math inline">\(y=x^{-2}\)</span> for <span class="math inline">\(2\leqslant x\leqslant N\)</span>, together with a set of <span class="math inline">\(N-2\)</span> rectangles of unit width.</p>
+<p><strong>(a)</strong> By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}\frac1{r^2}&gt;\frac32-\frac1N+\frac1{N^2}.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p><strong>(b)</strong> Use a similar method to show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}\frac1{r^2}&lt;\frac74-\frac1N.
+\]</span></p>
+<p><strong>[3]</strong></p>
+<p><strong>(c)</strong> Hence find a lower bound for <span class="math inline">\(\displaystyle\sum_{r=1}^{\infty}\frac1{r^2}\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The rectangles overestimate the area under <span class="math inline">\(y=x^{-2}\)</span> from <span class="math inline">\(x=2\)</span> to <span class="math inline">\(x=N\)</span>:</p>
+<p><span class="math display">\[
+\sum_{r=2}^{N-1}\frac1{r^2}&gt;\int_2^Nx^{-2}\,\mathrm dx
+=\Bigl[-x^{-1}\Bigr]_2^N
+=\frac12-\frac1N.
+\]</span></p>
+<p>Adding the terms <span class="math inline">\(r=1\)</span> and <span class="math inline">\(r=N\)</span> to both sides,</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}\frac1{r^2}
+&gt;1+\frac1{N^2}+\frac12-\frac1N
+=\boxed{\frac32-\frac1N+\frac1{N^2}}.
+\]</span></p>
+<p><strong>(b)</strong> Using rectangles that underestimate the area,</p>
+<p><span class="math display">\[
+\sum_{r=3}^{N}\frac1{r^2}&lt;\int_2^Nx^{-2}\,\mathrm dx
+=\frac12-\frac1N.
+\]</span></p>
+<p>Adding <span class="math inline">\(r=1\)</span> and <span class="math inline">\(r=2\)</span> gives</p>
+<p><span class="math display">\[
+\sum_{r=1}^{N}\frac1{r^2}
+&lt;1+\frac14+\frac12-\frac1N
+=\boxed{\frac74-\frac1N}.
+\]</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">\(\sum_{r=1}^{N}\frac1{r^2}&gt;\frac32-\frac1N+\frac1{N^2}\)</span> for all <span class="math inline">\(N\)</span>, letting <span class="math inline">\(N\to\infty\)</span> gives</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{\infty}\frac1{r^2}\geqslant\frac32}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2024-mj-23-q4"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q4.
+</div>
+</section>
+<section id="octobernovember-923121-923123-question-3-8-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-3-8-marks">2024 October/November · 9231/21 &amp; 9231/23 · Question 3 · 8 marks</h3>
+<p>A curve has equation <span class="math inline">\(y=e^{x/3}\)</span> for <span class="math inline">\(\ln4\leqslant x\leqslant\ln12\)</span>. The area of the surface generated when the curve is rotated through <span class="math inline">\(2\pi\)</span> radians about the <span class="math inline">\(x\)</span>-axis is denoted by <span class="math inline">\(A\)</span>.</p>
+<p><strong>(a)</strong> Use the substitution <span class="math inline">\(u=e^{x/3}\)</span> to show that</p>
+<p><span class="math display">\[
+A=2\pi\int_{4^{1/3}}^{12^{1/3}}\frac{u^2\sqrt{1+u^2}}{u}\,\mathrm du.
+\]</span></p>
+<p><strong>[2]</strong></p>
+<p><strong>(b)</strong> Use the substitution <span class="math inline">\(u=\sinh v\)</span> to show that</p>
+<p><span class="math display">\[
+A=\frac{\pi}{225}(904+\ln5).
+\]</span></p>
+<p><strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> For <span class="math inline">\(y=e^{x/3}\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac13e^{x/3},
+\qquad
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+\frac19e^{2x/3}}.
+\]</span></p>
+<p>With <span class="math inline">\(u=e^{x/3}\)</span>, <span class="math inline">\(\mathrm du=\frac13e^{x/3}\mathrm dx=\frac{u}{3}\mathrm dx\)</span>:</p>
+<p><span class="math display">\[
+A=2\pi\int y\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx
+=2\pi\int_{4^{1/3}}^{12^{1/3}}u\sqrt{1+\frac{u^2}{9}}\cdot\frac3u\,\mathrm du
+=2\pi\int_{4^{1/3}}^{12^{1/3}}\sqrt{9+u^2}\,\mathrm du.
+\]</span></p>
+<p><strong>(b)</strong> With <span class="math inline">\(u=\sinh v\)</span>, <span class="math inline">\(\mathrm du=\cosh v\,\mathrm dv\)</span>,</p>
+<p><span class="math display">\[
+A=2\pi\int\sqrt{9+\sinh^2v}\cosh v\,\mathrm dv.
+\]</span></p>
+<p>Using <span class="math inline">\(\cosh^2v=1+\sinh^2v\)</span> and <span class="math inline">\(2\cosh^2v=\cosh2v+1\)</span>,</p>
+<p><span class="math display">\[
+A=\pi\int(\cosh2v+1)\,\mathrm dv
+=\pi\Bigl[\frac12\sinh2v+v\Bigr].
+\]</span></p>
+<p>With the limits <span class="math inline">\(u=4^{1/3}\Rightarrow v=\sinh^{-1}(4^{1/3})\)</span> and <span class="math inline">\(u=12^{1/3}\Rightarrow v=\sinh^{-1}(12^{1/3})\)</span>,</p>
+<p><span class="math display">\[
+\boxed{A=\frac{\pi}{225}(904+\ln5)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2024-on-21-23-q3"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/O/N/2024, Q3; 9231/23/O/N/2024, Q3.
+</div>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">2025</h3>
+</section>
+<section id="mayjune-923121-923122-question-2-7-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-2-7-marks">2025 May/June · 9231/21 &amp; 9231/22 · Question 2 · 7 marks</h3>
+<p>Let <span class="math inline">\(I_n=\displaystyle\int_0^1(1-x)^n\sinh x\,\mathrm dx\)</span>, where <span class="math inline">\(n\)</span> is a non-negative integer.</p>
+<p><strong>(a)</strong> Show that, for <span class="math inline">\(n\geqslant2\)</span>,</p>
+<p><span class="math display">\[
+I_n=-1+n(n-1)I_{n-2}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Find the exact value of <span class="math inline">\(I_2\)</span>. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Integrating by parts twice:</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_n&amp;=\Bigl[(1-x)^n\cosh x\Bigr]_0^1+n\int_0^1(1-x)^{n-1}\cosh x\,\mathrm dx\\
+&amp;=-1+n\Bigl[(1-x)^{n-1}\sinh x\Bigr]_0^1+(n-1)n\int_0^1(1-x)^{n-2}\sinh x\,\mathrm dx\\
+&amp;=-1+n(n-1)I_{n-2}.
+\end{aligned}
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{I_n=-1+n(n-1)I_{n-2}}.
+\]</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">\(I_0=\displaystyle\int_0^1\sinh x\,\mathrm dx=\cosh1-1\)</span>,</p>
+<p><span class="math display">\[
+I_2=-1+2I_0=-1+2(\cosh1-1)
+=\boxed{2\cosh1-3}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2025-mj-21-22-q2"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2025, Q2; 9231/22/M/J/2025, Q2.
+</div>
+</section>
+<section id="mayjune-923121-923122-question-4-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-4-9-marks">2025 May/June · 9231/21 &amp; 9231/22 · Question 4 · 9 marks</h3>
+<p>The diagram shows the curve with equation <span class="math inline">\(y=\dfrac{e^x}{x}\)</span> for <span class="math inline">\(x\geqslant1\)</span>, together with a set of <span class="math inline">\(n-1\)</span> rectangles of unit width.</p>
+<p><strong>(a)</strong> By considering the sum of the areas of these rectangles, show that</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac{e^{r/n}}{r}&lt;\frac2n e^{1/n}+e-2e.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p><strong>(b)</strong> Use a similar method to find, in terms of <span class="math inline">\(n\)</span>, a lower bound for <span class="math inline">\(\displaystyle\sum_{r=1}^{n}\frac{e^{r/n}}{r}\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> The rectangles overestimate the area under <span class="math inline">\(y=\frac{e^x}{x}\)</span> from <span class="math inline">\(x=1\)</span> to <span class="math inline">\(x=2\)</span> (with width <span class="math inline">\(\frac1n\)</span>), giving</p>
+<p><span class="math display">\[
+\sum_{r=1}^{n}\frac1n\cdot\frac{e^{r/n}}{r/n}
+&lt;\int_1^2\frac{e^x}{x}\,\mathrm dx.
+\]</span></p>
+<p>Using the substitution <span class="math inline">\(u=\sqrt x\)</span>, the mark scheme obtains the printed form</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac{e^{r/n}}{r}&lt;\frac2n e^{1/n}+e-2e}.
+\]</span></p>
+<p><strong>(b)</strong> Using rectangles that underestimate the area,</p>
+<p><span class="math display">\[
+\boxed{\sum_{r=1}^{n}\frac{e^{r/n}}{r}&gt;\frac2n e^{1/n}-e}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2025-mj-21-22-q4"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2025, Q4; 9231/22/M/J/2025, Q4.
+</div>
+</section>
+<section id="octobernovember-923121-923123-question-3-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-3-9-marks">2025 October/November · 9231/21 &amp; 9231/23 · Question 3 · 9 marks</h3>
+<p>The integral <span class="math inline">\(I_n\)</span> is defined by</p>
+<p><span class="math display">\[
+I_n=\int_0^1\left(1+x^2\right)^n\mathrm dx.
+\]</span></p>
+<p><strong>(a)</strong> By considering <span class="math inline">\(\dfrac{\mathrm d}{\mathrm dx}\left(x(1+x^2)^n\right)\)</span>, or otherwise, show that</p>
+<p><span class="math display">\[
+(2n+1)I_n=2^n+2nI_{n-1}.
+\]</span></p>
+<p><strong>[5]</strong></p>
+<p><strong>(b)</strong> Find the exact value of <span class="math inline">\(I_2\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Differentiating,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(x(1+x^2)^n\right)
+=(1+x^2)^n+2nx^2(1+x^2)^{n-1}.
+\]</span></p>
+<p>Using <span class="math inline">\(x^2=(1+x^2)-1\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(x(1+x^2)^n\right)
+=(2n+1)(1+x^2)^n-2n(1+x^2)^{n-1}.
+\]</span></p>
+<p>Integrating from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>,</p>
+<p><span class="math display">\[
+\Bigl[x(1+x^2)^n\Bigr]_0^1
+=(2n+1)I_n-2nI_{n-1}.
+\]</span></p>
+<p>Since <span class="math inline">\(x(1+x^2)^n\)</span> at <span class="math inline">\(x=1\)</span> is <span class="math inline">\(2^n\)</span>, we get</p>
+<p><span class="math display">\[
+\boxed{(2n+1)I_n=2^n+2nI_{n-1}}.
+\]</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">\(I_0=1\)</span>,</p>
+<p><span class="math display">\[
+I_1=\frac{2^1+2I_0}{3}=\frac43,
+\]</span></p>
+<p><span class="math display">\[
+I_2=\frac{2^2+4I_1}{5}
+=\frac{4+\frac{16}{3}}{5}
+=\boxed{\frac{28}{15}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2025-on-21-23-q3"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/O/N/2025, Q3; 9231/23/O/N/2025, Q3.
+</div>
+</section>
+<section id="octobernovember-923124-question-1-5-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923124-question-1-5-marks">2025 October/November · 9231/24 · Question 1 · 5 marks</h3>
+<p>It is given that <span class="math inline">\(I_n=\displaystyle\int_0^1x^n\sinh x\,\mathrm dx\)</span>, where <span class="math inline">\(n\)</span> is a non-negative integer.</p>
+<p><strong>(a)</strong> Show that, for <span class="math inline">\(n\geqslant2\)</span>,</p>
+<p><span class="math display">\[
+I_n=\cosh1-n\sinh1+n(n-1)I_{n-2}.
+\]</span></p>
+<p><strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the exact value of <span class="math inline">\(I_2\)</span>. <strong>[2]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Integrating by parts twice:</p>
+<p><span class="math display">\[
+\begin{aligned}
+I_n&amp;=\Bigl[x^n\cosh x\Bigr]_0^1-n\int_0^1x^{n-1}\cosh x\,\mathrm dx\\
+&amp;=\cosh1-n\Bigl(\Bigl[x^{n-1}\sinh x\Bigr]_0^1-(n-1)I_{n-2}\Bigr)\\
+&amp;=\boxed{\cosh1-n\sinh1+n(n-1)I_{n-2}}.
+\end{aligned}
+\]</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">\(I_0=\displaystyle\int_0^1\sinh x\,\mathrm dx=\cosh1-1\)</span>,</p>
+<p><span class="math display">\[
+I_2=\cosh1-2\sinh1+2(\cosh1-1)
+=\boxed{3\cosh1-2\sinh1-2}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2025-on-24-q1"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/24/O/N/2025, Q1.
+</div>
+</section>
+</section>
+<section id="完成本节的判断标准" class="level2">
+<h2 class="anchored" data-anchor-id="完成本节的判断标准">4. 完成本节的判断标准</h2>
+<ol type="1">
+<li>能直接写出双曲函数的积分和四个标准积分形式；</li>
+<li>配方后能正确选择三角或双曲代换并完成积分；</li>
+<li>能推导递推公式并用它计算具体定积分；</li>
+<li>能用矩形面积证明积分不等式，或给出和式的上界与下界；</li>
+<li>能写出弧长与曲面面积公式并正确代入。 本节保留教材 Chapter 4 的全部编号 Example（Example 1–15）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-2/differentiation.html" class="pagination-link" aria-label="2.3 Differentiation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.3 Differentiation</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
