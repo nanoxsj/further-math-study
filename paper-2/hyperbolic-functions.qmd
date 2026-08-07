@@ -1,0 +1,159 @@
+---
+title: "2.1 Hyperbolic functions"
+subtitle: "定义 · 图像 · 恒等式 · 反双曲函数"
+description: "CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 1。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 理解双曲函数 $\sinh x$、$\cosh x$、$\tanh x$、$\operatorname{sech}x$、$\operatorname{cosech}x$、$\coth x$ 用指数函数给出的定义；
+2. 作出双曲函数的图像；
+3. 证明并使用双曲函数恒等式，例如 $\cosh^2x-\sinh^2x\equiv1$、$\sinh2x\equiv2\sinh x\cosh x$，以及对应于标准三角恒等式的类似结果；
+4. 理解反双曲函数的定义，推导并使用其对数形式。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能由指数定义直接计算 $\sinh$、$\cosh$、$\tanh$ 及余函数的值
+- [ ] 能说明每个双曲函数的定义域、值域、奇偶性与渐近线
+- [ ] 能由 $\sinh x$、$\cosh x$ 的图像作出 $\tanh x$、$\coth x$、$\operatorname{sech}x$、$\operatorname{cosech}x$ 的图像
+- [ ] 能证明 $\cosh^2x-\sinh^2x=1$ 并会用 Osborn's rule 转换三角恒等式
+- [ ] 能写出 $\sinh^{-1}x$、$\cosh^{-1}x$、$\tanh^{-1}x$ 的对数形式并注意定义域
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Definitions of the hyperbolic functions
+
+双曲正弦与双曲余弦用指数函数定义为
+
+$$
+\boxed{\sinh x=\frac{e^x-e^{-x}}2,\qquad x\in\mathbb R}
+$$
+
+$$
+\boxed{\cosh x=\frac{e^x+e^{-x}}2,\qquad x\in\mathbb R}.
+$$
+
+由它们可以定义其余四个双曲函数：
+
+$$
+\tanh x=\frac{\sinh x}{\cosh x}
+=\frac{e^x-e^{-x}}{e^x+e^{-x}},\qquad x\in\mathbb R,
+$$
+
+$$
+\coth x=\frac{\cosh x}{\sinh x}
+=\frac{e^x+e^{-x}}{e^x-e^{-x}},\qquad x\in\mathbb R,\ x\ne0,
+$$
+
+$$
+\operatorname{cosech}x=\frac1{\sinh x}
+=\frac2{e^x-e^{-x}},\qquad x\in\mathbb R,\ x\ne0,
+$$
+
+$$
+\operatorname{sech}x=\frac1{\cosh x}
+=\frac2{e^x+e^{-x}},\qquad x\in\mathbb R.
+$$
+
+### 1.2 Graphs of the hyperbolic functions
+
+作双曲函数图像时，常用 $\sinh x$ 与 $\cosh x$ 分别作为 $e^x$ 与 $\pm e^{-x}$ 的平均值来理解，再逐段分析奇偶性、渐近线和极值。
+
+{{< include figures/hyperbolic/graph-sinh.svg >}}
+
+{{< include figures/hyperbolic/graph-cosh.svg >}}
+
+{{< include figures/hyperbolic/graph-tanh.svg >}}
+
+{{< include figures/hyperbolic/graph-coth.svg >}}
+
+{{< include figures/hyperbolic/graph-cosech.svg >}}
+
+{{< include figures/hyperbolic/graph-sech.svg >}}
+
+### 1.3 Identities involving hyperbolic functions
+
+双曲函数恒等式与三角恒等式十分相似。核心恒等式为
+
+$$
+\boxed{\cosh^2x-\sinh^2x=1}.
+$$
+
+由此可推出
+
+$$
+\operatorname{sech}^2x=1-\tanh^2x,
+$$
+
+$$
+\operatorname{cosech}^2x=\coth^2x-1.
+$$
+
+二倍角公式：
+
+$$
+\sinh2x=2\sinh x\cosh x,
+$$
+
+$$
+\cosh2x=\cosh^2x+\sinh^2x=2\cosh^2x-1=2\sinh^2x+1.
+$$
+
+加法公式：
+
+$$
+\cosh(A\pm B)=\cosh A\cosh B\pm\sinh A\sinh B,
+$$
+
+$$
+\sinh(A\pm B)=\sinh A\cosh B\pm\cosh A\sinh B,
+$$
+
+$$
+\tanh(A\pm B)=\frac{\tanh A\pm\tanh B}{1\pm\tanh A\tanh B}.
+$$
+
+把三角恒等式转换为双曲恒等式时使用 Osborn's rule：把三角函数换成对应的双曲函数，凡出现两个 $\sinh$ 相乘，就把该处的正负号反转。例如由 $\cos^2x+\sin^2x=1$ 得到 $\cosh^2x-\sinh^2x=1$。
+
+### 1.4 Inverse hyperbolic functions
+
+反双曲函数是对应双曲函数在限制定义域后的反函数，图像是原函数关于直线 $y=x$ 的反射。考试常用对数形式：
+
+$$
+\boxed{\sinh^{-1}x=\ln\left(x+\sqrt{x^2+1}\right),\qquad x\in\mathbb R}
+$$
+
+$$
+\boxed{\cosh^{-1}x=\ln\left(x+\sqrt{x^2-1}\right),\qquad x\geqslant1}
+$$
+
+$$
+\boxed{\tanh^{-1}x=\frac12\ln\left(\frac{1+x}{1-x}\right),\qquad |x|<1.}
+$$
+
+反双曲函数也可写成 $\operatorname{arsinh}x$、$\operatorname{arcosh}x$、$\operatorname{artanh}x$ 等形式。$\cosh x$ 必须先限制为 $x\geqslant0$ 才是单射，因此 $\cosh^{-1}x$ 只取非负值。
+
+## 2. Textbook Examples
+
+{{< include hyperbolic-examples.qmd >}}
+
+## 3. Past-paper question bank
+
+{{< include hyperbolic-past-papers.qmd >}}
+
+## 4. 完成本节的判断标准
+
+1. 能熟练在指数形式与双曲函数形式之间转换；
+2. 能说出六个双曲函数的定义域、值域、奇偶性和渐近线；
+3. 能证明 $\cosh^2x-\sinh^2x=1$ 以及二倍角、加法公式；
+4. 能解含 $\sinh x$、$\cosh x$ 的方程，必要时化为关于 $e^x$ 或 $\sinh x$ 的二次方程；
+5. 能写出三个常用反双曲函数的对数形式并正确使用定义域。
+本节保留教材 Chapter 1 的全部编号 Example（Example 1–17）。题意与符号按教材重写，作图题配原创 SVG 示意图。

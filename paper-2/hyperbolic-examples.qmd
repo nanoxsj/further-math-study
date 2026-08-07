@@ -1,0 +1,373 @@
+::: {.study-card}
+### Example 1 · Page 4
+
+Write $\sinh 2$ in terms of the exponential function.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Since
+
+$$
+\sinh x=\frac{e^x-e^{-x}}2,
+$$
+
+putting $x=2$ gives
+
+$$
+\boxed{\sinh 2=\frac{e^2-e^{-2}}2}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2 · Page 4
+
+Find the value of $\sinh 2$ to 3 decimal places.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using the hyperbolic function on a calculator, or substituting into the exponential form,
+
+$$
+\boxed{\sinh 2=3.627}\ \text{to 3 d.p.}
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3 · Page 5
+
+Find the exact value of $\operatorname{sech}(\ln 2)$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using $\operatorname{sech}x=\dfrac2{e^x+e^{-x}}$ with $x=\ln2$,
+
+$$
+\operatorname{sech}(\ln2)=\frac2{2+\frac12}
+=\frac2{\frac52}
+=\boxed{\frac45}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4 · Page 5
+
+Find the value(s) of $x$, to 3 decimal places, for which $\cosh x=2$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using $\cosh x=\dfrac{e^x+e^{-x}}2$,
+
+$$
+\frac{e^x+e^{-x}}2=2
+\;\Longrightarrow\;
+e^{2x}-4e^x+1=0.
+$$
+
+The quadratic formula gives
+
+$$
+e^x=2\pm\sqrt3=3.732\ldots\ \text{or}\ 0.267\ldots,
+$$
+
+so
+
+$$
+\boxed{x=\ln(3.732\ldots)=1.317\ \text{or}\ x=\ln(0.267\ldots)=-1.317}
+$$
+
+to 3 decimal places.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5 · Page 6
+
+Sketch the graph of $f(x)=\sinh x$ for $-5\leqslant x\leqslant5$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$\sinh x$ is the mean of $e^x$ and $-e^{-x}$. Sketch these two curves and take their mean at each value of $x$.
+
+{{< include figures/hyperbolic/graph-sinh.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6 · Page 6
+
+Sketch the graph of $f(x)=\cosh x$ for $-5\leqslant x\leqslant5$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$\cosh x$ is the mean of $e^x$ and $e^{-x}$; the curve is symmetric about the $y$-axis and has minimum point $(0,1)$.
+
+{{< include figures/hyperbolic/graph-cosh.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 7 · Page 7
+
+Sketch the graph of $f(x)=\tanh x$ for $-2.5\leqslant x\leqslant2.5$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$y=\tanh x$ is odd and approaches the horizontal asymptotes $y=\pm1$.
+
+{{< include figures/hyperbolic/graph-tanh.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 8 · Page 7
+
+Sketch the graph of $f(x)=\coth x$ for $-10\leqslant x\leqslant10$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$y=\coth x$ is undefined at $x=0$; the lines $x=0$ and $y=\pm1$ are asymptotes.
+
+{{< include figures/hyperbolic/graph-coth.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-8"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 9 · Page 8
+
+Sketch the graph of $f(x)=\operatorname{cosech}x$ for $-10\leqslant x\leqslant10$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$y=\operatorname{cosech}x$ is undefined at $x=0$, and the lines $x=0$ and $y=0$ are asymptotes.
+
+{{< include figures/hyperbolic/graph-cosech.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-9"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 10 · Page 8
+
+Sketch the graph of $f(x)=\operatorname{sech}x$ for $-5\leqslant x\leqslant5$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$y=\operatorname{sech}x$ has a maximum at $(0,1)$ and the line $y=0$ is an asymptote.
+
+{{< include figures/hyperbolic/graph-sech.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-10"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 11 · Page 9
+
+Determine whether the trigonometric identity $\cos^2x+\sin^2x=1$ can be converted to $\cosh^2x+\sinh^2x=1$ for hyperbolic functions.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Substitute the exponential forms:
+
+$$
+\cosh^2x+\sinh^2x
+=\left(\frac{e^x+e^{-x}}2\right)^2+\left(\frac{e^x-e^{-x}}2\right)^2.
+$$
+
+Expanding,
+
+$$
+\frac{e^{2x}+2+e^{-2x}}4+\frac{e^{2x}-2+e^{-2x}}4
+=\frac{e^{2x}+e^{-2x}}2.
+$$
+
+This is not equal to $1$, so
+
+$$
+\boxed{\cosh^2x+\sinh^2x\neq1}.
+$$
+
+The correct identity is $\cosh^2x-\sinh^2x=1$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-11"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 12 · Page 10
+
+Show that $\cosh(A+B)=\cosh A\cosh B+\sinh A\sinh B$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Substitute the exponential forms:
+
+$$
+\begin{aligned}
+\cosh A\cosh B+\sinh A\sinh B
+&=\left(\frac{e^A+e^{-A}}2\right)\left(\frac{e^B+e^{-B}}2\right)
++\left(\frac{e^A-e^{-A}}2\right)\left(\frac{e^B-e^{-B}}2\right)\\
+&=\frac{e^{A+B}+e^{A-B}+e^{-A+B}+e^{-A-B}}4\\
+&\quad+\frac{e^{A+B}-e^{A-B}-e^{-A+B}+e^{-A-B}}4\\
+&=\frac{2e^{A+B}+2e^{-(A+B)}}4\\
+&=\frac{e^{A+B}+e^{-(A+B)}}2\\
+&=\cosh(A+B).
+\end{aligned}
+$$
+
+The related results
+
+$$
+\cosh(A-B)=\cosh A\cosh B-\sinh A\sinh B,
+$$
+
+$$
+\sinh(A\pm B)=\sinh A\cosh B\pm\cosh A\sinh B
+$$
+
+follow in the same way.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-12"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 13 · Page 11
+
+Given that $\cosh x=3$, find the value of:
+
+**(a)** $\sinh x$;
+
+**(b)** $\tanh x$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** Using $\cosh^2x-\sinh^2x=1$,
+
+$$
+9-\sinh^2x=1
+\;\Longrightarrow\;
+\sinh^2x=8,
+$$
+
+so
+
+$$
+\boxed{\sinh x=\pm2\sqrt2}.
+$$
+
+**(b)** Using $\tanh x=\dfrac{\sinh x}{\cosh x}$,
+
+$$
+\boxed{\tanh x=\pm\frac{2\sqrt2}3}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-13"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 14 · Page 13
+
+Sketch the graph and state the domain of $y=\sinh^{-1}x$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The graph of $y=\sinh^{-1}x$ is the reflection of $y=\sinh x$ in the line $y=x$. Since $\sinh x$ is one-to-one on $\mathbb R$,
+
+$$
+\boxed{\text{domain: }x\in\mathbb R}.
+$$
+
+{{< include figures/hyperbolic/graph-arsinh.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-14"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 15 · Page 14
+
+State a possible domain of $\cosh^{-1}x$ and sketch the graph for your chosen domain. What are the implications for the domain of $y=\cosh x$ for $y=\cosh^{-1}x$ to be a function?
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$\cosh x$ is many-to-one, so its domain is restricted to $x\geqslant0$. The inverse function then has
+
+$$
+\boxed{\text{domain: }x\geqslant1}.
+$$
+
+{{< include figures/hyperbolic/graph-arcosh.svg >}}
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-15"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 16 · Page 14
+
+Write $\sinh^{-1}x$ in logarithmic form.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Let $y=\sinh^{-1}x$, so $x=\sinh y$. Then
+
+$$
+x=\frac{e^y-e^{-y}}2
+\;\Longrightarrow\;
+e^{2y}-2xe^y-1=0.
+$$
+
+The quadratic formula gives
+
+$$
+e^y=x\pm\sqrt{x^2+1}.
+$$
+
+The negative sign gives a negative value of $e^y$, which is impossible, so
+
+$$
+\boxed{\sinh^{-1}x=\ln\left(x+\sqrt{x^2+1}\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-16"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 17 · Page 15
+
+Write $\sinh^{-1}2$ in logarithmic form.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Substitute $x=2$ into $\sinh^{-1}x=\ln\left(x+\sqrt{x^2+1}\right)$:
+
+$$
+\boxed{\sinh^{-1}2=\ln\left(2+\sqrt5\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="hyp-example-17"> Completed</label>
+:::

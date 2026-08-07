@@ -83,4 +83,17 @@ subtitle: "2026–2027 syllabus · 9231"
 - 教材 Example 2.9–2.13
 :::
 
+## Paper 2 · Further Pure Mathematics 2
+
+::: {.topic-card}
+### [2.1 Hyperbolic functions](paper-2/hyperbolic-functions.qmd)
+
+- 双曲函数与反双曲函数的指数、对数定义
+- 六个双曲函数图像的绘制要点
+- 核心恒等式、二倍角与加法公式
+- Osborn's rule
+- 教材 Example 1–17 及原创作图
+- 2021–2023 Paper 2 对应真题
+:::
+
 后续章节将沿用相同结构继续制作。
