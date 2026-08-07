@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 3。">
+
+<title>2.3 Differentiation – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-2/matrices.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-2/hyperbolic-functions.html">Paper 2 · Further Pure Mathematics 2</a></li><li class="breadcrumb-item"><a href="../paper-2/differentiation.html">2.3 Differentiation</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Hyperbolic functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differentiation.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.3 Differentiation</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#differentiating-hyperbolic-functions" id="toc-differentiating-hyperbolic-functions" class="nav-link" data-scroll-target="#differentiating-hyperbolic-functions">1.1 Differentiating hyperbolic functions</a></li>
+  <li><a href="#differentiating-inverse-functions" id="toc-differentiating-inverse-functions" class="nav-link" data-scroll-target="#differentiating-inverse-functions">1.2 Differentiating inverse functions</a></li>
+  <li><a href="#implicit-second-derivatives" id="toc-implicit-second-derivatives" class="nav-link" data-scroll-target="#implicit-second-derivatives">1.3 Implicit second derivatives</a></li>
+  <li><a href="#parametric-second-derivatives" id="toc-parametric-second-derivatives" class="nav-link" data-scroll-target="#parametric-second-derivatives">1.4 Parametric second derivatives</a></li>
+  <li><a href="#maclaurin-series" id="toc-maclaurin-series" class="nav-link" data-scroll-target="#maclaurin-series">1.5 Maclaurin series</a></li>
+  <li><a href="#maclaurin-series-by-implicit-differentiation" id="toc-maclaurin-series-by-implicit-differentiation" class="nav-link" data-scroll-target="#maclaurin-series-by-implicit-differentiation">1.6 Maclaurin series by implicit differentiation</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1-page-62" id="toc-example-1-page-62" class="nav-link" data-scroll-target="#example-1-page-62">Example 1 · Page 62</a></li>
+  <li><a href="#example-2-page-63" id="toc-example-2-page-63" class="nav-link" data-scroll-target="#example-2-page-63">Example 2 · Page 63</a></li>
+  <li><a href="#example-3-page-64" id="toc-example-3-page-64" class="nav-link" data-scroll-target="#example-3-page-64">Example 3 · Page 64</a></li>
+  <li><a href="#example-4-page-69" id="toc-example-4-page-69" class="nav-link" data-scroll-target="#example-4-page-69">Example 4 · Page 69</a></li>
+  <li><a href="#example-5-page-70" id="toc-example-5-page-70" class="nav-link" data-scroll-target="#example-5-page-70">Example 5 · Page 70</a></li>
+  <li><a href="#example-6-page-73" id="toc-example-6-page-73" class="nav-link" data-scroll-target="#example-6-page-73">Example 6 · Page 73</a></li>
+  <li><a href="#example-7-page-74" id="toc-example-7-page-74" class="nav-link" data-scroll-target="#example-7-page-74">Example 7 · Page 74</a></li>
+  </ul></li>
+  <li><a href="#past-paper-question-bank" id="toc-past-paper-question-bank" class="nav-link" data-scroll-target="#past-paper-question-bank">3. Past-paper question bank</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2020</a></li>
+  <li><a href="#mayjune-923121-923122-question-2-7-marks" id="toc-mayjune-923121-923122-question-2-7-marks" class="nav-link" data-scroll-target="#mayjune-923121-923122-question-2-7-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 2 · 7 marks</a></li>
+  <li><a href="#mayjune-923123-question-5b-4-marks" id="toc-mayjune-923123-question-5b-4-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-5b-4-marks">2020 May/June · 9231/23 · Question 5(b) · 4 marks</a></li>
+  <li><a href="#mayjune-923123-question-6bc-9-marks" id="toc-mayjune-923123-question-6bc-9-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-6bc-9-marks">2020 May/June · 9231/23 · Question 6(b)–(c) · 9 marks</a></li>
+  <li><a href="#octobernovember-923121-923123-question-5-9-marks" id="toc-octobernovember-923121-923123-question-5-9-marks" class="nav-link" data-scroll-target="#octobernovember-923121-923123-question-5-9-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 5 · 9 marks</a></li>
+  <li><a href="#octobernovember-923122-question-1-5-marks" id="toc-octobernovember-923122-question-1-5-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-1-5-marks">2020 October/November · 9231/22 · Question 1 · 5 marks</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2021</a></li>
+  <li><a href="#mayjune-923123-question-2-7-marks" id="toc-mayjune-923123-question-2-7-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-2-7-marks">2021 May/June · 9231/23 · Question 2 · 7 marks</a></li>
+  <li><a href="#octobernovember-923122-question-1-3-marks" id="toc-octobernovember-923122-question-1-3-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-1-3-marks">2021 October/November · 9231/22 · Question 1 · 3 marks</a></li>
+  <li><a href="#octobernovember-923122-question-5b-4-marks" id="toc-octobernovember-923122-question-5b-4-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-5b-4-marks">2021 October/November · 9231/22 · Question 5(b) · 4 marks</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2022</a></li>
+  <li><a href="#mayjune-923123-question-2a-4-marks" id="toc-mayjune-923123-question-2a-4-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-2a-4-marks">2022 May/June · 9231/23 · Question 2(a) · 4 marks</a></li>
+  <li><a href="#mayjune-923123-question-4-9-marks" id="toc-mayjune-923123-question-4-9-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-4-9-marks">2022 May/June · 9231/23 · Question 4 · 9 marks</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2023</a></li>
+  <li><a href="#octobernovember-923122-question-1-5-marks-1" id="toc-octobernovember-923122-question-1-5-marks-1" class="nav-link" data-scroll-target="#octobernovember-923122-question-1-5-marks-1">2023 October/November · 9231/22 · Question 1 · 5 marks</a></li>
+  <li><a href="#octobernovember-923122-question-2b-4-marks" id="toc-octobernovember-923122-question-2b-4-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-2b-4-marks">2023 October/November · 9231/22 · Question 2(b) · 4 marks</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2024</a></li>
+  <li><a href="#mayjune-923123-question-2b-5-marks" id="toc-mayjune-923123-question-2b-5-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-2b-5-marks">2024 May/June · 9231/23 · Question 2(b) · 5 marks</a></li>
+  <li><a href="#mayjune-923123-question-3b-5-marks" id="toc-mayjune-923123-question-3b-5-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-3b-5-marks">2024 May/June · 9231/23 · Question 3(b) · 5 marks</a></li>
+  <li><a href="#mayjune-923123-question-7a-3-marks" id="toc-mayjune-923123-question-7a-3-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-7a-3-marks">2024 May/June · 9231/23 · Question 7(a) · 3 marks</a></li>
+  <li><a href="#octobernovember-923122-question-2-7-marks" id="toc-octobernovember-923122-question-2-7-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-2-7-marks">2024 October/November · 9231/22 · Question 2 · 7 marks</a></li>
+  <li><a href="#octobernovember-923122-question-7a-3-marks" id="toc-octobernovember-923122-question-7a-3-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-7a-3-marks">2024 October/November · 9231/22 · Question 7(a) · 3 marks</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2025</a></li>
+  <li><a href="#mayjune-923123-question-3-10-marks" id="toc-mayjune-923123-question-3-10-marks" class="nav-link" data-scroll-target="#mayjune-923123-question-3-10-marks">2025 May/June · 9231/23 · Question 3 · 10 marks</a></li>
+  <li><a href="#octobernovember-923122-question-3-9-marks" id="toc-octobernovember-923122-question-3-9-marks" class="nav-link" data-scroll-target="#octobernovember-923122-question-3-9-marks">2025 October/November · 9231/22 · Question 3 · 9 marks</a></li>
+  <li><a href="#octobernovember-923124-question-7b-5-marks" id="toc-octobernovember-923124-question-7b-5-marks" class="nav-link" data-scroll-target="#octobernovember-923124-question-7b-5-marks">2025 October/November · 9231/24 · Question 7(b) · 5 marks</a></li>
+  </ul></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-2/hyperbolic-functions.html">Paper 2 · Further Pure Mathematics 2</a></li><li class="breadcrumb-item"><a href="../paper-2/differentiation.html">2.3 Differentiation</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">2.3 Differentiation</h1>
+<p class="subtitle lead">反函数求导 · 隐式与参数二阶导数 · Maclaurin 级数</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 3。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本节考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>求双曲函数以及 <span class="math inline">\(\sin^{-1}x\)</span>、<span class="math inline">\(\cos^{-1}x\)</span>、<span class="math inline">\(\sinh^{-1}x\)</span>、<span class="math inline">\(\cosh^{-1}x\)</span>、<span class="math inline">\(\tanh^{-1}x\)</span> 的导数；</li>
+<li>当 <span class="math inline">\(x\)</span> 与 <span class="math inline">\(y\)</span> 的关系以隐式或参数形式给出时，求 <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span>；</li>
+<li>推导并使用函数的 Maclaurin 级数前几项（不要求一般项公式；可连续隐式求导，例如对 <span class="math inline">\(y=\tan x\)</span> 先化为 <span class="math inline">\(y'=1+y^2\)</span> 再逐次求导）。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">熟记 <span class="math inline">\(\tanh x\)</span>、<span class="math inline">\(\operatorname{sech}x\)</span>、<span class="math inline">\(\operatorname{cosech}x\)</span>、<span class="math inline">\(\coth x\)</span> 的导数及符号</label></li>
+<li><label><input type="checkbox">能用反函数方法求 <span class="math inline">\(\sin^{-1}x\)</span>、<span class="math inline">\(\cos^{-1}x\)</span>、<span class="math inline">\(\sinh^{-1}x\)</span>、<span class="math inline">\(\cosh^{-1}x\)</span>、<span class="math inline">\(\tanh^{-1}x\)</span> 的导数</label></li>
+<li><label><input type="checkbox">隐式关系能先求 <span class="math inline">\(y'\)</span>，再对 <span class="math inline">\(y'\)</span> 求导得到 <span class="math inline">\(y''\)</span></label></li>
+<li><label><input type="checkbox">参数曲线能用 <span class="math inline">\(y''=\dfrac{\mathrm d}{\mathrm dt}(y')\cdot\dfrac{\mathrm dt}{\mathrm dx}\)</span> 求二阶导数</label></li>
+<li><label><input type="checkbox">能写出 <span class="math inline">\(e^x\)</span>、<span class="math inline">\(\ln(1+x)\)</span>、<span class="math inline">\(\sin x\)</span>、<span class="math inline">\(\cos x\)</span>、<span class="math inline">\(\tan^{-1}x\)</span>、<span class="math inline">\(\sinh x\)</span>、<span class="math inline">\(\cosh x\)</span>、<span class="math inline">\(\tanh x\)</span> 的 Maclaurin 级数</label></li>
+<li><label><input type="checkbox">能通过逐次隐式求导求 <span class="math inline">\(y=\tan x\)</span> 等函数的 Maclaurin 级数</label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="differentiating-hyperbolic-functions" class="level3">
+<h3 class="anchored" data-anchor-id="differentiating-hyperbolic-functions">1.1 Differentiating hyperbolic functions</h3>
+<p>双曲函数的导数与对应三角函数的导数十分相似，但要注意符号变化：</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\tanh x=\operatorname{sech}^2x,
+\qquad
+\frac{\mathrm d}{\mathrm dx}\coth x=-\operatorname{cosech}^2x,
+\]</span></p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\operatorname{sech}x=-\operatorname{sech}x\tanh x,
+\qquad
+\frac{\mathrm d}{\mathrm dx}\operatorname{cosech}x=-\operatorname{cosech}x\coth x.
+\]</span></p>
+</section>
+<section id="differentiating-inverse-functions" class="level3">
+<h3 class="anchored" data-anchor-id="differentiating-inverse-functions">1.2 Differentiating inverse functions</h3>
+<p>若 <span class="math inline">\(y=f^{-1}(x)\)</span>，则 <span class="math inline">\(f(y)=x\)</span>。两边对 <span class="math inline">\(x\)</span> 求导得</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac1{f'(y)}.
+\]</span></p>
+<p>由此可得</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\sin^{-1}x=\frac1{\sqrt{1-x^2}},\qquad
+\frac{\mathrm d}{\mathrm dx}\cos^{-1}x=-\frac1{\sqrt{1-x^2}},
+\]</span></p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\sinh^{-1}x=\frac1{\sqrt{x^2+1}},\qquad
+\frac{\mathrm d}{\mathrm dx}\cosh^{-1}x=\frac1{\sqrt{x^2-1}},
+\]</span></p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\tanh^{-1}x=\frac1{1-x^2}.
+\]</span></p>
+</section>
+<section id="implicit-second-derivatives" class="level3">
+<h3 class="anchored" data-anchor-id="implicit-second-derivatives">1.3 Implicit second derivatives</h3>
+<p>当 <span class="math inline">\(y\)</span> 由隐式方程给出时，先对等式两边关于 <span class="math inline">\(x\)</span> 求导得到 <span class="math inline">\(y'\)</span>，再对 <span class="math inline">\(y'\)</span> 关于 <span class="math inline">\(x\)</span> 求导（通常需要继续使用隐式求导与 chain rule、quotient rule）得到 <span class="math inline">\(y''\)</span>。</p>
+</section>
+<section id="parametric-second-derivatives" class="level3">
+<h3 class="anchored" data-anchor-id="parametric-second-derivatives">1.4 Parametric second derivatives</h3>
+<p>若曲线由 <span class="math inline">\(x=f(t)\)</span>、<span class="math inline">\(y=g(t)\)</span> 给出，则</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac{\mathrm dy/\mathrm dt}{\mathrm dx/\mathrm dt},
+\qquad
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{\mathrm dt}{\mathrm dx}.
+\]</span></p>
+<p>注意：不能直接对 <span class="math inline">\(y'=\dfrac{\mathrm dy/\mathrm dt}{\mathrm dx/\mathrm dt}\)</span> 用普通的商法则除以 <span class="math inline">\(\mathrm dx/\mathrm dt\)</span> 得到 <span class="math inline">\(y''\)</span>；必须先对 <span class="math inline">\(t\)</span> 求导再乘以 <span class="math inline">\(\dfrac{\mathrm dt}{\mathrm dx}\)</span>。</p>
+</section>
+<section id="maclaurin-series" class="level3">
+<h3 class="anchored" data-anchor-id="maclaurin-series">1.5 Maclaurin series</h3>
+<p>Maclaurin 级数（在 <span class="math inline">\(x=0\)</span> 附近展开）为</p>
+<p><span class="math display">\[
+\boxed{f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots}.
+\]</span></p>
+<p>常用展开式（本课程范围内）：</p>
+<p><span class="math display">\[
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots,
+\]</span></p>
+<p><span class="math display">\[
+\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots\qquad(-1&lt;x\leqslant1),
+\]</span></p>
+<p><span class="math display">\[
+\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots,
+\]</span></p>
+<p><span class="math display">\[
+\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots,
+\]</span></p>
+<p><span class="math display">\[
+\tan^{-1}x=x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots\qquad(-1\leqslant x\leqslant1),
+\]</span></p>
+<p><span class="math display">\[
+\sinh x=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots,
+\]</span></p>
+<p><span class="math display">\[
+\cosh x=1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots,
+\]</span></p>
+<p><span class="math display">\[
+\tanh x=x-\frac{x^3}{3}+\frac{2x^5}{15}-\cdots\qquad(|x|&lt;\frac{\pi}{2}).
+\]</span></p>
+</section>
+<section id="maclaurin-series-by-implicit-differentiation" class="level3">
+<h3 class="anchored" data-anchor-id="maclaurin-series-by-implicit-differentiation">1.6 Maclaurin series by implicit differentiation</h3>
+<p>有些函数的导数可以写成自身的形式（如 <span class="math inline">\(y=\tan x\)</span> 满足 <span class="math inline">\(y'=1+y^2\)</span>），这时可以对 <span class="math inline">\(y'=1+y^2\)</span> 逐次隐式求导，得到 <span class="math inline">\(y''\)</span>、<span class="math inline">\(y'''\)</span> 等在 <span class="math inline">\(x=0\)</span> 处的值，再代入 Maclaurin 级数公式。这避免了每次直接求高阶导数。</p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-1-page-62" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-1-page-62">Example 1 · Page 62</h3>
+<p>The curve <span class="math inline">\(y=a\cosh x+b\)</span> has a gradient of <span class="math inline">\(3\)</span> at the point <span class="math inline">\((-1,2)\)</span>. Find <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>The point <span class="math inline">\((-1,2)\)</span> lies on the curve, so</p>
+<p><span class="math display">\[
+2=a\cosh(-1)+b.
+\]</span></p>
+<p>Differentiating,</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=a\sinh x,
+\]</span></p>
+<p>so at <span class="math inline">\(x=-1\)</span>,</p>
+<p><span class="math display">\[
+3=a\sinh(-1)=-a\sinh1.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+a=\frac3{\sinh(-1)}=-\frac3{\sinh1}\approx-2.55\ (3\text{ s.f.}),
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+b=2-a\cosh1\approx5.94\ (3\text{ s.f.}).
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-1"> Completed</label></p>
+</section>
+<section id="example-2-page-63" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-2-page-63">Example 2 · Page 63</h3>
+<p>By finding the derivative of <span class="math inline">\(x\cos^{-1}x\)</span>, integrate <span class="math inline">\(\cos^{-1}x\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Using the product rule,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(x\cos^{-1}x\right)
+=\cos^{-1}x-\frac{x}{\sqrt{1-x^2}}.
+\]</span></p>
+<p>Integrating both sides,</p>
+<p><span class="math display">\[
+x\cos^{-1}x=\int\cos^{-1}x\,\mathrm dx-\int\frac{x}{\sqrt{1-x^2}}\,\mathrm dx.
+\]</span></p>
+<p>Now <span class="math inline">\(\displaystyle\int\frac{x}{\sqrt{1-x^2}}\,\mathrm dx=-\sqrt{1-x^2}\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{\int\cos^{-1}x\,\mathrm dx=x\cos^{-1}x-\sqrt{1-x^2}+C}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-2"> Completed</label></p>
+</section>
+<section id="example-3-page-64" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-3-page-64">Example 3 · Page 64</h3>
+<p>The curves <span class="math inline">\(y=\sinh^{-1}x\)</span> and <span class="math inline">\(y=\frac12\cosh^{-1}x\)</span> have the same gradient when <span class="math inline">\(x=a\)</span>. Find <span class="math inline">\(a\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Differentiating,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\sinh^{-1}x=\frac1{\sqrt{x^2+1}},
+\qquad
+\frac{\mathrm d}{\mathrm dx}\left(\frac12\cosh^{-1}x\right)=\frac1{2\sqrt{x^2-1}}.
+\]</span></p>
+<p>Equating the gradients gives</p>
+<p><span class="math display">\[
+\frac1{\sqrt{x^2+1}}=\frac1{2\sqrt{x^2-1}}.
+\]</span></p>
+<p>Squaring and rearranging,</p>
+<p><span class="math display">\[
+x^2+1=4(x^2-1)
+\;\Longrightarrow\;
+3x^2=5
+\;\Longrightarrow\;
+x=\sqrt{\frac53}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{a=\sqrt{\frac53}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-3"> Completed</label></p>
+</section>
+<section id="example-4-page-69" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-4-page-69">Example 4 · Page 69</h3>
+<p>Given that <span class="math inline">\(\cosh x+\sinh y=1+y\)</span>, find expressions for <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}\)</span> and <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Differentiate implicitly with respect to <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\sinh x+\cosh y\,\frac{\mathrm dy}{\mathrm dx}=\frac{\mathrm dy}{\mathrm dx}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm dy}{\mathrm dx}=\frac{1-\sinh x}{\cosh y-1}}.
+\]</span></p>
+<p>For the second derivative, differentiate</p>
+<p><span class="math display">\[
+\sinh x+\cosh y\,\frac{\mathrm dy}{\mathrm dx}=\frac{\mathrm dy}{\mathrm dx}
+\]</span></p>
+<p>again:</p>
+<p><span class="math display">\[
+\cosh x+\cosh y\,\frac{\mathrm d^2y}{\mathrm dx^2}
++\sinh y\left(\frac{\mathrm dy}{\mathrm dx}\right)^2
+=\frac{\mathrm d^2y}{\mathrm dx^2}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{-\cosh x-\sinh y\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}{\cosh y-1}
+=\frac{-\cosh x(\cosh y-1)^2-\sinh y(1-\sinh x)^2}{(\cosh y-1)^3}.
+}
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-4"> Completed</label></p>
+</section>
+<section id="example-5-page-70" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-5-page-70">Example 5 · Page 70</h3>
+<p>You are given the curve <span class="math inline">\(x^2+xy+y^2=3\)</span>. Show that the point <span class="math inline">\((1,-2)\)</span> is on the curve and that it is a stationary point. Is this a maximum, a minimum, or a point of inflection?</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Substituting <span class="math inline">\((1,-2)\)</span>,</p>
+<p><span class="math display">\[
+1^2+1(-2)+(-2)^2=1-2+4=3,
+\]</span></p>
+<p>so the point is on the curve. Differentiating implicitly,</p>
+<p><span class="math display">\[
+2x+y+x\,\frac{\mathrm dy}{\mathrm dx}+2y\,\frac{\mathrm dy}{\mathrm dx}=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac{-2x-y}{x+2y}.
+\]</span></p>
+<p>At <span class="math inline">\((1,-2)\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac{-2+2}{1-4}=0,
+\]</span></p>
+<p>so it is a stationary point. Differentiating again (using the quotient rule),</p>
+<p><span class="math display">\[
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{(x+2y)\left(-2-\frac{\mathrm dy}{\mathrm dx}\right)-(-2x-y)\left(1+2\frac{\mathrm dy}{\mathrm dx}\right)}{(x+2y)^2}.
+\]</span></p>
+<p>At <span class="math inline">\((1,-2)\)</span>, where <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=0\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{(1-4)(-2)-0}{(1-4)^2}
+=\frac{6}{9}
+=\frac23&gt;0.
+\]</span></p>
+<p>Hence the stationary point is a</p>
+<p><span class="math display">\[
+\boxed{\text{minimum}}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-5"> Completed</label></p>
+</section>
+<section id="example-6-page-73" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-6-page-73">Example 6 · Page 73</h3>
+<p>Find the first four non-zero terms of the Maclaurin expansion for <span class="math inline">\(\sin x\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Let</p>
+<p><span class="math display">\[
+\sin x=a_0+a_1x+a_2x^2+a_3x^3+a_4x^4+\cdots.
+\]</span></p>
+<p>Putting <span class="math inline">\(x=0\)</span> gives <span class="math inline">\(a_0=0\)</span>. Differentiating and putting <span class="math inline">\(x=0\)</span> repeatedly:</p>
+<p><span class="math display">\[
+\cos x=a_1+2a_2x+\cdots
+\;\Longrightarrow\;
+a_1=1,
+\]</span></p>
+<p><span class="math display">\[
+-\sin x=2a_2+6a_3x+\cdots
+\;\Longrightarrow\;
+a_2=0,
+\]</span></p>
+<p><span class="math display">\[
+-\cos x=6a_3+\cdots
+\;\Longrightarrow\;
+a_3=-\frac16,
+\]</span></p>
+<p><span class="math display">\[
+\sin x=24a_4+\cdots
+\;\Longrightarrow\;
+a_4=0,
+\]</span></p>
+<p><span class="math display">\[
+\cos x=120a_5+\cdots
+\;\Longrightarrow\;
+a_5=\frac1{120}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots
+=x-\frac{x^3}6+\frac{x^5}{120}-\cdots}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-6"> Completed</label></p>
+</section>
+<section id="example-7-page-74" class="level3 study-card">
+<h3 class="anchored" data-anchor-id="example-7-page-74">Example 7 · Page 74</h3>
+<p>Find the Maclaurin expansion of <span class="math inline">\(\tan x\)</span> as far as the term in <span class="math inline">\(x^5\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show solution
+</summary>
+<p>Let <span class="math inline">\(f(x)=\tan x\)</span>, so <span class="math inline">\(f(0)=0\)</span>. Differentiating,</p>
+<p><span class="math display">\[
+f'(x)=\sec^2x=1+\tan^2x=1+(f(x))^2,
+\]</span></p>
+<p>so <span class="math inline">\(f'(0)=1\)</span>. Differentiating implicitly,</p>
+<p><span class="math display">\[
+f''(x)=2f(x)f'(x),
+\]</span></p>
+<p>so <span class="math inline">\(f''(0)=0\)</span>. Differentiating again,</p>
+<p><span class="math display">\[
+f'''(x)=2(f'(x))^2+2f(x)f''(x),
+\]</span></p>
+<p>so <span class="math inline">\(f'''(0)=2\)</span>. Continuing gives <span class="math inline">\(f^{(4)}(0)=0\)</span> and <span class="math inline">\(f^{(5)}(0)=16\)</span>. Hence</p>
+<p><span class="math display">\[
+\tan x=f(0)+f'(0)x+\frac{f''(0)}2x^2+\frac{f'''(0)}6x^3+\frac{f^{(4)}(0)}{24}x^4+\frac{f^{(5)}(0)}{120}x^5+\cdots,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\tan x=x+\frac{x^3}3+\frac{2x^5}{15}+\cdots}.
+\]</span></p>
+</details>
+<p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-7"> Completed</label></p>
+</section>
+</section>
+<section id="past-paper-question-bank" class="level2">
+<h2 class="anchored" data-anchor-id="past-paper-question-bank">3. Past-paper question bank</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2020</h3>
+</section>
+<section id="mayjune-923121-923122-question-2-7-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-2-7-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 2 · 7 marks</h3>
+<p>It is given that <span class="math inline">\(y=2^x\)</span>.</p>
+<p><strong>(a)</strong> By differentiating <span class="math inline">\(\ln y\)</span> with respect to <span class="math inline">\(x\)</span>, show that</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=2^x\ln2.
+\]</span></p>
+<p><strong>[3]</strong></p>
+<p><strong>(b)</strong> Write down <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span>. <strong>[1]</strong></p>
+<p><strong>(c)</strong> Hence find the first three terms in the Maclaurin’s series for <span class="math inline">\(2^x\)</span>. <strong>[3]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Taking logarithms,</p>
+<p><span class="math display">\[
+\ln y=x\ln2.
+\]</span></p>
+<p>Differentiating with respect to <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+\frac1y\frac{\mathrm dy}{\mathrm dx}=\ln2
+\;\Longrightarrow\;
+\frac{\mathrm dy}{\mathrm dx}=y\ln2=2^x\ln2.
+\]</span></p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=2^x(\ln2)^2}.
+\]</span></p>
+<p><strong>(c)</strong> At <span class="math inline">\(x=0\)</span>,</p>
+<p><span class="math display">\[
+y(0)=1,\qquad y'(0)=\ln2,\qquad y''(0)=(\ln2)^2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{2^x=1+(\ln2)x+\frac{(\ln2)^2}{2}x^2+\cdots}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-21-22-q2"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q2; 9231/22/M/J/2020, Q2.
+</div>
+</section>
+<section id="mayjune-923123-question-5b-4-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-5b-4-marks">2020 May/June · 9231/23 · Question 5(b) · 4 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
+<p><span class="math display">\[
+x=\frac12t^2-\ln t,\qquad y=2t+1,\qquad \frac12\leqslant t\leqslant2.
+\]</span></p>
+<p>Find <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> in terms of <span class="math inline">\(t\)</span>, simplifying your answer.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=t-\frac1t=t-\frac1t,\qquad
+\frac{\mathrm dy}{\mathrm dt}=2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac2{t-\frac1t}=\frac{2t}{t^2-1}.
+\]</span></p>
+<p>Differentiating with respect to <span class="math inline">\(t\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
+=\frac{2(t^2-1)-2t(2t)}{(t^2-1)^2}
+=-\frac{2(t^2+1)}{(t^2-1)^2}.
+\]</span></p>
+<p>Applying the chain rule,</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
+=-\frac{2(1+t^{-2})}{(t-t^{-1})^3}
+=-\frac{2t(t^2+1)}{(t^2-1)^3}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-23-q5b"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q5(b).
+</div>
+</section>
+<section id="mayjune-923123-question-6bc-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-6bc-9-marks">2020 May/June · 9231/23 · Question 6(b)–(c) · 9 marks</h3>
+<p>The variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are such that</p>
+<p><span class="math display">\[
+\tanh y=\cos\left(x+\frac{\pi}{4}\right),
+\qquad -\frac{\pi}{4}\leqslant x\leqslant\frac{3\pi}{4}.
+\]</span></p>
+<p><strong>(b)</strong> By differentiating the equation <span class="math inline">\(\tanh y=\cos\left(x+\frac{\pi}{4}\right)\)</span> with respect to <span class="math inline">\(x\)</span>, show that</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=-\operatorname{cosec}\left(x+\frac{\pi}{4}\right).
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(c)</strong> Hence find the first three terms in the Maclaurin’s series for</p>
+<p><span class="math display">\[
+\tanh^{-1}\left(\cos\left(x+\frac{\pi}{4}\right)\right)
+\]</span></p>
+<p>in the form</p>
+<p><span class="math display">\[
+\frac12\ln a+bx+cx^2,
+\]</span></p>
+<p>giving the exact values of the constants <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(b)</strong> Differentiating <span class="math inline">\(\tanh y=\cos\left(x+\frac{\pi}{4}\right)\)</span>,</p>
+<p><span class="math display">\[
+\operatorname{sech}^2y\,\frac{\mathrm dy}{\mathrm dx}
+=-\sin\left(x+\frac{\pi}{4}\right).
+\]</span></p>
+<p>Using <span class="math inline">\(1-\tanh^2y=\operatorname{sech}^2y\)</span>,</p>
+<p><span class="math display">\[
+\left(1-\cos^2\left(x+\frac{\pi}{4}\right)\right)\frac{\mathrm dy}{\mathrm dx}
+=-\sin\left(x+\frac{\pi}{4}\right).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}
+=-\frac{\sin\left(x+\frac{\pi}{4}\right)}{\sin^2\left(x+\frac{\pi}{4}\right)}
+=\boxed{-\operatorname{cosec}\left(x+\frac{\pi}{4}\right)}.
+\]</span></p>
+<p><strong>(c)</strong> Let <span class="math inline">\(y=\tanh^{-1}\left(\cos\left(x+\frac{\pi}{4}\right)\right)\)</span>. At <span class="math inline">\(x=0\)</span>,</p>
+<p><span class="math display">\[
+y(0)=\tanh^{-1}\left(\frac1{\sqrt2}\right)=\frac12\ln\left(\frac{2+\sqrt2}{2-\sqrt2}\right)=\frac12\ln(3+2\sqrt2).
+\]</span></p>
+<p>From part (b),</p>
+<p><span class="math display">\[
+y'(0)=-\operatorname{cosec}\frac{\pi}{4}=-\sqrt2.
+\]</span></p>
+<p>Differentiating <span class="math inline">\(y'=-\operatorname{cosec}\left(x+\frac{\pi}{4}\right)\)</span>,</p>
+<p><span class="math display">\[
+y''(x)=\operatorname{cosec}\left(x+\frac{\pi}{4}\right)\cot\left(x+\frac{\pi}{4}\right),
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+y''(0)=\sqrt2.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{y=\frac12\ln(3+2\sqrt2)-\sqrt2\,x+\frac{\sqrt2}{2}x^2}.
+\]</span></p>
+<p>So <span class="math inline">\(a=3+2\sqrt2\)</span>, <span class="math inline">\(b=-\sqrt2\)</span> and <span class="math inline">\(c=\dfrac{\sqrt2}{2}\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-23-q6bc"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q6(b)–(c).
+</div>
+</section>
+<section id="octobernovember-923121-923123-question-5-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-5-9-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 5 · 9 marks</h3>
+<p>It is given that</p>
+<p><span class="math display">\[
+x=\sinh^{-1}t,\qquad y=\cos^{-1}t,\qquad -1\leqslant t\leqslant1.
+\]</span></p>
+<p><strong>(a)</strong> By differentiating <span class="math inline">\(\cos y\)</span> with respect to <span class="math inline">\(t\)</span>, show that</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dt}=-\frac1{\sqrt{1-t^2}}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> in terms of <span class="math inline">\(t\)</span>, simplifying your answer. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> From <span class="math inline">\(y=\cos^{-1}t\)</span> we have <span class="math inline">\(\cos y=t\)</span>. Differentiating with respect to <span class="math inline">\(t\)</span>,</p>
+<p><span class="math display">\[
+-\sin y\,\frac{\mathrm dy}{\mathrm dt}=1.
+\]</span></p>
+<p>Since <span class="math inline">\(0&lt;y&lt;\pi\)</span>, <span class="math inline">\(\sin y&gt;0\)</span>, so</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dt}=-\frac1{\sin y}
+=-\frac1{\sqrt{1-\cos^2y}}
+=\boxed{-\frac1{\sqrt{1-t^2}}}.
+\]</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">\(x=\sinh^{-1}t\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=\frac1{\sqrt{1+t^2}}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}
+=-\frac{\sqrt{1+t^2}}{\sqrt{1-t^2}}.
+\]</span></p>
+<p>Differentiating with respect to <span class="math inline">\(t\)</span> and applying the chain rule,</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
+=-\frac{2t}{(1-t^2)^{3/2}}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-on-21-23-q5"> Completed</label>
+<div class="source-line">
+<strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q5; 9231/23/O/N/2020, Q5.
+</div>
+</section>
+<section id="octobernovember-923122-question-1-5-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-1-5-marks">2020 October/November · 9231/22 · Question 1 · 5 marks</h3>
+<p>Find the Maclaurin’s series for <span class="math inline">\(\tan\left(x+\frac{\pi}{4}\right)\)</span> up to and including the term in <span class="math inline">\(x^2\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Let <span class="math inline">\(f(x)=\tan\left(x+\frac{\pi}{4}\right)\)</span>. Then</p>
+<p><span class="math display">\[
+f(0)=1,
+\]</span></p>
+<p><span class="math display">\[
+f'(x)=\sec^2\left(x+\frac{\pi}{4}\right),
+\qquad
+f'(0)=\sec^2\frac{\pi}{4}=2,
+\]</span></p>
+<p><span class="math display">\[
+f''(x)=2\sec^2\left(x+\frac{\pi}{4}\right)\tan\left(x+\frac{\pi}{4}\right),
+\qquad
+f''(0)=2(2)(1)=4.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\tan\left(x+\frac{\pi}{4}\right)=1+2x+2x^2+\cdots}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-on-22-q1"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q1.
+</div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2021</h3>
+</section>
+<section id="mayjune-923123-question-2-7-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-2-7-marks">2021 May/June · 9231/23 · Question 2 · 7 marks</h3>
+<p>Find the Maclaurin’s series for <span class="math inline">\(\ln\cosh x\)</span> up to and including the term in <span class="math inline">\(x^4\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Let <span class="math inline">\(f(x)=\ln\cosh x\)</span>. Then</p>
+<p><span class="math display">\[
+f(0)=0,\qquad
+f'(x)=\tanh x,
+\qquad
+f''(x)=\operatorname{sech}^2x,
+\]</span></p>
+<p><span class="math display">\[
+f'''(x)=-2\operatorname{sech}^2x\tanh x=-2\frac{\sinh x}{\cosh^3x},
+\]</span></p>
+<p><span class="math display">\[
+f^{(4)}(x)=-2\frac{\cosh^2x-3\sinh^2x}{\cosh^4x}.
+\]</span></p>
+<p>At <span class="math inline">\(x=0\)</span>,</p>
+<p><span class="math display">\[
+f(0)=0,\quad f'(0)=0,\quad f''(0)=1,\quad f'''(0)=0,\quad f^{(4)}(0)=-2.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\ln\cosh x=\frac12x^2-\frac1{12}x^4+\cdots}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-mj-23-q2"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q2.
+</div>
+</section>
+<section id="octobernovember-923122-question-1-3-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-1-3-marks">2021 October/November · 9231/22 · Question 1 · 3 marks</h3>
+<p>It is given that <span class="math inline">\(y=\sinh(x^2)+\cosh(x^2)\)</span>.</p>
+<p><strong>(a)</strong> Use standard results from the list of formulae (MF19) to find the Maclaurin’s series for <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(x\)</span> up to and including the term in <span class="math inline">\(x^4\)</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Deduce the value of <span class="math inline">\(\dfrac{\mathrm d^4y}{\mathrm dx^4}\)</span> when <span class="math inline">\(x=0\)</span>. <strong>[1]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Since</p>
+<p><span class="math display">\[
+e^{x^2}=\cosh(x^2)+\sinh(x^2),
+\]</span></p>
+<p>the Maclaurin series is</p>
+<p><span class="math display">\[
+\boxed{y=e^{x^2}=1+x^2+\frac12x^4+\cdots}.
+\]</span></p>
+<p><strong>(b)</strong> The coefficient of <span class="math inline">\(x^4\)</span> is <span class="math inline">\(\dfrac{1}{4!}\dfrac{\mathrm d^4y}{\mathrm dx^4}(0)=\dfrac12\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^4y}{\mathrm dx^4}(0)=12}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-on-22-q1"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q1.
+</div>
+</section>
+<section id="octobernovember-923122-question-5b-4-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-5b-4-marks">2021 October/November · 9231/22 · Question 5(b) · 4 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
+<p><span class="math display">\[
+x=3t+2t^{-1}+at^3,\qquad y=4t-\frac32t^{-1}+bt^3,\qquad 1\leqslant t\leqslant2,
+\]</span></p>
+<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</p>
+<p>It is given instead that <span class="math inline">\(a=b=0\)</span>. Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> when <span class="math inline">\(t=1\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>With <span class="math inline">\(a=b=0\)</span>,</p>
+<p><span class="math display">\[
+x=3t+2t^{-1},\qquad y=4t-\frac32t^{-1}.
+\]</span></p>
+<p>Then</p>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=3-2t^{-2},\qquad
+\frac{\mathrm dy}{\mathrm dt}=4+\frac32t^{-2},
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac{4+\frac32t^{-2}}{3-2t^{-2}}.
+\]</span></p>
+<p>Differentiating with respect to <span class="math inline">\(t\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
+=\frac{(3-2t^{-2})(-3t^{-3})-(4+\frac32t^{-2})(4t^{-3})}{(3-2t^{-2})^2}
+=-\frac{25t^{-3}}{(3-2t^{-2})^2}.
+\]</span></p>
+<p>Applying the chain rule with <span class="math inline">\(\dfrac{\mathrm dx}{\mathrm dt}=3-2t^{-2}\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=-\frac{25t^{-3}}{(3-2t^{-2})^3}.
+\]</span></p>
+<p>At <span class="math inline">\(t=1\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-25}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-on-22-q5b"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q5(b).
+</div>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2022</h3>
+</section>
+<section id="mayjune-923123-question-2a-4-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-2a-4-marks">2022 May/June · 9231/23 · Question 2(a) · 4 marks</h3>
+<p>Find the coefficient of <span class="math inline">\(x^2\)</span> in the Maclaurin’s series for <span class="math inline">\(-\ln\cos x\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Let <span class="math inline">\(f(x)=-\ln\cos x\)</span>. Then</p>
+<p><span class="math display">\[
+f'(x)=\tan x,\qquad f''(x)=\sec^2x.
+\]</span></p>
+<p>At <span class="math inline">\(x=0\)</span>,</p>
+<p><span class="math display">\[
+f'(0)=0,\qquad f''(0)=1.
+\]</span></p>
+<p>Hence the coefficient of <span class="math inline">\(x^2\)</span> is</p>
+<p><span class="math display">\[
+\boxed{\frac{f''(0)}{2!}=\frac12}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2022-mj-23-q2a"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2022, Q2(a).
+</div>
+</section>
+<section id="mayjune-923123-question-4-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-4-9-marks">2022 May/June · 9231/23 · Question 4 · 9 marks</h3>
+<p>It is given that</p>
+<p><span class="math display">\[
+x=-t+\tan^{-1}t,\qquad y=t+\sinh^{-1}t.
+\]</span></p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=-\frac{\sqrt{1+t^2}+1+t^2}{t^2}.
+\]</span></p>
+<p><strong>[4]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> when <span class="math inline">\(t=\frac34\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=-1+\frac1{1+t^2}=-\frac{t^2}{1+t^2},
+\qquad
+\frac{\mathrm dy}{\mathrm dt}=1+\frac1{\sqrt{1+t^2}}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}
+=\frac{1+\frac1{\sqrt{1+t^2}}}{-\frac{t^2}{1+t^2}}
+=-\frac{(1+t^2)\left(1+\frac1{\sqrt{1+t^2}}\right)}{t^2}
+=-\frac{1+t^2+\sqrt{1+t^2}}{t^2}.
+\]</span></p>
+<p>So</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm dy}{\mathrm dx}=-\frac{\sqrt{1+t^2}+1+t^2}{t^2}}.
+\]</span></p>
+<p><strong>(b)</strong> Differentiating <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}\)</span> with respect to <span class="math inline">\(t\)</span> gives</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
+=-\frac{t^2\left(2t+\frac{t}{\sqrt{1+t^2}}\right)-2t\left(1+t^2+\sqrt{1+t^2}\right)}{t^4}.
+\]</span></p>
+<p>Applying the chain rule,</p>
+<p><span class="math display">\[
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{\mathrm dt}{\mathrm dx}
+=-\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{1+t^2}{t^2}.
+\]</span></p>
+<p>At <span class="math inline">\(t=\frac34\)</span> this simplifies to</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-\frac{80}{3}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2022-mj-23-q4"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2022, Q4.
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2023</h3>
+</section>
+<section id="octobernovember-923122-question-1-5-marks-1" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-1-5-marks-1">2023 October/November · 9231/22 · Question 1 · 5 marks</h3>
+<p>Find the Maclaurin’s series for <span class="math inline">\(\ln(x+2)+\ln(x^2+5)\)</span> up to and including the term in <span class="math inline">\(x^2\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Using <span class="math inline">\(\ln(1+u)=u-\frac12u^2+\cdots\)</span>,</p>
+<p><span class="math display">\[
+\ln(x+2)=\ln2+\ln\left(1+\frac{x}{2}\right)
+=\ln2+\frac{x}{2}-\frac{x^2}{8}+\cdots,
+\]</span></p>
+<p><span class="math display">\[
+\ln(x^2+5)=\ln5+\ln\left(1+\frac{x^2}{5}\right)
+=\ln5+\frac{x^2}{5}+\cdots.
+\]</span></p>
+<p>Adding,</p>
+<p><span class="math display">\[
+\boxed{\ln(x+2)+\ln(x^2+5)=\ln10+\frac{x}{2}+\frac{3x^2}{40}+\cdots}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2023-on-22-q1"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q1.
+</div>
+</section>
+<section id="octobernovember-923122-question-2b-4-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-2b-4-marks">2023 October/November · 9231/22 · Question 2(b) · 4 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
+<p><span class="math display">\[
+x=e^{-t}(t^3+t^2),\qquad y=2e^t(t-1),\qquad 0\leqslant t\leqslant1.
+\]</span></p>
+<p>Find <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=e^{-t}(-t^3-t^2+3t^2+2t)=e^{-t}(-t^3+2t^2+2t),
+\]</span></p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dt}=2e^t(t-1)+2e^t=2te^t.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac{2te^t}{e^{-t}(-t^3+2t^2+2t)}
+=\frac{2te^{2t}}{-t^3+2t^2+2t}.
+\]</span></p>
+<p>Differentiating with respect to <span class="math inline">\(t\)</span> and applying the chain rule,</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=t^3e^t(t^2+4t+2)}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2023-on-22-q2b"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q2(b).
+</div>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2024</h3>
+</section>
+<section id="mayjune-923123-question-2b-5-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-2b-5-marks">2024 May/June · 9231/23 · Question 2(b) · 5 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
+<p><span class="math display">\[
+x=\cosh t,\qquad y=\sinh t,\qquad 0\leqslant t\leqslant\frac35.
+\]</span></p>
+<p>The length of <span class="math inline">\(C\)</span> is denoted by <span class="math inline">\(s\)</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(s=\displaystyle\int_0^{3/5}\sqrt{\cosh 2t}\,\mathrm dt\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> By finding the Maclaurin’s series for <span class="math inline">\(\sqrt{\cosh 2t}\)</span> up to and including the term in <span class="math inline">\(t^2\)</span>, deduce an approximation to <span class="math inline">\(s\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Differentiating,</p>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=\sinh t,\qquad
+\frac{\mathrm dy}{\mathrm dt}=\cosh t.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2
+=\sinh^2t+\cosh^2t=\cosh 2t,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+s=\int_0^{3/5}\sqrt{\cosh 2t}\,\mathrm dt.
+\]</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">\(\sqrt{\cosh 2t}\approx1+t^2\)</span> (from the Maclaurin series of <span class="math inline">\(\cosh 2t\)</span> up to <span class="math inline">\(t^2\)</span>),</p>
+<p><span class="math display">\[
+s\approx\int_0^{3/5}(1+t^2)\,\mathrm dt
+=\left[t+\frac{t^3}{3}\right]_0^{3/5}
+=\frac35+\frac{9}{125}
+=\boxed{\frac{84}{125}=0.672}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q2b"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q2(b).
+</div>
+</section>
+<section id="mayjune-923123-question-3b-5-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-3b-5-marks">2024 May/June · 9231/23 · Question 3(b) · 5 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has equation</p>
+<p><span class="math display">\[
+3x^2+2xy+24y^2=13.
+\]</span></p>
+<p><strong>(a)</strong> Show that, at the point <span class="math inline">\((-2,-1)\)</span> on <span class="math inline">\(C\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac12\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> at the point <span class="math inline">\((-2,-1)\)</span>. <strong>[5]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Differentiating implicitly,</p>
+<p><span class="math display">\[
+6x+2xy'+2y+48yy'=0.
+\]</span></p>
+<p>At <span class="math inline">\((-2,-1)\)</span>,</p>
+<p><span class="math display">\[
+3(-2)^2+2(-2)y'+2(-1)+24(-1)^2y'=0
+\;\Longrightarrow\;
+12-4y'-2+24y'=0
+\;\Longrightarrow\;
+20y'=-10
+\;\Longrightarrow\;
+\boxed{y'=-\frac12}.
+\]</span></p>
+<p><strong>(b)</strong> Differentiating</p>
+<p><span class="math display">\[
+3x^2+2xy'+2y+24y^2y'=0
+\]</span></p>
+<p>with respect to <span class="math inline">\(x\)</span>,</p>
+<p><span class="math display">\[
+6x+2xy''+2y'+2y'+24y^2y''+48y(y')^2=0.
+\]</span></p>
+<p>Substituting <span class="math inline">\(x=-2\)</span>, <span class="math inline">\(y=-1\)</span> and <span class="math inline">\(y'=-\frac12\)</span>,</p>
+<p><span class="math display">\[
+6(-2)+2(-2)y''+4\left(-\frac12\right)+24(-1)^2y''+48(-1)\left(-\frac12\right)^2=0.
+\]</span></p>
+<p>That is,</p>
+<p><span class="math display">\[
+-12-4y''-2+24y''-12=0
+\;\Longrightarrow\;
+20y''-26=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{13}{10}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q3b"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q3(b).
+</div>
+</section>
+<section id="mayjune-923123-question-7a-3-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-7a-3-marks">2024 May/June · 9231/23 · Question 7(a) · 3 marks</h3>
+<p>Show that</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(\frac{x}{2}\sqrt{x^2-9}-\frac{9}{2}\cosh^{-1}\frac{x}{3}\right)=\sqrt{x^2-9}.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Using the product rule and <span class="math inline">\(\dfrac{\mathrm d}{\mathrm dx}\cosh^{-1}\dfrac{x}{3}=\dfrac1{\sqrt{x^2-9}}\)</span>,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(\frac{x}{2}\sqrt{x^2-9}\right)
+=\frac12\sqrt{x^2-9}+\frac{x^2}{2\sqrt{x^2-9}},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(-\frac92\cosh^{-1}\frac{x}{3}\right)
+=-\frac92\cdot\frac1{\sqrt{x^2-9}}.
+\]</span></p>
+<p>Adding,</p>
+<p><span class="math display">\[
+\frac12\sqrt{x^2-9}+\frac{x^2-9}{2\sqrt{x^2-9}}
+=\frac12\sqrt{x^2-9}+\frac12\sqrt{x^2-9}
+=\sqrt{x^2-9}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q7a"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q7(a).
+</div>
+</section>
+<section id="octobernovember-923122-question-2-7-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-2-7-marks">2024 October/November · 9231/22 · Question 2 · 7 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has equation</p>
+<p><span class="math display">\[
+4y^2+4\ln(xy)=1.
+\]</span></p>
+<p><strong>(a)</strong> Show that, at the point <span class="math inline">\(\left(2,\frac12\right)\)</span> on <span class="math inline">\(C\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac16\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> at the point <span class="math inline">\(\left(2,\frac12\right)\)</span>. <strong>[4]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Differentiating implicitly,</p>
+<p><span class="math display">\[
+8yy'+4\cdot\frac{xy'+y}{xy}=0
+\;\Longrightarrow\;
+8yy'+4y^{-1}y'+4x^{-1}=0.
+\]</span></p>
+<p>At <span class="math inline">\(\left(2,\frac12\right)\)</span>,</p>
+<p><span class="math display">\[
+8\left(\frac12\right)y'+4(2)y'+\frac42=0
+\;\Longrightarrow\;
+4y'+8y'+2=0
+\;\Longrightarrow\;
+y'=-\frac16.
+\]</span></p>
+<p><strong>(b)</strong> Differentiating again,</p>
+<p><span class="math display">\[
+8(y')^2+8yy''-4(y')^2y^{-2}+4y^{-1}y''-4x^{-2}=0.
+\]</span></p>
+<p>Substituting <span class="math inline">\(x=2\)</span>, <span class="math inline">\(y=\frac12\)</span> and <span class="math inline">\(y'=-\frac16\)</span>,</p>
+<p><span class="math display">\[
+8\cdot\frac1{36}+4y''-4\cdot\frac1{36}\cdot4+8y''-1=0.
+\]</span></p>
+<p>Solving gives</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{11}{108}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-on-22-q2"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2024, Q2.
+</div>
+</section>
+<section id="octobernovember-923122-question-7a-3-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-7a-3-marks">2024 October/November · 9231/22 · Question 7(a) · 3 marks</h3>
+<p>Show that</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(\ln\tanh x\right)=2\operatorname{cosech}2x.
+\]</span></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Using the chain rule,</p>
+<p><span class="math display">\[
+\frac{\mathrm d}{\mathrm dx}\left(\ln\tanh x\right)
+=\frac{\operatorname{sech}^2x}{\tanh x}
+=\frac1{\sinh x\cosh x}
+=\frac2{\sinh2x}
+=\boxed{2\operatorname{cosech}2x}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-on-22-q7a"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2024, Q7(a).
+</div>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">2025</h3>
+</section>
+<section id="mayjune-923123-question-3-10-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="mayjune-923123-question-3-10-marks">2025 May/June · 9231/23 · Question 3 · 10 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has equation</p>
+<p><span class="math display">\[
+9y^2-3\sinh^{-1}(xy)=1-3\ln3.
+\]</span></p>
+<p><strong>(a)</strong> Show that, at the point <span class="math inline">\((4,\frac13)\)</span> on <span class="math inline">\(C\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac12\)</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> at the point <span class="math inline">\((4,\frac13)\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Differentiating implicitly,</p>
+<p><span class="math display">\[
+18yy'-3\cdot\frac{xy'+y}{\sqrt{1+x^2y^2}}=0.
+\]</span></p>
+<p>At <span class="math inline">\((4,\frac13)\)</span>,</p>
+<p><span class="math display">\[
+18\cdot\frac13\,y'-3\cdot\frac{4y'+\frac13}{\sqrt{1+\frac{16}9}}=0.
+\]</span></p>
+<p>Since <span class="math inline">\(\sqrt{1+\frac{16}9}=\frac53\)</span>,</p>
+<p><span class="math display">\[
+6y'-3\cdot\frac{4y'+\frac13}{\frac53}=0
+\;\Longrightarrow\;
+6y'-\frac95\left(4y'+\frac13\right)=0
+\;\Longrightarrow\;
+6y'-\frac{36}{5}y'-\frac35=0.
+\]</span></p>
+<p>Multiplying through by <span class="math inline">\(5\)</span>,</p>
+<p><span class="math display">\[
+30y'-36y'-3=0
+\;\Longrightarrow\;
+-6y'=3
+\;\Longrightarrow\;
+\boxed{y'=-\frac12}.
+\]</span></p>
+<p><strong>(b)</strong> Differentiating</p>
+<p><span class="math display">\[
+18yy'-\frac{3(xy'+y)}{\sqrt{1+x^2y^2}}=0
+\]</span></p>
+<p>with respect to <span class="math inline">\(x\)</span> gives</p>
+<p><span class="math display">\[
+18yy''+18(y')^2
+-3\cdot\frac{\sqrt{1+x^2y^2}(xy''+2y')-(xy'+y)\cdot\frac{x^2y}{\sqrt{1+x^2y^2}}}{1+x^2y^2}=0.
+\]</span></p>
+<p>Substituting <span class="math inline">\(x=4\)</span>, <span class="math inline">\(y=\frac13\)</span>, <span class="math inline">\(y'=-\frac12\)</span> gives</p>
+<p><span class="math display">\[
+-6y''+\frac{87}{10}=0,
+\]</span></p>
+<p>so</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{29}{4}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-mj-23-q3"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/23/M/J/2025, Q3.
+</div>
+</section>
+<section id="octobernovember-923122-question-3-9-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923122-question-3-9-marks">2025 October/November · 9231/22 · Question 3 · 9 marks</h3>
+<p>The variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are such that <span class="math inline">\(y=2\)</span> when <span class="math inline">\(x=-1\)</span> and</p>
+<p><span class="math display">\[
+x^2y+(x+y)^3=3.
+\]</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=\dfrac14\)</span> when <span class="math inline">\(x=-1\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> when <span class="math inline">\(x=-1\)</span>. <strong>[6]</strong></p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p><strong>(a)</strong> Differentiating implicitly,</p>
+<p><span class="math display">\[
+x^2y'+2xy+3(x+y)^2(1+y')=0.
+\]</span></p>
+<p>At <span class="math inline">\((-1,2)\)</span>,</p>
+<p><span class="math display">\[
+y'+2(-1)(2)+3(1)^2(1+y')=0
+\;\Longrightarrow\;
+y'-4+3+3y'=0
+\;\Longrightarrow\;
+4y'=1
+\;\Longrightarrow\;
+\boxed{y'=\frac14}.
+\]</span></p>
+<p><strong>(b)</strong> Differentiating again,</p>
+<p><span class="math display">\[
+x^2y''+4xy'+2y+3(x+y)^2y''+6(1+y')^2(x+y)=0.
+\]</span></p>
+<p>Substituting <span class="math inline">\(x=-1\)</span>, <span class="math inline">\(y=2\)</span>, <span class="math inline">\(y'=\frac14\)</span>,</p>
+<p><span class="math display">\[
+y''-1+4+3y''+6\left(\frac54\right)^2(1)=0.
+\]</span></p>
+<p>Solving gives</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-\frac{99}{32}}.
+\]</span></p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-on-22-q3"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/22/O/N/2025, Q3.
+</div>
+</section>
+<section id="octobernovember-923124-question-7b-5-marks" class="level3 question-card">
+<h3 class="anchored" data-anchor-id="octobernovember-923124-question-7b-5-marks">2025 October/November · 9231/24 · Question 7(b) · 5 marks</h3>
+<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
+<p><span class="math display">\[
+x=8\ln\left(\tan\frac{t}{2}\right)-3\cot t-3t,\qquad
+y=6\ln\left(\tan\frac{t}{2}\right)+4\cot t+4t,
+\]</span></p>
+<p>for <span class="math inline">\(\frac{\pi}{6}\leqslant t\leqslant\frac{\pi}{3}\)</span>.</p>
+<p>Show that</p>
+<p><span class="math display">\[
+\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{a\cot t\operatorname{cosec}t(\operatorname{cosec}^2t+1)}{(b\operatorname{cosec}t+c\cot^2t)^n},
+\]</span></p>
+<p>where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(n\)</span> are integers to be determined.</p>
+<details class="answer-panel">
+<summary>
+Show answer and mark scheme
+</summary>
+<p>Differentiating,</p>
+<p><span class="math display">\[
+\frac{\mathrm dx}{\mathrm dt}=8\operatorname{cosec}t+3\cot^2t,
+\qquad
+\frac{\mathrm dy}{\mathrm dt}=6\operatorname{cosec}t-4\cot^2t.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{\mathrm dy}{\mathrm dx}=\frac{6\operatorname{cosec}t-4\cot^2t}{8\operatorname{cosec}t+3\cot^2t}.
+\]</span></p>
+<p>Differentiating this with respect to <span class="math inline">\(t\)</span> and applying the chain rule gives</p>
+<p><span class="math display">\[
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{50\cot t\operatorname{cosec}t(\operatorname{cosec}^2t+1)}{(8\operatorname{cosec}t+3\cot^2t)^3}}.
+\]</span></p>
+<p>So <span class="math inline">\(a=50\)</span>, <span class="math inline">\(b=8\)</span>, <span class="math inline">\(c=3\)</span> and <span class="math inline">\(n=3\)</span>.</p>
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-on-24-q7b"> Completed</label>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/24/O/N/2025, Q7(b).
+</div>
+</section>
+</section>
+<section id="完成本节的判断标准" class="level2">
+<h2 class="anchored" data-anchor-id="完成本节的判断标准">4. 完成本节的判断标准</h2>
+<ol type="1">
+<li>能写出双曲函数与反三角、反双曲函数的导数并注意符号；</li>
+<li>隐式关系能正确求出 <span class="math inline">\(y'\)</span> 与 <span class="math inline">\(y''\)</span>；</li>
+<li>参数曲线能正确使用 <span class="math inline">\(y''=\dfrac{\mathrm d}{\mathrm dt}(y')\cdot\dfrac{\mathrm dt}{\mathrm dx}\)</span>；</li>
+<li>能求常见函数的 Maclaurin 级数前几项，并知道收敛范围（如 <span class="math inline">\(|x|&lt;1\)</span> 等）；</li>
+<li>能用隐式求导方法处理 <span class="math inline">\(y=\tan x\)</span> 这类函数的 Maclaurin 展开。 本节保留教材 Chapter 3 的全部编号 Example（Example 1–7）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-2/matrices.html" class="pagination-link" aria-label="2.2 Matrices">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.2 Matrices</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
