@@ -1,0 +1,1029 @@
+### 2020
+
+::: {.question-card}
+### 2020 May/June · 9231/21 & 9231/22 · Question 2 · 7 marks
+
+It is given that $y=2^x$.
+
+**(a)** By differentiating $\ln y$ with respect to $x$, show that
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=2^x\ln2.
+$$
+
+**[3]**
+
+**(b)** Write down $\dfrac{\mathrm d^2y}{\mathrm dx^2}$. **[1]**
+
+**(c)** Hence find the first three terms in the Maclaurin's series for $2^x$. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Taking logarithms,
+
+$$
+\ln y=x\ln2.
+$$
+
+Differentiating with respect to $x$,
+
+$$
+\frac1y\frac{\mathrm dy}{\mathrm dx}=\ln2
+\;\Longrightarrow\;
+\frac{\mathrm dy}{\mathrm dx}=y\ln2=2^x\ln2.
+$$
+
+**(b)**
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=2^x(\ln2)^2}.
+$$
+
+**(c)** At $x=0$,
+
+$$
+y(0)=1,\qquad y'(0)=\ln2,\qquad y''(0)=(\ln2)^2.
+$$
+
+Hence
+
+$$
+\boxed{2^x=1+(\ln2)x+\frac{(\ln2)^2}{2}x^2+\cdots}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-21-22-q2"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q2; 9231/22/M/J/2020, Q2.</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/23 · Question 5(b) · 4 marks
+
+The curve $C$ has parametric equations
+
+$$
+x=\frac12t^2-\ln t,\qquad y=2t+1,\qquad \frac12\leqslant t\leqslant2.
+$$
+
+Find $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ in terms of $t$, simplifying your answer.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=t-\frac1t=t-\frac1t,\qquad
+\frac{\mathrm dy}{\mathrm dt}=2.
+$$
+
+Hence
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac2{t-\frac1t}=\frac{2t}{t^2-1}.
+$$
+
+Differentiating with respect to $t$,
+
+$$
+\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
+=\frac{2(t^2-1)-2t(2t)}{(t^2-1)^2}
+=-\frac{2(t^2+1)}{(t^2-1)^2}.
+$$
+
+Applying the chain rule,
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
+=-\frac{2(1+t^{-2})}{(t-t^{-1})^3}
+=-\frac{2t(t^2+1)}{(t^2-1)^3}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-23-q5b"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q5(b).</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/23 · Question 6(b)–(c) · 9 marks
+
+The variables $x$ and $y$ are such that
+
+$$
+\tanh y=\cos\left(x+\frac{\pi}{4}\right),
+\qquad -\frac{\pi}{4}\leqslant x\leqslant\frac{3\pi}{4}.
+$$
+
+**(b)** By differentiating the equation $\tanh y=\cos\left(x+\frac{\pi}{4}\right)$ with respect to $x$, show that
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=-\operatorname{cosec}\left(x+\frac{\pi}{4}\right).
+$$
+
+**[4]**
+
+**(c)** Hence find the first three terms in the Maclaurin's series for
+
+$$
+\tanh^{-1}\left(\cos\left(x+\frac{\pi}{4}\right)\right)
+$$
+
+in the form
+
+$$
+\frac12\ln a+bx+cx^2,
+$$
+
+giving the exact values of the constants $a$, $b$ and $c$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(b)** Differentiating $\tanh y=\cos\left(x+\frac{\pi}{4}\right)$,
+
+$$
+\operatorname{sech}^2y\,\frac{\mathrm dy}{\mathrm dx}
+=-\sin\left(x+\frac{\pi}{4}\right).
+$$
+
+Using $1-\tanh^2y=\operatorname{sech}^2y$,
+
+$$
+\left(1-\cos^2\left(x+\frac{\pi}{4}\right)\right)\frac{\mathrm dy}{\mathrm dx}
+=-\sin\left(x+\frac{\pi}{4}\right).
+$$
+
+Therefore
+
+$$
+\frac{\mathrm dy}{\mathrm dx}
+=-\frac{\sin\left(x+\frac{\pi}{4}\right)}{\sin^2\left(x+\frac{\pi}{4}\right)}
+=\boxed{-\operatorname{cosec}\left(x+\frac{\pi}{4}\right)}.
+$$
+
+**(c)** Let $y=\tanh^{-1}\left(\cos\left(x+\frac{\pi}{4}\right)\right)$. At $x=0$,
+
+$$
+y(0)=\tanh^{-1}\left(\frac1{\sqrt2}\right)=\frac12\ln\left(\frac{2+\sqrt2}{2-\sqrt2}\right)=\frac12\ln(3+2\sqrt2).
+$$
+
+From part (b),
+
+$$
+y'(0)=-\operatorname{cosec}\frac{\pi}{4}=-\sqrt2.
+$$
+
+Differentiating $y'=-\operatorname{cosec}\left(x+\frac{\pi}{4}\right)$,
+
+$$
+y''(x)=\operatorname{cosec}\left(x+\frac{\pi}{4}\right)\cot\left(x+\frac{\pi}{4}\right),
+$$
+
+so
+
+$$
+y''(0)=\sqrt2.
+$$
+
+Hence
+
+$$
+\boxed{y=\frac12\ln(3+2\sqrt2)-\sqrt2\,x+\frac{\sqrt2}{2}x^2}.
+$$
+
+So $a=3+2\sqrt2$, $b=-\sqrt2$ and $c=\dfrac{\sqrt2}{2}$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-23-q6bc"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q6(b)–(c).</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/21 & 9231/23 · Question 5 · 9 marks
+
+It is given that
+
+$$
+x=\sinh^{-1}t,\qquad y=\cos^{-1}t,\qquad -1\leqslant t\leqslant1.
+$$
+
+**(a)** By differentiating $\cos y$ with respect to $t$, show that
+
+$$
+\frac{\mathrm dy}{\mathrm dt}=-\frac1{\sqrt{1-t^2}}.
+$$
+
+**[4]**
+
+**(b)** Find $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ in terms of $t$, simplifying your answer. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** From $y=\cos^{-1}t$ we have $\cos y=t$. Differentiating with respect to $t$,
+
+$$
+-\sin y\,\frac{\mathrm dy}{\mathrm dt}=1.
+$$
+
+Since $0<y<\pi$, $\sin y>0$, so
+
+$$
+\frac{\mathrm dy}{\mathrm dt}=-\frac1{\sin y}
+=-\frac1{\sqrt{1-\cos^2y}}
+=\boxed{-\frac1{\sqrt{1-t^2}}}.
+$$
+
+**(b)** Since $x=\sinh^{-1}t$,
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=\frac1{\sqrt{1+t^2}}.
+$$
+
+Hence
+
+$$
+\frac{\mathrm dy}{\mathrm dx}
+=-\frac{\sqrt{1+t^2}}{\sqrt{1-t^2}}.
+$$
+
+Differentiating with respect to $t$ and applying the chain rule,
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
+=-\frac{2t}{(1-t^2)^{3/2}}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-on-21-23-q5"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q5; 9231/23/O/N/2020, Q5.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/22 · Question 1 · 5 marks
+
+Find the Maclaurin's series for $\tan\left(x+\frac{\pi}{4}\right)$ up to and including the term in $x^2$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Let $f(x)=\tan\left(x+\frac{\pi}{4}\right)$. Then
+
+$$
+f(0)=1,
+$$
+
+$$
+f'(x)=\sec^2\left(x+\frac{\pi}{4}\right),
+\qquad
+f'(0)=\sec^2\frac{\pi}{4}=2,
+$$
+
+$$
+f''(x)=2\sec^2\left(x+\frac{\pi}{4}\right)\tan\left(x+\frac{\pi}{4}\right),
+\qquad
+f''(0)=2(2)(1)=4.
+$$
+
+Hence
+
+$$
+\boxed{\tan\left(x+\frac{\pi}{4}\right)=1+2x+2x^2+\cdots}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-on-22-q1"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q1.</div>
+:::
+
+### 2021
+
+::: {.question-card}
+### 2021 May/June · 9231/23 · Question 2 · 7 marks
+
+Find the Maclaurin's series for $\ln\cosh x$ up to and including the term in $x^4$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Let $f(x)=\ln\cosh x$. Then
+
+$$
+f(0)=0,\qquad
+f'(x)=\tanh x,
+\qquad
+f''(x)=\operatorname{sech}^2x,
+$$
+
+$$
+f'''(x)=-2\operatorname{sech}^2x\tanh x=-2\frac{\sinh x}{\cosh^3x},
+$$
+
+$$
+f^{(4)}(x)=-2\frac{\cosh^2x-3\sinh^2x}{\cosh^4x}.
+$$
+
+At $x=0$,
+
+$$
+f(0)=0,\quad f'(0)=0,\quad f''(0)=1,\quad f'''(0)=0,\quad f^{(4)}(0)=-2.
+$$
+
+Therefore
+
+$$
+\boxed{\ln\cosh x=\frac12x^2-\frac1{12}x^4+\cdots}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-mj-23-q2"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q2.</div>
+:::
+
+::: {.question-card}
+### 2021 October/November · 9231/22 · Question 1 · 3 marks
+
+It is given that $y=\sinh(x^2)+\cosh(x^2)$.
+
+**(a)** Use standard results from the list of formulae (MF19) to find the Maclaurin's series for $y$ in terms of $x$ up to and including the term in $x^4$. **[2]**
+
+**(b)** Deduce the value of $\dfrac{\mathrm d^4y}{\mathrm dx^4}$ when $x=0$. **[1]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Since
+
+$$
+e^{x^2}=\cosh(x^2)+\sinh(x^2),
+$$
+
+the Maclaurin series is
+
+$$
+\boxed{y=e^{x^2}=1+x^2+\frac12x^4+\cdots}.
+$$
+
+**(b)** The coefficient of $x^4$ is $\dfrac{1}{4!}\dfrac{\mathrm d^4y}{\mathrm dx^4}(0)=\dfrac12$, so
+
+$$
+\boxed{\frac{\mathrm d^4y}{\mathrm dx^4}(0)=12}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-on-22-q1"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q1.</div>
+:::
+
+::: {.question-card}
+### 2021 October/November · 9231/22 · Question 5(b) · 4 marks
+
+The curve $C$ has parametric equations
+
+$$
+x=3t+2t^{-1}+at^3,\qquad y=4t-\frac32t^{-1}+bt^3,\qquad 1\leqslant t\leqslant2,
+$$
+
+where $a$ and $b$ are constants.
+
+It is given instead that $a=b=0$. Find the value of $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ when $t=1$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+With $a=b=0$,
+
+$$
+x=3t+2t^{-1},\qquad y=4t-\frac32t^{-1}.
+$$
+
+Then
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=3-2t^{-2},\qquad
+\frac{\mathrm dy}{\mathrm dt}=4+\frac32t^{-2},
+$$
+
+so
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac{4+\frac32t^{-2}}{3-2t^{-2}}.
+$$
+
+Differentiating with respect to $t$,
+
+$$
+\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
+=\frac{(3-2t^{-2})(-3t^{-3})-(4+\frac32t^{-2})(4t^{-3})}{(3-2t^{-2})^2}
+=-\frac{25t^{-3}}{(3-2t^{-2})^2}.
+$$
+
+Applying the chain rule with $\dfrac{\mathrm dx}{\mathrm dt}=3-2t^{-2}$,
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=-\frac{25t^{-3}}{(3-2t^{-2})^3}.
+$$
+
+At $t=1$,
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-25}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-on-22-q5b"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q5(b).</div>
+:::
+
+### 2022
+
+::: {.question-card}
+### 2022 May/June · 9231/23 · Question 2(a) · 4 marks
+
+Find the coefficient of $x^2$ in the Maclaurin's series for $-\ln\cos x$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Let $f(x)=-\ln\cos x$. Then
+
+$$
+f'(x)=\tan x,\qquad f''(x)=\sec^2x.
+$$
+
+At $x=0$,
+
+$$
+f'(0)=0,\qquad f''(0)=1.
+$$
+
+Hence the coefficient of $x^2$ is
+
+$$
+\boxed{\frac{f''(0)}{2!}=\frac12}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2022-mj-23-q2a"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2022, Q2(a).</div>
+:::
+
+::: {.question-card}
+### 2022 May/June · 9231/23 · Question 4 · 9 marks
+
+It is given that
+
+$$
+x=-t+\tan^{-1}t,\qquad y=t+\sinh^{-1}t.
+$$
+
+**(a)** Show that
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=-\frac{\sqrt{1+t^2}+1+t^2}{t^2}.
+$$
+
+**[4]**
+
+**(b)** Find the value of $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ when $t=\frac34$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)**
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=-1+\frac1{1+t^2}=-\frac{t^2}{1+t^2},
+\qquad
+\frac{\mathrm dy}{\mathrm dt}=1+\frac1{\sqrt{1+t^2}}.
+$$
+
+Therefore
+
+$$
+\frac{\mathrm dy}{\mathrm dx}
+=\frac{1+\frac1{\sqrt{1+t^2}}}{-\frac{t^2}{1+t^2}}
+=-\frac{(1+t^2)\left(1+\frac1{\sqrt{1+t^2}}\right)}{t^2}
+=-\frac{1+t^2+\sqrt{1+t^2}}{t^2}.
+$$
+
+So
+
+$$
+\boxed{\frac{\mathrm dy}{\mathrm dx}=-\frac{\sqrt{1+t^2}+1+t^2}{t^2}}.
+$$
+
+**(b)** Differentiating $\dfrac{\mathrm dy}{\mathrm dx}$ with respect to $t$ gives
+
+$$
+\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
+=-\frac{t^2\left(2t+\frac{t}{\sqrt{1+t^2}}\right)-2t\left(1+t^2+\sqrt{1+t^2}\right)}{t^4}.
+$$
+
+Applying the chain rule,
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{\mathrm dt}{\mathrm dx}
+=-\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{1+t^2}{t^2}.
+$$
+
+At $t=\frac34$ this simplifies to
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-\frac{80}{3}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2022-mj-23-q4"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2022, Q4.</div>
+:::
+
+### 2023
+
+::: {.question-card}
+### 2023 October/November · 9231/22 · Question 1 · 5 marks
+
+Find the Maclaurin's series for $\ln(x+2)+\ln(x^2+5)$ up to and including the term in $x^2$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Using $\ln(1+u)=u-\frac12u^2+\cdots$,
+
+$$
+\ln(x+2)=\ln2+\ln\left(1+\frac{x}{2}\right)
+=\ln2+\frac{x}{2}-\frac{x^2}{8}+\cdots,
+$$
+
+$$
+\ln(x^2+5)=\ln5+\ln\left(1+\frac{x^2}{5}\right)
+=\ln5+\frac{x^2}{5}+\cdots.
+$$
+
+Adding,
+
+$$
+\boxed{\ln(x+2)+\ln(x^2+5)=\ln10+\frac{x}{2}+\frac{3x^2}{40}+\cdots}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2023-on-22-q1"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q1.</div>
+:::
+
+::: {.question-card}
+### 2023 October/November · 9231/22 · Question 2(b) · 4 marks
+
+The curve $C$ has parametric equations
+
+$$
+x=e^{-t}(t^3+t^2),\qquad y=2e^t(t-1),\qquad 0\leqslant t\leqslant1.
+$$
+
+Find $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ in terms of $t$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=e^{-t}(-t^3-t^2+3t^2+2t)=e^{-t}(-t^3+2t^2+2t),
+$$
+
+$$
+\frac{\mathrm dy}{\mathrm dt}=2e^t(t-1)+2e^t=2te^t.
+$$
+
+Hence
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac{2te^t}{e^{-t}(-t^3+2t^2+2t)}
+=\frac{2te^{2t}}{-t^3+2t^2+2t}.
+$$
+
+Differentiating with respect to $t$ and applying the chain rule,
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=t^3e^t(t^2+4t+2)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2023-on-22-q2b"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q2(b).</div>
+:::
+
+### 2024
+
+::: {.question-card}
+### 2024 May/June · 9231/23 · Question 2(b) · 5 marks
+
+The curve $C$ has parametric equations
+
+$$
+x=\cosh t,\qquad y=\sinh t,\qquad 0\leqslant t\leqslant\frac35.
+$$
+
+The length of $C$ is denoted by $s$.
+
+**(a)** Show that $s=\displaystyle\int_0^{3/5}\sqrt{\cosh 2t}\,\mathrm dt$. **[4]**
+
+**(b)** By finding the Maclaurin's series for $\sqrt{\cosh 2t}$ up to and including the term in $t^2$, deduce an approximation to $s$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Differentiating,
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=\sinh t,\qquad
+\frac{\mathrm dy}{\mathrm dt}=\cosh t.
+$$
+
+Therefore
+
+$$
+\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2
+=\sinh^2t+\cosh^2t=\cosh 2t,
+$$
+
+so
+
+$$
+s=\int_0^{3/5}\sqrt{\cosh 2t}\,\mathrm dt.
+$$
+
+**(b)** Using $\sqrt{\cosh 2t}\approx1+t^2$ (from the Maclaurin series of $\cosh 2t$ up to $t^2$),
+
+$$
+s\approx\int_0^{3/5}(1+t^2)\,\mathrm dt
+=\left[t+\frac{t^3}{3}\right]_0^{3/5}
+=\frac35+\frac{9}{125}
+=\boxed{\frac{84}{125}=0.672}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q2b"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q2(b).</div>
+:::
+
+::: {.question-card}
+### 2024 May/June · 9231/23 · Question 3(b) · 5 marks
+
+The curve $C$ has equation
+
+$$
+3x^2+2xy+24y^2=13.
+$$
+
+**(a)** Show that, at the point $(-2,-1)$ on $C$, $\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac12$. **[3]**
+
+**(b)** Find the value of $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ at the point $(-2,-1)$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Differentiating implicitly,
+
+$$
+6x+2xy'+2y+48yy'=0.
+$$
+
+At $(-2,-1)$,
+
+$$
+3(-2)^2+2(-2)y'+2(-1)+24(-1)^2y'=0
+\;\Longrightarrow\;
+12-4y'-2+24y'=0
+\;\Longrightarrow\;
+20y'=-10
+\;\Longrightarrow\;
+\boxed{y'=-\frac12}.
+$$
+
+**(b)** Differentiating
+
+$$
+3x^2+2xy'+2y+24y^2y'=0
+$$
+
+with respect to $x$,
+
+$$
+6x+2xy''+2y'+2y'+24y^2y''+48y(y')^2=0.
+$$
+
+Substituting $x=-2$, $y=-1$ and $y'=-\frac12$,
+
+$$
+6(-2)+2(-2)y''+4\left(-\frac12\right)+24(-1)^2y''+48(-1)\left(-\frac12\right)^2=0.
+$$
+
+That is,
+
+$$
+-12-4y''-2+24y''-12=0
+\;\Longrightarrow\;
+20y''-26=0,
+$$
+
+so
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{13}{10}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q3b"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q3(b).</div>
+:::
+
+::: {.question-card}
+### 2024 May/June · 9231/23 · Question 7(a) · 3 marks
+
+Show that
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(\frac{x}{2}\sqrt{x^2-9}-\frac{9}{2}\cosh^{-1}\frac{x}{3}\right)=\sqrt{x^2-9}.
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Using the product rule and $\dfrac{\mathrm d}{\mathrm dx}\cosh^{-1}\dfrac{x}{3}=\dfrac1{\sqrt{x^2-9}}$,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(\frac{x}{2}\sqrt{x^2-9}\right)
+=\frac12\sqrt{x^2-9}+\frac{x^2}{2\sqrt{x^2-9}},
+$$
+
+and
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(-\frac92\cosh^{-1}\frac{x}{3}\right)
+=-\frac92\cdot\frac1{\sqrt{x^2-9}}.
+$$
+
+Adding,
+
+$$
+\frac12\sqrt{x^2-9}+\frac{x^2-9}{2\sqrt{x^2-9}}
+=\frac12\sqrt{x^2-9}+\frac12\sqrt{x^2-9}
+=\sqrt{x^2-9}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q7a"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q7(a).</div>
+:::
+
+::: {.question-card}
+### 2024 October/November · 9231/22 · Question 2 · 7 marks
+
+The curve $C$ has equation
+
+$$
+4y^2+4\ln(xy)=1.
+$$
+
+**(a)** Show that, at the point $\left(2,\frac12\right)$ on $C$, $\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac16$. **[3]**
+
+**(b)** Find the value of $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ at the point $\left(2,\frac12\right)$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Differentiating implicitly,
+
+$$
+8yy'+4\cdot\frac{xy'+y}{xy}=0
+\;\Longrightarrow\;
+8yy'+4y^{-1}y'+4x^{-1}=0.
+$$
+
+At $\left(2,\frac12\right)$,
+
+$$
+8\left(\frac12\right)y'+4(2)y'+\frac42=0
+\;\Longrightarrow\;
+4y'+8y'+2=0
+\;\Longrightarrow\;
+y'=-\frac16.
+$$
+
+**(b)** Differentiating again,
+
+$$
+8(y')^2+8yy''-4(y')^2y^{-2}+4y^{-1}y''-4x^{-2}=0.
+$$
+
+Substituting $x=2$, $y=\frac12$ and $y'=-\frac16$,
+
+$$
+8\cdot\frac1{36}+4y''-4\cdot\frac1{36}\cdot4+8y''-1=0.
+$$
+
+Solving gives
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{11}{108}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-on-22-q2"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2024, Q2.</div>
+:::
+
+::: {.question-card}
+### 2024 October/November · 9231/22 · Question 7(a) · 3 marks
+
+Show that
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(\ln\tanh x\right)=2\operatorname{cosech}2x.
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Using the chain rule,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(\ln\tanh x\right)
+=\frac{\operatorname{sech}^2x}{\tanh x}
+=\frac1{\sinh x\cosh x}
+=\frac2{\sinh2x}
+=\boxed{2\operatorname{cosech}2x}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-on-22-q7a"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2024, Q7(a).</div>
+:::
+
+### 2025
+
+::: {.question-card}
+### 2025 May/June · 9231/23 · Question 3 · 10 marks
+
+The curve $C$ has equation
+
+$$
+9y^2-3\sinh^{-1}(xy)=1-3\ln3.
+$$
+
+**(a)** Show that, at the point $(4,\frac13)$ on $C$, $\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac12$. **[4]**
+
+**(b)** Find the value of $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ at the point $(4,\frac13)$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Differentiating implicitly,
+
+$$
+18yy'-3\cdot\frac{xy'+y}{\sqrt{1+x^2y^2}}=0.
+$$
+
+At $(4,\frac13)$,
+
+$$
+18\cdot\frac13\,y'-3\cdot\frac{4y'+\frac13}{\sqrt{1+\frac{16}9}}=0.
+$$
+
+Since $\sqrt{1+\frac{16}9}=\frac53$,
+
+$$
+6y'-3\cdot\frac{4y'+\frac13}{\frac53}=0
+\;\Longrightarrow\;
+6y'-\frac95\left(4y'+\frac13\right)=0
+\;\Longrightarrow\;
+6y'-\frac{36}{5}y'-\frac35=0.
+$$
+
+Multiplying through by $5$,
+
+$$
+30y'-36y'-3=0
+\;\Longrightarrow\;
+-6y'=3
+\;\Longrightarrow\;
+\boxed{y'=-\frac12}.
+$$
+
+**(b)** Differentiating
+
+$$
+18yy'-\frac{3(xy'+y)}{\sqrt{1+x^2y^2}}=0
+$$
+
+with respect to $x$ gives
+
+$$
+18yy''+18(y')^2
+-3\cdot\frac{\sqrt{1+x^2y^2}(xy''+2y')-(xy'+y)\cdot\frac{x^2y}{\sqrt{1+x^2y^2}}}{1+x^2y^2}=0.
+$$
+
+Substituting $x=4$, $y=\frac13$, $y'=-\frac12$ gives
+
+$$
+-6y''+\frac{87}{10}=0,
+$$
+
+so
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{29}{4}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-mj-23-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2025, Q3.</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/22 · Question 3 · 9 marks
+
+The variables $x$ and $y$ are such that $y=2$ when $x=-1$ and
+
+$$
+x^2y+(x+y)^3=3.
+$$
+
+**(a)** Show that $\dfrac{\mathrm dy}{\mathrm dx}=\dfrac14$ when $x=-1$. **[3]**
+
+**(b)** Find the value of $\dfrac{\mathrm d^2y}{\mathrm dx^2}$ when $x=-1$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Differentiating implicitly,
+
+$$
+x^2y'+2xy+3(x+y)^2(1+y')=0.
+$$
+
+At $(-1,2)$,
+
+$$
+y'+2(-1)(2)+3(1)^2(1+y')=0
+\;\Longrightarrow\;
+y'-4+3+3y'=0
+\;\Longrightarrow\;
+4y'=1
+\;\Longrightarrow\;
+\boxed{y'=\frac14}.
+$$
+
+**(b)** Differentiating again,
+
+$$
+x^2y''+4xy'+2y+3(x+y)^2y''+6(1+y')^2(x+y)=0.
+$$
+
+Substituting $x=-1$, $y=2$, $y'=\frac14$,
+
+$$
+y''-1+4+3y''+6\left(\frac54\right)^2(1)=0.
+$$
+
+Solving gives
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-\frac{99}{32}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-on-22-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2025, Q3.</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/24 · Question 7(b) · 5 marks
+
+The curve $C$ has parametric equations
+
+$$
+x=8\ln\left(\tan\frac{t}{2}\right)-3\cot t-3t,\qquad
+y=6\ln\left(\tan\frac{t}{2}\right)+4\cot t+4t,
+$$
+
+for $\frac{\pi}{6}\leqslant t\leqslant\frac{\pi}{3}$.
+
+Show that
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{a\cot t\operatorname{cosec}t(\operatorname{cosec}^2t+1)}{(b\operatorname{cosec}t+c\cot^2t)^n},
+$$
+
+where $a$, $b$, $c$ and $n$ are integers to be determined.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Differentiating,
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=8\operatorname{cosec}t+3\cot^2t,
+\qquad
+\frac{\mathrm dy}{\mathrm dt}=6\operatorname{cosec}t-4\cot^2t.
+$$
+
+Hence
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac{6\operatorname{cosec}t-4\cot^2t}{8\operatorname{cosec}t+3\cot^2t}.
+$$
+
+Differentiating this with respect to $t$ and applying the chain rule gives
+
+$$
+\boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{50\cot t\operatorname{cosec}t(\operatorname{cosec}^2t+1)}{(8\operatorname{cosec}t+3\cot^2t)^3}}.
+$$
+
+So $a=50$, $b=8$, $c=3$ and $n=3$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-on-24-q7b"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/24/O/N/2025, Q7(b).</div>
+:::

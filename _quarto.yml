@@ -12,6 +12,7 @@ project:
     - paper-1/proof-by-induction.qmd
     - paper-2/hyperbolic-functions.qmd
     - paper-2/matrices.qmd
+    - paper-2/differentiation.qmd
 
 website:
   title: "CIE Further Mathematics 9231"
@@ -44,6 +45,8 @@ website:
             text: "2.1 Hyperbolic functions"
           - href: paper-2/matrices.qmd
             text: "2.2 Matrices"
+          - href: paper-2/differentiation.qmd
+            text: "2.3 Differentiation"
 
 format:
   html:

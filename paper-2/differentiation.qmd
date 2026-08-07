@@ -1,0 +1,150 @@
+---
+title: "2.3 Differentiation"
+subtitle: "反函数求导 · 隐式与参数二阶导数 · Maclaurin 级数"
+description: "CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 3。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 求双曲函数以及 $\sin^{-1}x$、$\cos^{-1}x$、$\sinh^{-1}x$、$\cosh^{-1}x$、$\tanh^{-1}x$ 的导数；
+2. 当 $x$ 与 $y$ 的关系以隐式或参数形式给出时，求 $\dfrac{\mathrm d^2y}{\mathrm dx^2}$；
+3. 推导并使用函数的 Maclaurin 级数前几项（不要求一般项公式；可连续隐式求导，例如对 $y=\tan x$ 先化为 $y'=1+y^2$ 再逐次求导）。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 熟记 $\tanh x$、$\operatorname{sech}x$、$\operatorname{cosech}x$、$\coth x$ 的导数及符号
+- [ ] 能用反函数方法求 $\sin^{-1}x$、$\cos^{-1}x$、$\sinh^{-1}x$、$\cosh^{-1}x$、$\tanh^{-1}x$ 的导数
+- [ ] 隐式关系能先求 $y'$，再对 $y'$ 求导得到 $y''$
+- [ ] 参数曲线能用 $y''=\dfrac{\mathrm d}{\mathrm dt}(y')\cdot\dfrac{\mathrm dt}{\mathrm dx}$ 求二阶导数
+- [ ] 能写出 $e^x$、$\ln(1+x)$、$\sin x$、$\cos x$、$\tan^{-1}x$、$\sinh x$、$\cosh x$、$\tanh x$ 的 Maclaurin 级数
+- [ ] 能通过逐次隐式求导求 $y=\tan x$ 等函数的 Maclaurin 级数
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Differentiating hyperbolic functions
+
+双曲函数的导数与对应三角函数的导数十分相似，但要注意符号变化：
+
+$$
+\frac{\mathrm d}{\mathrm dx}\tanh x=\operatorname{sech}^2x,
+\qquad
+\frac{\mathrm d}{\mathrm dx}\coth x=-\operatorname{cosech}^2x,
+$$
+
+$$
+\frac{\mathrm d}{\mathrm dx}\operatorname{sech}x=-\operatorname{sech}x\tanh x,
+\qquad
+\frac{\mathrm d}{\mathrm dx}\operatorname{cosech}x=-\operatorname{cosech}x\coth x.
+$$
+
+### 1.2 Differentiating inverse functions
+
+若 $y=f^{-1}(x)$，则 $f(y)=x$。两边对 $x$ 求导得
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac1{f'(y)}.
+$$
+
+由此可得
+
+$$
+\frac{\mathrm d}{\mathrm dx}\sin^{-1}x=\frac1{\sqrt{1-x^2}},\qquad
+\frac{\mathrm d}{\mathrm dx}\cos^{-1}x=-\frac1{\sqrt{1-x^2}},
+$$
+
+$$
+\frac{\mathrm d}{\mathrm dx}\sinh^{-1}x=\frac1{\sqrt{x^2+1}},\qquad
+\frac{\mathrm d}{\mathrm dx}\cosh^{-1}x=\frac1{\sqrt{x^2-1}},
+$$
+
+$$
+\frac{\mathrm d}{\mathrm dx}\tanh^{-1}x=\frac1{1-x^2}.
+$$
+
+### 1.3 Implicit second derivatives
+
+当 $y$ 由隐式方程给出时，先对等式两边关于 $x$ 求导得到 $y'$，再对 $y'$ 关于 $x$ 求导（通常需要继续使用隐式求导与 chain rule、quotient rule）得到 $y''$。
+
+### 1.4 Parametric second derivatives
+
+若曲线由 $x=f(t)$、$y=g(t)$ 给出，则
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac{\mathrm dy/\mathrm dt}{\mathrm dx/\mathrm dt},
+\qquad
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{\mathrm dt}{\mathrm dx}.
+$$
+
+注意：不能直接对 $y'=\dfrac{\mathrm dy/\mathrm dt}{\mathrm dx/\mathrm dt}$ 用普通的商法则除以 $\mathrm dx/\mathrm dt$ 得到 $y''$；必须先对 $t$ 求导再乘以 $\dfrac{\mathrm dt}{\mathrm dx}$。
+
+### 1.5 Maclaurin series
+
+Maclaurin 级数（在 $x=0$ 附近展开）为
+
+$$
+\boxed{f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots}.
+$$
+
+常用展开式（本课程范围内）：
+
+$$
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots,
+$$
+
+$$
+\ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots\qquad(-1<x\leqslant1),
+$$
+
+$$
+\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots,
+$$
+
+$$
+\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots,
+$$
+
+$$
+\tan^{-1}x=x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots\qquad(-1\leqslant x\leqslant1),
+$$
+
+$$
+\sinh x=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots,
+$$
+
+$$
+\cosh x=1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots,
+$$
+
+$$
+\tanh x=x-\frac{x^3}{3}+\frac{2x^5}{15}-\cdots\qquad(|x|<\frac{\pi}{2}).
+$$
+
+### 1.6 Maclaurin series by implicit differentiation
+
+有些函数的导数可以写成自身的形式（如 $y=\tan x$ 满足 $y'=1+y^2$），这时可以对 $y'=1+y^2$ 逐次隐式求导，得到 $y''$、$y'''$ 等在 $x=0$ 处的值，再代入 Maclaurin 级数公式。这避免了每次直接求高阶导数。
+
+## 2. Textbook Examples
+
+{{< include differentiation-examples.qmd >}}
+
+## 3. Past-paper question bank
+
+{{< include differentiation-past-papers.qmd >}}
+
+## 4. 完成本节的判断标准
+
+1. 能写出双曲函数与反三角、反双曲函数的导数并注意符号；
+2. 隐式关系能正确求出 $y'$ 与 $y''$；
+3. 参数曲线能正确使用 $y''=\dfrac{\mathrm d}{\mathrm dt}(y')\cdot\dfrac{\mathrm dt}{\mathrm dx}$；
+4. 能求常见函数的 Maclaurin 级数前几项，并知道收敛范围（如 $|x|<1$ 等）；
+5. 能用隐式求导方法处理 $y=\tan x$ 这类函数的 Maclaurin 展开。
+本节保留教材 Chapter 3 的全部编号 Example（Example 1–7）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。

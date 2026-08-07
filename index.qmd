@@ -107,4 +107,14 @@ subtitle: "2026–2027 syllabus · 9231"
 - 2020–2025 Paper 2 对应真题
 :::
 
+::: {.topic-card}
+### [2.3 Differentiation](paper-2/differentiation.qmd)
+
+- 双曲函数与反三角、反双曲函数的导数
+- 隐式关系与参数曲线的二阶导数
+- Maclaurin 级数及隐式求导法
+- 教材 Example 1–7
+- 2020–2025 Paper 2 对应真题
+:::
+
 后续章节将沿用相同结构继续制作。
