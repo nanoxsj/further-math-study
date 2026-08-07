@@ -1,0 +1,104 @@
+---
+title: "2.6 Differential equations"
+subtitle: "积分因子 · 齐次与非齐次二阶方程 · 代换法"
+description: "CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 6。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 求一阶线性微分方程的积分因子，并用积分因子求通解；
+2. 理解 complementary function（CF）与 particular integral（PI）的含义，并知道通解是 CF 与 PI 之和；
+3. 求一阶或二阶常系数线性微分方程的 complementary function（辅助方程有互异实根、重根或共轭复根三种情形）；
+4. 在多项式、$ae^{bx}$、$a\cos px+b\sin px$ 适用时写出并求出 particular integral；其他简单情形给定 PI 形式后求系数；
+5. 使用给定代换把微分方程化为常系数线性方程或可分离变量的一阶方程；
+6. 用初始条件求特解，并解释解在模型中的含义。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能写出并应用一阶线性方程的积分因子 $e^{\int P(x)\mathrm dx}$
+- [ ] 能根据辅助方程根的类型写出 CF：$Ae^{rx}+Be^{sx}$、$e^{rx}(A+Bx)$、$e^{ax}(A\cos bx+B\sin bx)$
+- [ ] 能为 $f(x)$ 为多项式、指数、正余弦时选择正确的 PI 形式
+- [ ] 当 PI 形式与 CF 重复时，知道要乘以 $x$（或 $x^2$）
+- [ ] 能用 $x=e^t$、$y=ux$、$v=y^n$ 等代换化简方程
+- [ ] 能用初始条件确定常数并写出特解
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 First-order linear differential equations
+
+一阶线性方程可写成
+
+$$
+\frac{\mathrm dy}{\mathrm dx}+P(x)y=Q(x).
+$$
+
+乘以积分因子
+
+$$
+\boxed{R(x)=e^{\int P(x)\,\mathrm dx}},
+$$
+
+左边成为完全导数：
+
+$$
+\frac{\mathrm d}{\mathrm dx}\bigl(R(x)y\bigr)=R(x)Q(x),
+$$
+
+然后两边积分即可。
+
+### 1.2 Complementary functions for constant-coefficient equations
+
+对 $a\dfrac{\mathrm d^2y}{\mathrm dx^2}+b\dfrac{\mathrm dy}{\mathrm dx}+cy=0$，解辅助方程
+
+$$
+ar^2+br+c=0.
+$$
+
+三种情形：
+
+- 互异实根 $r_1,r_2$：$y=Ae^{r_1x}+Be^{r_2x}$；
+- 重根 $r$：$y=e^{rx}(A+Bx)$；
+- 共轭复根 $a\pm\mathrm ib$：$y=e^{ax}(A\cos bx+B\sin bx)$。
+
+### 1.3 Particular integrals
+
+对非齐次方程 $a\dfrac{\mathrm d^2y}{\mathrm dx^2}+b\dfrac{\mathrm dy}{\mathrm dx}+cy=f(x)$，根据 $f(x)$ 选择 PI 形式：
+
+- $f(x)$ 为 $n$ 次多项式：PI 取 $n$ 次多项式；
+- $f(x)=ae^{bx}$：PI 取 $ke^{bx}$；
+- $f(x)=a\cos px+b\sin px$：PI 取 $p\cos px+q\sin px$。
+
+若所选形式已在 CF 中出现，则乘以 $x$；若仍重复，再乘以 $x^2$。
+
+### 1.4 Substitutions
+
+给定代换时，先通过链式法则把 $\dfrac{\mathrm dy}{\mathrm dx}$（必要时还有 $\dfrac{\mathrm d^2y}{\mathrm dx^2}$）换成新变量，再化简：
+
+- $x=e^t$：$\dfrac{\mathrm dy}{\mathrm dx}=e^{-t}\dfrac{\mathrm dy}{\mathrm dt}$，可处理 Euler 型方程；
+- $y=ux$：$\dfrac{\mathrm dy}{\mathrm dx}=u+x\dfrac{\mathrm du}{\mathrm dx}$，可把齐次型化为可分离变量；
+- $v=y^n$：$\dfrac{\mathrm dv}{\mathrm dx}=ny^{n-1}\dfrac{\mathrm dy}{\mathrm dx}$，可把 Bernoulli 型化为线性方程。
+
+## 2. Textbook Examples
+
+{{< include differential-equations-examples.qmd >}}
+
+## 3. Past-paper question bank
+
+{{< include differential-equations-past-papers.qmd >}}
+
+## 4. 完成本节的判断标准
+
+1. 能求一阶线性方程的积分因子并完成求解；
+2. 能根据辅助方程三种根型写出 CF；
+3. 能为多项式、指数、正余弦 $f(x)$ 选择正确的 PI 形式，并处理与 CF 重复的情形；
+4. 能用给定代换化简方程；
+5. 能用初始条件求特解。
+本节保留教材 Chapter 6 的全部编号 Example（Example 1–10）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。

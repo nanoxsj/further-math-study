@@ -15,6 +15,7 @@ project:
     - paper-2/differentiation.qmd
     - paper-2/integration.qmd
     - paper-2/complex-numbers.qmd
+    - paper-2/differential-equations.qmd
 
 website:
   title: "CIE Further Mathematics 9231"
@@ -53,6 +54,8 @@ website:
             text: "2.4 Integration"
           - href: paper-2/complex-numbers.qmd
             text: "2.5 Complex numbers"
+          - href: paper-2/differential-equations.qmd
+            text: "2.6 Differential equations"
 
 format:
   html:

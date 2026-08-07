@@ -1,0 +1,721 @@
+### 2020
+
+::: {.question-card}
+### 2020 May/June · 9231/21 & 9231/22 · Question 1 · 6 marks
+
+Find the solution of the differential equation
+
+$$
+\frac{\mathrm dy}{\mathrm dx}+5y=e^{-7x}
+$$
+
+for which $y=0$ when $x=0$. Give your answer in the form $y=f(x)$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The integrating factor is
+
+$$
+e^{\int5\,\mathrm dx}=e^{5x}.
+$$
+
+Hence
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(ye^{5x}\right)=e^{5x}e^{-7x}=e^{-2x}.
+$$
+
+Integrating,
+
+$$
+ye^{5x}=-\frac12e^{-2x}+C,
+$$
+
+so
+
+$$
+y=-\frac12e^{-7x}+Ce^{-5x}.
+$$
+
+Using $y=0$ when $x=0$,
+
+$$
+0=-\frac12+C
+\;\Longrightarrow\;
+C=\frac12.
+$$
+
+Therefore
+
+$$
+\boxed{y=\frac12\left(e^{-5x}-e^{-7x}\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2020-mj-21-22-q1"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q1; 9231/22/M/J/2020, Q1.</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/23 · Question 1 · 6 marks
+
+Find the general solution of the differential equation
+
+$$
+\frac{\mathrm d^2x}{\mathrm dt^2}-8\frac{\mathrm dx}{\mathrm dt}-9x=9e^{8t}.
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The auxiliary equation is
+
+$$
+m^2-8m-9=0
+\;\Longrightarrow\;
+(m-9)(m+1)=0,
+$$
+
+so $m=9,-1$, giving the complementary function
+
+$$
+x=Ae^{9t}+Be^{-t}.
+$$
+
+For the particular integral, try $x=ke^{8t}$. Then $\dot x=8ke^{8t}$ and $\ddot x=64ke^{8t}$, so
+
+$$
+64ke^{8t}-64ke^{8t}-9ke^{8t}=9e^{8t}
+\;\Longrightarrow\;
+k=-1.
+$$
+
+Hence
+
+$$
+\boxed{x=Ae^{9t}+Be^{-t}-e^{8t}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2020-mj-23-q1"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q1.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/21 & 9231/23 · Question 2 · 7 marks
+
+The variables $x$ and $y$ are related by the differential equation
+
+$$
+9\frac{\mathrm d^2y}{\mathrm dx^2}+6\frac{\mathrm dy}{\mathrm dx}+y=3x^2+30x.
+$$
+
+**(a)** Find the general solution for $y$ in terms of $x$. **[6]**
+
+**(b)** State an approximate solution for large positive values of $x$. **[1]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The auxiliary equation is
+
+$$
+9m^2+6m+1=0
+\;\Longrightarrow\;
+(3m+1)^2=0,
+$$
+
+so $m=-\dfrac13$ (repeated root), giving
+
+$$
+y=e^{-x/3}(Ax+B).
+$$
+
+For the particular integral, try $y=px^2+qx+r$. Then $y'=2px+q$ and $y''=2p$. Substituting,
+
+$$
+18p+6q+12px+px^2+qx+r=3x^2+30x.
+$$
+
+Equating coefficients gives $p=3$, $q=-6$, $r=-18$. Hence
+
+$$
+\boxed{y=e^{-x/3}(Ax+B)+3x^2-6x-18}.
+$$
+
+**(b)** For large positive $x$, the exponential term tends to zero, so
+
+$$
+\boxed{y\approx3x^2-6x-18}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2020-on-21-23-q2"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q2; 9231/23/O/N/2020, Q2.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/22 · Question 6 · 11 marks
+
+Find the particular solution of the differential equation
+
+$$
+\frac{\mathrm d^2x}{\mathrm dt^2}+8\frac{\mathrm dx}{\mathrm dt}+15x=102\cos3t,
+$$
+
+given that, when $t=0$, $x=1$ and $\dfrac{\mathrm dx}{\mathrm dt}=0$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The auxiliary equation is
+
+$$
+m^2+8m+15=0
+\;\Longrightarrow\;
+(m+3)(m+5)=0,
+$$
+
+so $m=-3,-5$, giving
+
+$$
+x=Ae^{-3t}+Be^{-5t}.
+$$
+
+For the particular integral, try $x=p\cos3t+q\sin3t$. Then
+
+$$
+\dot x=-3p\sin3t+3q\cos3t,\qquad
+\ddot x=-9p\cos3t-9q\sin3t.
+$$
+
+Substituting and equating coefficients,
+
+$$
+(6p-24q)\cos3t+(24p+6q)\sin3t=102\cos3t,
+$$
+
+so $p=1$, $q=-4$. The general solution is
+
+$$
+x=Ae^{-3t}+Be^{-5t}+\cos3t-4\sin3t.
+$$
+
+Using $x(0)=1$: $A+B=0$. Using $\dot x(0)=0$:
+
+$$
+-3A-5B-12=0,
+$$
+
+so $A=6$, $B=-6$. Hence
+
+$$
+\boxed{x=6e^{-3t}-6e^{-5t}+\cos3t-4\sin3t}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2020-on-22-q6"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q6.</div>
+:::
+
+### 2021
+
+::: {.question-card}
+### 2021 May/June · 9231/23 · Question 5 · 10 marks
+
+The variables $x$ and $y$ are related by the differential equation
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}-2\frac{\mathrm dy}{\mathrm dx}-3y=4e^{-x}.
+$$
+
+**(a)** Find the value of the constant $k$ such that $y=kxe^{-x}$ is a particular integral of the differential equation. **[4]**
+
+**(b)** Find the solution of the differential equation for which $y=\dfrac12$ and $\dfrac{\mathrm dy}{\mathrm dx}=1$ when $x=0$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** For $y=kxe^{-x}$,
+
+$$
+y'=ke^{-x}-kxe^{-x},\qquad
+y''=-2ke^{-x}+kxe^{-x}.
+$$
+
+Substituting into $y''-2y'-3y$,
+
+$$
+(-2ke^{-x}+kxe^{-x})-2(ke^{-x}-kxe^{-x})-3kxe^{-x}
+=-4ke^{-x}.
+$$
+
+This must equal $4e^{-x}$, so
+
+$$
+\boxed{k=-1}.
+$$
+
+**(b)** The auxiliary equation is $r^2-2r-3=0$, so $r=3,-1$, giving
+
+$$
+y=Ae^{3x}+Be^{-x}-xe^{-x}.
+$$
+
+Using $y=\frac12$ at $x=0$: $A+B=\frac12$. Differentiating and using $y'=1$ at $x=0$:
+
+$$
+y'=3Ae^{3x}-Be^{-x}+xe^{-x}-e^{-x},
+$$
+
+so $3A-B-1=1$, i.e. $3A-B=2$. Hence $A=\frac58$, $B=-\frac18$, giving
+
+$$
+\boxed{y=\frac58e^{3x}-\frac18e^{-x}-xe^{-x}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2021-mj-23-q5"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q5.</div>
+:::
+
+::: {.question-card}
+### 2021 October/November · 9231/21 & 9231/23 · Question 5 · 11 marks
+
+Find the particular solution of the differential equation
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}-2\frac{\mathrm dy}{\mathrm dx}+y=4\cos x,
+$$
+
+given that, when $x=0$, $y=-4$ and $\dfrac{\mathrm dy}{\mathrm dx}=3$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The auxiliary equation is
+
+$$
+r^2-2r+1=0
+\;\Longrightarrow\;
+(r-1)^2=0,
+$$
+
+so $r=1$ (repeated root), giving
+
+$$
+y=e^x(A+Bx).
+$$
+
+For the particular integral, try $y=p\cos x+q\sin x$. Then $y'=-p\sin x+q\cos x$ and $y''=-p\cos x-q\sin x$. Substituting,
+
+$$
+(-p\cos x-q\sin x)-2(-p\sin x+q\cos x)+p\cos x+q\sin x=4\cos x.
+$$
+
+Equating coefficients gives $q=2$, $p=-2$. Hence
+
+$$
+y=e^x(A+Bx)-2\cos x+2\sin x.
+$$
+
+Using $y=-4$ at $x=0$: $A-2=-4$, so $A=-2$. Using $y'=3$ at $x=0$: $y'=e^x(A+B+Bx)+2\sin x+2\cos x$, so $A+B+2=3$, giving $B=3$. Hence
+
+$$
+\boxed{y=e^x(-2+3x)-2\cos x+2\sin x}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2021-on-21-23-q5"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2021, Q5; 9231/23/O/N/2021, Q5.</div>
+:::
+
+### 2022
+
+::: {.question-card}
+### 2022 May/June · 9231/21 & 9231/22 · Question 3 · 11 marks
+
+The variables $t$ and $x$ are related by the differential equation
+
+$$
+\frac{\mathrm d^2x}{\mathrm dt^2}+\frac{\mathrm dx}{\mathrm dt}+x=t^2+1.
+$$
+
+**(a)** Find the general solution for $x$ in terms of $t$. **[6]**
+
+**(b)** Find the particular solution for which $x=1$ and $\dfrac{\mathrm dx}{\mathrm dt}=0$ when $t=0$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The auxiliary equation is
+
+$$
+r^2+r+1=0,
+$$
+
+with roots $r=-\dfrac12\pm\dfrac{\mathrm i\sqrt3}{2}$, giving
+
+$$
+x=e^{-t/2}\left(A\cos\frac{\sqrt3}{2}t+B\sin\frac{\sqrt3}{2}t\right).
+$$
+
+For the particular integral, try $x=pt^2+qt+r$. Then $x'=2pt+q$, $x''=2p$. Substituting,
+
+$$
+2p+2pt+q+pt^2+qt+r=t^2+1.
+$$
+
+Equating coefficients gives $p=1$, $q=-2$, $r=1$. Hence
+
+$$
+\boxed{x=e^{-t/2}\left(A\cos\frac{\sqrt3}{2}t+B\sin\frac{\sqrt3}{2}t\right)+t^2-2t+1}.
+$$
+
+**(b)** Using $x=1$ at $t=0$: $A+1=1$, so $A=0$. Then
+
+$$
+x=e^{-t/2}B\sin\frac{\sqrt3}{2}t+t^2-2t+1.
+$$
+
+Differentiating and using $x'=0$ at $t=0$:
+
+$$
+x'=e^{-t/2}\left(\frac{\sqrt3}{2}B\cos\frac{\sqrt3}{2}t-\frac12B\sin\frac{\sqrt3}{2}t\right)+2t-2,
+$$
+
+so $\dfrac{\sqrt3}{2}B-2=0$, giving $B=\dfrac4{\sqrt3}$. Hence
+
+$$
+\boxed{x=\frac4{\sqrt3}e^{-t/2}\sin\frac{\sqrt3}{2}t+t^2-2t+1}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2022-mj-21-22-q3"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2022, Q3; 9231/22/M/J/2022, Q3.</div>
+:::
+
+### 2023
+
+::: {.question-card}
+### 2023 May/June · 9231/21 · Question 6 · 11 marks
+
+Find the particular solution of the differential equation
+
+$$
+\frac{\mathrm d^2x}{\mathrm dt^2}-12\frac{\mathrm dx}{\mathrm dt}+36x=37\sin t,
+$$
+
+given that, when $t=0$, $x=\dfrac{\mathrm dx}{\mathrm dt}=0$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The auxiliary equation is
+
+$$
+m^2-12m+36=0
+\;\Longrightarrow\;
+(m-6)^2=0,
+$$
+
+so $m=6$ (repeated root), giving
+
+$$
+x=e^{6t}(At+B).
+$$
+
+For the particular integral, try $x=p\sin t+q\cos t$. Then $x'=p\cos t-q\sin t$ and $x''=-p\sin t-q\cos t$. Substituting,
+
+$$
+(-p\sin t-q\cos t)-12(p\cos t-q\sin t)+36(p\sin t+q\cos t)=37\sin t.
+$$
+
+Equating coefficients gives $p=1$, $q=0$. Hence
+
+$$
+x=e^{6t}(At+B)+\sin t.
+$$
+
+Using $x=0$ at $t=0$: $B=0$. Using $x'=0$ at $t=0$: $x'=e^{6t}(A+6At)+\cos t$, so $A+1=0$, giving $A=-1$. Hence
+
+$$
+\boxed{x=-te^{6t}+\sin t}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2023-mj-21-q6"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/21/M/J/2023, Q6.</div>
+:::
+
+::: {.question-card}
+### 2023 October/November · 9231/22 · Question 4 · 9 marks
+
+Find the solution of the differential equation
+
+$$
+\frac{\mathrm dy}{\mathrm dx}+3y=\sin x
+$$
+
+for which $y=1$ when $x=0$. Give your answer in the form $y=f(x)$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The integrating factor is
+
+$$
+e^{\int3\,\mathrm dx}=e^{3x}.
+$$
+
+Hence
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(ye^{3x}\right)=e^{3x}\sin x.
+$$
+
+Integrating by parts twice,
+
+$$
+\int e^{3x}\sin x\,\mathrm dx
+=\frac{e^{3x}}{10}(3\sin x-\cos x)+C.
+$$
+
+Therefore
+
+$$
+y=\frac1{10}(3\sin x-\cos x)+Ce^{-3x}.
+$$
+
+Using $y=1$ when $x=0$,
+
+$$
+1=-\frac1{10}+C
+\;\Longrightarrow\;
+C=\frac{11}{10}.
+$$
+
+Hence
+
+$$
+\boxed{y=\frac1{10}(3\sin x-\cos x)+\frac{11}{10}e^{-3x}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2023-on-22-q4"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q4.</div>
+:::
+
+### 2024
+
+::: {.question-card}
+### 2024 May/June · 9231/21 & 9231/22 · Question 6(b) · 10 marks
+
+Find the particular solution of the differential equation
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}+\frac{\mathrm dy}{\mathrm dx}+3y=5\left(\cosh x+\sinh x\right)^{1/2},
+$$
+
+given that, when $x=0$, $y=1$ and $\dfrac{\mathrm dy}{\mathrm dx}=\dfrac43$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Using $\left(\cosh x+\sinh x\right)^{1/2}=e^{x/2}$, the equation becomes
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}+\frac{\mathrm dy}{\mathrm dx}+3y=5e^{x/2}.
+$$
+
+The auxiliary equation is
+
+$$
+r^2+r+3=0,
+$$
+
+with roots $r=-\dfrac12\pm\dfrac{\mathrm i\sqrt{11}}{2}$, giving
+
+$$
+y=e^{-x/2}\left(A\cos\frac{\sqrt{11}}2x+B\sin\frac{\sqrt{11}}2x\right).
+$$
+
+For the particular integral, try $y=ke^{x/2}$:
+
+$$
+\frac14ke^{x/2}+\frac12ke^{x/2}+3ke^{x/2}=5e^{x/2},
+$$
+
+so $\dfrac{15}{4}k=5$, giving $k=\dfrac43$. Hence
+
+$$
+y=e^{-x/2}\left(A\cos\frac{\sqrt{11}}2x+B\sin\frac{\sqrt{11}}2x\right)+\frac43e^{x/2}.
+$$
+
+Using $y=1$ at $x=0$: $A+\frac43=1$, so $A=-\frac13$. Using $y'=\frac43$ at $x=0$ and solving gives the particular solution
+
+$$
+\boxed{y=e^{-x/2}\left(-\frac13\cos\frac{\sqrt{11}}2x+\frac{\sqrt{11}}3\sin\frac{\sqrt{11}}2x\right)+\frac43e^{x/2}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2024-mj-21-22-q6b"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2024, Q6(b); 9231/22/M/J/2024, Q6(b).</div>
+:::
+
+::: {.question-card}
+### 2024 October/November · 9231/21 & 9231/23 · Question 5 · 10 marks
+
+Find the particular solution of the differential equation
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}+4\frac{\mathrm dy}{\mathrm dx}+3y=5\cos x,
+$$
+
+given that, when $x=0$, $y=\dfrac{\mathrm dy}{\mathrm dx}=0$.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The auxiliary equation is
+
+$$
+r^2+4r+3=0
+\;\Longrightarrow\;
+(r+1)(r+3)=0,
+$$
+
+so $r=-1,-3$, giving
+
+$$
+y=Ae^{-x}+Be^{-3x}.
+$$
+
+For the particular integral, try $y=p\cos x+q\sin x$. Then $y'=-p\sin x+q\cos x$, $y''=-p\cos x-q\sin x$. Substituting,
+
+$$
+(-p\cos x-q\sin x)+4(-p\sin x+q\cos x)+3(p\cos x+q\sin x)=5\cos x.
+$$
+
+Equating coefficients gives $p=\dfrac12$, $q=1$. Hence
+
+$$
+y=Ae^{-x}+Be^{-3x}+\frac12\cos x+\sin x.
+$$
+
+Using $y=0$ at $x=0$: $A+B+\frac12=0$. Using $y'=0$ at $x=0$: $-A-3B+1=0$. Solving gives $A=-\dfrac54$, $B=\dfrac34$. Hence
+
+$$
+\boxed{y=-\frac54e^{-x}+\frac34e^{-3x}+\frac12\cos x+\sin x}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2024-on-21-23-q5"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2024, Q5; 9231/23/O/N/2024, Q5.</div>
+:::
+
+### 2025
+
+::: {.question-card}
+### 2025 October/November · 9231/21 & 9231/23 · Question 7(b) · 9 marks
+
+Find the solution of the differential equation
+
+$$
+x\frac{\mathrm dy}{\mathrm dx}-y=x^2\tanh^{-1}x,
+$$
+
+for $0\leqslant x<1$, given that $y=0$ when $x=\dfrac12$. Give your answer in an exact form.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Divide by $x$:
+
+$$
+\frac{\mathrm dy}{\mathrm dx}-\frac1x y=x\tanh^{-1}x.
+$$
+
+The integrating factor is
+
+$$
+e^{\int-\frac1x\,\mathrm dx}=x^{-1}.
+$$
+
+Hence
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(\frac yx\right)=\tanh^{-1}x.
+$$
+
+Integrating by parts,
+
+$$
+\frac yx=x\tanh^{-1}x-\int\frac{x}{1-x^2}\,\mathrm dx
+=x\tanh^{-1}x+\frac12\ln(1-x^2)+C.
+$$
+
+Using $y=0$ at $x=\frac12$:
+
+$$
+0=\frac12\tanh^{-1}\frac12+\frac12\ln\frac34+C.
+$$
+
+Since $\tanh^{-1}\frac12=\frac12\ln3$,
+
+$$
+C=-\frac14\ln3-\frac12\ln\frac34.
+$$
+
+Hence
+
+$$
+\boxed{\frac yx=x\tanh^{-1}x+\frac12\ln(1-x^2)-\frac14\ln3-\frac12\ln\frac34}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2025-on-21-23-q7b"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2025, Q7(b); 9231/23/O/N/2025, Q7(b).</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/24 · Question 5 · 10 marks
+
+Find the general solution of the differential equation
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}+\frac{\mathrm dy}{\mathrm dx}+y=\sin2x+\cos2x.
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The auxiliary equation is
+
+$$
+r^2+r+1=0,
+$$
+
+with roots $r=-\dfrac12\pm\dfrac{\mathrm i\sqrt3}{2}$, giving
+
+$$
+y=e^{-x/2}\left(A\cos\frac{\sqrt3}{2}x+B\sin\frac{\sqrt3}{2}x\right).
+$$
+
+For the particular integral, try $y=p\sin2x+q\cos2x$. Then
+
+$$
+y'=2p\cos2x-2q\sin2x,\qquad
+y''=-4p\sin2x-4q\cos2x.
+$$
+
+Substituting and equating coefficients of $\sin2x$ and $\cos2x$:
+
+$$
+(-4p+2q+p)\sin2x+(-4q-2p+q)\cos2x=\sin2x+\cos2x.
+$$
+
+That is,
+
+$$
+(-3p+2q)\sin2x+(-3q-2p)\cos2x=\sin2x+\cos2x.
+$$
+
+Solving gives $p=-\dfrac{1}{13}$, $q=-\dfrac{5}{13}$. Hence
+
+$$
+\boxed{y=e^{-x/2}\left(A\cos\frac{\sqrt3}{2}x+B\sin\frac{\sqrt3}{2}x\right)-\frac1{13}\sin2x-\frac5{13}\cos2x}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-2025-on-24-q5"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/24/O/N/2025, Q5.</div>
+:::

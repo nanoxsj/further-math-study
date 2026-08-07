@@ -1,0 +1,540 @@
+::: {.study-card}
+### Example 1 · Page 124
+
+Show that each of these equations can be written in the form $\dfrac{\mathrm dy}{\mathrm dx}+P(x)y=Q(x)$:
+
+**(a)** $\dfrac{\mathrm dy}{\mathrm dx}=3x^2y+e^x$;
+
+**(b)** $\dfrac{\mathrm dy}{\mathrm dx}=\dfrac1{3x}y+2x$;
+
+**(c)** $\dfrac{\mathrm dy}{\mathrm dx}=\ln x\,(y+\sqrt x)$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** Subtract $3x^2y$ from both sides:
+
+$$
+\boxed{\frac{\mathrm dy}{\mathrm dx}-3x^2y=e^x},
+$$
+
+so $P(x)=-3x^2$, $Q(x)=e^x$.
+
+**(b)** Subtract $\dfrac1{3x}y$ from both sides:
+
+$$
+\boxed{\frac{\mathrm dy}{\mathrm dx}-\frac1{3x}y=2x},
+$$
+
+so $P(x)=-\dfrac1{3x}$, $Q(x)=2x$.
+
+**(c)** Expand the right-hand side:
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=y\ln x+\sqrt x\ln x,
+$$
+
+so
+
+$$
+\boxed{\frac{\mathrm dy}{\mathrm dx}-(\ln x)y=\sqrt x\ln x},
+$$
+
+so $P(x)=-\ln x$, $Q(x)=\sqrt x\ln x$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2 · Page 126
+
+Find the general solution to the differential equation
+
+$$
+x\frac{\mathrm dy}{\mathrm dx}+4y=3\sqrt x.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Divide both sides by $x$:
+
+$$
+\frac{\mathrm dy}{\mathrm dx}+\frac4x y=\frac{3\sqrt x}{x}=\frac3{\sqrt x}.
+$$
+
+The integrating factor is
+
+$$
+R(x)=e^{\int\frac4x\,\mathrm dx}=e^{4\ln x}=x^4.
+$$
+
+Multiplying through,
+
+$$
+x^4\frac{\mathrm dy}{\mathrm dx}+4x^3y=3x^3\sqrt x,
+$$
+
+so
+
+$$
+\frac{\mathrm d}{\mathrm dx}(x^4y)=3x^{7/2}.
+$$
+
+Integrating,
+
+$$
+x^4y=\int3x^{7/2}\,\mathrm dx=\frac23x^{9/2}+C.
+$$
+
+Hence
+
+$$
+\boxed{y=\frac23x^{1/2}+\frac{C}{x^4}=\frac{2\sqrt x}{3}+\frac{C}{x^4}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3 · Page 126
+
+Find the particular solution to the differential equation
+
+$$
+\frac{\mathrm dy}{\mathrm dx}+4x^3y=x^3,
+$$
+
+for which $y=0$ when $x=10$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The integrating factor is
+
+$$
+R(x)=e^{\int4x^3\,\mathrm dx}=e^{x^4}.
+$$
+
+Using $y=\dfrac1{R(x)}\displaystyle\int R(x)Q(x)\,\mathrm dx$,
+
+$$
+y=e^{-x^4}\int x^3e^{x^4}\,\mathrm dx
+=e^{-x^4}\left(\frac14e^{x^4}+C\right).
+$$
+
+So the general solution is
+
+$$
+y=\frac14+Ce^{-x^4}.
+$$
+
+Using $y=0$ when $x=10$,
+
+$$
+0=\frac14+Ce^{-10^4}
+\;\Longrightarrow\;
+C=-\frac14e^{10^4}.
+$$
+
+Hence
+
+$$
+\boxed{y=\frac14\left(1-e^{10^4-x^4}\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4 · Page 130
+
+**(a)** Express $e^{4\mathrm ix}-e^{-4\mathrm ix}$ in trigonometric form and simplify your answer.
+
+**(b)** Express $\left(e^{3\mathrm ix}+e^{-3\mathrm ix}\right)^2$ in trigonometric form and simplify your answer.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** Using Euler's formula $e^{\mathrm i\theta}=\cos\theta+\mathrm i\sin\theta$,
+
+$$
+e^{4\mathrm ix}=\cos4x+\mathrm i\sin4x,\qquad
+e^{-4\mathrm ix}=\cos4x-\mathrm i\sin4x.
+$$
+
+Therefore
+
+$$
+\boxed{e^{4\mathrm ix}-e^{-4\mathrm ix}=2\mathrm i\sin4x}.
+$$
+
+**(b)**
+
+$$
+e^{3\mathrm ix}+e^{-3\mathrm ix}=2\cos3x,
+$$
+
+so
+
+$$
+\boxed{\left(e^{3\mathrm ix}+e^{-3\mathrm ix}\right)^2=4\cos^23x}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5 · Page 132
+
+**(a)** Find the general solution to the differential equation
+
+$$
+4\frac{\mathrm d^2y}{\mathrm dx^2}+12\frac{\mathrm dy}{\mathrm dx}+9y=0.
+$$
+
+**(b)** Find the particular solution given that when $x=0$, $y=2$ and $\dfrac{\mathrm dy}{\mathrm dx}=1$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** The auxiliary equation is
+
+$$
+4r^2+12r+9=0,
+$$
+
+so
+
+$$
+(2r+3)^2=0
+\;\Longrightarrow\;
+r=-\frac32\ \text{(repeated root)}.
+$$
+
+The general solution is therefore
+
+$$
+\boxed{y=e^{-3x/2}(A+Bx)}.
+$$
+
+**(b)** Differentiating,
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=e^{-3x/2}\left(-\frac32A+B-\frac32Bx\right).
+$$
+
+At $x=0$, $y=2$ gives $A=2$. At $x=0$, $\dfrac{\mathrm dy}{\mathrm dx}=1$ gives
+
+$$
+1=-\frac32(2)+B
+\;\Longrightarrow\;
+B=4.
+$$
+
+Hence
+
+$$
+\boxed{y=2e^{-3x/2}+4xe^{-3x/2}=2e^{-3x/2}(1+2x)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6 · Page 136
+
+**(a)** Find the general solution to
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}+4y=6x+1.
+$$
+
+**(b)** Find the particular solution given that when $x=0$, $y=2.75$ and $\dfrac{\mathrm dy}{\mathrm dx}=1$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** The auxiliary equation is $r^2+4=0$, so $r=\pm2\mathrm i$, giving the complementary function
+
+$$
+y=A\cos2x+B\sin2x.
+$$
+
+For the particular integral, try $y=ax+b$:
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}=0,
+$$
+
+so $4(ax+b)=6x+1$, giving $a=\dfrac32$, $b=\dfrac14$. Hence
+
+$$
+\boxed{y=A\cos2x+B\sin2x+\frac32x+\frac14}.
+$$
+
+**(b)** Using $x=0$, $y=2.75$:
+
+$$
+2.75=A+0.25
+\;\Longrightarrow\;
+A=2.5.
+$$
+
+Differentiating,
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=-2A\sin2x+2B\cos2x+\frac32.
+$$
+
+Using $x=0$, $\dfrac{\mathrm dy}{\mathrm dx}=1$:
+
+$$
+1=2B+\frac32
+\;\Longrightarrow\;
+B=-\frac14.
+$$
+
+Hence
+
+$$
+\boxed{y=2.5\cos2x-0.25\sin2x+1.5x+0.25}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 7 · Page 137
+
+Find the general solution to
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}+\frac{\mathrm dy}{\mathrm dx}-2y=e^x.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The auxiliary equation is
+
+$$
+r^2+r-2=0
+\;\Longrightarrow\;
+(r-1)(r+2)=0,
+$$
+
+so $r=1,-2$, giving the complementary function
+
+$$
+y=Ae^x+Be^{-2x}.
+$$
+
+Since $e^x$ is a term in the complementary function, the particular integral must be $y=axe^x$. Then
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=ae^x+axe^x,\qquad
+\frac{\mathrm d^2y}{\mathrm dx^2}=2ae^x+axe^x.
+$$
+
+Substituting into the equation,
+
+$$
+2ae^x+axe^x+ae^x+axe^x-2axe^x=e^x,
+$$
+
+so $3ae^x=e^x$, giving $a=\dfrac13$. Hence
+
+$$
+\boxed{y=Ae^x+Be^{-2x}+\frac13xe^x}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 8 · Page 139
+
+Find the general solution to
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}-4\frac{\mathrm dy}{\mathrm dx}+4y=3e^{2x}.
+$$
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The auxiliary equation is
+
+$$
+r^2-4r+4=0
+\;\Longrightarrow\;
+(r-2)^2=0,
+$$
+
+so $r=2$ (repeated root), giving
+
+$$
+y=Ae^{2x}+Bxe^{2x}.
+$$
+
+Since $e^{2x}$ and $xe^{2x}$ are already in the complementary function, the particular integral must be $y=ax^2e^{2x}$. Then
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=2ax^2e^{2x}+2axe^{2x},
+$$
+
+$$
+\frac{\mathrm d^2y}{\mathrm dx^2}=4ax^2e^{2x}+8axe^{2x}+2ae^{2x}.
+$$
+
+Substituting,
+
+$$
+(4ax^2+8ax+2a)-4(2ax^2+2ax)+4ax^2=3,
+$$
+
+so $2a=3$, giving $a=\dfrac32$. Hence
+
+$$
+\boxed{y=Ae^{2x}+Bxe^{2x}+\frac32x^2e^{2x}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-8"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 9 · Page 143
+
+Find the general solution of
+
+$$
+x\frac{\mathrm dy}{\mathrm dx}+y=x^3y^4
+$$
+
+using the substitution $v=y^{-3}$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+With $v=y^{-3}$,
+
+$$
+\frac{\mathrm dv}{\mathrm dx}=-3y^{-4}\frac{\mathrm dy}{\mathrm dx}.
+$$
+
+Divide the differential equation by $y^4$:
+
+$$
+xy^{-4}\frac{\mathrm dy}{\mathrm dx}+y^{-3}=x^3.
+$$
+
+Using $\dfrac{\mathrm dv}{\mathrm dx}=-3y^{-4}\dfrac{\mathrm dy}{\mathrm dx}$,
+
+$$
+-\frac{x}{3}\frac{\mathrm dv}{\mathrm dx}+v=x^3.
+$$
+
+Rearranging,
+
+$$
+\frac{\mathrm dv}{\mathrm dx}-\frac3x v=-3x^2.
+$$
+
+The integrating factor is
+
+$$
+R(x)=e^{\int-\frac3x\,\mathrm dx}=x^{-3}.
+$$
+
+Hence
+
+$$
+\frac{\mathrm d}{\mathrm dx}(x^{-3}v)=-3x^{-1},
+$$
+
+so
+
+$$
+x^{-3}v=-3\ln x+C.
+$$
+
+Therefore
+
+$$
+\boxed{y^{-3}=x^3(C-3\ln x)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-9"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 10 · Page 144
+
+Using the substitution $u=\dfrac yx$, find the particular solution to the differential equation
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac{x+y}{x-y},
+$$
+
+for which $x=1$, $y=1$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+With $u=\dfrac yx$, we have $y=ux$, so
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=u+x\frac{\mathrm du}{\mathrm dx}.
+$$
+
+Substituting into the equation,
+
+$$
+u+x\frac{\mathrm du}{\mathrm dx}=\frac{x+ux}{x-ux}=\frac{1+u}{1-u}.
+$$
+
+Hence
+
+$$
+x\frac{\mathrm du}{\mathrm dx}=\frac{1+u}{1-u}-u=\frac{1+u^2}{1-u},
+$$
+
+so
+
+$$
+\int\frac{1-u}{1+u^2}\,\mathrm du=\int\frac{\mathrm dx}{x}.
+$$
+
+Splitting the fraction,
+
+$$
+\int\frac{\mathrm du}{1+u^2}-\int\frac{u}{1+u^2}\,\mathrm du=\ln|x|+C.
+$$
+
+Thus
+
+$$
+\tan^{-1}u-\frac12\ln(1+u^2)=\ln|x|+C.
+$$
+
+Multiplying by $2$,
+
+$$
+2\tan^{-1}u-\ln(1+u^2)=2\ln|x|+2C.
+$$
+
+At $x=1$, $y=1$, so $u=1$:
+
+$$
+2\tan^{-1}(1)-\ln2=\frac{\pi}{2}-\ln2.
+$$
+
+Therefore
+
+$$
+\boxed{2\tan^{-1}\left(\frac yx\right)-\ln\left(1+\frac{y^2}{x^2}\right)=\frac{\pi}{2}-\ln2}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-10"> Completed</label>
+:::

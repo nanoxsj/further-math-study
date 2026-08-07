@@ -140,4 +140,15 @@ subtitle: "2026–2027 syllabus · 9231"
 - 2020–2025 Paper 2 对应真题
 :::
 
+::: {.topic-card}
+### [2.6 Differential equations](paper-2/differential-equations.qmd)
+
+- 一阶线性方程与积分因子
+- 二阶常系数方程的 CF 与 PI
+- 多项式、指数、正余弦特解
+- 代换法化简
+- 教材 Example 1–10
+- 2020–2025 Paper 2 对应真题
+:::
+
 后续章节将沿用相同结构继续制作。
