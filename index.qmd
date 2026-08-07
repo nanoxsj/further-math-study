@@ -129,4 +129,15 @@ subtitle: "2026–2027 syllabus · 9231"
 - 2020–2025 Paper 2 对应真题
 :::
 
+::: {.topic-card}
+### [2.5 Complex numbers](paper-2/complex-numbers.qmd)
+
+- de Moivre 定理及其证明
+- $n$ 次单位根
+- 倍角公式与 $\sin^n\theta$、$\cos^n\theta$ 的倍角化
+- C+iS 方法求和
+- 教材 Example 1–6
+- 2020–2025 Paper 2 对应真题
+:::
+
 后续章节将沿用相同结构继续制作。

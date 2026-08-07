@@ -1,0 +1,990 @@
+### 2020
+
+::: {.question-card}
+### 2020 May/June · 9231/23 · Question 8 · 15 marks
+
+**(a)** Use de Moivre's theorem to show that
+
+$$
+\sin^6\theta=\frac1{32}\left(\cos6\theta-6\cos4\theta+15\cos2\theta-10\right).
+$$
+
+**[6]**
+
+It is given that
+
+$$
+\cos^6\theta=\frac1{32}\left(\cos6\theta+6\cos4\theta+15\cos2\theta+10\right).
+$$
+
+**(b)** Find the exact value of $\displaystyle\int_0^{\pi/3}\left(\cos^6\frac{x}{4}+\sin^6\frac{x}{4}\right)\mathrm dx$. **[4]**
+
+**(c)** Express each root of the equation
+
+$$
+16c^6+16(1-c^2)^3-13=0
+$$
+
+in the form $\cos k\pi$, where $k$ is a rational number. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Using $(z-z^{-1})^6$ with $z=\cos\theta+\mathrm i\sin\theta$,
+
+$$
+(z-z^{-1})^6=(z^6+z^{-6})-6(z^4+z^{-4})+15(z^2+z^{-2})-20.
+$$
+
+Since $z-z^{-1}=2\mathrm i\sin\theta$ and $z^n+z^{-n}=2\cos n\theta$,
+
+$$
+(2\mathrm i\sin\theta)^6=2\cos6\theta-12\cos4\theta+30\cos2\theta-20.
+$$
+
+Hence
+
+$$
+64\sin^6\theta=2\cos6\theta-12\cos4\theta+30\cos2\theta-20,
+$$
+
+so
+
+$$
+\sin^6\theta=\frac1{32}\left(\cos6\theta-6\cos4\theta+15\cos2\theta-10\right).
+$$
+
+**(b)** Adding the given expression for $\cos^6\frac{x}{4}$,
+
+$$
+\cos^6\frac{x}{4}+\sin^6\frac{x}{4}
+=\frac1{32}\left(2\cos\frac{3x}{2}+30\right)
+=\frac18\left(\cos\frac{3x}{2}+15\right).
+$$
+
+Therefore
+
+$$
+\int_0^{\pi/3}\left(\cos^6\frac{x}{4}+\sin^6\frac{x}{4}\right)\mathrm dx
+=\frac18\left[\frac23\sin\frac{3x}{2}+15x\right]_0^{\pi/3}
+=\boxed{\frac18\left(\frac{5\pi}{3}+\frac{3\sqrt3}{2}\right)}.
+$$
+
+**(c)** Let $c=\cos\theta$, so $1-c^2=\sin^2\theta$. Then
+
+$$
+16\cos^6\theta+16\sin^6\theta-13=0.
+$$
+
+Using the identities from parts (a) and the given expression,
+
+$$
+16\cdot\frac1{32}(\cos6\theta+6\cos4\theta+15\cos2\theta+10)
++16\cdot\frac1{32}(\cos6\theta-6\cos4\theta+15\cos2\theta-10)-13=0.
+$$
+
+Simplifying,
+
+$$
+\cos6\theta+15\cos2\theta-13=0.
+$$
+
+Using $\cos6\theta=4\cos^32\theta-3\cos2\theta$ (or directly), this reduces to
+
+$$
+6\cos4\theta-3=0,
+$$
+
+so $\cos4\theta=\dfrac12$, giving $4\theta=\dfrac{\pi}{3},\dfrac{5\pi}{3},\dfrac{7\pi}{3},\dfrac{11\pi}{3}$. Hence
+
+$$
+\boxed{c=\cos\frac{\pi}{12},\ \cos\frac{5\pi}{12},\ \cos\frac{7\pi}{12},\ \cos\frac{11\pi}{12}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2020-mj-23-q8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q8.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/21 & 9231/23 · Question 6 · 11 marks
+
+**(a)** Use de Moivre's theorem to show that
+
+$$
+\sin^4\theta=\frac18\left(\cos4\theta-4\cos2\theta+3\right).
+$$
+
+**[5]**
+
+**(b)** Find the solution of the differential equation
+
+$$
+\frac{\mathrm dy}{\mathrm d\theta}+y\cot\theta=\sin^3\theta
+$$
+
+for which $y=0$ when $\theta=\dfrac{\pi}{2}$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Using $(z-z^{-1})^4$ with $z=\cos\theta+\mathrm i\sin\theta$,
+
+$$
+(z-z^{-1})^4=(z^4+z^{-4})-4(z^2+z^{-2})+6.
+$$
+
+Since $z-z^{-1}=2\mathrm i\sin\theta$ and $z^n+z^{-n}=2\cos n\theta$,
+
+$$
+16\sin^4\theta=2\cos4\theta-8\cos2\theta+6,
+$$
+
+so
+
+$$
+\sin^4\theta=\frac18(\cos4\theta-4\cos2\theta+3).
+$$
+
+**(b)** The integrating factor is
+
+$$
+e^{\int\cot\theta\,\mathrm d\theta}=e^{\ln\sin\theta}=\sin\theta.
+$$
+
+Hence
+
+$$
+\frac{\mathrm d}{\mathrm d\theta}(y\sin\theta)=\sin^4\theta
+=\frac18(\cos4\theta-4\cos2\theta+3).
+$$
+
+Integrating,
+
+$$
+y\sin\theta=\frac18\left(\frac14\sin4\theta-2\sin2\theta+3\theta\right)+C.
+$$
+
+Using $y=0$ at $\theta=\frac{\pi}{2}$,
+
+$$
+0=\frac18\left(\frac{3\pi}{2}\right)+C
+\;\Longrightarrow\;
+C=-\frac{3\pi}{16}.
+$$
+
+Therefore
+
+$$
+\boxed{y\sin\theta=\frac18\left(\frac14\sin4\theta-2\sin2\theta+3\theta-\frac{3\pi}{2}\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2020-on-21-23-q6"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q6; 9231/23/O/N/2020, Q6.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/22 · Question 7 · 7 marks
+
+**(a)** Show that
+
+$$
+\sum_{r=1}^{n}z^{2r}=\frac{z^{2n+1}-z}{z^2-1},
+$$
+
+for $z\neq0,1,-1$. **[2]**
+
+**(b)** By letting $z=\cos\theta+\mathrm i\sin\theta$, show that, if $\sin\theta\neq0$,
+
+$$
+1+2\sum_{r=1}^{n}\cos(2r\theta)=\frac{\sin(2n+1)\theta}{\sin\theta}.
+$$
+
+**[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The sum is a geometric series with first term $z^2$ and common ratio $z^2$:
+
+$$
+\sum_{r=1}^{n}z^{2r}
+=z^2+z^4+\cdots+z^{2n}
+=\frac{z^2(z^{2n}-1)}{z^2-1}
+=\boxed{\frac{z^{2n+1}-z}{z^2-1}}.
+$$
+
+**(b)** With $z=\cos\theta+\mathrm i\sin\theta$, by de Moivre's theorem $z^{2n+1}=\cos(2n+1)\theta+\mathrm i\sin(2n+1)\theta$, and
+
+$$
+z^2-1=(\cos2\theta-1)+\mathrm i\sin2\theta
+=-2\sin^2\theta+2\mathrm i\sin\theta\cos\theta
+=2\mathrm i\sin\theta(\cos\theta+\mathrm i\sin\theta)
+=2\mathrm i z\sin\theta.
+$$
+
+Also $z^{-1}=\cos\theta-\mathrm i\sin\theta$, so
+
+$$
+\frac{z^{2n+1}-z}{z^2-1}
+=\frac{z^{2n+1}-z}{2\mathrm i z\sin\theta}.
+$$
+
+Writing $z^{2r}=z^2(z^2)^{r-1}$ and using the result of part (a) on $\sum z^{2r}$, taking real parts gives
+
+$$
+\sum_{r=1}^{n}\cos(2r\theta)
+=\frac{\sin(2n+1)\theta}{2\sin\theta}-\frac12.
+$$
+
+Hence
+
+$$
+\boxed{1+2\sum_{r=1}^{n}\cos(2r\theta)=\frac{\sin(2n+1)\theta}{\sin\theta}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2020-on-22-q7"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q7.</div>
+:::
+
+### 2021
+
+::: {.question-card}
+### 2021 May/June · 9231/21 & 9231/22 · Question 5 · 10 marks
+
+**(a)** State the sum of the series $z+z^2+z^3+\cdots+z^n$, for $z\neq1$. **[1]**
+
+**(b)** Given that $z$ is an $n$th root of unity and $z\neq1$, deduce that
+
+$$
+1+z+z^2+\cdots+z^{n-1}=0.
+$$
+
+**[2]**
+
+**(c)** Given instead that $z=\frac13(\cos\theta+\mathrm i\sin\theta)$, use de Moivre's theorem to show that
+
+$$
+\sum_{m=1}^{\infty}3^{-m}\cos m\theta=\frac{3\cos\theta-1}{10-6\cos\theta}.
+$$
+
+**[7]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** For a geometric series,
+
+$$
+\boxed{z+z^2+\cdots+z^n=\frac{z-z^{n+1}}{1-z}}.
+$$
+
+**(b)** If $z^n=1$ and $z\neq1$, then using part (a) with $n$ replaced by $n-1$,
+
+$$
+1+z+\cdots+z^{n-1}=\frac{1-z^n}{1-z}=0.
+$$
+
+**(c)** With $z=\frac13(\cos\theta+\mathrm i\sin\theta)$, $|z|=\frac13<1$, so
+
+$$
+\sum_{m=1}^{\infty}z^m=\frac{z}{1-z}
+=\frac{\frac13(\cos\theta+\mathrm i\sin\theta)}{1-\frac13(\cos\theta+\mathrm i\sin\theta)}.
+$$
+
+Multiplying numerator and denominator by $3$ and rationalising,
+
+$$
+\sum_{m=1}^{\infty}z^m
+=\frac{\cos\theta+\mathrm i\sin\theta}{3-\cos\theta-\mathrm i\sin\theta}.
+$$
+
+Multiplying by the conjugate of the denominator,
+
+$$
+\frac{(\cos\theta+\mathrm i\sin\theta)(3-\cos\theta+\mathrm i\sin\theta)}{(3-\cos\theta)^2+\sin^2\theta}.
+$$
+
+The real part is
+
+$$
+\frac{3\cos\theta-\cos^2\theta-\sin^2\theta}{9-6\cos\theta+\cos^2\theta+\sin^2\theta}
+=\frac{3\cos\theta-1}{10-6\cos\theta}.
+$$
+
+Since $\sum 3^{-m}\cos m\theta$ is the real part of $\sum z^m$,
+
+$$
+\boxed{\sum_{m=1}^{\infty}3^{-m}\cos m\theta=\frac{3\cos\theta-1}{10-6\cos\theta}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2021-mj-21-22-q5"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2021, Q5; 9231/22/M/J/2021, Q5.</div>
+:::
+
+::: {.question-card}
+### 2021 May/June · 9231/23 · Question 4 · 7 marks
+
+By considering the binomial expansions of $\left(z+\frac1z\right)^5$ and $\left(z-\frac1z\right)^5$, where $z=\cos\theta+\mathrm i\sin\theta$, use de Moivre's theorem to show that
+
+$$
+\tan5\theta=\frac{\sin5\theta-a\sin3\theta+b\sin\theta}{\cos5\theta+a\cos3\theta+b\cos\theta},
+$$
+
+where $a$ and $b$ are integers to be determined.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Expanding $\left(z+\frac1z\right)^5$ and $\left(z-\frac1z\right)^5$,
+
+$$
+\left(z+\frac1z\right)^5=(z^5+z^{-5})+5(z^3+z^{-3})+10(z+z^{-1}),
+$$
+
+$$
+\left(z-\frac1z\right)^5=(z^5-z^{-5})-5(z^3-z^{-3})+10(z-z^{-1}).
+$$
+
+With $z=\cos\theta+\mathrm i\sin\theta$, $z^n+z^{-n}=2\cos n\theta$ and $z^n-z^{-n}=2\mathrm i\sin n\theta$. Hence
+
+$$
+32\cos^5\theta=2\cos5\theta+10\cos3\theta+20\cos\theta,
+$$
+
+so
+
+$$
+16\cos^5\theta=\cos5\theta+5\cos3\theta+10\cos\theta,
+$$
+
+and
+
+$$
+32\mathrm i\sin^5\theta=2\mathrm i\sin5\theta-10\mathrm i\sin3\theta+20\mathrm i\sin\theta,
+$$
+
+so
+
+$$
+16\sin^5\theta=\sin5\theta-5\sin3\theta+10\sin\theta.
+$$
+
+Therefore
+
+$$
+\tan5\theta=\frac{\sin5\theta}{\cos5\theta}
+=\frac{\sin5\theta-5\sin3\theta+10\sin\theta}{\cos5\theta+5\cos3\theta+10\cos\theta}.
+$$
+
+So
+
+$$
+\boxed{a=5,\qquad b=10}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2021-mj-23-q4"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q4.</div>
+:::
+
+::: {.question-card}
+### 2021 October/November · 9231/21 & 9231/23 · Question 6 · 10 marks
+
+**(a)** Use de Moivre's theorem to show that
+
+$$
+\operatorname{cosec}^5\theta=\frac{\operatorname{cosec}^5\theta}{5\operatorname{cosec}^4\theta-20\operatorname{cosec}^2\theta+16}.
+$$
+
+**[6]**
+
+**(b)** Hence obtain the roots of the equation
+
+$$
+x^5-10x^4+40x^2-32=0
+$$
+
+in the form $\operatorname{cosec}(q\pi)$, where $q$ is rational. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** From $16\sin^5\theta=\sin5\theta-5\sin3\theta+10\sin\theta$, dividing by $\sin^5\theta$ gives
+
+$$
+16=\frac{\sin5\theta}{\sin^5\theta}-5\frac{\sin3\theta}{\sin^5\theta}+10\frac{\sin\theta}{\sin^5\theta}.
+$$
+
+Using $\frac{\sin n\theta}{\sin^5\theta}=\operatorname{cosec}^5\theta\cdot\frac{\sin n\theta}{\sin\theta}$,
+
+$$
+\operatorname{cosec}^5\theta=\frac{\operatorname{cosec}^5\theta}{5\operatorname{cosec}^4\theta-20\operatorname{cosec}^2\theta+16}.
+$$
+
+**(b)** The equation can be written as
+
+$$
+\frac{x^5}{5x^4-20x^2+16}=2.
+$$
+
+Comparing with part (a), $x=\operatorname{cosec}\theta$ and $\operatorname{cosec}^5\theta=2$, so $\sin5\theta=\frac12$. Hence
+
+$$
+5\theta=\frac{\pi}{6}+2k\pi \quad\text{or}\quad 5\theta=\frac{5\pi}{6}+2k\pi,
+$$
+
+giving
+
+$$
+\boxed{x=\operatorname{cosec}\frac{\pi}{30},\ \operatorname{cosec}\frac{5\pi}{30},\ \operatorname{cosec}\left(-\frac{7\pi}{30}\right),\ \operatorname{cosec}\left(-\frac{11\pi}{30}\right),\ \operatorname{cosec}\frac{13\pi}{30}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2021-on-21-23-q6"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2021, Q6; 9231/23/O/N/2021, Q6.</div>
+:::
+
+### 2022
+
+::: {.question-card}
+### 2022 May/June · 9231/21 & 9231/22 · Question 7 · 11 marks
+
+**(a)** Use de Moivre's theorem to show that
+
+$$
+\operatorname{cosec}^7\theta=\frac{\operatorname{cosec}^7\theta}{7\operatorname{cosec}^6\theta-56\operatorname{cosec}^4\theta+112\operatorname{cosec}^2\theta-64}.
+$$
+
+**[6]**
+
+**(b)** Hence obtain the roots of the equation
+
+$$
+x^7-14x^6+112x^4-224x^2+128=0
+$$
+
+in the form $\operatorname{cosec}(q\pi)$, where $q$ is rational. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** From
+
+$$
+\sin7\theta=-64\sin^7\theta+112\sin^5\theta-56\sin^3\theta+7\sin\theta,
+$$
+
+dividing by $\sin^7\theta$ gives
+
+$$
+\frac{\sin7\theta}{\sin^7\theta}
+=-64+112\operatorname{cosec}^2\theta-56\operatorname{cosec}^4\theta+7\operatorname{cosec}^6\theta.
+$$
+
+Using $\frac{\sin7\theta}{\sin^7\theta}=\operatorname{cosec}^7\theta\cdot\frac{\sin7\theta}{\sin\theta}$, rearranging gives
+
+$$
+\operatorname{cosec}^7\theta=\frac{\operatorname{cosec}^7\theta}{7\operatorname{cosec}^6\theta-56\operatorname{cosec}^4\theta+112\operatorname{cosec}^2\theta-64}.
+$$
+
+**(b)** Write the equation as
+
+$$
+\frac{x^7}{7x^6-56x^4+112x^2-64}=2.
+$$
+
+Comparing with part (a), $x=\operatorname{cosec}\theta$ with $\operatorname{cosec}^7\theta=2$, so $\sin7\theta=\frac12$. Hence
+
+$$
+7\theta=\frac{\pi}{6}+2k\pi \quad\text{or}\quad 7\theta=\frac{5\pi}{6}+2k\pi,
+$$
+
+giving the seven roots
+
+$$
+\boxed{
+x=\operatorname{cosec}\frac{\pi}{42},\ \operatorname{cosec}\frac{5\pi}{42},\ \operatorname{cosec}\frac{13\pi}{42},\ \operatorname{cosec}\frac{17\pi}{42},\ 
+\operatorname{cosec}\left(-\frac{7\pi}{42}\right),\ \operatorname{cosec}\left(-\frac{11\pi}{42}\right),\ \operatorname{cosec}\left(-\frac{19\pi}{42}\right)
+}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2022-mj-21-22-q7"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2022, Q7; 9231/22/M/J/2022, Q7.</div>
+:::
+
+::: {.question-card}
+### 2022 May/June · 9231/23 · Question 8 · 16 marks
+
+**(a)** Find $\displaystyle\int\sin\theta\cos^n\theta\,\mathrm d\theta$, where $n\neq-1$. **[2]**
+
+Let
+
+$$
+I_{m,n}=\int_0^{\pi/2}\sin^m\theta\cos^n\theta\,\mathrm d\theta.
+$$
+
+**(b)** Show that, for $m\geqslant2$ and $n\geqslant0$,
+
+$$
+I_{m,n}=\frac{m-1}{m+n}I_{m-2,n}.
+$$
+
+**[5]**
+
+**(c)** By considering the binomial expansion of $\left(z+\frac1z\right)^5$, where $z=\cos\theta+\mathrm i\sin\theta$, use de Moivre's theorem to show that
+
+$$
+\cos^5\theta=a\cos5\theta+b\cos3\theta+c\cos\theta,
+$$
+
+where $a$, $b$ and $c$ are constants to be determined. **[5]**
+
+**(d)** Hence find the value of $I_{2,5}$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)**
+
+$$
+\boxed{\int\sin\theta\cos^n\theta\,\mathrm d\theta=-\frac{\cos^{n+1}\theta}{n+1}+C}.
+$$
+
+**(b)** Integrating by parts with $u=\sin^{m-1}\theta$, $\mathrm dv=\sin\theta\cos^n\theta\,\mathrm d\theta$:
+
+$$
+I_{m,n}=\left[-\frac{\sin^{m-1}\theta\cos^{n+1}\theta}{n+1}\right]_0^{\pi/2}
++\frac{m-1}{n+1}\int_0^{\pi/2}\sin^{m-2}\theta\cos^{n+2}\theta\,\mathrm d\theta.
+$$
+
+The boundary term vanishes. Using $\cos^2\theta=1-\sin^2\theta$,
+
+$$
+I_{m,n}=\frac{m-1}{n+1}(I_{m-2,n}-I_{m,n}).
+$$
+
+Rearranging,
+
+$$
+\left(1+\frac{m-1}{n+1}\right)I_{m,n}=\frac{m-1}{n+1}I_{m-2,n},
+$$
+
+so
+
+$$
+\boxed{I_{m,n}=\frac{m-1}{m+n}I_{m-2,n}}.
+$$
+
+**(c)** Expanding $\left(z+\frac1z\right)^5$,
+
+$$
+\left(z+\frac1z\right)^5=(z^5+z^{-5})+5(z^3+z^{-3})+10(z+z^{-1}).
+$$
+
+With $z^n+z^{-n}=2\cos n\theta$ and $z+z^{-1}=2\cos\theta$,
+
+$$
+32\cos^5\theta=2\cos5\theta+10\cos3\theta+20\cos\theta,
+$$
+
+so
+
+$$
+\boxed{\cos^5\theta=\frac1{16}\cos5\theta+\frac5{16}\cos3\theta+\frac58\cos\theta}.
+$$
+
+Thus $a=\frac1{16}$, $b=\frac5{16}$, $c=\frac58$.
+
+**(d)** Using part (b) with $m=2,n=5$,
+
+$$
+I_{2,5}=\frac1{7}I_{0,5}.
+$$
+
+Using part (c),
+
+$$
+I_{0,5}=\int_0^{\pi/2}\cos^5\theta\,\mathrm d\theta
+=\left[\frac1{80}\sin5\theta+\frac5{48}\sin3\theta+\frac58\sin\theta\right]_0^{\pi/2}
+=\frac1{80}-\frac5{48}+\frac58.
+$$
+
+Hence
+
+$$
+I_{2,5}=\frac17\left(\frac1{80}-\frac5{48}+\frac58\right)
+=\frac17\left(\frac{3-25+150}{240}\right)
+=\frac{128}{1680}
+=\boxed{\frac8{105}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2022-mj-23-q8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2022, Q8.</div>
+:::
+
+### 2023
+
+::: {.question-card}
+### 2023 May/June · 9231/21 · Question 3 · 8 marks
+
+**(a)** By considering the binomial expansion of $(z+z^{-1})^4$, where $z=\cos\theta+\mathrm i\sin\theta$, use de Moivre's theorem to show that
+
+$$
+\cos^4\theta=\frac18(\cos4\theta+4\cos2\theta+3).
+$$
+
+**[5]**
+
+**(b)** Use the substitution $x=\sin\theta$ to find the exact value of
+
+$$
+\int_0^{1/2}(1-x^2)^{3/2}\,\mathrm dx.
+$$
+
+**[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Expanding $(z+z^{-1})^4$,
+
+$$
+(z+z^{-1})^4=(z^4+z^{-4})+4(z^2+z^{-2})+6.
+$$
+
+With $z^n+z^{-n}=2\cos n\theta$,
+
+$$
+(2\cos\theta)^4=2\cos4\theta+8\cos2\theta+6,
+$$
+
+so
+
+$$
+\cos^4\theta=\frac18(\cos4\theta+4\cos2\theta+3).
+$$
+
+**(b)** With $x=\sin\theta$, $\mathrm dx=\cos\theta\,\mathrm d\theta$, and limits $0\to\frac{\pi}{6}$:
+
+$$
+\int_0^{1/2}(1-x^2)^{3/2}\,\mathrm dx
+=\int_0^{\pi/6}\cos^4\theta\,\mathrm d\theta.
+$$
+
+Using part (a),
+
+$$
+\int_0^{\pi/6}\cos^4\theta\,\mathrm d\theta
+=\frac18\left[\frac14\sin4\theta+2\sin2\theta+3\theta\right]_0^{\pi/6}.
+$$
+
+Evaluating,
+
+$$
+\frac18\left(\frac14\cdot\frac{\sqrt3}{2}+2\cdot\frac{\sqrt3}{2}+\frac{\pi}{2}\right)
+=\boxed{\frac{9\sqrt3}{64}+\frac{\pi}{16}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2023-mj-21-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/21/M/J/2023, Q3.</div>
+:::
+
+::: {.question-card}
+### 2023 October/November · 9231/22 · Question 3 · 8 marks
+
+**(a)** Use de Moivre's theorem to show that
+
+$$
+\cos5\theta=16\cos^5\theta-20\cos^3\theta+5\cos\theta.
+$$
+
+**[4]**
+
+**(b)** Hence obtain the roots of the equation
+
+$$
+32x^5-40x^3+10x-\sqrt2=0
+$$
+
+in the form $\cos(q\pi)$, where $q$ is a rational number. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** By de Moivre's theorem,
+
+$$
+\cos5\theta=\operatorname{Re}(\cos\theta+\mathrm i\sin\theta)^5
+=\cos^5\theta-10\sin^2\theta\cos^3\theta+5\sin^4\theta\cos\theta.
+$$
+
+Using $\sin^2\theta=1-\cos^2\theta$,
+
+$$
+\cos5\theta
+=\cos^5\theta-10\cos^3\theta(1-\cos^2\theta)+5\cos\theta(1-2\cos^2\theta+\cos^4\theta)
+=\boxed{16\cos^5\theta-20\cos^3\theta+5\cos\theta}.
+$$
+
+**(b)** Let $x=\cos\theta$. Then the equation becomes
+
+$$
+32\cos^5\theta-40\cos^3\theta+10\cos\theta=2\cos5\theta=\sqrt2,
+$$
+
+so $\cos5\theta=\frac{\sqrt2}{2}$, giving $5\theta=\pm\frac{\pi}{4}+2k\pi$. Hence
+
+$$
+\boxed{x=\cos\frac{\pi}{20},\ \cos\frac{9\pi}{20},\ \cos\frac{17\pi}{20},\ \cos\frac{25\pi}{20},\ \cos\frac{33\pi}{20}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2023-on-22-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q3.</div>
+:::
+
+### 2024
+
+::: {.question-card}
+### 2024 October/November · 9231/21 & 9231/23 · Question 8 · 14 marks
+
+**(a)** By considering the binomial expansion of $\left(z+\frac1z\right)^7$, where $z=\cos\theta+\mathrm i\sin\theta$, use de Moivre's theorem to show that
+
+$$
+\cos^7\theta=a\cos7\theta+b\cos5\theta+c\cos3\theta+d\cos\theta,
+$$
+
+where $a$, $b$, $c$ and $d$ are constants to be determined. **[5]**
+
+Let
+
+$$
+I_n=\int_0^{\pi/4}\cos^n\theta\,\mathrm d\theta.
+$$
+
+**(b)** Show that
+
+$$
+nI_n=2^{-n/2}+(n-1)I_{n-2}.
+$$
+
+**[4]**
+
+**(c)** Hence find the exact value of $I_9$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Expanding $\left(z+\frac1z\right)^7$,
+
+$$
+\left(z+\frac1z\right)^7=(z^7+z^{-7})+7(z^5+z^{-5})+21(z^3+z^{-3})+35(z+z^{-1}).
+$$
+
+With $z^n+z^{-n}=2\cos n\theta$,
+
+$$
+128\cos^7\theta=2\cos7\theta+14\cos5\theta+42\cos3\theta+70\cos\theta,
+$$
+
+so
+
+$$
+\boxed{\cos^7\theta=\frac1{64}\cos7\theta+\frac7{64}\cos5\theta+\frac{21}{64}\cos3\theta+\frac{35}{64}\cos\theta}.
+$$
+
+Thus $a=\frac1{64}$, $b=\frac7{64}$, $c=\frac{21}{64}$, $d=\frac{35}{64}$.
+
+**(b)** Integrating by parts with $u=\cos^{n-1}\theta$, $\mathrm dv=\cos\theta\,\mathrm d\theta$:
+
+$$
+I_n=\Bigl[\cos^{n-1}\theta\sin\theta\Bigr]_0^{\pi/4}
++(n-1)\int_0^{\pi/4}\cos^{n-2}\theta\sin^2\theta\,\mathrm d\theta.
+$$
+
+At $\theta=\pi/4$, $\cos\theta=\sin\theta=2^{-1/2}$, so the boundary term is $2^{-n/2}$. Using $\sin^2\theta=1-\cos^2\theta$,
+
+$$
+I_n=2^{-n/2}+(n-1)(I_{n-2}-I_n),
+$$
+
+giving
+
+$$
+\boxed{nI_n=2^{-n/2}+(n-1)I_{n-2}}.
+$$
+
+**(c)** Using the reduction formula with $n=9,7,5,3$,
+
+$$
+9I_9=2^{-9/2}+8I_7,
+$$
+
+and so on. Together with part (a),
+
+$$
+\boxed{I_9=\frac{2867\sqrt2}{10080}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2024-on-21-23-q8"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2024, Q8; 9231/23/O/N/2024, Q8.</div>
+:::
+
+### 2025
+
+::: {.question-card}
+### 2025 May/June · 9231/21 & 9231/22 · Question 3 · 6 marks
+
+By considering the binomial expansion of $\left(z-\frac1z\right)^5$, where $z=\cos\theta+\mathrm i\sin\theta$, use de Moivre's theorem to show that
+
+$$
+\operatorname{cosec}^5\theta=\frac{a}{\sin5\theta+b\sin3\theta+c\sin\theta},
+$$
+
+where $a$, $b$ and $c$ are integers to be determined.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+Expanding $\left(z-\frac1z\right)^5$,
+
+$$
+\left(z-\frac1z\right)^5=(z^5-z^{-5})-5(z^3-z^{-3})+10(z-z^{-1}).
+$$
+
+With $z^n-z^{-n}=2\mathrm i\sin n\theta$ and $z-z^{-1}=2\mathrm i\sin\theta$,
+
+$$
+(2\mathrm i\sin\theta)^5=2\mathrm i\sin5\theta-10\mathrm i\sin3\theta+20\mathrm i\sin\theta.
+$$
+
+Hence
+
+$$
+32\sin^5\theta=2\sin5\theta-10\sin3\theta+20\sin\theta,
+$$
+
+so
+
+$$
+16\sin^5\theta=\sin5\theta-5\sin3\theta+10\sin\theta.
+$$
+
+Therefore
+
+$$
+\operatorname{cosec}^5\theta=\frac{16}{\sin5\theta-5\sin3\theta+10\sin\theta}.
+$$
+
+So
+
+$$
+\boxed{a=16,\qquad b=-5,\qquad c=10}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2025-mj-21-22-q3"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2025, Q3; 9231/22/M/J/2025, Q3.</div>
+:::
+
+::: {.question-card}
+### 2025 May/June · 9231/24 · Question 5 · 8 marks
+
+**(a)** Use de Moivre's theorem to show that
+
+$$
+\sin7\theta=-64\sin^7\theta+112\sin^5\theta-56\sin^3\theta+7\sin\theta.
+$$
+
+**[5]**
+
+**(b)** Hence solve the equation
+
+$$
+64x^7-112x^5+56x^3-7x=0.
+$$
+
+**[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** By de Moivre's theorem,
+
+$$
+\sin7\theta=\operatorname{Im}(\cos\theta+\mathrm i\sin\theta)^7
+=-\sin^7\theta+21\cos^2\theta\sin^5\theta-35\cos^4\theta\sin^3\theta+7\cos^6\theta\sin\theta.
+$$
+
+Using $\cos^2\theta=1-\sin^2\theta$ and expanding,
+
+$$
+\sin7\theta=-64\sin^7\theta+112\sin^5\theta-56\sin^3\theta+7\sin\theta.
+$$
+
+**(b)** Let $x=\sin\theta$ with $\sin\theta\neq0$. Then
+
+$$
+-64x^7+112x^5-56x^3+7x=\sin7\theta=0.
+$$
+
+So $7\theta=k\pi$, giving the six non-zero roots
+
+$$
+\boxed{x=\sin\frac{\pi}{7},\ \sin\frac{2\pi}{7},\ \sin\frac{3\pi}{7},\ \sin\left(-\frac{\pi}{7}\right),\ \sin\left(-\frac{2\pi}{7}\right),\ \sin\left(-\frac{3\pi}{7}\right)}.
+$$
+
+(The root $x=0$ comes from $\sin\theta=0$ and is excluded by the division.)
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2025-mj-24-q5"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/24/M/J/2025, Q5.</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/24 · Question 3 · 8 marks
+
+**(a)** Use de Moivre's theorem to show that
+
+$$
+\sin5\theta=16\sin^5\theta-20\sin^3\theta+5\sin\theta.
+$$
+
+**[4]**
+
+**(b)** Hence obtain the roots of the equation
+
+$$
+32x^5-40x^3+10x-\sqrt3=0
+$$
+
+in the form $\sin(q\pi)$, where $q$ is a rational number. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** By de Moivre's theorem,
+
+$$
+\sin5\theta=\operatorname{Im}(\cos\theta+\mathrm i\sin\theta)^5
+=\sin^5\theta-10\sin^3\theta\cos^2\theta+5\sin\theta\cos^4\theta.
+$$
+
+Using $\cos^2\theta=1-\sin^2\theta$,
+
+$$
+\sin5\theta=16\sin^5\theta-20\sin^3\theta+5\sin\theta.
+$$
+
+**(b)** Let $x=\sin\theta$. Then
+
+$$
+32x^5-40x^3+10x=2\sin5\theta=\sqrt3,
+$$
+
+so $\sin5\theta=\frac{\sqrt3}{2}$, giving $5\theta=\frac{\pi}{3}+2k\pi$ or $5\theta=\frac{2\pi}{3}+2k\pi$. Hence
+
+$$
+\boxed{x=\sin\frac{\pi}{15},\ \sin\frac{2\pi}{15},\ \sin\frac{7\pi}{15},\ \sin\frac{8\pi}{15},\ \sin\frac{13\pi}{15}}.
+$$
+
+(Equivalently $\sin\frac{2\pi}{15}=\sin\frac{13\pi}{15}$ etc., with the five distinct roots as listed.)
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="cn-p2-2025-on-24-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/24/O/N/2025, Q3.</div>
+:::

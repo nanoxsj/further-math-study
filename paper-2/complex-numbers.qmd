@@ -1,0 +1,140 @@
+---
+title: "2.5 Complex numbers"
+subtitle: "de Moivre 定理 · 单位根 · 倍角公式 · C+iS 求和"
+description: "CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 5。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 理解 de Moivre 定理对正整数或负整数指数的含义，并与复数乘除法的几何效果联系；
+2. 用数学归纳法证明正整数指数的 de Moivre 定理；
+3. 使用正整数或负有理数指数的 de Moivre 定理：
+   - 把倍角的三角比表示成基本角三角比的幂（如 $\cos5\theta$ 用 $\cos\theta$ 表示，$\tan5\theta$ 用 $\tan\theta$ 表示）；
+   - 把 $\sin$ 与 $\cos$ 的幂表示成倍角形式（如 $\sin^6\theta$ 用 $\cos2\theta,\cos4\theta,\cos6\theta$ 表示）；
+   - 用 C+iS 方法求和（如 $\sum \sin r\theta$）；
+   - 求并利用 $n$ 次单位根。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 能写出并证明 $(\cos\theta+\mathrm i\sin\theta)^n=\cos n\theta+\mathrm i\sin n\theta$
+- [ ] 熟悉 $z^n+z^{-n}=2\cos n\theta$、$z^n-z^{-n}=2\mathrm i\sin n\theta$
+- [ ] 能用 $(z\pm z^{-1})^n$ 的二项式展开导出倍角公式
+- [ ] 能把 $\sin^n\theta$、$\cos^n\theta$ 化为倍角形式并用于积分
+- [ ] 能求 $n$ 次单位根并理解其几何分布
+- [ ] 能用 C+iS 方法求有限三角级数之和
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 De Moivre's theorem
+
+若 $z=\cos\theta+\mathrm i\sin\theta$，则
+
+$$
+\boxed{(\cos\theta+\mathrm i\sin\theta)^n=\cos n\theta+\mathrm i\sin n\theta}.
+$$
+
+对正整数 $n$ 可用数学归纳法证明；结果对负整数和有理数 $n$ 也成立。几何上，$z$ 的幂均匀分布在单位圆上，模相乘、辐角相加。
+
+### 1.2 The nth roots of unity
+
+$z^n=1$ 的 $n$ 个根为
+
+$$
+z=e^{\mathrm i 2k\pi/n},\qquad k=0,1,\dots,n-1,
+$$
+
+它们在单位圆上均匀分布，且所有根都可以写成某个原根的幂。非 1 的单位根满足
+
+$$
+1+z+z^2+\cdots+z^{n-1}=0.
+$$
+
+一般复数方程 $z^n=a$ 先写 $a=r(\cos\theta+\mathrm i\sin\theta)$，再取
+
+$$
+z=r^{1/n}\left(\cos\frac{\theta+2k\pi}{n}+\mathrm i\sin\frac{\theta+2k\pi}{n}\right).
+$$
+
+### 1.3 Trigonometric ratios of multiple angles
+
+设 $z=\cos\theta+\mathrm i\sin\theta$，则
+
+$$
+z+z^{-1}=2\cos\theta,\qquad z-z^{-1}=2\mathrm i\sin\theta,
+$$
+
+更一般地，
+
+$$
+z^n+z^{-n}=2\cos n\theta,\qquad z^n-z^{-n}=2\mathrm i\sin n\theta.
+$$
+
+展开 $(z+z^{-1})^n$ 或 $(z-z^{-1})^n$ 并取实部或虚部，可以得到倍角公式。例如
+
+$$
+\cos3\theta=4\cos^3\theta-3\cos\theta,
+$$
+
+$$
+\sin5\theta=16\sin^5\theta-20\sin^3\theta+5\sin\theta.
+$$
+
+### 1.4 Powers of trigonometric ratios
+
+反过来，用上述方法可以把 $\sin^n\theta$、$\cos^n\theta$ 写成倍角项的线性组合，例如
+
+$$
+\sin^3\theta=\frac14(3\sin\theta-\sin3\theta),
+$$
+
+$$
+\cos^5\theta=\frac1{16}\cos5\theta+\frac5{16}\cos3\theta+\frac58\cos\theta.
+$$
+
+这些形式特别适合直接积分。
+
+### 1.5 Finite series of trigonometric ratios (C+iS method)
+
+令 $C=\sum\cos r\theta$、$S=\sum\sin r\theta$，则
+
+$$
+C+\mathrm iS=\sum z^r
+$$
+
+是等比级数，可以直接求和。取实部或虚部即得原三角级数。常用
+
+$$
+z-1=2\mathrm i z^{1/2}\sin\frac{\theta}{2},\qquad
+z+1=2z^{1/2}\cos\frac{\theta}{2}.
+$$
+
+例如
+
+$$
+\sum_{r=1}^{n}\cos r\theta=\frac{\sin\frac{n\theta}{2}\cos\frac{(n+1)\theta}{2}}{\sin\frac{\theta}{2}}.
+$$
+
+## 2. Textbook Examples
+
+{{< include complex-numbers-examples.qmd >}}
+
+## 3. Past-paper question bank
+
+{{< include complex-numbers-past-papers.qmd >}}
+
+## 4. 完成本节的判断标准
+
+1. 能写出并证明 de Moivre 定理；
+2. 能用 $(z\pm z^{-1})^n$ 展开导出倍角公式与幂的倍角化；
+3. 能求 $n$ 次单位根及一般方程 $z^n=a$ 的根；
+4. 能用 C+iS 方法求有限三角级数；
+5. 能把 $\sin^n\theta$、$\cos^n\theta$ 化为倍角形式并用于积分或解方程。
+本节保留教材 Chapter 5 的全部编号 Example（Example 1–6）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。
