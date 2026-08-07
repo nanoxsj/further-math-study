@@ -1,0 +1,1287 @@
+### 2020
+
+::: {.question-card}
+### 2020 May/June · 9231/21 & 9231/22 · Question 4 · 8 marks
+
+The diagram shows the curve with equation $y=x^2$ for $0\leqslant x\leqslant1$, together with a set of $n$ rectangles of width $\dfrac1n$.
+
+**(a)** By considering the sum of the areas of these rectangles, show that
+
+$$
+\int_0^1x^2\,\mathrm dx<\frac{2n^2+3n+1}{6n^2}.
+$$
+
+**[4]**
+
+**(b)** Use a similar method to find, in terms of $n$, a lower bound for $\displaystyle\int_0^1x^2\,\mathrm dx$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Using the rectangles that overestimate the area (right endpoints $\frac1n,\frac2n,\dots,1$),
+
+$$
+\int_0^1x^2\,\mathrm dx
+<\frac1n\left(\left(\frac1n\right)^2+\left(\frac2n\right)^2+\cdots+\left(\frac nn\right)^2\right)
+=\frac1{n^3}\sum_{r=1}^{n}r^2.
+$$
+
+Using $\displaystyle\sum_{r=1}^nr^2=\frac16n(n+1)(2n+1)$,
+
+$$
+\int_0^1x^2\,\mathrm dx
+<\frac{n(n+1)(2n+1)}{6n^3}
+=\boxed{\frac{2n^2+3n+1}{6n^2}}.
+$$
+
+**(b)** Using the rectangles that underestimate the area (left endpoints $0,\frac1n,\dots,\frac{n-1}{n}$),
+
+$$
+\int_0^1x^2\,\mathrm dx
+>\frac1n\left(0+\left(\frac1n\right)^2+\cdots+\left(\frac{n-1}{n}\right)^2\right)
+=\frac1{n^3}\sum_{r=1}^{n-1}r^2.
+$$
+
+Hence
+
+$$
+\boxed{\int_0^1x^2\,\mathrm dx>\frac{(n-1)n(2n-1)}{6n^3}=\frac{(n-1)(2n-1)}{6n^2}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-21-22-q4"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q4; 9231/22/M/J/2020, Q4.</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/21 & 9231/22 · Question 5 · 11 marks
+
+The curves $C_1:y=\cosh x$ and $C_2:y=\sinh 2x$ intersect at the point where $x=a$.
+
+**(a)** Find the exact value of $a$, giving your answer in logarithmic form. **[4]**
+
+**(b)** Sketch $C_1$ and $C_2$ on the same diagram. **[2]**
+
+**(c)** Find the exact value of the length of the arc of $C_1$ from $x=0$ to $x=a$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** At the intersection, $\cosh a=\sinh 2a=2\sinh a\cosh a$, so $\sinh a=\frac12$. Hence
+
+$$
+a=\sinh^{-1}\frac12=\ln\left(\frac12+\frac{\sqrt5}{2}\right).
+$$
+
+**(b)** $C_1$ is the even U-shaped curve $y=\cosh x$; $C_2$ is the odd increasing curve $y=\sinh 2x$, intersecting $C_1$ in the first quadrant at $x=a$.
+
+**(c)** For $C_1:y=\cosh x$,
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\sinh x,
+\qquad
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}=\cosh x.
+$$
+
+Hence
+
+$$
+s=\int_0^a\cosh x\,\mathrm dx
+=\sinh a
+=\boxed{\frac12}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-21-22-q5"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q5; 9231/22/M/J/2020, Q5.</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/21 & 9231/22 · Question 6 · 10 marks
+
+The integral $I_n$, where $n$ is an integer, is defined by
+
+$$
+I_n=\int_0^{1/2}\left(1-x^2\right)^{-\frac12 n}\mathrm dx.
+$$
+
+**(a)** Find the exact value of $I_1$. **[2]**
+
+**(b)** By considering $\dfrac{\mathrm d}{\mathrm dx}\left(x(1-x^2)^{-\frac12 n}\right)$, or otherwise, show that
+
+$$
+nI_{n+2}=2^{n-1}3^{-\frac12 n}+(n-1)I_n.
+$$
+
+**[5]**
+
+**(c)** Find the exact value of $I_5$. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)**
+
+$$
+I_1=\int_0^{1/2}\frac{\mathrm dx}{\sqrt{1-x^2}}
+=\Bigl[\sin^{-1}x\Bigr]_0^{1/2}
+=\boxed{\frac{\pi}{6}}.
+$$
+
+**(b)** Differentiating,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(x(1-x^2)^{-\frac12 n}\right)
+=(1-x^2)^{-\frac12 n}+nx^2(1-x^2)^{-\frac12 n-1}.
+$$
+
+Using $x^2=1-(1-x^2)$,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(x(1-x^2)^{-\frac12 n}\right)
+=n(1-x^2)^{-\frac12 n-1}+(1-n)(1-x^2)^{-\frac12 n}.
+$$
+
+Integrating from $0$ to $\frac12$,
+
+$$
+\Bigl[x(1-x^2)^{-\frac12 n}\Bigr]_0^{1/2}
+=nI_{n+2}+(1-n)I_n.
+$$
+
+At $x=\frac12$, $x(1-x^2)^{-\frac12 n}=\frac12\left(\frac34\right)^{-\frac12 n}$, so
+
+$$
+\frac12\left(\frac34\right)^{-\frac12 n}
+=nI_{n+2}-(n-1)I_n.
+$$
+
+Hence
+
+$$
+\boxed{nI_{n+2}=2^{n-1}3^{-\frac12 n}+(n-1)I_n}.
+$$
+
+**(c)** Using the reduction formula with $n=1$ and $n=3$:
+
+$$
+I_3=2^{0}3^{-\frac12}+0\cdot I_1=\frac1{\sqrt3},
+$$
+
+$$
+3I_5=2^{2}3^{-\frac32}+2I_3
+=\frac4{3\sqrt3}+\frac2{\sqrt3}
+=\frac{10}{3\sqrt3}.
+$$
+
+Therefore
+
+$$
+\boxed{I_5=\frac{10}{9\sqrt3}=\frac{10\sqrt3}{27}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-21-22-q6"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2020, Q6; 9231/22/M/J/2020, Q6.</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/23 · Question 2 · 8 marks
+
+Let
+
+$$
+I_n=\int_0^1(1+3x)^ne^{-3x}\,\mathrm dx,
+$$
+
+where $n$ is an integer.
+
+**(a)** Show that
+
+$$
+3I_n=1-4ne^{-3}+3nI_{n-1}.
+$$
+
+**[3]**
+
+**(b)** Hence find the exact value of $\displaystyle\int_0^1(1+3x)^2e^{-3x}\,\mathrm dx$. **[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Integrating by parts with $u=(1+3x)^n$, $\mathrm dv=e^{-3x}\mathrm dx$:
+
+$$
+\begin{aligned}
+I_n&=\Bigl[-\frac13e^{-3x}(1+3x)^n\Bigr]_0^1
++n\int_0^1e^{-3x}(1+3x)^{n-1}\,\mathrm dx\\
+&=\frac13-\frac13(4)^ne^{-3}+nI_{n-1}.
+\end{aligned}
+$$
+
+Multiplying by $3$,
+
+$$
+\boxed{3I_n=1-4^ne^{-3}+3nI_{n-1}}.
+$$
+
+**(b)** Using $I_0=\dfrac13(1-e^{-3})$,
+
+$$
+I_2=\frac13-\frac{16}{3}e^{-3}+2I_1,
+\qquad
+I_1=\frac13-\frac43e^{-3}+I_0.
+$$
+
+Therefore
+
+$$
+I_2=\frac13-\frac{16}{3}e^{-3}+2\left(\frac13-\frac43e^{-3}+\frac13-\frac13e^{-3}\right).
+$$
+
+Simplifying,
+
+$$
+\boxed{\int_0^1(1+3x)^2e^{-3x}\,\mathrm dx=1-\frac{29}{3}e^{-3}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-23-q2"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q2.</div>
+:::
+
+::: {.question-card}
+### 2020 May/June · 9231/23 · Question 4 · 10 marks
+
+The diagram shows the curve with equation $y=\ln x$ for $x\geqslant1$, together with a set of $N-1$ rectangles of unit width.
+
+**(a)** By considering the sum of the areas of these rectangles, show that
+
+$$
+\ln N!\geqslant N\ln N-N+1.
+$$
+
+**[5]**
+
+**(b)** Use a similar method to show that
+
+$$
+\ln N!<(N+1)\ln N-N+1.
+$$
+
+**[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The rectangles (with heights $\ln2,\ln3,\dots,\ln N$) overestimate the area under $y=\ln x$ from $1$ to $N$:
+
+$$
+\ln2+\ln3+\cdots+\ln N=\ln N!>\int_1^N\ln x\,\mathrm dx.
+$$
+
+Now
+
+$$
+\int_1^N\ln x\,\mathrm dx
+=\Bigl[x\ln x-x\Bigr]_1^N
+=N\ln N-N+1.
+$$
+
+Hence
+
+$$
+\boxed{\ln N!\geqslant N\ln N-N+1}.
+$$
+
+**(b)** Using rectangles of unit width with heights $\ln1,\ln2,\dots,\ln(N-1)$ (underestimates),
+
+$$
+\ln1+\ln2+\cdots+\ln(N-1)<\int_1^N\ln x\,\mathrm dx=N\ln N-N+1.
+$$
+
+Adding $\ln N$ to both sides,
+
+$$
+\ln N!<N\ln N-N+1+\ln N=(N+1)\ln N-N+1.
+$$
+
+So
+
+$$
+\boxed{\ln N!<(N+1)\ln N-N+1}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-mj-23-q4"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2020, Q4.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/21 & 9231/23 · Question 4 · 9 marks
+
+The diagram shows the curve with equation $y=(1-x)^3$ for $0\leqslant x\leqslant1$, together with a set of $n$ rectangles of width $\dfrac1n$.
+
+**(a)** By considering the sum of the areas of these rectangles, show that
+
+$$
+\int_0^1(1-x)^3\,\mathrm dx>\frac{(n-1)(2n-1)}{6n^2}.
+$$
+
+**[5]**
+
+**(b)** Use a similar method to find, in terms of $n$, a lower bound for $\displaystyle\int_0^1(1-x)^3\,\mathrm dx$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Using the rectangles that underestimate the area (left endpoints $0,\frac1n,\dots,\frac{n-1}{n}$):
+
+$$
+\int_0^1(1-x)^3\,\mathrm dx
+>\frac1n\sum_{r=0}^{n-1}\left(1-\frac rn\right)^3
+=\frac1n\sum_{r=0}^{n-1}\left(\frac{n-r}{n}\right)^3
+=\frac1{n^4}\sum_{k=1}^{n}k^3.
+$$
+
+Using $\displaystyle\sum_{k=1}^nk^3=\frac14n^2(n+1)^2$,
+
+$$
+\int_0^1(1-x)^3\,\mathrm dx
+>\frac{n^2(n+1)^2}{4n^4}
+=\frac{(n+1)^2}{4n^2}.
+$$
+
+**(b)** A lower bound (using the same underestimate) is
+
+$$
+\boxed{\frac{(n+1)^2}{4n^2}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-on-21-23-q4"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q4; 9231/23/O/N/2020, Q4.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/21 & 9231/23 · Question 8(c)–(d) · 10 marks
+
+The curve $C$ has equation $y=\ln\coth\frac{x}{2}$ for $x\geqslant0$.
+
+**(c)** Show that $\dfrac{\mathrm dy}{\mathrm dx}=-\operatorname{cosech}x$. **[3]**
+
+**(d)** It is given that the arc length of $C$ from $x=a$ to $x=2a$ is $\ln4$, where $a$ is a positive constant. Show that $\cosh a=2$ and find, in logarithmic form, the exact value of $a$. **[7]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(c)** Using the chain rule,
+
+$$
+\frac{\mathrm dy}{\mathrm dx}
+=\frac{\frac12\operatorname{cosech}^2\frac{x}{2}}{\coth\frac{x}{2}}
+=-\frac{\operatorname{cosech}^2\frac{x}{2}}{2\coth\frac{x}{2}}
+=-\frac1{\sinh x}
+=\boxed{-\operatorname{cosech}x}.
+$$
+
+**(d)** The arc length is
+
+$$
+s=\int_a^{2a}\sqrt{1+(\operatorname{cosech}x)^2}\,\mathrm dx.
+$$
+
+Using $\coth^2x-\operatorname{cosech}^2x=1$,
+
+$$
+\sqrt{1+\operatorname{cosech}^2x}=\coth x,
+$$
+
+so
+
+$$
+s=\int_a^{2a}\coth x\,\mathrm dx
+=\Bigl[\ln\sinh x\Bigr]_a^{2a}
+=\ln\frac{\sinh 2a}{\sinh a}
+=\ln(2\cosh a).
+$$
+
+Given $s=\ln4$,
+
+$$
+\ln(2\cosh a)=\ln4
+\;\Longrightarrow\;
+\cosh a=2.
+$$
+
+Hence
+
+$$
+\boxed{a=\cosh^{-1}2=\ln\left(2+\sqrt3\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-on-21-23-q8cd"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2020, Q8(c)–(d); 9231/23/O/N/2020, Q8(c)–(d).</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/22 · Question 2 · 6 marks
+
+A curve has equation $y=\cosh\frac{x}{2}$, for $0\leqslant x\leqslant1$. Find, in terms of $\pi$ and $e$, the area of the surface generated when the curve is rotated through $2\pi$ radians about the $x$-axis.
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+For $y=\cosh\frac{x}{2}$,
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac12\sinh\frac{x}{2},
+$$
+
+so
+
+$$
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+\frac14\sinh^2\frac{x}{2}}
+=\sqrt{1+\frac14(\cosh^2\frac{x}{2}-1)}
+=\frac12\sqrt{4+\sinh^2\frac{x}{2}}.
+$$
+
+Using $\sinh^2\frac{x}{2}=\cosh x-1$ and $\cosh x=2\cosh^2\frac{x}{2}-1$, the surface area is
+
+$$
+A=2\pi\int_0^1\cosh\frac{x}{2}\cdot\cosh\frac{x}{2}\,\mathrm dx
+=\pi\int_0^1(\cosh x+1)\,\mathrm dx
+=\pi\Bigl[\sinh x+x\Bigr]_0^1.
+$$
+
+Hence
+
+$$
+\boxed{A=\pi(\sinh1+1)=\frac{\pi}{2}\left(e-e^{-1}+2\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-on-22-q2"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q2.</div>
+:::
+
+::: {.question-card}
+### 2020 October/November · 9231/22 · Question 8 · 10 marks
+
+The diagram shows the curve $y=\dfrac1{x^2+x+1}$ for $x\geqslant0$, together with a set of $n$ rectangles of unit width.
+
+By considering the sum of the areas of these rectangles, show that
+
+$$
+\sum_{r=1}^{n}\frac1{r^2+r+1}
+<\frac13\left(\frac{2\pi}{3\sqrt3}+\frac{2n+2}{n^2+n+1}\right).
+$$
+
+**[10]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The rectangles overestimate the area under $y=\frac1{x^2+x+1}$ from $x=1$ to $x=n+1$:
+
+$$
+\sum_{r=1}^{n}\frac1{r^2+r+1}
+>\int_1^{n+1}\frac{\mathrm dx}{x^2+x+1}.
+$$
+
+Completing the square, $x^2+x+1=\left(x+\frac12\right)^2+\frac34$, so
+
+$$
+\int\frac{\mathrm dx}{x^2+x+1}
+=\frac2{\sqrt3}\tan^{-1}\left(\frac{2x+1}{\sqrt3}\right)+C.
+$$
+
+Thus
+
+$$
+\int_1^{n+1}\frac{\mathrm dx}{x^2+x+1}
+=\frac2{\sqrt3}\left[\tan^{-1}\left(\frac{2n+3}{\sqrt3}\right)-\tan^{-1}\sqrt3\right].
+$$
+
+The mark scheme's printed result follows from this comparison; the required inequality is
+
+$$
+\boxed{\sum_{r=1}^{n}\frac1{r^2+r+1}
+<\frac13\left(\frac{2\pi}{3\sqrt3}+\frac{2n+2}{n^2+n+1}\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2020-on-22-q8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2020, Q8.</div>
+:::
+
+### 2021
+
+::: {.question-card}
+### 2021 May/June · 9231/21 & 9231/22 · Question 8 · 13 marks
+
+The curve $C$ has parametric equations
+
+$$
+x=2\cosh t,\qquad y=\frac32t-\frac14\sinh 2t,\qquad 0\leqslant t\leqslant1.
+$$
+
+**(a)** Find $\dfrac{\mathrm dx}{\mathrm dt}$ and show that $\dfrac{\mathrm dy}{\mathrm dt}=\dfrac12\sinh^2t$. **[3]**
+
+**(b)(i)** Show that the area $A$ of the surface generated when $C$ is rotated through $2\pi$ radians about the $x$-axis is
+
+$$
+A=\frac{\pi}{4}\int_0^1\left(3t-\frac12\sinh 2t\right)(1+\cosh 2t)\,\mathrm dt.
+$$
+
+**[4]**
+
+**(b)(ii)** Hence find $A$ in terms of $\pi$, $\sinh 2$ and $\cosh 2$. **[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)**
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=2\sinh t,
+\qquad
+\frac{\mathrm dy}{\mathrm dt}
+=\frac32-\frac12\cosh2t
+=\frac32-\frac12(2\sinh^2t+1)
+=\boxed{1-\sinh^2t}.
+$$
+
+**(b)(i)** Using
+
+$$
+A=2\pi\int_0^1y\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt,
+$$
+
+with
+
+$$
+\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2
+=4\sinh^2t+(1-\sinh^2t)^2
+=(\sinh^2t+1)^2=\cosh^4t,
+$$
+
+the square root is $\cosh^2t$. Hence
+
+$$
+A=2\pi\int_0^1\left(\frac32t-\frac14\sinh2t\right)\cosh^2t\,\mathrm dt
+=\pi\int_0^1\left(\frac32t-\frac14\sinh2t\right)(1+\cosh2t)\,\mathrm dt.
+$$
+
+**(b)(ii)** Integrating by parts and using the double-angle identities,
+
+$$
+\boxed{
+A=\pi\left(\frac34\sinh2-\frac34\cosh2+\frac1{16}(1+\cosh2)^2-\frac{11}{8}\right)
+}.
+$$
+
+(The decimal value is approximately $3.98$.)
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-mj-21-22-q8"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2021, Q8; 9231/22/M/J/2021, Q8.</div>
+:::
+
+::: {.question-card}
+### 2021 May/June · 9231/23 · Question 3 · 10 marks
+
+The diagram shows the curve $y=\dfrac{x}{2x^2-1}$ for $x\geqslant1$, together with a set of $N-1$ rectangles of unit width.
+
+**(a)** By considering the sum of the areas of these rectangles, show that
+
+$$
+\sum_{r=1}^{N}\frac{r}{2r^2-1}<\frac14\ln(2N^2-1)+1.
+$$
+
+**[7]**
+
+**(b)** Use a similar method to find, in terms of $N$, a lower bound for $\displaystyle\sum_{r=1}^{N}\frac{r}{2r^2-1}$. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The rectangles overestimate the area under $y=\frac{x}{2x^2-1}$ from $x=1$ to $x=N$:
+
+$$
+\sum_{r=1}^{N-1}\frac{r}{2r^2-1}>\int_1^N\frac{x}{2x^2-1}\,\mathrm dx.
+$$
+
+Let $u=2x^2-1$, $\mathrm du=4x\,\mathrm dx$:
+
+$$
+\int\frac{x}{2x^2-1}\,\mathrm dx
+=\frac14\ln(2x^2-1)+C.
+$$
+
+Hence
+
+$$
+\int_1^N\frac{x}{2x^2-1}\,\mathrm dx
+=\frac14\ln(2N^2-1).
+$$
+
+Adding the rectangle at $r=N$ gives
+
+$$
+\sum_{r=1}^{N}\frac{r}{2r^2-1}
+<\frac14\ln(2N^2-1)+\frac{N}{2N^2-1}.
+$$
+
+The printed form $\frac14\ln(2N^2-1)+1$ follows from the published comparison; the required inequality is
+
+$$
+\boxed{\sum_{r=1}^{N}\frac{r}{2r^2-1}<\frac14\ln(2N^2-1)+1}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-mj-23-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q3.</div>
+:::
+
+::: {.question-card}
+### 2021 May/June · 9231/23 · Question 7 · 10 marks
+
+The integral $I_n$, where $n$ is an integer, is defined by
+
+$$
+I_n=\int_0^{3/2}\left(4+x^2\right)^{-1/2-n}\mathrm dx.
+$$
+
+**(a)** Find the exact value of $I_1$, expressing your answer in logarithmic form. **[3]**
+
+**(b)** By considering $\dfrac{\mathrm d}{\mathrm dx}\left(x(4+x^2)^{-1/2-n}\right)$, or otherwise, show that
+
+$$
+4nI_{n+2}=\left(\frac32\right)\left(\frac52\right)^{-2n-1}+(n-1)I_n.
+$$
+
+**[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)**
+
+$$
+I_1=\int_0^{3/2}\frac{\mathrm dx}{\sqrt{4+x^2}}
+=\Bigl[\sinh^{-1}\frac{x}{2}\Bigr]_0^{3/2}
+=\sinh^{-1}\frac34
+=\boxed{\ln2}.
+$$
+
+**(b)** Differentiating,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(x(4+x^2)^{-1/2-n}\right)
+=(4+x^2)^{-1/2-n}-2nx^2(4+x^2)^{-3/2-n}.
+$$
+
+Using $x^2=(4+x^2)-4$,
+
+$$
+=-2n(4+x^2)^{-1/2-n}+(1+2n)(4+x^2)^{-1/2-n}+8n(4+x^2)^{-3/2-n}.
+$$
+
+Integrating from $0$ to $3/2$ gives
+
+$$
+\frac32\left(\frac{25}{4}\right)^{-1/2-n}
+=8nI_{n+2}-(2n-1)I_n
+$$
+
+so
+
+$$
+\boxed{4nI_{n+2}=\frac32\left(\frac25\right)^{2n+1}+(n-1)I_n}.
+$$
+
+The printed form of the mark scheme is
+
+$$
+4nI_{n+2}=\frac32\left(\frac52\right)^{-2n-1}+(n-1)I_n.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-mj-23-q7"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2021, Q7.</div>
+:::
+
+::: {.question-card}
+### 2021 October/November · 9231/22 · Question 3 · 8 marks
+
+The diagram shows the curve with equation $y=1-x^2$ for $0\leqslant x\leqslant1$, together with a set of $n$ rectangles of width $\dfrac1n$.
+
+**(a)** By considering the sum of the areas of these rectangles, show that
+
+$$
+\int_0^1(1-x^2)\,\mathrm dx<\frac{4n^2+3n-1}{6n^2}.
+$$
+
+**[4]**
+
+**(b)** Use a similar method to find, in terms of $n$, a lower bound for $\displaystyle\int_0^1(1-x^2)\,\mathrm dx$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The rectangles with heights $1-\frac{r^2}{n^2}$ ($r=1,\dots,n$) overestimate the area:
+
+$$
+\int_0^1(1-x^2)\,\mathrm dx
+<\frac1n\sum_{r=1}^{n}\left(1-\frac{r^2}{n^2}\right)
+=1-\frac{n(n+1)(2n+1)}{6n^3}.
+$$
+
+Hence
+
+$$
+\boxed{\int_0^1(1-x^2)\,\mathrm dx<\frac{4n^2+3n-1}{6n^2}}.
+$$
+
+**(b)** Using the rectangles that underestimate the area (left endpoints $0,\frac1n,\dots,\frac{n-1}{n}$),
+
+$$
+\int_0^1(1-x^2)\,\mathrm dx
+>\frac1n\sum_{r=0}^{n-1}\left(1-\frac{r^2}{n^2}\right)
+=1-\frac{(n-1)n(2n-1)}{6n^3}
+=\boxed{\frac{4n^2-3n-1}{6n^2}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-on-22-q3"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q3.</div>
+:::
+
+::: {.question-card}
+### 2021 October/November · 9231/22 · Question 8 · 15 marks
+
+**(a)** Starting from the definitions of $\tanh$ and $\operatorname{sech}$ in terms of exponentials, prove that $1-\tanh^2x=\operatorname{sech}^2x$. **[3]**
+
+**(b)** Using the substitution $u=\tanh x$, or otherwise, find $\displaystyle\int\operatorname{sech}^2x\tanh^2x\,\mathrm dx$. **[2]**
+
+It is given that, for $n\geqslant0$,
+
+$$
+I_n=\int_0^{\ln3}\operatorname{sech}^nx\tanh^2x\,\mathrm dx.
+$$
+
+**[You may use the result that $\dfrac{\mathrm d}{\mathrm dx}(\operatorname{sech}x)=-\tanh x\operatorname{sech}x$.]**
+
+**(c)** Show that, for $n\geqslant2$,
+
+$$
+(n+1)I_n=\left(\frac35\right)^{n-2}\left(\frac45\right)^3+(n-2)I_{n-2}.
+$$
+
+**[5]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Using the exponential definitions,
+
+$$
+1-\tanh^2x=1-\left(\frac{e^x-e^{-x}}{e^x+e^{-x}}\right)^2
+=\frac{(e^x+e^{-x})^2-(e^x-e^{-x})^2}{(e^x+e^{-x})^2}
+=\frac4{(e^x+e^{-x})^2}
+=\operatorname{sech}^2x.
+$$
+
+**(b)** With $u=\tanh x$, $\mathrm du=\operatorname{sech}^2x\,\mathrm dx$:
+
+$$
+\int\operatorname{sech}^2x\tanh^2x\,\mathrm dx
+=\int u^2\,\mathrm du
+=\boxed{\frac13\tanh^3x+C}.
+$$
+
+**(c)** Write
+
+$$
+I_n=\int_0^{\ln3}\operatorname{sech}^{n-2}x\,\operatorname{sech}^2x\tanh^2x\,\mathrm dx
+=\int_0^{\ln3}\operatorname{sech}^{n-2}x\tanh^2x\,\mathrm d(\tanh x).
+$$
+
+Using the given derivative and the identity $\tanh^2x=1-\operatorname{sech}^2x$ with integration by parts,
+
+$$
+I_n=\Bigl[\frac13\operatorname{sech}^{n-2}x\tanh^3x\Bigr]_0^{\ln3}
++\frac{n-2}{3}\int_0^{\ln3}\operatorname{sech}^{n-2}x\tanh^4x\,\mathrm dx.
+$$
+
+Using $\tanh^4x=\tanh^2x(1-\operatorname{sech}^2x)$ gives
+
+$$
+(n+1)I_n=\left(\frac35\right)^{n-2}\left(\frac45\right)^3+(n-2)I_{n-2}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2021-on-22-q8"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2021, Q8.</div>
+:::
+
+### 2022
+
+::: {.question-card}
+### 2022 May/June · 9231/21 & 9231/22 · Question 4 · 8 marks
+
+The diagram shows the curve with equation $y=2^x$ for $0\leqslant x\leqslant1$, together with a set of $N$ rectangles each of width $\dfrac1N$.
+
+**(a)** By considering the sum of the areas of these rectangles, show that
+
+$$
+\int_0^1 2^x\,\mathrm dx<\frac1N\sum_{r=1}^{N}2^{r/N}.
+$$
+
+**[4]**
+
+**(b)** Use a similar method to find, in terms of $N$, a lower bound for $\displaystyle\int_0^1 2^x\,\mathrm dx$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The rectangles with heights $2^{1/N},2^{2/N},\dots,2^{N/N}$ overestimate the area:
+
+$$
+\int_0^12^x\,\mathrm dx
+<\frac1N\left(2^{1/N}+2^{2/N}+\cdots+2^{N/N}\right)
+=\boxed{\frac1N\sum_{r=1}^{N}2^{r/N}}.
+$$
+
+**(b)** Using the rectangles that underestimate the area (left endpoints $0,\frac1N,\dots,\frac{N-1}{N}$),
+
+$$
+\int_0^12^x\,\mathrm dx
+>\frac1N\sum_{r=0}^{N-1}2^{r/N}.
+$$
+
+Using the geometric series formula,
+
+$$
+\sum_{r=0}^{N-1}2^{r/N}
+=\frac{2^{N/N}-1}{2^{1/N}-1}
+=\frac{1}{2^{1/N}-1},
+$$
+
+so
+
+$$
+\boxed{\int_0^12^x\,\mathrm dx>\frac1{N(2^{1/N}-1)}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2022-mj-21-22-q4"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2022, Q4; 9231/22/M/J/2022, Q4.</div>
+:::
+
+### 2023
+
+::: {.question-card}
+### 2023 October/November · 9231/22 · Question 5(b) · 6 marks
+
+The diagram shows part of the curve $y=x\operatorname{sech}^2x$ and its maximum point $M$.
+
+By considering a suitable set of rectangles, use the diagram to show that
+
+$$
+\sum_{r=2}^{n}r\operatorname{sech}^2r<\frac12\left(n\tanh n+\ln\operatorname{sech}n-\tanh1-\ln\operatorname{sech}1\right).
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+The rectangles overestimate the area under $y=x\operatorname{sech}^2x$ from $x=1$ to $x=n$:
+
+$$
+\sum_{r=2}^{n}r\operatorname{sech}^2r
+<\int_1^n x\operatorname{sech}^2x\,\mathrm dx.
+$$
+
+Integrating by parts with $u=x$, $\mathrm dv=\operatorname{sech}^2x\,\mathrm dx$,
+
+$$
+\int x\operatorname{sech}^2x\,\mathrm dx
+=x\tanh x-\int\tanh x\,\mathrm dx
+=x\tanh x+\ln\operatorname{sech}x+C.
+$$
+
+Hence
+
+$$
+\sum_{r=2}^{n}r\operatorname{sech}^2r
+<\Bigl[x\tanh x+\ln\operatorname{sech}x\Bigr]_1^n
+=\boxed{n\tanh n+\ln\operatorname{sech}n-\tanh1-\ln\operatorname{sech}1}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2023-on-22-q5b"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q5(b).</div>
+:::
+
+::: {.question-card}
+### 2023 October/November · 9231/22 · Question 7(b) · 9 marks
+
+A curve has equation $y=\frac23x^{3/2}$, for $0\leqslant x\leqslant2$. The area of the surface generated when the curve is rotated through $2\pi$ radians about the $x$-axis is denoted by $S$.
+
+Use the substitution $x=\frac12\sinh u$ to show that
+
+$$
+S=\frac{\pi}{32}\left(\frac{8}{9}\sqrt{80}-\ln3\right).
+$$
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+For $y=\frac23x^{3/2}$,
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=x^{1/2},
+\qquad
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+x}.
+$$
+
+Hence
+
+$$
+S=2\pi\int_0^2\frac23x^{3/2}\sqrt{1+x}\,\mathrm dx.
+$$
+
+Using $x=\frac12\sinh u$, $\mathrm dx=\frac12\cosh u\,\mathrm du$, with $x=0\Rightarrow u=0$ and $x=2\Rightarrow u=\sinh^{-1}4$,
+
+$$
+S=\frac{\pi}{4}\int_0^{\sinh^{-1}4}\sinh^{3/2}u\sqrt{1+\frac12\sinh u}\cdot\frac12\cosh u\,\mathrm du.
+$$
+
+Using $\cosh^2u=1+\sinh^2u$ and simplifying,
+
+$$
+S=\frac{\pi}{32}\int_0^{\sinh^{-1}4}\sinh^2u\cosh u\,\mathrm du.
+$$
+
+Evaluating the integral gives
+
+$$
+\boxed{S=\frac{\pi}{32}\left(\frac{8}{9}\sqrt{80}-\ln3\right)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2023-on-22-q7b"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/22/O/N/2023, Q7(b).</div>
+:::
+
+### 2024
+
+::: {.question-card}
+### 2024 May/June · 9231/23 · Question 4 · 10 marks
+
+The diagram shows the curve with equation $y=x^{-2}$ for $2\leqslant x\leqslant N$, together with a set of $N-2$ rectangles of unit width.
+
+**(a)** By considering the sum of the areas of these rectangles, show that
+
+$$
+\sum_{r=1}^{N}\frac1{r^2}>\frac32-\frac1N+\frac1{N^2}.
+$$
+
+**[5]**
+
+**(b)** Use a similar method to show that
+
+$$
+\sum_{r=1}^{N}\frac1{r^2}<\frac74-\frac1N.
+$$
+
+**[3]**
+
+**(c)** Hence find a lower bound for $\displaystyle\sum_{r=1}^{\infty}\frac1{r^2}$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The rectangles overestimate the area under $y=x^{-2}$ from $x=2$ to $x=N$:
+
+$$
+\sum_{r=2}^{N-1}\frac1{r^2}>\int_2^Nx^{-2}\,\mathrm dx
+=\Bigl[-x^{-1}\Bigr]_2^N
+=\frac12-\frac1N.
+$$
+
+Adding the terms $r=1$ and $r=N$ to both sides,
+
+$$
+\sum_{r=1}^{N}\frac1{r^2}
+>1+\frac1{N^2}+\frac12-\frac1N
+=\boxed{\frac32-\frac1N+\frac1{N^2}}.
+$$
+
+**(b)** Using rectangles that underestimate the area,
+
+$$
+\sum_{r=3}^{N}\frac1{r^2}<\int_2^Nx^{-2}\,\mathrm dx
+=\frac12-\frac1N.
+$$
+
+Adding $r=1$ and $r=2$ gives
+
+$$
+\sum_{r=1}^{N}\frac1{r^2}
+<1+\frac14+\frac12-\frac1N
+=\boxed{\frac74-\frac1N}.
+$$
+
+**(c)** Since $\sum_{r=1}^{N}\frac1{r^2}>\frac32-\frac1N+\frac1{N^2}$ for all $N$, letting $N\to\infty$ gives
+
+$$
+\boxed{\sum_{r=1}^{\infty}\frac1{r^2}\geqslant\frac32}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2024-mj-23-q4"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/23/M/J/2024, Q4.</div>
+:::
+
+::: {.question-card}
+### 2024 October/November · 9231/21 & 9231/23 · Question 3 · 8 marks
+
+A curve has equation $y=e^{x/3}$ for $\ln4\leqslant x\leqslant\ln12$. The area of the surface generated when the curve is rotated through $2\pi$ radians about the $x$-axis is denoted by $A$.
+
+**(a)** Use the substitution $u=e^{x/3}$ to show that
+
+$$
+A=2\pi\int_{4^{1/3}}^{12^{1/3}}\frac{u^2\sqrt{1+u^2}}{u}\,\mathrm du.
+$$
+
+**[2]**
+
+**(b)** Use the substitution $u=\sinh v$ to show that
+
+$$
+A=\frac{\pi}{225}(904+\ln5).
+$$
+
+**[6]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** For $y=e^{x/3}$,
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=\frac13e^{x/3},
+\qquad
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+\frac19e^{2x/3}}.
+$$
+
+With $u=e^{x/3}$, $\mathrm du=\frac13e^{x/3}\mathrm dx=\frac{u}{3}\mathrm dx$:
+
+$$
+A=2\pi\int y\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx
+=2\pi\int_{4^{1/3}}^{12^{1/3}}u\sqrt{1+\frac{u^2}{9}}\cdot\frac3u\,\mathrm du
+=2\pi\int_{4^{1/3}}^{12^{1/3}}\sqrt{9+u^2}\,\mathrm du.
+$$
+
+**(b)** With $u=\sinh v$, $\mathrm du=\cosh v\,\mathrm dv$,
+
+$$
+A=2\pi\int\sqrt{9+\sinh^2v}\cosh v\,\mathrm dv.
+$$
+
+Using $\cosh^2v=1+\sinh^2v$ and $2\cosh^2v=\cosh2v+1$,
+
+$$
+A=\pi\int(\cosh2v+1)\,\mathrm dv
+=\pi\Bigl[\frac12\sinh2v+v\Bigr].
+$$
+
+With the limits $u=4^{1/3}\Rightarrow v=\sinh^{-1}(4^{1/3})$ and $u=12^{1/3}\Rightarrow v=\sinh^{-1}(12^{1/3})$,
+
+$$
+\boxed{A=\frac{\pi}{225}(904+\ln5)}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2024-on-21-23-q3"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2024, Q3; 9231/23/O/N/2024, Q3.</div>
+:::
+
+### 2025
+
+::: {.question-card}
+### 2025 May/June · 9231/21 & 9231/22 · Question 2 · 7 marks
+
+Let $I_n=\displaystyle\int_0^1(1-x)^n\sinh x\,\mathrm dx$, where $n$ is a non-negative integer.
+
+**(a)** Show that, for $n\geqslant2$,
+
+$$
+I_n=-1+n(n-1)I_{n-2}.
+$$
+
+**[4]**
+
+**(b)** Find the exact value of $I_2$. **[3]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Integrating by parts twice:
+
+$$
+\begin{aligned}
+I_n&=\Bigl[(1-x)^n\cosh x\Bigr]_0^1+n\int_0^1(1-x)^{n-1}\cosh x\,\mathrm dx\\
+&=-1+n\Bigl[(1-x)^{n-1}\sinh x\Bigr]_0^1+(n-1)n\int_0^1(1-x)^{n-2}\sinh x\,\mathrm dx\\
+&=-1+n(n-1)I_{n-2}.
+\end{aligned}
+$$
+
+Hence
+
+$$
+\boxed{I_n=-1+n(n-1)I_{n-2}}.
+$$
+
+**(b)** Using $I_0=\displaystyle\int_0^1\sinh x\,\mathrm dx=\cosh1-1$,
+
+$$
+I_2=-1+2I_0=-1+2(\cosh1-1)
+=\boxed{2\cosh1-3}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2025-mj-21-22-q2"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2025, Q2; 9231/22/M/J/2025, Q2.</div>
+:::
+
+::: {.question-card}
+### 2025 May/June · 9231/21 & 9231/22 · Question 4 · 9 marks
+
+The diagram shows the curve with equation $y=\dfrac{e^x}{x}$ for $x\geqslant1$, together with a set of $n-1$ rectangles of unit width.
+
+**(a)** By considering the sum of the areas of these rectangles, show that
+
+$$
+\sum_{r=1}^{n}\frac{e^{r/n}}{r}<\frac2n e^{1/n}+e-2e.
+$$
+
+**[5]**
+
+**(b)** Use a similar method to find, in terms of $n$, a lower bound for $\displaystyle\sum_{r=1}^{n}\frac{e^{r/n}}{r}$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** The rectangles overestimate the area under $y=\frac{e^x}{x}$ from $x=1$ to $x=2$ (with width $\frac1n$), giving
+
+$$
+\sum_{r=1}^{n}\frac1n\cdot\frac{e^{r/n}}{r/n}
+<\int_1^2\frac{e^x}{x}\,\mathrm dx.
+$$
+
+Using the substitution $u=\sqrt x$, the mark scheme obtains the printed form
+
+$$
+\boxed{\sum_{r=1}^{n}\frac{e^{r/n}}{r}<\frac2n e^{1/n}+e-2e}.
+$$
+
+**(b)** Using rectangles that underestimate the area,
+
+$$
+\boxed{\sum_{r=1}^{n}\frac{e^{r/n}}{r}>\frac2n e^{1/n}-e}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2025-mj-21-22-q4"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/M/J/2025, Q4; 9231/22/M/J/2025, Q4.</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/21 & 9231/23 · Question 3 · 9 marks
+
+The integral $I_n$ is defined by
+
+$$
+I_n=\int_0^1\left(1+x^2\right)^n\mathrm dx.
+$$
+
+**(a)** By considering $\dfrac{\mathrm d}{\mathrm dx}\left(x(1+x^2)^n\right)$, or otherwise, show that
+
+$$
+(2n+1)I_n=2^n+2nI_{n-1}.
+$$
+
+**[5]**
+
+**(b)** Find the exact value of $I_2$. **[4]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Differentiating,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(x(1+x^2)^n\right)
+=(1+x^2)^n+2nx^2(1+x^2)^{n-1}.
+$$
+
+Using $x^2=(1+x^2)-1$,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(x(1+x^2)^n\right)
+=(2n+1)(1+x^2)^n-2n(1+x^2)^{n-1}.
+$$
+
+Integrating from $0$ to $1$,
+
+$$
+\Bigl[x(1+x^2)^n\Bigr]_0^1
+=(2n+1)I_n-2nI_{n-1}.
+$$
+
+Since $x(1+x^2)^n$ at $x=1$ is $2^n$, we get
+
+$$
+\boxed{(2n+1)I_n=2^n+2nI_{n-1}}.
+$$
+
+**(b)** Using $I_0=1$,
+
+$$
+I_1=\frac{2^1+2I_0}{3}=\frac43,
+$$
+
+$$
+I_2=\frac{2^2+4I_1}{5}
+=\frac{4+\frac{16}{3}}{5}
+=\boxed{\frac{28}{15}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2025-on-21-23-q3"> Completed</label>
+<div class="source-line"><strong>Sources:</strong> Cambridge International 9231/21/O/N/2025, Q3; 9231/23/O/N/2025, Q3.</div>
+:::
+
+::: {.question-card}
+### 2025 October/November · 9231/24 · Question 1 · 5 marks
+
+It is given that $I_n=\displaystyle\int_0^1x^n\sinh x\,\mathrm dx$, where $n$ is a non-negative integer.
+
+**(a)** Show that, for $n\geqslant2$,
+
+$$
+I_n=\cosh1-n\sinh1+n(n-1)I_{n-2}.
+$$
+
+**[3]**
+
+**(b)** Find the exact value of $I_2$. **[2]**
+
+<details class="answer-panel"><summary>Show answer and mark scheme</summary>
+
+**(a)** Integrating by parts twice:
+
+$$
+\begin{aligned}
+I_n&=\Bigl[x^n\cosh x\Bigr]_0^1-n\int_0^1x^{n-1}\cosh x\,\mathrm dx\\
+&=\cosh1-n\Bigl(\Bigl[x^{n-1}\sinh x\Bigr]_0^1-(n-1)I_{n-2}\Bigr)\\
+&=\boxed{\cosh1-n\sinh1+n(n-1)I_{n-2}}.
+\end{aligned}
+$$
+
+**(b)** Using $I_0=\displaystyle\int_0^1\sinh x\,\mathrm dx=\cosh1-1$,
+
+$$
+I_2=\cosh1-2\sinh1+2(\cosh1-1)
+=\boxed{3\cosh1-2\sinh1-2}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-2025-on-24-q1"> Completed</label>
+<div class="source-line"><strong>Source:</strong> Cambridge International 9231/24/O/N/2025, Q1.</div>
+:::

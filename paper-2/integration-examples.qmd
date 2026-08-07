@@ -1,0 +1,541 @@
+::: {.study-card}
+### Example 1 · Page 88
+
+Find the area enclosed by the curve $y=\cosh x+\tanh x$, the $y$-axis, the $x$-axis and the line $x=1$, correct to 3 significant figures.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+$$
+\begin{aligned}
+A&=\int_0^1(\cosh x+\tanh x)\,\mathrm dx\\
+&=\Bigl[\sinh x+\ln(\cosh x)\Bigr]_0^1\\
+&=\sinh1+\ln(\cosh1)-0\\
+&=\boxed{1.61\ (3\text{ s.f.})}.
+\end{aligned}
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-1"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 2 · Page 89
+
+Find $\displaystyle\int_0^{\ln2}\operatorname{sech}x\,\mathrm dx$ correct to 3 significant figures.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using the definition $\operatorname{sech}x=\dfrac2{e^x+e^{-x}}$ and the substitution $u=e^x$, $\mathrm du=e^x\mathrm dx$:
+
+$$
+\begin{aligned}
+\int\operatorname{sech}x\,\mathrm dx
+&=\int\frac{2}{u+u^{-1}}\cdot\frac{\mathrm du}{u}
+=2\int\frac{\mathrm du}{u^2+1}\\
+&=2\tan^{-1}u+C
+=2\tan^{-1}(e^x)+C.
+\end{aligned}
+$$
+
+Therefore
+
+$$
+\int_0^{\ln2}\operatorname{sech}x\,\mathrm dx
+=2\Bigl[\tan^{-1}(e^x)\Bigr]_0^{\ln2}
+=2\left(\tan^{-1}2-\tan^{-1}1\right)
+=\boxed{0.410\ (3\text{ s.f.})}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-2"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 3 · Page 92
+
+Find $\displaystyle\int\frac{\mathrm dx}{\sqrt{x^2+x}}$ by completing the square, for $x>1$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Completing the square,
+
+$$
+x^2+x=\left(x+\frac12\right)^2-\frac14.
+$$
+
+Let $z=x+\frac12$ and $a=\frac12$. Then
+
+$$
+\int\frac{\mathrm dx}{\sqrt{x^2+x}}
+=\int\frac{\mathrm dz}{\sqrt{z^2-a^2}}
+=\cosh^{-1}\frac{z}{a}+C
+=\boxed{\cosh^{-1}(2x+1)+C}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-3"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 4 · Page 92
+
+Find $\displaystyle\int\frac{5\,\mathrm dx}{\sqrt{3x^2+12x+15}}$ by completing the square.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Completing the square,
+
+$$
+3x^2+12x+15=3\bigl((x+2)^2+1\bigr).
+$$
+
+Therefore
+
+$$
+\int\frac{5\,\mathrm dx}{\sqrt{3x^2+12x+15}}
+=\frac5{\sqrt3}\int\frac{\mathrm dx}{\sqrt{(x+2)^2+1}}
+=\boxed{\frac5{\sqrt3}\sinh^{-1}(x+2)+C}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-4"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 5 · Page 94
+
+Given that $I_n=\displaystyle\int_0^{\pi/2}\sin^nx\,\mathrm dx$, show that
+
+$$
+I_n=\frac{n-1}{n}I_{n-2}
+$$
+
+and hence evaluate $I_5$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Write $\sin^nx=\sin^{n-1}x\sin x$ and integrate by parts:
+
+$$
+\begin{aligned}
+I_n&=\Bigl[-\cos x\sin^{n-1}x\Bigr]_0^{\pi/2}
++(n-1)\int_0^{\pi/2}\cos^2x\sin^{n-2}x\,\mathrm dx\\
+&=0+(n-1)\int_0^{\pi/2}(1-\sin^2x)\sin^{n-2}x\,\mathrm dx\\
+&=(n-1)I_{n-2}-(n-1)I_n.
+\end{aligned}
+$$
+
+Hence
+
+$$
+nI_n=(n-1)I_{n-2}
+\;\Longrightarrow\;
+\boxed{I_n=\frac{n-1}{n}I_{n-2}}.
+$$
+
+Using $I_1=\displaystyle\int_0^{\pi/2}\sin x\,\mathrm dx=1$,
+
+$$
+I_5=\frac45\cdot\frac23\cdot I_1
+=\frac45\cdot\frac23
+=\boxed{\frac8{15}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-5"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 6 · Page 95
+
+**(a)** Find $\displaystyle\int_0^1e^{-x}\,\mathrm dx$.
+
+**(b)** Find a reduction formula for the integral $\displaystyle I_n=\int_0^1e^{-x}(1-x)^n\,\mathrm dx$.
+
+**(c)** Hence find $\displaystyle\int_0^1e^{-x}(1-x)^2\,\mathrm dx$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)**
+
+$$
+\int_0^1e^{-x}\,\mathrm dx=\Bigl[-e^{-x}\Bigr]_0^1=\boxed{1-\frac1e}.
+$$
+
+**(b)** Integrating by parts with $u=(1-x)^n$, $\mathrm dv=e^{-x}\mathrm dx$:
+
+$$
+\begin{aligned}
+I_n&=\Bigl[-e^{-x}(1-x)^n\Bigr]_0^1-n\int_0^1e^{-x}(1-x)^{n-1}\,\mathrm dx\\
+&=1-nI_{n-1}.
+\end{aligned}
+$$
+
+So
+
+$$
+\boxed{I_n=1-nI_{n-1}}.
+$$
+
+**(c)** Using the reduction formula repeatedly:
+
+$$
+I_2=1-2I_1=1-2(1-I_0)=1-2\left(1-\left(1-\frac1e\right)\right)
+=1-2\cdot\frac1e
+=\boxed{1-\frac2e}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-6"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 7 · Page 95
+
+Given that $I_n=\displaystyle\int_0^1(1-x)^ne^{-x}\,\mathrm dx$, find a reduction formula for $I_n$ by splitting $(1-x)^n$ into $(1-x)^{n-1}(1-x)$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Write
+
+$$
+I_n=\int_0^1(1-x)^{n-1}(1-x)e^{-x}\,\mathrm dx.
+$$
+
+Using integration by parts with $u=(1-x)^n$, $\mathrm dv=e^{-x}\mathrm dx$,
+
+$$
+I_n=\Bigl[-e^{-x}(1-x)^n\Bigr]_0^1
+-n\int_0^1e^{-x}(1-x)^{n-1}\,\mathrm dx.
+$$
+
+Hence
+
+$$
+\boxed{I_n=1-nI_{n-1}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-7"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 8 · Page 96
+
+Find $\dfrac{\mathrm d}{\mathrm dx}\left(\tan x\sec^nx\right)$ in terms of $\sec x$. Hence find a reduction formula for $\displaystyle I_n=\int_0^{\pi/4}\sec^nx\,\mathrm dx$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using the product rule,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(\tan x\sec^nx\right)
+=\sec^{n+2}x+n\sec^nx\tan^2x
+=(n+1)\sec^{n+2}x-n\sec^nx.
+$$
+
+Integrating from $0$ to $\pi/4$,
+
+$$
+\Bigl[\tan x\sec^nx\Bigr]_0^{\pi/4}
+=(n+1)I_{n+2}-nI_n.
+$$
+
+At $x=\pi/4$, $\tan x=1$ and $\sec x=\sqrt2$, so the left-hand side is $(\sqrt2)^n=2^{n/2}$. Hence
+
+$$
+2^{n/2}=(n+1)I_{n+2}-nI_n,
+$$
+
+giving
+
+$$
+\boxed{I_{n+2}=\frac{2^{n/2}+nI_n}{n+1}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-8"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 9 · Page 97
+
+Find the area under the curve $y=1+x^2$ between $x=1$ and $x=2$ by using rectangles of width $\frac15$ that underestimate the area. Find the area exactly by integrating, and give the percentage error of the approximation correct to 1 significant figure.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using five rectangles of width $\frac15$ that underestimate the area (using left endpoints $1.0,1.2,1.4,1.6,1.8$):
+
+$$
+A\approx\frac15\Bigl[(1^2+1)+(1.2^2+1)+(1.4^2+1)+(1.6^2+1)+(1.8^2+1)\Bigr]
+=3.04.
+$$
+
+The exact area is
+
+$$
+\int_1^2(1+x^2)\,\mathrm dx
+=\Bigl[x+\frac{x^3}{3}\Bigr]_1^2
+=2+\frac83-1-\frac13
+=\frac{10}{3}\approx3.333.
+$$
+
+The percentage error is
+
+$$
+\frac{3.04-3.333}{3.333}\times100\approx\boxed{-9\%\ (1\text{ s.f.})}.
+$$
+
+(Using right-endpoint rectangles gives $3.64$, an overestimate of $+9\%$; the average gives an estimate with error about $+0.2\%$.)
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-9"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 10 · Page 99
+
+Show that
+
+$$
+\sum_{r=1}^{n}\frac1{n}\left(1+\frac{r}{n}\right)^{-1}\approx\int_0^1\frac{\mathrm dx}{1+x},
+$$
+
+with the approximation improving as $n$ increases.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Taking $n$ rectangles of width $\frac1n$ under the curve $y=\frac1{1+x}$ from $x=0$ to $x=1$ (using the right endpoints $x=\frac rn$):
+
+$$
+\text{sum of areas}
+=\sum_{r=1}^{n}\frac1n\cdot\frac1{1+\frac rn}.
+$$
+
+As $n\to\infty$, the rectangles fit the curve more closely, so
+
+$$
+\sum_{r=1}^{n}\frac1n\left(1+\frac rn\right)^{-1}
+\longrightarrow
+\int_0^1\frac{\mathrm dx}{1+x}
+=\Bigl[\ln(1+x)\Bigr]_0^1
+=\ln2.
+$$
+
+Hence
+
+$$
+\boxed{\sum_{r=1}^{n}\frac1{n}\left(1+\frac{r}{n}\right)^{-1}\approx\ln2},
+$$
+
+with the approximation improving as $n$ increases.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-10"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 11 · Page 102
+
+Find the length of the curve given by $x=\cos t$, $y=\sin t$ from $t=0$ to $t=\pi/2$.
+
+**(a)** by seeing this as an arc of a circle;
+
+**(b)** by using the parametric form for arc length.
+
+Check that both methods give the same answer.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** Eliminating $t$ gives $x^2+y^2=1$. The required arc is the quarter-circle from $(1,0)$ to $(0,1)$, whose length is
+
+$$
+\frac14\cdot2\pi=\boxed{\frac{\pi}{2}}.
+$$
+
+**(b)** Using
+
+$$
+s=\int_0^{\pi/2}\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt,
+$$
+
+with $\dfrac{\mathrm dx}{\mathrm dt}=-\sin t$, $\dfrac{\mathrm dy}{\mathrm dt}=\cos t$,
+
+$$
+s=\int_0^{\pi/2}\sqrt{\sin^2t+\cos^2t}\,\mathrm dt
+=\int_0^{\pi/2}1\,\mathrm dt
+=\boxed{\frac{\pi}{2}}.
+$$
+
+Both methods agree.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-11"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 12 · Page 103
+
+**(a)** Find the derivative of $\ln\left(x+\sqrt{x^2+1}\right)+x\sqrt{x^2+1}$ and hence find $\displaystyle\int\sqrt{1+x^2}\,\mathrm dx$.
+
+**(b)** Find the length of the spiral defined by $r=\theta$ for $0\leqslant\theta\leqslant\pi/2$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+**(a)** Differentiating $\ln\left(x+\sqrt{x^2+1}\right)$ using the chain rule,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\ln\left(x+\sqrt{x^2+1}\right)
+=\frac{1+\frac{x}{\sqrt{x^2+1}}}{x+\sqrt{x^2+1}}
+=\frac1{\sqrt{x^2+1}}.
+$$
+
+Differentiating $x\sqrt{x^2+1}$ by the product rule,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(x\sqrt{x^2+1}\right)
+=\sqrt{x^2+1}+\frac{x^2}{\sqrt{x^2+1}}
+=\frac{2x^2+1}{\sqrt{x^2+1}}.
+$$
+
+Adding the two derivatives,
+
+$$
+\frac{\mathrm d}{\mathrm dx}\left(\ln\left(x+\sqrt{x^2+1}\right)+x\sqrt{x^2+1}\right)
+=\frac{2x^2+2}{\sqrt{x^2+1}}
+=2\sqrt{x^2+1}.
+$$
+
+Hence
+
+$$
+\int\sqrt{1+x^2}\,\mathrm dx
+=\boxed{\frac12\left(\ln\left(x+\sqrt{x^2+1}\right)+x\sqrt{x^2+1}\right)+C}.
+$$
+
+**(b)** For $r=\theta$, using the polar arc-length formula,
+
+$$
+s=\int_0^{\pi/2}\sqrt{r^2+\left(\frac{\mathrm dr}{\mathrm d\theta}\right)^2}\,\mathrm d\theta
+=\int_0^{\pi/2}\sqrt{\theta^2+1}\,\mathrm d\theta
+\approx2.30.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-12"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 13 · Page 105
+
+Find the surface area of revolution formed by rotating the line $y=x$ through $2\pi$ about the $x$-axis from $x=0$ to $x=1$.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using
+
+$$
+A=2\pi\int_0^1 y\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx,
+$$
+
+with $y=x$ and $\dfrac{\mathrm dy}{\mathrm dx}=1$,
+
+$$
+A=2\pi\int_0^1 x\sqrt2\,\mathrm dx
+=2\pi\sqrt2\cdot\frac12
+=\boxed{\pi\sqrt2}.
+$$
+
+This is the curved surface area of a cone of slant height $\sqrt2$ and base radius $1$: $A=\pi r l=\pi\sqrt2$.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-13"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 14 · Page 105
+
+Find the surface area of a sphere by rotating the top half of the circle $x^2+y^2=a^2$ through $360^\circ$ about the $x$-axis.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+The top half is $y=\sqrt{a^2-x^2}$, and
+
+$$
+\frac{\mathrm dy}{\mathrm dx}=-\frac{x}{\sqrt{a^2-x^2}}.
+$$
+
+Therefore
+
+$$
+\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
+=\sqrt{1+\frac{x^2}{a^2-x^2}}
+=\frac{a}{\sqrt{a^2-x^2}}.
+$$
+
+So
+
+$$
+A=2\pi\int_{-a}^{a}\sqrt{a^2-x^2}\cdot\frac{a}{\sqrt{a^2-x^2}}\,\mathrm dx
+=2\pi\int_{-a}^{a}a\,\mathrm dx
+=2\pi a(2a)
+=\boxed{4\pi a^2}.
+$$
+
+This agrees with the standard formula for the surface area of a sphere.
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-14"> Completed</label>
+:::
+
+::: {.study-card}
+### Example 15 · Page 106
+
+The curve $C$ is defined by $x=t^2$, $y=t-\frac13t^3$. Find the surface area created when the portion of the curve from $t=0$ to $t=1$ is rotated through $360^\circ$ about the $x$-axis.
+
+<details class="answer-panel"><summary>Show solution</summary>
+
+Using
+
+$$
+A=2\pi\int_{t_1}^{t_2}y\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt,
+$$
+
+with
+
+$$
+\frac{\mathrm dx}{\mathrm dt}=2t,\qquad
+\frac{\mathrm dy}{\mathrm dt}=1-t^2,
+$$
+
+we have
+
+$$
+\sqrt{(2t)^2+(1-t^2)^2}=t^2+1.
+$$
+
+Therefore
+
+$$
+A=2\pi\int_0^1\left(t-\frac13t^3\right)(t^2+1)\,\mathrm dt
+=2\pi\int_0^1\left(t^3+t-\frac13t^5-\frac13t^3\right)\mathrm dt.
+$$
+
+Evaluating,
+
+$$
+A=2\pi\left[\frac{t^4}{4}+\frac{t^2}{2}-\frac{t^6}{18}-\frac{t^4}{12}\right]_0^1
+=2\pi\left(\frac14+\frac12-\frac1{18}-\frac1{12}\right).
+$$
+
+So
+
+$$
+A=2\pi\left(\frac{9+18-2-3}{36}\right)
+=2\pi\cdot\frac{22}{36}
+=\boxed{\frac{11\pi}{9}}.
+$$
+
+</details>
+<label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-15"> Completed</label>
+:::

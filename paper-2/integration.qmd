@@ -1,0 +1,133 @@
+---
+title: "2.4 Integration"
+subtitle: "双曲函数积分 · 标准积分 · 递推公式 · 矩形近似 · 弧长与曲面面积"
+description: "CIE 9231 Paper 2，依据 2026–2027 syllabus 与 Collins Further Pure Mathematics 2 Chapter 4。"
+---
+
+::: {.callout-important}
+## 本节考纲要求
+
+考生需要能够：
+
+1. 求双曲函数的积分，并识别 $\dfrac1{\sqrt{a^2-x^2}}$、$\dfrac1{x^2+a^2}$、$\dfrac1{\sqrt{x^2-a^2}}$ 形式的积分（必要时先完成配方）；
+2. 使用合适的三角或双曲代换求相关函数的积分；
+3. 推导并使用递推公式（reduction formulae）计算定积分；
+4. 理解曲线下面积可以用矩形面积近似，并用矩形估计面积或推导不等式与极限（矩形宽度可为 1，也可趋于 0）。
+:::
+
+## 学习路线
+
+::: {.study-card}
+
+- [ ] 熟记 $\int\cosh x\,\mathrm dx$、$\int\sinh x\,\mathrm dx$、$\int\tanh x\,\mathrm dx$
+- [ ] 能完成配方并识别 $\frac1{\sqrt{a^2-x^2}}$、$\frac1{x^2+a^2}$、$\frac1{\sqrt{x^2-a^2}}$ 的标准积分
+- [ ] 能选择 $x=a\sin\theta$、$x=a\sinh u$、$x=a\tan\theta$ 等代换
+- [ ] 能通过分部积分或“考虑某函数导数”推导递推公式
+- [ ] 能比较矩形面积和 $\int_a^b f(x)\,\mathrm dx$ 得到上界、下界或不等式
+- [ ] 能求参数曲线与极坐标曲线的弧长，以及旋转曲面面积
+
+:::
+
+## 1. 教材知识点
+
+### 1.1 Integrating hyperbolic functions
+
+双曲函数的积分与其导数互为逆运算：
+
+$$
+\int\cosh x\,\mathrm dx=\sinh x+C,
+\qquad
+\int\sinh x\,\mathrm dx=\cosh x+C,
+$$
+
+$$
+\int\tanh x\,\mathrm dx=\ln(\cosh x)+C.
+$$
+
+### 1.2 Standard integrals and completing the square
+
+本课程要求识别并使用以下标准积分：
+
+$$
+\int\frac{\mathrm dx}{\sqrt{a^2-x^2}}=\sin^{-1}\frac{x}{a}+C,
+$$
+
+$$
+\int\frac{\mathrm dx}{x^2+a^2}=\frac1a\tan^{-1}\frac{x}{a}+C,
+$$
+
+$$
+\int\frac{\mathrm dx}{\sqrt{x^2-a^2}}=\cosh^{-1}\frac{x}{a}+C,
+$$
+
+$$
+\int\frac{\mathrm dx}{\sqrt{x^2+a^2}}=\sinh^{-1}\frac{x}{a}+C.
+$$
+
+遇到形如 $x^2+x$、$3x^2+12x+15$ 的被积函数时，先配方，再化为上述标准形式。
+
+### 1.3 Trigonometric and hyperbolic substitutions
+
+- 含 $\sqrt{a^2-x^2}$：令 $x=a\sin\theta$；
+- 含 $x^2+a^2$ 或 $\sqrt{x^2+a^2}$：令 $x=a\tan\theta$ 或 $x=a\sinh u$；
+- 含 $\sqrt{x^2-a^2}$：令 $x=a\cosh u$。
+
+代换时注意同时更换 $\mathrm dx$ 与积分上下限。
+
+### 1.4 Reduction formulae
+
+递推公式把含整数 $n$ 的积分 $I_n$ 化为 $I_{n-1}$、$I_{n-2}$ 等更简单的积分。常用方法：
+
+- 分部积分（例如 $I_n=\int_0^{\pi/2}\sin^nx\,\mathrm dx$）；
+- 先对某个函数（如 $\tan x\sec^nx$、$x(1+x^2)^n$）求导，再两边积分。
+
+例：
+
+$$
+I_n=\int_0^{\pi/2}\sin^nx\,\mathrm dx
+\;\Longrightarrow\;
+I_n=\frac{n-1}{n}I_{n-2}.
+$$
+
+### 1.5 Rectangles and the area under a curve
+
+用 $n$ 个等宽矩形近似 $\int_a^b f(x)\,\mathrm dx$：取矩形左端点可得一个近似，取右端点可得另一个近似；若 $f$ 单调，则二者分别是上界与下界。矩形越细，近似越精确，且当矩形宽度趋于零时，矩形面积和收敛到积分值。
+
+### 1.6 Arc length and surface area
+
+弧长：
+
+$$
+s=\int_a^b\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx
+=\int_{t_1}^{t_2}\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt,
+$$
+
+极坐标 $r=f(\theta)$：
+
+$$
+s=\int_{\theta_1}^{\theta_2}\sqrt{r^2+\left(\frac{\mathrm dr}{\mathrm d\theta}\right)^2}\,\mathrm d\theta.
+$$
+
+曲线绕 $x$ 轴旋转一周所得曲面面积：
+
+$$
+A=2\pi\int_a^b y\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx
+=2\pi\int_{t_1}^{t_2}y\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt.
+$$
+
+## 2. Textbook Examples
+
+{{< include integration-examples.qmd >}}
+
+## 3. Past-paper question bank
+
+{{< include integration-past-papers.qmd >}}
+
+## 4. 完成本节的判断标准
+
+1. 能直接写出双曲函数的积分和四个标准积分形式；
+2. 配方后能正确选择三角或双曲代换并完成积分；
+3. 能推导递推公式并用它计算具体定积分；
+4. 能用矩形面积证明积分不等式，或给出和式的上界与下界；
+5. 能写出弧长与曲面面积公式并正确代入。
+本节保留教材 Chapter 4 的全部编号 Example（Example 1–15）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。
