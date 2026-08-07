@@ -467,28 +467,31 @@ A&amp;=\int_0^1(\cosh x+\tanh x)\,\mathrm dx\\
 </section>
 <section id="example-2-page-89" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-2-page-89">Example 2 · Page 89</h3>
-<p>Find <span class="math inline">\(\displaystyle\int_0^{\ln2}\operatorname{sech}x\,\mathrm dx\)</span> correct to 3 significant figures.</p>
+<p>Find <span class="math inline">\(\displaystyle\int_1^2\operatorname{sech}x\,\mathrm dx\)</span> correct to 3 significant figures, by using the result <span class="math inline">\(\displaystyle\int\frac{\mathrm dx}{1+x^2}=\tan^{-1}x+C\)</span> together with the substitution <span class="math inline">\(u=e^x\)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Using the definition <span class="math inline">\(\operatorname{sech}x=\dfrac2{e^x+e^{-x}}\)</span> and the substitution <span class="math inline">\(u=e^x\)</span>, <span class="math inline">\(\mathrm du=e^x\mathrm dx\)</span>:</p>
+<p>Using <span class="math inline">\(\operatorname{sech}x=\dfrac2{e^x+e^{-x}}\)</span>,</p>
 <p><span class="math display">\[
-\begin{aligned}
-\int\operatorname{sech}x\,\mathrm dx
-&amp;=\int\frac{2}{u+u^{-1}}\cdot\frac{\mathrm du}{u}
-=2\int\frac{\mathrm du}{u^2+1}\\
-&amp;=2\tan^{-1}u+C
-=2\tan^{-1}(e^x)+C.
-\end{aligned}
+\int_1^2\operatorname{sech}x\,\mathrm dx
+=\int_1^2\frac{2}{e^x+e^{-x}}\,\mathrm dx
+=2\int_1^2\frac{e^x}{(e^x)^2+1}\,\mathrm dx.
 \]</span></p>
-<p>Therefore</p>
+<p>Let <span class="math inline">\(u=e^x\)</span>, so <span class="math inline">\(\mathrm du=e^x\mathrm dx\)</span>:</p>
 <p><span class="math display">\[
-\int_0^{\ln2}\operatorname{sech}x\,\mathrm dx
-=2\Bigl[\tan^{-1}(e^x)\Bigr]_0^{\ln2}
-=2\left(\tan^{-1}2-\tan^{-1}1\right)
-=\boxed{0.410\ (3\text{ s.f.})}.
+\int_1^2\operatorname{sech}x\,\mathrm dx
+=2\int_{e}^{e^2}\frac{\mathrm du}{1+u^2}
+=2\Bigl[\tan^{-1}u\Bigr]_e^{e^2}
+=2\Bigl[\tan^{-1}(e^x)\Bigr]_1^2.
 \]</span></p>
+<p>Evaluating,</p>
+<p><span class="math display">\[
+2\left(\tan^{-1}(e^2)-\tan^{-1}(e)\right)
+=2(1.43628-1.21828)
+=\boxed{0.436\ (3\text{ s.f.})}.
+\]</span></p>
+<p>（教材答案栏此处印刷为 25.0，按上述正确计算应为 0.436。）</p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-2"> Completed</label></p>
 </section>
@@ -774,8 +777,12 @@ Show solution
 <p><strong>(b)</strong> For <span class="math inline">\(r=\theta\)</span>, using the polar arc-length formula,</p>
 <p><span class="math display">\[
 s=\int_0^{\pi/2}\sqrt{r^2+\left(\frac{\mathrm dr}{\mathrm d\theta}\right)^2}\,\mathrm d\theta
-=\int_0^{\pi/2}\sqrt{\theta^2+1}\,\mathrm d\theta
-\approx2.30.
+=\int_0^{\pi/2}\sqrt{\theta^2+1}\,\mathrm d\theta.
+\]</span></p>
+<p>Using the result of part (a),</p>
+<p><span class="math display">\[
+s=\frac12\Bigl[\theta\sqrt{\theta^2+1}+\ln\left(\theta+\sqrt{\theta^2+1}\right)\Bigr]_0^{\pi/2}
+=\boxed{2.08\ (3\text{ s.f.})}.
 \]</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="int-p2-example-12"> Completed</label></p>
