@@ -350,15 +350,6 @@ window.Quarto = {
   <li><a href="#example-4.1-the-sign-test" id="toc-example-4.1-the-sign-test" class="nav-link" data-scroll-target="#example-4.1-the-sign-test">Example 4.1 · The sign test</a></li>
   <li><a href="#example-4.2-the-wilcoxon-signed-rank-test" id="toc-example-4.2-the-wilcoxon-signed-rank-test" class="nav-link" data-scroll-target="#example-4.2-the-wilcoxon-signed-rank-test">Example 4.2 · The Wilcoxon signed-rank test</a></li>
   <li><a href="#example-4.3-a-one-sample-sign-test" id="toc-example-4.3-a-one-sample-sign-test" class="nav-link" data-scroll-target="#example-4.3-a-one-sample-sign-test">Example 4.3 · A one-sample sign test</a></li>
-  <li><a href="#example-4.1-show-answer" id="toc-example-4.1-show-answer" class="nav-link" data-scroll-target="#example-4.1-show-answer">Example 4.1 · Show answer</a></li>
-  <li><a href="#example-4.2-show-answer" id="toc-example-4.2-show-answer" class="nav-link" data-scroll-target="#example-4.2-show-answer">Example 4.2 · Show answer</a></li>
-  <li><a href="#example-4.4-show-answer" id="toc-example-4.4-show-answer" class="nav-link" data-scroll-target="#example-4.4-show-answer">Example 4.4 · Show answer</a></li>
-  <li><a href="#example-4.5-show-answer" id="toc-example-4.5-show-answer" class="nav-link" data-scroll-target="#example-4.5-show-answer">Example 4.5 · Show answer</a></li>
-  <li><a href="#example-4.6-show-answer" id="toc-example-4.6-show-answer" class="nav-link" data-scroll-target="#example-4.6-show-answer">Example 4.6 · Show answer</a></li>
-  <li><a href="#example-4.7-show-answer" id="toc-example-4.7-show-answer" class="nav-link" data-scroll-target="#example-4.7-show-answer">Example 4.7 · Show answer</a></li>
-  <li><a href="#example-4.8-show-answer" id="toc-example-4.8-show-answer" class="nav-link" data-scroll-target="#example-4.8-show-answer">Example 4.8 · Show answer</a></li>
-  <li><a href="#example-4.9-show-answer" id="toc-example-4.9-show-answer" class="nav-link" data-scroll-target="#example-4.9-show-answer">Example 4.9 · Show answer</a></li>
-  <li><a href="#example-4.10-show-answer" id="toc-example-4.10-show-answer" class="nav-link" data-scroll-target="#example-4.10-show-answer">Example 4.10 · Show answer</a></li>
   <li><a href="#example-4.4-wilcoxon-matched-pairs-signed-rank-test" id="toc-example-4.4-wilcoxon-matched-pairs-signed-rank-test" class="nav-link" data-scroll-target="#example-4.4-wilcoxon-matched-pairs-signed-rank-test">Example 4.4 · Wilcoxon matched-pairs signed-rank test</a></li>
   <li><a href="#example-4.5-wilcoxon-signed-rank-test" id="toc-example-4.5-wilcoxon-signed-rank-test" class="nav-link" data-scroll-target="#example-4.5-wilcoxon-signed-rank-test">Example 4.5 · Wilcoxon signed-rank test</a></li>
   <li><a href="#example-4.6-normal-approximation-to-the-wilcoxon-statistic" id="toc-example-4.6-normal-approximation-to-the-wilcoxon-statistic" class="nav-link" data-scroll-target="#example-4.6-normal-approximation-to-the-wilcoxon-statistic">Example 4.6 · Normal approximation to the Wilcoxon statistic</a></li>
@@ -433,11 +424,23 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="textbook-examples">1. Textbook Examples</h2>
 <section id="example-4.1-the-sign-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.1-the-sign-test">Example 4.1 · The sign test</h3>
-<p>The sign test is applied to the signs of the differences from a hypothesised median. Zero differences are omitted. Under <span class="math inline">\(H_0\)</span>, the number of positive differences has a binomial distribution <span class="math inline">\(B(n,\frac12)\)</span>.</p>
+<p>The sign test is applied to the signs of the non-zero differences from a hypothesised median.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+If <span class="math inline">\(r\)</span> of <span class="math inline">\(n\)</span> non-zero differences are positive, then under <span class="math inline">\(H_0\)</span>, <span class="math display">\[R\sim B\left(n,\frac12\right).\]</span> Use the appropriate one- or two-tailed binomial probability and reject <span class="math inline">\(H_0\)</span> when the probability is at most the stated significance level.
+</details>
 </section>
 <section id="example-4.2-the-wilcoxon-signed-rank-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.2-the-wilcoxon-signed-rank-test">Example 4.2 · The Wilcoxon signed-rank test</h3>
-<p>For non-zero differences, rank the absolute differences, restore their signs, and use the smaller of the sums of positive and negative ranks as the test statistic.</p>
+<p>For non-zero differences, rank the absolute differences, restore their signs, and use the smaller of the positive- and negative-rank sums.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Calculate <span class="math inline">\(W_+\)</span> and <span class="math inline">\(W_-\)</span> and check <span class="math display">\[W_++W_-=\frac12n(n+1).\]</span> For a two-tailed test use <span class="math inline">\(W=\min(W_+,W_-)\)</span>; for a one-tailed test use the rank sum in the relevant direction. Compare with the tabulated critical value.
+</details>
 </section>
 <section id="example-4.3-a-one-sample-sign-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.3-a-one-sample-sign-test">Example 4.3 · A one-sample sign test</h3>
@@ -447,73 +450,73 @@ window.Quarto = {
 <summary>
 Show answer
 </summary>
-Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(X\sim B(50,\frac12)\)</span>. Using the normal approximation with continuity correction, <span class="math display">\[P(X\ge33)=P\left(Z\ge\frac{32.5-25}{\sqrt{12.5}}\right)=0.0170.\]</span> Since <span class="math inline">\(0.0170&lt;0.10\)</span>, reject <span class="math inline">\(H_0\)</span>. There is sufficient evidence that the median time is less than 23.5 days.
+Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(X\sim B(50,\frac12)\)</span>. With the normal approximation and continuity correction, <span class="math display">\[P(X\ge33)=P\left(Z\ge\frac{32.5-25}{\sqrt{12.5}}\right)=0.0170.\]</span> Since <span class="math inline">\(0.0170&lt;0.10\)</span>, reject <span class="math inline">\(H_0\)</span>. There is sufficient evidence that the median time is less than 23.5 days.
 </details>
-</section>
-<section id="example-4.1-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.1-show-answer">Example 4.1 · Show answer</h3>
-<p>For a two-tailed sign test, if <span class="math inline">\(r\)</span> of <span class="math inline">\(n\)</span> non-zero differences are positive, use <span class="math inline">\(R\sim B(n,\frac12)\)</span> and include both tails. For a one-tailed test, use the relevant tail only. Reject <span class="math inline">\(H_0\)</span> when the probability is at most the stated significance level.</p>
-</section>
-<section id="example-4.2-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.2-show-answer">Example 4.2 · Show answer</h3>
-<p>Rank the absolute non-zero differences, using average ranks for ties. Let <span class="math inline">\(W_+\)</span> and <span class="math inline">\(W_-\)</span> be the positive- and negative-rank sums. Check <span class="math display">\[W_++W_-=\frac12n(n+1).\]</span> Use <span class="math inline">\(W=\min(W_+,W_-)\)</span> for a two-tailed test, compare with the table value, and state the conclusion in context.</p>
-</section>
-<section id="example-4.4-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.4-show-answer">Example 4.4 · Show answer</h3>
-<p>For each pair calculate <span class="math inline">\(d_i\)</span>, remove <span class="math inline">\(d_i=0\)</span>, rank <span class="math inline">\(|d_i|\)</span>, restore the signs, calculate <span class="math inline">\(W_+\)</span> and <span class="math inline">\(W_-\)</span>, and compare the appropriate <span class="math inline">\(W\)</span> with the tabulated critical value. The population of paired differences must be assumed symmetric for the signed-rank test.</p>
-</section>
-<section id="example-4.5-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.5-show-answer">Example 4.5 · Show answer</h3>
-<p>Set <span class="math inline">\(H_0:\)</span> median weight <span class="math inline">\(=5.6\)</span> and <span class="math inline">\(H_1:\)</span> median weight <span class="math inline">\(&gt;5.6\)</span>. Subtract <span class="math inline">\(5.6\)</span> from every listed weight, omit zero differences, rank the absolute values, and add the positive ranks. Use the one-tailed critical value for <span class="math inline">\(n=30\)</span> at 10%. Reject <span class="math inline">\(H_0\)</span> only when the positive-rank evidence is at least as extreme as the table value; state the contextual conclusion.</p>
-</section>
-<section id="example-4.6-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.6-show-answer">Example 4.6 · Show answer</h3>
-<p>For sufficiently large <span class="math inline">\(n\)</span>, under <span class="math inline">\(H_0\)</span>, <span class="math display">\[E(W)=\frac{n(n+1)}4,\qquad \operatorname{Var}(W)=\frac{n(n+1)(2n+1)}{24}.\]</span> Apply the continuity correction to <span class="math inline">\(W\)</span> and standardise. Compare <span class="math inline">\(|z|\)</span> or the one-tailed <span class="math inline">\(z\)</span> with the critical value.</p>
-</section>
-<section id="example-4.7-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.7-show-answer">Example 4.7 · Show answer</h3>
-<p>Replace each paired observation by its difference and apply Example 4.2. The direction of the alternative is determined by the sign convention used for the differences.</p>
-</section>
-<section id="example-4.8-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.8-show-answer">Example 4.8 · Show answer</h3>
-<p>Rank the combined samples, calculate <span class="math inline">\(W_X\)</span> and <span class="math inline">\(W_Y\)</span>, check <span class="math display">\[W_X+W_Y=\frac12(m+n)(m+n+1),\]</span> and use the rank sum for the smaller sample or its equivalent upper-tail statistic. Compare with the rank-sum critical value.</p>
-</section>
-<section id="example-4.9-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.9-show-answer">Example 4.9 · Show answer</h3>
-<p>The rank sums are <span class="math inline">\(W_I=55\)</span> and <span class="math inline">\(W_C=81\)</span>. The upper-tail statistic for the Chinese sample is <span class="math display">\[W=81-\frac12(7)(17)=38.\]</span> At the 5% one-tailed level the critical value is 43. Since <span class="math inline">\(38&lt;43\)</span>, reject <span class="math inline">\(H_0\)</span>; there is evidence that the population median prediction for China is greater than that for India.</p>
-</section>
-<section id="example-4.10-show-answer" class="level3">
-<h3 class="anchored" data-anchor-id="example-4.10-show-answer">Example 4.10 · Show answer</h3>
-<p>Rank all 22 scores together, calculate the two rank sums, and use the two-tailed rank-sum statistic. Compare it with the 5% critical value for sample sizes 10 and 12. The result is interpreted as a difference between the populations only under the stated common-shape assumption.</p>
 </section>
 <section id="example-4.4-wilcoxon-matched-pairs-signed-rank-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.4-wilcoxon-matched-pairs-signed-rank-test">Example 4.4 · Wilcoxon matched-pairs signed-rank test</h3>
-<p>For paired observations, calculate each difference, rank the absolute non-zero differences, restore signs, and compare the Wilcoxon statistic with the tabulated critical value for the chosen alternative and significance level.</p>
+<p>For paired observations, calculate the difference for each pair and test whether the population median difference is zero.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Remove zero differences, rank the absolute differences, restore the signs, calculate <span class="math inline">\(W_+\)</span> and <span class="math inline">\(W_-\)</span>, and compare the appropriate statistic with the tabulated critical value. The population of differences should be symmetrically distributed.
+</details>
 </section>
 <section id="example-4.5-wilcoxon-signed-rank-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.5-wilcoxon-signed-rank-test">Example 4.5 · Wilcoxon signed-rank test</h3>
 <p>The median weight of yam roots using the standard fertiliser is 5.6 kg. The weights in kg of a random sample of 30 roots grown with a new fertiliser are <span class="math display">\[5.32,4.47,7.30,7.09,6.85,4.68,6.41,8.21,3.57,5.46,\]</span> <span class="math display">\[5.96,5.72,6.18,5.99,6.54,4.78,6.11,5.22,7.21,4.67,\]</span> <span class="math display">\[5.81,7.07,5.44,6.69,5.71,7.18,5.20,6.33,5.27,5.73.\]</span></p>
-<p>Carry out a Wilcoxon test at the 10% significance level to investigate whether roots grown with this fertiliser are on average heavier than those grown with the usual one.</p>
+<p>Carry out a Wilcoxon test at the 10% significance level to investigate whether roots grown with this fertiliser are on average heavier.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Set <span class="math inline">\(H_0:\tilde x=5.6\)</span> and <span class="math inline">\(H_1:\tilde x&gt;5.6\)</span>. Subtract 5.6, rank the absolute non-zero differences, add the positive ranks and compare with the one-tailed 10% critical value for <span class="math inline">\(n=30\)</span>. State the conclusion in context.
+</details>
 </section>
 <section id="example-4.6-normal-approximation-to-the-wilcoxon-statistic" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.6-normal-approximation-to-the-wilcoxon-statistic">Example 4.6 · Normal approximation to the Wilcoxon statistic</h3>
-<p>For larger samples, use the normal approximation to the Wilcoxon statistic, with continuity correction, and compare the resulting <span class="math inline">\(z\)</span>-value with the appropriate one-tailed or two-tailed critical value.</p>
+<p>For a sufficiently large sample, use the normal approximation to the Wilcoxon statistic with continuity correction.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Under <span class="math inline">\(H_0\)</span>, <span class="math display">\[E(W)=\frac{n(n+1)}4,\qquad \operatorname{Var}(W)=\frac{n(n+1)(2n+1)}{24}.\]</span> Standardise the corrected statistic and compare with the appropriate critical value.
+</details>
 </section>
 <section id="example-4.7-wilcoxon-matched-pairs-signed-rank-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.7-wilcoxon-matched-pairs-signed-rank-test">Example 4.7 · Wilcoxon matched-pairs signed-rank test</h3>
-<p>For paired data, replace the paired observations by their differences and apply the one-sample Wilcoxon signed-rank procedure to those differences.</p>
+<p>Apply the signed-rank test to the differences between the paired observations.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Use the same ranking procedure as Example 4.2 after replacing each pair by its difference. The alternative direction follows the sign convention.
+</details>
 </section>
 <section id="example-4.8-the-wilcoxon-rank-sum-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.8-the-wilcoxon-rank-sum-test">Example 4.8 · The Wilcoxon rank-sum test</h3>
-<p>Rank all observations from the two independent samples together. Calculate the rank sums, check that their sum is <span class="math inline">\(\frac12(m+n)(m+n+1)\)</span>, and use the smaller-sample statistic with the appropriate critical value.</p>
+<p>Rank all observations from two independent samples together and compare the rank sums.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+If the sample sizes are <span class="math inline">\(m\)</span> and <span class="math inline">\(n\)</span>, check <span class="math display">\[W_X+W_Y=\frac12(m+n)(m+n+1).\]</span> Use the rank sum for the smaller sample, compare with the tabulated critical value, and state the conclusion.
+</details>
 </section>
 <section id="example-4.9-wilcoxon-rank-sum-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.9-wilcoxon-rank-sum-test">Example 4.9 · Wilcoxon rank-sum test</h3>
-<p>Use the data from the preceding example to test, at the 5% significance level, whether there is evidence that the median prediction for China is greater than that for India.</p>
+<p>Use the data from the preceding example to test, at the 5% significance level, whether the median prediction for China is greater than that for India.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+The rank sums are <span class="math inline">\(W_I=55\)</span> and <span class="math inline">\(W_C=81\)</span>. For the Chinese sample, <span class="math display">\[W=81-\frac12(7)(17)=38.\]</span> The 5% one-tailed critical value is 43. Since <span class="math inline">\(38&lt;43\)</span>, reject <span class="math inline">\(H_0\)</span>; there is evidence that the population median prediction for China is greater than that for India.
+</details>
 </section>
 <section id="example-4.10-two-sample-wilcoxon-rank-sum-test" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.10-two-sample-wilcoxon-rank-sum-test">Example 4.10 · Two-sample Wilcoxon rank-sum test</h3>
-<p>In an experiment on cultural differences in interpreting facial expressions, 10 English children and 12 Japanese children are each shown 40 full-face photographs of American children. Their scores are:</p>
+<p>In an experiment on cultural differences in interpreting facial expressions, 10 English children and 12 Japanese children are each shown 40 full-face photographs. Their scores are:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -551,7 +554,7 @@ Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(X\si
 <summary>
 Show answer
 </summary>
-State <span class="math inline">\(H_0:\)</span> the two population medians are equal and <span class="math inline">\(H_1:\)</span> they differ, rank all 22 scores together, calculate the two rank sums and the Wilcoxon rank-sum statistic, then compare with the two-tailed 5% critical value and state the conclusion in context.
+State <span class="math inline">\(H_0\)</span> that the population medians are equal and <span class="math inline">\(H_1\)</span> that they differ. Rank all 22 scores, calculate both rank sums, use the two-tailed rank-sum statistic and compare it with the 5% critical value for sample sizes 10 and 12. State the contextual conclusion.
 </details>
 </section>
 </section>
@@ -623,38 +626,92 @@ Form paired differences, omit zeros, rank absolute differences, calculate <span 
 <section id="octobernovember-923141-and-923143-question-6" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-6">2023 October/November · 9231/41 and 9231/43 · Question 6</h2>
 <p>The distances thrown by a random sample are given in the original QP. Carry out a Wilcoxon signed-rank test at the 5% significance level to test whether the data support the stated median claim.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+State <span class="math inline">\(H_0\)</span> and <span class="math inline">\(H_1\)</span> for the population median, form the differences from the hypothesised median, omit zeros, rank absolute differences, calculate the signed-rank statistic, compare with the 5% critical value, and state the Mark Scheme conclusion in context.
+</details>
 </section>
 <section id="octobernovember-923142-question-5" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-5">2023 October/November · 9231/42 · Question 5</h2>
 <p>A company is deciding which of two machines can make a certain type of electrical component. Carry out a Wilcoxon rank-sum test at the 5% significance level to test whether the manager’s claim is supported.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Rank the combined samples, calculate the two rank sums, use the smaller-sample statistic and compare with the 5% critical value. Reject <span class="math inline">\(H_0\)</span> only when the statistic is in the relevant critical region; state the conclusion in context.
+</details>
 </section>
 <section id="mayjune-923141-and-923142-questions-2-and-3" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-questions-2-and-3">2024 May/June · 9231/41 and 9231/42 · Questions 2 and 3</h2>
 <p>Use a sign test at the 10% significance level to test whether, on average, the practical examination scores differ from the written examination scores. A factory produces metal discs. The manager claims that the diameters have a stated median; carry out a Wilcoxon signed-rank test at the 10% significance level.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+For the sign test, omit zero differences and use <span class="math inline">\(B(n,\frac12)\)</span>, including both tails for the two-sided alternative. For the disc data, subtract the hypothesised median, rank absolute non-zero differences, calculate <span class="math inline">\(W\)</span>, compare with the 10% critical value and state both contextual conclusions.
+</details>
 </section>
 <section id="mayjune-923143-question-1-1" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923143-question-1-1">2024 May/June · 9231/43 · Question 1</h2>
 <p>The interviewer believes that the population median score from assessment X is lower than the population median score from assessment Y. Carry out a Wilcoxon rank-sum test at the 1% significance level.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Use <span class="math inline">\(H_0:\tilde x=\tilde y\)</span> and <span class="math inline">\(H_1:\tilde x&lt;\tilde y\)</span>. Rank all scores together, calculate the rank sum for the smaller sample, compare with the one-tailed 1% critical value and state the conclusion in context.
+</details>
 </section>
 <section id="octobernovember-923141-and-923143-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-2">2024 October/November · 9231/41 and 9231/43 · Question 2</h2>
 <p>Carry out a Wilcoxon matched-pairs signed-rank test at the 5% significance level using the paired data in the original QP.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Calculate the paired differences, omit zero differences, rank absolute differences, calculate <span class="math inline">\(W_+\)</span> and <span class="math inline">\(W_-\)</span>, compare the appropriate one- or two-tailed 5% critical value, and state the contextual conclusion.
+</details>
 </section>
 <section id="octobernovember-923142-question-6" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-6">2024 October/November · 9231/42 · Question 6</h2>
 <p>The population median time taken is 51.0 seconds. After a month of intensive training, a random sample is taken. Carry out a Wilcoxon signed-rank test at the 5% significance level to test whether the training has decreased the median time.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Set <span class="math inline">\(H_0:\tilde d=51.0\)</span> and <span class="math inline">\(H_1:\tilde d&lt;51.0\)</span>, calculate differences from 51.0, rank absolute non-zero differences, calculate the lower-tail statistic and compare it with the 5% critical value. State the conclusion in context.
+</details>
 </section>
 <section id="mayjune-923141-and-923142-question-5-1" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-5-1">2025 May/June · 9231/41 and 9231/42 · Question 5</h2>
 <p>Carry out a Wilcoxon matched-pairs signed-rank test at the 5% significance level to test the stated claim. Show that a paired-sample sign test at the 5% significance level would result in the opposite conclusion.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+For the Wilcoxon test, rank the absolute paired differences and compare <span class="math inline">\(W\)</span> with the 5% critical value. For the sign test, omit zeros and use the binomial distribution with <span class="math inline">\(p=1/2\)</span>. The two statistics lie on opposite sides of their critical regions, giving the opposite conclusions stated in the Mark Scheme.
+</details>
 </section>
 <section id="mayjune-923143-question-4" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923143-question-4">2025 May/June · 9231/43 · Question 4</h2>
 <p>Carry out a Wilcoxon rank-sum test at the 5% significance level to test the researcher’s claim.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Rank the combined samples, calculate the rank sums and use the smaller-sample rank-sum statistic. Compare with the one-tailed 5% critical value and state the conclusion in context.
+</details>
 </section>
 <section id="octobernovember-923142-question-1" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-1">2025 October/November · 9231/42 · Question 1</h2>
 <p>A large company claims that the median salary of its employees is <span class="math inline">\(32\,500\)</span>. Explain why a Wilcoxon signed-rank test may not be appropriate and carry out a sign test at the 10% significance level.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+The Wilcoxon signed-rank test is inappropriate because the data include a severe outlier, so the symmetry assumption is not reasonable. Use the signs of the non-zero differences from <span class="math inline">\(32\,500\)</span> and <span class="math inline">\(B(n,\frac12)\)</span> for the two-tailed 10% sign test, then state the Mark Scheme conclusion.
+</details>
 </section>
 <section id="octobernovember-923141-and-923143-question-4" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-4">2025 October/November · 9231/41 and 9231/43 · Question 4</h2>
