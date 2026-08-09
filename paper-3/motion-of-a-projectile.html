@@ -930,25 +930,45 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2022 May/June · 9231/31 &amp; 9231/32 · Question 7">
-<p>Particles <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are projected in the same vertical plane from a point <span class="math inline">\(O\)</span> at the top of a cliff. The cliff is higher than <span class="math inline">\(50\)</span> m. Both move freely under gravity. <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(35\sqrt2\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(\alpha\)</span>, where <span class="math inline">\(\tan\alpha=4/3\)</span>. <span class="math inline">\(Q\)</span> is projected one second later with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(\beta\)</span>, where <span class="math inline">\(\tan\beta=1/2\)</span>. They collide <span class="math inline">\(T\)</span> seconds after <span class="math inline">\(Q\)</span> is projected.</p>
+<p>Particles <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are projected in the same vertical plane from a point <span class="math inline">\(O\)</span> at the top of a cliff. The cliff is higher than <span class="math inline">\(50\)</span> m. Both move freely under gravity. <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(35/2\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(\alpha\)</span>, where <span class="math inline">\(\tan\alpha=4/3\)</span>. <span class="math inline">\(Q\)</span> is projected one second later with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(\beta\)</span>, where <span class="math inline">\(\tan\beta=1/2\)</span>. They collide <span class="math inline">\(T\)</span> seconds after <span class="math inline">\(Q\)</span> is projected.</p>
 <p><strong>(a)</strong> Write expressions in terms of <span class="math inline">\(T\)</span> for the horizontal displacements.</p>
 <p><strong>(b)</strong> Use collision to find the relation between <span class="math inline">\(u\)</span> and <span class="math inline">\(T\)</span>.</p>
-<p><strong>(c)</strong> Use the vertical displacement equation to find the required values.</p>
+<p><strong>(c)</strong> Use the vertical displacement equation to find <span class="math inline">\(T\)</span>, <span class="math inline">\(u\)</span>, and the coordinates of the collision point.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
+<p><strong>(a)</strong></p>
 <ul>
-<li>对 <span class="math inline">\(Q\)</span> 写水平位移：<span class="math inline">\(x_Q=u\cos\beta\,T\)</span>。</li>
-<li>对 <span class="math inline">\(P\)</span> 使用延迟一秒后的时间：<span class="math inline">\(x_P=35\sqrt2\cos\alpha(T+1)=42(T+1)\)</span>。</li>
-<li>碰撞时令水平位移相等：<span class="math inline">\(42(T+1)=u\cos\beta\,T\)</span>。</li>
-<li>写出两个粒子的竖直位移，并正确处理 <span class="math inline">\(P\)</span> 比 <span class="math inline">\(Q\)</span> 多运动一秒。</li>
-<li>代入 <span class="math inline">\(\sin\alpha=4/5\)</span>、<span class="math inline">\(\sin\beta=1/\sqrt5\)</span> 并化简竖直方程。</li>
-<li>联立水平、竖直方程，得到题目所求 <span class="math inline">\(u,T\)</span>。</li>
-<li>进一步得到 <span class="math inline">\(\boxed{T=3}\)</span>、<span class="math inline">\(\boxed{u=7\sqrt5\,\mathrm{m\,s^{-1}}}\)</span>。</li>
-<li>碰撞点水平坐标为 <span class="math inline">\(\boxed{x=42\,\mathrm m}\)</span>。</li>
-<li>碰撞点竖直坐标为 <span class="math inline">\(\boxed{y=-24\,\mathrm m}\)</span>，即位于 <span class="math inline">\(O\)</span> 下方 <span class="math inline">\(24\)</span> m。</li>
+<li>对 <span class="math inline">\(Q\)</span> 写水平位移：<span class="math inline">\(x_Q=u\cos\beta\,T=2uT/\sqrt5\)</span>。</li>
+<li>对 <span class="math inline">\(P\)</span> 使用延迟一秒后的时间：<span class="math inline">\(x_P=(35/2)\cos\alpha(T+1)=21(T+1)/2\)</span>。</li>
+<li>碰撞时令水平位移相等：</li>
 </ul>
+<p><span class="math display">\[
+\frac{2uT}{\sqrt5}=\frac{21}{2}(T+1)
+\Longrightarrow u=\frac{21\sqrt5(T+1)}{4T}.
+\]</span></p>
+<p><strong>(b)</strong> 写出两个粒子的竖直位移，并正确处理 <span class="math inline">\(P\)</span> 比 <span class="math inline">\(Q\)</span> 多运动一秒：</p>
+<p><span class="math display">\[
+y_Q=u\sin\beta\,T-5T^2,
+\]</span></p>
+<p><span class="math display">\[
+y_P=\frac{35}{2}\sin\alpha\,(T+1)-5(T+1)^2
+=14(T+1)-5(T+1)^2.
+\]</span></p>
+<p><strong>(c)</strong> 令 <span class="math inline">\(y_P=y_Q\)</span>，代入 <span class="math inline">\(\sin\beta=1/\sqrt5\)</span>：</p>
+<p><span class="math display">\[
+\frac{uT}{\sqrt5}-5T^2=14(T+1)-5(T+1)^2.
+\]</span></p>
+<p>代入上式的 <span class="math inline">\(u\)</span> 并化简，得 <span class="math inline">\(15=5T\)</span>，所以</p>
+<p><span class="math display">\[
+\boxed{T=3},\qquad \boxed{u=7\sqrt5\,\mathrm{m\,s^{-1}}}.
+\]</span></p>
+<p>碰撞点为</p>
+<p><span class="math display">\[
+\boxed{x=42\,\mathrm m},\qquad
+\boxed{y=21-45=-24\,\mathrm m}.
+\]</span></p>
 <p>其中水平式为</p>
 <span class="math display">\[
 x_P=42(T+1),\qquad x_Q=\frac{2uT}{\sqrt5}.
@@ -975,17 +995,24 @@ Show answer
 (25\cos i)^2+(25\sin i-20)^2=15^2.
 \]</span></p>
 <ul>
-<li>展开并化为关于 <span class="math inline">\(\sin i\)</span> 的方程。</li>
-<li>解出 admissible 的 <span class="math inline">\(\sin i\)</span>，并取符合题设仰角的根。</li>
+<li>展开并化为</li>
 </ul>
+<p><span class="math display">\[
+625-100(10)\sin i+4(10)^2=225
+\Longrightarrow 1000\sin i=800
+\Longrightarrow \boxed{\sin i=4/5}.
+\]</span></p>
 <p><strong>(b)</strong></p>
 <ul>
 <li>使用 <span class="math inline">\(T=2(25\sin i)/g\)</span> 或在 <span class="math inline">\(y=0\)</span> 时求非零飞行时间。</li>
 <li>使用 <span class="math inline">\(R=25\cos i\,T\)</span>。</li>
-<li>得到题目要求的 range：</li>
+<li>飞行时间为 <span class="math inline">\(T=2(25\sin i)/10=4\)</span> s，因此</li>
 </ul>
-<span class="math display">\[
+<p><span class="math display">\[
 R=\frac{25^2\sin2i}{g}.
+\]</span></p>
+<span class="math display">\[
+\boxed{R=60\,\mathrm m}.
 \]</span>
 </details>
 <div class="source-line">
@@ -994,7 +1021,8 @@ R=\frac{25^2\sin2i}{g}.
 </div>
 <div class="question-card" title="2022 October/November · 9231/31 &amp; 9231/33 · Question 7">
 <p>A particle is projected with speed <span class="math inline">\(V\)</span> at <span class="math inline">\(75^\circ\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane.</p>
-<p><strong>(a)</strong> Show that its total time of flight is <span class="math inline">\(\dfrac{2V\sin75^\circ}{g}\)</span>. A smooth vertical barrier is placed <span class="math inline">\(15\)</span> m from <span class="math inline">\(O\)</span>; the particle strikes it, rebounds and returns to <span class="math inline">\(O\)</span>, with coefficient of restitution <span class="math inline">\(3/5\)</span>.</p>
+<p><strong>(a)</strong> Show that its total time of flight is <span class="math inline">\(\dfrac{2V\sin75^\circ}{g}\)</span>.</p>
+<p>A smooth vertical barrier is placed <span class="math inline">\(15\)</span> m from <span class="math inline">\(O\)</span>; the particle strikes it, rebounds and returns to <span class="math inline">\(O\)</span>, with coefficient of restitution <span class="math inline">\(3/5\)</span>.</p>
 <p><strong>(b)</strong> Explain why total time of flight is unchanged.</p>
 <p><strong>(c)</strong> Find <span class="math inline">\(V\)</span> in terms of <span class="math inline">\(g\)</span>.</p>
 <details class="answer-panel">
@@ -1013,12 +1041,32 @@ Show answer
 </ul>
 <p><strong>(c)</strong></p>
 <ul>
-<li>用 <span class="math inline">\(15=V\cos75^\circ t_1\)</span> 求撞墙时刻。</li>
-<li>restitution 给出反弹后的水平速度为 <span class="math inline">\(\frac35V\cos75^\circ\)</span>。</li>
-<li>写回到 <span class="math inline">\(O\)</span> 的水平距离/时间关系。</li>
-<li>与竖直飞行时间联立。</li>
-<li>化简得到题目要求的 <span class="math inline">\(V\)</span> 关于 <span class="math inline">\(g\)</span> 的表达式。</li>
-<li>化简得到 <span class="math inline">\(V^2\cos75^\circ\sin75^\circ=20g\)</span>，所以 <span class="math inline">\(\boxed{V^2=80g}\)</span>。</li>
+<li>到达 barrier 的时间为</li>
+</ul>
+<p><span class="math display">\[
+t_1=\frac{15}{V\cos75^\circ}.
+\]</span></p>
+<ul>
+<li>碰撞后水平速度大小为 <span class="math inline">\(eV\cos75^\circ=\frac35V\cos75^\circ\)</span>，所以返回 <span class="math inline">\(O\)</span> 所需时间为</li>
+</ul>
+<p><span class="math display">\[
+t_2=\frac{15}{(3/5)V\cos75^\circ}=\frac{25}{V\cos75^\circ}.
+\]</span></p>
+<ul>
+<li>整个飞行时间也等于竖直方向回到地面的时间：</li>
+</ul>
+<p><span class="math display">\[
+t_1+t_2=\frac{2V\sin75^\circ}{g}.
+\]</span></p>
+<ul>
+<li>代入并整理：</li>
+</ul>
+<p><span class="math display">\[
+\frac{40}{V\cos75^\circ}=\frac{2V\sin75^\circ}{g}
+\Longrightarrow V^2\sin75^\circ\cos75^\circ=20g.
+\]</span></p>
+<ul>
+<li>因为 <span class="math inline">\(\sin75^\circ\cos75^\circ=1/4\)</span>，所以 <span class="math inline">\(\boxed{V^2=80g}\)</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1047,9 +1095,21 @@ Show answer
 <p><strong>(b)</strong></p>
 <ul>
 <li>将 <span class="math inline">\((30,20)\)</span> 代入 trajectory equation。</li>
+</ul>
+<p><span class="math display">\[
+20=30\left(\frac43\right)-\frac{10(30)^2}{2u^2}\left(1+\frac{16}{9}\right).
+\]</span></p>
+<ul>
+<li>由此得到 <span class="math inline">\(u^2=625\)</span>，所以 <span class="math inline">\(u=25\)</span>。</li>
+<li>令 <span class="math inline">\(z=\tan i\)</span>，再代入 trajectory equation：</li>
+</ul>
+<p><span class="math display">\[
+20=30z-\frac{36}{5}(1+z^2)
+\Longrightarrow 18z^2-75z+68=0.
+\]</span></p>
+<ul>
 <li>得到关于 <span class="math inline">\(z=\tan i\)</span> 的二次方程。</li>
-<li>代入已知根 <span class="math inline">\(z=4/3\)</span>，使用 root product 或因式分解。</li>
-<li>求出另一个 root。</li>
+<li>代入已知根 <span class="math inline">\(z=4/3\)</span> 并因式分解：<span class="math inline">\((3z-4)(6z-17)=0\)</span>。</li>
 <li>选择符合题设的值：<span class="math inline">\(\boxed{\tan i=17/6}\)</span>。</li>
 </ul>
 </details>
@@ -1104,17 +1164,23 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2023 October/November · 9231/31 &amp; 9231/33 · Question 5">
-<p>Particle <span class="math inline">\(P\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> and passes through a specified point. A particle <span class="math inline">\(Q\)</span> is projected from <span class="math inline">\(O\)</span> when <span class="math inline">\(P\)</span> is at its highest point. <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> land at the same point on the horizontal plane at the same time.</p>
-<p><strong>(a)</strong> Use the trajectory equation to determine the possible parameters for <span class="math inline">\(P\)</span>.</p>
-<p><strong>(b)</strong> Express the range of <span class="math inline">\(P\)</span>.</p>
-<p><strong>(c)</strong> Use the fact that <span class="math inline">\(Q\)</span> has only half the flight time of <span class="math inline">\(P\)</span> to establish the relation between <span class="math inline">\(V,\alpha,u,i\)</span>.</p>
+<p>Particle <span class="math inline">\(P\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal. During its flight, <span class="math inline">\(P\)</span> passes through a point whose horizontal distance from <span class="math inline">\(O\)</span> is <span class="math inline">\(3a\)</span> and whose vertical height above the horizontal plane is <span class="math inline">\(3a/8\)</span>. It is given that <span class="math inline">\(\tan i=1/3\)</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(u^2=8ag\)</span>.</p>
+<p>A particle <span class="math inline">\(Q\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(V\)</span> at angle <span class="math inline">\(\alpha\)</span> above the horizontal at the instant when <span class="math inline">\(P\)</span> is at its highest point. Particles <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> land at the same point on the horizontal plane at the same time.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(V\)</span> in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(g\)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>对 <span class="math inline">\(P\)</span> 使用 trajectory equation 及题目给出的通过点条件，求出其参数关系。</li>
-<li>若 <span class="math inline">\(P\)</span> 的飞行时间为 <span class="math inline">\(T\)</span>，则 <span class="math inline">\(P\)</span> 的 range 为 <span class="math inline">\(Tu\cos i\)</span>。</li>
+<li>将 <span class="math inline">\((x,y)=(3a,3a/8)\)</span>、<span class="math inline">\(\tan i=1/3\)</span> 代入 trajectory equation：</li>
+</ul>
+<p><span class="math display">\[
+\frac{3a}{8}=3a\left(\frac13\right)-\frac{g(3a)^2}{2u^2}\left(1+\frac19\right)
+\Longrightarrow \boxed{u^2=8ag}.
+\]</span></p>
+<ul>
+<li>若 <span class="math inline">\(P\)</span> 的飞行时间为 <span class="math inline">\(T\)</span>，则 <span class="math inline">\(T=2u\sin i/g\)</span>，其 range 为 <span class="math inline">\(Tu\cos i\)</span>。</li>
 <li><span class="math inline">\(Q\)</span> 在 <span class="math inline">\(P\)</span> 最高点才发射，因此 <span class="math inline">\(Q\)</span> 的飞行时间为 <span class="math inline">\(T/2\)</span>。</li>
 <li><span class="math inline">\(Q\)</span> 的 range 为 <span class="math inline">\((T/2)V\cos\alpha\)</span>。</li>
 <li>两个粒子同时落在同一点，令两个 range 相等。</li>
@@ -1126,8 +1192,26 @@ Show answer
 <ul>
 <li>对 <span class="math inline">\(Q\)</span> 竖直方向使用 <span class="math inline">\(0=V\sin\alpha(T/2)-\frac12g(T/2)^2\)</span>，得 <span class="math inline">\(V\sin\alpha=u\sin i/2\)</span>。</li>
 <li>对两个分量平方相加。</li>
-<li>代入 <span class="math inline">\(u^2=8ga\)</span>、<span class="math inline">\(\tan i=1/3\)</span>，得到 <span class="math inline">\(\boxed{V^2=29ga/8}\)</span>。</li>
+<li>由上面的水平、竖直分量关系：</li>
 </ul>
+<p><span class="math display">\[
+V\cos\alpha=2u\cos i,\qquad
+V\sin\alpha=\frac12u\sin i.
+\]</span></p>
+<ul>
+<li>平方相加：</li>
+</ul>
+<p><span class="math display">\[
+V^2=u^2\left(4\cos^2i+\frac14\sin^2i\right)
+=u^2\left(4\cdot\frac9{10}+\frac14\cdot\frac1{10}\right)
+=\frac{29}{8}u^2.
+\]</span></p>
+<ul>
+<li>代入 <span class="math inline">\(u^2=8ag\)</span>，得</li>
+</ul>
+<span class="math display">\[
+\boxed{V^2=29ag},\qquad \boxed{V=\sqrt{29ag}}.
+\]</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Q5.
@@ -1148,16 +1232,35 @@ Show answer
 <p><strong>(a)</strong></p>
 <ul>
 <li>写出 <span class="math inline">\(x=ut\cos a\)</span>、<span class="math inline">\(y=ut\sin a-\frac12gt^2\)</span>。</li>
-<li>消去 <span class="math inline">\(t\)</span>。</li>
-<li>得到 <span class="math inline">\(\boxed{y=x\tan a-\dfrac{gx^2}{2u^2}\sec^2a}\)</span>。</li>
+<li>由 <span class="math inline">\(t=x/(u\cos a)\)</span> 消去 <span class="math inline">\(t\)</span>：</li>
 </ul>
+<p><span class="math display">\[
+y=u\sin a\left(\frac{x}{u\cos a}\right)
+-\frac12g\left(\frac{x}{u\cos a}\right)^2
+=\boxed{x\tan a-\frac{gx^2}{2u^2}\sec^2a}.
+\]</span></p>
 <p><strong>(b)</strong></p>
 <ul>
-<li>在 <span class="math inline">\(x=32\)</span>、<span class="math inline">\(u=40\sqrt2\)</span> 时令 <span class="math inline">\(y=h\)</span>。</li>
-<li>在 <span class="math inline">\(x=32\)</span>、<span class="math inline">\(u=40\)</span> 时令 <span class="math inline">\(y=0.8h\)</span>。</li>
-<li>用同一个 <span class="math inline">\(a\)</span>，联立两式消去 <span class="math inline">\(\tan a\)</span> 或 <span class="math inline">\(\sec^2a\)</span>。</li>
-<li>解出第一个 admissible 的 <span class="math inline">\(h\)</span>。</li>
-<li>解出第二个 admissible 的 <span class="math inline">\(h\)</span>。</li>
+<li>在 <span class="math inline">\(x=32,u=40\sqrt2\)</span> 时：</li>
+</ul>
+<p><span class="math display">\[
+h=32\tan a-\frac{8}{5}\sec^2a.
+\]</span></p>
+<ul>
+<li>在 <span class="math inline">\(x=32,u=40\)</span> 时：</li>
+</ul>
+<p><span class="math display">\[
+0.8h=32\tan a-\frac{16}{5}\sec^2a.
+\]</span></p>
+<ul>
+<li>消去 <span class="math inline">\(h\)</span>，令 <span class="math inline">\(t=\tan a\)</span> 且 <span class="math inline">\(\sec^2a=1+t^2\)</span>：</li>
+</ul>
+<p><span class="math display">\[
+\frac{16}{5}(1+t^2)=\frac45\left(32t-\frac85(1+t^2)\right)
+\Longrightarrow 3t^2-10t+3=0.
+\]</span></p>
+<ul>
+<li>所以 <span class="math inline">\(t=3\)</span> 或 <span class="math inline">\(t=1/3\)</span>，再分别代回 <span class="math inline">\(h=32t-\frac85(1+t^2)\)</span>。</li>
 <li>评分标准结果：<span class="math inline">\(\boxed{h=80\,\mathrm m}\)</span> 或 <span class="math inline">\(\boxed{h=80/9\,\mathrm m}\)</span>。</li>
 </ul>
 </details>
@@ -1196,7 +1299,8 @@ Show answer
 <p><span class="math display">\[
 \frac7{16}u^2-100u\sin i+2500=0.
 \]</span></p>
-<p><strong>(b)</strong> Use the condition for real values of <span class="math inline">\(u\)</span> to find the required restriction/result in the paper.</p>
+<p>It is given that the velocity of <span class="math inline">\(P\)</span> after <span class="math inline">\(5\)</span> s is perpendicular to the initial velocity.</p>
+<p><strong>(b)</strong> Find, in either order, the value of <span class="math inline">\(u\)</span> and the value of <span class="math inline">\(\sin i\)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -1247,31 +1351,47 @@ y=2x-\frac{5gx^2}{2u^2}
 <div class="question-card" title="2024 October/November · 9231/31 &amp; 9231/33 · Question 7">
 <p>A particle is projected at angle <span class="math inline">\(\tan^{-1}(b/\sqrt3)\)</span> from <span class="math inline">\(O\)</span>. When it is moving horizontally, it strikes a smooth inclined plane at <span class="math inline">\(A\)</span>. The plane is inclined at angle <span class="math inline">\(a\)</span>; after impact the particle moves vertically upwards and the coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
 <p><strong>(a)</strong> Show that <span class="math inline">\(e\tan^2a=1\)</span>.</p>
-<p><strong>(b)</strong> Use the trajectory/impact conditions to obtain the paper’s remaining relation.</p>
+<p>In its subsequent motion, the greatest height reached by <span class="math inline">\(P\)</span> above <span class="math inline">\(A\)</span> is <span class="math inline">\(3/16\)</span> of the vertical height of <span class="math inline">\(A\)</span> above the horizontal plane.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(e\)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
-<ul>
-<li>“moving horizontally” gives incoming velocity <span class="math inline">\(\mathbf v=(v,0)\)</span>。</li>
-<li>Resolve incoming and outgoing velocities along the normal to the inclined plane。</li>
-<li>Apply Newton’s law of restitution in the normal direction。</li>
-<li>The outgoing velocity is vertical, so its horizontal component is zero。</li>
-<li>Simplification gives</li>
-</ul>
+<p>“moving horizontally” means the incoming velocity is horizontal. Resolve the velocity parallel and perpendicular to the plane:</p>
 <p><span class="math display">\[
-\boxed{e\tan^2a=1}.
+\text{before: }\frac35u\cos a\text{ parallel},\quad \frac35u\sin a\text{ normal},
+\]</span></p>
+<p><span class="math display">\[
+\text{after: }\frac35u\cos a\text{ parallel},\quad \frac35eu\sin a\text{ normal}.
+\]</span></p>
+<p>The outgoing velocity is vertical, so</p>
+<p><span class="math display">\[
+\tan a=\frac{(3/5)u\cos a}{(3/5)eu\sin a}
+\Longrightarrow \boxed{e\tan^2a=1}.
 \]</span></p>
 <p><strong>(b)</strong></p>
-<ul>
-<li>写出入射速度沿斜面及法线的分量：<span class="math inline">\(3u\cos a/5\)</span>、<span class="math inline">\(3u\sin a/5\)</span>。</li>
-<li>碰撞后分量为 <span class="math inline">\(3u\cos a/5\)</span>、<span class="math inline">\(3eu\sin a/5\)</span>。</li>
-<li>出射速度竖直，故 <span class="math inline">\(\tan a=(3u\cos a/5)/(3eu\sin a/5)\)</span>。</li>
-<li><span class="math inline">\(\boxed{e\tan^2a=1}\)</span>。</li>
-<li>再用 <span class="math inline">\(P\)</span> 的最高点高度及碰撞后的竖直初速度列出下一方程。</li>
-<li>得到题目要求的 remaining relation。</li>
-</ul>
+<p>The greatest height of <span class="math inline">\(P\)</span> before impact is</p>
+<p><span class="math display">\[
+H=\frac{(u\sin i)^2}{2g}=\frac{8u^2}{25g}.
+\]</span></p>
+<p>After impact, the vertical speed is</p>
+<p><span class="math display">\[
+\frac35u\cos a+e\frac35u\sin a.
+\]</span></p>
+<p>Since the subsequent rise is <span class="math inline">\(3H/16\)</span>, use <span class="math inline">\(v^2=2g(3H/16)\)</span>:</p>
+<p><span class="math display">\[
+\left[\frac35u(\cos a+e\sin a)\right]^2
+=2g\left(\frac3{16}H\right).
+\]</span></p>
+<p>Using <span class="math inline">\(e\tan^2a=1\)</span> and simplifying gives</p>
+<p><span class="math display">\[
+3e^2+2e-1=0.
+\]</span></p>
+<p>Since <span class="math inline">\(e&gt;0\)</span>,</p>
+<span class="math display">\[
+\boxed{e=\frac13}.
+\]</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Q7.
@@ -1279,7 +1399,8 @@ Show answer
 </div>
 <div class="question-card" title="2024 October/November · 9231/32 · Question 5">
 <p>A particle is projected from <span class="math inline">\(O\)</span> on horizontal ground with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=1/3\)</span>. It passes through <span class="math inline">\((3a,4a/5)\)</span>.</p>
-<p><strong>(a)</strong> Use the trajectory equation to show <span class="math inline">\(u^2=25ag\)</span>. At the instant <span class="math inline">\(P\)</span> is moving horizontally, particle <span class="math inline">\(Q\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(V\)</span> at angle <span class="math inline">\(\alpha\)</span>; both particles reach the ground at the same point and time.</p>
+<p><strong>(a)</strong> Use the trajectory equation to show <span class="math inline">\(u^2=25ag\)</span>.</p>
+<p>At the instant <span class="math inline">\(P\)</span> is moving horizontally, particle <span class="math inline">\(Q\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(V\)</span> at angle <span class="math inline">\(\alpha\)</span>; both particles reach the ground at the same point and time.</p>
 <p><strong>(b)</strong> Express <span class="math inline">\(V^2\)</span> in the form <span class="math inline">\(kag\)</span>.</p>
 <details class="answer-panel">
 <summary>
@@ -1294,12 +1415,34 @@ Show answer
 <p><strong>(b)</strong></p>
 <ul>
 <li><span class="math inline">\(P\)</span> moving horizontally means <span class="math inline">\(v_y=0\)</span>，所以这一时刻是 <span class="math inline">\(P\)</span> 的最高点。</li>
-<li>用 <span class="math inline">\(T_P=u\sin i/g\)</span> 求 <span class="math inline">\(P\)</span> 从 <span class="math inline">\(O\)</span> 到最高点的时间。</li>
-<li>写出 <span class="math inline">\(P\)</span> 的总 flight time、range，以及 <span class="math inline">\(Q\)</span> 的 flight time 和 range。</li>
-<li>用两者同时到达同一点，令 ranges 相等。</li>
-<li>消去 <span class="math inline">\(V,\alpha\)</span> 中的中间量。</li>
-<li>得到 <span class="math inline">\(\boxed{V^2=\frac{725}{8}ag}\)</span>，所以 <span class="math inline">\(\boxed{k=725/8}\)</span>。</li>
+<li><span class="math inline">\(P\)</span> 的 flight time 为 <span class="math inline">\(T=2u\sin i/g=10a/g\)</span>，range 为</li>
 </ul>
+<p><span class="math display">\[
+R=u\cos i\,T=15a.
+\]</span></p>
+<ul>
+<li><span class="math inline">\(Q\)</span> 的 flight time 为 <span class="math inline">\(T/2\)</span>。水平位移相同给出</li>
+</ul>
+<p><span class="math display">\[
+R=V\cos\alpha\frac{T}{2}
+\Longrightarrow V\cos\alpha=2u\cos i.
+\]</span></p>
+<ul>
+<li><span class="math inline">\(Q\)</span> 从 <span class="math inline">\(O\)</span> 出发并在 <span class="math inline">\(T/2\)</span> 后落地，竖直位移给出</li>
+</ul>
+<p><span class="math display">\[
+0=V\sin\alpha\frac{T}{2}-\frac12g\left(\frac{T}{2}\right)^2
+\Longrightarrow V\sin\alpha=\frac14gT=\frac12u\sin i.
+\]</span></p>
+<ul>
+<li>平方相加并代入 <span class="math inline">\(\tan i=1/3\)</span>、<span class="math inline">\(u^2=25ag\)</span>：</li>
+</ul>
+<p><span class="math display">\[
+V^2=u^2\left(4\cos^2i+\frac14\sin^2i\right)
+=25ag\left(4\cdot\frac9{10}+\frac14\cdot\frac1{10}\right)
+=\boxed{\frac{725}{8}ag}.
+\]</span></p>
+所以 <span class="math inline">\(\boxed{k=725/8}\)</span>。
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Q5.
@@ -1372,7 +1515,7 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2025 October/November · 9231/32 · Question 4">
-<p>Particle <span class="math inline">\(Q\)</span> is initially a distance <span class="math inline">\(d\)</span> vertically above particle <span class="math inline">\(P\)</span>. <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(U\)</span> at angle <span class="math inline">\(a\)</span> above the horizontal; simultaneously <span class="math inline">\(Q\)</span> is projected at angle <span class="math inline">\(b\)</span> below the horizontal. Both move freely under gravity and collide at time <span class="math inline">\(T\)</span>.</p>
+<p>Particle <span class="math inline">\(Q\)</span> is initially a distance <span class="math inline">\(d\)</span> vertically above particle <span class="math inline">\(P\)</span>. <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(U\)</span> at angle <span class="math inline">\(a\)</span> above the horizontal; simultaneously <span class="math inline">\(Q\)</span> is projected with speed <span class="math inline">\(V\)</span> at angle <span class="math inline">\(b\)</span> below the horizontal. Both move freely under gravity and collide at time <span class="math inline">\(T\)</span>.</p>
 <p><strong>(a)</strong> Show that</p>
 <p><span class="math display">\[
 d=UT(\sin a+\cos a\tan b).
@@ -1384,23 +1527,40 @@ d=UT(\sin a+\cos a\tan b).
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
-<ul>
-<li>水平相遇：<span class="math inline">\(U\cos a\,T=V\cos b\,T\)</span>。</li>
-<li>竖直方向写两粒子的位移，注意 <span class="math inline">\(Q\)</span> 初始高出 <span class="math inline">\(d\)</span> 且向下投射。</li>
-<li>代入水平关系消去 <span class="math inline">\(V\)</span>。</li>
-<li>得到</li>
-</ul>
+<p>水平相遇给出</p>
+<p><span class="math display">\[
+U\cos a\,T=V\cos b\,T
+\Longrightarrow V=\frac{U\cos a}{\cos b}.
+\]</span></p>
+<p>取 <span class="math inline">\(P\)</span> 的初始高度为 <span class="math inline">\(0\)</span>，则碰撞时两粒子的竖直坐标分别为</p>
+<p><span class="math display">\[
+y_P=U\sin a\,T-\frac12gT^2,
+\]</span></p>
+<p><span class="math display">\[
+y_Q=d-V\sin b\,T-\frac12gT^2.
+\]</span></p>
+<p>令 <span class="math inline">\(y_P=y_Q\)</span>，重力项抵消：</p>
+<p><span class="math display">\[
+d=U\sin a\,T+V\sin b\,T.
+\]</span></p>
+<p>代入 <span class="math inline">\(V=U\cos a/\cos b\)</span>：</p>
 <p><span class="math display">\[
 \boxed{d=UT(\sin a+\cos a\tan b)}.
 \]</span></p>
 <p><strong>(b)</strong></p>
 <ul>
-<li><span class="math inline">\(P\)</span> 在最高点相撞，所以 <span class="math inline">\(T=U\sin a/g\)</span>。</li>
-<li>代入 <span class="math inline">\(a=30^\circ,b=60^\circ\)</span>。</li>
-<li><span class="math display">\[
-d=\frac{U^2\sin a}{g}(\sin a+\cos a\tan b),
-\]</span></li>
+<li><span class="math inline">\(P\)</span> 在最高点相撞，所以</li>
 </ul>
+<p><span class="math display">\[
+0=U\sin a-gT
+\Longrightarrow T=\frac{U\sin a}{g}.
+\]</span></p>
+<ul>
+<li>代入 <span class="math inline">\(a=30^\circ,b=60^\circ\)</span>：</li>
+</ul>
+<p><span class="math display">\[
+d=\frac{U^2\sin a}{g}(\sin a+\cos a\tan b),
+\]</span></p>
 从而 <span class="math inline">\(\boxed{d=U^2/g}\)</span>。
 </details>
 <div class="source-line">
