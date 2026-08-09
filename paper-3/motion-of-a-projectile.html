@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 3 Further Mechanics Chapter 1，依据 Jean-Paul Muscat 与 Sophie Goldie 的 Further Mechanics 教材。">
+
+<title>3.1 Motion of a projectile – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-2/differential-equations.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">Paper 3 · Further Mechanics</a></li><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">3.1 Motion of a projectile</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Hyperbolic functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/complex-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Complex numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differential-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Differential equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 3 · Further Mechanics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/motion-of-a-projectile.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3.1 Motion of a projectile</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#modelling-assumptions" id="toc-modelling-assumptions" class="nav-link" data-scroll-target="#modelling-assumptions">1.1 Modelling assumptions</a></li>
+  <li><a href="#standard-equations" id="toc-standard-equations" class="nav-link" data-scroll-target="#standard-equations">1.2 Standard equations</a></li>
+  <li><a href="#maximum-height-time-of-flight-and-range" id="toc-maximum-height-time-of-flight-and-range" class="nav-link" data-scroll-target="#maximum-height-time-of-flight-and-range">1.3 Maximum height, time of flight and range</a></li>
+  <li><a href="#equation-of-the-trajectory" id="toc-equation-of-the-trajectory" class="nav-link" data-scroll-target="#equation-of-the-trajectory">1.4 Equation of the trajectory</a></li>
+  <li><a href="#常见解题结构" id="toc-常见解题结构" class="nav-link" data-scroll-target="#常见解题结构">1.5 常见解题结构</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-1.1-horizontal-projection-from-a-window" id="toc-example-1.1-horizontal-projection-from-a-window" class="nav-link" data-scroll-target="#example-1.1-horizontal-projection-from-a-window">Example 1.1 · Horizontal projection from a window</a></li>
+  <li><a href="#example-1.2-初始高度与最高点" id="toc-example-1.2-初始高度与最高点" class="nav-link" data-scroll-target="#example-1.2-初始高度与最高点">Example 1.2 · 初始高度与最高点</a></li>
+  <li><a href="#example-1.3-diving-board" id="toc-example-1.3-diving-board" class="nav-link" data-scroll-target="#example-1.3-diving-board">Example 1.3 · Diving board</a></li>
+  <li><a href="#example-1.4-ceiling-constraint" id="toc-example-1.4-ceiling-constraint" class="nav-link" data-scroll-target="#example-1.4-ceiling-constraint">Example 1.4 · Ceiling constraint</a></li>
+  </ul></li>
+  <li><a href="#教材中标注-cambridge-international-的题目" id="toc-教材中标注-cambridge-international-的题目" class="nav-link" data-scroll-target="#教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</a></li>
+  <li><a href="#paper-3-真题题库" id="toc-paper-3-真题题库" class="nav-link" data-scroll-target="#paper-3-真题题库">4. Paper 3 真题题库</a></li>
+  <li><a href="#本章检查清单" id="toc-本章检查清单" class="nav-link" data-scroll-target="#本章检查清单">5. 本章检查清单</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">Paper 3 · Further Mechanics</a></li><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">3.1 Motion of a projectile</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">3.1 Motion of a projectile</h1>
+<p class="subtitle lead">Further Mechanics · projectile motion · trajectory · range</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 3 Further Mechanics Chapter 1，依据 Jean-Paul Muscat 与 Sophie Goldie 的 Further Mechanics 教材。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本章考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>在合理建模假设下，把 projectile 视为只受重力作用的 particle；</li>
+<li>分别处理水平与竖直方向的匀加速运动；</li>
+<li>求任意时刻的位置、速度、speed 和 direction；</li>
+<li>求最大高度、飞行时间与水平射程；</li>
+<li>推导并使用 projectile 的 Cartesian equation of trajectory；</li>
+<li>处理不同初始高度、碰撞、同一时刻到达及未知初速/仰角的问题。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">能写出 modelling assumptions，并说明何时不能忽略 air resistance</label></li>
+<li><label><input type="checkbox">能把初速度分解为 <span class="math inline">\(ucos\alpha\)</span> 与 <span class="math inline">\(u\sin\alpha\)</span></label></li>
+<li><label><input type="checkbox">能分别写出 <span class="math inline">\(x,y,v_x,v_y\)</span></label></li>
+<li><label><input type="checkbox">能用 <span class="math inline">\(v_y=0\)</span> 求最高点，用 <span class="math inline">\(y=0\)</span> 求落地时刻</label></li>
+<li><label><input type="checkbox">能用 <span class="math inline">\(y=x\tan\alpha-\dfrac{gx^2}{2u^2}(1+\tan^2\alpha)\)</span> 消去时间</label></li>
+<li><label><input type="checkbox">能把 projectile motion 与 Paper 3 的碰撞、轨迹和极值问题联系起来</label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="modelling-assumptions" class="level3">
+<h3 class="anchored" data-anchor-id="modelling-assumptions">1.1 Modelling assumptions</h3>
+<p>本章采用的 projectile model 是：</p>
+<ul>
+<li>projectile 是 particle，不考虑大小与自转；</li>
+<li>projectile 没有 engine 或其他持续动力；</li>
+<li>air resistance、wind 等空气效应可以忽略；</li>
+<li>重力加速度恒定，教材取 <span class="math inline">\(g=10\,\mathrm{m\,s^{-2}}\)</span>。</li>
+</ul>
+<p>因此 acceleration 始终竖直向下：</p>
+<p><span class="math display">\[
+\mathbf a=\begin{pmatrix}0\\-g\end{pmatrix}.
+\]</span></p>
+</section>
+<section id="standard-equations" class="level3">
+<h3 class="anchored" data-anchor-id="standard-equations">1.2 Standard equations</h3>
+<p>若 projectile 从原点以 speed <span class="math inline">\(u\)</span>、仰角 <span class="math inline">\(\alpha\)</span> 发射，则</p>
+<p><span class="math display">\[
+u_x=u\cos\alpha,\qquad u_y=u\sin\alpha.
+\]</span></p>
+<p>水平与竖直运动分别给出</p>
+<p><span class="math display">\[
+\boxed{x=ut\cos\alpha},\qquad
+\boxed{y=ut\sin\alpha-\frac12gt^2},
+\]</span></p>
+<p>以及</p>
+<p><span class="math display">\[
+\boxed{v_x=u\cos\alpha},\qquad
+\boxed{v_y=u\sin\alpha-gt}.
+\]</span></p>
+<p>若初始点为 <span class="math inline">\((x_0,y_0)\)</span>，只需改写为</p>
+<p><span class="math display">\[
+x=x_0+ut\cos\alpha,\qquad
+y=y_0+ut\sin\alpha-\frac12gt^2.
+\]</span></p>
+</section>
+<section id="maximum-height-time-of-flight-and-range" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-height-time-of-flight-and-range">1.3 Maximum height, time of flight and range</h3>
+<p>最高点满足 <span class="math inline">\(v_y=0\)</span>。从原点水平地面发射时，若落地点仍在 <span class="math inline">\(y=0\)</span>，则</p>
+<p><span class="math display">\[
+t_{\max}=\frac{u\sin\alpha}{g},\qquad
+H=\frac{u^2\sin^2\alpha}{2g},
+\]</span></p>
+<p><span class="math display">\[
+T=\frac{2u\sin\alpha}{g},\qquad
+R=u\cos\alpha\,T=\frac{u^2\sin2\alpha}{g}.
+\]</span></p>
+<p>注意：<span class="math inline">\(T=2t_{\max}\)</span> 只适用于发射点与落地点同高的情形。</p>
+</section>
+<section id="equation-of-the-trajectory" class="level3">
+<h3 class="anchored" data-anchor-id="equation-of-the-trajectory">1.4 Equation of the trajectory</h3>
+<p>由 <span class="math inline">\(x=ut\cos\alpha\)</span> 得 <span class="math inline">\(t=x/(u\cos\alpha)\)</span>。代入 <span class="math inline">\(y\)</span>：</p>
+<p><span class="math display">\[
+\boxed{y=x\tan\alpha-\frac{gx^2}{2u^2}\sec^2\alpha}
+\]</span></p>
+<p>或</p>
+<p><span class="math display">\[
+\boxed{y=x\tan\alpha-\frac{gx^2}{2u^2}(1+\tan^2\alpha)}.
+\]</span></p>
+<p>这说明在模型成立时，trajectory 是 parabola。若初始高度是 <span class="math inline">\(h\)</span>，则在右侧加上 <span class="math inline">\(h\)</span>。</p>
+</section>
+<section id="常见解题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见解题结构">1.5 常见解题结构</h3>
+<ol type="1">
+<li>先选坐标轴并明确 <span class="math inline">\(g\)</span> 的正负；</li>
+<li>先在水平、竖直方向写 component equations；</li>
+<li>用题目给出的高度、水平距离或方向条件建立方程；</li>
+<li>保留计算器中的未四舍五入值，最后按题目要求取三位有效数字；</li>
+<li>检查时间是否为正、轨迹是否在事件发生前已经落地，以及答案是否符合几何情境。</li>
+</ol>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-1.1-horizontal-projection-from-a-window" class="level3">
+<h3 class="anchored" data-anchor-id="example-1.1-horizontal-projection-from-a-window">Example 1.1 · Horizontal projection from a window</h3>
+<p>一只球以 <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> 水平飞出离地 <span class="math inline">\(4\,\mathrm m\)</span> 的窗口。取发射点为原点、竖直向上为正，则</p>
+<p><span class="math display">\[
+v_x=5,\quad v_y=-10t,\qquad x=5t,\quad y=-5t^2.
+\]</span></p>
+<p>落地时 <span class="math inline">\(y=-4\)</span>，所以 <span class="math inline">\(t=\sqrt{0.8}=0.894\,\mathrm s\)</span>，水平距离</p>
+<p><span class="math display">\[
+\boxed{x=4.47\,\mathrm m}.
+\]</span></p>
+</section>
+<section id="example-1.2-初始高度与最高点" class="level3">
+<h3 class="anchored" data-anchor-id="example-1.2-初始高度与最高点">Example 1.2 · 初始高度与最高点</h3>
+<p>若球从 <span class="math inline">\(2.2\,\mathrm m\)</span> 高处以竖直分量 <span class="math inline">\(12\,\mathrm{m\,s^{-1}}\)</span> 发射，则</p>
+<p><span class="math display">\[
+y=2.2+12t-5t^2.
+\]</span></p>
+<p>最高点满足 <span class="math inline">\(v_y=12-10t=0\)</span>，即 <span class="math inline">\(t=1.2\)</span>，因此最高高度为</p>
+<p><span class="math display">\[
+\boxed{y=9.4\,\mathrm m}.
+\]</span></p>
+<p>若目标高度是 <span class="math inline">\(2.2\,\mathrm m\)</span>，球在另一时刻回到该高度；两个时刻的和为 <span class="math inline">\(2u_y/g=2.4\)</span>。</p>
+</section>
+<section id="example-1.3-diving-board" class="level3">
+<h3 class="anchored" data-anchor-id="example-1.3-diving-board">Example 1.3 · Diving board</h3>
+<p>Sharon 从水面上方 <span class="math inline">\(3.1\,\mathrm m\)</span> 处以 <span class="math inline">\(1.8\,\mathrm{m\,s^{-1}}\)</span>、仰角 <span class="math inline">\(30^\circ\)</span> 入水。竖直运动为</p>
+<p><span class="math display">\[
+y=3.1+0.9t-5t^2.
+\]</span></p>
+<p>最高高度为 <span class="math inline">\(3.14\,\mathrm m\)</span>；入水时 <span class="math inline">\(y=0\)</span>，取正根得</p>
+<p><span class="math display">\[
+t=0.882\,\mathrm s,qquad x=(1.8\cos30^\circ)t=1.38\,\mathrm m.
+\]</span></p>
+<p>教材结论是：若另一名儿童在水平方向 <span class="math inline">\(1.5\,\mathrm m\)</span> 处入水，两者的水平间隔不足，存在碰撞风险。</p>
+</section>
+<section id="example-1.4-ceiling-constraint" class="level3">
+<h3 class="anchored" data-anchor-id="example-1.4-ceiling-constraint">Example 1.4 · Ceiling constraint</h3>
+<p>球从地面以 <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span>、仰角 <span class="math inline">\(\alpha\)</span> 发射，恰好不碰到 <span class="math inline">\(5\,\mathrm m\)</span> 高的天花板。最高点时</p>
+<p><span class="math display">\[
+15\sin\alpha=10T,qquad 5=15T\sin\alpha-5T^2.
+\]</span></p>
+<p>消去 <span class="math inline">\(\sin\alpha\)</span> 得 <span class="math inline">\(T=1\)</span>，从而 <span class="math inline">\(\sin\alpha=2/3\)</span>，且总飞行时间为 <span class="math inline">\(2\)</span> 秒。水平射程</p>
+<p><span class="math display">\[
+R=30\cos\alpha=30\sqrt{1-\frac49}
+=\boxed{22.4\,\mathrm m}.
+\]</span></p>
+</section>
+</section>
+<section id="教材中标注-cambridge-international-的题目" class="level2">
+<h2 class="anchored" data-anchor-id="教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</h2>
+<p>这里只收录 Chapter 1 Exercise 中明确印有 Cambridge International 来源的题目；这些教材题的原始来源是 Cambridge International AS &amp; A Level Mathematics 9709，适合作为 projectile 技巧的基础训练。配套答案依据 <code>9781510421806_Answers.pdf</code>。</p>
+<div class="question-card" title="Exercise 1C, Question 7 · 9709 Paper 52 Q6 June 2011">
+<p>A particle is projected with speed <span class="math inline">\(26\,\mathrm{m\,s^{-1}}\)</span> at <span class="math inline">\(30^\circ\)</span> below the horizontal from a point <span class="math inline">\(80\,\mathrm m\)</span> above horizontal ground. Find the distance from the starting point after <span class="math inline">\(2.3\)</span> s, the horizontal distance before landing, and the speed and direction immediately before landing.</p>
+<details class="answer-panel">
+<summary>
+Answer
+</summary>
+<p>Using <span class="math inline">\(u_x=26\cos30^\circ\)</span>, <span class="math inline">\(u_y=-26\sin30^\circ\)</span>:</p>
+<p><span class="math display">\[
+\boxed{76.5\,\mathrm m},\qquad \boxed{65.4\,\mathrm m},
+\]</span></p>
+<p>and immediately before impact</p>
+<span class="math display">\[
+\boxed{47.7\,\mathrm{m\,s^{-1}}},\qquad
+\boxed{61.8^\circ\text{ below the horizontal}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 52 Q6, June 2011. Textbook answer: 9781510421806_Answers.pdf, Exercise 1C.
+</div>
+</div>
+<div class="question-card" title="Exercise 1C, Question 8 · 9709 Paper 52 Q3 November 2009">
+<p>Particle <span class="math inline">\(P\)</span> is released from rest <span class="math inline">\(7\,\mathrm m\)</span> above the ground. At the same instant <span class="math inline">\(Q\)</span> is projected horizontally/at angle <span class="math inline">\(\theta\)</span> from a point <span class="math inline">\(24\,\mathrm m\)</span> away, with speed <span class="math inline">\(50\,\mathrm{m\,s^{-1}}\)</span> and <span class="math inline">\(\tan\theta=7/24\)</span>. Show that the particles collide.</p>
+<details class="answer-panel">
+<summary>
+Answer
+</summary>
+<p>Since <span class="math inline">\(\cos\theta=24/25\)</span> and <span class="math inline">\(\sin\theta=7/25\)</span>, at <span class="math inline">\(x=24\)</span> particle <span class="math inline">\(Q\)</span> has <span class="math inline">\(t=0.5\)</span> and</p>
+<p><span class="math display">\[y_Q=50(0.5)\frac7{25}-5(0.5)^2=5.75.
+\]</span></p>
+Particle <span class="math inline">\(P\)</span> has fallen by <span class="math inline">\(5(0.5)^2=1.25\)</span> m, so <span class="math inline">\(y_P=7-1.25=5.75\)</span>. Hence <span class="math inline">\(\boxed{P,Q\text{ collide}}\)</span>.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 52 Q3, November 2009.
+</div>
+</div>
+<div class="question-card" title="Exercise 1C, Question 9 · 9709 Paper 53 Q2 June 2015">
+<p>A particle is projected at <span class="math inline">\(60^\circ\)</span> above the horizontal. At <span class="math inline">\(1.5\)</span> s it is moving at <span class="math inline">\(45^\circ\)</span> above the horizontal. Find the initial speed and the horizontal and vertical displacements then.</p>
+<details class="answer-panel">
+<summary>
+Answer
+</summary>
+<p>From <span class="math inline">\(v_y/v_x=1\)</span>,</p>
+<p><span class="math display">\[
+\frac{V\sin60^\circ-15}{V\cos60^\circ}=1
+\Longrightarrow \boxed{V=41.0\,\mathrm{m\,s^{-1}}}.
+\]</span></p>
+<p>At <span class="math inline">\(t=1.5\)</span> s,</p>
+<span class="math display">\[
+\boxed{x=30.7\,\mathrm m},\qquad \boxed{y=42.0\,\mathrm m}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q2, June 2015.
+</div>
+</div>
+<div class="question-card" title="Exercise 1D, Question 8 · 9709 Paper 53 Q5 June 2014">
+<p>A ball is thrown horizontally at <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> from a roof. If its distance from the point of projection is <span class="math inline">\(18\,\mathrm m\)</span>, find the horizontal displacement and its speed immediately before impact.</p>
+<details class="answer-panel">
+<summary>
+Answer
+</summary>
+<p>With <span class="math inline">\(x=5t\)</span> and <span class="math inline">\(y=5t^2\)</span>, <span class="math inline">\(x^2+y^2=18^2\)</span> gives <span class="math inline">\(t=\sqrt{(324)/(50)}\)</span> and hence</p>
+<span class="math display">\[
+\boxed{x=8.85\,\mathrm m},\qquad \boxed{\text{speed}=18.4\,\mathrm{m\,s^{-1}}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q5, June 2014.
+</div>
+</div>
+<div class="question-card" title="Exercise 1E, Question 6 · 9709 Paper 51 Q5 June 2010">
+<p>A particle with speed <span class="math inline">\(20\,\mathrm{m\,s^{-1}}\)</span> passes through <span class="math inline">\((16,7)\)</span> and returns to horizontal ground. Show that the possible values of <span class="math inline">\(\tan\theta\)</span> are <span class="math inline">\(3/4\)</span> and <span class="math inline">\(17/4\)</span>, then find both ranges.</p>
+<details class="answer-panel">
+<summary>
+Answer
+</summary>
+<p>Substitution in the trajectory equation gives <span class="math inline">\(\tan\theta=3/4\)</span> or <span class="math inline">\(17/4\)</span>. The corresponding ranges are</p>
+<span class="math display">\[
+\boxed{38.4\,\mathrm m\quad\text{and}\quad17.8\,\mathrm m}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 51 Q5, June 2010.
+</div>
+</div>
+<div class="question-card" title="Exercise 1E, Question 8 · 9709 Paper 53 Q5 June 2014">
+<p>A ball is thrown horizontally with speed <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> and its distance from the point of projection when it hits the ground is <span class="math inline">\(18\,\mathrm m\)</span>. Find the trajectory equation and impact speed.</p>
+<details class="answer-panel">
+<summary>
+Answer
+</summary>
+<p><span class="math display">\[
+\boxed{x=5t,\quad y=5t^2,\quad y=0.2x^2},
+\]</span></p>
+<p>and</p>
+<span class="math display">\[
+\boxed{x=8.85\,\mathrm m},\qquad \boxed{v=18.4\,\mathrm{m\,s^{-1}}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q5, June 2014.
+</div>
+</div>
+</section>
+<section id="paper-3-真题题库" class="level2">
+<h2 class="anchored" data-anchor-id="paper-3-真题题库">4. Paper 3 真题题库</h2>
+<p>以下题目从本地 9231 Paper 3 Question Papers 中筛出直接考查 projectile motion、trajectory、range、collision 或同一时刻到达的题目；答案按对应 Mark Scheme 整理。</p>
+<div class="question-card" title="2021 May/June · 9231/31 &amp; 9231/32 · Question 7">
+<p>A particle is projected with speed <span class="math inline">\(100\,\mathrm{m\,s^{-1}}\)</span> from a horizontal plane, where <span class="math inline">\(\tan\theta=4/3\)</span>. The two times at which its height is <span class="math inline">\(H\)</span> differ by <span class="math inline">\(10\)</span> s. Find the relevant height, then determine the velocity when it lands.</p>
+<details class="answer-panel">
+<summary>
+Mark-scheme answer
+</summary>
+<p>The vertical component is <span class="math inline">\(80\,\mathrm{m\,s^{-1}}\)</span>. The time difference between equal heights is <span class="math inline">\(2\sqrt{(u_y^2-2gH)}/g\)</span>, so the mark scheme gives</p>
+<p><span class="math display">\[
+\boxed{H=195\,\mathrm m}.
+\]</span></p>
+The impact velocity has magnitude <span class="math inline">\(\boxed{92.2\,\mathrm{m\,s^{-1}}}\)</span> and direction <span class="math inline">\(\boxed{49.4^\circ}\)</span> below the horizontal.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Q7; checked against the corresponding mark scheme.
+</div>
+</div>
+<div class="question-card" title="2022 May/June · 9231/31 &amp; 9231/32 · Question 7">
+<p>Particles <span class="math inline">\(P,Q\)</span> are projected from the top of a cliff. <span class="math inline">\(P\)</span> has speed <span class="math inline">\(35\sqrt2\)</span> and <span class="math inline">\(\tan\alpha=4/3\)</span>; <span class="math inline">\(Q\)</span> is projected one second later with <span class="math inline">\(\tan\beta=1/2\)</span>. They collide <span class="math inline">\(T\)</span> seconds after <span class="math inline">\(Q\)</span> starts. Set up the horizontal and vertical displacement equations and solve for the unknown speed and collision time.</p>
+<details class="answer-panel">
+<summary>
+Method
+</summary>
+<p>Use elapsed times <span class="math inline">\(T+1\)</span> for <span class="math inline">\(P\)</span> and <span class="math inline">\(T\)</span> for <span class="math inline">\(Q\)</span>. Horizontal coincidence gives</p>
+<p><span class="math display">\[
+35(T+1)\frac45=uT\frac2{\sqrt5}.
+\]</span></p>
+Vertical coincidence is written with the common downward gravitational term; it cancels after using the one-second delay. Solve the resulting simultaneous equations for <span class="math inline">\(u\)</span> and <span class="math inline">\(T\)</span>.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2022, Q7.
+</div>
+</div>
+<div class="question-card" title="2023 May/June · 9231/31 &amp; 9231/32 · Question 7">
+<p>For a projectile launched at speed <span class="math inline">\(40\,\mathrm{m\,s^{-1}}\)</span>, let <span class="math inline">\(H\)</span> be the greatest height and <span class="math inline">\(T\)</span> the corresponding time. Express <span class="math inline">\(H\)</span> and <span class="math inline">\(T\)</span> in terms of the projection angle and use the given relation in the paper to obtain the required numerical values.</p>
+<details class="answer-panel">
+<summary>
+Method
+</summary>
+<p>Always begin with</p>
+<p><span class="math display">\[
+T=\frac{40\sin\theta}{g},\qquad H=\frac{(40\sin\theta)^2}{2g}.
+\]</span></p>
+The paper’s additional condition is then substituted into these two equations; do not use the range formula unless the question explicitly asks for horizontal distance.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Q7.
+</div>
+</div>
+<div class="question-card" title="2023 October/November · 9231/31 &amp; 9231/33 · Question 5">
+<p>Projectile <span class="math inline">\(P\)</span> passes through a specified point and later launches particle <span class="math inline">\(Q\)</span> when <span class="math inline">\(P\)</span> is at its highest point. Both land at the same point and at the same time.</p>
+<details class="answer-panel">
+<summary>
+Key equations and mark-scheme checkpoints
+</summary>
+<p>For <span class="math inline">\(P\)</span>, use the trajectory equation to find its admissible initial angle/speed. If its total flight time is <span class="math inline">\(T\)</span>, then its range is <span class="math inline">\(Tu\cos\theta\)</span>. Since <span class="math inline">\(Q\)</span> starts at the highest point, its available flight time is <span class="math inline">\(T/2\)</span>, so its range is <span class="math inline">\((T/2)V\cos\alpha\)</span>. Equal landing points gives</p>
+<span class="math display">\[
+\boxed{V\cos\alpha=2u\cos\theta}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Q5.
+</div>
+</div>
+<div class="question-card" title="2024 October/November · 9231/31 · Question 1">
+<p>A projectile is launched at angle <span class="math inline">\(\tan^{-1}2\)</span> and has travelled <span class="math inline">\(56\)</span> m horizontally. Use the trajectory equation at the specified points to determine the required height/parameter.</p>
+<details class="answer-panel">
+<summary>
+Method
+</summary>
+<p>With <span class="math inline">\(\tan\theta=2\)</span>, use</p>
+<p><span class="math display">\[
+y=2x-\frac{g x^2}{2u^2}(1+4).
+\]</span></p>
+The mark scheme requires using the equation at <span class="math inline">\(x=56\)</span> and at the second stated horizontal position, then solving the resulting simultaneous equations.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31, October/November 2024, Q1; checked against the official mark scheme.
+</div>
+</div>
+<div class="question-card" title="2025 May/June · 9231/31 &amp; 9231/32 · Question 2">
+<p>A particle is projected with speed <span class="math inline">\(24\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(\theta\)</span> and passes through a point <span class="math inline">\(35\)</span> m horizontally from the origin and <span class="math inline">\(10\)</span> m above the plane. Find the possible angles and then the larger range.</p>
+<details class="answer-panel">
+<summary>
+Mark-scheme method
+</summary>
+<p>Put <span class="math inline">\(x=35\)</span>, <span class="math inline">\(y=10\)</span> in</p>
+<p><span class="math display">\[
+y=x\tan\theta-\frac{g x^2}{2(24)^2}(1+\tan^2\theta).
+\]</span></p>
+<p>This gives a quadratic in <span class="math inline">\(\tan\theta\)</span> and hence two possible launch angles. For the larger range, use the larger root in</p>
+<span class="math display">\[
+R=\frac{24^2\sin2\theta}{g}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Q2; checked against the official mark scheme.
+</div>
+</div>
+</section>
+<section id="本章检查清单" class="level2">
+<h2 class="anchored" data-anchor-id="本章检查清单">5. 本章检查清单</h2>
+<ol type="1">
+<li>只要 air resistance 被忽略，水平 acceleration 就是 <span class="math inline">\(0\)</span>，但竖直 acceleration 仍是 <span class="math inline">\(-g\)</span>；</li>
+<li>“moving horizontally” 的含义是 <span class="math inline">\(v_y=0\)</span>，不是 <span class="math inline">\(y=0\)</span>；</li>
+<li>求 trajectory 时，必须使用与坐标原点相符的 <span class="math inline">\(x,y\)</span>；</li>
+<li>同一高度的两个时刻可以由同一个 quadratic 的两个根得到；</li>
+<li>题目若改变初始高度，不能直接套用 <span class="math inline">\(T=2u\sin\alpha/g\)</span>；</li>
+<li>真题中若出现 barrier、string、liquid 或 air resistance，先判断它是否已经超出本章的简单 projectile model。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-2/differential-equations.html" class="pagination-link" aria-label="2.6 Differential equations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2.6 Differential equations</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

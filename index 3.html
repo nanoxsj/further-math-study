@@ -202,12 +202,29 @@ window.Quarto = {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
- <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+ <span class="menu-text">Paper 3 · Further Mechanics</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./paper-3/fm-ch1-answers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Motion of a projectile — 教材答案</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
@@ -246,23 +263,6 @@ window.Quarto = {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
- <span class="menu-text">Paper 3 · Further Mechanics</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./paper-3/motion-of-a-projectile.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3.1 Motion of a projectile</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
@@ -291,10 +291,6 @@ window.Quarto = {
   <li><a href="#integration" id="toc-integration" class="nav-link" data-scroll-target="#integration">2.4 Integration</a></li>
   <li><a href="#complex-numbers" id="toc-complex-numbers" class="nav-link" data-scroll-target="#complex-numbers">2.5 Complex numbers</a></li>
   <li><a href="#differential-equations" id="toc-differential-equations" class="nav-link" data-scroll-target="#differential-equations">2.6 Differential equations</a></li>
-  </ul></li>
-  <li><a href="#paper-3-further-mechanics" id="toc-paper-3-further-mechanics" class="nav-link" data-scroll-target="#paper-3-further-mechanics">Paper 3 · Further Mechanics</a>
-  <ul class="collapse">
-  <li><a href="#motion-of-a-projectile" id="toc-motion-of-a-projectile" class="nav-link" data-scroll-target="#motion-of-a-projectile">3.1 Motion of a projectile</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -471,19 +467,6 @@ window.Quarto = {
 </ul>
 </section>
 <p>后续章节将沿用相同结构继续制作。</p>
-</section>
-<section id="paper-3-further-mechanics" class="level2">
-<h2 class="anchored" data-anchor-id="paper-3-further-mechanics">Paper 3 · Further Mechanics</h2>
-<section id="motion-of-a-projectile" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="motion-of-a-projectile"><a href="./paper-3/motion-of-a-projectile.html">3.1 Motion of a projectile</a></h3>
-<ul>
-<li>Further Mechanics 教材 Chapter 1 的建模假设与标准方程</li>
-<li>教材 Example 1.1–1.4</li>
-<li>教材中明确标注 Cambridge International 的 Exercise 题目</li>
-<li>9231 Paper 3 中的 projectile、trajectory、range 与 collision 真题</li>
-<li>配套答案与官方 mark scheme 核对结果</li>
-</ul>
-</section>
 
 
 </section>
@@ -583,7 +566,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+        var filterRegex = new RegExp('/' + window.location.host + '/');
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
