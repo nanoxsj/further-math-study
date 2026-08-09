@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -483,21 +497,21 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
 <section id="quadratic-equations" class="level3">
 <h3 class="anchored" data-anchor-id="quadratic-equations">1.1 Quadratic equations</h3>
-<p>若 <span class="math inline">\(az^2+bz+c=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta\)</span>，则</p>
-<p><span class="math display">\[
+<p>若 <span class="math inline">az^2+bz+c=0</span> 的根为 <span class="math inline">\alpha,\beta</span>，则</p>
+<p><span class="math display">
 \alpha+\beta=-\frac ba,
 \qquad
 \alpha\beta=\frac ca.
-\]</span></p>
-<p>二次方程中所有关于 <span class="math inline">\(\alpha,\beta\)</span> 的对称函数，都可以用 <span class="math inline">\(\alpha+\beta\)</span> 与 <span class="math inline">\(\alpha\beta\)</span> 表示。例如</p>
-<p><span class="math display">\[
+</span></p>
+<p>二次方程中所有关于 <span class="math inline">\alpha,\beta</span> 的对称函数，都可以用 <span class="math inline">\alpha+\beta</span> 与 <span class="math inline">\alpha\beta</span> 表示。例如</p>
+<p><span class="math display">
 \alpha^2+\beta^2=(\alpha+\beta)^2-2\alpha\beta.
-\]</span></p>
+</span></p>
 </section>
 <section id="cubic-equations" class="level3">
 <h3 class="anchored" data-anchor-id="cubic-equations">1.2 Cubic equations</h3>
-<p>若 <span class="math inline">\(az^3+bz^2+cz+d=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta,\gamma\)</span>，则</p>
-<p><span class="math display">\[
+<p>若 <span class="math inline">az^3+bz^2+cz+d=0</span> 的根为 <span class="math inline">\alpha,\beta,\gamma</span>，则</p>
+<p><span class="math display">
 \begin{aligned}
 \sum\alpha
 &amp;=\alpha+\beta+\gamma=-\frac ba,\\
@@ -506,88 +520,88 @@ window.Quarto = {
 \sum\alpha\beta\gamma
 &amp;=\alpha\beta\gamma=-\frac da.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>教材采用以下简写：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha=\alpha+\beta+\gamma,
 \qquad
 \sum\alpha\beta=\alpha\beta+\beta\gamma+\gamma\alpha.
-\]</span></p>
+</span></p>
 </section>
 <section id="common-symmetric-identities" class="level3">
 <h3 class="anchored" data-anchor-id="common-symmetric-identities">1.3 Common symmetric identities</h3>
-<p>对称函数的值不因根的排列次序改变。计算时通常先把所求式化为 <span class="math inline">\(\sum\alpha\)</span>、<span class="math inline">\(\sum\alpha\beta\)</span>、<span class="math inline">\(\alpha\beta\gamma\)</span> 等基本对称函数。</p>
+<p>对称函数的值不因根的排列次序改变。计算时通常先把所求式化为 <span class="math inline">\sum\alpha</span>、<span class="math inline">\sum\alpha\beta</span>、<span class="math inline">\alpha\beta\gamma</span> 等基本对称函数。</p>
 <p>对二次或三次方程的根，有</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha^2
 =\left(\sum\alpha\right)^2-2\sum\alpha\beta.
-\]</span></p>
+</span></p>
 <p>对三次方程的根，有</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha^3
 =\left(\sum\alpha\right)^3
 -3\left(\sum\alpha\right)\left(\sum\alpha\beta\right)
 +3\alpha\beta\gamma,
-\]</span></p>
+</span></p>
 <p>以及</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha^2\beta^2
 =\left(\sum\alpha\beta\right)^2
 -2\left(\sum\alpha\right)\alpha\beta\gamma,
-\]</span></p>
+</span></p>
 <p>其中</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha^2\beta^2
 =\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2.
-\]</span></p>
+</span></p>
 <p>展开或因式分解时，应让最终表达式只含原方程系数能够确定的基本对称函数。</p>
 </section>
 <section id="power-sums" class="level3">
 <h3 class="anchored" data-anchor-id="power-sums">1.4 Power sums</h3>
-<p>设三次方程的根为 <span class="math inline">\(\alpha,\beta,\gamma\)</span>，并定义</p>
-<p><span class="math display">\[
+<p>设三次方程的根为 <span class="math inline">\alpha,\beta,\gamma</span>，并定义</p>
+<p><span class="math display">
 S_n=\alpha^n+\beta^n+\gamma^n.
-\]</span></p>
+</span></p>
 <p>若先把方程化为首一形式</p>
-<p><span class="math display">\[
+<p><span class="math display">
 z^3+pz^2+qz+r=0,
-\]</span></p>
+</span></p>
 <p>则</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_0=3,
 \qquad
 S_1=-p,
 \qquad
 S_2=p^2-2q.
-\]</span></p>
+</span></p>
 <p>因为每个根都满足原方程，将根的三个等式相加可得</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}=0
 \qquad(n\geqslant3).
-\]</span></p>
-<p>特别地，当 <span class="math inline">\(n=3\)</span> 时，常数项会出现三次：</p>
-<p><span class="math display">\[
+</span></p>
+<p>特别地，当 <span class="math inline">n=3</span> 时，常数项会出现三次：</p>
+<p><span class="math display">
 S_3+pS_2+qS_1+3r=0.
-\]</span></p>
+</span></p>
 <p>同理，若四次方程写成</p>
-<p><span class="math display">\[
+<p><span class="math display">
 z^4+pz^3+qz^2+rz+s=0
-\]</span></p>
-<p>且 <span class="math inline">\(S_n\)</span> 表示四个根的 <span class="math inline">\(n\)</span> 次幂之和，则</p>
-<p><span class="math display">\[
+</span></p>
+<p>且 <span class="math inline">S_n</span> 表示四个根的 <span class="math inline">n</span> 次幂之和，则</p>
+<p><span class="math display">
 S_0=4
-\]</span></p>
+</span></p>
 <p>并且</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}+sS_{n-4}=0
 \qquad(n\geqslant4).
-\]</span></p>
+</span></p>
 <p>这种方法适合连续计算较高次幂和；开始递推前，应先由根与系数关系求出所需的较低次幂和。</p>
 </section>
 <section id="reciprocal-roots-and-negative-powers" class="level3">
 <h3 class="anchored" data-anchor-id="reciprocal-roots-and-negative-powers">1.5 Reciprocal roots and negative powers</h3>
 <p>若原方程的常数项不为零，则所有根都不为零，可以讨论倒数根。 对三次方程的根，</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \frac1\alpha+\frac1\beta+\frac1\gamma
 &amp;=\frac{\alpha\beta+\beta\gamma+\gamma\alpha}{\alpha\beta\gamma},\\
@@ -596,31 +610,31 @@ S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}+sS_{n-4}=0
 \frac1\alpha\frac1\beta\frac1\gamma
 &amp;=\frac1{\alpha\beta\gamma}.
 \end{aligned}
-\]</span></p>
-<p>因此，若 <span class="math inline">\(az^3+bz^2+cz+d=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta,\gamma\)</span>，其中 <span class="math inline">\(d\ne0\)</span>，则</p>
-<p><span class="math display">\[
+</span></p>
+<p>因此，若 <span class="math inline">az^3+bz^2+cz+d=0</span> 的根为 <span class="math inline">\alpha,\beta,\gamma</span>，其中 <span class="math inline">d\ne0</span>，则</p>
+<p><span class="math display">
 \sum\frac1\alpha=-\frac cd,
 \qquad
 \sum\frac1{\alpha\beta}=\frac bd,
 \qquad
 \frac1{\alpha\beta\gamma}=-\frac ad.
-\]</span></p>
-<p>求倒数根方程时，令 <span class="math inline">\(z=1/w\)</span> 并乘以适当的 <span class="math inline">\(w\)</span> 的幂。例如，</p>
-<p><span class="math display">\[
+</span></p>
+<p>求倒数根方程时，令 <span class="math inline">z=1/w</span> 并乘以适当的 <span class="math inline">w</span> 的幂。例如，</p>
+<p><span class="math display">
 az^3+bz^2+cz+d=0
-\]</span></p>
+</span></p>
 <p>对应的倒数根方程为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 dw^3+cw^2+bw+a=0.
-\]</span></p>
+</span></p>
 <p>也就是说，系数的次序反转。相同方法适用于二次及四次方程。</p>
 <p>负次幂和可以看作倒数根的正次幂和。例如</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha^{-n}
 =\left(\frac1\alpha\right)^n
 +\left(\frac1\beta\right)^n
 +\left(\frac1\gamma\right)^n,
-\]</span></p>
+</span></p>
 <p>所以可以先建立倒数根方程，再使用上一节的幂和方法。</p>
 </section>
 <section id="forming-new-equations" class="level3">
@@ -630,18 +644,18 @@ dw^3+cw^2+bw+a=0.
 <li>计算新根的和、两两乘积之和及乘积，再由根与系数关系写出方程；</li>
 <li>令新变量与旧变量满足题目给出的根的变换，写出旧变量并代入原方程。</li>
 </ol>
-<p>例如新根为 <span class="math inline">\(2\alpha+1,2\beta+1,2\gamma+1\)</span> 时，令</p>
-<p><span class="math display">\[
+<p>例如新根为 <span class="math inline">2\alpha+1,2\beta+1,2\gamma+1</span> 时，令</p>
+<p><span class="math display">
 w=2z+1,
 \qquad
 z=\frac{w-1}{2}.
-\]</span></p>
-<p>新根为 <span class="math inline">\(\alpha^2,\beta^2,\gamma^2\)</span> 时，可以令 <span class="math inline">\(w=z^2\)</span>，再消去 <span class="math inline">\(z\)</span>。</p>
+</span></p>
+<p>新根为 <span class="math inline">\alpha^2,\beta^2,\gamma^2</span> 时，可以令 <span class="math inline">w=z^2</span>，再消去 <span class="math inline">z</span>。</p>
 </section>
 <section id="quartic-equations" class="level3">
 <h3 class="anchored" data-anchor-id="quartic-equations">1.7 Quartic equations</h3>
-<p>若 <span class="math inline">\(az^4+bz^3+cz^2+dz+e=0\)</span> 的根为 <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>，则</p>
-<p><span class="math display">\[
+<p>若 <span class="math inline">az^4+bz^3+cz^2+dz+e=0</span> 的根为 <span class="math inline">\alpha,\beta,\gamma,\delta</span>，则</p>
+<p><span class="math display">
 \begin{aligned}
 \sum\alpha
 &amp;=\alpha+\beta+\gamma+\delta=-\frac ba,\\
@@ -654,7 +668,7 @@ z=\frac{w-1}{2}.
 \sum\alpha\beta\gamma\delta
 &amp;=\alpha\beta\gamma\delta=\frac ea.
 \end{aligned}
-\]</span></p>
+</span></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -666,9 +680,9 @@ z=\frac{w-1}{2}.
 </div>
 <div class="callout-body-container callout-body">
 <p>从最高次项开始，根的基本对称函数对应的符号依次为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 -,\quad +,\quad -,\quad +.
-\]</span></p>
+</span></p>
 </div>
 </div>
 </section>
@@ -680,189 +694,189 @@ z=\frac{w-1}{2}.
 </section>
 <section id="example-3.1-page-72" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.1-page-72">Example 3.1 · Page 72</h3>
-<p>Find a quadratic equation with roots <span class="math inline">\(5\)</span> and <span class="math inline">\(-3\)</span>.</p>
+<p>Find a quadratic equation with roots <span class="math inline">5</span> and <span class="math inline">-3</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>The sum of the roots is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 5+(-3)=2,
-\]</span></p>
+</span></p>
 <p>and the product of the roots is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 5(-3)=-15.
-\]</span></p>
-<p>Taking the coefficient of <span class="math inline">\(z^2\)</span> to be <span class="math inline">\(1\)</span>, a quadratic equation with the required roots is</p>
-<p><span class="math display">\[
+</span></p>
+<p>Taking the coefficient of <span class="math inline">z^2</span> to be <span class="math inline">1</span>, a quadratic equation with the required roots is</p>
+<p><span class="math display">
 \boxed{z^2-2z-15=0}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-1"> Completed</label></p>
 </section>
 <section id="example-3.2-page-73" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.2-page-73">Example 3.2 · Page 73</h3>
 <p>The roots of the equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2z^2+3z+5=0
-\]</span></p>
-<p>are <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>.</p>
+</span></p>
+<p>are <span class="math inline">\alpha</span> and <span class="math inline">\beta</span>.</p>
 <ol type="1">
-<li>Find the values of <span class="math inline">\(\alpha+\beta\)</span> and <span class="math inline">\(\alpha\beta\)</span>.</li>
-<li>Find the quadratic equation with roots <span class="math inline">\(2\alpha\)</span> and <span class="math inline">\(2\beta\)</span>.</li>
+<li>Find the values of <span class="math inline">\alpha+\beta</span> and <span class="math inline">\alpha\beta</span>.</li>
+<li>Find the quadratic equation with roots <span class="math inline">2\alpha</span> and <span class="math inline">2\beta</span>.</li>
 </ol>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>From the original equation,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha+\beta=-\frac32,
 \qquad
 \alpha\beta=\frac52.
-\]</span></p>
+</span></p>
 <p>For the new roots,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2\alpha+2\beta=2(\alpha+\beta)=-3,
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (2\alpha)(2\beta)=4\alpha\beta=10.
-\]</span></p>
+</span></p>
 <p>Therefore the required equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{z^2+3z+10=0}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-2"> Completed</label></p>
 </section>
 <section id="example-3.3-pages-7374" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.3-pages-7374">Example 3.3 · Pages 73–74</h3>
 <p>The roots of the equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 3z^2-4z-1=0
-\]</span></p>
-<p>are <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Find the quadratic equation with roots <span class="math inline">\(\alpha+1\)</span> and <span class="math inline">\(\beta+1\)</span>.</p>
+</span></p>
+<p>are <span class="math inline">\alpha</span> and <span class="math inline">\beta</span>. Find the quadratic equation with roots <span class="math inline">\alpha+1</span> and <span class="math inline">\beta+1</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>From the original equation,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha+\beta=\frac43,
 \qquad
 \alpha\beta=-\frac13.
-\]</span></p>
+</span></p>
 <p>The sum of the new roots is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (\alpha+1)+(\beta+1)=\alpha+\beta+2=\frac{10}{3},
-\]</span></p>
+</span></p>
 <p>and their product is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (\alpha+1)(\beta+1)
 =\alpha\beta+(\alpha+\beta)+1
 =2.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{3z^2-10z+6=0}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-3"> Completed</label></p>
 </section>
 <section id="example-3.4-pages-7475" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.4-pages-7475">Example 3.4 · Pages 74–75</h3>
 <p>The quadratic equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 ax^2+bx+c=0,
-\]</span></p>
-<p>where <span class="math inline">\(a,b,c\)</span> are constants, has roots <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. Prove that</p>
-<p><span class="math display">\[
+</span></p>
+<p>where <span class="math inline">a,b,c</span> are constants, has roots <span class="math inline">\alpha</span> and <span class="math inline">\beta</span>. Prove that</p>
+<p><span class="math display">
 \alpha^2+\beta^2=\frac{b^2-2ac}{a^2}.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Since</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (\alpha+\beta)^2=\alpha^2+2\alpha\beta+\beta^2,
-\]</span></p>
+</span></p>
 <p>we have</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \alpha^2+\beta^2
 &amp;=(\alpha+\beta)^2-2\alpha\beta\\
 &amp;=\left(-\frac ba\right)^2-2\left(\frac ca\right)\\
 &amp;=\boxed{\frac{b^2-2ac}{a^2}}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-4"> Completed</label></p>
 </section>
 <section id="example-3.5-page-78" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.5-page-78">Example 3.5 · Page 78</h3>
 <p>The roots of the equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2z^3-9z^2-27z+54=0
-\]</span></p>
-<p>form a geometric progression, so they may be written as <span class="math inline">\(\dfrac ar,a,ar\)</span>. Solve the equation.</p>
+</span></p>
+<p>form a geometric progression, so they may be written as <span class="math inline">\dfrac ar,a,ar</span>. Solve the equation.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Using the product of the roots,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac ar\times a\times ar=-\frac{54}{2},
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 a^3=-27
 \quad\Longrightarrow\quad
 a=-3.
-\]</span></p>
+</span></p>
 <p>Using the sum of the roots,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 -\frac3r-3-3r=\frac92.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2r^2+5r+2=0,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (2r+1)(r+2)=0
-\]</span></p>
-<p>and therefore <span class="math inline">\(r=-2\)</span> or <span class="math inline">\(r=-\dfrac12\)</span>. Either value gives the same three roots:</p>
-<p><span class="math display">\[
+</span></p>
+<p>and therefore <span class="math inline">r=-2</span> or <span class="math inline">r=-\dfrac12</span>. Either value gives the same three roots:</p>
+<p><span class="math display">
 \boxed{\frac32,-3,6}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-5"> Completed</label></p>
 </section>
 <section id="example-3.6-pages-7879" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.6-pages-7879">Example 3.6 · Pages 78–79</h3>
 <p>The roots of the cubic equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^3-4x^2+x+6=0
-\]</span></p>
-<p>are <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Find the values of</p>
+</span></p>
+<p>are <span class="math inline">\alpha,\beta,\gamma</span>. Find the values of</p>
 <ol type="1">
-<li><span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>;</li>
-<li><span class="math inline">\(\alpha^3+\beta^3+\gamma^3\)</span>.</li>
+<li><span class="math inline">\alpha^2+\beta^2+\gamma^2</span>;</li>
+<li><span class="math inline">\alpha^3+\beta^3+\gamma^3</span>.</li>
 </ol>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>From the original equation,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha=4,
 \qquad
 \sum\alpha\beta=1.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \alpha^2+\beta^2+\gamma^2
 &amp;=(\alpha+\beta+\gamma)^2
@@ -870,13 +884,13 @@ Show solution
 &amp;=4^2-2(1)\\
 &amp;=\boxed{14}.
 \end{aligned}
-\]</span></p>
-<p>Since each root satisfies <span class="math inline">\(x^3-4x^2+x+6=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since each root satisfies <span class="math inline">x^3-4x^2+x+6=0</span>,</p>
+<p><span class="math display">
 \alpha^3=4\alpha^2-\alpha-6,
-\]</span></p>
-<p>with corresponding equations for <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\gamma\)</span>. Adding them gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>with corresponding equations for <span class="math inline">\beta</span> and <span class="math inline">\gamma</span>. Adding them gives</p>
+<p><span class="math display">
 \begin{aligned}
 \alpha^3+\beta^3+\gamma^3
 &amp;=4(\alpha^2+\beta^2+\gamma^2)
@@ -884,35 +898,35 @@ Show solution
 &amp;=4(14)-4-18\\
 &amp;=\boxed{34}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-6"> Completed</label></p>
 </section>
 <section id="example-3.7-pages-7980" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.7-pages-7980">Example 3.7 · Pages 79–80</h3>
 <p>The roots of the cubic equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2z^3+5z^2-3z-2=0
-\]</span></p>
-<p>are <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Find the cubic equation with roots <span class="math inline">\(2\alpha+1,2\beta+1,2\gamma+1\)</span>.</p>
+</span></p>
+<p>are <span class="math inline">\alpha,\beta,\gamma</span>. Find the cubic equation with roots <span class="math inline">2\alpha+1,2\beta+1,2\gamma+1</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution 1: relations between roots and coefficients
 </summary>
 <p>For the original equation,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha=-\frac52,
 \qquad
 \sum\alpha\beta=-\frac32,
 \qquad
 \alpha\beta\gamma=1.
-\]</span></p>
+</span></p>
 <p>For the new roots, their sum is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2(\alpha+\beta+\gamma)+3=-2.
-\]</span></p>
+</span></p>
 <p>The sum of their products in pairs is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 &amp;(2\alpha+1)(2\beta+1)
 +(2\beta+1)(2\gamma+1)
@@ -922,9 +936,9 @@ Show solution 1: relations between roots and coefficients
 &amp;=4\left(-\frac32\right)+4\left(-\frac52\right)+3\\
 &amp;=-13.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>Their product is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 &amp;(2\alpha+1)(2\beta+1)(2\gamma+1)\\
 &amp;=8\alpha\beta\gamma
@@ -934,86 +948,86 @@ Show solution 1: relations between roots and coefficients
 +2\left(-\frac52\right)+1\\
 &amp;=-2.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>Hence the required equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{z^3+2z^2-13z+2=0}.
-\]</span></p>
+</span></p>
 </details>
 <details class="answer-panel">
 <summary>
 Show solution 2: substitution method
 </summary>
 <p>Let</p>
-<p><span class="math display">\[
+<p><span class="math display">
 w=2z+1,
 \qquad
 z=\frac{w-1}{2}.
-\]</span></p>
+</span></p>
 <p>Substituting into the original equation gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2\left(\frac{w-1}{2}\right)^3
 +5\left(\frac{w-1}{2}\right)^2
 -3\left(\frac{w-1}{2}\right)-2=0.
-\]</span></p>
-<p>Multiplying by <span class="math inline">\(4\)</span> and simplifying,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Multiplying by <span class="math inline">4</span> and simplifying,</p>
+<p><span class="math display">
 (w-1)^3+5(w-1)^2-6(w-1)-8=0,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{w^3+2w^2-13w+2=0}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-7"> Completed</label></p>
 </section>
 <section id="example-3.8-pages-8081" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.8-pages-8081">Example 3.8 · Pages 80–81</h3>
 <p>The roots of the cubic equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2z^3-5z^2+z+2=0
-\]</span></p>
-<p>are <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Find the cubic equation with roots <span class="math inline">\(\alpha^2,\beta^2,\gamma^2\)</span>.</p>
+</span></p>
+<p>are <span class="math inline">\alpha,\beta,\gamma</span>. Find the cubic equation with roots <span class="math inline">\alpha^2,\beta^2,\gamma^2</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Let <span class="math inline">\(w=z^2\)</span>, so <span class="math inline">\(z=\sqrt w\)</span>. Substitution gives</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">w=z^2</span>, so <span class="math inline">z=\sqrt w</span>. Substitution gives</p>
+<p><span class="math display">
 2w\sqrt w-5w+\sqrt w+2=0.
-\]</span></p>
-<p>Collecting the terms containing <span class="math inline">\(\sqrt w\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Collecting the terms containing <span class="math inline">\sqrt w</span>,</p>
+<p><span class="math display">
 \sqrt w(2w+1)=5w-2.
-\]</span></p>
+</span></p>
 <p>Squaring both sides,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 w(2w+1)^2=(5w-2)^2.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 4w^3+4w^2+w&amp;=25w^2-20w+4,\\
 4w^3-21w^2+21w-4&amp;=0.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>Therefore the required equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{4w^3-21w^2+21w-4=0}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-8"> Completed</label></p>
 </section>
 <section id="example-3.9-pages-8485" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3.9-pages-8485">Example 3.9 · Pages 84–85</h3>
 <p>The roots of the quartic equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 4z^4+pz^3+qz^2-z+3=0
-\]</span></p>
-<p>are <span class="math inline">\(\alpha,-\alpha,\alpha+\lambda,\alpha-\lambda\)</span>, where <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\lambda\)</span> are real numbers.</p>
+</span></p>
+<p>are <span class="math inline">\alpha,-\alpha,\alpha+\lambda,\alpha-\lambda</span>, where <span class="math inline">\alpha</span> and <span class="math inline">\lambda</span> are real numbers.</p>
 <ol type="1">
-<li>Express <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> in terms of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\lambda\)</span>.</li>
-<li>Show that <span class="math inline">\(\alpha=-\dfrac12\)</span>, and find the values of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>.</li>
+<li>Express <span class="math inline">p</span> and <span class="math inline">q</span> in terms of <span class="math inline">\alpha</span> and <span class="math inline">\lambda</span>.</li>
+<li>Show that <span class="math inline">\alpha=-\dfrac12</span>, and find the values of <span class="math inline">p</span> and <span class="math inline">q</span>.</li>
 <li>Give the roots of the quartic equation.</li>
 </ol>
 <details class="answer-panel">
@@ -1021,61 +1035,61 @@ w(2w+1)^2=(5w-2)^2.
 Show solution
 </summary>
 <p>The sum of the roots is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha-\alpha+(\alpha+\lambda)+(\alpha-\lambda)
 =2\alpha=-\frac p4,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{p=-8\alpha}.
-\]</span></p>
-<p>The sum of the products of the roots in pairs simplifies to <span class="math inline">\(-\lambda^2\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>The sum of the products of the roots in pairs simplifies to <span class="math inline">-\lambda^2</span>. Hence</p>
+<p><span class="math display">
 -\lambda^2=\frac q4
 \quad\Longrightarrow\quad
 \boxed{q=-4\lambda^2}.
-\]</span></p>
+</span></p>
 <p>The sum of the products of the roots in threes is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 -2\alpha^3.
-\]</span></p>
-<p>Since this is equal to <span class="math inline">\(-\dfrac{-1}{4}=\dfrac14\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since this is equal to <span class="math inline">-\dfrac{-1}{4}=\dfrac14</span>,</p>
+<p><span class="math display">
 -2\alpha^3=\frac14.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha^3=-\frac18
 \quad\Longrightarrow\quad
 \boxed{\alpha=-\frac12},
-\]</span></p>
+</span></p>
 <p>and therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{p=4}.
-\]</span></p>
+</span></p>
 <p>Using the product of the four roots,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 -\alpha^2(\alpha^2-\lambda^2)=\frac34.
-\]</span></p>
-<p>Substituting <span class="math inline">\(\alpha=-\dfrac12\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting <span class="math inline">\alpha=-\dfrac12</span> gives</p>
+<p><span class="math display">
 -\frac14\left(\frac14-\lambda^2\right)=\frac34,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \lambda^2=\frac{13}{4}
 \qquad\text{and}\qquad
 \boxed{q=-13}.
-\]</span></p>
+</span></p>
 <p>The roots are</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{
 \frac12,
 -\frac12,
 -\frac12+\frac{\sqrt{13}}2,
 -\frac12-\frac{\sqrt{13}}2
 }.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-example-3-9"> Completed</label></p>
 </section>
@@ -1086,57 +1100,57 @@ Show solution
 <h3 class="anchored" data-anchor-id="exercise-3b-question-16">Exercise 3B, Question 16</h3>
 <p><strong>Source:</strong> 9231 Paper 11 Q5 October/November 2015</p>
 <p>The cubic equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^3+px^2+qx+r=0,
-\]</span></p>
-<p>where <span class="math inline">\(p,q,r\)</span> are integers, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span> such that</p>
-<p><span class="math display">\[
+</span></p>
+<p>where <span class="math inline">p,q,r</span> are integers, has roots <span class="math inline">\alpha,\beta,\gamma</span> such that</p>
+<p><span class="math display">
 \alpha+\beta+\gamma=15,
 \qquad
 \alpha^2+\beta^2+\gamma^2=83.
-\]</span></p>
-<p>Write down the value of <span class="math inline">\(p\)</span> and find the value of <span class="math inline">\(q\)</span>.</p>
-<p>Given that <span class="math inline">\(\alpha,\beta,\gamma\)</span> are all real and that <span class="math inline">\(\alpha\beta+\alpha\gamma=36\)</span>, find <span class="math inline">\(\alpha\)</span> and hence find the value of <span class="math inline">\(r\)</span>.</p>
+</span></p>
+<p>Write down the value of <span class="math inline">p</span> and find the value of <span class="math inline">q</span>.</p>
+<p>Given that <span class="math inline">\alpha,\beta,\gamma</span> are all real and that <span class="math inline">\alpha\beta+\alpha\gamma=36</span>, find <span class="math inline">\alpha</span> and hence find the value of <span class="math inline">r</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Since <span class="math inline">\(\alpha+\beta+\gamma=-p\)</span>,</p>
-<p><span class="math display">\[
+<p>Since <span class="math inline">\alpha+\beta+\gamma=-p</span>,</p>
+<p><span class="math display">
 \boxed{p=-15}.
-\]</span></p>
+</span></p>
 <p>Also,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 83
 &amp;=(\alpha+\beta+\gamma)^2
 -2(\alpha\beta+\beta\gamma+\gamma\alpha)\\
 &amp;=15^2-2q,
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{q=71}.
-\]</span></p>
+</span></p>
 <p>Now</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha\beta+\alpha\gamma
 =\alpha(\beta+\gamma)
 =\alpha(15-\alpha)=36.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha^2-15\alpha+36=0,
-\]</span></p>
-<p>giving <span class="math inline">\(\alpha=3\)</span> or <span class="math inline">\(\alpha=12\)</span>.</p>
-<p>If <span class="math inline">\(\alpha=12\)</span>, then <span class="math inline">\(\beta+\gamma=3\)</span> and <span class="math inline">\(\beta\gamma=35\)</span>, which does not give real values of <span class="math inline">\(\beta,\gamma\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>giving <span class="math inline">\alpha=3</span> or <span class="math inline">\alpha=12</span>.</p>
+<p>If <span class="math inline">\alpha=12</span>, then <span class="math inline">\beta+\gamma=3</span> and <span class="math inline">\beta\gamma=35</span>, which does not give real values of <span class="math inline">\beta,\gamma</span>. Hence</p>
+<p><span class="math display">
 \boxed{\alpha=3}.
-\]</span></p>
-<p>Then <span class="math inline">\(\beta+\gamma=12\)</span> and <span class="math inline">\(\beta\gamma=35\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>Then <span class="math inline">\beta+\gamma=12</span> and <span class="math inline">\beta\gamma=35</span>, so</p>
+<p><span class="math display">
 r=-\alpha\beta\gamma=-3(35)=\boxed{-105}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-16"> Completed</label></p>
 </section>
@@ -1144,31 +1158,31 @@ r=-\alpha\beta\gamma=-3(35)=\boxed{-105}.
 <h3 class="anchored" data-anchor-id="exercise-3b-question-17">Exercise 3B, Question 17</h3>
 <p><strong>Source:</strong> 9231 Paper 11 Q2 October/November 2013</p>
 <p>The cubic equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^3-px-q=0,
-\]</span></p>
-<p>where <span class="math inline">\(p,q\)</span> are constants, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Show that</p>
+</span></p>
+<p>where <span class="math inline">p,q</span> are constants, has roots <span class="math inline">\alpha,\beta,\gamma</span>. Show that</p>
 <ol type="1">
-<li><span class="math inline">\(\alpha^2+\beta^2+\gamma^2=2p\)</span>;</li>
-<li><span class="math inline">\(\alpha^3+\beta^3+\gamma^3=3q\)</span>;</li>
-<li><span class="math display">\[
+<li><span class="math inline">\alpha^2+\beta^2+\gamma^2=2p</span>;</li>
+<li><span class="math inline">\alpha^3+\beta^3+\gamma^3=3q</span>;</li>
+<li><span class="math display">
 6(\alpha^5+\beta^5+\gamma^5)
 =5(\alpha^3+\beta^3+\gamma^3)
 (\alpha^2+\beta^2+\gamma^2).
-\]</span></li>
+</span></li>
 </ol>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>For the original equation,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha+\beta+\gamma=0,
 \qquad
 \alpha\beta+\beta\gamma+\gamma\alpha=-p.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \alpha^2+\beta^2+\gamma^2
 &amp;=(\alpha+\beta+\gamma)^2
@@ -1176,15 +1190,15 @@ Show solution
 &amp;=0-2(-p)\\
 &amp;=\boxed{2p}.
 \end{aligned}
-\]</span></p>
-<p>Each root satisfies <span class="math inline">\(x^3=px+q\)</span>. Adding the three corresponding equations gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Each root satisfies <span class="math inline">x^3=px+q</span>. Adding the three corresponding equations gives</p>
+<p><span class="math display">
 \alpha^3+\beta^3+\gamma^3
 =p(\alpha+\beta+\gamma)+3q
 =\boxed{3q}.
-\]</span></p>
-<p>Multiplying <span class="math inline">\(x^3=px+q\)</span> by <span class="math inline">\(x^2\)</span> gives <span class="math inline">\(x^5=px^3+qx^2\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Multiplying <span class="math inline">x^3=px+q</span> by <span class="math inline">x^2</span> gives <span class="math inline">x^5=px^3+qx^2</span>. Hence</p>
+<p><span class="math display">
 \begin{aligned}
 \alpha^5+\beta^5+\gamma^5
 &amp;=p(\alpha^3+\beta^3+\gamma^3)
@@ -1192,8 +1206,8 @@ Show solution
 &amp;=p(3q)+q(2p)\\
 &amp;=5pq.
 \end{aligned}
-\]</span></p>
-<p>Thus both sides of the required identity are equal to <span class="math inline">\(30pq\)</span>.</p>
+</span></p>
+<p>Thus both sides of the required identity are equal to <span class="math inline">30pq</span>.</p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-17"> Completed</label></p>
 </section>
@@ -1201,42 +1215,42 @@ Show solution
 <h3 class="anchored" data-anchor-id="exercise-3b-question-18">Exercise 3B, Question 18</h3>
 <p><strong>Source:</strong> 9231 Paper 11 Q1 October/November 2011</p>
 <p>The equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^3+px+q=0
-\]</span></p>
+</span></p>
 <p>has a repeated root. Prove that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 4p^3+27q^2=0.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Let the repeated root be <span class="math inline">\(\alpha\)</span> and the third root be <span class="math inline">\(\beta\)</span>. Since the coefficient of <span class="math inline">\(x^2\)</span> is zero,</p>
-<p><span class="math display">\[
+<p>Let the repeated root be <span class="math inline">\alpha</span> and the third root be <span class="math inline">\beta</span>. Since the coefficient of <span class="math inline">x^2</span> is zero,</p>
+<p><span class="math display">
 2\alpha+\beta=0
 \quad\Longrightarrow\quad
 \beta=-2\alpha.
-\]</span></p>
+</span></p>
 <p>Using the sum of the products in pairs,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 p=\alpha^2+2\alpha\beta
 =\alpha^2-4\alpha^2
 =-3\alpha^2.
-\]</span></p>
+</span></p>
 <p>Using the product of the roots,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 -q=\alpha^2\beta=-2\alpha^3,
-\]</span></p>
-<p>so <span class="math inline">\(q=2\alpha^3\)</span>. Therefore</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">q=2\alpha^3</span>. Therefore</p>
+<p><span class="math display">
 \begin{aligned}
 4p^3+27q^2
 &amp;=4(-3\alpha^2)^3+27(2\alpha^3)^2\\
 &amp;=-108\alpha^6+108\alpha^6\\
 &amp;=\boxed{0}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-18"> Completed</label></p>
 </section>
@@ -1244,31 +1258,31 @@ p=\alpha^2+2\alpha\beta
 <h3 class="anchored" data-anchor-id="exercise-3c-question-7">Exercise 3C, Question 7</h3>
 <p><strong>Source:</strong> 9231 Paper 11 Q11 October/November 2014</p>
 <p>The roots of the quartic equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^4+4x^3+2x^2-4x+1=0
-\]</span></p>
-<p>are <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>. Find the values of</p>
+</span></p>
+<p>are <span class="math inline">\alpha,\beta,\gamma,\delta</span>. Find the values of</p>
 <ol type="1">
-<li><span class="math inline">\(\alpha+\beta+\gamma+\delta\)</span>;</li>
-<li><span class="math inline">\(\alpha^2+\beta^2+\gamma^2+\delta^2\)</span>;</li>
-<li><span class="math inline">\(\dfrac1\alpha+\dfrac1\beta+\dfrac1\gamma+\dfrac1\delta\)</span>;</li>
-<li><span class="math display">\[
+<li><span class="math inline">\alpha+\beta+\gamma+\delta</span>;</li>
+<li><span class="math inline">\alpha^2+\beta^2+\gamma^2+\delta^2</span>;</li>
+<li><span class="math inline">\dfrac1\alpha+\dfrac1\beta+\dfrac1\gamma+\dfrac1\delta</span>;</li>
+<li><span class="math display">
 \frac{\alpha}{\beta\gamma\delta}
 +\frac{\beta}{\alpha\gamma\delta}
 +\frac{\gamma}{\alpha\beta\delta}
 +\frac{\delta}{\alpha\beta\gamma}.
-\]</span></li>
+</span></li>
 </ol>
-<p>Using the substitution <span class="math inline">\(y=x+1\)</span>, find a quartic equation in <span class="math inline">\(y\)</span>. Solve this quartic equation and hence find the roots of</p>
-<p><span class="math display">\[
+<p>Using the substitution <span class="math inline">y=x+1</span>, find a quartic equation in <span class="math inline">y</span>. Solve this quartic equation and hence find the roots of</p>
+<p><span class="math display">
 x^4+4x^3+2x^2-4x+1=0.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>From the coefficients,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum\alpha=-4,
 \qquad
 \sum\alpha\beta=2,
@@ -1276,27 +1290,27 @@ Show solution
 \sum\alpha\beta\gamma=4,
 \qquad
 \alpha\beta\gamma\delta=1.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\alpha+\beta+\gamma+\delta=-4},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \begin{aligned}
 \alpha^2+\beta^2+\gamma^2+\delta^2
 &amp;=(\alpha+\beta+\gamma+\delta)^2-2\sum\alpha\beta\\
 &amp;=16-4\\
 &amp;=\boxed{12},
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac1\alpha+\frac1\beta+\frac1\gamma+\frac1\delta
 =\frac{\sum\alpha\beta\gamma}{\alpha\beta\gamma\delta}
 =\boxed{4}.
-\]</span></p>
+</span></p>
 <p>Also,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 &amp;\frac{\alpha}{\beta\gamma\delta}
 +\frac{\beta}{\alpha\gamma\delta}
@@ -1306,19 +1320,19 @@ Show solution
 {\alpha\beta\gamma\delta}\\
 &amp;=\boxed{12}.
 \end{aligned}
-\]</span></p>
-<p>Let <span class="math inline">\(y=x+1\)</span>, so <span class="math inline">\(x=y-1\)</span>. Substitution gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Let <span class="math inline">y=x+1</span>, so <span class="math inline">x=y-1</span>. Substitution gives</p>
+<p><span class="math display">
 y^4-4y^2+4=0,
-\]</span></p>
+</span></p>
 <p>or</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (y^2-2)^2=0.
-\]</span></p>
-<p>Thus <span class="math inline">\(y=\pm\sqrt2\)</span>, each repeated, and the roots of the original equation are</p>
-<p><span class="math display">\[
+</span></p>
+<p>Thus <span class="math inline">y=\pm\sqrt2</span>, each repeated, and the roots of the original equation are</p>
+<p><span class="math display">
 \boxed{-1+\sqrt2,\ -1+\sqrt2,\ -1-\sqrt2,\ -1-\sqrt2}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-7"> Completed</label></p>
 </section>
@@ -1326,63 +1340,63 @@ y^4-4y^2+4=0,
 <h3 class="anchored" data-anchor-id="exercise-3c-question-8">Exercise 3C, Question 8</h3>
 <p><strong>Source:</strong> 9231 Paper 11 Q11 October/November 2012</p>
 <p>The roots of the equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^4-3x^2+5x-2=0
-\]</span></p>
-<p>are <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>, and</p>
-<p><span class="math display">\[
+</span></p>
+<p>are <span class="math inline">\alpha,\beta,\gamma,\delta</span>, and</p>
+<p><span class="math display">
 S_n=\alpha^n+\beta^n+\gamma^n+\delta^n.
-\]</span></p>
+</span></p>
 <p>Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_{n+4}-3S_{n+2}+5S_{n+1}-2S_n=0.
-\]</span></p>
+</span></p>
 <p>Find the values of</p>
 <ol type="1">
-<li><span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_4\)</span>;</li>
-<li><span class="math inline">\(S_3\)</span> and <span class="math inline">\(S_5\)</span>.</li>
+<li><span class="math inline">S_2</span> and <span class="math inline">S_4</span>;</li>
+<li><span class="math inline">S_3</span> and <span class="math inline">S_5</span>.</li>
 </ol>
 <p>Hence find the value of</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 &amp;\alpha^2(\beta^3+\gamma^3+\delta^3)
 +\beta^2(\gamma^3+\delta^3+\alpha^3)\\
 &amp;\quad+\gamma^2(\delta^3+\alpha^3+\beta^3)
 +\delta^2(\alpha^3+\beta^3+\gamma^3).
 \end{aligned}
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Each root satisfies</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^4-3x^2+5x-2=0.
-\]</span></p>
-<p>Multiplying by <span class="math inline">\(x^n\)</span> and then adding the four resulting equations gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Multiplying by <span class="math inline">x^n</span> and then adding the four resulting equations gives</p>
+<p><span class="math display">
 \boxed{S_{n+4}-3S_{n+2}+5S_{n+1}-2S_n=0}.
-\]</span></p>
+</span></p>
 <p>From the coefficients,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_1=0,
 \qquad
 \sum\alpha\beta=-3,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_2=S_1^2-2\sum\alpha\beta=\boxed{6}.
-\]</span></p>
-<p>Taking <span class="math inline">\(n=0\)</span> in the recurrence, with <span class="math inline">\(S_0=4\)</span>, gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Taking <span class="math inline">n=0</span> in the recurrence, with <span class="math inline">S_0=4</span>, gives</p>
+<p><span class="math display">
 S_4-3S_2+5S_1-2S_0=0,
-\]</span></p>
+</span></p>
 <p>and hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_4=\boxed{26}.
-\]</span></p>
-<p>Also, <span class="math inline">\(\sum\alpha\beta\gamma=-5\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>Also, <span class="math inline">\sum\alpha\beta\gamma=-5</span>, so</p>
+<p><span class="math display">
 \begin{aligned}
 S_3
 &amp;=\left(\sum\alpha\right)^3
@@ -1391,21 +1405,21 @@ S_3
 &amp;=0-0+3(-5)\\
 &amp;=\boxed{-15}.
 \end{aligned}
-\]</span></p>
-<p>Taking <span class="math inline">\(n=1\)</span> in the recurrence gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Taking <span class="math inline">n=1</span> in the recurrence gives</p>
+<p><span class="math display">
 S_5-3S_3+5S_2-2S_1=0,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_5=\boxed{-75}.
-\]</span></p>
+</span></p>
 <p>The final expression is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 S_2S_3-S_5
 =6(-15)-(-75)
 =\boxed{-15}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="roots-textbook-exam-8"> Completed</label></p>
 </section>
@@ -1420,35 +1434,35 @@ S_2S_3-S_5
 <h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-6-9-marks">2019 May/June · 9231/11 &amp; 9231/12 · Question 6 · 9 marks</h3>
 <p><span class="tag">Power sums</span><span class="tag">Transformed roots</span><span class="tag">★★★☆☆</span></p>
 <p>The equation</p>
-<p><span class="math display">\[x^3-x+1=0\]</span></p>
-<p>has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(i)</strong> Use the relation <span class="math inline">\(x=y^{1/3}\)</span> to show that the equation</p>
-<p><span class="math display">\[y^3+3y^2+2y+1=0\]</span></p>
-<p>has roots <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>. Hence write down the value of <span class="math inline">\(\alpha^3+\beta^3+\gamma^3\)</span>. <strong>[3]</strong></p>
-<p>Let <span class="math inline">\(S_n=\alpha^n+\beta^n+\gamma^n\)</span>.</p>
-<p><strong>(ii)</strong> Find the value of <span class="math inline">\(S_{-3}\)</span>. <strong>[2]</strong></p>
-<p><strong>(iii)</strong> Show that <span class="math inline">\(S_6=5\)</span> and find the value of <span class="math inline">\(S_9\)</span>. <strong>[4]</strong></p>
+<p><span class="math display">x^3-x+1=0</span></p>
+<p>has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(i)</strong> Use the relation <span class="math inline">x=y^{1/3}</span> to show that the equation</p>
+<p><span class="math display">y^3+3y^2+2y+1=0</span></p>
+<p>has roots <span class="math inline">\alpha^3,\beta^3,\gamma^3</span>. Hence write down the value of <span class="math inline">\alpha^3+\beta^3+\gamma^3</span>. <strong>[3]</strong></p>
+<p>Let <span class="math inline">S_n=\alpha^n+\beta^n+\gamma^n</span>.</p>
+<p><strong>(ii)</strong> Find the value of <span class="math inline">S_{-3}</span>. <strong>[2]</strong></p>
+<p><strong>(iii)</strong> Show that <span class="math inline">S_6=5</span> and find the value of <span class="math inline">S_9</span>. <strong>[4]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(i)</strong> Put <span class="math inline">\(y=x^3\)</span>, so <span class="math inline">\(x=y^{1/3}\)</span>. Then</p>
-<p><span class="math display">\[
+<p><strong>(i)</strong> Put <span class="math inline">y=x^3</span>, so <span class="math inline">x=y^{1/3}</span>. Then</p>
+<p><span class="math display">
 y-y^{1/3}+1=0
 \quad\Longrightarrow\quad
 y+1=y^{1/3}.
-\]</span></p>
+</span></p>
 <p>Cubing both sides,</p>
-<p><span class="math display">\[y=(y+1)^3\quad\Longrightarrow\quad y^3+3y^2+2y+1=0. \qquad \text{M1 A1}\]</span></p>
-<p>The three roots are <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>, so Vieta’s formula gives <span class="math inline">\(\boxed{S_3=-3}\)</span>. <strong>B1</strong></p>
-<p><strong>(ii)</strong> For the roots <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>, the sum of pairwise products is <span class="math inline">\(2\)</span> and the product is <span class="math inline">\(-1\)</span>. Hence</p>
-<p><span class="math display">\[S_{-3}=\frac{2}{-1}=-2. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">y=(y+1)^3\quad\Longrightarrow\quad y^3+3y^2+2y+1=0. \qquad \text{M1 A1}</span></p>
+<p>The three roots are <span class="math inline">\alpha^3,\beta^3,\gamma^3</span>, so Vieta’s formula gives <span class="math inline">\boxed{S_3=-3}</span>. <strong>B1</strong></p>
+<p><strong>(ii)</strong> For the roots <span class="math inline">\alpha^3,\beta^3,\gamma^3</span>, the sum of pairwise products is <span class="math inline">2</span> and the product is <span class="math inline">-1</span>. Hence</p>
+<p><span class="math display">S_{-3}=\frac{2}{-1}=-2. \qquad \text{M1 A1}</span></p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[S_6=S_3^2-2(2)=(-3)^2-4=5. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">S_6=S_3^2-2(2)=(-3)^2-4=5. \qquad \text{M1 A1}</span></p>
 <p>Summing the transformed equation over its three roots gives</p>
-<p><span class="math display">\[S_9+3S_6+2S_3+3=0,\]</span></p>
+<p><span class="math display">S_9+3S_6+2S_3+3=0,</span></p>
 <p>so</p>
-<p><span class="math display">\[S_9=-3(5)-2(-3)-3=-12. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">S_9=-3(5)-2(-3)-3=-12. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2019-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -1461,32 +1475,32 @@ y+1=y^{1/3}.
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-9-11-marks">2019 May/June · 9231/13 · Question 9 · 11 marks</h3>
 <p><span class="tag">Unknown coefficients</span><span class="tag">Symmetric sums</span><span class="tag">★★★★☆</span></p>
 <p>A cubic equation</p>
-<p><span class="math display">\[x^3+bx^2+cx+d=0\]</span></p>
-<p>has real roots <span class="math inline">\(\alpha,\beta,\gamma\)</span> such that</p>
-<p><span class="math display">\[
+<p><span class="math display">x^3+bx^2+cx+d=0</span></p>
+<p>has real roots <span class="math inline">\alpha,\beta,\gamma</span> such that</p>
+<p><span class="math display">
 \frac1\alpha+\frac1\beta+\frac1\gamma=-\frac5{12},
 \qquad \alpha\beta\gamma=-12,
 \qquad \alpha^3+\beta^3+\gamma^3=90.
-\]</span></p>
-<p><strong>(i)</strong> Find the values of <span class="math inline">\(c\)</span> and <span class="math inline">\(d\)</span>. <strong>[3]</strong></p>
-<p><strong>(ii)</strong> Express <span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span> in terms of <span class="math inline">\(b\)</span>. <strong>[2]</strong></p>
-<p><strong>(iii)</strong> Show that <span class="math inline">\(b^3-15b+126=0\)</span>. <strong>[4]</strong></p>
-<p><strong>(iv)</strong> Given that <span class="math inline">\(3+i\sqrt{12}\)</span> is a root of <span class="math inline">\(y^3-15y+126=0\)</span>, deduce the value of <span class="math inline">\(b\)</span>. <strong>[2]</strong></p>
+</span></p>
+<p><strong>(i)</strong> Find the values of <span class="math inline">c</span> and <span class="math inline">d</span>. <strong>[3]</strong></p>
+<p><strong>(ii)</strong> Express <span class="math inline">\alpha^2+\beta^2+\gamma^2</span> in terms of <span class="math inline">b</span>. <strong>[2]</strong></p>
+<p><strong>(iii)</strong> Show that <span class="math inline">b^3-15b+126=0</span>. <strong>[4]</strong></p>
+<p><strong>(iv)</strong> Given that <span class="math inline">3+i\sqrt{12}</span> is a root of <span class="math inline">y^3-15y+126=0</span>, deduce the value of <span class="math inline">b</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(i)</strong> Since <span class="math inline">\(\alpha\beta\gamma=-d=-12\)</span>, <span class="math inline">\(d=12\)</span>. <strong>B1</strong></p>
+<p><strong>(i)</strong> Since <span class="math inline">\alpha\beta\gamma=-d=-12</span>, <span class="math inline">d=12</span>. <strong>B1</strong></p>
 <p>Also</p>
-<p><span class="math display">\[\frac{\alpha\beta+\beta\gamma+\gamma\alpha}{\alpha\beta\gamma}=-\frac5{12},\]</span></p>
-<p>so <span class="math inline">\(c=\alpha\beta+\beta\gamma+\gamma\alpha=5\)</span>. <strong>M1 A1</strong></p>
+<p><span class="math display">\frac{\alpha\beta+\beta\gamma+\gamma\alpha}{\alpha\beta\gamma}=-\frac5{12},</span></p>
+<p>so <span class="math inline">c=\alpha\beta+\beta\gamma+\gamma\alpha=5</span>. <strong>M1 A1</strong></p>
 <p><strong>(ii)</strong></p>
-<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=(\alpha+\beta+\gamma)^2-2c=b^2-10. \qquad \text{M1 A1}\]</span></p>
-<p><strong>(iii)</strong> Since <span class="math inline">\(S_2=b^2-10\)</span> and every root satisfies <span class="math inline">\(x^3=-bx^2-5x-12\)</span>, summing over all three roots gives</p>
-<p><span class="math display">\[90=-b(b^2-10)-5(-b)-36.\]</span></p>
+<p><span class="math display">\alpha^2+\beta^2+\gamma^2=(\alpha+\beta+\gamma)^2-2c=b^2-10. \qquad \text{M1 A1}</span></p>
+<p><strong>(iii)</strong> Since <span class="math inline">S_2=b^2-10</span> and every root satisfies <span class="math inline">x^3=-bx^2-5x-12</span>, summing over all three roots gives</p>
+<p><span class="math display">90=-b(b^2-10)-5(-b)-36.</span></p>
 <p>Hence</p>
-<p><span class="math display">\[b^3-15b+126=0. \qquad \text{M1 M1 A1 A1}\]</span></p>
-<p><strong>(iv)</strong> The polynomial has real coefficients, so <span class="math inline">\(3-i\sqrt{12}\)</span> is also a root. These two roots have sum <span class="math inline">\(6\)</span>. Since the coefficient of <span class="math inline">\(y^2\)</span> is zero, the third root is <span class="math inline">\(-6\)</span>. Thus the required real value is <span class="math inline">\(\boxed{b=-6}\)</span>. <strong>M1 A1</strong></p>
+<p><span class="math display">b^3-15b+126=0. \qquad \text{M1 M1 A1 A1}</span></p>
+<p><strong>(iv)</strong> The polynomial has real coefficients, so <span class="math inline">3-i\sqrt{12}</span> is also a root. These two roots have sum <span class="math inline">6</span>. Since the coefficient of <span class="math inline">y^2</span> is zero, the third root is <span class="math inline">-6</span>. Thus the required real value is <span class="math inline">\boxed{b=-6}</span>. <strong>M1 A1</strong></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2019-mj-13"> Completed</label>
 <div class="source-line">
@@ -1498,44 +1512,44 @@ Show answer and mark scheme
 <section id="octobernovember-923111-923112-923113-question-7-9-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-923112-923113-question-7-9-marks">2019 October/November · 9231/11, 9231/12 &amp; 9231/13 · Question 7 · 9 marks</h3>
 <p><span class="tag">Transformed roots</span><span class="tag">Power sums</span><span class="tag">★★★★☆</span></p>
-<p>The equation <span class="math inline">\(x^3+2x^2+x+7=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(i)</strong> Use the relation <span class="math inline">\(x^2=-7y\)</span> to show that</p>
-<p><span class="math display">\[49y^3+14y^2-27y+7=0\]</span></p>
+<p>The equation <span class="math inline">x^3+2x^2+x+7=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(i)</strong> Use the relation <span class="math inline">x^2=-7y</span> to show that</p>
+<p><span class="math display">49y^3+14y^2-27y+7=0</span></p>
 <p>has roots</p>
-<p><span class="math display">\[\frac{\alpha}{\beta\gamma},\qquad
+<p><span class="math display">\frac{\alpha}{\beta\gamma},\qquad
 \frac{\beta}{\gamma\alpha},\qquad
-\frac{\gamma}{\alpha\beta}. \qquad \textbf{[4]}\]</span></p>
+\frac{\gamma}{\alpha\beta}. \qquad \textbf{[4]}</span></p>
 <p><strong>(ii)</strong> Show that</p>
-<p><span class="math display">\[\frac{\alpha^2}{\beta^2\gamma^2}+
+<p><span class="math display">\frac{\alpha^2}{\beta^2\gamma^2}+
 \frac{\beta^2}{\gamma^2\alpha^2}+
-\frac{\gamma^2}{\alpha^2\beta^2}=\frac{58}{49}. \qquad \textbf{[3]}\]</span></p>
+\frac{\gamma^2}{\alpha^2\beta^2}=\frac{58}{49}. \qquad \textbf{[3]}</span></p>
 <p><strong>(iii)</strong> Find the exact value of</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\alpha^3}{\beta^3\gamma^3}+
 \frac{\beta^3}{\gamma^3\alpha^3}+
 \frac{\gamma^3}{\alpha^3\beta^3}. \qquad \textbf{[2]}
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Since <span class="math inline">\(\alpha\beta\gamma=-7\)</span>,</p>
-<p><span class="math display">\[\frac{\alpha}{\beta\gamma}=-\frac{\alpha^2}{7},\]</span></p>
-<p>and similarly for the other two roots. With <span class="math inline">\(x^2=-7y\)</span>, the original equation becomes</p>
-<p><span class="math display">\[
+<p>Since <span class="math inline">\alpha\beta\gamma=-7</span>,</p>
+<p><span class="math display">\frac{\alpha}{\beta\gamma}=-\frac{\alpha^2}{7},</span></p>
+<p>and similarly for the other two roots. With <span class="math inline">x^2=-7y</span>, the original equation becomes</p>
+<p><span class="math display">
 x(1-7y)+7(1-2y)=0,
-\]</span></p>
-<p>so <span class="math inline">\(x=7(2y-1)/(1-7y)\)</span>. Squaring and using <span class="math inline">\(x^2=-7y\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">x=7(2y-1)/(1-7y)</span>. Squaring and using <span class="math inline">x^2=-7y</span> gives</p>
+<p><span class="math display">
 49(2y-1)^2=-7y(1-7y)^2,
-\]</span></p>
+</span></p>
 <p>which simplifies to the stated cubic. <strong>M1 M1 A1 A1</strong></p>
 <p>For the transformed roots,</p>
-<p><span class="math display">\[e_1=-\frac27,\qquad e_2=-\frac{27}{49},\qquad e_3=-\frac17.\]</span></p>
+<p><span class="math display">e_1=-\frac27,\qquad e_2=-\frac{27}{49},\qquad e_3=-\frac17.</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[p_2=e_1^2-2e_2=\frac4{49}+\frac{54}{49}=\frac{58}{49}. \qquad \text{M1 A1 A1}\]</span></p>
+<p><span class="math display">p_2=e_1^2-2e_2=\frac4{49}+\frac{54}{49}=\frac{58}{49}. \qquad \text{M1 A1 A1}</span></p>
 <p>Also</p>
-<p><span class="math display">\[p_3=e_1p_2-e_2p_1+3e_3=-\frac{317}{343}. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_3=e_1p_2-e_2p_1+3e_3=-\frac{317}{343}. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2019-on"> Completed</label>
 <div class="source-line">
@@ -1550,30 +1564,30 @@ x(1-7y)+7(1-2y)=0,
 <section id="mayjune-923111-923112-question-2-8-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-2-8-marks">2020 May/June · 9231/11 &amp; 9231/12 · Question 2 · 8 marks</h3>
 <p><span class="tag">Squared roots</span><span class="tag">Unknown coefficient</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(6x^3+px^2-3x-5=0\)</span>, where <span class="math inline">\(p\)</span> is a constant, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^2,\beta^2,\gamma^2\)</span>. <strong>[3]</strong></p>
+<p>The cubic equation <span class="math inline">6x^3+px^2-3x-5=0</span>, where <span class="math inline">p</span> is a constant, has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\alpha^2,\beta^2,\gamma^2</span>. <strong>[3]</strong></p>
 <p><strong>(b)</strong> It is given that</p>
-<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=2(\alpha+\beta+\gamma).\]</span></p>
-<p><strong>(i)</strong> Find the value of <span class="math inline">\(p\)</span>. <strong>[3]</strong></p>
-<p><strong>(ii)</strong> Find the value of <span class="math inline">\(\alpha^3+\beta^3+\gamma^3\)</span>. <strong>[2]</strong></p>
+<p><span class="math display">\alpha^2+\beta^2+\gamma^2=2(\alpha+\beta+\gamma).</span></p>
+<p><strong>(i)</strong> Find the value of <span class="math inline">p</span>. <strong>[3]</strong></p>
+<p><strong>(ii)</strong> Find the value of <span class="math inline">\alpha^3+\beta^3+\gamma^3</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^2\)</span>. Rewriting the original equation gives <span class="math inline">\(x(6y-3)=5-py\)</span>. Squaring and using <span class="math inline">\(x^2=y\)</span> gives</p>
-<p><span class="math display">\[y(6y-3)^2=(5-py)^2,\]</span></p>
+<p><strong>(a)</strong> Put <span class="math inline">y=x^2</span>. Rewriting the original equation gives <span class="math inline">x(6y-3)=5-py</span>. Squaring and using <span class="math inline">x^2=y</span> gives</p>
+<p><span class="math display">y(6y-3)^2=(5-py)^2,</span></p>
 <p>hence</p>
-<p><span class="math display">\[36y^3-(p^2+36)y^2+(10p+9)y-25=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p><span class="math display">36y^3-(p^2+36)y^2+(10p+9)y-25=0. \qquad \text{B1 M1 A1}</span></p>
 <p><strong>(b)(i)</strong></p>
-<p><span class="math display">\[\alpha+\beta+\gamma=-\frac p6,\qquad
-\alpha\beta+\beta\gamma+\gamma\alpha=-\frac12.\]</span></p>
+<p><span class="math display">\alpha+\beta+\gamma=-\frac p6,\qquad
+\alpha\beta+\beta\gamma+\gamma\alpha=-\frac12.</span></p>
 <p>Thus</p>
-<p><span class="math display">\[\frac{p^2}{36}+1=-\frac p3,\]</span></p>
-<p>so <span class="math inline">\((p+6)^2=0\)</span> and <span class="math inline">\(p=-6\)</span>. <strong>M1 A1 A1</strong></p>
-<p><strong>(b)(ii)</strong> With <span class="math inline">\(p=-6\)</span>,</p>
-<p><span class="math display">\[e_1=1,\qquad e_2=-\frac12,\qquad e_3=\frac56,\]</span></p>
+<p><span class="math display">\frac{p^2}{36}+1=-\frac p3,</span></p>
+<p>so <span class="math inline">(p+6)^2=0</span> and <span class="math inline">p=-6</span>. <strong>M1 A1 A1</strong></p>
+<p><strong>(b)(ii)</strong> With <span class="math inline">p=-6</span>,</p>
+<p><span class="math display">e_1=1,\qquad e_2=-\frac12,\qquad e_3=\frac56,</span></p>
 <p>and</p>
-<p><span class="math display">\[\alpha^3+\beta^3+\gamma^3=e_1^3-3e_1e_2+3e_3=5. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">\alpha^3+\beta^3+\gamma^3=e_1^3-3e_1e_2+3e_3=5. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2020-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -1585,25 +1599,25 @@ Show answer and mark scheme
 <section id="mayjune-923113-question-1-7-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-1-7-marks">2020 May/June · 9231/13 · Question 1 · 7 marks</h3>
 <p><span class="tag">Reciprocal roots</span><span class="tag">Negative powers</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(7x^3+3x^2+5x+1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^{-1},\beta^{-1},\gamma^{-1}\)</span>. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\alpha^{-2}+\beta^{-2}+\gamma^{-2}\)</span>. <strong>[2]</strong></p>
-<p><strong>(c)</strong> Find <span class="math inline">\(\alpha^{-3}+\beta^{-3}+\gamma^{-3}\)</span>. <strong>[2]</strong></p>
+<p>The cubic equation <span class="math inline">7x^3+3x^2+5x+1=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\alpha^{-1},\beta^{-1},\gamma^{-1}</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\alpha^{-2}+\beta^{-2}+\gamma^{-2}</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">\alpha^{-3}+\beta^{-3}+\gamma^{-3}</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=1/x\)</span>. Then</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Put <span class="math inline">y=1/x</span>. Then</p>
+<p><span class="math display">
 \frac7{y^3}+\frac3{y^2}+\frac5y+1=0.
-\]</span></p>
-<p>Multiplying by <span class="math inline">\(y^3\)</span> gives</p>
-<p><span class="math display">\[y^3+5y^2+3y+7=0. \qquad \text{B1 M1 A1}\]</span></p>
-<p>For the reciprocal roots, <span class="math inline">\(e_1=-5\)</span>, <span class="math inline">\(e_2=3\)</span>, <span class="math inline">\(e_3=-7\)</span>.</p>
+</span></p>
+<p>Multiplying by <span class="math inline">y^3</span> gives</p>
+<p><span class="math display">y^3+5y^2+3y+7=0. \qquad \text{B1 M1 A1}</span></p>
+<p>For the reciprocal roots, <span class="math inline">e_1=-5</span>, <span class="math inline">e_2=3</span>, <span class="math inline">e_3=-7</span>.</p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[p_2=e_1^2-2e_2=25-6=19. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_2=e_1^2-2e_2=25-6=19. \qquad \text{M1 A1}</span></p>
 <p><strong>(c)</strong></p>
-<p><span class="math display">\[p_3=e_1p_2-e_2p_1+3e_3=-5(19)-3(-5)-21=-101. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_3=e_1p_2-e_2p_1+3e_3=-5(19)-3(-5)-21=-101. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2020-mj-13"> Completed</label>
 <div class="source-line">
@@ -1615,32 +1629,32 @@ Show answer and mark scheme
 <section id="octobernovember-923111-923113-question-3-11-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-3-11-marks">2020 October/November · 9231/11 &amp; 9231/13 · Question 3 · 11 marks</h3>
 <p><span class="tag">Cubed roots</span><span class="tag">Singular matrix</span><span class="tag">★★★★☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+cx+1=0\)</span>, where <span class="math inline">\(c\)</span> is a constant, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^3,\beta^3,\gamma^3\)</span>. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Show that <span class="math inline">\(\alpha^6+\beta^6+\gamma^6=3-2c^3\)</span>. <strong>[3]</strong></p>
-<p><strong>(c)</strong> Find the real value of <span class="math inline">\(c\)</span> for which</p>
-<p><span class="math display">\[
+<p>The cubic equation <span class="math inline">x^3+cx+1=0</span>, where <span class="math inline">c</span> is a constant, has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\alpha^3,\beta^3,\gamma^3</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Show that <span class="math inline">\alpha^6+\beta^6+\gamma^6=3-2c^3</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Find the real value of <span class="math inline">c</span> for which</p>
+<p><span class="math display">
 \begin{pmatrix}
 1&amp;\alpha^3&amp;\beta^3\\
 \alpha^3&amp;1&amp;\gamma^3\\
 \beta^3&amp;\gamma^3&amp;1
 \end{pmatrix}
-\]</span></p>
+</span></p>
 <p>is singular. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3\)</span>. Since <span class="math inline">\(cx=-(y+1)\)</span>, cubing and using <span class="math inline">\(x^3=y\)</span> gives <span class="math inline">\(c^3y=-(y+1)^3\)</span>, hence</p>
-<p><span class="math display">\[y^3+3y^2+(c^3+3)y+1=0. \qquad \text{B1 M1 A1}\]</span></p>
-<p><strong>(b)</strong> For the new roots, <span class="math inline">\(e_1=-3\)</span> and <span class="math inline">\(e_2=c^3+3\)</span>. Hence</p>
-<p><span class="math display">\[\alpha^6+\beta^6+\gamma^6=(-3)^2-2(c^3+3)=3-2c^3. \qquad \text{B1 M1 A1}\]</span></p>
-<p><strong>(c)</strong> Since <span class="math inline">\(\alpha\beta\gamma=-1\)</span>,</p>
-<p><span class="math display">\[\alpha^3\beta^3\gamma^3=-1.\]</span></p>
+<p><strong>(a)</strong> Put <span class="math inline">y=x^3</span>. Since <span class="math inline">cx=-(y+1)</span>, cubing and using <span class="math inline">x^3=y</span> gives <span class="math inline">c^3y=-(y+1)^3</span>, hence</p>
+<p><span class="math display">y^3+3y^2+(c^3+3)y+1=0. \qquad \text{B1 M1 A1}</span></p>
+<p><strong>(b)</strong> For the new roots, <span class="math inline">e_1=-3</span> and <span class="math inline">e_2=c^3+3</span>. Hence</p>
+<p><span class="math display">\alpha^6+\beta^6+\gamma^6=(-3)^2-2(c^3+3)=3-2c^3. \qquad \text{B1 M1 A1}</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">\alpha\beta\gamma=-1</span>,</p>
+<p><span class="math display">\alpha^3\beta^3\gamma^3=-1.</span></p>
 <p>The determinant is</p>
-<p><span class="math display">\[1-(\alpha^6+\beta^6+\gamma^6)+2\alpha^3\beta^3\gamma^3=2c^3-4.\]</span></p>
-<p>Therefore <span class="math inline">\(c^3=2\)</span> and</p>
-<p><span class="math display">\[c=\sqrt[3]{2}. \qquad \text{B1 M1 A1 M1 A1}\]</span></p>
+<p><span class="math display">1-(\alpha^6+\beta^6+\gamma^6)+2\alpha^3\beta^3\gamma^3=2c^3-4.</span></p>
+<p>Therefore <span class="math inline">c^3=2</span> and</p>
+<p><span class="math display">c=\sqrt[3]{2}. \qquad \text{B1 M1 A1 M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2020-on-11-13"> Completed</label>
 <div class="source-line">
@@ -1652,24 +1666,24 @@ Show answer and mark scheme
 <section id="octobernovember-923112-question-1-8-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-1-8-marks">2020 October/November · 9231/12 · Question 1 · 8 marks</h3>
 <p><span class="tag">Linear transformation</span><span class="tag">Unknown coefficients</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx+d=0\)</span>, where <span class="math inline">\(b,c,d\)</span> are constants, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. It is given that <span class="math inline">\(\alpha\beta\gamma=-1\)</span>.</p>
-<p><strong>(a)</strong> State the value of <span class="math inline">\(d\)</span>. <strong>[1]</strong></p>
-<p><strong>(b)</strong> Find a cubic equation, with coefficients in terms of <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>, whose roots are <span class="math inline">\(\alpha+1,\beta+1,\gamma+1\)</span>. <strong>[3]</strong></p>
-<p><strong>(c)</strong> Given also that <span class="math inline">\(\gamma+1=-\alpha-1\)</span>, deduce that</p>
-<p><span class="math display">\[(c-2b+3)(b-3)=b-c. \qquad \textbf{[4]}\]</span></p>
+<p>The cubic equation <span class="math inline">x^3+bx^2+cx+d=0</span>, where <span class="math inline">b,c,d</span> are constants, has roots <span class="math inline">\alpha,\beta,\gamma</span>. It is given that <span class="math inline">\alpha\beta\gamma=-1</span>.</p>
+<p><strong>(a)</strong> State the value of <span class="math inline">d</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> Find a cubic equation, with coefficients in terms of <span class="math inline">b</span> and <span class="math inline">c</span>, whose roots are <span class="math inline">\alpha+1,\beta+1,\gamma+1</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Given also that <span class="math inline">\gamma+1=-\alpha-1</span>, deduce that</p>
+<p><span class="math display">(c-2b+3)(b-3)=b-c. \qquad \textbf{[4]}</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Since <span class="math inline">\(\alpha\beta\gamma=-d=-1\)</span>, <span class="math inline">\(d=1\)</span>. <strong>B1</strong></p>
+<p><strong>(a)</strong> Since <span class="math inline">\alpha\beta\gamma=-d=-1</span>, <span class="math inline">d=1</span>. <strong>B1</strong></p>
 <p><strong>(b)</strong> The transformed roots have</p>
-<p><span class="math display">\[e_1'=3-b,\qquad e_2'=c-2b+3,\qquad e_3'=c-b.\]</span></p>
+<p><span class="math display">e_1'=3-b,\qquad e_2'=c-2b+3,\qquad e_3'=c-b.</span></p>
 <p>Thus the required equation is</p>
-<p><span class="math display">\[x^3+(b-3)x^2+(c-2b+3)x+(b-c)=0. \qquad \text{B1 M1 A1}\]</span></p>
-<p><strong>(c)</strong> Write the transformed roots as <span class="math inline">\(r,-r,s\)</span>. Their sum gives <span class="math inline">\(s=3-b\)</span>. Also their pairwise sum is <span class="math inline">\(-r^2=e_2'\)</span> and their product is <span class="math inline">\(-r^2s=e_3'\)</span>. Hence</p>
-<p><span class="math display">\[e_3'=e_2'(3-b).\]</span></p>
+<p><span class="math display">x^3+(b-3)x^2+(c-2b+3)x+(b-c)=0. \qquad \text{B1 M1 A1}</span></p>
+<p><strong>(c)</strong> Write the transformed roots as <span class="math inline">r,-r,s</span>. Their sum gives <span class="math inline">s=3-b</span>. Also their pairwise sum is <span class="math inline">-r^2=e_2'</span> and their product is <span class="math inline">-r^2s=e_3'</span>. Hence</p>
+<p><span class="math display">e_3'=e_2'(3-b).</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[c-b=(c-2b+3)(3-b),\]</span></p>
+<p><span class="math display">c-b=(c-2b+3)(3-b),</span></p>
 <p>which is equivalent to the required result. <strong>B1 B1 M1 A1</strong></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2020-on-12"> Completed</label>
@@ -1685,28 +1699,28 @@ Show answer and mark scheme
 <section id="mayjune-923111-923112-question-3-9-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-3-9-marks">2021 May/June · 9231/11 &amp; 9231/12 · Question 3 · 9 marks</h3>
 <p><span class="tag">Quartic equation</span><span class="tag">Power sums</span><span class="tag">★★★★☆</span></p>
-<p>The equation <span class="math inline">\(x^4-2x^3-1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>.</p>
-<p><strong>(a)</strong> Find a quartic equation whose roots are <span class="math inline">\(\alpha^3,\beta^3,\gamma^3,\delta^3\)</span> and state the value of <span class="math inline">\(\alpha^3+\beta^3+\gamma^3+\delta^3\)</span>. <strong>[4]</strong></p>
+<p>The equation <span class="math inline">x^4-2x^3-1=0</span> has roots <span class="math inline">\alpha,\beta,\gamma,\delta</span>.</p>
+<p><strong>(a)</strong> Find a quartic equation whose roots are <span class="math inline">\alpha^3,\beta^3,\gamma^3,\delta^3</span> and state the value of <span class="math inline">\alpha^3+\beta^3+\gamma^3+\delta^3</span>. <strong>[4]</strong></p>
 <p><strong>(b)</strong> Find</p>
-<p><span class="math display">\[\frac1{\alpha^3}+\frac1{\beta^3}+\frac1{\gamma^3}+\frac1{\delta^3}. \qquad \textbf{[3]}\]</span></p>
-<p><strong>(c)</strong> Find <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[2]</strong></p>
+<p><span class="math display">\frac1{\alpha^3}+\frac1{\beta^3}+\frac1{\gamma^3}+\frac1{\delta^3}. \qquad \textbf{[3]}</span></p>
+<p><strong>(c)</strong> Find <span class="math inline">\alpha^4+\beta^4+\gamma^4+\delta^4</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3\)</span>. Since <span class="math inline">\(x^4=2x^3+1\)</span> and no root is zero,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Put <span class="math inline">y=x^3</span>. Since <span class="math inline">x^4=2x^3+1</span> and no root is zero,</p>
+<p><span class="math display">
 x=2+\frac1y=\frac{2y+1}{y}.
-\]</span></p>
-<p>Cubing and using <span class="math inline">\(x^3=y\)</span> gives</p>
-<p><span class="math display">\[y^4-(2y+1)^3=0,\]</span></p>
+</span></p>
+<p>Cubing and using <span class="math inline">x^3=y</span> gives</p>
+<p><span class="math display">y^4-(2y+1)^3=0,</span></p>
 <p>so</p>
-<p><span class="math display">\[y^4-8y^3-12y^2-6y-1=0. \qquad \text{B1 M1 A1}\]</span></p>
-<p>Hence <span class="math inline">\(\alpha^3+\beta^3+\gamma^3+\delta^3=8\)</span>. <strong>B1</strong></p>
-<p><strong>(b)</strong> For the transformed equation, <span class="math inline">\(e_3=6\)</span> and <span class="math inline">\(e_4=-1\)</span>. Therefore</p>
-<p><span class="math display">\[\sum\frac1{\alpha^3}=\frac{e_3}{e_4}=-6. \qquad \text{M1 A1 A1}\]</span></p>
-<p><strong>(c)</strong> Since <span class="math inline">\(x^4=2x^3+1\)</span> for every root,</p>
-<p><span class="math display">\[\alpha^4+\beta^4+\gamma^4+\delta^4=2(8)+4=20. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">y^4-8y^3-12y^2-6y-1=0. \qquad \text{B1 M1 A1}</span></p>
+<p>Hence <span class="math inline">\alpha^3+\beta^3+\gamma^3+\delta^3=8</span>. <strong>B1</strong></p>
+<p><strong>(b)</strong> For the transformed equation, <span class="math inline">e_3=6</span> and <span class="math inline">e_4=-1</span>. Therefore</p>
+<p><span class="math display">\sum\frac1{\alpha^3}=\frac{e_3}{e_4}=-6. \qquad \text{M1 A1 A1}</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">x^4=2x^3+1</span> for every root,</p>
+<p><span class="math display">\alpha^4+\beta^4+\gamma^4+\delta^4=2(8)+4=20. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2021-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -1718,34 +1732,34 @@ x=2+\frac1y=\frac{2y+1}{y}.
 <section id="mayjune-923113-question-2-11-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-2-11-marks">2021 May/June · 9231/13 · Question 2 · 11 marks</h3>
 <p><span class="tag">Power sums</span><span class="tag">Pair sums</span><span class="tag">★★★★☆</span></p>
-<p>The cubic equation <span class="math inline">\(2x^3-4x^2+3=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Let</p>
-<p><span class="math display">\[S_n=\alpha^n+\beta^n+\gamma^n.\]</span></p>
-<p><strong>(a)</strong> State the value of <span class="math inline">\(S_1\)</span> and find the value of <span class="math inline">\(S_2\)</span>. <strong>[3]</strong></p>
-<p><strong>(b)(i)</strong> Express <span class="math inline">\(S_{n+3}\)</span> in terms of <span class="math inline">\(S_{n+2}\)</span> and <span class="math inline">\(S_n\)</span>. <strong>[1]</strong></p>
-<p><strong>(b)(ii)</strong> Hence, or otherwise, find <span class="math inline">\(S_4\)</span>. <strong>[2]</strong></p>
-<p><strong>(c)</strong> Use the substitution <span class="math inline">\(y=S_1-x\)</span>, where <span class="math inline">\(S_1\)</span> is the numerical value found in part (a), to find and simplify an equation whose roots are <span class="math inline">\(\alpha+\beta,\beta+\gamma,\gamma+\alpha\)</span>. <strong>[3]</strong></p>
+<p>The cubic equation <span class="math inline">2x^3-4x^2+3=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>. Let</p>
+<p><span class="math display">S_n=\alpha^n+\beta^n+\gamma^n.</span></p>
+<p><strong>(a)</strong> State the value of <span class="math inline">S_1</span> and find the value of <span class="math inline">S_2</span>. <strong>[3]</strong></p>
+<p><strong>(b)(i)</strong> Express <span class="math inline">S_{n+3}</span> in terms of <span class="math inline">S_{n+2}</span> and <span class="math inline">S_n</span>. <strong>[1]</strong></p>
+<p><strong>(b)(ii)</strong> Hence, or otherwise, find <span class="math inline">S_4</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Use the substitution <span class="math inline">y=S_1-x</span>, where <span class="math inline">S_1</span> is the numerical value found in part (a), to find and simplify an equation whose roots are <span class="math inline">\alpha+\beta,\beta+\gamma,\gamma+\alpha</span>. <strong>[3]</strong></p>
 <p><strong>(d)</strong> Find</p>
-<p><span class="math display">\[\frac1{\alpha+\beta}+\frac1{\beta+\gamma}+\frac1{\gamma+\alpha}. \qquad \textbf{[2]}\]</span></p>
+<p><span class="math display">\frac1{\alpha+\beta}+\frac1{\beta+\gamma}+\frac1{\gamma+\alpha}. \qquad \textbf{[2]}</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(S_1=2\)</span>. Since <span class="math inline">\(e_2=0\)</span>,</p>
-<p><span class="math display">\[S_2=S_1^2-2e_2=4. \qquad \text{B1 M1 A1}\]</span></p>
-<p><strong>(b)(i)</strong> From <span class="math inline">\(2x^3-4x^2+3=0\)</span>,</p>
-<p><span class="math display">\[S_{n+3}=2S_{n+2}-\frac32S_n. \qquad \text{B1}\]</span></p>
-<p><strong>(b)(ii)</strong> Taking <span class="math inline">\(n=0\)</span> in the recurrence gives</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> <span class="math inline">S_1=2</span>. Since <span class="math inline">e_2=0</span>,</p>
+<p><span class="math display">S_2=S_1^2-2e_2=4. \qquad \text{B1 M1 A1}</span></p>
+<p><strong>(b)(i)</strong> From <span class="math inline">2x^3-4x^2+3=0</span>,</p>
+<p><span class="math display">S_{n+3}=2S_{n+2}-\frac32S_n. \qquad \text{B1}</span></p>
+<p><strong>(b)(ii)</strong> Taking <span class="math inline">n=0</span> in the recurrence gives</p>
+<p><span class="math display">
 S_3=2S_2-\frac32S_0=2(4)-\frac32(3)=\frac72.
-\]</span></p>
-<p>Taking <span class="math inline">\(n=1\)</span> then gives</p>
-<p><span class="math display">\[S_4=2S_3-\frac32S_1=4. \qquad \text{M1 A1}\]</span></p>
-<p><strong>(c)</strong> Put <span class="math inline">\(x=2-y\)</span>:</p>
-<p><span class="math display">\[2(2-y)^3-4(2-y)^2+3=0,\]</span></p>
+</span></p>
+<p>Taking <span class="math inline">n=1</span> then gives</p>
+<p><span class="math display">S_4=2S_3-\frac32S_1=4. \qquad \text{M1 A1}</span></p>
+<p><strong>(c)</strong> Put <span class="math inline">x=2-y</span>:</p>
+<p><span class="math display">2(2-y)^3-4(2-y)^2+3=0,</span></p>
 <p>which simplifies to</p>
-<p><span class="math display">\[2y^3-8y^2+8y-3=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p><span class="math display">2y^3-8y^2+8y-3=0. \qquad \text{B1 M1 A1}</span></p>
 <p><strong>(d)</strong> For the new roots,</p>
-<p><span class="math display">\[\sum\frac1y=\frac{8}{3}. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">\sum\frac1y=\frac{8}{3}. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2021-mj-13"> Completed</label>
 <div class="source-line">
@@ -1758,23 +1772,23 @@ S_3=2S_2-\frac32S_0=2(4)-\frac32(3)=\frac72.
 <h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-1-6-marks">2021 October/November · 9231/11 &amp; 9231/13 · Question 1 · 6 marks</h3>
 <p><span class="tag">Recovering coefficients</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
 <p>It is given that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha+\beta+\gamma=3,\qquad
 \alpha^2+\beta^2+\gamma^2=5,\qquad
 \alpha^3+\beta^3+\gamma^3=6.
-\]</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx+d=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. Find <span class="math inline">\(b,c,d\)</span>. <strong>[6]</strong></p>
+</span></p>
+<p>The cubic equation <span class="math inline">x^3+bx^2+cx+d=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>. Find <span class="math inline">b,c,d</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math display">\[b=-(\alpha+\beta+\gamma)=-3. \qquad \text{B1}\]</span></p>
-<p>Using <span class="math inline">\(5=3^2-2c\)</span> gives <span class="math inline">\(c=2\)</span>. <strong>M1 A1</strong></p>
+<p><span class="math display">b=-(\alpha+\beta+\gamma)=-3. \qquad \text{B1}</span></p>
+<p>Using <span class="math inline">5=3^2-2c</span> gives <span class="math inline">c=2</span>. <strong>M1 A1</strong></p>
 <p>Using</p>
-<p><span class="math display">\[p_3=e_1p_2-e_2p_1+3e_3\]</span></p>
+<p><span class="math display">p_3=e_1p_2-e_2p_1+3e_3</span></p>
 <p>gives</p>
-<p><span class="math display">\[6=3(5)-2(3)-3d,\]</span></p>
-<p>so <span class="math inline">\(d=1\)</span>. <strong>M1 A1 A1</strong></p>
+<p><span class="math display">6=3(5)-2(3)-3d,</span></p>
+<p>so <span class="math inline">d=1</span>. <strong>M1 A1 A1</strong></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2021-on-11-13"> Completed</label>
 <div class="source-line">
@@ -1786,35 +1800,35 @@ Show answer and mark scheme
 <section id="octobernovember-923112-question-4-10-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-4-10-marks">2021 October/November · 9231/12 · Question 4 · 10 marks</h3>
 <p><span class="tag">Power sums</span><span class="tag">Summation</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+2x^2+3x+3=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>. <strong>[2]</strong></p>
-<p><strong>(b)</strong> Show that <span class="math inline">\(\alpha^3+\beta^3+\gamma^3=1\)</span>. <strong>[2]</strong></p>
+<p>The cubic equation <span class="math inline">x^3+2x^2+3x+3=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\alpha^2+\beta^2+\gamma^2</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Show that <span class="math inline">\alpha^3+\beta^3+\gamma^3=1</span>. <strong>[2]</strong></p>
 <p><strong>(c)</strong> Use standard results from the list of formulae (MF19) to show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum_{r=1}^{n}\left((\alpha+r)^3+(\beta+r)^3+(\gamma+r)^3\right)
 =n+\frac14n(n+1)(an^2+bn+c),
-\]</span></p>
-<p>where <span class="math inline">\(a,b,c\)</span> are constants to be determined. <strong>[6]</strong></p>
+</span></p>
+<p>where <span class="math inline">a,b,c</span> are constants to be determined. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[p_2=(-2)^2-2(3)=-2. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_2=(-2)^2-2(3)=-2. \qquad \text{M1 A1}</span></p>
 <p><strong>(b)</strong> Summing the original equation over the roots,</p>
-<p><span class="math display">\[p_3+2p_2+3p_1+9=0,\]</span></p>
-<p>so <span class="math inline">\(p_3=1\)</span>. <strong>M1 A1</strong></p>
-<p><strong>(c)</strong> For each <span class="math inline">\(r\)</span>,</p>
-<p><span class="math display">\[
+<p><span class="math display">p_3+2p_2+3p_1+9=0,</span></p>
+<p>so <span class="math inline">p_3=1</span>. <strong>M1 A1</strong></p>
+<p><strong>(c)</strong> For each <span class="math inline">r</span>,</p>
+<p><span class="math display">
 (\alpha+r)^3+(\beta+r)^3+(\gamma+r)^3
 =p_3+3rp_2+3r^2p_1+3r^3.
-\]</span></p>
-<p>Using <span class="math inline">\(p_1=-2\)</span>, <span class="math inline">\(p_2=-2\)</span> and <span class="math inline">\(p_3=1\)</span>, expand</p>
-<p><span class="math display">\[\sum_{r=1}^{n}\left(1-6r-6r^2+3r^3\right). \qquad \text{B1 M1 A1}\]</span></p>
+</span></p>
+<p>Using <span class="math inline">p_1=-2</span>, <span class="math inline">p_2=-2</span> and <span class="math inline">p_3=1</span>, expand</p>
+<p><span class="math display">\sum_{r=1}^{n}\left(1-6r-6r^2+3r^3\right). \qquad \text{B1 M1 A1}</span></p>
 <p>Using the standard sums and simplifying gives</p>
-<p><span class="math display">\[n+\frac14n(n+1)(3n^2-5n-16). \qquad \text{M1 M1 A1}\]</span></p>
+<p><span class="math display">n+\frac14n(n+1)(3n^2-5n-16). \qquad \text{M1 M1 A1}</span></p>
 <p>Thus</p>
-<p><span class="math display">\[a=3,\qquad b=-5,\qquad c=-16.\]</span></p>
+<p><span class="math display">a=3,\qquad b=-5,\qquad c=-16.</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2021-on-12"> Completed</label>
 <div class="source-line">
@@ -1829,42 +1843,42 @@ Show answer and mark scheme
 <section id="mayjune-923111-923112-question-4-8-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-4-8-marks">2022 May/June · 9231/11 &amp; 9231/12 · Question 4 · 8 marks</h3>
 <p><span class="tag">Reciprocal powers</span><span class="tag">Transformed roots</span><span class="tag">★★★★☆</span></p>
-<p>The cubic equation <span class="math inline">\(2x^3+5x^2-6=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(1/\alpha^3,1/\beta^3,1/\gamma^3\)</span>. <strong>[3]</strong></p>
+<p>The cubic equation <span class="math inline">2x^3+5x^2-6=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">1/\alpha^3,1/\beta^3,1/\gamma^3</span>. <strong>[3]</strong></p>
 <p><strong>(b)</strong> Find</p>
-<p><span class="math display">\[\frac1{\alpha^6}+\frac1{\beta^6}+\frac1{\gamma^6}. \qquad \textbf{[3]}\]</span></p>
+<p><span class="math display">\frac1{\alpha^6}+\frac1{\beta^6}+\frac1{\gamma^6}. \qquad \textbf{[3]}</span></p>
 <p><strong>(c)</strong> Find also</p>
-<p><span class="math display">\[\frac1{\alpha^9}+\frac1{\beta^9}+\frac1{\gamma^9}. \qquad \textbf{[2]}\]</span></p>
+<p><span class="math display">\frac1{\alpha^9}+\frac1{\beta^9}+\frac1{\gamma^9}. \qquad \textbf{[2]}</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> First put <span class="math inline">\(t=1/x\)</span>. Dividing the original equation by <span class="math inline">\(x^3\)</span> gives</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> First put <span class="math inline">t=1/x</span>. Dividing the original equation by <span class="math inline">x^3</span> gives</p>
+<p><span class="math display">
 2+5t-6t^3=0,
-\]</span></p>
-<p>so the reciprocal roots satisfy <span class="math inline">\(6t^3-5t-2=0\)</span>. Now put <span class="math inline">\(y=t^3\)</span>. Then</p>
-<p><span class="math display">\[
+</span></p>
+<p>so the reciprocal roots satisfy <span class="math inline">6t^3-5t-2=0</span>. Now put <span class="math inline">y=t^3</span>. Then</p>
+<p><span class="math display">
 5t=6y-2.
-\]</span></p>
-<p>Cubing and using <span class="math inline">\(t^3=y\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Cubing and using <span class="math inline">t^3=y</span> gives</p>
+<p><span class="math display">
 125y=(6y-2)^3.
-\]</span></p>
+</span></p>
 <p>Expanding and simplifying gives</p>
-<p><span class="math display">\[216y^3-216y^2-53y-8=0. \qquad \text{B1 M1 A1}\]</span></p>
+<p><span class="math display">216y^3-216y^2-53y-8=0. \qquad \text{B1 M1 A1}</span></p>
 <p><strong>(b)</strong> For the transformed roots,</p>
-<p><span class="math display">\[e_1=1,\qquad e_2=-\frac{53}{216}.\]</span></p>
+<p><span class="math display">e_1=1,\qquad e_2=-\frac{53}{216}.</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[p_2=1-2\left(-\frac{53}{216}\right)=\frac{161}{108}. \qquad \text{B1 M1 A1}\]</span></p>
-<p><strong>(c)</strong> If <span class="math inline">\(z\)</span> is one of the transformed roots, then</p>
-<p><span class="math display">\[
+<p><span class="math display">p_2=1-2\left(-\frac{53}{216}\right)=\frac{161}{108}. \qquad \text{B1 M1 A1}</span></p>
+<p><strong>(c)</strong> If <span class="math inline">z</span> is one of the transformed roots, then</p>
+<p><span class="math display">
 216z^3-216z^2-53z-8=0.
-\]</span></p>
+</span></p>
 <p>Summing this equation over all three transformed roots gives</p>
-<p><span class="math display">\[216S_{-9}=216S_{-6}+53S_{-3}+24.\]</span></p>
-<p>Since <span class="math inline">\(S_{-3}=1\)</span>,</p>
-<p><span class="math display">\[S_{-9}=\frac{133}{72}. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">216S_{-9}=216S_{-6}+53S_{-3}+24.</span></p>
+<p>Since <span class="math inline">S_{-3}=1</span>,</p>
+<p><span class="math display">S_{-9}=\frac{133}{72}. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2022-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -1876,27 +1890,27 @@ Show answer and mark scheme
 <section id="mayjune-923113-question-2-7-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-2-7-marks">2022 May/June · 9231/13 · Question 2 · 7 marks</h3>
 <p><span class="tag">Symmetric sums</span><span class="tag">Singular matrix</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+5x^2+10x-2=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>. <strong>[3]</strong></p>
+<p>The cubic equation <span class="math inline">x^3+5x^2+10x-2=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\alpha^2+\beta^2+\gamma^2</span>. <strong>[3]</strong></p>
 <p><strong>(b)</strong> Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{pmatrix}
 1&amp;\alpha&amp;\beta\\
 \alpha&amp;1&amp;\gamma\\
 \beta&amp;\gamma&amp;1
 \end{pmatrix}
-\]</span></p>
+</span></p>
 <p>is singular. <strong>[4]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(e_1=-5\)</span>, <span class="math inline">\(e_2=10\)</span>, so</p>
-<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=25-20=5. \qquad \text{B1 M1 A1}\]</span></p>
+<p><strong>(a)</strong> <span class="math inline">e_1=-5</span>, <span class="math inline">e_2=10</span>, so</p>
+<p><span class="math display">\alpha^2+\beta^2+\gamma^2=25-20=5. \qquad \text{B1 M1 A1}</span></p>
 <p><strong>(b)</strong> The determinant is</p>
-<p><span class="math display">\[1-\alpha^2-\beta^2-\gamma^2+2\alpha\beta\gamma.\]</span></p>
-<p>Since <span class="math inline">\(\alpha\beta\gamma=2\)</span>,</p>
-<p><span class="math display">\[1-5+2(2)=0.\]</span></p>
+<p><span class="math display">1-\alpha^2-\beta^2-\gamma^2+2\alpha\beta\gamma.</span></p>
+<p>Since <span class="math inline">\alpha\beta\gamma=2</span>,</p>
+<p><span class="math display">1-5+2(2)=0.</span></p>
 <p>Therefore the matrix is singular. <strong>M1 A1 M1 A1</strong></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2022-mj-13"> Completed</label>
@@ -1913,36 +1927,36 @@ Show answer and mark scheme
 <h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-3-8-marks">2023 October/November · 9231/11 &amp; 9231/13 · Question 3 · 8 marks</h3>
 <p><span class="tag">Quartic equation</span><span class="tag">Unknown coefficients</span><span class="tag">★★★☆☆</span></p>
 <p>The quartic equation</p>
-<p><span class="math display">\[x^4+bx^3+cx^2+dx-2=0\]</span></p>
-<p>has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>. It is given that</p>
-<p><span class="math display">\[
+<p><span class="math display">x^4+bx^3+cx^2+dx-2=0</span></p>
+<p>has roots <span class="math inline">\alpha,\beta,\gamma,\delta</span>. It is given that</p>
+<p><span class="math display">
 \alpha+\beta+\gamma+\delta=3,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \alpha^2+\beta^2+\gamma^2+\delta^2=5,
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha^{-1}+\beta^{-1}+\gamma^{-1}+\delta^{-1}=6.
-\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(b,c,d\)</span>. <strong>[6]</strong></p>
-<p><strong>(b)</strong> Given also that <span class="math inline">\(\alpha^3+\beta^3+\gamma^3+\delta^3=-27\)</span>, find <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[2]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">b,c,d</span>. <strong>[6]</strong></p>
+<p><strong>(b)</strong> Given also that <span class="math inline">\alpha^3+\beta^3+\gamma^3+\delta^3=-27</span>, find <span class="math inline">\alpha^4+\beta^4+\gamma^4+\delta^4</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[b=-3. \qquad \text{B1}\]</span></p>
+<p><span class="math display">b=-3. \qquad \text{B1}</span></p>
 <p>Also</p>
-<p><span class="math display">\[5=3^2-2c,\]</span></p>
-<p>so <span class="math inline">\(c=2\)</span>. <strong>M1 A1</strong></p>
-<p>Here <span class="math inline">\(e_4=-2\)</span> and <span class="math inline">\(e_3=-d\)</span>. Since the reciprocal sum is <span class="math inline">\(e_3/e_4\)</span>,</p>
-<p><span class="math display">\[\frac{-d}{-2}=6,\]</span></p>
-<p>so <span class="math inline">\(d=12\)</span>. <strong>M1 A1 A1</strong></p>
+<p><span class="math display">5=3^2-2c,</span></p>
+<p>so <span class="math inline">c=2</span>. <strong>M1 A1</strong></p>
+<p>Here <span class="math inline">e_4=-2</span> and <span class="math inline">e_3=-d</span>. Since the reciprocal sum is <span class="math inline">e_3/e_4</span>,</p>
+<p><span class="math display">\frac{-d}{-2}=6,</span></p>
+<p>so <span class="math inline">d=12</span>. <strong>M1 A1 A1</strong></p>
 <p><strong>(b)</strong> Summing the quartic equation over the roots gives</p>
-<p><span class="math display">\[p_4-3p_3+2p_2+12p_1-8=0.\]</span></p>
+<p><span class="math display">p_4-3p_3+2p_2+12p_1-8=0.</span></p>
 <p>Hence</p>
-<p><span class="math display">\[p_4=3(-27)-2(5)-12(3)+8=-119. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_4=3(-27)-2(5)-12(3)+8=-119. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2023-on-11-13"> Completed</label>
 <div class="source-line">
@@ -1954,32 +1968,32 @@ Show answer and mark scheme
 <section id="octobernovember-923112-question-4-10-marks-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-4-10-marks-1">2023 October/November · 9231/12 · Question 4 · 10 marks</h3>
 <p><span class="tag">Linear transformation</span><span class="tag">Positive and negative powers</span><span class="tag">★★★★☆</span></p>
-<p>The cubic equation <span class="math inline">\(27x^3+18x^2+6x-1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Show that a cubic equation with roots <span class="math inline">\(3\alpha+1,3\beta+1,3\gamma+1\)</span> is</p>
-<p><span class="math display">\[y^3-y^2+y-2=0. \qquad \textbf{[3]}\]</span></p>
-<p>The sum <span class="math inline">\((3\alpha+1)^n+(3\beta+1)^n+(3\gamma+1)^n\)</span> is denoted by <span class="math inline">\(S_n\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(S_2\)</span> and <span class="math inline">\(S_3\)</span>. <strong>[4]</strong></p>
-<p><strong>(c)</strong> Find <span class="math inline">\(S_{-1}\)</span> and <span class="math inline">\(S_{-2}\)</span>. <strong>[3]</strong></p>
+<p>The cubic equation <span class="math inline">27x^3+18x^2+6x-1=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Show that a cubic equation with roots <span class="math inline">3\alpha+1,3\beta+1,3\gamma+1</span> is</p>
+<p><span class="math display">y^3-y^2+y-2=0. \qquad \textbf{[3]}</span></p>
+<p>The sum <span class="math inline">(3\alpha+1)^n+(3\beta+1)^n+(3\gamma+1)^n</span> is denoted by <span class="math inline">S_n</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">S_2</span> and <span class="math inline">S_3</span>. <strong>[4]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">S_{-1}</span> and <span class="math inline">S_{-2}</span>. <strong>[3]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=3x+1\)</span>, so <span class="math inline">\(x=(y-1)/3\)</span>. Then</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Put <span class="math inline">y=3x+1</span>, so <span class="math inline">x=(y-1)/3</span>. Then</p>
+<p><span class="math display">
 27\left(\frac{y-1}{3}\right)^3
 +18\left(\frac{y-1}{3}\right)^2
 +6\left(\frac{y-1}{3}\right)-1=0.
-\]</span></p>
+</span></p>
 <p>Expanding and simplifying gives</p>
-<p><span class="math display">\[y^3-y^2+y-2=0. \qquad \text{B1 M1 A1}\]</span></p>
-<p>For the transformed roots, <span class="math inline">\(e_1=1\)</span>, <span class="math inline">\(e_2=1\)</span>, <span class="math inline">\(e_3=2\)</span>.</p>
+<p><span class="math display">y^3-y^2+y-2=0. \qquad \text{B1 M1 A1}</span></p>
+<p>For the transformed roots, <span class="math inline">e_1=1</span>, <span class="math inline">e_2=1</span>, <span class="math inline">e_3=2</span>.</p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[S_2=e_1^2-2e_2=-1, \qquad \text{M1 A1}\]</span></p>
-<p><span class="math display">\[S_3=e_1S_2-e_2S_1+3e_3=4. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">S_2=e_1^2-2e_2=-1, \qquad \text{M1 A1}</span></p>
+<p><span class="math display">S_3=e_1S_2-e_2S_1+3e_3=4. \qquad \text{M1 A1}</span></p>
 <p><strong>(c)</strong></p>
-<p><span class="math display">\[S_{-1}=\frac{e_2}{e_3}=\frac12. \qquad \text{B1}\]</span></p>
-<p>For the reciprocal roots, the pairwise sum is <span class="math inline">\(e_1/e_3=1/2\)</span>. Hence</p>
-<p><span class="math display">\[S_{-2}=\left(\frac12\right)^2-2\left(\frac12\right)=-\frac34. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">S_{-1}=\frac{e_2}{e_3}=\frac12. \qquad \text{B1}</span></p>
+<p>For the reciprocal roots, the pairwise sum is <span class="math inline">e_1/e_3=1/2</span>. Hence</p>
+<p><span class="math display">S_{-2}=\left(\frac12\right)^2-2\left(\frac12\right)=-\frac34. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2023-on-12"> Completed</label>
 <div class="source-line">
@@ -1994,25 +2008,25 @@ Show answer and mark scheme
 <section id="mayjune-923111-923112-question-1-6-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-1-6-marks">2024 May/June · 9231/11 &amp; 9231/12 · Question 1 · 6 marks</h3>
 <p><span class="tag">Pairwise products</span><span class="tag">Unknown coefficient</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(2x^3+x^2-px-5=0\)</span>, where <span class="math inline">\(p\)</span> is a positive constant, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> State, in terms of <span class="math inline">\(p\)</span>, the value of <span class="math inline">\(\alpha\beta+\beta\gamma+\gamma\alpha\)</span>. <strong>[1]</strong></p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\alpha^2\beta\gamma+\alpha\beta^2\gamma+\alpha\beta\gamma^2\)</span>. <strong>[2]</strong></p>
-<p><strong>(c)</strong> Deduce a cubic equation whose roots are <span class="math inline">\(\alpha\beta,\beta\gamma,\alpha\gamma\)</span>. <strong>[1]</strong></p>
-<p><strong>(d)</strong> Given that <span class="math inline">\(\alpha^2+\beta^2+\gamma^2=\frac13\)</span>, find <span class="math inline">\(p\)</span>. <strong>[2]</strong></p>
+<p>The cubic equation <span class="math inline">2x^3+x^2-px-5=0</span>, where <span class="math inline">p</span> is a positive constant, has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> State, in terms of <span class="math inline">p</span>, the value of <span class="math inline">\alpha\beta+\beta\gamma+\gamma\alpha</span>. <strong>[1]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\alpha^2\beta\gamma+\alpha\beta^2\gamma+\alpha\beta\gamma^2</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Deduce a cubic equation whose roots are <span class="math inline">\alpha\beta,\beta\gamma,\alpha\gamma</span>. <strong>[1]</strong></p>
+<p><strong>(d)</strong> Given that <span class="math inline">\alpha^2+\beta^2+\gamma^2=\frac13</span>, find <span class="math inline">p</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[\alpha\beta+\beta\gamma+\gamma\alpha=-\frac p2. \qquad \text{B1}\]</span></p>
+<p><span class="math display">\alpha\beta+\beta\gamma+\gamma\alpha=-\frac p2. \qquad \text{B1}</span></p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[\alpha\beta\gamma(\alpha+\beta+\gamma)=\frac52\left(-\frac12\right)=-\frac54. \qquad \text{M1 A1}\]</span></p>
-<p><strong>(c)</strong> The new roots have sum <span class="math inline">\(-p/2\)</span>, pairwise sum <span class="math inline">\(-5/4\)</span>, and product <span class="math inline">\(25/4\)</span>. Thus</p>
-<p><span class="math display">\[4y^3+2py^2-5y-25=0. \qquad \text{B1}\]</span></p>
+<p><span class="math display">\alpha\beta\gamma(\alpha+\beta+\gamma)=\frac52\left(-\frac12\right)=-\frac54. \qquad \text{M1 A1}</span></p>
+<p><strong>(c)</strong> The new roots have sum <span class="math inline">-p/2</span>, pairwise sum <span class="math inline">-5/4</span>, and product <span class="math inline">25/4</span>. Thus</p>
+<p><span class="math display">4y^3+2py^2-5y-25=0. \qquad \text{B1}</span></p>
 <p><strong>(d)</strong></p>
-<p><span class="math display">\[\frac13=\left(-\frac12\right)^2-2\left(-\frac p2\right)=\frac14+p,\]</span></p>
+<p><span class="math display">\frac13=\left(-\frac12\right)^2-2\left(-\frac p2\right)=\frac14+p,</span></p>
 <p>so</p>
-<p><span class="math display">\[p=\frac1{12}. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p=\frac1{12}. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2024-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -2024,35 +2038,35 @@ Show answer and mark scheme
 <section id="mayjune-923113-question-2-7-marks-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-2-7-marks-1">2024 May/June · 9231/13 · Question 2 · 7 marks</h3>
 <p><span class="tag">Squared roots</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+2x^2+3x+1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^2+1,\beta^2+1,\gamma^2+1\)</span>. <strong>[3]</strong></p>
+<p>The cubic equation <span class="math inline">x^3+2x^2+3x+1=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\alpha^2+1,\beta^2+1,\gamma^2+1</span>. <strong>[3]</strong></p>
 <p><strong>(b)</strong> Find</p>
-<p><span class="math display">\[\left(\alpha^2+1\right)^2+\left(\beta^2+1\right)^2+\left(\gamma^2+1\right)^2. \qquad \textbf{[2]}\]</span></p>
+<p><span class="math display">\left(\alpha^2+1\right)^2+\left(\beta^2+1\right)^2+\left(\gamma^2+1\right)^2. \qquad \textbf{[2]}</span></p>
 <p><strong>(c)</strong> Find</p>
-<p><span class="math display">\[\left(\alpha^2+1\right)^3+\left(\beta^2+1\right)^3+\left(\gamma^2+1\right)^3. \qquad \textbf{[2]}\]</span></p>
+<p><span class="math display">\left(\alpha^2+1\right)^3+\left(\beta^2+1\right)^3+\left(\gamma^2+1\right)^3. \qquad \textbf{[2]}</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^2+1\)</span>, so <span class="math inline">\(x^2=y-1\)</span>. The original equation can be written as</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Put <span class="math inline">y=x^2+1</span>, so <span class="math inline">x^2=y-1</span>. The original equation can be written as</p>
+<p><span class="math display">
 x(x^2+3)=-(2x^2+1),
-\]</span></p>
+</span></p>
 <p>hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x(y+2)=1-2y.
-\]</span></p>
-<p>Squaring and using <span class="math inline">\(x^2=y-1\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Squaring and using <span class="math inline">x^2=y-1</span> gives</p>
+<p><span class="math display">
 (y-1)(y+2)^2=(1-2y)^2,
-\]</span></p>
+</span></p>
 <p>which simplifies to</p>
-<p><span class="math display">\[y^3-y^2+4y-5=0. \qquad \text{B1 M1 A1}\]</span></p>
-<p>For the transformed roots, <span class="math inline">\(e_1=1\)</span>, <span class="math inline">\(e_2=4\)</span>, <span class="math inline">\(e_3=5\)</span>.</p>
+<p><span class="math display">y^3-y^2+4y-5=0. \qquad \text{B1 M1 A1}</span></p>
+<p>For the transformed roots, <span class="math inline">e_1=1</span>, <span class="math inline">e_2=4</span>, <span class="math inline">e_3=5</span>.</p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[p_2=e_1^2-2e_2=1-8=-7. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_2=e_1^2-2e_2=1-8=-7. \qquad \text{M1 A1}</span></p>
 <p><strong>(c)</strong></p>
-<p><span class="math display">\[p_3=e_1p_2-e_2p_1+3e_3=-7-4+15=4. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_3=e_1p_2-e_2p_1+3e_3=-7-4+15=4. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2024-mj-13"> Completed</label>
 <div class="source-line">
@@ -2064,26 +2078,26 @@ x(y+2)=1-2y.
 <section id="octobernovember-923111-923113-question-3-10-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-3-10-marks">2024 October/November · 9231/11 &amp; 9231/13 · Question 3 · 10 marks</h3>
 <p><span class="tag">Quartic equation</span><span class="tag">Higher power sums</span><span class="tag">★★★★☆</span></p>
-<p>The quartic equation <span class="math inline">\(x^4+2x^3-1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>.</p>
-<p><strong>(a)</strong> Find a quartic equation whose roots are <span class="math inline">\(\alpha^4,\beta^4,\gamma^4,\delta^4\)</span> and state the value of <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[5]</strong></p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\alpha^5+\beta^5+\gamma^5+\delta^5\)</span>. <strong>[3]</strong></p>
-<p><strong>(c)</strong> Find <span class="math inline">\(\alpha^8+\beta^8+\gamma^8+\delta^8\)</span>. <strong>[2]</strong></p>
+<p>The quartic equation <span class="math inline">x^4+2x^3-1=0</span> has roots <span class="math inline">\alpha,\beta,\gamma,\delta</span>.</p>
+<p><strong>(a)</strong> Find a quartic equation whose roots are <span class="math inline">\alpha^4,\beta^4,\gamma^4,\delta^4</span> and state the value of <span class="math inline">\alpha^4+\beta^4+\gamma^4+\delta^4</span>. <strong>[5]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\alpha^5+\beta^5+\gamma^5+\delta^5</span>. <strong>[3]</strong></p>
+<p><strong>(c)</strong> Find <span class="math inline">\alpha^8+\beta^8+\gamma^8+\delta^8</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^4\)</span>. From the original equation, <span class="math inline">\(2x^3=1-y\)</span>. Raising both sides to the fourth power and using <span class="math inline">\(x^{12}=y^3\)</span> gives</p>
-<p><span class="math display">\[16y^3=(1-y)^4.\]</span></p>
+<p><strong>(a)</strong> Put <span class="math inline">y=x^4</span>. From the original equation, <span class="math inline">2x^3=1-y</span>. Raising both sides to the fourth power and using <span class="math inline">x^{12}=y^3</span> gives</p>
+<p><span class="math display">16y^3=(1-y)^4.</span></p>
 <p>Hence</p>
-<p><span class="math display">\[y^4-20y^3+6y^2-4y+1=0. \qquad \text{B1 M1 M1 A1}\]</span></p>
+<p><span class="math display">y^4-20y^3+6y^2-4y+1=0. \qquad \text{B1 M1 M1 A1}</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[\alpha^4+\beta^4+\gamma^4+\delta^4=20. \qquad \text{B1}\]</span></p>
-<p><strong>(b)</strong> Multiplying the original equation by <span class="math inline">\(x\)</span> and summing over the roots,</p>
-<p><span class="math display">\[p_5+2p_4-p_1=0.\]</span></p>
-<p>Since <span class="math inline">\(p_1=-2\)</span>,</p>
-<p><span class="math display">\[p_5=-2(20)-2=-42. \qquad \text{B1 M1 A1}\]</span></p>
-<p><strong>(c)</strong> For the roots <span class="math inline">\(\alpha^4,\beta^4,\gamma^4,\delta^4\)</span>, the pairwise sum is <span class="math inline">\(6\)</span>. Thus</p>
-<p><span class="math display">\[p_8=20^2-2(6)=388. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">\alpha^4+\beta^4+\gamma^4+\delta^4=20. \qquad \text{B1}</span></p>
+<p><strong>(b)</strong> Multiplying the original equation by <span class="math inline">x</span> and summing over the roots,</p>
+<p><span class="math display">p_5+2p_4-p_1=0.</span></p>
+<p>Since <span class="math inline">p_1=-2</span>,</p>
+<p><span class="math display">p_5=-2(20)-2=-42. \qquad \text{B1 M1 A1}</span></p>
+<p><strong>(c)</strong> For the roots <span class="math inline">\alpha^4,\beta^4,\gamma^4,\delta^4</span>, the pairwise sum is <span class="math inline">6</span>. Thus</p>
+<p><span class="math display">p_8=20^2-2(6)=388. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2024-on-11-13"> Completed</label>
 <div class="source-line">
@@ -2096,14 +2110,14 @@ Show answer and mark scheme
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-3-10-marks">2024 October/November · 9231/12 · Question 3 · 10 marks</h3>
 <p><span class="tag">Quartic symmetric sums</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
 <p>It is given that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \alpha+\beta+\gamma+\delta=2,\qquad
 \alpha^2+\beta^2+\gamma^2+\delta^2=3,\qquad
 \alpha^3+\beta^3+\gamma^3+\delta^3=4.
-\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\alpha\beta+\alpha\gamma+\alpha\delta+\beta\gamma+\beta\delta+\gamma\delta\)</span>. <strong>[2]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\alpha\beta+\alpha\gamma+\alpha\delta+\beta\gamma+\beta\delta+\gamma\delta</span>. <strong>[2]</strong></p>
 <p><strong>(b)</strong> Find</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 &amp;\alpha^2\beta+\alpha^2\gamma+\alpha^2\delta
 +\beta^2\alpha+\beta^2\gamma+\beta^2\delta\\
@@ -2111,29 +2125,29 @@ Show answer and mark scheme
 +\delta^2\alpha+\delta^2\beta+\delta^2\gamma.
 \end{aligned}
 \qquad \textbf{[3]}
-\]</span></p>
-<p><strong>(c)</strong> It is given that <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span> are the roots of</p>
-<p><span class="math display">\[6x^4-12x^3+3x^2+2x+6=0.\]</span></p>
-<p><strong>(i)</strong> Find <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[3]</strong></p>
-<p><strong>(ii)</strong> Find <span class="math inline">\(\alpha^5+\beta^5+\gamma^5+\delta^5\)</span>. <strong>[2]</strong></p>
+</span></p>
+<p><strong>(c)</strong> It is given that <span class="math inline">\alpha,\beta,\gamma,\delta</span> are the roots of</p>
+<p><span class="math display">6x^4-12x^3+3x^2+2x+6=0.</span></p>
+<p><strong>(i)</strong> Find <span class="math inline">\alpha^4+\beta^4+\gamma^4+\delta^4</span>. <strong>[3]</strong></p>
+<p><strong>(ii)</strong> Find <span class="math inline">\alpha^5+\beta^5+\gamma^5+\delta^5</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[e_2=\frac{p_1^2-p_2}{2}=\frac{4-3}{2}=\frac12. \qquad \text{M1 A1}\]</span></p>
-<p><strong>(b)</strong> Let the required sum be <span class="math inline">\(T\)</span>. Expanding <span class="math inline">\(e_1e_2\)</span> includes every term in <span class="math inline">\(T\)</span> once and each triple product three times, so <span class="math inline">\(e_1e_2=T+3e_3\)</span>. Newton’s identity gives</p>
-<p><span class="math display">\[4=p_3=e_1p_2-e_2p_1+3e_3=6-1+3e_3,\]</span></p>
-<p>so <span class="math inline">\(e_3=-1/3\)</span>. Also</p>
-<p><span class="math display">\[e_1e_2=(\text{required sum})+3e_3.\]</span></p>
+<p><span class="math display">e_2=\frac{p_1^2-p_2}{2}=\frac{4-3}{2}=\frac12. \qquad \text{M1 A1}</span></p>
+<p><strong>(b)</strong> Let the required sum be <span class="math inline">T</span>. Expanding <span class="math inline">e_1e_2</span> includes every term in <span class="math inline">T</span> once and each triple product three times, so <span class="math inline">e_1e_2=T+3e_3</span>. Newton’s identity gives</p>
+<p><span class="math display">4=p_3=e_1p_2-e_2p_1+3e_3=6-1+3e_3,</span></p>
+<p>so <span class="math inline">e_3=-1/3</span>. Also</p>
+<p><span class="math display">e_1e_2=(\text{required sum})+3e_3.</span></p>
 <p>Therefore the required sum is</p>
-<p><span class="math display">\[2\left(\frac12\right)-3\left(-\frac13\right)=2. \qquad \text{M1 M1 A1}\]</span></p>
+<p><span class="math display">2\left(\frac12\right)-3\left(-\frac13\right)=2. \qquad \text{M1 M1 A1}</span></p>
 <p><strong>(c)</strong> The monic equation is</p>
-<p><span class="math display">\[x^4-2x^3+\frac12x^2+\frac13x+1=0.\]</span></p>
+<p><span class="math display">x^4-2x^3+\frac12x^2+\frac13x+1=0.</span></p>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[p_4=2p_3-\frac12p_2-\frac13p_1-4=\frac{11}{6}. \qquad \text{M1 M1 A1}\]</span></p>
+<p><span class="math display">p_4=2p_3-\frac12p_2-\frac13p_1-4=\frac{11}{6}. \qquad \text{M1 M1 A1}</span></p>
 <p><strong>(ii)</strong></p>
-<p><span class="math display">\[p_5=2p_4-\frac12p_3-\frac13p_2-p_1=-\frac43. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_5=2p_4-\frac12p_3-\frac13p_2-p_1=-\frac43. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2024-on-12"> Completed</label>
 <div class="source-line">
@@ -2148,31 +2162,31 @@ Show answer and mark scheme
 <section id="mayjune-923111-923112-question-2-7-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-2-7-marks">2025 May/June · 9231/11 &amp; 9231/12 · Question 2 · 7 marks</h3>
 <p><span class="tag">Cubed-root transformation</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+2x+1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
-<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\(\alpha^3-1,\beta^3-1,\gamma^3-1\)</span>. <strong>[3]</strong></p>
+<p>The cubic equation <span class="math inline">x^3+2x+1=0</span> has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
+<p><strong>(a)</strong> Find a cubic equation whose roots are <span class="math inline">\alpha^3-1,\beta^3-1,\gamma^3-1</span>. <strong>[3]</strong></p>
 <p><strong>(b)</strong> Find</p>
-<p><span class="math display">\[\left(\alpha^3-1\right)^2+\left(\beta^3-1\right)^2+\left(\gamma^3-1\right)^2. \qquad \textbf{[2]}\]</span></p>
+<p><span class="math display">\left(\alpha^3-1\right)^2+\left(\beta^3-1\right)^2+\left(\gamma^3-1\right)^2. \qquad \textbf{[2]}</span></p>
 <p><strong>(c)</strong> Find</p>
-<p><span class="math display">\[\left(\alpha^3-1\right)^3+\left(\beta^3-1\right)^3+\left(\gamma^3-1\right)^3. \qquad \textbf{[2]}\]</span></p>
+<p><span class="math display">\left(\alpha^3-1\right)^3+\left(\beta^3-1\right)^3+\left(\gamma^3-1\right)^3. \qquad \textbf{[2]}</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=x^3-1\)</span>, so <span class="math inline">\(x^3=y+1\)</span>. The original equation gives</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Put <span class="math inline">y=x^3-1</span>, so <span class="math inline">x^3=y+1</span>. The original equation gives</p>
+<p><span class="math display">
 2x=-(y+2).
-\]</span></p>
-<p>Cubing and using <span class="math inline">\(x^3=y+1\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Cubing and using <span class="math inline">x^3=y+1</span>,</p>
+<p><span class="math display">
 8(y+1)=-(y+2)^3,
-\]</span></p>
+</span></p>
 <p>which simplifies to</p>
-<p><span class="math display">\[y^3+6y^2+20y+16=0. \qquad \text{B1 M1 A1}\]</span></p>
-<p>For the transformed roots, <span class="math inline">\(e_1=-6\)</span>, <span class="math inline">\(e_2=20\)</span>, <span class="math inline">\(e_3=-16\)</span>.</p>
+<p><span class="math display">y^3+6y^2+20y+16=0. \qquad \text{B1 M1 A1}</span></p>
+<p>For the transformed roots, <span class="math inline">e_1=-6</span>, <span class="math inline">e_2=20</span>, <span class="math inline">e_3=-16</span>.</p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[p_2=(-6)^2-2(20)=-4. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_2=(-6)^2-2(20)=-4. \qquad \text{M1 A1}</span></p>
 <p><strong>(c)</strong></p>
-<p><span class="math display">\[p_3=-6(-4)-20(-6)+3(-16)=96. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">p_3=-6(-4)-20(-6)+3(-16)=96. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-mj-11-12"> Completed</label>
 <div class="source-line">
@@ -2184,39 +2198,39 @@ Show answer and mark scheme
 <section id="mayjune-923113-question-3-9-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-3-9-marks">2025 May/June · 9231/13 · Question 3 · 9 marks</h3>
 <p><span class="tag">Quartic power sums</span><span class="tag">Standard sums</span><span class="tag">★★★☆☆</span></p>
-<p>The quartic equation <span class="math inline">\(x^4+7x^2+3x+22=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\alpha^2+\beta^2+\gamma^2+\delta^2\)</span>. <strong>[2]</strong></p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\alpha^4+\beta^4+\gamma^4+\delta^4\)</span>. <strong>[2]</strong></p>
+<p>The quartic equation <span class="math inline">x^4+7x^2+3x+22=0</span> has roots <span class="math inline">\alpha,\beta,\gamma,\delta</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\alpha^2+\beta^2+\gamma^2+\delta^2</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\alpha^4+\beta^4+\gamma^4+\delta^4</span>. <strong>[2]</strong></p>
 <p><strong>(c)</strong> Use standard results from the list of formulae (MF19) to find</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum_{r=1}^{10}\left(
 (\alpha^2+r)^2+(\beta^2+r)^2+(\gamma^2+r)^2+(\delta^2+r)^2
 \right). \qquad \textbf{[5]}
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Since <span class="math inline">\(e_1=0\)</span> and <span class="math inline">\(e_2=7\)</span>,</p>
-<p><span class="math display">\[p_2=0-2(7)=-14. \qquad \text{M1 A1}\]</span></p>
+<p><strong>(a)</strong> Since <span class="math inline">e_1=0</span> and <span class="math inline">e_2=7</span>,</p>
+<p><span class="math display">p_2=0-2(7)=-14. \qquad \text{M1 A1}</span></p>
 <p><strong>(b)</strong> Summing the original equation over the roots,</p>
-<p><span class="math display">\[p_4+7p_2+3p_1+88=0,\]</span></p>
-<p>so <span class="math inline">\(p_4=10\)</span>. <strong>M1 A1</strong></p>
-<p><strong>(c)</strong> For each <span class="math inline">\(r\)</span>,</p>
-<p><span class="math display">\[
+<p><span class="math display">p_4+7p_2+3p_1+88=0,</span></p>
+<p>so <span class="math inline">p_4=10</span>. <strong>M1 A1</strong></p>
+<p><strong>(c)</strong> For each <span class="math inline">r</span>,</p>
+<p><span class="math display">
 \begin{aligned}
 &amp;(\alpha^2+r)^2+(\beta^2+r)^2+(\gamma^2+r)^2+(\delta^2+r)^2\\
 &amp;\qquad=p_4+2rp_2+4r^2
 =4r^2-28r+10.
 \end{aligned}
 \qquad \text{B1 M1 A1FT}
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 4\sum_{r=1}^{10}r^2-28\sum_{r=1}^{10}r+100
 =4(385)-28(55)+100
 =\boxed{100}. \qquad \text{M1 A1}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-mj-13"> Completed</label>
 <div class="source-line">
@@ -2228,31 +2242,31 @@ Show answer and mark scheme
 <section id="mayjune-923114-question-4-10-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923114-question-4-10-marks">2025 May/June · 9231/14 · Question 4 · 10 marks</h3>
 <p><span class="tag">Symmetric sums</span><span class="tag">Singular matrix</span><span class="tag">★★★★☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx-1=0\)</span>, where <span class="math inline">\(b,c\)</span> are constants, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>.</p>
+<p>The cubic equation <span class="math inline">x^3+bx^2+cx-1=0</span>, where <span class="math inline">b,c</span> are constants, has roots <span class="math inline">\alpha,\beta,\gamma</span>.</p>
 <p>It is given that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{pmatrix}
 1&amp;\alpha&amp;\beta\\
 \alpha&amp;1&amp;\gamma\\
 \beta&amp;\gamma&amp;1
 \end{pmatrix}
-\]</span></p>
+</span></p>
 <p>is singular.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(\alpha^2+\beta^2+\gamma^2=3\)</span>. <strong>[4]</strong></p>
-<p><strong>(b)</strong> It is given that <span class="math inline">\(\alpha^3+\beta^3+\gamma^3=3\)</span> and that <span class="math inline">\(b,c\)</span> are positive. Find <span class="math inline">\(b,c\)</span>. <strong>[6]</strong></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\alpha^2+\beta^2+\gamma^2=3</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> It is given that <span class="math inline">\alpha^3+\beta^3+\gamma^3=3</span> and that <span class="math inline">b,c</span> are positive. Find <span class="math inline">b,c</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> The determinant is</p>
-<p><span class="math display">\[1-\alpha^2-\beta^2-\gamma^2+2\alpha\beta\gamma.\]</span></p>
-<p>Since <span class="math inline">\(\alpha\beta\gamma=1\)</span> and the determinant is zero,</p>
-<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=1+2=3. \qquad \text{M1 A1 M1 A1}\]</span></p>
+<p><span class="math display">1-\alpha^2-\beta^2-\gamma^2+2\alpha\beta\gamma.</span></p>
+<p>Since <span class="math inline">\alpha\beta\gamma=1</span> and the determinant is zero,</p>
+<p><span class="math display">\alpha^2+\beta^2+\gamma^2=1+2=3. \qquad \text{M1 A1 M1 A1}</span></p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[3=b^2-2c. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">3=b^2-2c. \qquad \text{M1 A1}</span></p>
 <p>Summing the original equation over the roots gives</p>
-<p><span class="math display">\[3=-3b+bc+3,\]</span></p>
-<p>so <span class="math inline">\(b(c-3)=0\)</span>. Since <span class="math inline">\(b&gt;0\)</span>, <span class="math inline">\(c=3\)</span>. Substitution gives <span class="math inline">\(b=3\)</span>. <strong>M1 A1 DM1 A1</strong></p>
+<p><span class="math display">3=-3b+bc+3,</span></p>
+<p>so <span class="math inline">b(c-3)=0</span>. Since <span class="math inline">b&gt;0</span>, <span class="math inline">c=3</span>. Substitution gives <span class="math inline">b=3</span>. <strong>M1 A1 DM1 A1</strong></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-mj-14"> Completed</label>
 <div class="source-line">
@@ -2264,29 +2278,29 @@ Show answer and mark scheme
 <section id="octobernovember-923111-923113-question-4-8-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-923113-question-4-8-marks">2025 October/November · 9231/11 &amp; 9231/13 · Question 4 · 8 marks</h3>
 <p><span class="tag">Quartic linear transformation</span><span class="tag">Power sums</span><span class="tag">★★★☆☆</span></p>
-<p>The quartic equation <span class="math inline">\(x^4+x^3+x^2+x+1=0\)</span> has roots <span class="math inline">\(\alpha,\beta,\gamma,\delta\)</span>.</p>
-<p><strong>(a)</strong> Show that a quartic equation with roots <span class="math inline">\(2\alpha+1,2\beta+1,2\gamma+1,2\delta+1\)</span> is</p>
-<p><span class="math display">\[y^4-2y^3+4y^2+2y+11=0. \qquad \textbf{[4]}\]</span></p>
-<p>The sum <span class="math inline">\((2\alpha+1)^n+(2\beta+1)^n+(2\gamma+1)^n+(2\delta+1)^n\)</span> is denoted by <span class="math inline">\(S_n\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(S_2\)</span>. <strong>[2]</strong></p>
-<p><strong>(c)</strong> Given that <span class="math inline">\(S_3=-22\)</span>, find <span class="math inline">\(S_4\)</span>. <strong>[2]</strong></p>
+<p>The quartic equation <span class="math inline">x^4+x^3+x^2+x+1=0</span> has roots <span class="math inline">\alpha,\beta,\gamma,\delta</span>.</p>
+<p><strong>(a)</strong> Show that a quartic equation with roots <span class="math inline">2\alpha+1,2\beta+1,2\gamma+1,2\delta+1</span> is</p>
+<p><span class="math display">y^4-2y^3+4y^2+2y+11=0. \qquad \textbf{[4]}</span></p>
+<p>The sum <span class="math inline">(2\alpha+1)^n+(2\beta+1)^n+(2\gamma+1)^n+(2\delta+1)^n</span> is denoted by <span class="math inline">S_n</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">S_2</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Given that <span class="math inline">S_3=-22</span>, find <span class="math inline">S_4</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(y=2x+1\)</span>, so <span class="math inline">\(x=(y-1)/2\)</span>. Substitution and multiplication by <span class="math inline">\(16\)</span> give</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Put <span class="math inline">y=2x+1</span>, so <span class="math inline">x=(y-1)/2</span>. Substitution and multiplication by <span class="math inline">16</span> give</p>
+<p><span class="math display">
 (y-1)^4+2(y-1)^3+4(y-1)^2+8(y-1)+16=0,
-\]</span></p>
+</span></p>
 <p>which simplifies to</p>
-<p><span class="math display">\[y^4-2y^3+4y^2+2y+11=0. \qquad \text{B1 M1 A1 A1}\]</span></p>
-<p>For the transformed roots, <span class="math inline">\(e_1=2\)</span> and <span class="math inline">\(e_2=4\)</span>.</p>
+<p><span class="math display">y^4-2y^3+4y^2+2y+11=0. \qquad \text{B1 M1 A1 A1}</span></p>
+<p>For the transformed roots, <span class="math inline">e_1=2</span> and <span class="math inline">e_2=4</span>.</p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[S_2=2^2-2(4)=-4. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">S_2=2^2-2(4)=-4. \qquad \text{M1 A1}</span></p>
 <p><strong>(c)</strong> Summing the transformed quartic over its four roots,</p>
-<p><span class="math display">\[S_4-2S_3+4S_2+2S_1+44=0.\]</span></p>
+<p><span class="math display">S_4-2S_3+4S_2+2S_1+44=0.</span></p>
 <p>Thus</p>
-<p><span class="math display">\[S_4=-76. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">S_4=-76. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-on-11-13"> Completed</label>
 <div class="source-line">
@@ -2298,33 +2312,33 @@ Show answer and mark scheme
 <section id="octobernovember-923112-question-2-8-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-2-8-marks">2025 October/November · 9231/12 · Question 2 · 8 marks</h3>
 <p><span class="tag">Recovering coefficients</span><span class="tag">Fourth power sum</span><span class="tag">★★★★☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx+d=0\)</span>, where <span class="math inline">\(b,c,d\)</span> are constants, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span>. It is given that</p>
-<p><span class="math display">\[
+<p>The cubic equation <span class="math inline">x^3+bx^2+cx+d=0</span>, where <span class="math inline">b,c,d</span> are constants, has roots <span class="math inline">\alpha,\beta,\gamma</span>. It is given that</p>
+<p><span class="math display">
 \alpha+\beta+\gamma=2,\qquad
 \alpha^2+\beta^2+\gamma^2=3,\qquad
 \alpha^4+\beta^4+\gamma^4=5.
-\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(b,c\)</span>. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Find <span class="math inline">\(d\)</span>. <strong>[5]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">b,c</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">d</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[b=-2. \qquad \text{B1}\]</span></p>
+<p><span class="math display">b=-2. \qquad \text{B1}</span></p>
 <p>Also</p>
-<p><span class="math display">\[3=(-2)^2-2c,\]</span></p>
-<p>so <span class="math inline">\(c=1/2\)</span>. <strong>M1 A1</strong></p>
-<p><strong>(b)</strong> Let <span class="math inline">\(S_n=\alpha^n+\beta^n+\gamma^n\)</span>. Summing the original cubic over its three roots gives</p>
-<p><span class="math display">\[S_3+bS_2+cS_1+3d=0,\]</span></p>
+<p><span class="math display">3=(-2)^2-2c,</span></p>
+<p>so <span class="math inline">c=1/2</span>. <strong>M1 A1</strong></p>
+<p><strong>(b)</strong> Let <span class="math inline">S_n=\alpha^n+\beta^n+\gamma^n</span>. Summing the original cubic over its three roots gives</p>
+<p><span class="math display">S_3+bS_2+cS_1+3d=0,</span></p>
 <p>so</p>
-<p><span class="math display">\[S_3=5-3d. \qquad \text{M1 A1FT}\]</span></p>
-<p>Multiplying the original cubic by <span class="math inline">\(x\)</span> and summing over its roots gives</p>
-<p><span class="math display">\[S_4+bS_3+cS_2+dS_1=0.\]</span></p>
+<p><span class="math display">S_3=5-3d. \qquad \text{M1 A1FT}</span></p>
+<p>Multiplying the original cubic by <span class="math inline">x</span> and summing over its roots gives</p>
+<p><span class="math display">S_4+bS_3+cS_2+dS_1=0.</span></p>
 <p>Substitution gives</p>
-<p><span class="math display">\[5-2(5-3d)+\frac12(3)+2d=0,\]</span></p>
+<p><span class="math display">5-2(5-3d)+\frac12(3)+2d=0,</span></p>
 <p>so</p>
-<p><span class="math display">\[d=\frac7{16}. \qquad \text{M1 A1FT A1}\]</span></p>
+<p><span class="math display">d=\frac7{16}. \qquad \text{M1 A1FT A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-on-12"> Completed</label>
 <div class="source-line">
@@ -2336,33 +2350,33 @@ Show answer and mark scheme
 <section id="octobernovember-923114-question-2-9-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923114-question-2-9-marks">2025 October/November · 9231/14 · Question 2 · 9 marks</h3>
 <p><span class="tag">Reciprocal relation</span><span class="tag">Unknown coefficients</span><span class="tag">★★★☆☆</span></p>
-<p>The cubic equation <span class="math inline">\(x^3+bx^2+cx+d=0\)</span>, where <span class="math inline">\(d\ne0\)</span>, has roots <span class="math inline">\(\alpha,\beta,\gamma\)</span> such that</p>
-<p><span class="math display">\[\gamma=\frac1\beta.\]</span></p>
+<p>The cubic equation <span class="math inline">x^3+bx^2+cx+d=0</span>, where <span class="math inline">d\ne0</span>, has roots <span class="math inline">\alpha,\beta,\gamma</span> such that</p>
+<p><span class="math display">\gamma=\frac1\beta.</span></p>
 <p><strong>(a)</strong> Show that</p>
-<p><span class="math display">\[\beta+\frac1\beta=d-b. \qquad \textbf{[3]}\]</span></p>
+<p><span class="math display">\beta+\frac1\beta=d-b. \qquad \textbf{[3]}</span></p>
 <p><strong>(b)</strong> Show also that</p>
-<p><span class="math display">\[\beta+\frac1\beta=\frac{1-c}{d}. \qquad \textbf{[2]}\]</span></p>
-<p><strong>(c)</strong> It is given that <span class="math inline">\(b=3\)</span>, <span class="math inline">\(c=-3\)</span> and <span class="math inline">\(d&gt;0\)</span>.</p>
-<p><strong>(i)</strong> Find <span class="math inline">\(d\)</span>. <strong>[2]</strong></p>
-<p><strong>(ii)</strong> Find <span class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>. <strong>[2]</strong></p>
+<p><span class="math display">\beta+\frac1\beta=\frac{1-c}{d}. \qquad \textbf{[2]}</span></p>
+<p><strong>(c)</strong> It is given that <span class="math inline">b=3</span>, <span class="math inline">c=-3</span> and <span class="math inline">d&gt;0</span>.</p>
+<p><strong>(i)</strong> Find <span class="math inline">d</span>. <strong>[2]</strong></p>
+<p><strong>(ii)</strong> Find <span class="math inline">\alpha^2+\beta^2+\gamma^2</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Since <span class="math inline">\(\alpha\beta\gamma=-d\)</span> and <span class="math inline">\(\gamma=1/\beta\)</span>, <span class="math inline">\(\alpha=-d\)</span>. <strong>B1</strong></p>
+<p>Since <span class="math inline">\alpha\beta\gamma=-d</span> and <span class="math inline">\gamma=1/\beta</span>, <span class="math inline">\alpha=-d</span>. <strong>B1</strong></p>
 <p><strong>(a)</strong> Using the sum of roots,</p>
-<p><span class="math display">\[-d+\beta+\frac1\beta=-b,\]</span></p>
+<p><span class="math display">-d+\beta+\frac1\beta=-b,</span></p>
 <p>so</p>
-<p><span class="math display">\[\beta+\frac1\beta=d-b. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">\beta+\frac1\beta=d-b. \qquad \text{M1 A1}</span></p>
 <p><strong>(b)</strong> Using the sum of pairwise products,</p>
-<p><span class="math display">\[-d\beta+1-\frac d\beta=c,\]</span></p>
+<p><span class="math display">-d\beta+1-\frac d\beta=c,</span></p>
 <p>which gives</p>
-<p><span class="math display">\[\beta+\frac1\beta=\frac{1-c}{d}. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">\beta+\frac1\beta=\frac{1-c}{d}. \qquad \text{M1 A1}</span></p>
 <p><strong>(c)(i)</strong></p>
-<p><span class="math display">\[d-3=\frac4d,\]</span></p>
-<p>so <span class="math inline">\(d^2-3d-4=0\)</span>. Since <span class="math inline">\(d&gt;0\)</span>, <span class="math inline">\(d=4\)</span>. <strong>M1 A1</strong></p>
+<p><span class="math display">d-3=\frac4d,</span></p>
+<p>so <span class="math inline">d^2-3d-4=0</span>. Since <span class="math inline">d&gt;0</span>, <span class="math inline">d=4</span>. <strong>M1 A1</strong></p>
 <p><strong>(c)(ii)</strong></p>
-<p><span class="math display">\[\alpha^2+\beta^2+\gamma^2=b^2-2c=9+6=15. \qquad \text{M1 A1}\]</span></p>
+<p><span class="math display">\alpha^2+\beta^2+\gamma^2=b^2-2c=9+6=15. \qquad \text{M1 A1}</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="roots-text-2025-on-14"> Completed</label>
 <div class="source-line">

@@ -74,8 +74,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -416,61 +430,61 @@ window.Quarto = {
 </div>
 <section id="core-results" class="level2">
 <h2 class="anchored" data-anchor-id="core-results">1. Core results</h2>
-<p>For a discrete random variable <span class="math inline">\(X\)</span>, <span class="math display">\[
+<p>For a discrete random variable <span class="math inline">X</span>, <span class="math display">
 G_X(t)=\operatorname{E}(t^X)=\sum_x t^x\operatorname{P}(X=x),\qquad G_X(1)=1.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \operatorname{E}(X)=G_X'(1),\qquad
 \operatorname{Var}(X)=G_X''(1)+G_X'(1)-[G_X'(1)]^2.
-\]</span></p>
-<p>For independent <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>, <span class="math inline">\(G_{X+Y}(t)=G_X(t)G_Y(t)\)</span>.</p>
+</span></p>
+<p>For independent <span class="math inline">X</span> and <span class="math inline">Y</span>, <span class="math inline">G_{X+Y}(t)=G_X(t)G_Y(t)</span>.</p>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-5.1" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.1">Example 5.1</h3>
-<p>Let <span class="math inline">\(X\)</span> be the discrete random variable that denotes the score when a fair die is thrown. Find the probability generating function (PGF) for <span class="math inline">\(X\)</span>.</p>
+<p>Let <span class="math inline">X</span> be the discrete random variable that denotes the score when a fair die is thrown. Find the probability generating function (PGF) for <span class="math inline">X</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<span class="math display">\[
+<span class="math display">
 \operatorname{P}(X=x)=\frac16\quad(x=1,2,3,4,5,6).
-\]</span> Therefore <span class="math display">\[
+</span> Therefore <span class="math display">
 G(t)=\operatorname{E}(t^X)=\frac16t+\frac16t^2+\frac16t^3+\frac16t^4+\frac16t^5+\frac16t^6
 =\frac{t(1-t^6)}{6(1-t)}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-5.2" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.2">Example 5.2</h3>
-<p>Wei is a keen archer. He has taken part in many competitions. When aiming for the centre of the target, called the gold, he finds that he hits the gold 70% of the time. Find the PGF for <span class="math inline">\(X\)</span>, the number of gold hits in four consecutive shots at the target.</p>
+<p>Wei is a keen archer. He has taken part in many competitions. When aiming for the centre of the target, called the gold, he finds that he hits the gold 70% of the time. Find the PGF for <span class="math inline">X</span>, the number of gold hits in four consecutive shots at the target.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<span class="math inline">\(X\sim B(4,0.7)\)</span>, so <span class="math display">\[
+<span class="math inline">X\sim B(4,0.7)</span>, so <span class="math display">
 G(t)=\sum_{x=0}^{4}\binom4x(0.7)^x(0.3)^{4-x}t^x
 =0.3^4+4(0.3)^3(0.7)t+6(0.3)^2(0.7)^2t^2+4(0.3)(0.7)^3t^3+(0.7)^4t^4.
-\]</span> Hence <span class="math display">\[
+</span> Hence <span class="math display">
 G(t)=(0.3+0.7t)^4.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-5.3" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.3">Example 5.3</h3>
-<p>A pack of playing cards contains 52 cards, with 13 cards of each of four suits (hearts, spades, diamonds and clubs). A card is selected at random from a normal pack of cards. If it is a heart, the experiment ends, otherwise it is replaced, the pack is shuffled and another card is selected. Let <span class="math inline">\(X\)</span> represent the number of cards selected up to and including the first heart. Find the PGF for <span class="math inline">\(X\)</span>.</p>
+<p>A pack of playing cards contains 52 cards, with 13 cards of each of four suits (hearts, spades, diamonds and clubs). A card is selected at random from a normal pack of cards. If it is a heart, the experiment ends, otherwise it is replaced, the pack is shuffled and another card is selected. Let <span class="math inline">X</span> represent the number of cards selected up to and including the first heart. Find the PGF for <span class="math inline">X</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<span class="math inline">\(X\sim\operatorname{Geo}(\frac14)\)</span>, so <span class="math display">\[
+<span class="math inline">X\sim\operatorname{Geo}(\frac14)</span>, so <span class="math display">
 \operatorname{P}(X=x)=\frac14\left(\frac34\right)^{x-1}\quad(x=1,2,\ldots).
-\]</span> Thus <span class="math display">\[
+</span> Thus <span class="math display">
 G(t)=\sum_{x=1}^{\infty}\frac14\left(\frac34\right)^{x-1}t^x
 =\frac14t\left[1+\frac34t+\left(\frac34t\right)^2+\cdots\right]
 =\frac{t}{4-3t}.
-\]</span>
+</span>
 </details>
 </section>
 </section>
@@ -479,319 +493,319 @@ G(t)=\sum_{x=1}^{\infty}\frac14\left(\frac34\right)^{x-1}t^x
 </section>
 <section id="mayjune-923141-and-923142-question-6" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-6">2021 May/June · 9231/41 and 9231/42 · Question 6</h2>
-<p>Tanji has a bag containing 4 red balls and 2 blue balls. He selects 3 balls at random from the bag, without replacement. The number of red balls selected by Tanji is denoted by <span class="math inline">\(X\)</span>.</p>
-<p><strong>(a)</strong> Find the probability generating function <span class="math inline">\(G_X(t)\)</span> of <span class="math inline">\(X\)</span>. [2]</p>
-<p>Tanji also has two coins, each biased so that the probability of obtaining a head when it is thrown is <span class="math inline">\(\frac14\)</span>. He throws the two coins at the same time. The number of heads obtained is denoted by <span class="math inline">\(Y\)</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function <span class="math inline">\(G_Y(t)\)</span> of <span class="math inline">\(Y\)</span>. [2]</p>
-<p>The random variable <span class="math inline">\(Z\)</span> is the sum of the number of red balls selected by Tanji and the number of heads obtained.</p>
-<p><strong>(c)</strong> Find the probability generating function of <span class="math inline">\(Z\)</span>, expressing your answer as a polynomial. [3]</p>
-<p><strong>(d)</strong> Use the probability generating function of <span class="math inline">\(Z\)</span> to find <span class="math inline">\(\operatorname{E}(Z)\)</span> and <span class="math inline">\(\operatorname{Var}(Z)\)</span>. [5]</p>
+<p>Tanji has a bag containing 4 red balls and 2 blue balls. He selects 3 balls at random from the bag, without replacement. The number of red balls selected by Tanji is denoted by <span class="math inline">X</span>.</p>
+<p><strong>(a)</strong> Find the probability generating function <span class="math inline">G_X(t)</span> of <span class="math inline">X</span>. [2]</p>
+<p>Tanji also has two coins, each biased so that the probability of obtaining a head when it is thrown is <span class="math inline">\frac14</span>. He throws the two coins at the same time. The number of heads obtained is denoted by <span class="math inline">Y</span>.</p>
+<p><strong>(b)</strong> Find the probability generating function <span class="math inline">G_Y(t)</span> of <span class="math inline">Y</span>. [2]</p>
+<p>The random variable <span class="math inline">Z</span> is the sum of the number of red balls selected by Tanji and the number of heads obtained.</p>
+<p><strong>(c)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial. [3]</p>
+<p><strong>(d)</strong> Use the probability generating function of <span class="math inline">Z</span> to find <span class="math inline">\operatorname{E}(Z)</span> and <span class="math inline">\operatorname{Var}(Z)</span>. [5]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[
+<p><strong>(a)</strong> <span class="math display">
 \operatorname{P}(X=1)=\frac15,\quad \operatorname{P}(X=2)=\frac35,\quad \operatorname{P}(X=3)=\frac15,
-\]</span> so <span class="math display">\[
+</span> so <span class="math display">
 G_X(t)=\frac15t+\frac35t^2+\frac15t^3.
-\]</span></p>
-<p><strong>(b)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math display">
 \operatorname{P}(Y=0)=\frac9{16},\quad \operatorname{P}(Y=1)=\frac6{16},\quad \operatorname{P}(Y=2)=\frac1{16},
-\]</span> so <span class="math display">\[
+</span> so <span class="math display">
 G_Y(t)=\frac9{16}+\frac6{16}t+\frac1{16}t^2.
-\]</span></p>
-<p><strong>(c)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(c)</strong> <span class="math display">
 G_Z(t)=G_X(t)G_Y(t)=\frac9{80}t+\frac{33}{80}t^2+\frac{28}{80}t^3+\frac9{80}t^4+\frac1{80}t^5.
-\]</span></p>
-<strong>(d)</strong> <span class="math display">\[
+</span></p>
+<strong>(d)</strong> <span class="math display">
 G_Z'(1)=\frac1{80}(9+66+84+36+5)=2.5,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 G_Z''(1)=\frac1{80}(66+168+108+20)=4.525.
-\]</span> Therefore <span class="math display">\[
+</span> Therefore <span class="math display">
 \operatorname{E}(Z)=2.5,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 \operatorname{Var}(Z)=G_Z''(1)+G_Z'(1)-[G_Z'(1)]^2
 =4.525+2.5-2.5^2=0.775=\frac{31}{40}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-2">2022 May/June · 9231/41 and 9231/42 · Question 2</h2>
-<p>The probability generating function, <span class="math inline">\(G_Y(t)\)</span>, of the random variable <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
+<p>The probability generating function, <span class="math inline">G_Y(t)</span>, of the random variable <span class="math inline">Y</span> is given by <span class="math display">
 G_Y(t)=0.04+0.2t+0.37t^2+0.3t^3+0.09t^4.
-\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\operatorname{Var}(Y)\)</span>. [4]</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is the sum of two independent observations of the random variable <span class="math inline">\(X\)</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">\(X\)</span>, giving your answer as a polynomial in <span class="math inline">\(t\)</span>. [3]</p>
+</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\operatorname{Var}(Y)</span>. [4]</p>
+<p>The random variable <span class="math inline">Y</span> is the sum of two independent observations of the random variable <span class="math inline">X</span>.</p>
+<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">X</span>, giving your answer as a polynomial in <span class="math inline">t</span>. [3]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[
+<p><strong>(a)</strong> <span class="math display">
 G_Y'(t)=0.2+0.74t+0.9t^2+0.36t^3,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 G_Y''(t)=0.74+1.8t+1.08t^2.
-\]</span> Hence <span class="math inline">\(G_Y'(1)=2.2\)</span> and <span class="math inline">\(G_Y''(1)=3.62\)</span>, so <span class="math display">\[
+</span> Hence <span class="math inline">G_Y'(1)=2.2</span> and <span class="math inline">G_Y''(1)=3.62</span>, so <span class="math display">
 \operatorname{Var}(Y)=3.62+2.2-2.2^2=0.98.
-\]</span></p>
-<strong>(b)</strong> Since <span class="math inline">\(G_Y(t)=[G_X(t)]^2\)</span>, comparing coefficients gives <span class="math display">\[
+</span></p>
+<strong>(b)</strong> Since <span class="math inline">G_Y(t)=[G_X(t)]^2</span>, comparing coefficients gives <span class="math display">
 G_X(t)=0.2+0.5t+0.3t^2.
-\]</span>
+</span>
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-5" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-5">2023 May/June · 9231/41 and 9231/42 · Question 5</h2>
 <p>Harry has three coins.</p>
 <ul>
-<li>One coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\(\frac13\)</span>.</li>
-<li>The second coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\(\frac14\)</span>.</li>
-<li>The third coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\(\frac15\)</span>.</li>
+<li>One coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\frac13</span>.</li>
+<li>The second coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\frac14</span>.</li>
+<li>The third coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\frac15</span>.</li>
 </ul>
-<p>The random variable <span class="math inline">\(X\)</span> is the number of heads that Harry obtains when he throws all three coins together.</p>
-<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">\(X\)</span>. [3]</p>
-<p>Isaac has two fair coins. The random variable <span class="math inline">\(Y\)</span> is the number of heads that Isaac obtains when he throws both of his coins together. The random variable <span class="math inline">\(Z\)</span> is the total number of heads obtained when Harry throws his three coins and Isaac throws his two coins.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">\(Z\)</span>, expressing your answer as a polynomial in <span class="math inline">\(t\)</span>. [4]</p>
-<p><strong>(c)</strong> Use the probability generating function of <span class="math inline">\(Z\)</span> to find <span class="math inline">\(\operatorname{E}(Z)\)</span>. [2]</p>
+<p>The random variable <span class="math inline">X</span> is the number of heads that Harry obtains when he throws all three coins together.</p>
+<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">X</span>. [3]</p>
+<p>Isaac has two fair coins. The random variable <span class="math inline">Y</span> is the number of heads that Isaac obtains when he throws both of his coins together. The random variable <span class="math inline">Z</span> is the total number of heads obtained when Harry throws his three coins and Isaac throws his two coins.</p>
+<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial in <span class="math inline">t</span>. [4]</p>
+<p><strong>(c)</strong> Use the probability generating function of <span class="math inline">Z</span> to find <span class="math inline">\operatorname{E}(Z)</span>. [2]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[
+<p><strong>(a)</strong> <span class="math display">
 G_X(t)=\left(\frac23+\frac13t\right)\left(\frac34+\frac14t\right)\left(\frac45+\frac15t\right)
 =\frac{24}{60}+\frac{26}{60}t+\frac9{60}t^2+\frac1{60}t^3.
-\]</span></p>
-<p><strong>(b)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math display">
 G_Y(t)=\frac14+\frac12t+\frac14t^2,
-\]</span> so <span class="math display">\[
+</span> so <span class="math display">
 G_Z(t)=G_X(t)G_Y(t)
 =\frac1{240}\left(24+74t+85t^2+45t^3+11t^4+t^5\right).
-\]</span></p>
-<strong>(c)</strong> <span class="math display">\[
+</span></p>
+<strong>(c)</strong> <span class="math display">
 G_Z'(t)=\frac1{240}(74+170t+135t^2+44t^3+5t^4),
-\]</span> therefore <span class="math display">\[
+</span> therefore <span class="math display">
 \operatorname{E}(Z)=G_Z'(1)=\frac{428}{240}=\frac{107}{60}=1.78.
-\]</span>
+</span>
 </details>
 </section>
 <section id="mayjune-923143-question-5" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923143-question-5">2023 May/June · 9231/43 · Question 5</h2>
-<p>The random variable <span class="math inline">\(X\)</span> has probability generating function <span class="math inline">\(G_X(t)\)</span> given by <span class="math display">\[
+<p>The random variable <span class="math inline">X</span> has probability generating function <span class="math inline">G_X(t)</span> given by <span class="math display">
 G_X(t)=k(1+3t+4t^2),
-\]</span> where <span class="math inline">\(k\)</span> is a constant.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(\operatorname{E}(X)=\frac{11}{8}\)</span>. [3]</p>
-<p>The random variable <span class="math inline">\(Y\)</span> has probability generating function <span class="math inline">\(G_Y(t)\)</span> given by <span class="math display">\[
+</span> where <span class="math inline">k</span> is a constant.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\operatorname{E}(X)=\frac{11}{8}</span>. [3]</p>
+<p>The random variable <span class="math inline">Y</span> has probability generating function <span class="math inline">G_Y(t)</span> given by <span class="math display">
 G_Y(t)=\frac13t^2(1+2t).
-\]</span> The random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent and <span class="math inline">\(Z=X+Y\)</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">\(Z\)</span>, expressing your answer as a polynomial in <span class="math inline">\(t\)</span>. [2]</p>
-<p><strong>(c)</strong> Use your answer to part (b) to find the value of <span class="math inline">\(\operatorname{Var}(Z)\)</span>. [3]</p>
+</span> The random variables <span class="math inline">X</span> and <span class="math inline">Y</span> are independent and <span class="math inline">Z=X+Y</span>.</p>
+<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial in <span class="math inline">t</span>. [2]</p>
+<p><strong>(c)</strong> Use your answer to part (b) to find the value of <span class="math inline">\operatorname{Var}(Z)</span>. [3]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Since <span class="math inline">\(G_X(1)=1\)</span>, <span class="math inline">\(8k=1\)</span>, so <span class="math inline">\(k=\frac18\)</span>. Hence <span class="math display">\[
+<p><strong>(a)</strong> Since <span class="math inline">G_X(1)=1</span>, <span class="math inline">8k=1</span>, so <span class="math inline">k=\frac18</span>. Hence <span class="math display">
 G_X'(t)=\frac18(3+8t),\qquad \operatorname{E}(X)=G_X'(1)=\frac{11}{8}.
-\]</span></p>
-<p><strong>(b)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math display">
 G_Z(t)=G_X(t)G_Y(t)=\frac1{24}(t^2+5t^3+10t^4+8t^5).
-\]</span></p>
-<strong>(c)</strong> <span class="math display">\[
+</span></p>
+<strong>(c)</strong> <span class="math display">
 G_Z'(t)=\frac1{24}(2t+15t^2+40t^3+40t^4),
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 G_Z''(t)=\frac1{24}(2+30t+120t^2+160t^3).
-\]</span> Therefore <span class="math display">\[
+</span> Therefore <span class="math display">
 \operatorname{Var}(Z)=G_Z''(1)+G_Z'(1)-[G_Z'(1)]^2=0.707=\frac{407}{576}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="octobernovember-923142-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-2">2024 October/November · 9231/42 · Question 2</h2>
-<p>The random variable <span class="math inline">\(X\)</span> has probability generating function <span class="math inline">\(G_X(t)\)</span> given by <span class="math display">\[
+<p>The random variable <span class="math inline">X</span> has probability generating function <span class="math inline">G_X(t)</span> given by <span class="math display">
 G_X(t)=\frac15+pt+qt^2,
-\]</span> where <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are constants.</p>
-<p><strong>(a)</strong> Given that <span class="math inline">\(\operatorname{E}(X)=1.1\)</span>, find the numerical value of <span class="math inline">\(\operatorname{Var}(X)\)</span>. [4]</p>
-<p>The random variable <span class="math inline">\(Y\)</span> has probability generating function <span class="math inline">\(G_Y(t)\)</span> given by <span class="math display">\[
+</span> where <span class="math inline">p</span> and <span class="math inline">q</span> are constants.</p>
+<p><strong>(a)</strong> Given that <span class="math inline">\operatorname{E}(X)=1.1</span>, find the numerical value of <span class="math inline">\operatorname{Var}(X)</span>. [4]</p>
+<p>The random variable <span class="math inline">Y</span> has probability generating function <span class="math inline">G_Y(t)</span> given by <span class="math display">
 G_Y(t)=\frac23t\left(1+\frac12t^2\right).
-\]</span> The random variable <span class="math inline">\(Z\)</span> is the sum of independent observations of <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">\(Z\)</span>. [2]</p>
-<p><strong>(c)</strong> Find <span class="math inline">\(\operatorname{P}(Z=2)\)</span>. [1]</p>
-<p><strong>(d)</strong> Find the mode of <span class="math inline">\(Z\)</span>. [1]</p>
+</span> The random variable <span class="math inline">Z</span> is the sum of independent observations of <span class="math inline">X</span> and <span class="math inline">Y</span>.</p>
+<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>. [2]</p>
+<p><strong>(c)</strong> Find <span class="math inline">\operatorname{P}(Z=2)</span>. [1]</p>
+<p><strong>(d)</strong> Find the mode of <span class="math inline">Z</span>. [1]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[
+<p><strong>(a)</strong> <span class="math display">
 G_X'(t)=p+2qt,\qquad p+2q=1.1,
-\]</span> and <span class="math inline">\(p+q=\frac45\)</span>. Thus <span class="math inline">\(p=\frac12\)</span>, <span class="math inline">\(q=\frac3{10}\)</span>, and <span class="math display">\[
+</span> and <span class="math inline">p+q=\frac45</span>. Thus <span class="math inline">p=\frac12</span>, <span class="math inline">q=\frac3{10}</span>, and <span class="math display">
 G_X''(t)=2q=\frac35.
-\]</span> Therefore <span class="math display">\[
+</span> Therefore <span class="math display">
 \operatorname{Var}(X)=\frac35+1.1-1.1^2=0.49.
-\]</span></p>
-<p><strong>(b)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math display">
 G_Z(t)=\left(\frac15+\frac12t+\frac3{10}t^2\right)\frac23t\left(1+\frac12t^2\right)
 =\frac1{30}(4t+10t^2+8t^3+5t^4+3t^5).
-\]</span></p>
-<p><strong>(c)</strong> <span class="math inline">\(\operatorname{P}(Z=2)=\frac{10}{30}=\frac13\)</span>.</p>
-<strong>(d)</strong> The mode is <span class="math inline">\(2\)</span>.
+</span></p>
+<p><strong>(c)</strong> <span class="math inline">\operatorname{P}(Z=2)=\frac{10}{30}=\frac13</span>.</p>
+<strong>(d)</strong> The mode is <span class="math inline">2</span>.
 </details>
 </section>
 <section id="mayjune-923143-question-3" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923143-question-3">2022 May/June · 9231/43 · Question 3</h2>
-<p>George throws two coins, A and B, at the same time. Coin A is biased so that the probability of obtaining a head is <span class="math inline">\(a\)</span>. Coin B is biased so that the probability of obtaining a head is <span class="math inline">\(b\)</span>, where <span class="math inline">\(b&lt; a\)</span>. The probability generating function of <span class="math inline">\(X\)</span>, the number of heads obtained by George, is <span class="math inline">\(G_X(t)\)</span>. The coefficients of <span class="math inline">\(t\)</span> and <span class="math inline">\(t^2\)</span> in <span class="math inline">\(G_X(t)\)</span> are <span class="math inline">\(\frac5{12}\)</span> and <span class="math inline">\(\frac1{12}\)</span> respectively.</p>
-<p><strong>(a)</strong> Find the value of <span class="math inline">\(a\)</span>. [2]</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is the sum of two independent observations of <span class="math inline">\(X\)</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">\(Y\)</span>, giving your answer as a polynomial in <span class="math inline">\(t\)</span>. [3]</p>
-<p><strong>(c)</strong> Find <span class="math inline">\(\operatorname{Var}(Y)\)</span>. [3]</p>
+<p>George throws two coins, A and B, at the same time. Coin A is biased so that the probability of obtaining a head is <span class="math inline">a</span>. Coin B is biased so that the probability of obtaining a head is <span class="math inline">b</span>, where <span class="math inline">b&lt; a</span>. The probability generating function of <span class="math inline">X</span>, the number of heads obtained by George, is <span class="math inline">G_X(t)</span>. The coefficients of <span class="math inline">t</span> and <span class="math inline">t^2</span> in <span class="math inline">G_X(t)</span> are <span class="math inline">\frac5{12}</span> and <span class="math inline">\frac1{12}</span> respectively.</p>
+<p><strong>(a)</strong> Find the value of <span class="math inline">a</span>. [2]</p>
+<p>The random variable <span class="math inline">Y</span> is the sum of two independent observations of <span class="math inline">X</span>.</p>
+<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Y</span>, giving your answer as a polynomial in <span class="math inline">t</span>. [3]</p>
+<p><strong>(c)</strong> Find <span class="math inline">\operatorname{Var}(Y)</span>. [3]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(ab=\frac1{12}\)</span> and <span class="math inline">\(a(1-b)+(1-a)b=\frac5{12}\)</span>, giving <span class="math display">\[
+<p><strong>(a)</strong> <span class="math inline">ab=\frac1{12}</span> and <span class="math inline">a(1-b)+(1-a)b=\frac5{12}</span>, giving <span class="math display">
 a=\frac13\qquad\left(b=\frac14\right).
-\]</span></p>
-<p><strong>(b)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math display">
 G_X(t)=\frac6{12}+\frac5{12}t+\frac1{12}t^2,
-\]</span> so <span class="math display">\[
+</span> so <span class="math display">
 G_Y(t)=\frac1{144}(36+60t+37t^2+10t^3+t^4).
-\]</span></p>
-<strong>(c)</strong> <span class="math display">\[
+</span></p>
+<strong>(c)</strong> <span class="math display">
 G_Y'(t)=\frac1{144}(60+74t+30t^2+4t^3),
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 G_Y''(t)=\frac1{144}(74+60t+12t^2).
-\]</span> Thus <span class="math display">\[
+</span> Thus <span class="math display">
 \operatorname{Var}(Y)=G_Y''(1)+G_Y'(1)-[G_Y'(1)]^2=\frac{59}{72}=0.819.
-\]</span>
+</span>
 </details>
 </section>
 <section id="octobernovember-923142-question-3" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-3">2023 October/November · 9231/42 · Question 3</h2>
-<p>Toby has a bag which contains 6 red marbles and 3 green marbles. He randomly chooses 3 marbles from the bag, without replacement. The random variable <span class="math inline">\(X\)</span> is the number of red marbles that Toby obtains.</p>
-<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">\(X\)</span>. [3]</p>
-<p>Ling also has a bag which contains 6 red marbles and 3 green marbles. He randomly chooses 2 marbles from his bag, without replacement. The random variable <span class="math inline">\(Y\)</span> is the number of red marbles that Ling obtains. It is given that the probability generating function of <span class="math inline">\(Y\)</span> is <span class="math inline">\(\frac1{12}(1+6t+5t^2)\)</span>. The random variable <span class="math inline">\(Z\)</span> is the total number of red marbles that Toby and Ling obtain.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">\(Z\)</span>, expressing your answer as a polynomial in <span class="math inline">\(t\)</span>. [3]</p>
-<p><strong>(c)</strong> Use the probability generating function of <span class="math inline">\(Z\)</span> to find <span class="math inline">\(\operatorname{Var}(Z)\)</span>. [4]</p>
+<p>Toby has a bag which contains 6 red marbles and 3 green marbles. He randomly chooses 3 marbles from the bag, without replacement. The random variable <span class="math inline">X</span> is the number of red marbles that Toby obtains.</p>
+<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">X</span>. [3]</p>
+<p>Ling also has a bag which contains 6 red marbles and 3 green marbles. He randomly chooses 2 marbles from his bag, without replacement. The random variable <span class="math inline">Y</span> is the number of red marbles that Ling obtains. It is given that the probability generating function of <span class="math inline">Y</span> is <span class="math inline">\frac1{12}(1+6t+5t^2)</span>. The random variable <span class="math inline">Z</span> is the total number of red marbles that Toby and Ling obtain.</p>
+<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial in <span class="math inline">t</span>. [3]</p>
+<p><strong>(c)</strong> Use the probability generating function of <span class="math inline">Z</span> to find <span class="math inline">\operatorname{Var}(Z)</span>. [4]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[
+<p><strong>(a)</strong> <span class="math display">
 G_X(t)=\frac1{504}(6+108t+270t^2+120t^3)
 =\frac1{84}(1+18t+45t^2+20t^3).
-\]</span></p>
-<p><strong>(b)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math display">
 G_Z(t)=\frac1{1008}(1+24t+158t^2+380t^3+345t^4+100t^5).
-\]</span></p>
-<strong>(c)</strong> <span class="math display">\[
+</span></p>
+<strong>(c)</strong> <span class="math display">
 G_Z'(t)=\frac1{1008}(24+316t+1140t^2+1380t^3+500t^4),
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 G_Z''(t)=\frac1{1008}(316+2280t+4140t^2+2000t^3).
-\]</span> Hence <span class="math inline">\(\operatorname{E}(Z)=\frac{10}{3}\)</span> and <span class="math display">\[
+</span> Hence <span class="math inline">\operatorname{E}(Z)=\frac{10}{3}</span> and <span class="math display">
 \operatorname{Var}(Z)=\frac{8}{9}=0.889.
-\]</span>
+</span>
 </details>
 </section>
 <section id="octobernovember-923141-and-923143-question-5" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-5">2024 October/November · 9231/41 and 9231/43 · Question 5</h2>
-<p>Nikita has three coins. One coin is fair, one coin is biased so that the probability of obtaining a head is <span class="math inline">\(\frac13\)</span> and the third coin is biased so that the probability of obtaining a head is <span class="math inline">\(\frac15\)</span>. The random variable <span class="math inline">\(X\)</span> is the number of heads that Nikita obtains when he throws all three coins at the same time.</p>
-<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">\(X\)</span>. [3]</p>
-<p>Rajesh has two fair six-sided dice with faces labelled 1, 2, 3, 4, 5, 6. The random variable <span class="math inline">\(Y\)</span> is the number of 4s that Rajesh obtains when he throws the two dice. The random variable <span class="math inline">\(Z\)</span> is the sum of the number of heads obtained by Nikita and the number of 4s obtained by Rajesh.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">\(Z\)</span>, expressing your answer as a polynomial. [4]</p>
-<p><strong>(c)</strong> Find <span class="math inline">\(\operatorname{E}(Z)\)</span>. [2]</p>
+<p>Nikita has three coins. One coin is fair, one coin is biased so that the probability of obtaining a head is <span class="math inline">\frac13</span> and the third coin is biased so that the probability of obtaining a head is <span class="math inline">\frac15</span>. The random variable <span class="math inline">X</span> is the number of heads that Nikita obtains when he throws all three coins at the same time.</p>
+<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">X</span>. [3]</p>
+<p>Rajesh has two fair six-sided dice with faces labelled 1, 2, 3, 4, 5, 6. The random variable <span class="math inline">Y</span> is the number of 4s that Rajesh obtains when he throws the two dice. The random variable <span class="math inline">Z</span> is the sum of the number of heads obtained by Nikita and the number of 4s obtained by Rajesh.</p>
+<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial. [4]</p>
+<p><strong>(c)</strong> Find <span class="math inline">\operatorname{E}(Z)</span>. [2]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[
+<p><strong>(a)</strong> <span class="math display">
 G_X(t)=\frac8{30}+\frac{14}{30}t+\frac7{30}t^2+\frac1{30}t^3.
-\]</span></p>
-<p><strong>(b)</strong> Since <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Since <span class="math display">
 G_Y(t)=\frac{25}{36}+\frac{10}{36}t+\frac1{36}t^2,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 G_Z(t)=\frac1{1080}(200+430t+323t^2+109t^3+17t^4+t^5).
-\]</span></p>
-<strong>(c)</strong> <span class="math display">\[
+</span></p>
+<strong>(c)</strong> <span class="math display">
 \operatorname{E}(Z)=G_Z'(1)=\frac{430+646+327+68+5}{1080}=\frac{41}{30}=1.37.
-\]</span>
+</span>
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-4" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-4">2024 May/June · 9231/41 and 9231/42 · Question 4</h2>
-<p>The random variable <span class="math inline">\(Y\)</span> is the sum of two independent observations of the random variable <span class="math inline">\(X\)</span>. The probability generating function <span class="math inline">\(G_Y(t)\)</span> of <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
+<p>The random variable <span class="math inline">Y</span> is the sum of two independent observations of the random variable <span class="math inline">X</span>. The probability generating function <span class="math inline">G_Y(t)</span> of <span class="math inline">Y</span> is given by <span class="math display">
 G_Y(t)=\frac{t^2}{(4-3t)^4}.
-\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\operatorname{E}(Y)\)</span>. [3]</p>
-<p><strong>(b)</strong> Write down an expression for the probability generating function of <span class="math inline">\(X\)</span>. [1]</p>
-<p><strong>(c)</strong> Find <span class="math inline">\(\operatorname{P}(X=4)\)</span>. [3]</p>
+</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\operatorname{E}(Y)</span>. [3]</p>
+<p><strong>(b)</strong> Write down an expression for the probability generating function of <span class="math inline">X</span>. [1]</p>
+<p><strong>(c)</strong> Find <span class="math inline">\operatorname{P}(X=4)</span>. [3]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[
+<p><strong>(a)</strong> <span class="math display">
 G_Y'(t)=\frac{2t(4-3t)+12t^2}{(4-3t)^5},
-\]</span> so <span class="math display">\[
+</span> so <span class="math display">
 \operatorname{E}(Y)=G_Y'(1)=14.
-\]</span></p>
-<p><strong>(b)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math display">
 G_X(t)=\frac{t}{(4-3t)^2}.
-\]</span></p>
-<strong>(c)</strong> <span class="math display">\[
+</span></p>
+<strong>(c)</strong> <span class="math display">
 G_X(t)=\frac{t}{16}\left(1-\frac34t\right)^{-2}.
-\]</span> The coefficient of <span class="math inline">\(t^4\)</span> is <span class="math display">\[
+</span> The coefficient of <span class="math inline">t^4</span> is <span class="math display">
 \operatorname{P}(X=4)=\frac{81}{1024}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="octobernovember-923142-question-6" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-6">2025 October/November · 9231/42 · Question 6</h2>
-<p>The discrete random variable <span class="math inline">\(X\)</span> has probability generating function <span class="math inline">\(G_X(t)\)</span> given by <span class="math display">\[
+<p>The discrete random variable <span class="math inline">X</span> has probability generating function <span class="math inline">G_X(t)</span> given by <span class="math display">
 G_X(t)=\frac{t}{(3-2t)^2}.
-\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\operatorname{E}(X)\)</span> and <span class="math inline">\(\operatorname{Var}(X)\)</span>. [5]</p>
-<p>The discrete random variable <span class="math inline">\(Y\)</span> has probability generating function <span class="math inline">\(G_Y(t)\)</span> given by <span class="math display">\[
+</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">\operatorname{E}(X)</span> and <span class="math inline">\operatorname{Var}(X)</span>. [5]</p>
+<p>The discrete random variable <span class="math inline">Y</span> has probability generating function <span class="math inline">G_Y(t)</span> given by <span class="math display">
 G_Y(t)=\frac{t^2}{(3-2t)^2}.
-\]</span> The random variable <span class="math inline">\(Z\)</span> is the sum of the random variables <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span>.</p>
-<p><strong>(b)</strong> Assuming <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are independent, find <span class="math inline">\(\operatorname{P}(Z&gt;4)\)</span>. [5]</p>
+</span> The random variable <span class="math inline">Z</span> is the sum of the random variables <span class="math inline">X</span> and <span class="math inline">Y</span>.</p>
+<p><strong>(b)</strong> Assuming <span class="math inline">X</span> and <span class="math inline">Y</span> are independent, find <span class="math inline">\operatorname{P}(Z&gt;4)</span>. [5]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Differentiation gives <span class="math inline">\(G_X'(1)=5\)</span> and <span class="math inline">\(G_X''(1)=32\)</span>. Hence <span class="math display">\[
+<p><strong>(a)</strong> Differentiation gives <span class="math inline">G_X'(1)=5</span> and <span class="math inline">G_X''(1)=32</span>. Hence <span class="math display">
 \operatorname{E}(X)=5,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 \operatorname{Var}(X)=32+5-25=12.
-\]</span></p>
-<strong>(b)</strong> <span class="math display">\[
+</span></p>
+<strong>(b)</strong> <span class="math display">
 G_Z(t)=G_X(t)G_Y(t)=\frac{t^3}{(3-2t)^4}.
-\]</span> From its expansion, <span class="math display">\[
+</span> From its expansion, <span class="math display">
 \operatorname{P}(Z=3)=\frac1{81},\qquad \operatorname{P}(Z=4)=\frac8{243}.
-\]</span> Therefore <span class="math display">\[
+</span> Therefore <span class="math display">
 \operatorname{P}(Z&gt;4)=1-\frac1{81}-\frac8{243}=\frac{232}{243}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-6-1" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-6-1">2025 May/June · 9231/41 and 9231/42 · Question 6</h2>
-<p><span class="math inline">\(Y\)</span> is a discrete random variable which takes the values <span class="math inline">\(0,2,4,\ldots\)</span>. The probability generating function of <span class="math inline">\(Y\)</span> is given by <span class="math display">\[
+<p><span class="math inline">Y</span> is a discrete random variable which takes the values <span class="math inline">0,2,4,\ldots</span>. The probability generating function of <span class="math inline">Y</span> is given by <span class="math display">
 G_Y(t)=\frac{k}{1-at^2}.
-\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(k\)</span> in terms of <span class="math inline">\(a\)</span>. [1]</p>
-<p><strong>(b)</strong> Show that <span class="math inline">\(\operatorname{P}(Y&gt;2)=a^2\)</span>. [3]</p>
-<p><strong>(c)</strong> When <span class="math inline">\(a=0.2\)</span>, find <span class="math inline">\(\operatorname{E}(Y)\)</span>. [2]</p>
+</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">k</span> in terms of <span class="math inline">a</span>. [1]</p>
+<p><strong>(b)</strong> Show that <span class="math inline">\operatorname{P}(Y&gt;2)=a^2</span>. [3]</p>
+<p><strong>(c)</strong> When <span class="math inline">a=0.2</span>, find <span class="math inline">\operatorname{E}(Y)</span>. [2]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Since <span class="math inline">\(G_Y(1)=1\)</span>, <span class="math display">\[
+<p><strong>(a)</strong> Since <span class="math inline">G_Y(1)=1</span>, <span class="math display">
 k=1-a.
-\]</span></p>
-<p><strong>(b)</strong> <span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math display">
 \operatorname{P}(Y&gt;2)=1-k(1+a)
 =1-(1-a)(1+a)=a^2.
-\]</span></p>
-<strong>(c)</strong> <span class="math display">\[
+</span></p>
+<strong>(c)</strong> <span class="math display">
 G_Y'(t)=\frac{0.32t}{(1-0.2t^2)^2},
-\]</span> so <span class="math display">\[
+</span> so <span class="math display">
 \operatorname{E}(Y)=G_Y'(1)=\frac{0.32}{(1-0.2)^2}=0.5.
-\]</span>
+</span>
 </details>
 
 

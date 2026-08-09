@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -459,10 +473,10 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
 <div class="study-card">
 <ul class="task-list">
-<li><label><input type="checkbox">能写出 <span class="math inline">\(M\bar{x}=\sum m_ix_i\)</span>；</label></li>
+<li><label><input type="checkbox">能写出 <span class="math inline">M\bar{x}=\sum m_ix_i</span>；</label></li>
 <li><label><input type="checkbox">能把 uniform body 替换为质量集中在其 own centre of mass 的 point mass；</label></li>
 <li><label><input type="checkbox">能用带符号的 area/mass moments 处理 removed parts；</label></li>
-<li><label><input type="checkbox">能在二维问题中分别计算 <span class="math inline">\(\bar{x}\)</span> 与 <span class="math inline">\(\bar{y}\)</span>；</label></li>
+<li><label><input type="checkbox">能在二维问题中分别计算 <span class="math inline">\bar{x}</span> 与 <span class="math inline">\bar{y}</span>；</label></li>
 <li><label><input type="checkbox">能在 suspension、equilibrium 和 toppling 问题中画出 weight 的作用线。</label></li>
 </ul>
 </div>
@@ -471,54 +485,54 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
 <section id="centre-of-mass-of-particles" class="level3">
 <h3 class="anchored" data-anchor-id="centre-of-mass-of-particles">1.1 Centre of mass of particles</h3>
-<p>对于质量分别为 <span class="math inline">\(m_1,m_2,\ldots,m_n\)</span>、坐标分别为 <span class="math inline">\(x_1,x_2,\ldots,x_n\)</span> 的粒子系统，若总质量为 <span class="math inline">\(M\)</span>，则</p>
-<p><span class="math display">\[
+<p>对于质量分别为 <span class="math inline">m_1,m_2,\ldots,m_n</span>、坐标分别为 <span class="math inline">x_1,x_2,\ldots,x_n</span> 的粒子系统，若总质量为 <span class="math inline">M</span>，则</p>
+<p><span class="math display">
 M=\sum_i m_i,
 \qquad
 \boxed{\bar{x}=\frac{\sum_i m_ix_i}{\sum_i m_i}}.
-\]</span></p>
+</span></p>
 <p>等价地，关于任意参考点取矩：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{M\bar{x}=\sum_i m_ix_i}.
-\]</span></p>
-<p>质量可以用 weight 代替，因为每一项都乘有相同的 <span class="math inline">\(g\)</span>。因此题目给出 weights 时，直接使用 weight moments 也可以。</p>
+</span></p>
+<p>质量可以用 weight 代替，因为每一项都乘有相同的 <span class="math inline">g</span>。因此题目给出 weights 时，直接使用 weight moments 也可以。</p>
 </section>
 <section id="two-dimensional-centre-of-mass" class="level3">
 <h3 class="anchored" data-anchor-id="two-dimensional-centre-of-mass">1.2 Two-dimensional centre of mass</h3>
-<p>对于平面内的粒子或可分割的刚体，分别取关于 <span class="math inline">\(y\)</span>-axis 和 <span class="math inline">\(x\)</span>-axis 的 moments：</p>
-<p><span class="math display">\[
+<p>对于平面内的粒子或可分割的刚体，分别取关于 <span class="math inline">y</span>-axis 和 <span class="math inline">x</span>-axis 的 moments：</p>
+<p><span class="math display">
 \boxed{\bar{x}=\frac{\sum_i m_ix_i}{M}},
 \qquad
 \boxed{\bar{y}=\frac{\sum_i m_iy_i}{M}}.
-\]</span></p>
+</span></p>
 <p>向量形式为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{M\begin{pmatrix}\bar{x}\\\bar{y}\end{pmatrix}
 =\sum_i m_i\begin{pmatrix}x_i\\y_i\end{pmatrix}}.
-\]</span></p>
+</span></p>
 </section>
 <section id="uniform-bodies-and-standard-centres" class="level3">
 <h3 class="anchored" data-anchor-id="uniform-bodies-and-standard-centres">1.3 Uniform bodies and standard centres</h3>
 <p>均匀物体的 centre of mass 位于几何中心或对称轴上。常用结果包括：</p>
 <ul>
 <li>uniform rod：中点；</li>
-<li>triangle：从顶点沿 median 量下全长的 <span class="math inline">\(2/3\)</span>；</li>
-<li>semicircular lamina：从圆心沿 symmetry axis 量 <span class="math inline">\(4r/(3\pi)\)</span>；</li>
-<li>semicircular arc：从圆心沿 symmetry axis 量 <span class="math inline">\(2r/\pi\)</span>；</li>
-<li>quarter-circle sector：沿两条半径对称方向，距圆心 <span class="math inline">\(4r/(3\pi)\)</span>。</li>
+<li>triangle：从顶点沿 median 量下全长的 <span class="math inline">2/3</span>；</li>
+<li>semicircular lamina：从圆心沿 symmetry axis 量 <span class="math inline">4r/(3\pi)</span>；</li>
+<li>semicircular arc：从圆心沿 symmetry axis 量 <span class="math inline">2r/\pi</span>；</li>
+<li>quarter-circle sector：沿两条半径对称方向，距圆心 <span class="math inline">4r/(3\pi)</span>。</li>
 </ul>
 <p>先判断 symmetry，通常可以直接确定一个坐标，再只计算另一个坐标。</p>
 </section>
 <section id="composite-bodies-and-removed-parts" class="level3">
 <h3 class="anchored" data-anchor-id="composite-bodies-and-removed-parts">1.4 Composite bodies and removed parts</h3>
 <p>将复杂物体分成几个简单部分。每一部分用“质量 × 该部分 centre of mass 的坐标”贡献 moment：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 M\bar{x}=m_1x_1+m_2x_2+\cdots.
-\]</span></p>
+</span></p>
 <p>若从完整物体中移除一块，可把被移除部分作为 negative mass 或 negative area：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 M\bar{x}=M_\text{whole}x_\text{whole}-M_\text{removed}x_\text{removed}.
-\]</span></p>
+</span></p>
 <p>使用 negative area 时必须同时对总 area 做减法；不能只减 moment 而保留完整图形的 area。</p>
 </section>
 <section id="suspension-and-tipping" class="level3">
@@ -532,7 +546,7 @@ M\bar{x}=M_\text{whole}x_\text{whole}-M_\text{removed}x_\text{removed}.
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-3.1-three-point-masses-on-a-rod" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.1-three-point-masses-on-a-rod">Example 3.1 · Three point masses on a rod</h3>
-<p>An object consists of three point masses <span class="math inline">\(8\)</span> kg, <span class="math inline">\(5\)</span> kg and <span class="math inline">\(4\)</span> kg attached to a rigid light rod, as shown in the diagram. Calculate the distance of the centre of mass of the object from end <span class="math inline">\(O\)</span>. Ignore the mass of the rod.</p>
+<p>An object consists of three point masses <span class="math inline">8</span> kg, <span class="math inline">5</span> kg and <span class="math inline">4</span> kg attached to a rigid light rod, as shown in the diagram. Calculate the distance of the centre of mass of the object from end <span class="math inline">O</span>. Ignore the mass of the rod.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.1.png" class="img-fluid figure-img" style="width:72.0%"></p>
@@ -543,19 +557,19 @@ M\bar{x}=M_\text{whole}x_\text{whole}-M_\text{removed}x_\text{removed}.
 <summary>
 Show answer
 </summary>
-<p>Let the centre of mass be <span class="math inline">\(\bar{x}\)</span> m from <span class="math inline">\(O\)</span>. The total mass is <span class="math inline">\(17\)</span> kg. Taking moments about <span class="math inline">\(O\)</span>,</p>
-<p><span class="math display">\[
+<p>Let the centre of mass be <span class="math inline">\bar{x}</span> m from <span class="math inline">O</span>. The total mass is <span class="math inline">17</span> kg. Taking moments about <span class="math inline">O</span>,</p>
+<p><span class="math display">
 17g\bar{x}=5g(1.2)+4g(1.8)=13.2g.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\bar{x}=\frac{13.2}{17}=0.776\text{ m}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-3.2-a-uniform-rod-with-masses-at-its-ends" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.2-a-uniform-rod-with-masses-at-its-ends">Example 3.2 · A uniform rod with masses at its ends</h3>
-<p>A uniform rod of length <span class="math inline">\(2\)</span> m has mass <span class="math inline">\(5\)</span> kg. Masses of <span class="math inline">\(4\)</span> kg and <span class="math inline">\(6\)</span> kg are fixed at each end of the rod. Find the centre of mass of the rod.</p>
+<p>A uniform rod of length <span class="math inline">2</span> m has mass <span class="math inline">5</span> kg. Masses of <span class="math inline">4</span> kg and <span class="math inline">6</span> kg are fixed at each end of the rod. Find the centre of mass of the rod.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.2.png" class="img-fluid figure-img" style="width:88.0%"></p>
@@ -566,21 +580,21 @@ Show answer
 <summary>
 Show answer
 </summary>
-<p>Taking the end <span class="math inline">\(A\)</span> as origin, the uniform rod can be represented by a <span class="math inline">\(5\)</span> kg mass at its centre.</p>
-<p><span class="math display">\[
+<p>Taking the end <span class="math inline">A</span> as origin, the uniform rod can be represented by a <span class="math inline">5</span> kg mass at its centre.</p>
+<p><span class="math display">
 (4+5+6)\bar{x}=4(0)+5(1)+6(2).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<span class="math display">\[
+<span class="math display">
 15\bar{x}=17
 \quad\Longrightarrow\quad
 \boxed{\bar{x}=\frac{17}{15}=1.13\text{ m from }A}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-3.3-adding-a-mass-to-a-rod" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.3-adding-a-mass-to-a-rod">Example 3.3 · Adding a mass to a rod</h3>
-<p>A rod <span class="math inline">\(AB\)</span> of mass <span class="math inline">\(1.1\)</span> kg and length <span class="math inline">\(1.2\)</span> m has its centre of mass <span class="math inline">\(0.48\)</span> m from the end <span class="math inline">\(A\)</span>. What mass should be attached to the end <span class="math inline">\(B\)</span> to ensure that the centre of mass is at the midpoint of the rod?</p>
+<p>A rod <span class="math inline">AB</span> of mass <span class="math inline">1.1</span> kg and length <span class="math inline">1.2</span> m has its centre of mass <span class="math inline">0.48</span> m from the end <span class="math inline">A</span>. What mass should be attached to the end <span class="math inline">B</span> to ensure that the centre of mass is at the midpoint of the rod?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.3.png" class="img-fluid figure-img" style="width:84.0%"></p>
@@ -591,21 +605,21 @@ Show answer
 <summary>
 Show answer
 </summary>
-<p>Take the midpoint <span class="math inline">\(C\)</span> as origin. The existing centre of mass is <span class="math inline">\(0.12\)</span> m to the left of <span class="math inline">\(C\)</span> and the added mass <span class="math inline">\(m\)</span> is <span class="math inline">\(0.6\)</span> m to the right.</p>
-<p><span class="math display">\[
+<p>Take the midpoint <span class="math inline">C</span> as origin. The existing centre of mass is <span class="math inline">0.12</span> m to the left of <span class="math inline">C</span> and the added mass <span class="math inline">m</span> is <span class="math inline">0.6</span> m to the right.</p>
+<p><span class="math display">
 (1.1+m)(0)=1.1(-0.12)+m(0.6).
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<span class="math display">\[
+<span class="math display">
 0.6m=0.132
 \quad\Longrightarrow\quad
 \boxed{m=0.22\text{ kg}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-3.4-a-squash-racquet" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.4-a-squash-racquet">Example 3.4 · A squash racquet</h3>
-<p>A squash racquet of mass <span class="math inline">\(200\)</span> g and total length <span class="math inline">\(70\)</span> cm consists of a handle of mass <span class="math inline">\(150\)</span> g, whose centre of mass is <span class="math inline">\(20\)</span> cm from the end, and a frame of mass <span class="math inline">\(50\)</span> g, whose centre of mass is <span class="math inline">\(55\)</span> cm from the end. Find the distance of the centre of mass from the end of the handle.</p>
+<p>A squash racquet of mass <span class="math inline">200</span> g and total length <span class="math inline">70</span> cm consists of a handle of mass <span class="math inline">150</span> g, whose centre of mass is <span class="math inline">20</span> cm from the end, and a frame of mass <span class="math inline">50</span> g, whose centre of mass is <span class="math inline">55</span> cm from the end. Find the distance of the centre of mass from the end of the handle.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.4.png" class="img-fluid figure-img" style="width:92.0%"></p>
@@ -616,24 +630,24 @@ Show answer
 <summary>
 Show answer
 </summary>
-<p>Use kilograms and metres, or use grams and centimetres consistently. Taking moments about the end <span class="math inline">\(O\)</span>,</p>
-<p><span class="math display">\[
+<p>Use kilograms and metres, or use grams and centimetres consistently. Taking moments about the end <span class="math inline">O</span>,</p>
+<p><span class="math display">
 (0.15+0.05)\bar{x}=0.15(0.20)+0.05(0.55).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\bar{x}=0.288\text{ m}=28.8\text{ cm}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-3.5-a-pendant-in-the-shape-of-a-letter-j" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.5-a-pendant-in-the-shape-of-a-letter-j">Example 3.5 · A pendant in the shape of a letter J</h3>
 <p>Joanna makes herself a pendant in the shape of a letter J, made up of rectangular shapes as shown in the diagram.</p>
 <p><strong>(i)</strong> Find the position of the centre of mass of the pendant.</p>
-<p>The pendant is hung from a point <span class="math inline">\(P\)</span> in the middle of <span class="math inline">\(AB\)</span>.</p>
-<p><strong>(ii)</strong> Find the angle that <span class="math inline">\(AB\)</span> makes with the horizontal.</p>
-<p>Joanna wishes to hang the pendant so that <span class="math inline">\(AB\)</span> is horizontal.</p>
-<p><strong>(iii)</strong> How far along <span class="math inline">\(AB\)</span> should she place the ring through which the suspending chain will pass?</p>
+<p>The pendant is hung from a point <span class="math inline">P</span> in the middle of <span class="math inline">AB</span>.</p>
+<p><strong>(ii)</strong> Find the angle that <span class="math inline">AB</span> makes with the horizontal.</p>
+<p>Joanna wishes to hang the pendant so that <span class="math inline">AB</span> is horizontal.</p>
+<p><strong>(iii)</strong> How far along <span class="math inline">AB</span> should she place the ring through which the suspending chain will pass?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.5.png" class="img-fluid figure-img" style="width:48.0%"></p>
@@ -645,10 +659,10 @@ Show answer
 Show answer
 </summary>
 <p>Split the pendant into three rectangles. Their areas, and hence masses in suitable units, are</p>
-<p><span class="math display">\[
+<p><span class="math display">
 m_1=5,\qquad m_2=2.5,\qquad m_3=3,qquad M=10.5.
-\]</span></p>
-<p>The rectangle centres are at <span class="math inline">\((2.5,4)\)</span>, <span class="math inline">\((2.5,2.25)\)</span> and <span class="math inline">\((1.5,0.5)\)</span>.</p>
+</span></p>
+<p>The rectangle centres are at <span class="math inline">(2.5,4)</span>, <span class="math inline">(2.5,2.25)</span> and <span class="math inline">(1.5,0.5)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.5a1.png" class="img-fluid figure-img" style="width:92.0%"></p>
@@ -656,38 +670,38 @@ m_1=5,\qquad m_2=2.5,\qquad m_3=3,qquad M=10.5.
 </figure>
 </div>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \bar{x}=\frac{5(2.5)+2.5(2.5)+3(1.5)}{10.5}=\boxed{2.21\text{ cm}},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \bar{y}=\frac{5(4)+2.5(2.25)+3(0.5)}{10.5}=\boxed{2.58\text{ cm}}.
-\]</span></p>
-<p><strong>(ii)</strong> When suspended from <span class="math inline">\(P\)</span>, <span class="math inline">\(G\)</span> is vertically below <span class="math inline">\(P\)</span>. With <span class="math inline">\(P=(2.5,4.5)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> When suspended from <span class="math inline">P</span>, <span class="math inline">G</span> is vertically below <span class="math inline">P</span>. With <span class="math inline">P=(2.5,4.5)</span>,</p>
+<p><span class="math display">
 GQ=2.5-2.21=0.29,
 \qquad PQ=4.5-2.58=1.92.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan\alpha=\frac{0.29}{1.92}
 \quad\Longrightarrow\quad
 \boxed{\alpha=8.6^\circ}.
-\]</span></p>
+</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.5a2.png" class="img-fluid figure-img" style="width:96.0%"></p>
 <figcaption>Answer diagram</figcaption>
 </figure>
 </div>
-<p><strong>(iii)</strong> For <span class="math inline">\(AB\)</span> to be horizontal, the suspension point must be vertically above <span class="math inline">\(G\)</span>. Hence the ring is placed</p>
-<span class="math display">\[
+<p><strong>(iii)</strong> For <span class="math inline">AB</span> to be horizontal, the suspension point must be vertically above <span class="math inline">G</span>. Hence the ring is placed</p>
+<span class="math display">
 \boxed{2.21\text{ cm from }A}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-3.6-a-square-plate-with-point-masses" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.6-a-square-plate-with-point-masses">Example 3.6 · A square plate with point masses</h3>
-<p>Find the centre of mass of a body consisting of a square plate of mass <span class="math inline">\(3\)</span> kg and side length <span class="math inline">\(2\)</span> m, with small objects of mass <span class="math inline">\(1\)</span> kg, <span class="math inline">\(2\)</span> kg, <span class="math inline">\(4\)</span> kg and <span class="math inline">\(5\)</span> kg at the corners of the square.</p>
+<p>Find the centre of mass of a body consisting of a square plate of mass <span class="math inline">3</span> kg and side length <span class="math inline">2</span> m, with small objects of mass <span class="math inline">1</span> kg, <span class="math inline">2</span> kg, <span class="math inline">4</span> kg and <span class="math inline">5</span> kg at the corners of the square.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.6.png" class="img-fluid figure-img" style="width:58.0%"></p>
@@ -698,8 +712,8 @@ GQ=2.5-2.21=0.29,
 <summary>
 Show answer
 </summary>
-<p>The <span class="math inline">\(3\)</span> kg plate is represented by a <span class="math inline">\(3\)</span> kg point mass at <span class="math inline">\((1,1)\)</span>. The total mass is <span class="math inline">\(15\)</span> kg.</p>
-<p><span class="math display">\[
+<p>The <span class="math inline">3</span> kg plate is represented by a <span class="math inline">3</span> kg point mass at <span class="math inline">(1,1)</span>. The total mass is <span class="math inline">15</span> kg.</p>
+<p><span class="math display">
 15\begin{pmatrix}\bar{x}\\\bar{y}\end{pmatrix}
 =1\begin{pmatrix}0\\0\end{pmatrix}
 +2\begin{pmatrix}2\\0\end{pmatrix}
@@ -707,16 +721,16 @@ Show answer
 +5\begin{pmatrix}0\\2\end{pmatrix}
 +3\begin{pmatrix}1\\1\end{pmatrix}
 =\begin{pmatrix}15\\21\end{pmatrix}.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{(\bar{x},\bar{y})=(1,1.4)}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-3.7-a-disc-with-a-circular-hole" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.7-a-disc-with-a-circular-hole">Example 3.7 · A disc with a circular hole</h3>
-<p>A metal disc of radius <span class="math inline">\(15\)</span> cm has a hole of radius <span class="math inline">\(5\)</span> cm cut from it, as shown in the diagram. Find the centre of mass of the disc.</p>
+<p>A metal disc of radius <span class="math inline">15</span> cm has a hole of radius <span class="math inline">5</span> cm cut from it, as shown in the diagram. Find the centre of mass of the disc.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.7.png" class="img-fluid figure-img" style="width:54.0%"></p>
@@ -727,32 +741,32 @@ Show answer
 <summary>
 Show answer
 </summary>
-<p>The centre of mass lies on the <span class="math inline">\(x\)</span>-axis by symmetry. Treat the original disc as the final body plus the removed disc.</p>
+<p>The centre of mass lies on the <span class="math inline">x</span>-axis by symmetry. Treat the original disc as the final body plus the removed disc.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.7a1.png" class="img-fluid figure-img" style="width:94.0%"></p>
 <figcaption>Answer diagram</figcaption>
 </figure>
 </div>
-<p>Taking moments about <span class="math inline">\(O\)</span>,</p>
-<p><span class="math display">\[
+<p>Taking moments about <span class="math inline">O</span>,</p>
+<p><span class="math display">
 225\pi(15)=200\pi\bar{x}+25\pi(20).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \bar{x}=\frac{225(15)-25(20)}{200}=\boxed{14.4\text{ cm from }O}.
-\]</span></p>
-The centre of mass is therefore <span class="math inline">\(0.6\)</span> cm to the left of the centre of the original disc.
+</span></p>
+The centre of mass is therefore <span class="math inline">0.6</span> cm to the left of the centre of the original disc.
 </details>
 </section>
 <section id="example-3.8-a-triangular-lamina" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.8-a-triangular-lamina">Example 3.8 · A triangular lamina</h3>
-<p>Find the coordinates of the centre of mass of a uniform triangular lamina with vertices at <span class="math inline">\(A(4,4)\)</span>, <span class="math inline">\(B(1,1)\)</span> and <span class="math inline">\(C(5,1)\)</span>. If the lamina is suspended from <span class="math inline">\(A\)</span>, find the angle that the line <span class="math inline">\(BC\)</span> makes with the horizontal.</p>
+<p>Find the coordinates of the centre of mass of a uniform triangular lamina with vertices at <span class="math inline">A(4,4)</span>, <span class="math inline">B(1,1)</span> and <span class="math inline">C(5,1)</span>. If the lamina is suspended from <span class="math inline">A</span>, find the angle that the line <span class="math inline">BC</span> makes with the horizontal.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The midpoint of <span class="math inline">\(BC\)</span> is <span class="math inline">\(M=(3,1)\)</span>. The centre of mass <span class="math inline">\(G\)</span> is two-thirds of the way down the median <span class="math inline">\(AM\)</span>.</p>
+<p>The midpoint of <span class="math inline">BC</span> is <span class="math inline">M=(3,1)</span>. The centre of mass <span class="math inline">G</span> is two-thirds of the way down the median <span class="math inline">AM</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.8a1.png" class="img-fluid figure-img" style="width:72.0%"></p>
@@ -760,16 +774,16 @@ Show answer
 </figure>
 </div>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 G=\left(4-\frac23(4-3),\ 4-\frac23(4-1)\right)
 =\boxed{\left(3\frac13,2\right)}.
-\]</span></p>
-<p>When the lamina is suspended from <span class="math inline">\(A\)</span>, <span class="math inline">\(AG\)</span> is vertical. Since the horizontal displacement is <span class="math inline">\(4-3\frac13=\frac23\)</span> and the vertical displacement is <span class="math inline">\(4-2=2\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>When the lamina is suspended from <span class="math inline">A</span>, <span class="math inline">AG</span> is vertical. Since the horizontal displacement is <span class="math inline">4-3\frac13=\frac23</span> and the vertical displacement is <span class="math inline">4-2=2</span>,</p>
+<p><span class="math display">
 \tan\theta=\frac{2/3}{2}=\frac13
 \quad\Longrightarrow\quad
 \boxed{\theta=18.4^\circ}.
-\]</span></p>
+</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.8a2.png" class="img-fluid figure-img" style="width:96.0%"></p>
@@ -791,27 +805,27 @@ G=\left(4-\frac23(4-3),\ 4-\frac23(4-1)\right)
 <summary>
 Show answer
 </summary>
-<p>The shape is symmetric about <span class="math inline">\(y=x\)</span>, so the centre of mass is <span class="math inline">\((\bar{x},\bar{x})\)</span>. It consists of a square of side <span class="math inline">\(2a\)</span> and two semicircles of radius <span class="math inline">\(a\)</span>.</p>
-<p>The square has area <span class="math inline">\(4a^2\)</span> and centre <span class="math inline">\((a,a)\)</span>. Each semicircle has area <span class="math inline">\(\frac12\pi a^2\)</span>; its centre of mass is a distance <span class="math inline">\(\frac{4a}{3\pi}\)</span> from the diameter.</p>
-<p>Taking moments for the <span class="math inline">\(x\)</span>-coordinate,</p>
-<p><span class="math display">\[
+<p>The shape is symmetric about <span class="math inline">y=x</span>, so the centre of mass is <span class="math inline">(\bar{x},\bar{x})</span>. It consists of a square of side <span class="math inline">2a</span> and two semicircles of radius <span class="math inline">a</span>.</p>
+<p>The square has area <span class="math inline">4a^2</span> and centre <span class="math inline">(a,a)</span>. Each semicircle has area <span class="math inline">\frac12\pi a^2</span>; its centre of mass is a distance <span class="math inline">\frac{4a}{3\pi}</span> from the diameter.</p>
+<p>Taking moments for the <span class="math inline">x</span>-coordinate,</p>
+<p><span class="math display">
 (4+\pi)a^2\bar{x}
 =4a^2(a)+\frac12\pi a^2\left(a+\frac{4a}{3\pi}\right)
 +\frac12\pi a^2\left(2a+\frac{4a}{3\pi}\right).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\bar{x}=\frac{a(28+9\pi)}{6(4+\pi)}=1.31a},
-\]</span></p>
+</span></p>
 <p>and the centre of mass is</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{(1.31a,1.31a)}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-3.10-sliding-or-toppling" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.10-sliding-or-toppling">Example 3.10 · Sliding or toppling</h3>
-<p>An increasing force <span class="math inline">\(P\)</span> N is applied to a block, as shown in the diagram, until the block moves. The coefficient of friction between the block and the plane is <span class="math inline">\(0.4\)</span>. Does it slide or topple?</p>
+<p>An increasing force <span class="math inline">P</span> N is applied to a block, as shown in the diagram, until the block moves. The coefficient of friction between the block and the plane is <span class="math inline">0.4</span>. Does it slide or topple?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.10.png" class="img-fluid figure-img" style="width:82.0%"></p>
@@ -823,23 +837,23 @@ Show answer
 Show answer
 </summary>
 <p>Until the block moves,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 P=F,qquad R=2g.
-\]</span></p>
+</span></p>
 <p>If sliding is about to occur,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 P=F=\mu R=0.4(2g)=\boxed{8\text{ N}}.
-\]</span></p>
-<p>If toppling is about to occur, take moments about the edge <span class="math inline">\(A\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>If toppling is about to occur, take moments about the edge <span class="math inline">A</span>:</p>
+<p><span class="math display">
 2g(0.25)-P(0.2)=0
 \quad\Longrightarrow\quad
 P=\boxed{25\text{ N}}.
-\]</span></p>
-<p>Since <span class="math inline">\(8&lt;25\)</span>, the block will</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">8&lt;25</span>, the block will</p>
+<p><span class="math display">
 \boxed{\text{slide before it topples}}.
-\]</span></p>
+</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.10a1.png" class="img-fluid figure-img" style="width:86.0%"></p>
@@ -850,7 +864,7 @@ P=\boxed{25\text{ N}}.
 </section>
 <section id="example-3.11-a-block-on-a-slope" class="level3">
 <h3 class="anchored" data-anchor-id="example-3.11-a-block-on-a-slope">Example 3.11 · A block on a slope</h3>
-<p>A rectangular block of mass <span class="math inline">\(3\)</span> kg is placed on a slope as shown. The angle <span class="math inline">\(\alpha\)</span> is gradually increased. What happens to the block, given that the coefficient of friction between the block and the slope is <span class="math inline">\(0.6\)</span>?</p>
+<p>A rectangular block of mass <span class="math inline">3</span> kg is placed on a slope as shown. The angle <span class="math inline">\alpha</span> is gradually increased. What happens to the block, given that the coefficient of friction between the block and the slope is <span class="math inline">0.6</span>?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.11.png" class="img-fluid figure-img" style="width:62.0%"></p>
@@ -862,25 +876,25 @@ P=\boxed{25\text{ N}}.
 Show answer
 </summary>
 <p>For possible sliding,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 F=3g\sin\alpha,qquad R=3g\cos\alpha.
-\]</span></p>
-<p>At limiting equilibrium, <span class="math inline">\(F=\mu R\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>At limiting equilibrium, <span class="math inline">F=\mu R</span>, so</p>
+<p><span class="math display">
 \tan\alpha=\mu=0.6
 \quad\Longrightarrow\quad
 \alpha=\boxed{31.0^\circ}.
-\]</span></p>
-<p>For possible toppling about the lower edge <span class="math inline">\(E\)</span>, the centre of mass must be vertically above <span class="math inline">\(E\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>For possible toppling about the lower edge <span class="math inline">E</span>, the centre of mass must be vertically above <span class="math inline">E</span>. Hence</p>
+<p><span class="math display">
 \tan\alpha=\frac{0.4}{0.8}=0.5
 \quad\Longrightarrow\quad
 \alpha=\boxed{26.6^\circ}.
-\]</span></p>
+</span></p>
 <p>Since toppling occurs at the smaller angle, the block will</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\text{topple without sliding at }\alpha=26.6^\circ}.
-\]</span></p>
+</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.11a1.png" class="img-fluid figure-img" style="width:86.0%"></p>
@@ -900,129 +914,129 @@ F=3g\sin\alpha,qquad R=3g\cos\alpha.
 <h2 class="anchored" data-anchor-id="教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</h2>
 <p>本节收录 Further Mechanics Chapter 3 Exercise 3B 与 Exercise 3C 中明确标注 Cambridge International 来源的题目。题目保持教材原始英文，图像使用 <code>Pic</code> 文件夹中的独立图片；每个 <code>(i)</code>、<code>(ii)</code>、<code>(a)</code>、<code>(b)</code> 小问都单独列出。</p>
 <div class="question-card" title="Exercise 3B, Question 11 · Cambridge International 9709 Paper 53 Q7 November 2014">
-<p>A uniform lamina <span class="math inline">\(ABC\)</span> is in the form of a major segment of a circle with centre <span class="math inline">\(O\)</span> and radius <span class="math inline">\(0.35\)</span> m. The straight edge of the lamina is <span class="math inline">\(AB\)</span>, and angle <span class="math inline">\(AOB=\frac23\pi\)</span> radians (see diagram).</p>
+<p>A uniform lamina <span class="math inline">ABC</span> is in the form of a major segment of a circle with centre <span class="math inline">O</span> and radius <span class="math inline">0.35</span> m. The straight edge of the lamina is <span class="math inline">AB</span>, and angle <span class="math inline">AOB=\frac23\pi</span> radians (see diagram).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.EB_11.png" class="img-fluid figure-img" style="width:58.0%"></p>
 <figcaption>Exercise 3B Question 11</figcaption>
 </figure>
 </div>
-<p><strong>(i)</strong> Show that the centre of mass of the lamina is <span class="math inline">\(0.0600\)</span> m from <span class="math inline">\(O\)</span>, correct to <span class="math inline">\(3\)</span> significant figures.</p>
-<p>The weight of the lamina is <span class="math inline">\(14\)</span> N. It is placed on a rough horizontal surface with <span class="math inline">\(A\)</span> vertically above <span class="math inline">\(B\)</span> and the lowest point of the arc <span class="math inline">\(BC\)</span> in contact with the surface. The lamina is held in equilibrium in a vertical plane by a force of magnitude <span class="math inline">\(F\)</span> N acting at <span class="math inline">\(A\)</span>.</p>
-<p><strong>(ii)</strong> Find <span class="math inline">\(F\)</span> in each of the following cases:</p>
-<p><strong>(a)</strong> the force of magnitude <span class="math inline">\(F\)</span> N acts along <span class="math inline">\(AB\)</span>;</p>
-<p><strong>(b)</strong> the force of magnitude <span class="math inline">\(F\)</span> N acts along the tangent to the circular arc at <span class="math inline">\(A\)</span>.</p>
+<p><strong>(i)</strong> Show that the centre of mass of the lamina is <span class="math inline">0.0600</span> m from <span class="math inline">O</span>, correct to <span class="math inline">3</span> significant figures.</p>
+<p>The weight of the lamina is <span class="math inline">14</span> N. It is placed on a rough horizontal surface with <span class="math inline">A</span> vertically above <span class="math inline">B</span> and the lowest point of the arc <span class="math inline">BC</span> in contact with the surface. The lamina is held in equilibrium in a vertical plane by a force of magnitude <span class="math inline">F</span> N acting at <span class="math inline">A</span>.</p>
+<p><strong>(ii)</strong> Find <span class="math inline">F</span> in each of the following cases:</p>
+<p><strong>(a)</strong> the force of magnitude <span class="math inline">F</span> N acts along <span class="math inline">AB</span>;</p>
+<p><strong>(b)</strong> the force of magnitude <span class="math inline">F</span> N acts along the tangent to the circular arc at <span class="math inline">A</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(i)</strong> Let <span class="math inline">\(r=0.35\)</span> m. Treat the major segment as the complete circle minus the minor segment. The minor segment is the sector minus triangle <span class="math inline">\(AOB\)</span>.</p>
+<p><strong>(i)</strong> Let <span class="math inline">r=0.35</span> m. Treat the major segment as the complete circle minus the minor segment. The minor segment is the sector minus triangle <span class="math inline">AOB</span>.</p>
 <p>The area of the major segment is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 A=r^2\left(\frac{2\pi}{3}+\frac{\sqrt3}{4}\right).
-\]</span></p>
-<p>Using the centre of mass of a sector and the centroid of triangle <span class="math inline">\(AOB\)</span>, the moment of the removed minor segment about <span class="math inline">\(O\)</span> is <span class="math inline">\(\frac{\sqrt3}{4}r^3\)</span>. Therefore</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using the centre of mass of a sector and the centroid of triangle <span class="math inline">AOB</span>, the moment of the removed minor segment about <span class="math inline">O</span> is <span class="math inline">\frac{\sqrt3}{4}r^3</span>. Therefore</p>
+<p><span class="math display">
 d=\frac{\frac{\sqrt3}{4}r^3}{r^2\left(\frac{2\pi}{3}+\frac{\sqrt3}{4}\right)}
 =\boxed{0.0600\text{ m}}.
-\]</span></p>
-<p><strong>(ii)(a)</strong> Taking moments about the contact point <span class="math inline">\(C\)</span>, the weight has moment <span class="math inline">\(14d\)</span> and the force along <span class="math inline">\(AB\)</span> has perpendicular distance <span class="math inline">\(r/2\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)(a)</strong> Taking moments about the contact point <span class="math inline">C</span>, the weight has moment <span class="math inline">14d</span> and the force along <span class="math inline">AB</span> has perpendicular distance <span class="math inline">r/2</span>:</p>
+<p><span class="math display">
 F\left(\frac r2\right)=14d
 \quad\Longrightarrow\quad
 \boxed{F=4.8\text{ N}}.
-\]</span></p>
-<p><strong>(ii)(b)</strong> The perpendicular distance from <span class="math inline">\(C\)</span> to the tangent at <span class="math inline">\(A\)</span> gives</p>
-<span class="math display">\[
+</span></p>
+<p><strong>(ii)(b)</strong> The perpendicular distance from <span class="math inline">C</span> to the tangent at <span class="math inline">A</span> gives</p>
+<span class="math display">
 \boxed{F=1.29\text{ N}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q7, November 2014; textbook answer checked.
 </div>
 </div>
 <div class="question-card" title="Exercise 3B, Question 12 · Cambridge International 9709 Paper 51 Q2 June 2012">
-<p>The diagram shows a circular object formed from a uniform semi-circular lamina of weight <span class="math inline">\(11\)</span> N and a uniform semi-circular arc of weight <span class="math inline">\(9\)</span> N. The lamina and arc both have centre <span class="math inline">\(O\)</span> and radius <span class="math inline">\(0.7\)</span> m and are joined at the ends of their common diameter <span class="math inline">\(AB\)</span>.</p>
+<p>The diagram shows a circular object formed from a uniform semi-circular lamina of weight <span class="math inline">11</span> N and a uniform semi-circular arc of weight <span class="math inline">9</span> N. The lamina and arc both have centre <span class="math inline">O</span> and radius <span class="math inline">0.7</span> m and are joined at the ends of their common diameter <span class="math inline">AB</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.EB_12.png" class="img-fluid figure-img" style="width:48.0%"></p>
 <figcaption>Exercise 3B Question 12</figcaption>
 </figure>
 </div>
-<p><strong>(i)</strong> Show that the distance of the centre of mass of the object from <span class="math inline">\(O\)</span> is <span class="math inline">\(0.0371\)</span> m, correct to <span class="math inline">\(3\)</span> significant figures.</p>
-<p>The object hangs in equilibrium, freely suspended at <span class="math inline">\(A\)</span>.</p>
-<p><strong>(ii)</strong> Find the angle between <span class="math inline">\(AB\)</span> and the vertical and state whether the lowest point of the object is on the lamina or on the arc.</p>
+<p><strong>(i)</strong> Show that the distance of the centre of mass of the object from <span class="math inline">O</span> is <span class="math inline">0.0371</span> m, correct to <span class="math inline">3</span> significant figures.</p>
+<p>The object hangs in equilibrium, freely suspended at <span class="math inline">A</span>.</p>
+<p><strong>(ii)</strong> Find the angle between <span class="math inline">AB</span> and the vertical and state whether the lowest point of the object is on the lamina or on the arc.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The centre of mass of a semi-circular lamina is <span class="math inline">\(\frac{4r}{3\pi}\)</span> from <span class="math inline">\(O\)</span>, while the centre of mass of a semi-circular arc is <span class="math inline">\(\frac{2r}{\pi}\)</span> from <span class="math inline">\(O\)</span> in the opposite direction. Taking moments about <span class="math inline">\(O\)</span>,</p>
-<p><span class="math display">\[
+<p>The centre of mass of a semi-circular lamina is <span class="math inline">\frac{4r}{3\pi}</span> from <span class="math inline">O</span>, while the centre of mass of a semi-circular arc is <span class="math inline">\frac{2r}{\pi}</span> from <span class="math inline">O</span> in the opposite direction. Taking moments about <span class="math inline">O</span>,</p>
+<p><span class="math display">
 20\,OG
 =9\left(\frac{2r}{\pi}\right)-11\left(\frac{4r}{3\pi}\right)
 =0.742\text{ N m}.
-\]</span></p>
-<p>Dividing by the total weight <span class="math inline">\(20\)</span> N gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Dividing by the total weight <span class="math inline">20</span> N gives</p>
+<p><span class="math display">
 \boxed{OG=0.0371\text{ m}}.
-\]</span></p>
-<p>When suspended from <span class="math inline">\(A\)</span>, <span class="math inline">\(G\)</span> is vertically below <span class="math inline">\(A\)</span>. Since <span class="math inline">\(AO=r=0.7\)</span> m,</p>
-<p><span class="math display">\[
+</span></p>
+<p>When suspended from <span class="math inline">A</span>, <span class="math inline">G</span> is vertically below <span class="math inline">A</span>. Since <span class="math inline">AO=r=0.7</span> m,</p>
+<p><span class="math display">
 \tan\theta=\frac{0.0371}{0.7}
 \quad\Longrightarrow\quad
 \boxed{\theta=3.04^\circ}.
-\]</span></p>
+</span></p>
 <p>The lowest point is on the</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\text{arc}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 51 Q2, June 2012; textbook answer checked.
 </div>
 </div>
 <div class="question-card" title="Exercise 3C, Question 8 · Cambridge International 9709 Paper 53 Q7 November 2013">
-<p>A uniform solid is made from a cylinder and a cone, both with radius <span class="math inline">\(0.5\)</span> m and height <span class="math inline">\(0.4\)</span> m. The circular base of the cone is attached to a circular face of the cylinder, with their circumferences coinciding. The solid rests in equilibrium with the circular face of the solid on a rough horizontal surface (see diagram).</p>
+<p>A uniform solid is made from a cylinder and a cone, both with radius <span class="math inline">0.5</span> m and height <span class="math inline">0.4</span> m. The circular base of the cone is attached to a circular face of the cylinder, with their circumferences coinciding. The solid rests in equilibrium with the circular face of the solid on a rough horizontal surface (see diagram).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/pic/3.EC_8.png" class="img-fluid figure-img" style="width:62.0%"></p>
 <figcaption>Exercise 3C Question 8</figcaption>
 </figure>
 </div>
-<p><strong>(i)</strong> Show that the centre of mass of the solid is <span class="math inline">\(0.275\)</span> m above the surface.</p>
-<p>The weight of the solid is <span class="math inline">\(60\)</span> N. A horizontal force of increasing magnitude <span class="math inline">\(P\)</span> N is applied to the vertex of the cone, which causes the solid eventually to topple without sliding.</p>
-<p><strong>(ii)</strong> Calculate the value of <span class="math inline">\(P\)</span> for which the solid is on the point of toppling.</p>
+<p><strong>(i)</strong> Show that the centre of mass of the solid is <span class="math inline">0.275</span> m above the surface.</p>
+<p>The weight of the solid is <span class="math inline">60</span> N. A horizontal force of increasing magnitude <span class="math inline">P</span> N is applied to the vertex of the cone, which causes the solid eventually to topple without sliding.</p>
+<p><strong>(ii)</strong> Calculate the value of <span class="math inline">P</span> for which the solid is on the point of toppling.</p>
 <p><strong>(iii)</strong> Find the least possible value for the coefficient of friction between the solid and the surface.</p>
-<p>The force of magnitude <span class="math inline">\(P\)</span> is removed, and the solid is held with the curved surface of the cylinder in contact with the horizontal surface. The horizontal surface is then tilted so that it makes an angle of <span class="math inline">\(30^\circ\)</span> with the horizontal. The solid is released with its axis of symmetry parallel to a line of greatest slope and the conical portion pointing down the slope.</p>
+<p>The force of magnitude <span class="math inline">P</span> is removed, and the solid is held with the curved surface of the cylinder in contact with the horizontal surface. The horizontal surface is then tilted so that it makes an angle of <span class="math inline">30^\circ</span> with the horizontal. The solid is released with its axis of symmetry parallel to a line of greatest slope and the conical portion pointing down the slope.</p>
 <p><strong>(iv)</strong> Show that the solid does not slide, but does topple.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The cylinder and cone have volume ratio <span class="math inline">\(3:1\)</span>, so their weights are <span class="math inline">\(45\)</span> N and <span class="math inline">\(15\)</span> N. Their centres of mass are <span class="math inline">\(0.2\)</span> m and <span class="math inline">\(0.5\)</span> m above the supporting face. Thus</p>
-<p><span class="math display">\[
+<p>The cylinder and cone have volume ratio <span class="math inline">3:1</span>, so their weights are <span class="math inline">45</span> N and <span class="math inline">15</span> N. Their centres of mass are <span class="math inline">0.2</span> m and <span class="math inline">0.5</span> m above the supporting face. Thus</p>
+<p><span class="math display">
 \bar{y}=\frac{45(0.2)+15(0.5)}{60}=\boxed{0.275\text{ m}}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> At toppling, take moments about the edge of the circular base:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 P(0.8)=60(0.5)
 \quad\Longrightarrow\quad
 \boxed{P=37.5\text{ N}}.
-\]</span></p>
-<p><strong>(iii)</strong> At toppling the friction must provide <span class="math inline">\(P\)</span>, while the normal reaction is <span class="math inline">\(60\)</span> N. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(iii)</strong> At toppling the friction must provide <span class="math inline">P</span>, while the normal reaction is <span class="math inline">60</span> N. Hence</p>
+<p><span class="math display">
 \mu\ge\frac{37.5}{60}
 \quad\Longrightarrow\quad
 \boxed{\mu_{\min}=0.625}.
-\]</span></p>
-<p><strong>(iv)</strong> On the <span class="math inline">\(30^\circ\)</span> slope, the component down the slope is</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(iv)</strong> On the <span class="math inline">30^\circ</span> slope, the component down the slope is</p>
+<p><span class="math display">
 60\sin30^\circ=30\text{ N}.
-\]</span></p>
-<p>The available limiting friction is at least <span class="math inline">\(0.625(60\cos30^\circ)=32.5\)</span> N, so the solid does not slide. The line of action of the weight passes outside the supporting contact region before sliding occurs, so the solid</p>
-<span class="math display">\[
+</span></p>
+<p>The available limiting friction is at least <span class="math inline">0.625(60\cos30^\circ)=32.5</span> N, so the solid does not slide. The line of action of the weight passes outside the supporting contact region before sliding occurs, so the solid</p>
+<span class="math display">
 \boxed{\text{topples without sliding}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q7, November 2013; textbook answer checked.
@@ -1034,8 +1048,8 @@ P(0.8)=60(0.5)
 <p>本节先列出独立的 centre-of-mass 真题；涉及 equilibrium、friction 或 toppling 的综合题保留在同一网站的刚体平衡真题页，并在真题页底部完成了年份与试卷核对。</p>
 <section id="mayjune-923133-question-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-1">2021 May/June · 9231/33 · Question 1</h3>
-<p>A uniform lamina <span class="math inline">\(ABCD\)</span> consists of two isosceles triangles <span class="math inline">\(ABD\)</span> and <span class="math inline">\(BCD\)</span>. The diagonals of <span class="math inline">\(ABCD\)</span> meet at the point <span class="math inline">\(O\)</span>. The length of <span class="math inline">\(AO\)</span> is <span class="math inline">\(3a\)</span>, the length of <span class="math inline">\(OC\)</span> is <span class="math inline">\(6a\)</span> and the length of <span class="math inline">\(BD\)</span> is <span class="math inline">\(16a\)</span> (see diagram).</p>
-<p>Find the distance of the centre of mass of the lamina from <span class="math inline">\(DB\)</span>.</p>
+<p>A uniform lamina <span class="math inline">ABCD</span> consists of two isosceles triangles <span class="math inline">ABD</span> and <span class="math inline">BCD</span>. The diagonals of <span class="math inline">ABCD</span> meet at the point <span class="math inline">O</span>. The length of <span class="math inline">AO</span> is <span class="math inline">3a</span>, the length of <span class="math inline">OC</span> is <span class="math inline">6a</span> and the length of <span class="math inline">BD</span> is <span class="math inline">16a</span> (see diagram).</p>
+<p>Find the distance of the centre of mass of the lamina from <span class="math inline">DB</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/centre-of-mass/past-2021-mj-q1.svg" class="img-fluid figure-img" style="width:62.0%"></p>
@@ -1046,12 +1060,12 @@ P(0.8)=60(0.5)
 <summary>
 Show answer
 </summary>
-<p>Split the lamina into the two triangles <span class="math inline">\(ABD\)</span> and <span class="math inline">\(BCD\)</span>. Since they have the same base <span class="math inline">\(BD\)</span>, their areas are in the ratio of their heights:</p>
-<p><span class="math display">\[
+<p>Split the lamina into the two triangles <span class="math inline">ABD</span> and <span class="math inline">BCD</span>. Since they have the same base <span class="math inline">BD</span>, their areas are in the ratio of their heights:</p>
+<p><span class="math display">
 A_{ABD}:A_{BCD}=3a:6a=1:2.
-\]</span></p>
-<p>The centroid of a triangle is one-third of the perpendicular distance from its base to the opposite vertex. Therefore, measured from <span class="math inline">\(DB\)</span> and taking the side containing <span class="math inline">\(A\)</span> as negative,</p>
-<p><span class="math display">\[
+</span></p>
+<p>The centroid of a triangle is one-third of the perpendicular distance from its base to the opposite vertex. Therefore, measured from <span class="math inline">DB</span> and taking the side containing <span class="math inline">A</span> as negative,</p>
+<p><span class="math display">
 \begin{array}{c|c|c}
 \text{part} &amp; \text{area} &amp; \text{distance of centre of mass from }DB\\
 \hline
@@ -1059,15 +1073,15 @@ ABD &amp; 24a^2 &amp; -a\\
 BCD &amp; 48a^2 &amp; 2a\\
 \text{combined} &amp; 72a^2 &amp; x
 \end{array}
-\]</span></p>
-<p>Taking moments about <span class="math inline">\(DB\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Taking moments about <span class="math inline">DB</span>,</p>
+<p><span class="math display">
 72a^2x=24a^2(-a)+48a^2(2a).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{x=a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2021, Question 1; answer checked against the official Mark Scheme.
@@ -1075,14 +1089,14 @@ BCD &amp; 48a^2 &amp; 2a\\
 </section>
 <section id="mayjune-923133-question-1-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-1-1">2022 May/June · 9231/33 · Question 1</h3>
-<p>A uniform lamina <span class="math inline">\(OABC\)</span> is a trapezium whose vertices can be represented by coordinates in the <span class="math inline">\(x\)</span>-<span class="math inline">\(y\)</span> plane. The coordinates of the vertices are <span class="math inline">\(O(0,0)\)</span>, <span class="math inline">\(A(15,0)\)</span>, <span class="math inline">\(B(9,4)\)</span> and <span class="math inline">\(C(3,4)\)</span>.</p>
-<p>Find the <span class="math inline">\(x\)</span>-coordinate of the centre of mass of the lamina.</p>
+<p>A uniform lamina <span class="math inline">OABC</span> is a trapezium whose vertices can be represented by coordinates in the <span class="math inline">x</span>-<span class="math inline">y</span> plane. The coordinates of the vertices are <span class="math inline">O(0,0)</span>, <span class="math inline">A(15,0)</span>, <span class="math inline">B(9,4)</span> and <span class="math inline">C(3,4)</span>.</p>
+<p>Find the <span class="math inline">x</span>-coordinate of the centre of mass of the lamina.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>Split the trapezium into a rectangle and two triangles:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{array}{c|c|c}
 \text{part} &amp; \text{area} &amp; \text{$x$-coordinate of centre of mass}\\
 \hline
@@ -1091,15 +1105,15 @@ Show answer
 \triangle BAE &amp; 12 &amp; 11\\
 \text{trapezium }OCBA &amp; 42 &amp; x
 \end{array}
-\]</span></p>
-<p>Taking moments about the <span class="math inline">\(y\)</span>-axis,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Taking moments about the <span class="math inline">y</span>-axis,</p>
+<p><span class="math display">
 42x=6(2)+24(6)+12(11)=288.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{x=\frac{288}{42}=\frac{48}{7}=6.86}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2022, Question 1; answer checked against the official Mark Scheme.
@@ -1111,13 +1125,13 @@ Show answer
 <p>The following Paper 3 questions also test centre of mass, but their later parts require equilibrium, friction or toppling. The complete question wording, diagrams and multi-part Mark Scheme answers are included below as well, so this page contains the full Centre of mass question set.</p>
 <section id="mayjune-923131-and-923132-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4">2021 May/June · 9231/31 and 9231/32 · Question 4</h3>
-<p>A uniform solid circular cone has vertical height <span class="math inline">\(kh\)</span> and radius <span class="math inline">\(r\)</span>. A uniform solid cylinder has height <span class="math inline">\(h\)</span> and radius <span class="math inline">\(r\)</span>. The base of the cone is joined to one of the circular faces of the cylinder so that the axes of symmetry of the two solids coincide (see diagram). The cone and the cylinder are made of the same material.</p>
+<p>A uniform solid circular cone has vertical height <span class="math inline">kh</span> and radius <span class="math inline">r</span>. A uniform solid cylinder has height <span class="math inline">h</span> and radius <span class="math inline">r</span>. The base of the cone is joined to one of the circular faces of the cylinder so that the axes of symmetry of the two solids coincide (see diagram). The cone and the cylinder are made of the same material.</p>
 <p><strong>(a)</strong> Show that the distance of the centre of mass of the combined solid from the base of the cylinder is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{h(k^2+4k+6)}{4(3+k)}.
-\]</span></p>
-<p>The solid is placed on a plane that is inclined to the horizontal at an angle <span class="math inline">\(i\)</span>. The base of the cylinder is in contact with the plane. The plane is sufficiently rough to prevent sliding. It is given that <span class="math inline">\(3h=2r\)</span> and that the solid is on the point of toppling when <span class="math inline">\(\tan i=4/3\)</span>.</p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+</span></p>
+<p>The solid is placed on a plane that is inclined to the horizontal at an angle <span class="math inline">i</span>. The base of the cylinder is in contact with the plane. The plane is sufficiently rough to prevent sliding. It is given that <span class="math inline">3h=2r</span> and that the solid is on the point of toppling when <span class="math inline">\tan i=4/3</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">k</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2021-mj-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1128,34 +1142,34 @@ Show answer
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The cone has volume <span class="math inline">\(\frac13\pi r^2kh\)</span> and centre of mass <span class="math inline">\(h+kh/4\)</span> above the cylinder base. The cylinder has volume <span class="math inline">\(\pi r^2h\)</span> and centre of mass <span class="math inline">\(h/2\)</span> above the base. Therefore</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> The cone has volume <span class="math inline">\frac13\pi r^2kh</span> and centre of mass <span class="math inline">h+kh/4</span> above the cylinder base. The cylinder has volume <span class="math inline">\pi r^2h</span> and centre of mass <span class="math inline">h/2</span> above the base. Therefore</p>
+<p><span class="math display">
 \pi r^2h\left(\frac{k}{3}+1\right)x
 =\frac13\pi r^2kh\left(h+\frac{kh}{4}\right)
 +\pi r^2h\left(\frac h2\right).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=\frac{h(k^2+4k+6)}{4(3+k)}}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> At the point of toppling,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan i=\frac r x.
-\]</span></p>
-<p>Using <span class="math inline">\(r=3h/2\)</span> and <span class="math inline">\(\tan i=4/3\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">r=3h/2</span> and <span class="math inline">\tan i=4/3</span>:</p>
+<p><span class="math display">
 \frac43=\frac{3h/2}{h(k^2+4k+6)/(4(3+k))}.
-\]</span></p>
+</span></p>
 <p>After simplification,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2k^2-k-15=0
 \quad\Longrightarrow\quad
 (2k+5)(k-3)=0.
-\]</span></p>
-<p>Since <span class="math inline">\(k&gt;0\)</span>,</p>
-<span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">k&gt;0</span>,</p>
+<span class="math display">
 \boxed{k=3}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Question 4.
@@ -1163,51 +1177,51 @@ Show answer
 </section>
 <section id="octobernovember-923131-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-question-4">2021 October/November · 9231/31 · Question 4</h3>
-<p>A uniform lamina <span class="math inline">\(AECF\)</span> is formed by removing two identical triangles <span class="math inline">\(BCE\)</span> and <span class="math inline">\(CDF\)</span> from a square lamina <span class="math inline">\(ABCD\)</span>. The square has side <span class="math inline">\(3a\)</span> and <span class="math inline">\(EB=DF=h\)</span> (see diagram).</p>
+<p>A uniform lamina <span class="math inline">AECF</span> is formed by removing two identical triangles <span class="math inline">BCE</span> and <span class="math inline">CDF</span> from a square lamina <span class="math inline">ABCD</span>. The square has side <span class="math inline">3a</span> and <span class="math inline">EB=DF=h</span> (see diagram).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2021-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
 <figcaption>Question 4 diagram</figcaption>
 </figure>
 </div>
-<p>The lamina <span class="math inline">\(AECF\)</span> is placed vertically on its edge <span class="math inline">\(AE\)</span> on a horizontal plane.</p>
-<p><strong>(a)</strong> Find the distances of the centre of mass of the lamina from <span class="math inline">\(AD\)</span> and from <span class="math inline">\(AB\)</span>, giving your answers in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(h\)</span>.<br>
-<strong>(b)</strong> Find, in terms of <span class="math inline">\(a\)</span>, the set of values of <span class="math inline">\(h\)</span> for which the lamina remains in equilibrium.</p>
+<p>The lamina <span class="math inline">AECF</span> is placed vertically on its edge <span class="math inline">AE</span> on a horizontal plane.</p>
+<p><strong>(a)</strong> Find the distances of the centre of mass of the lamina from <span class="math inline">AD</span> and from <span class="math inline">AB</span>, giving your answers in terms of <span class="math inline">a</span> and <span class="math inline">h</span>.<br>
+<strong>(b)</strong> Find, in terms of <span class="math inline">a</span>, the set of values of <span class="math inline">h</span> for which the lamina remains in equilibrium.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The square has area <span class="math inline">\(9a^2\)</span> and centre of mass at distance <span class="math inline">\(3a/2\)</span> from <span class="math inline">\(AD\)</span>. Each removed triangle has area <span class="math inline">\(3ah/2\)</span>.</p>
-<p>Let <span class="math inline">\(x\)</span> be the distance of the remaining centre of mass from <span class="math inline">\(AD\)</span>. Taking moments about <span class="math inline">\(AD\)</span>:</p>
-<p><span class="math display">\[
+<p>The square has area <span class="math inline">9a^2</span> and centre of mass at distance <span class="math inline">3a/2</span> from <span class="math inline">AD</span>. Each removed triangle has area <span class="math inline">3ah/2</span>.</p>
+<p>Let <span class="math inline">x</span> be the distance of the remaining centre of mass from <span class="math inline">AD</span>. Taking moments about <span class="math inline">AD</span>:</p>
+<p><span class="math display">
 (9a^2-3ah)x
 =9a^2\left(\frac{3a}{2}\right)
 -\frac{3ah}{2}\,a
 -\frac{3ah}{2}\left(3a-\frac h3\right).
-\]</span></p>
+</span></p>
 <p>After simplification,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=\frac{27a^2-12ah+h^2}{6(3a-h)}
 =\boxed{\frac{9a-h}{6}}.
-\]</span></p>
-<p>By symmetry, the distance from <span class="math inline">\(AB\)</span> is also</p>
-<p><span class="math display">\[
+</span></p>
+<p>By symmetry, the distance from <span class="math inline">AB</span> is also</p>
+<p><span class="math display">
 \boxed{\frac{9a-h}{6}}.
-\]</span></p>
-<p><strong>(b)</strong> The vertical projection of the centre of mass must lie within the supporting edge <span class="math inline">\(AE\)</span>. Its distance from <span class="math inline">\(AD\)</span> therefore satisfies</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> The vertical projection of the centre of mass must lie within the supporting edge <span class="math inline">AE</span>. Its distance from <span class="math inline">AD</span> therefore satisfies</p>
+<p><span class="math display">
 x\le AE=3a-h.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{9a-h}{6}\le3a-h
 \Longrightarrow 9a-h\le18a-6h
 \Longrightarrow 5h\le9a.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{0\le h\le\frac95a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Question 4.
@@ -1215,51 +1229,51 @@ x\le AE=3a-h.
 </section>
 <section id="octobernovember-923132-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-4">2021 October/November · 9231/32 · Question 4</h3>
-<p>An object is formed by removing a solid cylinder, of height <span class="math inline">\(ka\)</span> and radius <span class="math inline">\(\frac12a\)</span>, from a uniform solid hemisphere of radius <span class="math inline">\(a\)</span>. The axes of symmetry of the hemisphere and the cylinder coincide and one circular face of the cylinder coincides with the plane face of the hemisphere. <span class="math inline">\(AB\)</span> is a diameter of the circular face of the hemisphere (see diagram).</p>
-<p><strong>(a)</strong> Show that the distance of the centre of mass of the object from <span class="math inline">\(AB\)</span> is</p>
-<p><span class="math display">\[
+<p>An object is formed by removing a solid cylinder, of height <span class="math inline">ka</span> and radius <span class="math inline">\frac12a</span>, from a uniform solid hemisphere of radius <span class="math inline">a</span>. The axes of symmetry of the hemisphere and the cylinder coincide and one circular face of the cylinder coincides with the plane face of the hemisphere. <span class="math inline">AB</span> is a diameter of the circular face of the hemisphere (see diagram).</p>
+<p><strong>(a)</strong> Show that the distance of the centre of mass of the object from <span class="math inline">AB</span> is</p>
+<p><span class="math display">
 \frac{3a(2-k^2)}{2(8-3k)}.
-\]</span></p>
+</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2021-on-q4b.svg" class="img-fluid figure-img" style="width:42.0%"></p>
 <figcaption>Question 4 diagram</figcaption>
 </figure>
 </div>
-<p>When the object is freely suspended from the point <span class="math inline">\(A\)</span>, the line <span class="math inline">\(AB\)</span> makes an angle <span class="math inline">\(i\)</span> with the downward vertical, where <span class="math inline">\(\tan i=\frac7{18}\)</span>.</p>
-<p><strong>(b)</strong> Find the possible values of <span class="math inline">\(k\)</span>.</p>
+<p>When the object is freely suspended from the point <span class="math inline">A</span>, the line <span class="math inline">AB</span> makes an angle <span class="math inline">i</span> with the downward vertical, where <span class="math inline">\tan i=\frac7{18}</span>.</p>
+<p><strong>(b)</strong> Find the possible values of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The hemisphere has volume <span class="math inline">\(\frac23\pi a^3\)</span> and centre of mass <span class="math inline">\(\frac{3a}{8}\)</span> from <span class="math inline">\(AB\)</span>. The removed cylinder has volume <span class="math inline">\(\frac14\pi ka^3\)</span> and centre of mass <span class="math inline">\(\frac12ka\)</span> from <span class="math inline">\(AB\)</span>.</p>
-<p>Therefore, if <span class="math inline">\(X\)</span> is the required distance,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> The hemisphere has volume <span class="math inline">\frac23\pi a^3</span> and centre of mass <span class="math inline">\frac{3a}{8}</span> from <span class="math inline">AB</span>. The removed cylinder has volume <span class="math inline">\frac14\pi ka^3</span> and centre of mass <span class="math inline">\frac12ka</span> from <span class="math inline">AB</span>.</p>
+<p>Therefore, if <span class="math inline">X</span> is the required distance,</p>
+<p><span class="math display">
 X\left(\frac23\pi a^3-\frac14\pi ka^3\right)
 =\frac23\pi a^3\left(\frac{3a}{8}\right)
 -\frac14\pi ka^3\left(\frac{ka}{2}\right).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{X=\frac{3a(2-k^2)}{2(8-3k)}}.
-\]</span></p>
-<p><strong>(b)</strong> On suspension, the line through <span class="math inline">\(A\)</span> and the centre of mass gives</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> On suspension, the line through <span class="math inline">A</span> and the centre of mass gives</p>
+<p><span class="math display">
 \tan i=\frac{X}{a}.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{3(2-k^2)}{2(8-3k)}=\frac7{18},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 27k^2-21k+2=0
 \quad\Longrightarrow\quad
 (3k-2)(9k-1)=0.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{k=\frac23\ \text{or}\ k=\frac19}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2021, Question 4.
@@ -1267,10 +1281,10 @@ X\left(\frac23\pi a^3-\frac14\pi ka^3\right)
 </section>
 <section id="mayjune-923131-and-923132-question-4-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4-1">2022 May/June · 9231/31 and 9231/32 · Question 4</h3>
-<p>An object is composed of a hemispherical shell of radius <span class="math inline">\(2a\)</span> attached to a closed hollow circular cylinder of height <span class="math inline">\(h\)</span> and base radius <span class="math inline">\(a\)</span>. The hemispherical shell and the hollow cylinder are made of the same uniform material. The axes of symmetry of the shell and the cylinder coincide. <span class="math inline">\(AB\)</span> is a diameter of the lower end of the cylinder (see diagram).</p>
-<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(h\)</span>, an expression for the distance of the centre of mass of the object from <span class="math inline">\(AB\)</span>.</p>
-<p>The object is placed on a rough plane which is inclined to the horizontal at an angle <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=2/3\)</span>. The object is in equilibrium with <span class="math inline">\(AB\)</span> in contact with the plane and lying along a line of greatest slope of the plane.</p>
-<p><strong>(b)</strong> Find the set of possible values of <span class="math inline">\(h\)</span>, in terms of <span class="math inline">\(a\)</span>.</p>
+<p>An object is composed of a hemispherical shell of radius <span class="math inline">2a</span> attached to a closed hollow circular cylinder of height <span class="math inline">h</span> and base radius <span class="math inline">a</span>. The hemispherical shell and the hollow cylinder are made of the same uniform material. The axes of symmetry of the shell and the cylinder coincide. <span class="math inline">AB</span> is a diameter of the lower end of the cylinder (see diagram).</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">a</span> and <span class="math inline">h</span>, an expression for the distance of the centre of mass of the object from <span class="math inline">AB</span>.</p>
+<p>The object is placed on a rough plane which is inclined to the horizontal at an angle <span class="math inline">i</span>, where <span class="math inline">\tan i=2/3</span>. The object is in equilibrium with <span class="math inline">AB</span> in contact with the plane and lying along a line of greatest slope of the plane.</p>
+<p><strong>(b)</strong> Find the set of possible values of <span class="math inline">h</span>, in terms of <span class="math inline">a</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2022-mj-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1281,32 +1295,32 @@ X\left(\frac23\pi a^3-\frac14\pi ka^3\right)
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The volume of the hollow cylinder is <span class="math inline">\(2\pi ah+2\pi a^2\)</span>, and its centre of mass is <span class="math inline">\(h/2\)</span> from <span class="math inline">\(AB\)</span>. The hemispherical shell has volume <span class="math inline">\(2\pi(2a)^2\)</span> and its centre of mass is <span class="math inline">\(h+a\)</span> from <span class="math inline">\(AB\)</span>.</p>
-<p>Taking moments about <span class="math inline">\(AB\)</span>:</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> The volume of the hollow cylinder is <span class="math inline">2\pi ah+2\pi a^2</span>, and its centre of mass is <span class="math inline">h/2</span> from <span class="math inline">AB</span>. The hemispherical shell has volume <span class="math inline">2\pi(2a)^2</span> and its centre of mass is <span class="math inline">h+a</span> from <span class="math inline">AB</span>.</p>
+<p>Taking moments about <span class="math inline">AB</span>:</p>
+<p><span class="math display">
 x(2\pi ah+2\pi a^2+8\pi a^2)
 =8\pi a^2(h+a)+(2\pi ah+2\pi a^2)\frac h2.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=\frac{h^2+9ah+8a^2}{2(h+5a)}}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> At equilibrium, the vertical projection of the centre of mass lies over the contact diameter. Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x\le\frac{a}{\tan i}=\frac32a.
-\]</span></p>
-<p>Substituting the expression for <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting the expression for <span class="math inline">x</span>:</p>
+<p><span class="math display">
 \frac{h^2+9ah+8a^2}{2(h+5a)}\le\frac32a.
-\]</span></p>
+</span></p>
 <p>This gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (h-a)(h+7a)\le0.
-\]</span></p>
-<p>Since <span class="math inline">\(h\ge0\)</span>,</p>
-<span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">h\ge0</span>,</p>
+<span class="math display">
 \boxed{0\le h\le a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2022, Question 4.
@@ -1314,48 +1328,48 @@ x\le\frac{a}{\tan i}=\frac32a.
 </section>
 <section id="mayjune-923133-question-7" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-7">2022 May/June · 9231/33 · Question 7</h3>
-<p>A uniform cylinder with a rough surface and of radius <span class="math inline">\(a\)</span> is fixed with its axis horizontal. Two identical uniform rods <span class="math inline">\(AB\)</span> and <span class="math inline">\(BC\)</span>, each of weight <span class="math inline">\(W\)</span> and length <span class="math inline">\(2a\)</span>, are rigidly joined at <span class="math inline">\(B\)</span> with <span class="math inline">\(AB\)</span> perpendicular to <span class="math inline">\(BC\)</span>. The rods rest on the cylinder in a vertical plane perpendicular to the axis of the cylinder with <span class="math inline">\(AB\)</span> at an angle <span class="math inline">\(\theta\)</span> to the horizontal. <span class="math inline">\(D\)</span> and <span class="math inline">\(E\)</span> are the midpoints of <span class="math inline">\(AB\)</span> and <span class="math inline">\(BC\)</span> respectively and also the points of contact of the rods with the cylinder (see diagram). The rods are about to slip in a clockwise direction. The coefficient of friction between each rod and the cylinder is <span class="math inline">\(\mu\)</span>.</p>
+<p>A uniform cylinder with a rough surface and of radius <span class="math inline">a</span> is fixed with its axis horizontal. Two identical uniform rods <span class="math inline">AB</span> and <span class="math inline">BC</span>, each of weight <span class="math inline">W</span> and length <span class="math inline">2a</span>, are rigidly joined at <span class="math inline">B</span> with <span class="math inline">AB</span> perpendicular to <span class="math inline">BC</span>. The rods rest on the cylinder in a vertical plane perpendicular to the axis of the cylinder with <span class="math inline">AB</span> at an angle <span class="math inline">\theta</span> to the horizontal. <span class="math inline">D</span> and <span class="math inline">E</span> are the midpoints of <span class="math inline">AB</span> and <span class="math inline">BC</span> respectively and also the points of contact of the rods with the cylinder (see diagram). The rods are about to slip in a clockwise direction. The coefficient of friction between each rod and the cylinder is <span class="math inline">\mu</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2022-mj-q7.svg" class="img-fluid figure-img" style="width:62.0%"></p>
 <figcaption>Question 7 diagram</figcaption>
 </figure>
 </div>
-<p>The rods are about to slip clockwise. The coefficient of friction between each rod and the cylinder is <span class="math inline">\(\mu\)</span>. The normal reactions between <span class="math inline">\(AB\)</span> and the cylinder and between <span class="math inline">\(BC\)</span> and the cylinder are <span class="math inline">\(R\)</span> and <span class="math inline">\(N\)</span> respectively.</p>
-<p><strong>(a)</strong> Find the ratio <span class="math inline">\(R:N\)</span> in terms of <span class="math inline">\(\mu\)</span>.<br>
-<strong>(b)</strong> Given that <span class="math inline">\(\mu=1/3\)</span>, find <span class="math inline">\(\tan i\)</span>.</p>
+<p>The rods are about to slip clockwise. The coefficient of friction between each rod and the cylinder is <span class="math inline">\mu</span>. The normal reactions between <span class="math inline">AB</span> and the cylinder and between <span class="math inline">BC</span> and the cylinder are <span class="math inline">R</span> and <span class="math inline">N</span> respectively.</p>
+<p><strong>(a)</strong> Find the ratio <span class="math inline">R:N</span> in terms of <span class="math inline">\mu</span>.<br>
+<strong>(b)</strong> Given that <span class="math inline">\mu=1/3</span>, find <span class="math inline">\tan i</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let the frictional forces at <span class="math inline">\(D\)</span> and <span class="math inline">\(E\)</span> be <span class="math inline">\(\mu R\)</span> and <span class="math inline">\(\mu N\)</span> respectively. Resolving the forces and taking moments about suitable points gives the mark-scheme relations</p>
-<p><span class="math display">\[
+<p>Let the frictional forces at <span class="math inline">D</span> and <span class="math inline">E</span> be <span class="math inline">\mu R</span> and <span class="math inline">\mu N</span> respectively. Resolving the forces and taking moments about suitable points gives the mark-scheme relations</p>
+<p><span class="math display">
 N-R=\frac12\bigl((1-\mu)N-(1+\mu)R\bigr).
-\]</span></p>
+</span></p>
 <p>Rearranging:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 N\left(\frac12+\frac\mu2\right)
 =R\left(\frac12-\frac\mu2\right).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{R:N=1+\mu:1-\mu}.
-\]</span></p>
-<p><strong>(b)</strong> Resolving in directions parallel and perpendicular to <span class="math inline">\(AB\)</span>, then dividing the equations, gives</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Resolving in directions parallel and perpendicular to <span class="math inline">AB</span>, then dividing the equations, gives</p>
+<p><span class="math display">
 \tan i=\frac{N-\mu R}{\mu N+R}.
-\]</span></p>
-<p>For <span class="math inline">\(\mu=1/3\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>For <span class="math inline">\mu=1/3</span>,</p>
+<p><span class="math display">
 R:N=\frac43:\frac23=2:1
 \quad\Longrightarrow\quad R=2N.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<span class="math display">\[
+<span class="math display">
 \tan i=\frac{N-\frac13(2N)}{\frac13N+2N}
 =\frac{N/3}{7N/3}
 =\boxed{\frac17}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2022, Question 7.
@@ -1363,8 +1377,8 @@ R:N=\frac43:\frac23=2:1
 </section>
 <section id="octobernovember-923132-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-2">2022 October/November · 9231/32 · Question 2</h3>
-<p>A uniform lamina is in the form of a triangle <span class="math inline">\(ABC\)</span> in which angle <span class="math inline">\(B\)</span> is a right angle, <span class="math inline">\(AB=9a\)</span> and <span class="math inline">\(BC=6a\)</span>. The point <span class="math inline">\(D\)</span> is on <span class="math inline">\(BC\)</span> such that <span class="math inline">\(BD=x\)</span> (see diagram). The region <span class="math inline">\(ABD\)</span> is removed from the lamina. The resulting shape <span class="math inline">\(ADC\)</span> is placed with the edge <span class="math inline">\(DC\)</span> on a horizontal surface and the plane <span class="math inline">\(ADC\)</span> is vertical.</p>
-<p>Find the set of values of <span class="math inline">\(x\)</span>, in terms of <span class="math inline">\(a\)</span>, for which the shape is in equilibrium.</p>
+<p>A uniform lamina is in the form of a triangle <span class="math inline">ABC</span> in which angle <span class="math inline">B</span> is a right angle, <span class="math inline">AB=9a</span> and <span class="math inline">BC=6a</span>. The point <span class="math inline">D</span> is on <span class="math inline">BC</span> such that <span class="math inline">BD=x</span> (see diagram). The region <span class="math inline">ABD</span> is removed from the lamina. The resulting shape <span class="math inline">ADC</span> is placed with the edge <span class="math inline">DC</span> on a horizontal surface and the plane <span class="math inline">ADC</span> is vertical.</p>
+<p>Find the set of values of <span class="math inline">x</span>, in terms of <span class="math inline">a</span>, for which the shape is in equilibrium.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2022-on-q2.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1375,28 +1389,28 @@ R:N=\frac43:\frac23=2:1
 <summary>
 Show answer
 </summary>
-<p>The area of <span class="math inline">\(ABC\)</span> is <span class="math inline">\(27a^2\)</span>, and its centre of mass is <span class="math inline">\(2a\)</span> from <span class="math inline">\(AB\)</span>. The removed triangle <span class="math inline">\(ABD\)</span> has area <span class="math inline">\(9ax/2\)</span>, and its centre of mass is <span class="math inline">\(x/3\)</span> from <span class="math inline">\(AB\)</span>.</p>
-<p>Let <span class="math inline">\(X\)</span> be the distance of the centre of mass of <span class="math inline">\(ADC\)</span> from <span class="math inline">\(AB\)</span>. Taking moments about <span class="math inline">\(AB\)</span>:</p>
-<p><span class="math display">\[
+<p>The area of <span class="math inline">ABC</span> is <span class="math inline">27a^2</span>, and its centre of mass is <span class="math inline">2a</span> from <span class="math inline">AB</span>. The removed triangle <span class="math inline">ABD</span> has area <span class="math inline">9ax/2</span>, and its centre of mass is <span class="math inline">x/3</span> from <span class="math inline">AB</span>.</p>
+<p>Let <span class="math inline">X</span> be the distance of the centre of mass of <span class="math inline">ADC</span> from <span class="math inline">AB</span>. Taking moments about <span class="math inline">AB</span>:</p>
+<p><span class="math display">
 X\left(27a^2-\frac92ax\right)
 =27a^2(2a)-\frac92ax\left(\frac x3\right).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 X=\frac{54a^3-\frac32ax^2}{27a^2-\frac92ax}.
-\]</span></p>
-<p>For equilibrium, the vertical projection of the centre of mass must lie on the supporting edge <span class="math inline">\(DC\)</span>, so <span class="math inline">\(X\ge x\)</span>. Therefore</p>
-<p><span class="math display">\[
+</span></p>
+<p>For equilibrium, the vertical projection of the centre of mass must lie on the supporting edge <span class="math inline">DC</span>, so <span class="math inline">X\ge x</span>. Therefore</p>
+<p><span class="math display">
 54a^3-\frac32ax^2
 \ge x\left(27a^2-\frac92ax\right),
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 (x-3a)(x-6a)\ge0.
-\]</span></p>
-<p>With <span class="math inline">\(0\le x\le6a\)</span>,</p>
-<span class="math display">\[
+</span></p>
+<p>With <span class="math inline">0\le x\le6a</span>,</p>
+<span class="math display">
 \boxed{0\le x\le3a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2022, Question 2.
@@ -1404,65 +1418,65 @@ X=\frac{54a^3-\frac32ax^2}{27a^2-\frac92ax}.
 </section>
 <section id="octobernovember-923131-and-923133-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-3">2022 October/November · 9231/31 and 9231/33 · Question 3</h3>
-<p>A smooth cylinder is fixed to a rough horizontal surface with its axis of symmetry horizontal. A uniform rod <span class="math inline">\(AB\)</span>, of length <span class="math inline">\(4a\)</span> and weight <span class="math inline">\(W\)</span>, rests against the surface of the cylinder. The end <span class="math inline">\(A\)</span> of the rod is in contact with the horizontal surface. The vertical plane containing the rod <span class="math inline">\(AB\)</span> is perpendicular to the axis of the cylinder. The point of contact between the rod and the cylinder is <span class="math inline">\(C\)</span>, where <span class="math inline">\(AC=3a\)</span>. The angle between the rod and the horizontal surface is <span class="math inline">\(\theta\)</span> where <span class="math inline">\(\tan\theta=3/4\)</span> (see diagram). The coefficient of friction between the rod and the horizontal surface is <span class="math inline">\(6/7\)</span>.</p>
+<p>A smooth cylinder is fixed to a rough horizontal surface with its axis of symmetry horizontal. A uniform rod <span class="math inline">AB</span>, of length <span class="math inline">4a</span> and weight <span class="math inline">W</span>, rests against the surface of the cylinder. The end <span class="math inline">A</span> of the rod is in contact with the horizontal surface. The vertical plane containing the rod <span class="math inline">AB</span> is perpendicular to the axis of the cylinder. The point of contact between the rod and the cylinder is <span class="math inline">C</span>, where <span class="math inline">AC=3a</span>. The angle between the rod and the horizontal surface is <span class="math inline">\theta</span> where <span class="math inline">\tan\theta=3/4</span> (see diagram). The coefficient of friction between the rod and the horizontal surface is <span class="math inline">6/7</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2022-on-q3.svg" class="img-fluid figure-img" style="width:58.0%"></p>
 <figcaption>Question 3 diagram</figcaption>
 </figure>
 </div>
-<p>A particle of weight <span class="math inline">\(kW\)</span> is attached to the rod at <span class="math inline">\(B\)</span>. The rod is about to slip, and the normal reaction between the rod and cylinder is <span class="math inline">\(N\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(N=\dfrac{8}{15}W(1+2k)\)</span>.<br>
-<strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<p>A particle of weight <span class="math inline">kW</span> is attached to the rod at <span class="math inline">B</span>. The rod is about to slip, and the normal reaction between the rod and cylinder is <span class="math inline">N</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">N=\dfrac{8}{15}W(1+2k)</span>.<br>
+<strong>(b)</strong> Find the value of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let <span class="math inline">\(F\)</span> be the friction at <span class="math inline">\(A\)</span> and <span class="math inline">\(R\)</span> the normal reaction at <span class="math inline">\(A\)</span>. Since <span class="math inline">\(\tan i=3/4\)</span>,</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">F</span> be the friction at <span class="math inline">A</span> and <span class="math inline">R</span> the normal reaction at <span class="math inline">A</span>. Since <span class="math inline">\tan i=3/4</span>,</p>
+<p><span class="math display">
 \sin i=\frac35,qquad \cos i=\frac45.
-\]</span></p>
-<p><strong>(a)</strong> Taking moments about <span class="math inline">\(A\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(a)</strong> Taking moments about <span class="math inline">A</span>:</p>
+<p><span class="math display">
 N(3a)=W(2a\cos i)+kW(4a\cos i).
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 3N=(2+4k)W\frac45
 \quad\Longrightarrow\quad
 \boxed{N=\frac{8}{15}W(1+2k)}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> At limiting equilibrium,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 F=\frac67R.
-\]</span></p>
+</span></p>
 <p>Resolving horizontally and vertically:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 F=N\sin i=\frac35N,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 N\cos i+R=(1+k)W
 \quad\Longrightarrow\quad
 R=(1+k)W-\frac45N.
-\]</span></p>
+</span></p>
 <p>Using the result from part (a),</p>
-<p><span class="math display">\[
+<p><span class="math display">
 R=\frac{43+11k}{75}W,
 \qquad
 F=\frac{8}{25}(1+2k)W.
-\]</span></p>
-<p>Now use <span class="math inline">\(F=6R/7\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Now use <span class="math inline">F=6R/7</span>:</p>
+<p><span class="math display">
 \frac{8}{25}(1+2k)
 =\frac67\left(\frac{43+11k}{75}\right).
-\]</span></p>
+</span></p>
 <p>This gives</p>
-<span class="math display">\[
+<span class="math display">
 56(1+2k)=2(43+11k)
 \Longrightarrow 90k=30
 \Longrightarrow
 \boxed{k=\frac13}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2022, Question 3.
@@ -1470,14 +1484,14 @@ F=\frac{8}{25}(1+2k)W.
 </section>
 <section id="mayjune-923131-and-923132-question-4-2" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4-2">2023 May/June · 9231/31 and 9231/32 · Question 4</h3>
-<p>An object is formed from a solid hemisphere, of radius <span class="math inline">\(2a\)</span>, and a solid cylinder, of radius <span class="math inline">\(a\)</span> and height <span class="math inline">\(d\)</span>. The hemisphere and the cylinder are made of the same material. The cylinder is attached to the plane face of the hemisphere. The line <span class="math inline">\(OC\)</span> forms a diameter of the base of the cylinder, where <span class="math inline">\(C\)</span> is the centre of the plane face of the hemisphere and <span class="math inline">\(O\)</span> is common to both circumferences (see diagram). Relative to axes through <span class="math inline">\(O\)</span>, parallel and perpendicular to <span class="math inline">\(OC\)</span> as shown, the centre of mass of the object is <span class="math inline">\((x,y)\)</span>.</p>
+<p>An object is formed from a solid hemisphere, of radius <span class="math inline">2a</span>, and a solid cylinder, of radius <span class="math inline">a</span> and height <span class="math inline">d</span>. The hemisphere and the cylinder are made of the same material. The cylinder is attached to the plane face of the hemisphere. The line <span class="math inline">OC</span> forms a diameter of the base of the cylinder, where <span class="math inline">C</span> is the centre of the plane face of the hemisphere and <span class="math inline">O</span> is common to both circumferences (see diagram). Relative to axes through <span class="math inline">O</span>, parallel and perpendicular to <span class="math inline">OC</span> as shown, the centre of mass of the object is <span class="math inline">(x,y)</span>.</p>
 <p><strong>(a)</strong> Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=\frac{32a^2+3ad}{16a+3d}
-\]</span></p>
-<p>and find an expression, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span>, for <span class="math inline">\(y\)</span>.</p>
-<p>The object is placed on a rough plane which is inclined to the horizontal at an angle <span class="math inline">\(i\)</span> where <span class="math inline">\(\sin i=1/6\)</span>. The object is in equilibrium with <span class="math inline">\(CO\)</span> horizontal, where <span class="math inline">\(CO\)</span> lies in a vertical plane through a line of greatest slope.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(d\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+</span></p>
+<p>and find an expression, in terms of <span class="math inline">a</span> and <span class="math inline">d</span>, for <span class="math inline">y</span>.</p>
+<p>The object is placed on a rough plane which is inclined to the horizontal at an angle <span class="math inline">i</span> where <span class="math inline">\sin i=1/6</span>. The object is in equilibrium with <span class="math inline">CO</span> horizontal, where <span class="math inline">CO</span> lies in a vertical plane through a line of greatest slope.</p>
+<p><strong>(b)</strong> Find <span class="math inline">d</span> in terms of <span class="math inline">a</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2023-mj-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1489,25 +1503,25 @@ x=\frac{32a^2+3ad}{16a+3d}
 Show answer
 </summary>
 <p><strong>(a)</strong> Using volume as the mass measure, the hemisphere and cylinder give</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=\frac{32a^2+3ad}{16a+3d}},
 \qquad
 \boxed{y=\frac{3d^2-8a^2}{2(16a+3d)}}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> For equilibrium,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sin i=\frac{2a-x}{2a}.
-\]</span></p>
-<p>Substitute <span class="math inline">\(\sin i=1/6\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substitute <span class="math inline">\sin i=1/6</span>:</p>
+<p><span class="math display">
 \frac16=\frac{2a-\dfrac{32a^2+3ad}{16a+3d}}{2a}.
-\]</span></p>
+</span></p>
 <p>After clearing denominators,</p>
-<span class="math display">\[
+<span class="math display">
 5(16a+3d)=3(32a+3d)
 \quad\Longrightarrow\quad
 \boxed{d=\frac83a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Question 4.
@@ -1515,10 +1529,10 @@ Show answer
 </section>
 <section id="mayjune-923133-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-3">2023 May/June · 9231/33 · Question 3</h3>
-<p>A uniform lamina is in the form of a triangle <span class="math inline">\(ABC\)</span>, with <span class="math inline">\(AC=8a\)</span>, <span class="math inline">\(BC=6a\)</span> and angle <span class="math inline">\(ACB=90^\circ\)</span>. The point <span class="math inline">\(D\)</span> on <span class="math inline">\(AC\)</span> is such that <span class="math inline">\(AD=3a\)</span>. The point <span class="math inline">\(E\)</span> on <span class="math inline">\(CB\)</span> is such that <span class="math inline">\(CE=x\)</span> (see diagram). The triangle <span class="math inline">\(CDE\)</span> is removed from the lamina.</p>
-<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(x\)</span>, the distance of the centre of mass of the remaining object <span class="math inline">\(ADEB\)</span> from <span class="math inline">\(AC\)</span>.</p>
-<p>The object <span class="math inline">\(ADEB\)</span> is on the point of toppling about the point <span class="math inline">\(E\)</span> when the object is in the vertical plane with its edge <span class="math inline">\(EB\)</span> on a smooth horizontal surface.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+<p>A uniform lamina is in the form of a triangle <span class="math inline">ABC</span>, with <span class="math inline">AC=8a</span>, <span class="math inline">BC=6a</span> and angle <span class="math inline">ACB=90^\circ</span>. The point <span class="math inline">D</span> on <span class="math inline">AC</span> is such that <span class="math inline">AD=3a</span>. The point <span class="math inline">E</span> on <span class="math inline">CB</span> is such that <span class="math inline">CE=x</span> (see diagram). The triangle <span class="math inline">CDE</span> is removed from the lamina.</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">a</span> and <span class="math inline">x</span>, the distance of the centre of mass of the remaining object <span class="math inline">ADEB</span> from <span class="math inline">AC</span>.</p>
+<p>The object <span class="math inline">ADEB</span> is on the point of toppling about the point <span class="math inline">E</span> when the object is in the vertical plane with its edge <span class="math inline">EB</span> on a smooth horizontal surface.</p>
+<p><strong>(b)</strong> Find <span class="math inline">x</span> in terms of <span class="math inline">a</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2023-mj-q3.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1529,29 +1543,29 @@ Show answer
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The area of <span class="math inline">\(ABC\)</span> is <span class="math inline">\(24a^2\)</span>, and the area of <span class="math inline">\(DEC\)</span> is <span class="math inline">\(5ax/2\)</span>. Taking moments about <span class="math inline">\(AC\)</span>:</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> The area of <span class="math inline">ABC</span> is <span class="math inline">24a^2</span>, and the area of <span class="math inline">DEC</span> is <span class="math inline">5ax/2</span>. Taking moments about <span class="math inline">AC</span>:</p>
+<p><span class="math display">
 X\left(24a^2-\frac52ax\right)
 =24a^2(2a)-\frac52ax\left(\frac x3\right).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{X=\frac{288a^2-5x^2}{3(48a-5x)}}.
-\]</span></p>
-<p><strong>(b)</strong> At the point of toppling about <span class="math inline">\(E\)</span>, <span class="math inline">\(X=x\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> At the point of toppling about <span class="math inline">E</span>, <span class="math inline">X=x</span>:</p>
+<p><span class="math display">
 \frac{288a^2-5x^2}{3(48a-5x)}=x.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 10x^2-144ax+288a^2=0
 \Longrightarrow
 2(5x-12a)(x-12a)=0.
-\]</span></p>
+</span></p>
 <p>The admissible value is</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{x=\frac{12}{5}a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2023, Question 3.
@@ -1559,8 +1573,8 @@ X\left(24a^2-\frac52ax\right)
 </section>
 <section id="octobernovember-923131-and-923133-question-3-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-3-1">2023 October/November · 9231/31 and 9231/33 · Question 3</h3>
-<p>A uniform square lamina of side <span class="math inline">\(2a\)</span> and weight <span class="math inline">\(W\)</span> is suspended from a light inextensible string attached to the midpoint <span class="math inline">\(E\)</span> of the side <span class="math inline">\(AB\)</span>. The other end of the string is attached to a fixed point <span class="math inline">\(P\)</span> on a rough vertical wall. The vertex <span class="math inline">\(B\)</span> of the lamina is in contact with the wall. The string <span class="math inline">\(EP\)</span> is perpendicular to the side <span class="math inline">\(AB\)</span> and makes an angle <span class="math inline">\(i\)</span> with the wall (see diagram). The string and the lamina are in a vertical plane perpendicular to the wall. The coefficient of friction between the wall and the lamina is <span class="math inline">\(1/2\)</span>.</p>
-<p>Given that the vertex <span class="math inline">\(B\)</span> is about to slip up the wall, find the value of <span class="math inline">\(\tan i\)</span>.</p>
+<p>A uniform square lamina of side <span class="math inline">2a</span> and weight <span class="math inline">W</span> is suspended from a light inextensible string attached to the midpoint <span class="math inline">E</span> of the side <span class="math inline">AB</span>. The other end of the string is attached to a fixed point <span class="math inline">P</span> on a rough vertical wall. The vertex <span class="math inline">B</span> of the lamina is in contact with the wall. The string <span class="math inline">EP</span> is perpendicular to the side <span class="math inline">AB</span> and makes an angle <span class="math inline">i</span> with the wall (see diagram). The string and the lamina are in a vertical plane perpendicular to the wall. The coefficient of friction between the wall and the lamina is <span class="math inline">1/2</span>.</p>
+<p>Given that the vertex <span class="math inline">B</span> is about to slip up the wall, find the value of <span class="math inline">\tan i</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2023-on-q3.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1571,32 +1585,32 @@ X\left(24a^2-\frac52ax\right)
 <summary>
 Show answer
 </summary>
-<p>Let <span class="math inline">\(T\)</span> be the tension, <span class="math inline">\(N\)</span> the normal reaction at <span class="math inline">\(B\)</span>, and <span class="math inline">\(F\)</span> the frictional force acting downwards. Resolving vertically and horizontally:</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">T</span> be the tension, <span class="math inline">N</span> the normal reaction at <span class="math inline">B</span>, and <span class="math inline">F</span> the frictional force acting downwards. Resolving vertically and horizontally:</p>
+<p><span class="math display">
 T\cos i=F+W,
 \qquad
 T\sin i=N.
-\]</span></p>
-<p>Taking moments about <span class="math inline">\(B\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Taking moments about <span class="math inline">B</span>:</p>
+<p><span class="math display">
 Ta=W a\sin i+W a\cos i.
-\]</span></p>
-<p>Since the lamina is about to slip and <span class="math inline">\(\mu=1/2\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since the lamina is about to slip and <span class="math inline">\mu=1/2</span>,</p>
+<p><span class="math display">
 F=\frac12N.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(T\)</span>, <span class="math inline">\(F\)</span> and <span class="math inline">\(N\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">T</span>, <span class="math inline">F</span> and <span class="math inline">N</span> gives</p>
+<p><span class="math display">
 (\cos i+\sin i)\left(\cos i-\frac12\sin i\right)=1,
-\]</span></p>
+</span></p>
 <p>which simplifies to</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sin i(\cos i-3\sin i)=0.
-\]</span></p>
+</span></p>
 <p>The non-zero solution is</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\tan i=\frac13}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Question 3.
@@ -1604,53 +1618,53 @@ F=\frac12N.
 </section>
 <section id="octobernovember-923132-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-3">2023 October/November · 9231/32 · Question 3</h3>
-<p>A uniform lamina is in the form of an isosceles triangle <span class="math inline">\(ABC\)</span> in which <span class="math inline">\(AC=2a\)</span> and angle <span class="math inline">\(ABC=90^\circ\)</span>. The point <span class="math inline">\(D\)</span> on <span class="math inline">\(AB\)</span> is such that the ratio <span class="math inline">\(DB:AB=1:k\)</span>. The point <span class="math inline">\(E\)</span> on <span class="math inline">\(CB\)</span> is such that <span class="math inline">\(DE\)</span> is parallel to <span class="math inline">\(AC\)</span>. The triangle <span class="math inline">\(DBE\)</span> is removed from the lamina (see diagram).</p>
-<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(k\)</span>, the distance of the centre of mass of the remaining lamina <span class="math inline">\(ADEC\)</span> from the midpoint of <span class="math inline">\(AC\)</span>.</p>
+<p>A uniform lamina is in the form of an isosceles triangle <span class="math inline">ABC</span> in which <span class="math inline">AC=2a</span> and angle <span class="math inline">ABC=90^\circ</span>. The point <span class="math inline">D</span> on <span class="math inline">AB</span> is such that the ratio <span class="math inline">DB:AB=1:k</span>. The point <span class="math inline">E</span> on <span class="math inline">CB</span> is such that <span class="math inline">DE</span> is parallel to <span class="math inline">AC</span>. The triangle <span class="math inline">DBE</span> is removed from the lamina (see diagram).</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">k</span>, the distance of the centre of mass of the remaining lamina <span class="math inline">ADEC</span> from the midpoint of <span class="math inline">AC</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2023-on-q3b.svg" class="img-fluid figure-img" style="width:42.0%"></p>
 <figcaption>Question 3 diagram</figcaption>
 </figure>
 </div>
-<p>When the lamina <span class="math inline">\(ADEC\)</span> is freely suspended from the vertex <span class="math inline">\(A\)</span>, the edge <span class="math inline">\(AC\)</span> makes an angle <span class="math inline">\(i\)</span> with the downward vertical, where <span class="math inline">\(\tan i=\frac5{18}\)</span>.</p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<p>When the lamina <span class="math inline">ADEC</span> is freely suspended from the vertex <span class="math inline">A</span>, the edge <span class="math inline">AC</span> makes an angle <span class="math inline">i</span> with the downward vertical, where <span class="math inline">\tan i=\frac5{18}</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Let <span class="math inline">\(X\)</span> be the distance of the centre of mass of <span class="math inline">\(ADEC\)</span> from the midpoint of <span class="math inline">\(AC\)</span>. Using areas as mass measures,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Let <span class="math inline">X</span> be the distance of the centre of mass of <span class="math inline">ADEC</span> from the midpoint of <span class="math inline">AC</span>. Using areas as mass measures,</p>
+<p><span class="math display">
 \text{area}(ABC)=a^2,
 \qquad
 \text{area}(DBE)=\frac{a^2}{k^2}.
-\]</span></p>
-<p>The distances of their centres of mass from <span class="math inline">\(AC\)</span> are <span class="math inline">\(\frac a3\)</span> and <span class="math inline">\(a-\frac{2a}{3k}\)</span> respectively. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>The distances of their centres of mass from <span class="math inline">AC</span> are <span class="math inline">\frac a3</span> and <span class="math inline">a-\frac{2a}{3k}</span> respectively. Hence</p>
+<p><span class="math display">
 X\left(a^2-\frac{a^2}{k^2}\right)
 =a^2\left(\frac a3\right)
 -\frac{a^2}{k^2}\left(a-\frac{2a}{3k}\right).
-\]</span></p>
+</span></p>
 <p>After simplifying,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{X=\frac{a(k^2+k-2)}{3k(k+1)}}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> On suspension,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan i=\frac Xa.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{k^2+k-2}{3k(k+1)}=\frac5{18},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 k^2+k-12=0
 \quad\Longrightarrow\quad
 (k+4)(k-3)=0.
-\]</span></p>
-<p>Since <span class="math inline">\(k&gt;1\)</span>,</p>
-<span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">k&gt;1</span>,</p>
+<span class="math display">
 \boxed{k=3}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2023, Question 3.
@@ -1658,10 +1672,10 @@ k^2+k-12=0
 </section>
 <section id="mayjune-923133-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-5">2024 May/June · 9231/33 · Question 5</h3>
-<p>A uniform lamina is in the form of a triangle <span class="math inline">\(OBC\)</span>, with <span class="math inline">\(OC=18a\)</span>, <span class="math inline">\(OB=24a\)</span> and angle <span class="math inline">\(COB=90^\circ\)</span>. The point <span class="math inline">\(A\)</span> on <span class="math inline">\(OB\)</span> is such that <span class="math inline">\(OA=x\)</span> (see diagram). The triangle <span class="math inline">\(OAC\)</span> is removed from the lamina.</p>
-<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(x\)</span>, the distance of the centre of mass of the remaining object <span class="math inline">\(ABC\)</span> from <span class="math inline">\(OC\)</span>.</p>
-<p>The object <span class="math inline">\(ABC\)</span> is suspended from <span class="math inline">\(C\)</span>. In its equilibrium position, the side <span class="math inline">\(AB\)</span> makes an angle <span class="math inline">\(i\)</span> with the vertical, where <span class="math inline">\(\tan i=6/5\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+<p>A uniform lamina is in the form of a triangle <span class="math inline">OBC</span>, with <span class="math inline">OC=18a</span>, <span class="math inline">OB=24a</span> and angle <span class="math inline">COB=90^\circ</span>. The point <span class="math inline">A</span> on <span class="math inline">OB</span> is such that <span class="math inline">OA=x</span> (see diagram). The triangle <span class="math inline">OAC</span> is removed from the lamina.</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">a</span> and <span class="math inline">x</span>, the distance of the centre of mass of the remaining object <span class="math inline">ABC</span> from <span class="math inline">OC</span>.</p>
+<p>The object <span class="math inline">ABC</span> is suspended from <span class="math inline">C</span>. In its equilibrium position, the side <span class="math inline">AB</span> makes an angle <span class="math inline">i</span> with the vertical, where <span class="math inline">\tan i=6/5</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">x</span> in terms of <span class="math inline">a</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2024-mj-q5.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1672,28 +1686,28 @@ k^2+k-12=0
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Taking moments about <span class="math inline">\(OC\)</span>:</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Taking moments about <span class="math inline">OC</span>:</p>
+<p><span class="math display">
 (216a^2-9ax)X=216a^2(8a)-9ax\left(\frac x3\right).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{X=\frac{576a^2-x^2}{72a-3x}}.
-\]</span></p>
-<p><strong>(b)</strong> In equilibrium, the vertical through the centre of mass passes through <span class="math inline">\(C\)</span>. Using the given angle,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> In equilibrium, the vertical through the centre of mass passes through <span class="math inline">C</span>. Using the given angle,</p>
+<p><span class="math display">
 \tan i=\frac{18a-6a}{X}.
-\]</span></p>
-<p>Substituting the expression for <span class="math inline">\(X\)</span> and simplifying gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting the expression for <span class="math inline">X</span> and simplifying gives</p>
+<p><span class="math display">
 x^2-30ax+144a^2=0
 \quad\Longrightarrow\quad
 (x-6a)(x-24a)=0.
-\]</span></p>
-<p>Since <span class="math inline">\(0&lt;x&lt;24a\)</span>,</p>
-<span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">0&lt;x&lt;24a</span>,</p>
+<span class="math display">
 \boxed{x=6a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2024, Question 5.
@@ -1701,48 +1715,48 @@ x^2-30ax+144a^2=0
 </section>
 <section id="octobernovember-923131-and-923133-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-4">2024 October/November · 9231/31 and 9231/33 · Question 4</h3>
-<p>An object is formed by removing a cylinder of radius <span class="math inline">\(\frac23a\)</span> and height <span class="math inline">\(kh\)</span> <span class="math inline">\((k&lt;1)\)</span> from a uniform solid cylinder of radius <span class="math inline">\(a\)</span> and height <span class="math inline">\(h\)</span>. The vertical axes of symmetry of the two cylinders coincide. The upper faces of the two cylinders are in the same plane as each other. The points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are the opposite ends of a diameter of the upper face of the object (see diagram).</p>
-<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(h\)</span> and <span class="math inline">\(k\)</span>, the distance of the centre of mass of the object from <span class="math inline">\(AB\)</span>.</p>
+<p>An object is formed by removing a cylinder of radius <span class="math inline">\frac23a</span> and height <span class="math inline">kh</span> <span class="math inline">(k&lt;1)</span> from a uniform solid cylinder of radius <span class="math inline">a</span> and height <span class="math inline">h</span>. The vertical axes of symmetry of the two cylinders coincide. The upper faces of the two cylinders are in the same plane as each other. The points <span class="math inline">A</span> and <span class="math inline">B</span> are the opposite ends of a diameter of the upper face of the object (see diagram).</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">h</span> and <span class="math inline">k</span>, the distance of the centre of mass of the object from <span class="math inline">AB</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2024-on-q4b.svg" class="img-fluid figure-img" style="width:42.0%"></p>
 <figcaption>Question 4 diagram</figcaption>
 </figure>
 </div>
-<p>When the object is suspended from <span class="math inline">\(A\)</span>, the angle between <span class="math inline">\(AB\)</span> and the vertical is <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=\frac23\)</span>.</p>
-<p><strong>(b)</strong> Given that <span class="math inline">\(h=\frac83a\)</span>, find the possible values of <span class="math inline">\(k\)</span>.</p>
+<p>When the object is suspended from <span class="math inline">A</span>, the angle between <span class="math inline">AB</span> and the vertical is <span class="math inline">i</span>, where <span class="math inline">\tan i=\frac23</span>.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">h=\frac83a</span>, find the possible values of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> The remaining volume is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \pi a^2h-\pi\left(\frac23a\right)^2kh
 =\pi a^2h\left(1-\frac49k\right).
-\]</span></p>
-<p>Taking moments about <span class="math inline">\(AB\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Taking moments about <span class="math inline">AB</span>,</p>
+<p><span class="math display">
 \pi a^2h\left(1-\frac49k\right)X
 =\pi a^2h\left(\frac h2\right)
 -\pi\left(\frac23a\right)^2kh\left(\frac{kh}{2}\right).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{X=\frac{(9-4k^2)h}{2(9-4k)}}.
-\]</span></p>
-<p><strong>(b)</strong> On suspension, <span class="math inline">\(\tan i=X/a\)</span>. Substituting <span class="math inline">\(h=\frac83a\)</span> and <span class="math inline">\(\tan i=\frac23\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> On suspension, <span class="math inline">\tan i=X/a</span>. Substituting <span class="math inline">h=\frac83a</span> and <span class="math inline">\tan i=\frac23</span> gives</p>
+<p><span class="math display">
 \frac{(9-4k^2)\frac83}{2(9-4k)}=\frac23,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 32k^2-36k+9=0
 \quad\Longrightarrow\quad
 (8k-3)(4k-3)=0.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{k=\frac38\ \text{or}\ k=\frac34}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Question 4.
@@ -1750,54 +1764,54 @@ Show answer
 </section>
 <section id="octobernovember-923132-question-4-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-4-1">2024 October/November · 9231/32 · Question 4</h3>
-<p>The end <span class="math inline">\(A\)</span> of a uniform rod <span class="math inline">\(AB\)</span> of length <span class="math inline">\(6a\)</span> and weight <span class="math inline">\(W\)</span> is in contact with a rough vertical wall. One end of a light inextensible string of length <span class="math inline">\(3a\)</span> is attached to the midpoint <span class="math inline">\(C\)</span> of the rod. The other end of the string is attached to a point <span class="math inline">\(D\)</span> on the wall, vertically above <span class="math inline">\(A\)</span>. The rod is in equilibrium when the angle between the rod and the wall is <span class="math inline">\(\theta\)</span>, where <span class="math inline">\(\tan\theta=2/3\)</span>. A particle of weight <span class="math inline">\(W\)</span> is attached to the point <span class="math inline">\(E\)</span> on the rod, where the distance <span class="math inline">\(AE\)</span> is equal to <span class="math inline">\(ka\)</span> <span class="math inline">\((3&lt;k&lt;6)\)</span> (see diagram). The rod and the string are in a vertical plane perpendicular to the wall. The coefficient of friction between the rod and the wall is <span class="math inline">\(1/3\)</span>. The rod is about to slip down the wall.</p>
+<p>The end <span class="math inline">A</span> of a uniform rod <span class="math inline">AB</span> of length <span class="math inline">6a</span> and weight <span class="math inline">W</span> is in contact with a rough vertical wall. One end of a light inextensible string of length <span class="math inline">3a</span> is attached to the midpoint <span class="math inline">C</span> of the rod. The other end of the string is attached to a point <span class="math inline">D</span> on the wall, vertically above <span class="math inline">A</span>. The rod is in equilibrium when the angle between the rod and the wall is <span class="math inline">\theta</span>, where <span class="math inline">\tan\theta=2/3</span>. A particle of weight <span class="math inline">W</span> is attached to the point <span class="math inline">E</span> on the rod, where the distance <span class="math inline">AE</span> is equal to <span class="math inline">ka</span> <span class="math inline">(3&lt;k&lt;6)</span> (see diagram). The rod and the string are in a vertical plane perpendicular to the wall. The coefficient of friction between the rod and the wall is <span class="math inline">1/3</span>. The rod is about to slip down the wall.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2024-on-q4.svg" class="img-fluid figure-img" style="width:58.0%"></p>
 <figcaption>Question 4 diagram</figcaption>
 </figure>
 </div>
-<p><strong>(a)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<p><strong>(a)</strong> Find the value of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let <span class="math inline">\(T\)</span> be the tension in the string, <span class="math inline">\(F\)</span> the friction at <span class="math inline">\(A\)</span>, and <span class="math inline">\(R\)</span> the normal reaction at <span class="math inline">\(A\)</span>. Since <span class="math inline">\(\tan i=2/3\)</span>,</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">T</span> be the tension in the string, <span class="math inline">F</span> the friction at <span class="math inline">A</span>, and <span class="math inline">R</span> the normal reaction at <span class="math inline">A</span>. Since <span class="math inline">\tan i=2/3</span>,</p>
+<p><span class="math display">
 \sin i=\frac{2}{\sqrt{13}},
 \qquad
 \cos i=\frac{3}{\sqrt{13}}.
-\]</span></p>
+</span></p>
 <p>Resolving vertically and horizontally:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T\cos i+F=2W,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 T\sin i=R.
-\]</span></p>
-<p>Taking moments about <span class="math inline">\(A\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Taking moments about <span class="math inline">A</span>:</p>
+<p><span class="math display">
 T\cos i(3a\sin i)+T\sin i(3a\cos i)
 =W(3a\sin i)+W(ka\sin i).
-\]</span></p>
+</span></p>
 <p>The rod is about to slip down, so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 F=\frac13R=\frac13T\sin i.
-\]</span></p>
+</span></p>
 <p>The moment equation simplifies to</p>
-<p><span class="math display">\[
+<p><span class="math display">
 6T\sin i\cos i=(3+k)W\sin i.
-\]</span></p>
-<p>Using the two force equations and eliminating <span class="math inline">\(T\)</span> and <span class="math inline">\(W\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using the two force equations and eliminating <span class="math inline">T</span> and <span class="math inline">W</span> gives</p>
+<p><span class="math display">
 12\cos i=(3+k)(\cos i+\sin i).
-\]</span></p>
-<p>Substitute <span class="math inline">\(\cos i=3/\sqrt{13}\)</span> and <span class="math inline">\(\sin i=2/\sqrt{13}\)</span>:</p>
-<span class="math display">\[
+</span></p>
+<p>Substitute <span class="math inline">\cos i=3/\sqrt{13}</span> and <span class="math inline">\sin i=2/\sqrt{13}</span>:</p>
+<span class="math display">
 36=5(3+k)
 \quad\Longrightarrow\quad
 \boxed{k=\frac{21}{5}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Question 4.
@@ -1805,10 +1819,10 @@ F=\frac13R=\frac13T\sin i.
 </section>
 <section id="mayjune-923131-and-923132-question-4-3" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4-3">2025 May/June · 9231/31 and 9231/32 · Question 4</h3>
-<p>An object is formed by removing a solid hemisphere, radius <span class="math inline">\(2r\)</span>, from a uniform solid cone, radius <span class="math inline">\(3r\)</span> and semi-vertical angle <span class="math inline">\(\theta\)</span>, where <span class="math inline">\(\tan\theta=1/2\)</span>. The axes of symmetry of the cone and the hemisphere coincide. The base of the cone and the base of the hemisphere are in the same plane as each other (see diagram).</p>
-<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(r\)</span>, the distance of the centre of mass of the object from its base.</p>
-<p>The object is placed such that its circular base makes contact with a rough plane which is inclined to the horizontal at an angle <span class="math inline">\(\alpha\)</span>. The object is on the point of toppling. The plane is sufficiently rough to prevent sliding.</p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(\alpha\)</span>.</p>
+<p>An object is formed by removing a solid hemisphere, radius <span class="math inline">2r</span>, from a uniform solid cone, radius <span class="math inline">3r</span> and semi-vertical angle <span class="math inline">\theta</span>, where <span class="math inline">\tan\theta=1/2</span>. The axes of symmetry of the cone and the hemisphere coincide. The base of the cone and the base of the hemisphere are in the same plane as each other (see diagram).</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">r</span>, the distance of the centre of mass of the object from its base.</p>
+<p>The object is placed such that its circular base makes contact with a rough plane which is inclined to the horizontal at an angle <span class="math inline">\alpha</span>. The object is on the point of toppling. The plane is sufficiently rough to prevent sliding.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\alpha</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2025-mj-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1820,19 +1834,19 @@ F=\frac13R=\frac13T\sin i.
 Show answer
 </summary>
 <p><strong>(a)</strong> Using volume as the mass measure and subtracting the hemisphere from the cone:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=\frac{\left(18\pi r^3\right)\left(\frac32r\right)-\left(\frac{16}{3}\pi r^3\right)\left(\frac34r\right)}{18\pi r^3-\frac{16}{3}\pi r^3}
 =\boxed{\frac{69}{38}r}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> At the point of toppling,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan\alpha=\frac{3r}{y}
 =\frac{3r}{69r/38}=\frac{38}{23}.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\alpha=58.8^\circ}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Question 4.
@@ -1840,8 +1854,8 @@ y=\frac{\left(18\pi r^3\right)\left(\frac32r\right)-\left(\frac{16}{3}\pi r^3\ri
 </section>
 <section id="mayjune-923133-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-4">2025 May/June · 9231/33 · Question 4</h3>
-<p>An object consists of a uniform lamina with a particle attached. The uniform lamina <span class="math inline">\(ABCEFD\)</span> of mass <span class="math inline">\(m\)</span> is formed from a rectangle <span class="math inline">\(ABCD\)</span> and an isosceles triangle <span class="math inline">\(CEF\)</span>, where <span class="math inline">\(F\)</span> is the midpoint of <span class="math inline">\(CD\)</span>. The rectangle has sides <span class="math inline">\(AB=2a\)</span> and <span class="math inline">\(AD=a\)</span>. The triangle <span class="math inline">\(CEF\)</span> has base <span class="math inline">\(a\)</span> and height <span class="math inline">\(2a\)</span>. The particle of mass <span class="math inline">\(km\)</span> is attached to the lamina at <span class="math inline">\(E\)</span>. The object rests in a vertical plane with its edge <span class="math inline">\(AD\)</span> on horizontal ground (see diagram).</p>
-<p>Given that the object is on the point of toppling in its vertical plane about the vertex <span class="math inline">\(D\)</span>, find the value of <span class="math inline">\(k\)</span>.</p>
+<p>An object consists of a uniform lamina with a particle attached. The uniform lamina <span class="math inline">ABCEFD</span> of mass <span class="math inline">m</span> is formed from a rectangle <span class="math inline">ABCD</span> and an isosceles triangle <span class="math inline">CEF</span>, where <span class="math inline">F</span> is the midpoint of <span class="math inline">CD</span>. The rectangle has sides <span class="math inline">AB=2a</span> and <span class="math inline">AD=a</span>. The triangle <span class="math inline">CEF</span> has base <span class="math inline">a</span> and height <span class="math inline">2a</span>. The particle of mass <span class="math inline">km</span> is attached to the lamina at <span class="math inline">E</span>. The object rests in a vertical plane with its edge <span class="math inline">AD</span> on horizontal ground (see diagram).</p>
+<p>Given that the object is on the point of toppling in its vertical plane about the vertex <span class="math inline">D</span>, find the value of <span class="math inline">k</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2025-mj-q4b.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1852,16 +1866,16 @@ y=\frac{\left(18\pi r^3\right)\left(\frac32r\right)-\left(\frac{16}{3}\pi r^3\ri
 <summary>
 Show answer
 </summary>
-<p>The mass ratios of the rectangle, triangle and particle are <span class="math inline">\(2:1:3k\)</span>. Taking moments about <span class="math inline">\(D\)</span>:</p>
-<p><span class="math display">\[
+<p>The mass ratios of the rectangle, triangle and particle are <span class="math inline">2:1:3k</span>. Taking moments about <span class="math inline">D</span>:</p>
+<p><span class="math display">
 2\left(\frac a2\right)=1\left(\frac{2a}{3}\right)+3k(2a).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 1=\frac23+6k
 \quad\Longrightarrow\quad
 \boxed{k=\frac1{18}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2025, Question 4.
@@ -1869,12 +1883,12 @@ Show answer
 </section>
 <section id="octobernovember-923131-and-923133-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-5">2025 October/November · 9231/31 and 9231/33 · Question 5</h3>
-<p>A uniform lamina <span class="math inline">\(OABCD\)</span> consists of a rectangle <span class="math inline">\(OACD\)</span> and a triangle <span class="math inline">\(ABC\)</span>. The length of <span class="math inline">\(OA\)</span> is <span class="math inline">\(ka\)</span>, the length of <span class="math inline">\(OD\)</span> is <span class="math inline">\(2a\)</span>, the height of triangle <span class="math inline">\(ABC\)</span> is <span class="math inline">\(h\)</span> and angle <span class="math inline">\(CAB=45^\circ\)</span> (see diagram). Relative to axes through <span class="math inline">\(O\)</span>, parallel and perpendicular to <span class="math inline">\(OA\)</span> as shown, the centre of mass of triangle <span class="math inline">\(ABC\)</span> is <span class="math inline">\((x,y)\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(x=\dfrac13(3ka+h)\)</span>, and find an expression for <span class="math inline">\(y\)</span>.</p>
-<p>The lamina <span class="math inline">\(OABCD\)</span> is placed vertically on its edge <span class="math inline">\(OA\)</span> on a horizontal plane.</p>
-<p><strong>(b)</strong> Find, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(k\)</span>, the set of values of <span class="math inline">\(h\)</span> for which the lamina is in equilibrium.</p>
-<p>It is now given that <span class="math inline">\(k=3\)</span> and that the lamina is on the point of toppling.</p>
-<p><strong>(c)</strong> Find, in terms of <span class="math inline">\(a\)</span>, the coordinates of the centre of mass of the triangle <span class="math inline">\(ABC\)</span>.</p>
+<p>A uniform lamina <span class="math inline">OABCD</span> consists of a rectangle <span class="math inline">OACD</span> and a triangle <span class="math inline">ABC</span>. The length of <span class="math inline">OA</span> is <span class="math inline">ka</span>, the length of <span class="math inline">OD</span> is <span class="math inline">2a</span>, the height of triangle <span class="math inline">ABC</span> is <span class="math inline">h</span> and angle <span class="math inline">CAB=45^\circ</span> (see diagram). Relative to axes through <span class="math inline">O</span>, parallel and perpendicular to <span class="math inline">OA</span> as shown, the centre of mass of triangle <span class="math inline">ABC</span> is <span class="math inline">(x,y)</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">x=\dfrac13(3ka+h)</span>, and find an expression for <span class="math inline">y</span>.</p>
+<p>The lamina <span class="math inline">OABCD</span> is placed vertically on its edge <span class="math inline">OA</span> on a horizontal plane.</p>
+<p><strong>(b)</strong> Find, in terms of <span class="math inline">a</span> and <span class="math inline">k</span>, the set of values of <span class="math inline">h</span> for which the lamina is in equilibrium.</p>
+<p>It is now given that <span class="math inline">k=3</span> and that the lamina is on the point of toppling.</p>
+<p><strong>(c)</strong> Find, in terms of <span class="math inline">a</span>, the coordinates of the centre of mass of the triangle <span class="math inline">ABC</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2025-on-q5.svg" class="img-fluid figure-img" style="width:42.0%"></p>
@@ -1886,26 +1900,26 @@ Show answer
 Show answer
 </summary>
 <p><strong>(a)</strong> Using the three vertices of the triangle,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=\frac13(ka+(ka+h)+ka)=\boxed{\frac13(3ka+h)},
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=\frac13(0+h+2a)=\boxed{\frac13(2a+h)}.
-\]</span></p>
-<p><strong>(b)</strong> Taking moments about the horizontal axis through <span class="math inline">\(O\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Taking moments about the horizontal axis through <span class="math inline">O</span> gives</p>
+<p><span class="math display">
 \left(2ka^2+ah\right)x
 =2ka^2\left(\frac{ka}{2}\right)+ah\left(ka+\frac h3\right).
-\]</span></p>
-<p>For equilibrium, <span class="math inline">\(x\le ka\)</span>. Substitution and simplification give</p>
-<p><span class="math display">\[
+</span></p>
+<p>For equilibrium, <span class="math inline">x\le ka</span>. Substitution and simplification give</p>
+<p><span class="math display">
 0\le h\le\boxed{3ka}.
-\]</span></p>
-<p><strong>(c)</strong> With <span class="math inline">\(k=3\)</span> and at toppling, <span class="math inline">\(h=3ka=a\)</span>. Hence</p>
-<span class="math display">\[
+</span></p>
+<p><strong>(c)</strong> With <span class="math inline">k=3</span> and at toppling, <span class="math inline">h=3ka=a</span>. Hence</p>
+<span class="math display">
 \boxed{(x,y)=\left(\frac{4a}{3},a\right)}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 5.
@@ -1913,53 +1927,53 @@ y=\frac13(0+h+2a)=\boxed{\frac13(2a+h)}.
 </section>
 <section id="octobernovember-923132-question-3-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-3-1">2025 October/November · 9231/32 · Question 3</h3>
-<p>A uniform lamina <span class="math inline">\(OABCD\)</span> is in the form of a rectangle, <span class="math inline">\(OBCD\)</span>, joined along the edge <span class="math inline">\(OB\)</span> to a quarter circle <span class="math inline">\(OAB\)</span>. The length of <span class="math inline">\(DO\)</span> is <span class="math inline">\(ka\)</span> and the length of <span class="math inline">\(OB\)</span> is <span class="math inline">\(a\)</span>. The lamina rests in a vertical plane with its edge <span class="math inline">\(CB\)</span> on a horizontal surface (see diagram).</p>
+<p>A uniform lamina <span class="math inline">OABCD</span> is in the form of a rectangle, <span class="math inline">OBCD</span>, joined along the edge <span class="math inline">OB</span> to a quarter circle <span class="math inline">OAB</span>. The length of <span class="math inline">DO</span> is <span class="math inline">ka</span> and the length of <span class="math inline">OB</span> is <span class="math inline">a</span>. The lamina rests in a vertical plane with its edge <span class="math inline">CB</span> on a horizontal surface (see diagram).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/equilibrium/past-2025-on-q3.svg" class="img-fluid figure-img" style="width:58.0%"></p>
 <figcaption>Question 3 diagram</figcaption>
 </figure>
 </div>
-<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(k\)</span>, <span class="math inline">\(a\)</span> and <span class="math inline">\(\pi\)</span>, an expression for the distance of the centre of mass above the horizontal surface.</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">k</span>, <span class="math inline">a</span> and <span class="math inline">\pi</span>, an expression for the distance of the centre of mass above the horizontal surface.</p>
 <p>[You may use without proof the result for the centre of mass of a circular sector in the list of formulae (MF19).]</p>
-<p>The lamina is then on the point of toppling about <span class="math inline">\(B\)</span>.</p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<p>The lamina is then on the point of toppling about <span class="math inline">B</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The rectangle has area <span class="math inline">\(ka^2\)</span> and its centre is at height <span class="math inline">\(ka/2\)</span>. The quarter-circle sector has area <span class="math inline">\(\pi a^2/4\)</span>.</p>
+<p>The rectangle has area <span class="math inline">ka^2</span> and its centre is at height <span class="math inline">ka/2</span>. The quarter-circle sector has area <span class="math inline">\pi a^2/4</span>.</p>
 <p>The centre of mass of the quarter-circle sector is at vertical distance</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \left(\frac{2a\cos(\pi/4)}{3(\pi/4)}\right)\sin\frac\pi4
 =\frac{4a}{3\pi}
-\]</span></p>
-<p>above <span class="math inline">\(OA\)</span>. Hence its height above <span class="math inline">\(CB\)</span> is <span class="math inline">\(a-4a/(3\pi)\)</span>.</p>
-<p><strong>(a)</strong> If the centre of mass is at height <span class="math inline">\(y\)</span> above <span class="math inline">\(CB\)</span>, taking moments about <span class="math inline">\(OB\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>above <span class="math inline">OA</span>. Hence its height above <span class="math inline">CB</span> is <span class="math inline">a-4a/(3\pi)</span>.</p>
+<p><strong>(a)</strong> If the centre of mass is at height <span class="math inline">y</span> above <span class="math inline">CB</span>, taking moments about <span class="math inline">OB</span> gives</p>
+<p><span class="math display">
 ka^2\left(\frac{ka}{2}\right)
 +\frac{\pi a^2}{4}\left(a-\frac{4a}{3\pi}\right)
 =\left(ka^2+\frac{\pi a^2}{4}\right)y.
-\]</span></p>
+</span></p>
 <p>After simplification,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=\frac{6k+3\pi-4}{3(4k+\pi)}a}.
-\]</span></p>
-<p><strong>(b)</strong> At the point of toppling about <span class="math inline">\(B\)</span>, the vertical line through the centre of mass passes through <span class="math inline">\(B\)</span>. Taking moments about <span class="math inline">\(OB\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> At the point of toppling about <span class="math inline">B</span>, the vertical line through the centre of mass passes through <span class="math inline">B</span>. Taking moments about <span class="math inline">OB</span> gives</p>
+<p><span class="math display">
 ka^2\left(\frac{ka}{2}\right)
 =\frac{\pi a^2}{4}\left(\frac{4a}{3\pi}\right).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{k^2a^3}{2}=\frac{a^3}{3}
 \quad\Longrightarrow\quad
 k^2=\frac23.
-\]</span></p>
-<p>Since <span class="math inline">\(k&gt;0\)</span>,</p>
-<span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">k&gt;0</span>,</p>
+<span class="math display">
 \boxed{k=\sqrt{\frac23}=0.816}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Question 3.
@@ -1972,9 +1986,9 @@ k^2=\frac23.
 <li>先选 reference axis/origin，再写每个 component 的 centre of mass 坐标；</li>
 <li>组合物体要同时检查 total mass/area 和 total moment；</li>
 <li>removed part 的 moment 使用负号；</li>
-<li>三角形的 centroid 是从顶点量 <span class="math inline">\(2/3\)</span> median，或从底边量 <span class="math inline">\(1/3\)</span> height；</li>
+<li>三角形的 centroid 是从顶点量 <span class="math inline">2/3</span> median，或从底边量 <span class="math inline">1/3</span> height；</li>
 <li>semicircular lamina 与 semicircular arc 的标准距离不同；</li>
-<li>悬挂问题中，<span class="math inline">\(G\)</span> 必须在 suspension point 的正下方；</li>
+<li>悬挂问题中，<span class="math inline">G</span> 必须在 suspension point 的正下方；</li>
 <li>toppling 问题中，取矩点应选 supporting edge；</li>
 <li>sliding 与 toppling 要比较临界条件，不能只验证其中一个。</li>
 </ol>

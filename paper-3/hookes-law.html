@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -446,22 +460,22 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
 <section id="hookes-law" class="level3">
 <h3 class="anchored" data-anchor-id="hookes-law">1.1 Hooke’s law</h3>
-<p>若 elastic string 的 natural length 为 <span class="math inline">\(l_0\)</span>、modulus of elasticity 为 <span class="math inline">\(\lambda\)</span>、extension 为 <span class="math inline">\(x\)</span>，则 tension 为</p>
-<p><span class="math display">\[
+<p>若 elastic string 的 natural length 为 <span class="math inline">l_0</span>、modulus of elasticity 为 <span class="math inline">\lambda</span>、extension 为 <span class="math inline">x</span>，则 tension 为</p>
+<p><span class="math display">
 \boxed{T=\frac{\lambda}{l_0}x}.
-\]</span></p>
+</span></p>
 <p>若 spring 被压缩，thrust 的 magnitude 同样为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{T=\frac{\lambda}{l_0}x},
-\]</span></p>
-<p>其中 <span class="math inline">\(x\)</span> 是 decrease in length。</p>
+</span></p>
+<p>其中 <span class="math inline">x</span> 是 decrease in length。</p>
 </section>
 <section id="elastic-potential-energy" class="level3">
 <h3 class="anchored" data-anchor-id="elastic-potential-energy">1.2 Elastic potential energy</h3>
-<p>从 natural length 开始伸长或压缩 <span class="math inline">\(x\)</span> 时，储存的 elastic potential energy 为</p>
-<p><span class="math display">\[
+<p>从 natural length 开始伸长或压缩 <span class="math inline">x</span> 时，储存的 elastic potential energy 为</p>
+<p><span class="math display">
 \boxed{E=\frac12Tx=\frac12\frac{\lambda}{l_0}x^2}.
-\]</span></p>
+</span></p>
 <p>不能把进一步伸长量直接代入总能量公式；应使用 final energy 减 initial energy。</p>
 </section>
 <section id="more-than-one-string-or-spring" class="level3">
@@ -471,32 +485,32 @@ window.Quarto = {
 <section id="vertical-motion" class="level3">
 <h3 class="anchored" data-anchor-id="vertical-motion">1.4 Vertical motion</h3>
 <p>当 particle 从 natural length 位置释放，常用 conservation of energy：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{loss of GPE}=
 \text{gain of EPE}+\text{gain of KE}.
-\]</span></p>
-<p>若 string initially slack，particle 先自由下落 <span class="math inline">\(l_0\)</span>，到达 string taut 的位置时</p>
-<p><span class="math display">\[
+</span></p>
+<p>若 string initially slack，particle 先自由下落 <span class="math inline">l_0</span>，到达 string taut 的位置时</p>
+<p><span class="math display">
 \frac12mu^2=mgl_0.
-\]</span></p>
-<p>之后若 extension 为 <span class="math inline">\(x\)</span>、速度为 <span class="math inline">\(v\)</span>：</p>
-<p><span class="math display">\[
+</span></p>
+<p>之后若 extension 为 <span class="math inline">x</span>、速度为 <span class="math inline">v</span>：</p>
+<p><span class="math display">
 \boxed{\frac12mv^2-\frac12mu^2+\frac12\frac{\lambda}{l_0}x^2=mgx}.
-\]</span></p>
+</span></p>
 </section>
 <section id="slack-string" class="level3">
 <h3 class="anchored" data-anchor-id="slack-string">1.5 Slack string</h3>
-<p>Light elastic string 只能提供 tension，不能提供 thrust。若计算得到 <span class="math inline">\(T&lt;0\)</span>，说明 string 已经 slack，原 circular/vertical model 不再适用；临界点使用</p>
-<p><span class="math display">\[
+<p>Light elastic string 只能提供 tension，不能提供 thrust。若计算得到 <span class="math inline">T&lt;0</span>，说明 string 已经 slack，原 circular/vertical model 不再适用；临界点使用</p>
+<p><span class="math display">
 \boxed{T=0}.
-\]</span></p>
+</span></p>
 </section>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-5.1-a-particle-suspended-by-an-elastic-string" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.1-a-particle-suspended-by-an-elastic-string">Example 5.1 · A particle suspended by an elastic string</h3>
-<p>A light elastic string of natural length <span class="math inline">\(0.7\)</span> m and modulus of elasticity <span class="math inline">\(50\)</span> N has one end fixed and a particle of mass <span class="math inline">\(1.4\)</span> kg attached to the other. The system hangs vertically in equilibrium. Find the extension of the string.</p>
+<p>A light elastic string of natural length <span class="math inline">0.7</span> m and modulus of elasticity <span class="math inline">50</span> N has one end fixed and a particle of mass <span class="math inline">1.4</span> kg attached to the other. The system hangs vertically in equilibrium. Find the extension of the string.</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -507,23 +521,23 @@ Show answer
 <figcaption>Forces on the suspended particle</figcaption>
 </figure>
 </div>
-<p>In equilibrium, <span class="math inline">\(T=1.4g\)</span>. Hooke’s law gives</p>
-<p><span class="math display">\[
+<p>In equilibrium, <span class="math inline">T=1.4g</span>. Hooke’s law gives</p>
+<p><span class="math display">
 T=\frac{\lambda}{l_0}x
 \quad\Longrightarrow\quad
 1.4g=\frac{50}{0.7}x.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{x=0.196\ \mathrm m}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-5.2-kitchen-scales" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.2-kitchen-scales">Example 5.2 · Kitchen scales</h3>
-<p>The mechanism of a set of kitchen scales consists of a light scale pan supported on a spring of natural length <span class="math inline">\(20\)</span> mm. When measuring <span class="math inline">\(1.5\)</span> kg of flour, the spring is compressed by <span class="math inline">\(7.5\)</span> mm. Find</p>
+<p>The mechanism of a set of kitchen scales consists of a light scale pan supported on a spring of natural length <span class="math inline">20</span> mm. When measuring <span class="math inline">1.5</span> kg of flour, the spring is compressed by <span class="math inline">7.5</span> mm. Find</p>
 <p><strong>(i)</strong> the modulus of elasticity of the spring;</p>
-<p><strong>(ii)</strong> the mass of the heaviest object that can be measured if it is impossible to compress the spring by more than <span class="math inline">\(16\)</span> mm.</p>
+<p><strong>(ii)</strong> the mass of the heaviest object that can be measured if it is impossible to compress the spring by more than <span class="math inline">16</span> mm.</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -535,29 +549,29 @@ Show answer
 </figure>
 </div>
 <p><strong>(i)</strong> The thrust equals the weight of the flour:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 1.5g=\frac{\lambda}{0.02}(0.0075)=0.375\lambda.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\lambda=40\ \mathrm N}.
-\]</span></p>
-<p><strong>(ii)</strong> If the maximum mass is <span class="math inline">\(M\)</span> kg,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> If the maximum mass is <span class="math inline">M</span> kg,</p>
+<p><span class="math display">
 Mg=\frac{40}{0.02}(0.016)=32g.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{M=3.2\ \mathrm{kg}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-5.3-two-parts-of-one-elastic-string" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.3-two-parts-of-one-elastic-string">Example 5.3 · Two parts of one elastic string</h3>
-<p>A particle of mass <span class="math inline">\(0.4\)</span> kg is attached to the midpoint of a light elastic string of natural length <span class="math inline">\(1\)</span> m and modulus of elasticity <span class="math inline">\(\lambda\)</span> N. The string is stretched between a point <span class="math inline">\(A\)</span> at the top of a doorway and a point <span class="math inline">\(B\)</span> on the floor, <span class="math inline">\(2\)</span> m vertically below <span class="math inline">\(A\)</span>.</p>
-<p><strong>(i)</strong> Find, in terms of <span class="math inline">\(\lambda\)</span>, the extensions of the two parts of the string.</p>
-<p><strong>(ii)</strong> Calculate their values when <span class="math inline">\(\lambda=10\)</span>.</p>
-<p><strong>(iii)</strong> Find the minimum value of <span class="math inline">\(\lambda\)</span> that will ensure that the lower half of the string is not slack.</p>
+<p>A particle of mass <span class="math inline">0.4</span> kg is attached to the midpoint of a light elastic string of natural length <span class="math inline">1</span> m and modulus of elasticity <span class="math inline">\lambda</span> N. The string is stretched between a point <span class="math inline">A</span> at the top of a doorway and a point <span class="math inline">B</span> on the floor, <span class="math inline">2</span> m vertically below <span class="math inline">A</span>.</p>
+<p><strong>(i)</strong> Find, in terms of <span class="math inline">\lambda</span>, the extensions of the two parts of the string.</p>
+<p><strong>(ii)</strong> Calculate their values when <span class="math inline">\lambda=10</span>.</p>
+<p><strong>(iii)</strong> Find the minimum value of <span class="math inline">\lambda</span> that will ensure that the lower half of the string is not slack.</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -568,65 +582,65 @@ Show answer
 <figcaption>Lengths and forces</figcaption>
 </figure>
 </div>
-<p>Let the extensions of <span class="math inline">\(AP\)</span> and <span class="math inline">\(PB\)</span> be <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span>.</p>
+<p>Let the extensions of <span class="math inline">AP</span> and <span class="math inline">PB</span> be <span class="math inline">x_1</span> and <span class="math inline">x_2</span>.</p>
 <p>Vertical equilibrium and Hooke’s law give</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T_1=T_2+0.4g,
 \qquad
 T_1=\frac{\lambda}{0.5}x_1,
 \qquad
 T_2=\frac{\lambda}{0.5}x_2.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \lambda(x_1-x_2)=0.2g.
-\]</span></p>
-<p>The total extension is <span class="math inline">\(1\)</span> m, so <span class="math inline">\(x_1+x_2=1\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>The total extension is <span class="math inline">1</span> m, so <span class="math inline">x_1+x_2=1</span>. Hence</p>
+<p><span class="math display">
 \boxed{x_1=0.5+\frac{0.1g}{\lambda}},
 \qquad
 \boxed{x_2=0.5-\frac{0.1g}{\lambda}}.
-\]</span></p>
-<p><strong>(ii)</strong> When <span class="math inline">\(\lambda=10\)</span> N, <span class="math inline">\(x_1=0.6\)</span> m and <span class="math inline">\(x_2=0.4\)</span> m.</p>
-<p><strong>(iii)</strong> For the lower part not to be slack, <span class="math inline">\(x_2\ge0\)</span>:</p>
-<span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> When <span class="math inline">\lambda=10</span> N, <span class="math inline">x_1=0.6</span> m and <span class="math inline">x_2=0.4</span> m.</p>
+<p><strong>(iii)</strong> For the lower part not to be slack, <span class="math inline">x_2\ge0</span>:</p>
+<span class="math display">
 0.5-\frac{0.1g}{\lambda}\ge0
 \quad\Longrightarrow\quad
 \boxed{\lambda\ge2\ \mathrm N}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-5.4-elastic-potential-energy" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.4-elastic-potential-energy">Example 5.4 · Elastic potential energy</h3>
-<p>An elastic rope of natural length <span class="math inline">\(0.6\)</span> m is extended to a length of <span class="math inline">\(0.8\)</span> m. The modulus of elasticity is <span class="math inline">\(25\)</span> N. Find</p>
+<p>An elastic rope of natural length <span class="math inline">0.6</span> m is extended to a length of <span class="math inline">0.8</span> m. The modulus of elasticity is <span class="math inline">25</span> N. Find</p>
 <p><strong>(i)</strong> the elastic potential energy in the rope;</p>
-<p><strong>(ii)</strong> the further energy required to stretch it to a length of <span class="math inline">\(1.65\)</span> m.</p>
+<p><strong>(ii)</strong> the further energy required to stretch it to a length of <span class="math inline">1.65</span> m.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The elastic potential energy for extension <span class="math inline">\(x\)</span> is</p>
-<p><span class="math display">\[
+<p>The elastic potential energy for extension <span class="math inline">x</span> is</p>
+<p><span class="math display">
 E=\frac12\frac{\lambda}{l_0}x^2.
-\]</span></p>
-<p><strong>(i)</strong> For <span class="math inline">\(x=0.2\)</span> m,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(i)</strong> For <span class="math inline">x=0.2</span> m,</p>
+<p><span class="math display">
 E_1=\frac12\frac{25}{0.6}(0.2)^2
 =\boxed{0.833\ \mathrm J}.
-\]</span></p>
-<p><strong>(ii)</strong> For final extension <span class="math inline">\(x=1.05\)</span> m,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> For final extension <span class="math inline">x=1.05</span> m,</p>
+<p><span class="math display">
 E_2=\frac12\frac{25}{0.6}(1.05)^2=22.9\ \mathrm J.
-\]</span></p>
+</span></p>
 <p>The further energy required is</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{E_2-E_1=22.1\ \mathrm J}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-5.5-a-marble-and-a-catapult" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.5-a-marble-and-a-catapult">Example 5.5 · A marble and a catapult</h3>
-<p>A marble of mass <span class="math inline">\(70\)</span> g is placed at the centre of an elastic string and pulled back so that the string is just taut. The marble is then pulled back a further <span class="math inline">\(9\)</span> cm and the force required to keep it in this position is <span class="math inline">\(60\)</span> N. Find</p>
+<p>A marble of mass <span class="math inline">70</span> g is placed at the centre of an elastic string and pulled back so that the string is just taut. The marble is then pulled back a further <span class="math inline">9</span> cm and the force required to keep it in this position is <span class="math inline">60</span> N. Find</p>
 <p><strong>(i)</strong> the stretched length of the string;</p>
 <p><strong>(ii)</strong> the tension in the string and its modulus of elasticity;</p>
 <p><strong>(iii)</strong> the elastic potential energy stored in the string and the speed of the marble when the string regains its natural length.</p>
@@ -640,18 +654,18 @@ Show answer
 <figcaption>Geometry of the stretched string</figcaption>
 </figure>
 </div>
-<p>The half-distance between the prongs is <span class="math inline">\(8\)</span> cm. Initially the perpendicular distance is</p>
-<p><span class="math display">\[
+<p>The half-distance between the prongs is <span class="math inline">8</span> cm. Initially the perpendicular distance is</p>
+<p><span class="math display">
 DM_1=\sqrt{10^2-8^2}=6\ \mathrm{cm}.
-\]</span></p>
-<p>After pulling back <span class="math inline">\(9\)</span> cm, <span class="math inline">\(DM_2=15\)</span> cm, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>After pulling back <span class="math inline">9</span> cm, <span class="math inline">DM_2=15</span> cm, so</p>
+<p><span class="math display">
 BM_2=\sqrt{15^2+8^2}=17\ \mathrm{cm}.
-\]</span></p>
+</span></p>
 <p><strong>(i)</strong> The stretched length is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{34\ \mathrm{cm}}.
-\]</span></p>
+</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/hookes-law/pic/5.5a2.png" class="img-fluid figure-img" style="width:60.0%"></p>
@@ -659,31 +673,31 @@ BM_2=\sqrt{15^2+8^2}=17\ \mathrm{cm}.
 </figure>
 </div>
 <p><strong>(ii)</strong> Resolving along the symmetry line,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2T\left(\frac{15}{17}\right)=60
 \quad\Longrightarrow\quad T=34\ \mathrm N.
-\]</span></p>
-<p>The extension is <span class="math inline">\(0.34-0.20=0.14\)</span> m. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>The extension is <span class="math inline">0.34-0.20=0.14</span> m. Hence</p>
+<p><span class="math display">
 34=\frac{\lambda}{0.20}(0.14)
 \quad\Longrightarrow\quad
 \boxed{\lambda=48.6\ \mathrm N}.
-\]</span></p>
+</span></p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 E=\frac12\frac{48.6}{0.20}(0.14)^2=2.38\ \mathrm J.
-\]</span></p>
+</span></p>
 <p>When the string returns to its natural length, this becomes kinetic energy:</p>
-<span class="math display">\[
+<span class="math display">
 \frac12(0.07)v^2=2.38
 \quad\Longrightarrow\quad
 \boxed{v=8.25\ \mathrm{m\ s^{-1}}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-5.6-a-particle-falling-onto-an-elastic-string" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.6-a-particle-falling-onto-an-elastic-string">Example 5.6 · A particle falling onto an elastic string</h3>
-<p>A particle of mass <span class="math inline">\(m\)</span> is attached to one end, <span class="math inline">\(A\)</span>, of a light elastic string with natural length <span class="math inline">\(l_0\)</span> and modulus of elasticity <span class="math inline">\(\lambda\)</span>. The other end is attached to a fixed point <span class="math inline">\(O\)</span>. The particle is released from <span class="math inline">\(O\)</span>. Initially it falls freely with the string slack; after reaching <span class="math inline">\(P\)</span>, the string becomes taut. At <span class="math inline">\(P\)</span>, the particle has velocity <span class="math inline">\(u\)</span> downwards. Find the energy equation when the extension is <span class="math inline">\(x\)</span> and the downward velocity is <span class="math inline">\(v\)</span>, and obtain the equation for <span class="math inline">\(x\)</span> at the lowest point.</p>
+<p>A particle of mass <span class="math inline">m</span> is attached to one end, <span class="math inline">A</span>, of a light elastic string with natural length <span class="math inline">l_0</span> and modulus of elasticity <span class="math inline">\lambda</span>. The other end is attached to a fixed point <span class="math inline">O</span>. The particle is released from <span class="math inline">O</span>. Initially it falls freely with the string slack; after reaching <span class="math inline">P</span>, the string becomes taut. At <span class="math inline">P</span>, the particle has velocity <span class="math inline">u</span> downwards. Find the energy equation when the extension is <span class="math inline">x</span> and the downward velocity is <span class="math inline">v</span>, and obtain the equation for <span class="math inline">x</span> at the lowest point.</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -694,28 +708,28 @@ Show answer
 <figcaption>Slack and taut parts of the string</figcaption>
 </figure>
 </div>
-<p>Before the string becomes taut, the particle falls through <span class="math inline">\(l_0\)</span>:</p>
-<p><span class="math display">\[
+<p>Before the string becomes taut, the particle falls through <span class="math inline">l_0</span>:</p>
+<p><span class="math display">
 \frac12mu^2=mgl_0
 \quad\Longrightarrow\quad
 u=\sqrt{2gl_0}.
-\]</span></p>
-<p>After a further distance <span class="math inline">\(x\)</span>, conservation of energy gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>After a further distance <span class="math inline">x</span>, conservation of energy gives</p>
+<p><span class="math display">
 \boxed{\frac12mv^2-\frac12mu^2+\frac12\frac{\lambda}{l_0}x^2=mgx}.
-\]</span></p>
-<p>At the lowest point <span class="math inline">\(v=0\)</span>, so</p>
-<span class="math display">\[
+</span></p>
+<p>At the lowest point <span class="math inline">v=0</span>, so</p>
+<span class="math display">
 \boxed{\frac12\frac{\lambda}{l_0}x^2-mgx-mgl_0=0}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-5.7-using-calculus-for-vertical-elastic-motion" class="level3">
 <h3 class="anchored" data-anchor-id="example-5.7-using-calculus-for-vertical-elastic-motion">Example 5.7 · Using calculus for vertical elastic motion</h3>
 <p>Use calculus to analyse the same particle and string model as Example 5.6.</p>
-<p><strong>(i)</strong> Write down the equation of motion when the string is taut, using <span class="math inline">\(v\,dv/dx\)</span> for acceleration.</p>
-<p><strong>(ii)</strong> Solve this differential equation to find <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(x\)</span> and interpret the solution.</p>
-<p><strong>(iii)</strong> Write the equation using <span class="math inline">\(dv/dt\)</span> and comment on whether it is useful.</p>
+<p><strong>(i)</strong> Write down the equation of motion when the string is taut, using <span class="math inline">v\,dv/dx</span> for acceleration.</p>
+<p><strong>(ii)</strong> Solve this differential equation to find <span class="math inline">v</span> in terms of <span class="math inline">x</span> and interpret the solution.</p>
+<p><strong>(iii)</strong> Write the equation using <span class="math inline">dv/dt</span> and comment on whether it is useful.</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -727,25 +741,25 @@ Show answer
 </figure>
 </div>
 <p><strong>(i)</strong> Taking downward as positive,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 mg-\frac{\lambda}{l_0}x=ma,
 \qquad
 v\frac{dv}{dx}=g-\frac{\lambda}{ml_0}x.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> Integrating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12v^2=gx-\frac{\lambda}{2ml_0}x^2+C.
-\]</span></p>
-<p>At <span class="math inline">\(x=0\)</span>, <span class="math inline">\(v=u\)</span>, so <span class="math inline">\(C=\frac12u^2\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">x=0</span>, <span class="math inline">v=u</span>, so <span class="math inline">C=\frac12u^2</span>. Hence</p>
+<p><span class="math display">
 \boxed{v^2=u^2+2gx-\frac{\lambda}{ml_0}x^2}.
-\]</span></p>
-<p>This is the energy equation in another form. The two algebraic signs of <span class="math inline">\(v\)</span> represent downward and upward motion.</p>
-<p><strong>(iii)</strong> Using <span class="math inline">\(a=dv/dt\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>This is the energy equation in another form. The two algebraic signs of <span class="math inline">v</span> represent downward and upward motion.</p>
+<p><strong>(iii)</strong> Using <span class="math inline">a=dv/dt</span> gives</p>
+<p><span class="math display">
 \frac{dv}{dt}=g-\frac{\lambda}{ml_0}x.
-\]</span></p>
-This form contains <span class="math inline">\(v\)</span>, <span class="math inline">\(t\)</span> and <span class="math inline">\(x\)</span> and is therefore not useful by itself for solving the motion directly.
+</span></p>
+This form contains <span class="math inline">v</span>, <span class="math inline">t</span> and <span class="math inline">x</span> and is therefore not useful by itself for solving the motion directly.
 </details>
 </section>
 </section>
@@ -753,7 +767,7 @@ This form contains <span class="math inline">\(v\)</span>, <span class="math inl
 <h2 class="anchored" data-anchor-id="教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</h2>
 <p>本节收录 Further Mechanics Chapter 5 Exercise 5B 与 Exercise 5C 中明确标注 Cambridge International 来源的题目。题目保留英文，图像使用 <code>Pic</code> 文件夹中的独立图片，答案使用 <code>Show answer</code>。</p>
 <div class="question-card" title="Exercise 5B, Question 8 · Cambridge International 9709 Paper 5 Q1 June 2008">
-<p>A particle <span class="math inline">\(A\)</span> and a block <span class="math inline">\(B\)</span> are attached to opposite ends of a light elastic string of natural length <span class="math inline">\(2\)</span> m and modulus of elasticity <span class="math inline">\(6\)</span> N. <span class="math inline">\(B\)</span> is at rest on a rough horizontal table. The string passes over a small smooth pulley <span class="math inline">\(P\)</span> at the edge of the table, with the part <span class="math inline">\(BP\)</span> of the string horizontal and of length <span class="math inline">\(1.2\)</span> m. The frictional force acting on <span class="math inline">\(B\)</span> is <span class="math inline">\(1.5\)</span> N and the system is in equilibrium. Find the distance <span class="math inline">\(PA\)</span>.</p>
+<p>A particle <span class="math inline">A</span> and a block <span class="math inline">B</span> are attached to opposite ends of a light elastic string of natural length <span class="math inline">2</span> m and modulus of elasticity <span class="math inline">6</span> N. <span class="math inline">B</span> is at rest on a rough horizontal table. The string passes over a small smooth pulley <span class="math inline">P</span> at the edge of the table, with the part <span class="math inline">BP</span> of the string horizontal and of length <span class="math inline">1.2</span> m. The frictional force acting on <span class="math inline">B</span> is <span class="math inline">1.5</span> N and the system is in equilibrium. Find the distance <span class="math inline">PA</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/hookes-law/pic/5.EB_8.png" class="img-fluid figure-img" style="width:72.0%"></p>
@@ -764,26 +778,26 @@ This form contains <span class="math inline">\(v\)</span>, <span class="math inl
 <summary>
 Show answer
 </summary>
-<p>Since <span class="math inline">\(B\)</span> is in equilibrium, the tension is <span class="math inline">\(T=1.5\)</span> N. Hooke’s law gives</p>
-<p><span class="math display">\[
+<p>Since <span class="math inline">B</span> is in equilibrium, the tension is <span class="math inline">T=1.5</span> N. Hooke’s law gives</p>
+<p><span class="math display">
 1.5=\frac{6}{2}x
 \quad\Longrightarrow\quad
 x=0.5\ \mathrm m.
-\]</span></p>
-<p>The total length of the string is therefore <span class="math inline">\(2+0.5=2.5\)</span> m. Hence</p>
-<span class="math display">\[
+</span></p>
+<p>The total length of the string is therefore <span class="math inline">2+0.5=2.5</span> m. Hence</p>
+<span class="math display">
 PA=2.5-1.2=\boxed{1.3\ \mathrm m}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 5 Q1, June 2008; textbook answer checked.
 </div>
 </div>
 <div class="question-card" title="Exercise 5B, Question 10 · Cambridge International 9709 Paper 5 Q1 June 2006">
-<p>A light elastic string has natural length <span class="math inline">\(0.6\)</span> m and modulus of elasticity <span class="math inline">\(\lambda\)</span> N. The ends of the string are attached to fixed points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, which are at the same horizontal level and <span class="math inline">\(0.63\)</span> m apart. A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.064\)</span> kg is attached to the midpoint of the string and hangs in equilibrium at a point <span class="math inline">\(0.08\)</span> m below <span class="math inline">\(AB\)</span>.</p>
+<p>A light elastic string has natural length <span class="math inline">0.6</span> m and modulus of elasticity <span class="math inline">\lambda</span> N. The ends of the string are attached to fixed points <span class="math inline">A</span> and <span class="math inline">B</span>, which are at the same horizontal level and <span class="math inline">0.63</span> m apart. A particle <span class="math inline">P</span> of mass <span class="math inline">0.064</span> kg is attached to the midpoint of the string and hangs in equilibrium at a point <span class="math inline">0.08</span> m below <span class="math inline">AB</span>.</p>
 <p>Find</p>
 <p><strong>(i)</strong> the tension in the string;</p>
-<p><strong>(ii)</strong> the value of <span class="math inline">\(\lambda\)</span>.</p>
+<p><strong>(ii)</strong> the value of <span class="math inline">\lambda</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/hookes-law/pic/5.EB_10.png" class="img-fluid figure-img" style="width:88.0%"></p>
@@ -795,35 +809,35 @@ PA=2.5-1.2=\boxed{1.3\ \mathrm m}.
 Show answer
 </summary>
 <p>Each half of the string has length</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sqrt{0.315^2+0.08^2}=0.325\ \mathrm m.
-\]</span></p>
-<p>Thus the total length is <span class="math inline">\(0.65\)</span> m and the extension is <span class="math inline">\(0.05\)</span> m.</p>
+</span></p>
+<p>Thus the total length is <span class="math inline">0.65</span> m and the extension is <span class="math inline">0.05</span> m.</p>
 <p><strong>(i)</strong> Resolving vertically,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2T\frac{0.08}{0.325}=0.064g
 \quad\Longrightarrow\quad
 \boxed{T=1.3\ \mathrm N}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> Hooke’s law gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 1.3=\frac{\lambda}{0.6}(0.05),
-\]</span></p>
+</span></p>
 <p>so</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\lambda=15.6\ \mathrm N}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 5 Q1, June 2006; textbook answer checked.
 </div>
 </div>
 <div class="question-card" title="Exercise 5C, Question 8 · Cambridge International 9709 Paper 5 Q6 June 2007">
-<p><span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are fixed points on a smooth horizontal table. The distance <span class="math inline">\(AB\)</span> is <span class="math inline">\(2.5\)</span> m. An elastic string of natural length <span class="math inline">\(0.6\)</span> m and modulus of elasticity <span class="math inline">\(24\)</span> N has one end attached at <span class="math inline">\(A\)</span> and the other end attached to a particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.95\)</span> kg. Another elastic string of natural length <span class="math inline">\(0.9\)</span> m and modulus of elasticity <span class="math inline">\(18\)</span> N has one end attached at <span class="math inline">\(B\)</span> and the other end attached to <span class="math inline">\(P\)</span>. The particle <span class="math inline">\(P\)</span> is held at rest at the midpoint of <span class="math inline">\(AB\)</span>.</p>
+<p><span class="math inline">A</span> and <span class="math inline">B</span> are fixed points on a smooth horizontal table. The distance <span class="math inline">AB</span> is <span class="math inline">2.5</span> m. An elastic string of natural length <span class="math inline">0.6</span> m and modulus of elasticity <span class="math inline">24</span> N has one end attached at <span class="math inline">A</span> and the other end attached to a particle <span class="math inline">P</span> of mass <span class="math inline">0.95</span> kg. Another elastic string of natural length <span class="math inline">0.9</span> m and modulus of elasticity <span class="math inline">18</span> N has one end attached at <span class="math inline">B</span> and the other end attached to <span class="math inline">P</span>. The particle <span class="math inline">P</span> is held at rest at the midpoint of <span class="math inline">AB</span>.</p>
 <p>The particle is released from rest.</p>
 <p><strong>(i)</strong> Find the tensions in the strings.</p>
-<p><strong>(ii)</strong> Find the acceleration of <span class="math inline">\(P\)</span> immediately after its release.</p>
-<p><strong>(iii)</strong> <span class="math inline">\(P\)</span> reaches its maximum speed at the point <span class="math inline">\(C\)</span>. Find the distance <span class="math inline">\(AC\)</span>.</p>
+<p><strong>(ii)</strong> Find the acceleration of <span class="math inline">P</span> immediately after its release.</p>
+<p><strong>(iii)</strong> <span class="math inline">P</span> reaches its maximum speed at the point <span class="math inline">C</span>. Find the distance <span class="math inline">AC</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/hookes-law/pic/5.EC_9.png" class="img-fluid figure-img" style="width:76.0%"></p>
@@ -834,25 +848,25 @@ Show answer
 <summary>
 Show answer
 </summary>
-<p>Initially <span class="math inline">\(AP=BP=1.25\)</span> m. Hence the extensions are <span class="math inline">\(0.65\)</span> m and <span class="math inline">\(0.35\)</span> m.</p>
+<p>Initially <span class="math inline">AP=BP=1.25</span> m. Hence the extensions are <span class="math inline">0.65</span> m and <span class="math inline">0.35</span> m.</p>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 T_A=\frac{24}{0.6}(0.65)=\boxed{26\ \mathrm N},
 \qquad
 T_B=\frac{18}{0.9}(0.35)=\boxed{7\ \mathrm N}.
-\]</span></p>
-<p><strong>(ii)</strong> The resultant force is <span class="math inline">\(26-7=19\)</span> N towards <span class="math inline">\(A\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> The resultant force is <span class="math inline">26-7=19</span> N towards <span class="math inline">A</span>, so</p>
+<p><span class="math display">
 \boxed{a=\frac{19}{0.95}=20\ \mathrm{m\ s^{-2}}\text{ towards }A}.
-\]</span></p>
-<p><strong>(iii)</strong> At maximum speed the resultant force is zero. Let <span class="math inline">\(AC=x\)</span>; then <span class="math inline">\(BC=2.5-x\)</span>. Resolving along <span class="math inline">\(AB\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(iii)</strong> At maximum speed the resultant force is zero. Let <span class="math inline">AC=x</span>; then <span class="math inline">BC=2.5-x</span>. Resolving along <span class="math inline">AB</span>:</p>
+<p><span class="math display">
 \frac{24}{0.6}(x-0.6)=\frac{18}{0.9}(2.5-x-0.9).
-\]</span></p>
+</span></p>
 <p>Solving gives</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{AC=0.933\ \mathrm m}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 5 Q6, June 2007; textbook answer checked.
@@ -868,35 +882,35 @@ T_B=\frac{18}{0.9}(0.35)=\boxed{7\ \mathrm N}.
 <p>Questions are arranged by examination session and question number. The wording is kept in English, including every sub-question. Each solution is presented as a sequence of mark-scheme points.</p>
 <section id="mayjune-923131-and-923132-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-3">2021 May/June · 9231/31 and 9231/32 · Question 3</h3>
-<p>One end of a light elastic string, of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(kmg\)</span>, is attached to a fixed point <span class="math inline">\(A\)</span>. The other end of the string is attached to a particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(4m\)</span>. The particle <span class="math inline">\(P\)</span> hangs in equilibrium a distance <span class="math inline">\(x\)</span> vertically below <span class="math inline">\(A\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(k=\dfrac{4a}{x-a}\)</span>.</p>
-<p>An additional particle, of mass <span class="math inline">\(2m\)</span>, is now attached to <span class="math inline">\(P\)</span> and the combined particle is released from rest at the original equilibrium position of <span class="math inline">\(P\)</span>. When the combined particle has descended a distance <span class="math inline">\(\frac13a\)</span>, its speed is <span class="math inline">\(\frac13\sqrt{ag}\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">kmg</span>, is attached to a fixed point <span class="math inline">A</span>. The other end of the string is attached to a particle <span class="math inline">P</span> of mass <span class="math inline">4m</span>. The particle <span class="math inline">P</span> hangs in equilibrium a distance <span class="math inline">x</span> vertically below <span class="math inline">A</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">k=\dfrac{4a}{x-a}</span>.</p>
+<p>An additional particle, of mass <span class="math inline">2m</span>, is now attached to <span class="math inline">P</span> and the combined particle is released from rest at the original equilibrium position of <span class="math inline">P</span>. When the combined particle has descended a distance <span class="math inline">\frac13a</span>, its speed is <span class="math inline">\frac13\sqrt{ag}</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">x</span> in terms of <span class="math inline">a</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> The original particle is in equilibrium, so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 4mg=\frac{kmg}{a}(x-a).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{k=\frac{4a}{x-a}}.
-\]</span></p>
-<p><strong>(b)</strong> After descending <span class="math inline">\(a/3\)</span>, the extension is <span class="math inline">\(x-2a/3\)</span>. Conservation of energy for the combined mass <span class="math inline">\(6m\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> After descending <span class="math inline">a/3</span>, the extension is <span class="math inline">x-2a/3</span>. Conservation of energy for the combined mass <span class="math inline">6m</span> gives</p>
+<p><span class="math display">
 2mga=\frac12\frac{kmg}{a}\left[\left(x-\frac23a\right)^2-(x-a)^2\right]
 +\frac12(6m)\left(\frac13\sqrt{ag}\right)^2.
-\]</span></p>
+</span></p>
 <p>Using part <strong>(a)</strong> and simplifying:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac53a=\frac{2}{x-a}\left[\left(x-\frac23a\right)^2-(x-a)^2\right].
-\]</span></p>
+</span></p>
 <p>Solving gives</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{x=\frac53a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Question 3; answer checked against the official Mark Scheme.
@@ -904,23 +918,23 @@ Show answer
 </section>
 <section id="octobernovember-923131-question-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-question-1">2021 October/November · 9231/31 · Question 1</h3>
-<p>One end of a light elastic string, of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(3mg\)</span>, is attached to a fixed point <span class="math inline">\(O\)</span> on a smooth horizontal plane. A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to the other end of the string and moves in a horizontal circle with centre <span class="math inline">\(O\)</span>. The speed of <span class="math inline">\(P\)</span> is <span class="math inline">\(\sqrt{\frac43ga}\)</span>. Find the extension of the string.</p>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">3mg</span>, is attached to a fixed point <span class="math inline">O</span> on a smooth horizontal plane. A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to the other end of the string and moves in a horizontal circle with centre <span class="math inline">O</span>. The speed of <span class="math inline">P</span> is <span class="math inline">\sqrt{\frac43ga}</span>. Find the extension of the string.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let the extension be <span class="math inline">\(x\)</span>. The tension supplies the centripetal force:</p>
-<p><span class="math display">\[
+<p>Let the extension be <span class="math inline">x</span>. The tension supplies the centripetal force:</p>
+<p><span class="math display">
 \frac{3mg}{a}x=\frac{m(\sqrt{\frac43ga})^2}{a+x}.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 9x^2+9ax-4a^2=0,
-\]</span></p>
+</span></p>
 <p>and the physically valid root is</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{x=\frac13a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Question 1.
@@ -928,20 +942,20 @@ Show answer
 </section>
 <section id="octobernovember-923131-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-question-3">2021 October/November · 9231/31 · Question 3</h3>
-<p>A light elastic string has natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(12mg\)</span>. One end is attached to a fixed point <span class="math inline">\(O\)</span> and the other to a particle of mass <span class="math inline">\(m\)</span>. The particle hangs in equilibrium vertically below <span class="math inline">\(O\)</span>. It is pulled vertically down and released from rest with extension <span class="math inline">\(e\)</span>, where <span class="math inline">\(e&gt;\frac13a\)</span>. In the subsequent motion the particle has speed <span class="math inline">\(\sqrt{2ga}\)</span> when it has ascended a distance <span class="math inline">\(\frac13a\)</span>. Find <span class="math inline">\(e\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+<p>A light elastic string has natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">12mg</span>. One end is attached to a fixed point <span class="math inline">O</span> and the other to a particle of mass <span class="math inline">m</span>. The particle hangs in equilibrium vertically below <span class="math inline">O</span>. It is pulled vertically down and released from rest with extension <span class="math inline">e</span>, where <span class="math inline">e&gt;\frac13a</span>. In the subsequent motion the particle has speed <span class="math inline">\sqrt{2ga}</span> when it has ascended a distance <span class="math inline">\frac13a</span>. Find <span class="math inline">e</span> in terms of <span class="math inline">a</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Use conservation of energy between release and the stated position. The extension changes from <span class="math inline">\(e\)</span> to <span class="math inline">\(e-\frac13a\)</span>, so</p>
-<p><span class="math display">\[
+<p>Use conservation of energy between release and the stated position. The extension changes from <span class="math inline">e</span> to <span class="math inline">e-\frac13a</span>, so</p>
+<p><span class="math display">
 \frac12m(2ga)+mg\left(-\frac13a\right)
 =\frac12\frac{12mg}{a}\left[e^2-\left(e-\frac13a\right)^2\right].
-\]</span></p>
-<p>Solving the resulting quadratic and retaining the root <span class="math inline">\(e&gt;\frac13a\)</span> gives</p>
-<span class="math display">\[
+</span></p>
+<p>Solving the resulting quadratic and retaining the root <span class="math inline">e&gt;\frac13a</span> gives</p>
+<span class="math display">
 \boxed{e=\frac12a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Question 3.
@@ -949,24 +963,24 @@ Show answer
 </section>
 <section id="octobernovember-923132-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-2">2021 October/November · 9231/32 · Question 2</h3>
-<p>A light spring <span class="math inline">\(AB\)</span> has natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(5mg\)</span>. End <span class="math inline">\(A\)</span> is fixed on a smooth horizontal surface and a particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to end <span class="math inline">\(B\)</span>. Another particle <span class="math inline">\(Q\)</span> of mass <span class="math inline">\(km\)</span> moves towards <span class="math inline">\(P\)</span> with speed <span class="math inline">\(4\sqrt{ga}\)</span>. The particles collide directly and coalesce. The greatest compression of the spring is <span class="math inline">\(\frac15a\)</span>. Find <span class="math inline">\(k\)</span>.</p>
+<p>A light spring <span class="math inline">AB</span> has natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">5mg</span>. End <span class="math inline">A</span> is fixed on a smooth horizontal surface and a particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to end <span class="math inline">B</span>. Another particle <span class="math inline">Q</span> of mass <span class="math inline">km</span> moves towards <span class="math inline">P</span> with speed <span class="math inline">4\sqrt{ga}</span>. The particles collide directly and coalesce. The greatest compression of the spring is <span class="math inline">\frac15a</span>. Find <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>Immediately after impact, conservation of momentum gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 km(4\sqrt{ga})=(k+1)mV.
-\]</span></p>
+</span></p>
 <p>At maximum compression, the combined particle is instantaneously at rest. Applying conservation of energy from just after impact to maximum compression,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12(k+1)mV^2
 =\frac12\frac{5mg}{a}\left(\frac15a\right)^2.
-\]</span></p>
-<p>Substituting <span class="math inline">\(V=4k\sqrt{ga}/(k+1)\)</span> and solving gives</p>
-<span class="math display">\[
+</span></p>
+<p>Substituting <span class="math inline">V=4k\sqrt{ga}/(k+1)</span> and solving gives</p>
+<span class="math display">
 \boxed{k=\frac14}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2021, Question 2.
@@ -974,21 +988,21 @@ km(4\sqrt{ga})=(k+1)mV.
 </section>
 <section id="mayjune-923131-923132-and-923133-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-923132-and-923133-question-2">2022 May/June · 9231/31, 9231/32 and 9231/33 · Question 2</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to one end of a light elastic string of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(\frac43mg\)</span>. The other end is attached to a fixed point <span class="math inline">\(O\)</span> on a rough horizontal surface. The particle is at rest with the string at its natural length and is projected along <span class="math inline">\(OP\)</span> with speed <span class="math inline">\(\frac12\sqrt{ga}\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to one end of a light elastic string of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">\frac43mg</span>. The other end is attached to a fixed point <span class="math inline">O</span> on a rough horizontal surface. The particle is at rest with the string at its natural length and is projected along <span class="math inline">OP</span> with speed <span class="math inline">\frac12\sqrt{ga}</span>.</p>
 <p>Find the greatest extension of the string during the subsequent motion.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>If the greatest extension is <span class="math inline">\(x\)</span>, the initial kinetic energy is converted into elastic potential energy and work done against friction. Using the coefficient of friction <span class="math inline">\(\frac13\)</span>:</p>
-<p><span class="math display">\[
+<p>If the greatest extension is <span class="math inline">x</span>, the initial kinetic energy is converted into elastic potential energy and work done against friction. Using the coefficient of friction <span class="math inline">\frac13</span>:</p>
+<p><span class="math display">
 \frac12m\left(\frac12\sqrt{ga}\right)^2
 =\frac12\frac{(4/3)mg}{a}x^2+\frac13mgx.
-\]</span></p>
+</span></p>
 <p>Simplifying and taking the positive root gives</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{x=\frac14a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31, 9231/32 and 9231/33, May/June 2022, Question 2; answer checked against the official Mark Scheme.
@@ -1002,7 +1016,7 @@ Show answer
 <figcaption>Original diagram for 2022 May/June Question 4</figcaption>
 </figure>
 </div>
-<p>A particle of weight <span class="math inline">\(10\)</span> N is attached to one end of a light elastic string. The other end of the string is attached to a fixed point <span class="math inline">\(A\)</span> on a horizontal ceiling. A horizontal force of <span class="math inline">\(7.5\)</span> N acts on the particle. In the equilibrium position, the string makes an angle <span class="math inline">\(\theta\)</span> with the ceiling (see diagram). The string has natural length <span class="math inline">\(0.8\)</span> m and modulus of elasticity <span class="math inline">\(50\)</span> N.</p>
+<p>A particle of weight <span class="math inline">10</span> N is attached to one end of a light elastic string. The other end of the string is attached to a fixed point <span class="math inline">A</span> on a horizontal ceiling. A horizontal force of <span class="math inline">7.5</span> N acts on the particle. In the equilibrium position, the string makes an angle <span class="math inline">\theta</span> with the ceiling (see diagram). The string has natural length <span class="math inline">0.8</span> m and modulus of elasticity <span class="math inline">50</span> N.</p>
 <p><strong>(a)</strong> Find the tension in the string.</p>
 <p><strong>(b)</strong> Find the vertical distance between the particle and the ceiling.</p>
 <details class="answer-panel">
@@ -1011,14 +1025,14 @@ Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Resolving horizontally and vertically gives <span class="math inline">\(T\cos\theta=7.5\)</span> and <span class="math inline">\(T\sin\theta=10\)</span>.</li>
-<li>Hence <span class="math inline">\(T=\sqrt{7.5^2+10^2}=\boxed{12.5\text{ N}}\)</span>.</li>
+<li>Resolving horizontally and vertically gives <span class="math inline">T\cos\theta=7.5</span> and <span class="math inline">T\sin\theta=10</span>.</li>
+<li>Hence <span class="math inline">T=\sqrt{7.5^2+10^2}=\boxed{12.5\text{ N}}</span>.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>Hooke’s law gives <span class="math inline">\(12.5=\dfrac{50}{0.8}e\)</span>, so <span class="math inline">\(e=0.2\)</span> m.</li>
-<li>The stretched length is <span class="math inline">\(1.0\)</span> m.</li>
-<li>Therefore the vertical distance is <span class="math inline">\(1.0\sin\theta=1.0\cdot\frac45=\boxed{0.8\text{ m}}\)</span>.</li>
+<li>Hooke’s law gives <span class="math inline">12.5=\dfrac{50}{0.8}e</span>, so <span class="math inline">e=0.2</span> m.</li>
+<li>The stretched length is <span class="math inline">1.0</span> m.</li>
+<li>Therefore the vertical distance is <span class="math inline">1.0\sin\theta=1.0\cdot\frac45=\boxed{0.8\text{ m}}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1027,25 +1041,25 @@ Show answer
 </section>
 <section id="octobernovember-923131-and-923133-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-2">2022 October/November · 9231/31 and 9231/33 · Question 2</h3>
-<p>A light elastic string has natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(4mg\)</span>. One end is fixed at <span class="math inline">\(O\)</span> on a smooth horizontal surface and the other is attached to a particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span>. The particle is projected along the surface in the direction <span class="math inline">\(OP\)</span>. When the length of the string is <span class="math inline">\(\frac54a\)</span>, the speed is <span class="math inline">\(v\)</span>; when the length is <span class="math inline">\(\frac32a\)</span>, the speed is <span class="math inline">\(\frac12v\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(g\)</span>.</p>
+<p>A light elastic string has natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">4mg</span>. One end is fixed at <span class="math inline">O</span> on a smooth horizontal surface and the other is attached to a particle <span class="math inline">P</span> of mass <span class="math inline">m</span>. The particle is projected along the surface in the direction <span class="math inline">OP</span>. When the length of the string is <span class="math inline">\frac54a</span>, the speed is <span class="math inline">v</span>; when the length is <span class="math inline">\frac32a</span>, the speed is <span class="math inline">\frac12v</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">v</span> in terms of <span class="math inline">a</span> and <span class="math inline">g</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>The change in elastic potential energy is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12\frac{4mg}{a}\left[\left(\frac12a\right)^2-\left(\frac14a\right)^2\right]
 =\frac38mga.
-\]</span></p>
+</span></p>
 <p>The change in kinetic energy is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12m\left(\frac14v^2-v^2\right)=-\frac38mv^2.
-\]</span></p>
+</span></p>
 <p>Equating the loss of kinetic energy to the gain in elastic energy gives</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{v=\sqrt{ga}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2022, Question 2.
@@ -1053,19 +1067,19 @@ Show answer
 </section>
 <section id="octobernovember-923132-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-3">2022 October/November · 9231/32 · Question 3</h3>
-<p>One end of a light elastic string, of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(\frac{16}{3}Mg\)</span>, is attached to a fixed point <span class="math inline">\(O\)</span>. A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(4M\)</span> is attached to the other end of the string and hangs vertically in equilibrium. Another particle of mass <span class="math inline">\(2M\)</span> is attached to <span class="math inline">\(P\)</span> and the combined particle is then released from rest. The speed of the combined particle when it has descended a distance <span class="math inline">\(\frac14a\)</span> is <span class="math inline">\(v\)</span>.</p>
-<p>Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(g\)</span> and <span class="math inline">\(a\)</span>.</p>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">\frac{16}{3}Mg</span>, is attached to a fixed point <span class="math inline">O</span>. A particle <span class="math inline">P</span> of mass <span class="math inline">4M</span> is attached to the other end of the string and hangs vertically in equilibrium. Another particle of mass <span class="math inline">2M</span> is attached to <span class="math inline">P</span> and the combined particle is then released from rest. The speed of the combined particle when it has descended a distance <span class="math inline">\frac14a</span> is <span class="math inline">v</span>.</p>
+<p>Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">g</span> and <span class="math inline">a</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>In the original equilibrium, <span class="math inline">\(4Mg=\frac{(16/3)Mg}{a}e\)</span>, so <span class="math inline">\(e=\frac34a\)</span>.</li>
-<li>After descending <span class="math inline">\(\frac14a\)</span>, the extension is <span class="math inline">\(a\)</span>.</li>
-<li>Loss in gravitational potential energy is <span class="math inline">\(\frac32Mga\)</span>.</li>
-<li>Gain in elastic potential energy is <span class="math inline">\(\frac76Mga\)</span>.</li>
-<li>Thus <span class="math inline">\(\frac32Mga-\frac76Mga=\frac12(6M)v^2\)</span>.</li>
-<li>Therefore <span class="math inline">\(\boxed{v=\frac13\sqrt{ga}}\)</span>.</li>
+<li>In the original equilibrium, <span class="math inline">4Mg=\frac{(16/3)Mg}{a}e</span>, so <span class="math inline">e=\frac34a</span>.</li>
+<li>After descending <span class="math inline">\frac14a</span>, the extension is <span class="math inline">a</span>.</li>
+<li>Loss in gravitational potential energy is <span class="math inline">\frac32Mga</span>.</li>
+<li>Gain in elastic potential energy is <span class="math inline">\frac76Mga</span>.</li>
+<li>Thus <span class="math inline">\frac32Mga-\frac76Mga=\frac12(6M)v^2</span>.</li>
+<li>Therefore <span class="math inline">\boxed{v=\frac13\sqrt{ga}}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1074,25 +1088,25 @@ Show answer
 </section>
 <section id="mayjune-923131-and-923132-question-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-1">2023 May/June · 9231/31 and 9231/32 · Question 1</h3>
-<p>One end of a light elastic string, of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(3mg\)</span>, is attached to a fixed point <span class="math inline">\(O\)</span>. The other end is attached to a particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span>. The string hangs with <span class="math inline">\(P\)</span> vertically below <span class="math inline">\(O\)</span>. The particle is pulled vertically downwards so that the extension is <span class="math inline">\(2a\)</span> and is released from rest.</p>
-<p><strong>(a)</strong> Find the speed when the particle is <span class="math inline">\(\frac34a\)</span> below <span class="math inline">\(O\)</span>.</p>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">3mg</span>, is attached to a fixed point <span class="math inline">O</span>. The other end is attached to a particle <span class="math inline">P</span> of mass <span class="math inline">m</span>. The string hangs with <span class="math inline">P</span> vertically below <span class="math inline">O</span>. The particle is pulled vertically downwards so that the extension is <span class="math inline">2a</span> and is released from rest.</p>
+<p><strong>(a)</strong> Find the speed when the particle is <span class="math inline">\frac34a</span> below <span class="math inline">O</span>.</p>
 <p><strong>(b)</strong> Find the initial acceleration when it is released.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>At release the extension is <span class="math inline">\(2a\)</span>; at the stated position the extension is <span class="math inline">\(-\frac14a\)</span> relative to the natural-length reference. Applying the energy equation with the correct gravitational-height change gives</p>
-<p><span class="math display">\[
+<p>At release the extension is <span class="math inline">2a</span>; at the stated position the extension is <span class="math inline">-\frac14a</span> relative to the natural-length reference. Applying the energy equation with the correct gravitational-height change gives</p>
+<p><span class="math display">
 \boxed{v=\sqrt{\frac{15}{2}ga}}.
-\]</span></p>
+</span></p>
 <p>At release,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T=\frac{3mg}{a}(2a)=6mg,
-\]</span></p>
-<p>so the resultant downward force is <span class="math inline">\(5mg\)</span> and</p>
-<span class="math display">\[
+</span></p>
+<p>so the resultant downward force is <span class="math inline">5mg</span> and</p>
+<span class="math display">
 \boxed{a_0=5g\text{ downwards}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Question 1.
@@ -1100,23 +1114,23 @@ T=\frac{3mg}{a}(2a)=6mg,
 </section>
 <section id="mayjune-923131-and-923132-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-5">2023 May/June · 9231/31 and 9231/32 · Question 5</h3>
-<p>A light elastic string of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(\mu mg\)</span> has one end attached to a fixed point <span class="math inline">\(O\)</span> on a smooth horizontal surface. With a particle of mass <span class="math inline">\(m\)</span> attached, it moves with speed <span class="math inline">\(v\)</span> in a horizontal circle of radius <span class="math inline">\(x\)</span>. With a particle of mass <span class="math inline">\(2m\)</span> attached, it moves with speed <span class="math inline">\(\frac12v\)</span> in a horizontal circle of radius <span class="math inline">\(\frac34x\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+<p>A light elastic string of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">\mu mg</span> has one end attached to a fixed point <span class="math inline">O</span> on a smooth horizontal surface. With a particle of mass <span class="math inline">m</span> attached, it moves with speed <span class="math inline">v</span> in a horizontal circle of radius <span class="math inline">x</span>. With a particle of mass <span class="math inline">2m</span> attached, it moves with speed <span class="math inline">\frac12v</span> in a horizontal circle of radius <span class="math inline">\frac34x</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">x</span> in terms of <span class="math inline">a</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>For each case, tension equals the centripetal force and Hooke’s law gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mu mg}{a}(x-a)=\frac{mv^2}{x},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac{\mu mg}{a}\left(\frac34x-a\right)=2m\frac{(v/2)^2}{3x/4}.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(v\)</span> and <span class="math inline">\(\mu\)</span> gives</p>
-<span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">v</span> and <span class="math inline">\mu</span> gives</p>
+<span class="math display">
 \boxed{x=4a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Question 5.
@@ -1124,17 +1138,17 @@ Show answer
 </section>
 <section id="mayjune-923133-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-2">2023 May/June · 9231/33 · Question 2</h3>
-<p>One end of a light elastic string, of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(\lambda mg\)</span>, is attached to a fixed point <span class="math inline">\(O\)</span>. The string lies on a smooth horizontal surface. A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to the other end of the string. The particle <span class="math inline">\(P\)</span> is projected in the direction <span class="math inline">\(OP\)</span>. When the length of the string is <span class="math inline">\(\frac43a\)</span>, the speed of <span class="math inline">\(P\)</span> is <span class="math inline">\(\sqrt{2ag}\)</span>. When the length of the string is <span class="math inline">\(\frac53a\)</span>, the speed of <span class="math inline">\(P\)</span> is <span class="math inline">\(\frac12\sqrt{2ag}\)</span>.</p>
-<p>Find the value of <span class="math inline">\(\lambda\)</span>.</p>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">\lambda mg</span>, is attached to a fixed point <span class="math inline">O</span>. The string lies on a smooth horizontal surface. A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to the other end of the string. The particle <span class="math inline">P</span> is projected in the direction <span class="math inline">OP</span>. When the length of the string is <span class="math inline">\frac43a</span>, the speed of <span class="math inline">P</span> is <span class="math inline">\sqrt{2ag}</span>. When the length of the string is <span class="math inline">\frac53a</span>, the speed of <span class="math inline">P</span> is <span class="math inline">\frac12\sqrt{2ag}</span>.</p>
+<p>Find the value of <span class="math inline">\lambda</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>The extensions are <span class="math inline">\(\frac13a\)</span> and <span class="math inline">\(\frac23a\)</span>.</li>
-<li>The loss in kinetic energy is <span class="math inline">\(\frac12m\left[(\sqrt{2ag})^2-\left(\frac12\sqrt{2ag}\right)^2\right]\)</span>.</li>
-<li>The gain in elastic potential energy is <span class="math inline">\(\frac12\frac{\lambda mg}{a}\left[\left(\frac23a\right)^2-\left(\frac13a\right)^2\right]\)</span>.</li>
-<li>Equating the two gives <span class="math inline">\(\boxed{\lambda=\frac92}\)</span>.</li>
+<li>The extensions are <span class="math inline">\frac13a</span> and <span class="math inline">\frac23a</span>.</li>
+<li>The loss in kinetic energy is <span class="math inline">\frac12m\left[(\sqrt{2ag})^2-\left(\frac12\sqrt{2ag}\right)^2\right]</span>.</li>
+<li>The gain in elastic potential energy is <span class="math inline">\frac12\frac{\lambda mg}{a}\left[\left(\frac23a\right)^2-\left(\frac13a\right)^2\right]</span>.</li>
+<li>Equating the two gives <span class="math inline">\boxed{\lambda=\frac92}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1143,26 +1157,26 @@ Show answer
 </section>
 <section id="mayjune-923133-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-5">2023 May/June · 9231/33 · Question 5</h3>
-<p>One end of a light elastic string, of natural length <span class="math inline">\(12a\)</span> and modulus of elasticity <span class="math inline">\(kmg\)</span>, is attached to a fixed point <span class="math inline">\(O\)</span>. The other end of the string is attached to a particle of mass <span class="math inline">\(m\)</span>. The particle moves with constant speed <span class="math inline">\(\frac32\sqrt{3ag}\)</span> in a horizontal circle with centre at a distance <span class="math inline">\(12a\)</span> below <span class="math inline">\(O\)</span>. The string is inclined at an angle <span class="math inline">\(\theta\)</span> to the downward vertical through <span class="math inline">\(O\)</span>.</p>
-<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(a\)</span>, the extension of the string.</p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<p>One end of a light elastic string, of natural length <span class="math inline">12a</span> and modulus of elasticity <span class="math inline">kmg</span>, is attached to a fixed point <span class="math inline">O</span>. The other end of the string is attached to a particle of mass <span class="math inline">m</span>. The particle moves with constant speed <span class="math inline">\frac32\sqrt{3ag}</span> in a horizontal circle with centre at a distance <span class="math inline">12a</span> below <span class="math inline">O</span>. The string is inclined at an angle <span class="math inline">\theta</span> to the downward vertical through <span class="math inline">O</span>.</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">a</span>, the extension of the string.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Let <span class="math inline">\(L\)</span> be the stretched length and <span class="math inline">\(r=12a\tan\theta\)</span>.</li>
-<li>Resolving vertically gives <span class="math inline">\(T\cos\theta=mg\)</span>.</li>
-<li>Resolving towards the centre gives <span class="math inline">\(T\sin\theta=\frac{mv^2}{r}=\frac{27}{4}\frac{mag}{r}\)</span>.</li>
-<li>Dividing and using <span class="math inline">\(r=12a\tan\theta\)</span> gives <span class="math inline">\(\tan\theta=\frac34\)</span>.</li>
-<li>Hence <span class="math inline">\(L=\dfrac{12a}{\cos\theta}=15a\)</span>, so the extension is <span class="math inline">\(\boxed{3a}\)</span>.</li>
+<li>Let <span class="math inline">L</span> be the stretched length and <span class="math inline">r=12a\tan\theta</span>.</li>
+<li>Resolving vertically gives <span class="math inline">T\cos\theta=mg</span>.</li>
+<li>Resolving towards the centre gives <span class="math inline">T\sin\theta=\frac{mv^2}{r}=\frac{27}{4}\frac{mag}{r}</span>.</li>
+<li>Dividing and using <span class="math inline">r=12a\tan\theta</span> gives <span class="math inline">\tan\theta=\frac34</span>.</li>
+<li>Hence <span class="math inline">L=\dfrac{12a}{\cos\theta}=15a</span>, so the extension is <span class="math inline">\boxed{3a}</span>.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>Hooke’s law gives <span class="math inline">\(T=\frac{kmg}{12a}(3a)=\frac14kmg\)</span>.</li>
-<li>Since <span class="math inline">\(\cos\theta=\frac45\)</span>, vertical equilibrium gives <span class="math inline">\(T=\frac54mg\)</span>.</li>
-<li>Hence <span class="math inline">\(\boxed{k=5}\)</span>.</li>
+<li>Hooke’s law gives <span class="math inline">T=\frac{kmg}{12a}(3a)=\frac14kmg</span>.</li>
+<li>Since <span class="math inline">\cos\theta=\frac45</span>, vertical equilibrium gives <span class="math inline">T=\frac54mg</span>.</li>
+<li>Hence <span class="math inline">\boxed{k=5}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1171,17 +1185,17 @@ Show answer
 </section>
 <section id="octobernovember-923131-and-923133-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-3">2024 October/November · 9231/31 and 9231/33 · Question 3</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> kg is attached to one end of a light elastic string of natural length <span class="math inline">\(2\)</span> m and modulus of elasticity <span class="math inline">\(2mg\)</span> N. The other end of the string is attached to a fixed point <span class="math inline">\(O\)</span>. The particle <span class="math inline">\(P\)</span> hangs in equilibrium vertically below <span class="math inline">\(O\)</span>. The particle <span class="math inline">\(P\)</span> is pulled down vertically a distance <span class="math inline">\(d\)</span> m below its equilibrium position and released from rest.</p>
-<p><strong>(a)</strong> Given that the particle just reaches <span class="math inline">\(O\)</span> in the subsequent motion, find the value of <span class="math inline">\(d\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> kg is attached to one end of a light elastic string of natural length <span class="math inline">2</span> m and modulus of elasticity <span class="math inline">2mg</span> N. The other end of the string is attached to a fixed point <span class="math inline">O</span>. The particle <span class="math inline">P</span> hangs in equilibrium vertically below <span class="math inline">O</span>. The particle <span class="math inline">P</span> is pulled down vertically a distance <span class="math inline">d</span> m below its equilibrium position and released from rest.</p>
+<p><strong>(a)</strong> Given that the particle just reaches <span class="math inline">O</span> in the subsequent motion, find the value of <span class="math inline">d</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>In equilibrium, <span class="math inline">\(mg=\frac{2mg}{2}e\)</span>, so the equilibrium extension is <span class="math inline">\(e=1\)</span> m.</li>
-<li>The extension at release is <span class="math inline">\(1+d\)</span>.</li>
-<li>At <span class="math inline">\(O\)</span> the string is at natural length and the particle is instantaneously at rest, so <span class="math inline">\(\frac12mg(1+d)^2=mg(3+d)\)</span>.</li>
-<li>Hence <span class="math inline">\(d^2=5\)</span> and <span class="math inline">\(\boxed{d=\sqrt5\text{ m}}\)</span>.</li>
+<li>In equilibrium, <span class="math inline">mg=\frac{2mg}{2}e</span>, so the equilibrium extension is <span class="math inline">e=1</span> m.</li>
+<li>The extension at release is <span class="math inline">1+d</span>.</li>
+<li>At <span class="math inline">O</span> the string is at natural length and the particle is instantaneously at rest, so <span class="math inline">\frac12mg(1+d)^2=mg(3+d)</span>.</li>
+<li>Hence <span class="math inline">d^2=5</span> and <span class="math inline">\boxed{d=\sqrt5\text{ m}}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1190,18 +1204,18 @@ Show answer
 </section>
 <section id="octobernovember-923131-and-923133-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-4">2025 October/November · 9231/31 and 9231/33 · Question 4</h3>
-<p>One end of a light elastic string of natural length <span class="math inline">\(a\)</span> and modulus of elasticity <span class="math inline">\(5mg\)</span> is attached to a fixed point <span class="math inline">\(O\)</span>. Two particles, <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span>, of masses <span class="math inline">\(m\)</span> and <span class="math inline">\(4m\)</span> respectively, are attached to the other end of the string and they hang vertically in equilibrium. Particle <span class="math inline">\(Q\)</span> is then detached from the string, hence releasing particle <span class="math inline">\(P\)</span> from rest.</p>
-<p>Find, in terms of <span class="math inline">\(a\)</span>, the length of the string when the speed of particle <span class="math inline">\(P\)</span> is first equal to <span class="math inline">\(\sqrt{\frac75ag}\)</span>.</p>
+<p>One end of a light elastic string of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">5mg</span> is attached to a fixed point <span class="math inline">O</span>. Two particles, <span class="math inline">P</span> and <span class="math inline">Q</span>, of masses <span class="math inline">m</span> and <span class="math inline">4m</span> respectively, are attached to the other end of the string and they hang vertically in equilibrium. Particle <span class="math inline">Q</span> is then detached from the string, hence releasing particle <span class="math inline">P</span> from rest.</p>
+<p>Find, in terms of <span class="math inline">a</span>, the length of the string when the speed of particle <span class="math inline">P</span> is first equal to <span class="math inline">\sqrt{\frac75ag}</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>Before detachment, equilibrium gives <span class="math inline">\(\frac{5mg}{a}e=5mg\)</span>, so <span class="math inline">\(e=a\)</span>.</li>
-<li>Let <span class="math inline">\(x\)</span> be the length of the string when the speed is <span class="math inline">\(\sqrt{\frac75ag}\)</span>; its extension is <span class="math inline">\(x-a\)</span>.</li>
-<li>Conservation of energy gives <span class="math inline">\(\frac{5mga^2}{2a}-\frac{5mg(x-a)^2}{2a}=mg(e+a-x)+\frac12m\left(\sqrt{\frac75ag}\right)^2\)</span>.</li>
-<li>Simplifying gives <span class="math inline">\(25x^2-60ax+27a^2=0\)</span>.</li>
-<li>The physical root is <span class="math inline">\(\boxed{x=\frac95a}\)</span>.</li>
+<li>Before detachment, equilibrium gives <span class="math inline">\frac{5mg}{a}e=5mg</span>, so <span class="math inline">e=a</span>.</li>
+<li>Let <span class="math inline">x</span> be the length of the string when the speed is <span class="math inline">\sqrt{\frac75ag}</span>; its extension is <span class="math inline">x-a</span>.</li>
+<li>Conservation of energy gives <span class="math inline">\frac{5mga^2}{2a}-\frac{5mg(x-a)^2}{2a}=mg(e+a-x)+\frac12m\left(\sqrt{\frac75ag}\right)^2</span>.</li>
+<li>Simplifying gives <span class="math inline">25x^2-60ax+27a^2=0</span>.</li>
+<li>The physical root is <span class="math inline">\boxed{x=\frac95a}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1216,10 +1230,10 @@ Show answer
 <li>compression 也使用 decrease in length；</li>
 <li>modulus of elasticity 的单位是 N；</li>
 <li>每段 string 要用自己的 natural length；</li>
-<li>elastic energy 使用 <span class="math inline">\(\frac12\lambda x^2/l_0\)</span>；</li>
+<li>elastic energy 使用 <span class="math inline">\frac12\lambda x^2/l_0</span>；</li>
 <li>slack string 不能提供负 tension；</li>
 <li>vertical motion 要同时检查 GPE、EPE 和 KE；</li>
-<li>发现 <span class="math inline">\(T&lt;0\)</span> 时必须重新判断运动模型。</li>
+<li>发现 <span class="math inline">T&lt;0</span> 时必须重新判断运动模型。</li>
 </ol>
 
 

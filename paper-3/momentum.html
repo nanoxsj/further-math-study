@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -457,90 +471,90 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="核心公式">1. 核心公式</h2>
 <section id="momentum-and-impulse" class="level3">
 <h3 class="anchored" data-anchor-id="momentum-and-impulse">1.1 Momentum and impulse</h3>
-<p>质量为 <span class="math inline">\(m\)</span>、速度为 <span class="math inline">\(v\)</span> 的粒子的 momentum 为</p>
-<p><span class="math display">\[
+<p>质量为 <span class="math inline">m</span>、速度为 <span class="math inline">v</span> 的粒子的 momentum 为</p>
+<p><span class="math display">
 \boxed{p=mv}.
-\]</span></p>
+</span></p>
 <p>Impulse is change in momentum:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{J=\text{final momentum}-\text{initial momentum}}.
-\]</span></p>
-<p>若力恒为 <span class="math inline">\(F\)</span>、作用时间为 <span class="math inline">\(t\)</span>，则 <span class="math inline">\(J=Ft\)</span>。若力随时间变化，则</p>
-<p><span class="math display">\[
+</span></p>
+<p>若力恒为 <span class="math inline">F</span>、作用时间为 <span class="math inline">t</span>，则 <span class="math inline">J=Ft</span>。若力随时间变化，则</p>
+<p><span class="math display">
 \boxed{J=\int F\,dt}.
-\]</span></p>
+</span></p>
 </section>
 <section id="conservation-of-momentum" class="level3">
 <h3 class="anchored" data-anchor-id="conservation-of-momentum">1.2 Conservation of momentum</h3>
 <p>对没有外力冲量的系统，按同一正方向写 signed velocities：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\text{total momentum before} = \text{total momentum after}}.
-\]</span></p>
+</span></p>
 </section>
 <section id="newtons-experimental-law" class="level3">
 <h3 class="anchored" data-anchor-id="newtons-experimental-law">1.3 Newton’s experimental law</h3>
 <p>对于 direct impact，</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{e=\frac{\text{speed of separation}}{\text{speed of approach}}},
 \qquad 0\le e\le1.
-\]</span></p>
+</span></p>
 </section>
 <section id="impact-with-a-smooth-plane" class="level3">
 <h3 class="anchored" data-anchor-id="impact-with-a-smooth-plane">1.4 Impact with a smooth plane</h3>
-<p>平行于 plane 的速度分量不变；垂直于 plane 的速度分量反向并乘以 <span class="math inline">\(e\)</span>：</p>
-<p><span class="math display">\[
+<p>平行于 plane 的速度分量不变；垂直于 plane 的速度分量反向并乘以 <span class="math inline">e</span>：</p>
+<p><span class="math display">
 v\cos\beta=u\cos\alpha,
 \qquad
 v\sin\beta=e\,u\sin\alpha.
-\]</span></p>
+</span></p>
 <p>因此 kinetic-energy loss 为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac12mu^2(1-e^2)\sin^2\alpha}.
-\]</span></p>
+</span></p>
 </section>
 <section id="oblique-impact-of-smooth-spheres" class="level3">
 <h3 class="anchored" data-anchor-id="oblique-impact-of-smooth-spheres">1.5 Oblique impact of smooth spheres</h3>
 <p>沿 line of centres 使用 momentum conservation 和 restitution；垂直方向没有 impulse，所以两球的 perpendicular components unchanged。</p>
-<p>若碰撞前的 line components 为 <span class="math inline">\(u\cos\alpha\)</span>、<span class="math inline">\(v\cos\beta\)</span>，碰撞后的 line components 为 <span class="math inline">\(U,V\)</span>，则</p>
-<p><span class="math display">\[
+<p>若碰撞前的 line components 为 <span class="math inline">u\cos\alpha</span>、<span class="math inline">v\cos\beta</span>，碰撞后的 line components 为 <span class="math inline">U,V</span>，则</p>
+<p><span class="math display">
 m_Au\cos\alpha+m_Bv\cos\beta=m_AU+m_BV,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 V-U=e\bigl(u\cos\alpha-v\cos\beta\bigr),
-\]</span></p>
-<p>并保留 perpendicular components <span class="math inline">\(u\sin\alpha\)</span>、<span class="math inline">\(v\sin\beta\)</span>。</p>
+</span></p>
+<p>并保留 perpendicular components <span class="math inline">u\sin\alpha</span>、<span class="math inline">v\sin\beta</span>。</p>
 </section>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-7.1---impulse-on-a-tennis-ball" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.1---impulse-on-a-tennis-ball">Example 7.1 - Impulse on a tennis ball</h3>
-<p>A tennis player hits the ball as it is travelling towards her at <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span> horizontally. Immediately after she hits it, the ball is travelling away from her at <span class="math inline">\(20\ \mathrm{m\ s^{-1}}\)</span> horizontally. The mass of the ball is <span class="math inline">\(0.06\ \mathrm{kg}\)</span>. What force does the tennis player apply to the ball?</p>
+<p>A tennis player hits the ball as it is travelling towards her at <span class="math inline">10\ \mathrm{m\ s^{-1}}</span> horizontally. Immediately after she hits it, the ball is travelling away from her at <span class="math inline">20\ \mathrm{m\ s^{-1}}</span> horizontally. The mass of the ball is <span class="math inline">0.06\ \mathrm{kg}</span>. What force does the tennis player apply to the ball?</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>The force cannot be found unless the impact time is known. The impulse can be found:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 J=mv-mu=0.06(20)-0.06(-10)=\boxed{1.8\ \mathrm{N\ s}}.
-\]</span></p>
-<p>If the impact lasts <span class="math inline">\(0.1\ \mathrm s\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>If the impact lasts <span class="math inline">0.1\ \mathrm s</span>,</p>
+<p><span class="math display">
 F=\frac{1.8}{0.1}=\boxed{18\ \mathrm N}.
-\]</span></p>
-<p>If the impact lasts <span class="math inline">\(0.015\ \mathrm s\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>If the impact lasts <span class="math inline">0.015\ \mathrm s</span>,</p>
+<p><span class="math display">
 F=\frac{1.8}{0.015}=\boxed{120\ \mathrm N}.
-\]</span></p>
+</span></p>
 The average force is the constant force which, acting for the same time interval, would have the same impulse as the actual variable force.
 </details>
 </section>
 <section id="example-7.2---a-ball-rebounding-from-the-ground" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.2---a-ball-rebounding-from-the-ground">Example 7.2 - A ball rebounding from the ground</h3>
-<p>A ball of mass <span class="math inline">\(50\ \mathrm g\)</span> hits the ground with a speed of <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span> and rebounds with an initial speed of <span class="math inline">\(3\ \mathrm{m\ s^{-1}}\)</span>. The situation is modelled by assuming that the ball is in contact with the ground for <span class="math inline">\(0.01\ \mathrm s\)</span> and that during this time the reaction force on it is constant.</p>
+<p>A ball of mass <span class="math inline">50\ \mathrm g</span> hits the ground with a speed of <span class="math inline">4\ \mathrm{m\ s^{-1}}</span> and rebounds with an initial speed of <span class="math inline">3\ \mathrm{m\ s^{-1}}</span>. The situation is modelled by assuming that the ball is in contact with the ground for <span class="math inline">0.01\ \mathrm s</span> and that during this time the reaction force on it is constant.</p>
 <p><strong>(i)</strong> Find the average force exerted on the ball by the ground.</p>
 <p><strong>(ii)</strong> Find the loss in kinetic energy during the impact.</p>
-<p><strong>(iii)</strong> Which of the answers to parts <strong>(i)</strong> and <strong>(ii)</strong> would be affected by a change in the modelling assumption that the ball is only in contact with the ground for <span class="math inline">\(0.01\ \mathrm s\)</span>?</p>
+<p><strong>(iii)</strong> Which of the answers to parts <strong>(i)</strong> and <strong>(ii)</strong> would be affected by a change in the modelling assumption that the ball is only in contact with the ground for <span class="math inline">0.01\ \mathrm s</span>?</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/momentum/pic/7.2a.png" class="img-fluid figure-img" style="width:70.0%"></p>
@@ -552,30 +566,30 @@ The average force is the constant force which, acting for the same time interval
 Show answer
 </summary>
 <p><strong>(i)</strong> Take upwards as positive. The impulse from the ground is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 J=mv-mu=0.05(3)-0.05(-4)=0.35\ \mathrm{N\ s}.
-\]</span></p>
+</span></p>
 <p>Therefore the average force is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 F=\frac{J}{t}=\frac{0.35}{0.01}=\boxed{35\ \mathrm N\ upward}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \text{initial K.E.}&amp;=\frac12(0.05)(4^2)=0.400\ \mathrm J,\\
 \text{final K.E.}&amp;=\frac12(0.05)(3^2)=0.225\ \mathrm J.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>Hence the loss in kinetic energy is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{0.175\ \mathrm J}.
-\]</span></p>
+</span></p>
 <strong>(iii)</strong> The average force in part <strong>(i)</strong> would change, because it depends on the contact time. The kinetic-energy loss in part <strong>(ii)</strong> would not change.
 </details>
 </section>
 <section id="example-7.3---constant-force-and-impulse" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.3---constant-force-and-impulse">Example 7.3 - Constant force and impulse</h3>
-<p>A car of mass <span class="math inline">\(800\ \mathrm{kg}\)</span> is pushed with a constant force of magnitude <span class="math inline">\(200\ \mathrm N\)</span> for <span class="math inline">\(10\ \mathrm s\)</span>. The car starts from rest. Resistance to motion may be ignored.</p>
+<p>A car of mass <span class="math inline">800\ \mathrm{kg}</span> is pushed with a constant force of magnitude <span class="math inline">200\ \mathrm N</span> for <span class="math inline">10\ \mathrm s</span>. The car starts from rest. Resistance to motion may be ignored.</p>
 <p><strong>(i)</strong> Find its speed at the end of the ten-second interval by using</p>
 <p><strong>(a)</strong> the impulse on the car;</p>
 <p><strong>(b)</strong> Newton’s second law.</p>
@@ -585,27 +599,27 @@ F=\frac{J}{t}=\frac{0.35}{0.01}=\boxed{35\ \mathrm N\ upward}.
 Show answer
 </summary>
 <p><strong>(i)(a)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 J=Ft=200(10)=2000\ \mathrm{N\ s}=mv.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{v=\frac{2000}{800}=2.5\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <p><strong>(i)(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 200=800a\quad\Longrightarrow\quad a=0.25\ \mathrm{m\ s^{-2}}.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v=u+at=0+0.25(10)=\boxed{2.5\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <strong>(ii)</strong> Both methods give the same answer. The constant-acceleration method is valid here because the force, and hence the acceleration, is constant.
 </details>
 </section>
 <section id="example-7.4---conservation-of-momentum-and-impulse" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.4---conservation-of-momentum-and-impulse">Example 7.4 - Conservation of momentum and impulse</h3>
-<p>Ball A of mass <span class="math inline">\(0.5\ \mathrm{kg}\)</span> travelling at <span class="math inline">\(3\ \mathrm{m\ s^{-1}}\)</span> hits stationary ball B of mass <span class="math inline">\(0.2\ \mathrm{kg}\)</span>. After the collision, ball A is stationary.</p>
+<p>Ball A of mass <span class="math inline">0.5\ \mathrm{kg}</span> travelling at <span class="math inline">3\ \mathrm{m\ s^{-1}}</span> hits stationary ball B of mass <span class="math inline">0.2\ \mathrm{kg}</span>. After the collision, ball A is stationary.</p>
 <p><strong>(i)</strong> Draw diagrams showing the situation before and after the collision.</p>
 <p><strong>(ii)</strong> Find the speed of ball B after the collision.</p>
 <p><strong>(iii)</strong> Find the impulse on each ball.</p>
@@ -621,27 +635,27 @@ Show answer
 </summary>
 <p><strong>(i)</strong> The before-and-after velocities are shown in the figure.</p>
 <p><strong>(ii)</strong> Conservation of momentum gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 0.5(3)+0.2(0)=0.5(0)+0.2v.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{v=7.5\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{J_A=0.5(0)-0.5(3)=-1.5\ \mathrm{N\ s}},
-\]</span></p>
-<p>so the impulse on A is <span class="math inline">\(1.5\ \mathrm{N\ s}\)</span> opposite to its initial motion. For B,</p>
-<p><span class="math display">\[
+</span></p>
+<p>so the impulse on A is <span class="math inline">1.5\ \mathrm{N\ s}</span> opposite to its initial motion. For B,</p>
+<p><span class="math display">
 \boxed{J_B=0.2(7.5)-0.2(0)=1.5\ \mathrm{N\ s}},
-\]</span></p>
+</span></p>
 in the original direction of motion.
 </details>
 </section>
 <section id="example-7.5---newtons-experimental-law" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.5---newtons-experimental-law">Example 7.5 - Newton’s experimental law</h3>
-<p>A direct collision takes place between two snooker balls. The white cue ball, travelling at <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>, hits a stationary red ball. After the collision, the red ball moves in the direction in which the cue ball was moving before the collision. The balls have equal mass and the coefficient of restitution between the balls is <span class="math inline">\(0.6\)</span>. Predict the velocities of the two balls after the collision.</p>
+<p>A direct collision takes place between two snooker balls. The white cue ball, travelling at <span class="math inline">2\ \mathrm{m\ s^{-1}}</span>, hits a stationary red ball. After the collision, the red ball moves in the direction in which the cue ball was moving before the collision. The balls have equal mass and the coefficient of restitution between the balls is <span class="math inline">0.6</span>. Predict the velocities of the two balls after the collision.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/momentum/pic/7.5a.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -652,25 +666,25 @@ in the original direction of motion.
 <summary>
 Show answer
 </summary>
-<p>Let the final velocities of the white and red balls be <span class="math inline">\(v_W\)</span> and <span class="math inline">\(v_R\)</span>.</p>
+<p>Let the final velocities of the white and red balls be <span class="math inline">v_W</span> and <span class="math inline">v_R</span>.</p>
 <ul>
-<li>Speed of approach <span class="math inline">\(=2\)</span>.</li>
-<li>Newton’s experimental law gives <span class="math inline">\(v_R-v_W=0.6(2)=1.2\)</span>.</li>
-<li>Conservation of momentum gives <span class="math inline">\(v_W+v_R=2\)</span>.</li>
+<li>Speed of approach <span class="math inline">=2</span>.</li>
+<li>Newton’s experimental law gives <span class="math inline">v_R-v_W=0.6(2)=1.2</span>.</li>
+<li>Conservation of momentum gives <span class="math inline">v_W+v_R=2</span>.</li>
 </ul>
 <p>Solving,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{v_W=0.4\ \mathrm{m\ s^{-1}}},\qquad
 \boxed{v_R=1.6\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
+</span></p>
 Both balls move in the original direction of the cue ball.
 </details>
 </section>
 <section id="example-7.6---collision-of-two-unequal-masses" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.6---collision-of-two-unequal-masses">Example 7.6 - Collision of two unequal masses</h3>
-<p>An object A of mass <span class="math inline">\(m\)</span> moving with speed <span class="math inline">\(2u\)</span> hits an object B of mass <span class="math inline">\(2m\)</span> moving with speed <span class="math inline">\(u\)</span> in the opposite direction to A. The coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
-<p><strong>(i)</strong> Show that the ratio of speeds remains unchanged whatever the value of <span class="math inline">\(e\)</span>.</p>
-<p><strong>(ii)</strong> Find the loss of kinetic energy in terms of <span class="math inline">\(m\)</span>, <span class="math inline">\(u\)</span> and <span class="math inline">\(e\)</span>.</p>
+<p>An object A of mass <span class="math inline">m</span> moving with speed <span class="math inline">2u</span> hits an object B of mass <span class="math inline">2m</span> moving with speed <span class="math inline">u</span> in the opposite direction to A. The coefficient of restitution is <span class="math inline">e</span>.</p>
+<p><strong>(i)</strong> Show that the ratio of speeds remains unchanged whatever the value of <span class="math inline">e</span>.</p>
+<p><strong>(ii)</strong> Find the loss of kinetic energy in terms of <span class="math inline">m</span>, <span class="math inline">u</span> and <span class="math inline">e</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/momentum/pic/7.6a.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -681,35 +695,35 @@ Both balls move in the original direction of the cue ball.
 <summary>
 Show answer
 </summary>
-<p>Let the final velocities be <span class="math inline">\(v_A\)</span> and <span class="math inline">\(v_B\)</span>, positive in A’s original direction.</p>
+<p>Let the final velocities be <span class="math inline">v_A</span> and <span class="math inline">v_B</span>, positive in A’s original direction.</p>
 <p><strong>(i)</strong> Newton’s experimental law and conservation of momentum give</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v_B-v_A=3eu,
 \qquad
 v_A+2v_B=0.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v_B=eu,\qquad v_A=-2eu.
-\]</span></p>
-<p>The initial speed ratio is <span class="math inline">\(2u:u=2:1\)</span> and the final speed ratio is <span class="math inline">\(2eu:eu=2:1\)</span> (for <span class="math inline">\(e\ne0\)</span>).</p>
+</span></p>
+<p>The initial speed ratio is <span class="math inline">2u:u=2:1</span> and the final speed ratio is <span class="math inline">2eu:eu=2:1</span> (for <span class="math inline">e\ne0</span>).</p>
 <p><strong>(ii)</strong> Initial kinetic energy:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12m(2u)^2+\frac12(2m)u^2=3mu^2.
-\]</span></p>
+</span></p>
 <p>Final kinetic energy:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12m(2eu)^2+\frac12(2m)(eu)^2=3me^2u^2.
-\]</span></p>
+</span></p>
 <p>Hence the loss is</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{3mu^2(1-e^2)}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-7.7---oblique-impact-with-a-smooth-plane" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.7---oblique-impact-with-a-smooth-plane">Example 7.7 - Oblique impact with a smooth plane</h3>
-<p>A ball of mass <span class="math inline">\(0.2\ \mathrm{kg}\)</span> moving at <span class="math inline">\(12\ \mathrm{m\ s^{-1}}\)</span> hits a smooth horizontal plane at an angle of <span class="math inline">\(75^\circ\)</span> to the horizontal. The coefficient of restitution is <span class="math inline">\(0.5\)</span>. Find</p>
+<p>A ball of mass <span class="math inline">0.2\ \mathrm{kg}</span> moving at <span class="math inline">12\ \mathrm{m\ s^{-1}}</span> hits a smooth horizontal plane at an angle of <span class="math inline">75^\circ</span> to the horizontal. The coefficient of restitution is <span class="math inline">0.5</span>. Find</p>
 <p><strong>(i)</strong> the impulse on the ball;</p>
 <p><strong>(ii)</strong> the impulse on the plane;</p>
 <p><strong>(iii)</strong> the kinetic energy lost by the ball.</p>
@@ -723,36 +737,36 @@ v_B=eu,\qquad v_A=-2eu.
 <summary>
 Show answer
 </summary>
-<p>Resolve parallel and perpendicular to the plane. The parallel component is unchanged. The perpendicular component after impact is <span class="math inline">\(0.5(12\sin75^\circ)=6\sin75^\circ\)</span>.</p>
+<p>Resolve parallel and perpendicular to the plane. The parallel component is unchanged. The perpendicular component after impact is <span class="math inline">0.5(12\sin75^\circ)=6\sin75^\circ</span>.</p>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \mathbf J=0.2\begin{pmatrix}12\cos75^\circ\\6\sin75^\circ\end{pmatrix}
 -0.2\begin{pmatrix}12\cos75^\circ\\-12\sin75^\circ\end{pmatrix}
 =\begin{pmatrix}0\\3.6\sin75^\circ\end{pmatrix}.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\mathbf J=3.48\,\mathbf j\ \mathrm{N\ s}}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> By Newton’s third law, the impulse on the plane is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{-3.48\,\mathbf j\ \mathrm{N\ s}}.
-\]</span></p>
+</span></p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \text{initial K.E.}&amp;=\frac12(0.2)(12^2)=14.4\ \mathrm J,\\
 \text{final K.E.}&amp;=\frac12(0.2)\left[(12\cos75^\circ)^2+(6\sin75^\circ)^2\right]=4.32\ \mathrm J.
 \end{aligned}
-\]</span></p>
-Thus the loss is <span class="math inline">\(\boxed{10.1\ \mathrm J}\)</span>.
+</span></p>
+Thus the loss is <span class="math inline">\boxed{10.1\ \mathrm J}</span>.
 </details>
 </section>
 <section id="example-7.8---rebound-from-a-smooth-plane" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.8---rebound-from-a-smooth-plane">Example 7.8 - Rebound from a smooth plane</h3>
-<p>A ball moving with speed <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span> hits a smooth horizontal plane at an angle of <span class="math inline">\(60^\circ\)</span> to the horizontal. The coefficient of restitution between the ball and the surface is <span class="math inline">\(\frac13\)</span>. The ball rebounds with speed <span class="math inline">\(v\)</span> at an angle <span class="math inline">\(\beta\)</span> with the surface.</p>
-<p><strong>(i)</strong> Find <span class="math inline">\(v\)</span>.</p>
-<p><strong>(ii)</strong> Find <span class="math inline">\(\beta\)</span>.</p>
+<p>A ball moving with speed <span class="math inline">10\ \mathrm{m\ s^{-1}}</span> hits a smooth horizontal plane at an angle of <span class="math inline">60^\circ</span> to the horizontal. The coefficient of restitution between the ball and the surface is <span class="math inline">\frac13</span>. The ball rebounds with speed <span class="math inline">v</span> at an angle <span class="math inline">\beta</span> with the surface.</p>
+<p><strong>(i)</strong> Find <span class="math inline">v</span>.</p>
+<p><strong>(ii)</strong> Find <span class="math inline">\beta</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/momentum/pic/7.8a.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -763,24 +777,24 @@ Thus the loss is <span class="math inline">\(\boxed{10.1\ \mathrm J}\)</span>.
 <summary>
 Show answer
 </summary>
-<p>The horizontal component remains <span class="math inline">\(10\cos60^\circ=5\)</span>. The vertical component after impact is</p>
-<p><span class="math display">\[
+<p>The horizontal component remains <span class="math inline">10\cos60^\circ=5</span>. The vertical component after impact is</p>
+<p><span class="math display">
 \frac13(10\sin60^\circ)=\frac5{\sqrt3}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v=\sqrt{5^2+\left(\frac5{\sqrt3}\right)^2}=\boxed{\frac{10}{\sqrt3}=5.77\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <p>Also</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan\beta=\frac{5/\sqrt3}{5}=\frac1{\sqrt3},
-\]</span></p>
-so <span class="math inline">\(\boxed{\beta=30^\circ}\)</span>.
+</span></p>
+so <span class="math inline">\boxed{\beta=30^\circ}</span>.
 </details>
 </section>
 <section id="example-7.9---oblique-collision-of-equal-spheres" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.9---oblique-collision-of-equal-spheres">Example 7.9 - Oblique collision of equal spheres</h3>
-<p>In a game of snooker the cue ball, moving with speed <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>, strikes a stationary red ball. The cue ball is moving at an angle of <span class="math inline">\(60^\circ\)</span> to the line of centres of the two balls. Both balls are smooth and have the same mass <span class="math inline">\(m\)</span>. The coefficient of restitution between the balls is <span class="math inline">\(\frac12\)</span>. Find the velocities of the two balls after impact.</p>
+<p>In a game of snooker the cue ball, moving with speed <span class="math inline">2\ \mathrm{m\ s^{-1}}</span>, strikes a stationary red ball. The cue ball is moving at an angle of <span class="math inline">60^\circ</span> to the line of centres of the two balls. Both balls are smooth and have the same mass <span class="math inline">m</span>. The coefficient of restitution between the balls is <span class="math inline">\frac12</span>. Find the velocities of the two balls after impact.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/momentum/pic/7.9a.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -791,29 +805,29 @@ so <span class="math inline">\(\boxed{\beta=30^\circ}\)</span>.
 <summary>
 Show answer
 </summary>
-<p>Perpendicular components are unchanged. Along the line of centres, let the final components be <span class="math inline">\(U\)</span> for the cue ball and <span class="math inline">\(V\)</span> for the red ball.</p>
-<p><span class="math display">\[
+<p>Perpendicular components are unchanged. Along the line of centres, let the final components be <span class="math inline">U</span> for the cue ball and <span class="math inline">V</span> for the red ball.</p>
+<p><span class="math display">
 U+V=2\cos60^\circ=1,
-\]</span></p>
+</span></p>
 <p>and Newton’s law gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 V-U=\frac12(2\cos60^\circ)=\frac12.
-\]</span></p>
-<p>Therefore <span class="math inline">\(U=\frac14\)</span> and <span class="math inline">\(V=\frac34\)</span>.</p>
+</span></p>
+<p>Therefore <span class="math inline">U=\frac14</span> and <span class="math inline">V=\frac34</span>.</p>
 <p>Thus the red ball has velocity</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac34\mathbf i\ \mathrm{m\ s^{-1}}},
-\]</span></p>
+</span></p>
 <p>and the cue ball has velocity</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\left(\frac14\mathbf i+\sqrt3\mathbf j\right)\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
-The cue ball’s speed is <span class="math inline">\(\sqrt{49/16}=\frac74\ \mathrm{m\ s^{-1}}\)</span> and its direction is <span class="math inline">\(\arctan(4\sqrt3)\approx81.8^\circ\)</span> to the line of centres.
+</span></p>
+The cue ball’s speed is <span class="math inline">\sqrt{49/16}=\frac74\ \mathrm{m\ s^{-1}}</span> and its direction is <span class="math inline">\arctan(4\sqrt3)\approx81.8^\circ</span> to the line of centres.
 </details>
 </section>
 <section id="example-7.10---oblique-collision-of-unequal-spheres" class="level3">
 <h3 class="anchored" data-anchor-id="example-7.10---oblique-collision-of-unequal-spheres">Example 7.10 - Oblique collision of unequal spheres</h3>
-<p>A smooth sphere A of mass <span class="math inline">\(2m\)</span>, moving with speed <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span>, collides with a smooth sphere B of mass <span class="math inline">\(m\)</span> moving with speed <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>. The velocity of A immediately before impact makes an angle of <span class="math inline">\(45^\circ\)</span> to the line of centres. The velocity of B immediately before impact is at <span class="math inline">\(90^\circ\)</span> to the line of centres. The coefficient of restitution is <span class="math inline">\(0.6\)</span>.</p>
+<p>A smooth sphere A of mass <span class="math inline">2m</span>, moving with speed <span class="math inline">4\ \mathrm{m\ s^{-1}}</span>, collides with a smooth sphere B of mass <span class="math inline">m</span> moving with speed <span class="math inline">2\ \mathrm{m\ s^{-1}}</span>. The velocity of A immediately before impact makes an angle of <span class="math inline">45^\circ</span> to the line of centres. The velocity of B immediately before impact is at <span class="math inline">90^\circ</span> to the line of centres. The coefficient of restitution is <span class="math inline">0.6</span>.</p>
 <p><strong>(i)</strong> Draw a diagram showing the situation before and after the collision.</p>
 <p><strong>(ii)</strong> Calculate the velocities of the two spheres after impact.</p>
 <p><strong>(iii)</strong> Calculate the loss of kinetic energy sustained by the system during the impact.</p>
@@ -827,31 +841,31 @@ The cue ball’s speed is <span class="math inline">\(\sqrt{49/16}=\frac74\ \mat
 <summary>
 Show answer
 </summary>
-<p>The perpendicular components are unchanged: <span class="math inline">\(2\sqrt2\)</span> for A and <span class="math inline">\(2\)</span> for B. Let <span class="math inline">\(V_A,V_B\)</span> be the final components along the line of centres.</p>
+<p>The perpendicular components are unchanged: <span class="math inline">2\sqrt2</span> for A and <span class="math inline">2</span> for B. Let <span class="math inline">V_A,V_B</span> be the final components along the line of centres.</p>
 <p><strong>(i)</strong> The component equations are</p>
-<p><span class="math display">\[
+<p><span class="math display">
 4\sqrt2=2V_A+V_B,
 \qquad
 2\sqrt2(0.6)=V_B-V_A.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> Solving,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 V_A=\frac23(4-2e)=1.31\ldots,
 \qquad
 V_B=\frac43(1+e)\sqrt2=3.01\ldots.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\mathbf v_A=1.31\,\mathbf i+2\sqrt2\,\mathbf j\ \mathrm{m\ s^{-1}}},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \boxed{\mathbf v_B=3.01\,\mathbf i+2\,\mathbf j\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
-<p>A has speed <span class="math inline">\(3.12\ \mathrm{m\ s^{-1}}\)</span> at <span class="math inline">\(65.0^\circ\)</span> to the line of centres. B has speed <span class="math inline">\(3.62\ \mathrm{m\ s^{-1}}\)</span> at <span class="math inline">\(33.5^\circ\)</span>.</p>
-<p><strong>(iii)</strong> The initial kinetic energy is <span class="math inline">\(18m\)</span> and the final kinetic energy is <span class="math inline">\(16.29m\)</span>. Therefore</p>
-<span class="math display">\[
+</span></p>
+<p>A has speed <span class="math inline">3.12\ \mathrm{m\ s^{-1}}</span> at <span class="math inline">65.0^\circ</span> to the line of centres. B has speed <span class="math inline">3.62\ \mathrm{m\ s^{-1}}</span> at <span class="math inline">33.5^\circ</span>.</p>
+<p><strong>(iii)</strong> The initial kinetic energy is <span class="math inline">18m</span> and the final kinetic energy is <span class="math inline">16.29m</span>. Therefore</p>
+<span class="math display">
 \boxed{\text{loss}=1.71m\ \mathrm J}.
-\]</span>
+</span>
 </details>
 </section>
 </section>
@@ -874,29 +888,29 @@ V_B=\frac43(1+e)\sqrt2=3.01\ldots.
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two uniform smooth spheres A and B of equal radii each have mass <span class="math inline">\(m\)</span>. The two spheres are each moving with speed <span class="math inline">\(u\)</span> on a horizontal surface when they collide. Immediately before the collision, A’s direction of motion makes an angle <span class="math inline">\(\alpha\)</span> with the line of centres, and B’s direction of motion makes an angle <span class="math inline">\(\beta\)</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\(\frac13\)</span> and <span class="math inline">\(2\cos\beta=\cos\alpha\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii each have mass <span class="math inline">m</span>. The two spheres are each moving with speed <span class="math inline">u</span> on a horizontal surface when they collide. Immediately before the collision, A’s direction of motion makes an angle <span class="math inline">\alpha</span> with the line of centres, and B’s direction of motion makes an angle <span class="math inline">\beta</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\frac13</span> and <span class="math inline">2\cos\beta=\cos\alpha</span>.</p>
 <p><strong>(a)</strong> Show that the direction of motion of A after the collision is perpendicular to the line of centres.</p>
-<p>The total kinetic energy of the spheres after the collision is <span class="math inline">\(\frac34mu^2\)</span>.</p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(\alpha\)</span>.</p>
+<p>The total kinetic energy of the spheres after the collision is <span class="math inline">\frac34mu^2</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\alpha</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Let <span class="math inline">\(v_1,v_2\)</span> be the components after impact along the line of centres.</p>
+<p><strong>(a)</strong> Let <span class="math inline">v_1,v_2</span> be the components after impact along the line of centres.</p>
 <ul>
-<li>Conservation of momentum: <span class="math display">\[mv_1+mv_2=mu\cos\alpha-mu\cos\beta.\]</span></li>
-<li>Newton’s experimental law: <span class="math display">\[v_2-v_1=\frac13u(\cos\beta+\cos\alpha).\]</span></li>
-<li>Using <span class="math inline">\(2\cos\beta=\cos\alpha\)</span> gives <span class="math inline">\(v_1=0\)</span>.</li>
+<li>Conservation of momentum: <span class="math display">mv_1+mv_2=mu\cos\alpha-mu\cos\beta.</span></li>
+<li>Newton’s experimental law: <span class="math display">v_2-v_1=\frac13u(\cos\beta+\cos\alpha).</span></li>
+<li>Using <span class="math inline">2\cos\beta=\cos\alpha</span> gives <span class="math inline">v_1=0</span>.</li>
 </ul>
 <p>Therefore A has no component along the line of centres and moves perpendicular to it.</p>
-<p><strong>(b)</strong> Since <span class="math inline">\(v_1=0\)</span>, <span class="math inline">\(v_2=u\cos\alpha=u\cos\beta\)</span>. Use the unchanged perpendicular components:</p>
-<p><span class="math display">\[
+<p><strong>(b)</strong> Since <span class="math inline">v_1=0</span>, <span class="math inline">v_2=u\cos\alpha=u\cos\beta</span>. Use the unchanged perpendicular components:</p>
+<p><span class="math display">
 \frac12m(u\sin\alpha)^2+\frac12m\left[v_2^2+(u\sin\beta)^2\right]=\frac34mu^2.
-\]</span></p>
-<p>Substitution of <span class="math inline">\(\cos\alpha=2\cos\beta\)</span> gives <span class="math inline">\(\sin\alpha=\frac1{\sqrt2}\)</span> and hence</p>
-<span class="math display">\[
+</span></p>
+<p>Substitution of <span class="math inline">\cos\alpha=2\cos\beta</span> gives <span class="math inline">\sin\alpha=\frac1{\sqrt2}</span> and hence</p>
+<span class="math display">
 \boxed{\alpha=45^\circ}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Question 6; answer checked against the official Mark Scheme.
@@ -910,26 +924,26 @@ Show answer
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively. Sphere A is moving with speed <span class="math inline">\(u\)</span> on a smooth horizontal surface when it collides with sphere B which is at rest. Immediately before the collision, A’s direction of motion makes an angle <span class="math inline">\(i\)</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\(\frac13\)</span>.</p>
-<p><strong>(a)</strong> Show that the speed of B after the collision is <span class="math inline">\(\dfrac{4u\cos i}{3(1+k)}\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">m</span> and <span class="math inline">km</span> respectively. Sphere A is moving with speed <span class="math inline">u</span> on a smooth horizontal surface when it collides with sphere B which is at rest. Immediately before the collision, A’s direction of motion makes an angle <span class="math inline">i</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\frac13</span>.</p>
+<p><strong>(a)</strong> Show that the speed of B after the collision is <span class="math inline">\dfrac{4u\cos i}{3(1+k)}</span>.</p>
 <p>70% of the total kinetic energy of the spheres is lost as a result of the collision.</p>
-<p><strong>(b)</strong> Given that <span class="math inline">\(\tan i=\frac13\)</span>, find the value of <span class="math inline">\(k\)</span>.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">\tan i=\frac13</span>, find the value of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Let <span class="math inline">\(v_1,v_2\)</span> be the components after impact along the line of centres.</p>
+<p><strong>(a)</strong> Let <span class="math inline">v_1,v_2</span> be the components after impact along the line of centres.</p>
 <ul>
-<li>Momentum: <span class="math inline">\(mv_1+kmv_2=mu\cos i\)</span>.</li>
-<li>Restitution: <span class="math inline">\(v_2-v_1=\frac13u\cos i\)</span>.</li>
-<li>Solving gives <span class="math display">\[\boxed{v_2=\frac{4u\cos i}{3(1+k)}}.\]</span></li>
+<li>Momentum: <span class="math inline">mv_1+kmv_2=mu\cos i</span>.</li>
+<li>Restitution: <span class="math inline">v_2-v_1=\frac13u\cos i</span>.</li>
+<li>Solving gives <span class="math display">\boxed{v_2=\frac{4u\cos i}{3(1+k)}}.</span></li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>The other component of A is unchanged, <span class="math inline">\(u\sin i\)</span>.</li>
-<li>The remaining 30% of the initial kinetic energy gives <span class="math display">\[kmv_2^2+m\left(v_1^2+u^2\sin^2i\right)=0.3mu^2.\]</span></li>
-<li>Substitute <span class="math inline">\(v_1=\dfrac{(3-k)u\cos i}{3(1+k)}\)</span>, <span class="math inline">\(\tan i=\frac13\)</span>, and simplify: <span class="math display">\[k^2-6k-7=0.\]</span></li>
-<li>Since <span class="math inline">\(k&gt;0\)</span>, <span class="math inline">\(\boxed{k=7}\)</span>.</li>
+<li>The other component of A is unchanged, <span class="math inline">u\sin i</span>.</li>
+<li>The remaining 30% of the initial kinetic energy gives <span class="math display">kmv_2^2+m\left(v_1^2+u^2\sin^2i\right)=0.3mu^2.</span></li>
+<li>Substitute <span class="math inline">v_1=\dfrac{(3-k)u\cos i}{3(1+k)}</span>, <span class="math inline">\tan i=\frac13</span>, and simplify: <span class="math display">k^2-6k-7=0.</span></li>
+<li>Since <span class="math inline">k&gt;0</span>, <span class="math inline">\boxed{k=7}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -944,30 +958,30 @@ Show answer
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>The smooth vertical walls <span class="math inline">\(AB\)</span> and <span class="math inline">\(CB\)</span> are at right angles to each other. A particle P is moving with speed <span class="math inline">\(u\)</span> on a smooth horizontal floor and strikes wall <span class="math inline">\(CB\)</span> at an angle <span class="math inline">\(\alpha\)</span>. It rebounds at an angle <span class="math inline">\(\beta\)</span> to wall <span class="math inline">\(CB\)</span>. The particle then strikes wall <span class="math inline">\(AB\)</span> and rebounds at an angle <span class="math inline">\(\gamma\)</span> to that wall. The coefficient of restitution between each wall and P is <span class="math inline">\(e\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(\tan\beta=e\tan\alpha\)</span>.</p>
-<p><strong>(b)</strong> Express <span class="math inline">\(\gamma\)</span> in terms of <span class="math inline">\(\alpha\)</span> and explain what this result means about the final direction of motion of P.</p>
-<p>As a result of the two impacts the particle loses <span class="math inline">\(\frac89\)</span> of its initial kinetic energy.</p>
-<p><strong>(c)</strong> Given that <span class="math inline">\(\alpha+\beta=90^\circ\)</span>, find <span class="math inline">\(e\)</span> and <span class="math inline">\(\tan\alpha\)</span>.</p>
+<p>The smooth vertical walls <span class="math inline">AB</span> and <span class="math inline">CB</span> are at right angles to each other. A particle P is moving with speed <span class="math inline">u</span> on a smooth horizontal floor and strikes wall <span class="math inline">CB</span> at an angle <span class="math inline">\alpha</span>. It rebounds at an angle <span class="math inline">\beta</span> to wall <span class="math inline">CB</span>. The particle then strikes wall <span class="math inline">AB</span> and rebounds at an angle <span class="math inline">\gamma</span> to that wall. The coefficient of restitution between each wall and P is <span class="math inline">e</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\tan\beta=e\tan\alpha</span>.</p>
+<p><strong>(b)</strong> Express <span class="math inline">\gamma</span> in terms of <span class="math inline">\alpha</span> and explain what this result means about the final direction of motion of P.</p>
+<p>As a result of the two impacts the particle loses <span class="math inline">\frac89</span> of its initial kinetic energy.</p>
+<p><strong>(c)</strong> Given that <span class="math inline">\alpha+\beta=90^\circ</span>, find <span class="math inline">e</span> and <span class="math inline">\tan\alpha</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Resolve parallel and perpendicular to <span class="math inline">\(CB\)</span>:</p>
+<p><strong>(a)</strong> Resolve parallel and perpendicular to <span class="math inline">CB</span>:</p>
 <ul>
-<li><span class="math inline">\(u\cos\alpha=v\cos\beta\)</span>;</li>
-<li><span class="math inline">\(eu\sin\alpha=v\sin\beta\)</span>.</li>
+<li><span class="math inline">u\cos\alpha=v\cos\beta</span>;</li>
+<li><span class="math inline">eu\sin\alpha=v\sin\beta</span>.</li>
 </ul>
-<p>Dividing gives <span class="math inline">\(\boxed{\tan\beta=e\tan\alpha}\)</span>.</p>
-<p><strong>(b)</strong> At the second wall the corresponding equations give <span class="math inline">\(\tan\gamma=1/\tan\alpha\)</span>, so</p>
-<p><span class="math display">\[
+<p>Dividing gives <span class="math inline">\boxed{\tan\beta=e\tan\alpha}</span>.</p>
+<p><strong>(b)</strong> At the second wall the corresponding equations give <span class="math inline">\tan\gamma=1/\tan\alpha</span>, so</p>
+<p><span class="math display">
 \boxed{\gamma=90^\circ-\alpha}.
-\]</span></p>
+</span></p>
 <p>The two components of velocity have both been reversed, so the final direction is parallel to, but opposite to, the initial direction.</p>
-<p><strong>(c)</strong> The final kinetic energy is <span class="math inline">\(e^2\)</span> times the initial kinetic energy. Hence <span class="math inline">\(e^2=1/9\)</span> and <span class="math inline">\(\boxed{e=1/3}\)</span>. Since <span class="math inline">\(\tan\beta=\cot\alpha\)</span>,</p>
-<span class="math display">\[
+<p><strong>(c)</strong> The final kinetic energy is <span class="math inline">e^2</span> times the initial kinetic energy. Hence <span class="math inline">e^2=1/9</span> and <span class="math inline">\boxed{e=1/3}</span>. Since <span class="math inline">\tan\beta=\cot\alpha</span>,</p>
+<span class="math display">
 e\tan^2\alpha=1\quad\Longrightarrow\quad\boxed{\tan\alpha=\sqrt3}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Question 7; answer checked against the official Mark Scheme.
@@ -981,29 +995,29 @@ e\tan^2\alpha=1\quad\Longrightarrow\quad\boxed{\tan\alpha=\sqrt3}.
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(\frac32m\)</span> respectively. The two spheres are each moving with speed <span class="math inline">\(u\)</span> on a horizontal surface when they collide. Immediately before the collision A’s direction of motion is along the line of centres, and B’s direction of motion makes an angle of <span class="math inline">\(60^\circ\)</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\(\frac23\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">m</span> and <span class="math inline">\frac32m</span> respectively. The two spheres are each moving with speed <span class="math inline">u</span> on a horizontal surface when they collide. Immediately before the collision A’s direction of motion is along the line of centres, and B’s direction of motion makes an angle of <span class="math inline">60^\circ</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\frac23</span>.</p>
 <p><strong>(a)</strong> Find the angle through which the direction of motion of B is deflected by the collision.</p>
 <p><strong>(b)</strong> Find the loss in the total kinetic energy of the system as a result of the collision.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Let <span class="math inline">\(v_1,v_2\)</span> be the final line-of-centres components.</p>
+<p><strong>(a)</strong> Let <span class="math inline">v_1,v_2</span> be the final line-of-centres components.</p>
 <ul>
-<li>Momentum: <span class="math display">\[mv_1+\frac32mv_2=-\frac32mu\cos60^\circ+mu.\]</span></li>
-<li>Restitution: <span class="math display">\[v_2-v_1=\frac23\left(u+u\cos60^\circ\right)=u.\]</span></li>
-<li>Thus <span class="math inline">\(v_1=-\frac12u\)</span> and <span class="math inline">\(v_2=\frac12u\)</span>.</li>
-<li>The unchanged component of B is <span class="math inline">\(u\sin60^\circ=\frac{\sqrt3}{2}u\)</span>.</li>
+<li>Momentum: <span class="math display">mv_1+\frac32mv_2=-\frac32mu\cos60^\circ+mu.</span></li>
+<li>Restitution: <span class="math display">v_2-v_1=\frac23\left(u+u\cos60^\circ\right)=u.</span></li>
+<li>Thus <span class="math inline">v_1=-\frac12u</span> and <span class="math inline">v_2=\frac12u</span>.</li>
+<li>The unchanged component of B is <span class="math inline">u\sin60^\circ=\frac{\sqrt3}{2}u</span>.</li>
 </ul>
-<p>B therefore moves at <span class="math inline">\(60^\circ\)</span> above the line of centres, so the deflection is <span class="math inline">\(\boxed{60^\circ}\)</span>.</p>
+<p>B therefore moves at <span class="math inline">60^\circ</span> above the line of centres, so the deflection is <span class="math inline">\boxed{60^\circ}</span>.</p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 K_{\rm before}=\frac12mu^2+\frac12\left(\frac32m\right)u^2=\frac54mu^2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 K_{\rm after}=\frac12m\left(\frac u2\right)^2+\frac12\left(\frac32m\right)\left[\left(\frac u2\right)^2+\left(\frac{\sqrt3u}{2}\right)^2\right]=\frac78mu^2.
-\]</span></p>
-Hence the loss is <span class="math inline">\(\boxed{\frac38mu^2}\)</span>.
+</span></p>
+Hence the loss is <span class="math inline">\boxed{\frac38mu^2}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2021, Question 5; answer checked against the official Mark Scheme.
@@ -1011,33 +1025,33 @@ Hence the loss is <span class="math inline">\(\boxed{\frac38mu^2}\)</span>.
 </section>
 <section id="mayjune-923131-and-923132-question-6-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-6-1">2022 May/June · 9231/31 and 9231/32 · Question 6</h3>
-<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively. Sphere A is travelling with speed <span class="math inline">\(u\)</span> towards sphere B which is at rest. Immediately before the collision, the direction of motion of A makes an angle <span class="math inline">\(\alpha\)</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\(\frac12\)</span>.</p>
-<p><strong>(a)</strong> Show that the speed of B after the collision is <span class="math inline">\(\dfrac{3u\cos\alpha}{2(1+k)}\)</span> and find the expression for the speed of A along the line of centres after the collision.</p>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">m</span> and <span class="math inline">km</span> respectively. Sphere A is travelling with speed <span class="math inline">u</span> towards sphere B which is at rest. Immediately before the collision, the direction of motion of A makes an angle <span class="math inline">\alpha</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\frac12</span>.</p>
+<p><strong>(a)</strong> Show that the speed of B after the collision is <span class="math inline">\dfrac{3u\cos\alpha}{2(1+k)}</span> and find the expression for the speed of A along the line of centres after the collision.</p>
 <p>After the collision, the kinetic energy of A is equal to the kinetic energy of B.</p>
-<p><strong>(b)</strong> Given that <span class="math inline">\(\tan\alpha=\frac23\)</span>, find the possible values of <span class="math inline">\(k\)</span>.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">\tan\alpha=\frac23</span>, find the possible values of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> The perpendicular component of A is unchanged. Along the line of centres:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 mu\cos\alpha=mU+kmV,
 \qquad V-U=\frac12u\cos\alpha.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{V=\frac{3u\cos\alpha}{2(1+k)}},
 \qquad
 \boxed{U=\frac{(2-k)u\cos\alpha}{2(1+k)}}.
-\]</span></p>
-<p><strong>(b)</strong> Equate <span class="math inline">\(\frac12m(U^2+u^2\sin^2\alpha)\)</span> to <span class="math inline">\(\frac12kmV^2\)</span>. With <span class="math inline">\(\tan\alpha=2/3\)</span>, this simplifies to</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Equate <span class="math inline">\frac12m(U^2+u^2\sin^2\alpha)</span> to <span class="math inline">\frac12kmV^2</span>. With <span class="math inline">\tan\alpha=2/3</span>, this simplifies to</p>
+<p><span class="math display">
 25k^2-85k+52=0.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{k=\frac45\quad\text{or}\quad k=\frac{13}{5}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2022, Question 6; answer checked against the official Mark Scheme.
@@ -1051,23 +1065,23 @@ mu\cos\alpha=mU+kmV,
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p><span class="math inline">\(AB\)</span> and <span class="math inline">\(BC\)</span> are two fixed smooth vertical barriers on a smooth horizontal surface, with angle <span class="math inline">\(ABC=60^\circ\)</span>. A particle of mass <span class="math inline">\(m\)</span> is moving with speed <span class="math inline">\(u\)</span> on the surface. The particle strikes <span class="math inline">\(AB\)</span> at an angle <span class="math inline">\(i\)</span> with <span class="math inline">\(AB\)</span>. It then strikes <span class="math inline">\(BC\)</span> and rebounds at an angle <span class="math inline">\(b\)</span> with <span class="math inline">\(BC\)</span>. The coefficient of restitution between the particle and each barrier is <span class="math inline">\(e\)</span> and <span class="math inline">\(\tan i=2\)</span>. The kinetic energy after the first collision is 40% of its kinetic energy before the first collision.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(e\)</span>.</p>
-<p><strong>(b)</strong> Find the size of angle <span class="math inline">\(b\)</span>.</p>
+<p><span class="math inline">AB</span> and <span class="math inline">BC</span> are two fixed smooth vertical barriers on a smooth horizontal surface, with angle <span class="math inline">ABC=60^\circ</span>. A particle of mass <span class="math inline">m</span> is moving with speed <span class="math inline">u</span> on the surface. The particle strikes <span class="math inline">AB</span> at an angle <span class="math inline">i</span> with <span class="math inline">AB</span>. It then strikes <span class="math inline">BC</span> and rebounds at an angle <span class="math inline">b</span> with <span class="math inline">BC</span>. The coefficient of restitution between the particle and each barrier is <span class="math inline">e</span> and <span class="math inline">\tan i=2</span>. The kinetic energy after the first collision is 40% of its kinetic energy before the first collision.</p>
+<p><strong>(a)</strong> Find <span class="math inline">e</span>.</p>
+<p><strong>(b)</strong> Find the size of angle <span class="math inline">b</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> The loss in kinetic energy at the first barrier is due only to the normal component. Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v^2=u^2\cos^2i+e^2u^2\sin^2i=0.4u^2.
-\]</span></p>
-<p>Using <span class="math inline">\(\tan i=2\)</span> gives <span class="math inline">\(\boxed{e=\frac12}\)</span>.</p>
-<p><strong>(b)</strong> For the first rebound, <span class="math inline">\(\tan\alpha=e\tan i=1\)</span>, so <span class="math inline">\(\alpha=45^\circ\)</span>. At the second barrier, the angle between the incoming direction and <span class="math inline">\(BC\)</span> is <span class="math inline">\(120^\circ-\alpha=75^\circ\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">\tan i=2</span> gives <span class="math inline">\boxed{e=\frac12}</span>.</p>
+<p><strong>(b)</strong> For the first rebound, <span class="math inline">\tan\alpha=e\tan i=1</span>, so <span class="math inline">\alpha=45^\circ</span>. At the second barrier, the angle between the incoming direction and <span class="math inline">BC</span> is <span class="math inline">120^\circ-\alpha=75^\circ</span>.</p>
+<p><span class="math display">
 \tan b=e\tan75^\circ,
-\]</span></p>
-so <span class="math inline">\(\boxed{b=61.8^\circ}\)</span>.
+</span></p>
+so <span class="math inline">\boxed{b=61.8^\circ}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2022, Question 6; answer checked against the official Mark Scheme.
@@ -1081,32 +1095,32 @@ so <span class="math inline">\(\boxed{b=61.8^\circ}\)</span>.
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively. The two spheres are moving on a horizontal surface with speeds <span class="math inline">\(u\)</span> and <span class="math inline">\(\frac58u\)</span> respectively. Immediately before the spheres collide, A is travelling along the line of centres, and B’s direction of motion makes an angle <span class="math inline">\(\alpha\)</span> with the line of centres. The coefficient of restitution is <span class="math inline">\(\frac23\)</span> and <span class="math inline">\(\tan\alpha=\frac34\)</span>. After the collision, the direction of motion of B is perpendicular to the line of centres.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(k\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">m</span> and <span class="math inline">km</span> respectively. The two spheres are moving on a horizontal surface with speeds <span class="math inline">u</span> and <span class="math inline">\frac58u</span> respectively. Immediately before the spheres collide, A is travelling along the line of centres, and B’s direction of motion makes an angle <span class="math inline">\alpha</span> with the line of centres. The coefficient of restitution is <span class="math inline">\frac23</span> and <span class="math inline">\tan\alpha=\frac34</span>. After the collision, the direction of motion of B is perpendicular to the line of centres.</p>
+<p><strong>(a)</strong> Find <span class="math inline">k</span>.</p>
 <p><strong>(b)</strong> Find the loss in the total kinetic energy.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Let <span class="math inline">\(v_A\)</span> be A’s final line component. Since B’s final line component is zero,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Let <span class="math inline">v_A</span> be A’s final line component. Since B’s final line component is zero,</p>
+<p><span class="math display">
 mu-km\left(\frac58u\right)\cos\alpha=mv_A,
-\]</span></p>
+</span></p>
 <p>and restitution gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 0-v_A=\frac23\left(u\cos\alpha+\frac58u\right).
-\]</span></p>
-<p>Using <span class="math inline">\(\cos\alpha=4/5\)</span> gives <span class="math inline">\(\boxed{k=4}\)</span>.</p>
+</span></p>
+<p>Using <span class="math inline">\cos\alpha=4/5</span> gives <span class="math inline">\boxed{k=4}</span>.</p>
 <p><strong>(b)</strong> B’s final speed is its unchanged perpendicular component:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v_B=\frac58u\sin\alpha=\frac38u,
-\]</span></p>
-<p>and <span class="math inline">\(v_A=-u\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>and <span class="math inline">v_A=-u</span>. Hence</p>
+<p><span class="math display">
 K_{\rm before}=\frac{41}{32}mu^2,
 \qquad K_{\rm after}=\frac{25}{32}mu^2.
-\]</span></p>
-The loss is <span class="math inline">\(\boxed{\frac12mu^2}\)</span>.
+</span></p>
+The loss is <span class="math inline">\boxed{\frac12mu^2}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2022, Question 6.
@@ -1120,26 +1134,26 @@ The loss is <span class="math inline">\(\boxed{\frac12mu^2}\)</span>.
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(\frac12m\)</span> respectively. The two spheres are moving on a horizontal surface when they collide. Immediately before the collision, A is travelling with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(\alpha\)</span> to the line of centres and B is travelling with speed <span class="math inline">\(2u\)</span> at angle <span class="math inline">\(\beta\)</span> to the line of centres. The coefficient of restitution is <span class="math inline">\(\frac58\)</span> and <span class="math inline">\(\alpha+\beta=90^\circ\)</span>.</p>
-<p><strong>(a)</strong> Find the component of the velocity of B parallel to the line of centres after the collision, in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(\alpha\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">m</span> and <span class="math inline">\frac12m</span> respectively. The two spheres are moving on a horizontal surface when they collide. Immediately before the collision, A is travelling with speed <span class="math inline">u</span> at angle <span class="math inline">\alpha</span> to the line of centres and B is travelling with speed <span class="math inline">2u</span> at angle <span class="math inline">\beta</span> to the line of centres. The coefficient of restitution is <span class="math inline">\frac58</span> and <span class="math inline">\alpha+\beta=90^\circ</span>.</p>
+<p><strong>(a)</strong> Find the component of the velocity of B parallel to the line of centres after the collision, in terms of <span class="math inline">u</span> and <span class="math inline">\alpha</span>.</p>
 <p>The direction of motion of B after the collision is parallel to the direction of motion of A before the collision.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\tan\alpha\)</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\tan\alpha</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Put <span class="math inline">\(w\)</span> and <span class="math inline">\(v\)</span> for the final line components of B and A. Momentum and restitution, with <span class="math inline">\(\cos\beta=\sin\alpha\)</span>, give</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Put <span class="math inline">w</span> and <span class="math inline">v</span> for the final line components of B and A. Momentum and restitution, with <span class="math inline">\cos\beta=\sin\alpha</span>, give</p>
+<p><span class="math display">
 \boxed{w=\frac23u\left(\frac14\sin\alpha+\frac{13}{8}\cos\alpha\right)}.
-\]</span></p>
-<p><strong>(b)</strong> B’s unchanged perpendicular component is <span class="math inline">\(2u\sin\beta=2u\cos\alpha\)</span>. The condition on its final direction gives</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> B’s unchanged perpendicular component is <span class="math inline">2u\sin\beta=2u\cos\alpha</span>. The condition on its final direction gives</p>
+<p><span class="math display">
 \tan\alpha=\frac{2u\cos\alpha}{w}.
-\]</span></p>
-<p>Substitution reduces to <span class="math inline">\((2\tan\alpha-3)(\tan\alpha+8)=0\)</span>. The physical solution is</p>
-<span class="math display">\[
+</span></p>
+<p>Substitution reduces to <span class="math inline">(2\tan\alpha-3)(\tan\alpha+8)=0</span>. The physical solution is</p>
+<span class="math display">
 \boxed{\tan\alpha=\frac32}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2022, Question 7.
@@ -1153,17 +1167,17 @@ Show answer
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>A particle P of mass <span class="math inline">\(m\)</span> is moving with speed <span class="math inline">\(u\)</span> on a fixed smooth horizontal surface. It collides at an angle <span class="math inline">\(a\)</span> with a fixed smooth vertical barrier. After the collision, P moves at an angle <span class="math inline">\(i\)</span> with the barrier, where <span class="math inline">\(\tan i=\frac12\)</span>. The coefficient of restitution between P and the barrier is <span class="math inline">\(e\)</span>. P loses 20% of its kinetic energy as a result of the collision.</p>
-<p>Find <span class="math inline">\(e\)</span>.</p>
+<p>A particle P of mass <span class="math inline">m</span> is moving with speed <span class="math inline">u</span> on a fixed smooth horizontal surface. It collides at an angle <span class="math inline">a</span> with a fixed smooth vertical barrier. After the collision, P moves at an angle <span class="math inline">i</span> with the barrier, where <span class="math inline">\tan i=\frac12</span>. The coefficient of restitution between P and the barrier is <span class="math inline">e</span>. P loses 20% of its kinetic energy as a result of the collision.</p>
+<p>Find <span class="math inline">e</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>Parallel component is unchanged and <span class="math inline">\(\tan i=e\tan a\)</span>.</li>
-<li>The fractional loss is <span class="math inline">\(\sin^2a(1-e^2)=0.2\)</span>.</li>
-<li>Put <span class="math inline">\(\tan a=t\)</span>, so <span class="math inline">\(e=1/(2t)\)</span>: <span class="math display">\[\frac{t^2-1/4}{1+t^2}=\frac15.\]</span></li>
-<li>Hence <span class="math inline">\(t=3/4\)</span> and <span class="math display">\[\boxed{e=\frac23}.\]</span></li>
+<li>Parallel component is unchanged and <span class="math inline">\tan i=e\tan a</span>.</li>
+<li>The fractional loss is <span class="math inline">\sin^2a(1-e^2)=0.2</span>.</li>
+<li>Put <span class="math inline">\tan a=t</span>, so <span class="math inline">e=1/(2t)</span>: <span class="math display">\frac{t^2-1/4}{1+t^2}=\frac15.</span></li>
+<li>Hence <span class="math inline">t=3/4</span> and <span class="math display">\boxed{e=\frac23}.</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -1178,24 +1192,24 @@ Show answer
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two identical smooth uniform spheres A and B each have mass <span class="math inline">\(m\)</span>. The spheres are moving on a smooth horizontal surface when they collide with speeds <span class="math inline">\(u\)</span> and <span class="math inline">\(2u\)</span> respectively. Immediately before the collision, A’s direction of motion makes an angle of <span class="math inline">\(30^\circ\)</span> with the line of centres, and B’s direction of motion is perpendicular to the line of centres. After the collision, A and B are moving in the same direction. The coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(e\)</span>.</p>
+<p>Two identical smooth uniform spheres A and B each have mass <span class="math inline">m</span>. The spheres are moving on a smooth horizontal surface when they collide with speeds <span class="math inline">u</span> and <span class="math inline">2u</span> respectively. Immediately before the collision, A’s direction of motion makes an angle of <span class="math inline">30^\circ</span> with the line of centres, and B’s direction of motion is perpendicular to the line of centres. After the collision, A and B are moving in the same direction. The coefficient of restitution is <span class="math inline">e</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">e</span>.</p>
 <p><strong>(b)</strong> Find the loss in total kinetic energy.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The perpendicular components are unchanged: <span class="math inline">\(u/2\)</span> for A and <span class="math inline">\(2u\)</span> for B. Let <span class="math inline">\(U,V\)</span> be the final line components.</p>
+<p>The perpendicular components are unchanged: <span class="math inline">u/2</span> for A and <span class="math inline">2u</span> for B. Let <span class="math inline">U,V</span> be the final line components.</p>
 <ul>
-<li>Since the final velocity vectors have the same direction, <span class="math inline">\(V=4U\)</span>.</li>
-<li>Momentum along the line gives <span class="math inline">\(U+V=u\cos30^\circ\)</span>.</li>
-<li>Therefore <span class="math inline">\(U=\frac{\sqrt3}{10}u\)</span> and <span class="math inline">\(V=\frac{2\sqrt3}{5}u\)</span>.</li>
-<li>Restitution gives <span class="math display">\[e=\frac{V-U}{u\cos30^\circ}=\boxed{\frac35}.\]</span></li>
+<li>Since the final velocity vectors have the same direction, <span class="math inline">V=4U</span>.</li>
+<li>Momentum along the line gives <span class="math inline">U+V=u\cos30^\circ</span>.</li>
+<li>Therefore <span class="math inline">U=\frac{\sqrt3}{10}u</span> and <span class="math inline">V=\frac{2\sqrt3}{5}u</span>.</li>
+<li>Restitution gives <span class="math display">e=\frac{V-U}{u\cos30^\circ}=\boxed{\frac35}.</span></li>
 </ul>
-<p>The initial kinetic energy is <span class="math inline">\(\frac52mu^2\)</span> and the final kinetic energy is <span class="math inline">\(\frac{119}{50}mu^2\)</span>, so</p>
-<span class="math display">\[
+<p>The initial kinetic energy is <span class="math inline">\frac52mu^2</span> and the final kinetic energy is <span class="math inline">\frac{119}{50}mu^2</span>, so</p>
+<span class="math display">
 \boxed{\text{loss}=\frac3{25}mu^2}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2023, Question 4.
@@ -1209,25 +1223,25 @@ Show answer
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span> respectively. The spheres move with equal speeds <span class="math inline">\(u\)</span> on a smooth horizontal surface. Immediately before the collision, A’s direction makes an angle of <span class="math inline">\(60^\circ\)</span> with the line of centres and B’s direction makes an angle <span class="math inline">\(i\)</span> with the line of centres. The coefficient of restitution is <span class="math inline">\(e\)</span>. After the collision, the component of the velocity of A along the line of centres is <span class="math inline">\(v\)</span> and B moves perpendicular to the line of centres. Sphere A has twice as much kinetic energy as sphere B.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(v=\frac12u(4\cos i-1)\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\cos i\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">m</span> and <span class="math inline">2m</span> respectively. The spheres move with equal speeds <span class="math inline">u</span> on a smooth horizontal surface. Immediately before the collision, A’s direction makes an angle of <span class="math inline">60^\circ</span> with the line of centres and B’s direction makes an angle <span class="math inline">i</span> with the line of centres. The coefficient of restitution is <span class="math inline">e</span>. After the collision, the component of the velocity of A along the line of centres is <span class="math inline">v</span> and B moves perpendicular to the line of centres. Sphere A has twice as much kinetic energy as sphere B.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">v=\frac12u(4\cos i-1)</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\cos i</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> Use unchanged perpendicular components and momentum along the line of centres. Since B’s final line component is zero,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v=u\cos60^\circ+2u\cos i=\boxed{\frac12u(4\cos i-1)}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> The kinetic-energy condition is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v^2+u^2\sin^260^\circ=4u^2\sin^2i.
-\]</span></p>
-<p>Substituting the expression for <span class="math inline">\(v\)</span> gives <span class="math inline">\(8\cos^2i-2\cos i-3=0\)</span>. The physical solution is</p>
-<span class="math display">\[
+</span></p>
+<p>Substituting the expression for <span class="math inline">v</span> gives <span class="math inline">8\cos^2i-2\cos i-3=0</span>. The physical solution is</p>
+<span class="math display">
 \boxed{\cos i=\frac34}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Question 1.
@@ -1241,25 +1255,25 @@ v^2+u^2\sin^260^\circ=4u^2\sin^2i.
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two smooth vertical walls meet at right angles. The smooth sphere A, with mass <span class="math inline">\(m\)</span>, is at rest on a smooth horizontal surface and is at a distance <span class="math inline">\(d\)</span> from each wall. An identical smooth sphere B is moving on the horizontal surface with speed <span class="math inline">\(u\)</span> at an angle <span class="math inline">\(i\)</span> with the line of centres when the spheres collide. After the collision, the spheres take the same time to reach a wall. The coefficient of restitution between the spheres is <span class="math inline">\(\frac12\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\tan i\)</span>.</p>
+<p>Two smooth vertical walls meet at right angles. The smooth sphere A, with mass <span class="math inline">m</span>, is at rest on a smooth horizontal surface and is at a distance <span class="math inline">d</span> from each wall. An identical smooth sphere B is moving on the horizontal surface with speed <span class="math inline">u</span> at an angle <span class="math inline">i</span> with the line of centres when the spheres collide. After the collision, the spheres take the same time to reach a wall. The coefficient of restitution between the spheres is <span class="math inline">\frac12</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\tan i</span>.</p>
 <p><strong>(b)</strong> Find the percentage loss in total kinetic energy.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Equal travel times and equal distances give the final component of A towards its wall as <span class="math inline">\(u\sin i\)</span>. Momentum and restitution along the line of centres then give</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Equal travel times and equal distances give the final component of A towards its wall as <span class="math inline">u\sin i</span>. Momentum and restitution along the line of centres then give</p>
+<p><span class="math display">
 2\sin i=(1+e)\cos i.
-\]</span></p>
-<p>With <span class="math inline">\(e=1/2\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>With <span class="math inline">e=1/2</span>,</p>
+<p><span class="math display">
 \boxed{\tan i=\frac34}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Substituting the final components into the kinetic-energy expression gives</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{24\%}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2023, Question 4.
@@ -1273,24 +1287,24 @@ Show answer
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two smooth uniform spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(5m\)</span> respectively. Sphere A is moving with speed <span class="math inline">\(u\)</span> when it collides with stationary B. Immediately before the collision, A’s direction makes an angle <span class="math inline">\(i\)</span> with the line of centres. After the collision, the kinetic energies of A and B are equal. The coefficient of restitution is <span class="math inline">\(\frac12\)</span>.</p>
-<p>Find <span class="math inline">\(\tan i\)</span>.</p>
+<p>Two smooth uniform spheres A and B of equal radii have masses <span class="math inline">m</span> and <span class="math inline">5m</span> respectively. Sphere A is moving with speed <span class="math inline">u</span> when it collides with stationary B. Immediately before the collision, A’s direction makes an angle <span class="math inline">i</span> with the line of centres. After the collision, the kinetic energies of A and B are equal. The coefficient of restitution is <span class="math inline">\frac12</span>.</p>
+<p>Find <span class="math inline">\tan i</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>Along the line of centres, for B initially at rest,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 V=\frac{3}{2(1+5)}u\cos i=\frac14u\cos i,
 \qquad U=-\frac14u\cos i.
-\]</span></p>
-<p>A’s perpendicular component remains <span class="math inline">\(u\sin i\)</span>. Equating the two kinetic energies gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>A’s perpendicular component remains <span class="math inline">u\sin i</span>. Equating the two kinetic energies gives</p>
+<p><span class="math display">
 U^2+u^2\sin^2i=5V^2
 \quad\Longrightarrow\quad
 \sin^2i=\frac14\cos^2i.
-\]</span></p>
-Therefore <span class="math inline">\(\boxed{\tan i=\frac12}\)</span>.
+</span></p>
+Therefore <span class="math inline">\boxed{\tan i=\frac12}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2024, Question 1.
@@ -1304,17 +1318,17 @@ Therefore <span class="math inline">\(\boxed{\tan i=\frac12}\)</span>.
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two smooth uniform spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span> respectively. They move with speeds <span class="math inline">\(u\)</span> and <span class="math inline">\(\frac12u\)</span>. Immediately before the collision, A’s direction is along the line of centres and B’s direction makes an angle <span class="math inline">\(i\)</span> with the line of centres. After the collision, A’s direction is reversed and its speed is reduced to <span class="math inline">\(\frac14u\)</span>. B’s direction again makes an angle <span class="math inline">\(i\)</span> with the line of centres, on the opposite side, and its speed is unchanged.</p>
+<p>Two smooth uniform spheres A and B of equal radii have masses <span class="math inline">m</span> and <span class="math inline">2m</span> respectively. They move with speeds <span class="math inline">u</span> and <span class="math inline">\frac12u</span>. Immediately before the collision, A’s direction is along the line of centres and B’s direction makes an angle <span class="math inline">i</span> with the line of centres. After the collision, A’s direction is reversed and its speed is reduced to <span class="math inline">\frac14u</span>. B’s direction again makes an angle <span class="math inline">i</span> with the line of centres, on the opposite side, and its speed is unchanged.</p>
 <p>Find the coefficient of restitution.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Using conservation of momentum along the line of centres, with the directions shown in the original question, gives <span class="math inline">\(\cos i=5/8\)</span>. Newton’s experimental law then gives</p>
-<span class="math display">\[
+<p>Using conservation of momentum along the line of centres, with the directions shown in the original question, gives <span class="math inline">\cos i=5/8</span>. Newton’s experimental law then gives</p>
+<span class="math display">
 e=\frac{\frac12u\cos i+\frac14u}{u+\frac12u\cos i}
 =\boxed{\frac37}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2024, Question 1.
@@ -1328,8 +1342,8 @@ e=\frac{\frac12u\cos i+\frac14u}{u+\frac12u\cos i}
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two identical smooth uniform spheres A and B, each of mass <span class="math inline">\(m\)</span>, move with speeds <span class="math inline">\(2u\)</span> and <span class="math inline">\(3u\)</span> respectively. Immediately before collision, A’s direction makes an angle <span class="math inline">\(i\)</span> with the line of centres and B’s direction is perpendicular to that of A. After the collision, B moves perpendicular to the line of centres. The coefficient of restitution is <span class="math inline">\(\frac13\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\tan i\)</span>.</p>
+<p>Two identical smooth uniform spheres A and B, each of mass <span class="math inline">m</span>, move with speeds <span class="math inline">2u</span> and <span class="math inline">3u</span> respectively. Immediately before collision, A’s direction makes an angle <span class="math inline">i</span> with the line of centres and B’s direction is perpendicular to that of A. After the collision, B moves perpendicular to the line of centres. The coefficient of restitution is <span class="math inline">\frac13</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\tan i</span>.</p>
 <p><strong>(b)</strong> Find the total loss of kinetic energy.</p>
 <p><strong>(c)</strong> Find, in degrees, the angle through which A’s direction is deflected.</p>
 <details class="answer-panel">
@@ -1338,11 +1352,11 @@ Show answer
 </summary>
 <p>Taking components along and perpendicular to the line of centres:</p>
 <ul>
-<li>The initial components give <span class="math inline">\(2u\cos i\)</span> and <span class="math inline">\(3u\sin i\)</span> in the line direction, with the appropriate signs from the original diagram.</li>
-<li>Since B’s final line component is zero, momentum and restitution give <span class="math display">\[\boxed{\tan i=\frac43}.\]</span></li>
-<li>The final components are <span class="math inline">\(\mathbf v_A=-\frac65u\mathbf i+\frac85u\mathbf j\)</span> and <span class="math inline">\(\mathbf v_B=\frac95u\mathbf j\)</span>.</li>
-<li>Hence <span class="math display">\[K_{\rm before}=\frac{13}{2}mu^2,\qquad K_{\rm after}=\frac{181}{50}mu^2,\]</span> so the loss is <span class="math inline">\(\boxed{\frac{72}{25}mu^2}\)</span>.</li>
-<li>The angle between A’s initial vector <span class="math inline">\((\frac65,\frac85)\)</span> and final vector <span class="math inline">\((-\frac65,\frac85)\)</span> is <span class="math display">\[\boxed{73.7^\circ\text{ (approximately)}}.\]</span></li>
+<li>The initial components give <span class="math inline">2u\cos i</span> and <span class="math inline">3u\sin i</span> in the line direction, with the appropriate signs from the original diagram.</li>
+<li>Since B’s final line component is zero, momentum and restitution give <span class="math display">\boxed{\tan i=\frac43}.</span></li>
+<li>The final components are <span class="math inline">\mathbf v_A=-\frac65u\mathbf i+\frac85u\mathbf j</span> and <span class="math inline">\mathbf v_B=\frac95u\mathbf j</span>.</li>
+<li>Hence <span class="math display">K_{\rm before}=\frac{13}{2}mu^2,\qquad K_{\rm after}=\frac{181}{50}mu^2,</span> so the loss is <span class="math inline">\boxed{\frac{72}{25}mu^2}</span>.</li>
+<li>The angle between A’s initial vector <span class="math inline">(\frac65,\frac85)</span> and final vector <span class="math inline">(-\frac65,\frac85)</span> is <span class="math display">\boxed{73.7^\circ\text{ (approximately)}}.</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -1351,30 +1365,30 @@ Show answer
 </section>
 <section id="mayjune-923131-and-923132-question-6-2" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-6-2">2025 May/June · 9231/31 and 9231/32 · Question 6</h3>
-<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(2m\)</span> and <span class="math inline">\(m\)</span> respectively. Sphere A is moving in a straight horizontal line with speed <span class="math inline">\(u\)</span>, and sphere B is stationary. Sphere A collides directly with B, and they then move in the same direction with speeds <span class="math inline">\(v_A\)</span> and <span class="math inline">\(v_B\)</span>. After the collision, the kinetic energy of B is <span class="math inline">\(\frac92\)</span> times the kinetic energy of A.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(v_B=\frac65u\)</span>.</p>
-<p>Sphere B then collides with a fixed vertical barrier. Immediately before the collision, B’s direction makes an angle <span class="math inline">\(a\)</span> with the barrier. Immediately after, it makes an angle <span class="math inline">\(b\)</span> with the barrier. The coefficient of restitution between B and the barrier is <span class="math inline">\(\frac45\)</span>. As a result of the collision, the speed of B is reduced to <span class="math inline">\(\frac{12\sqrt5}{25}u\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\sin(a+b)\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">2m</span> and <span class="math inline">m</span> respectively. Sphere A is moving in a straight horizontal line with speed <span class="math inline">u</span>, and sphere B is stationary. Sphere A collides directly with B, and they then move in the same direction with speeds <span class="math inline">v_A</span> and <span class="math inline">v_B</span>. After the collision, the kinetic energy of B is <span class="math inline">\frac92</span> times the kinetic energy of A.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">v_B=\frac65u</span>.</p>
+<p>Sphere B then collides with a fixed vertical barrier. Immediately before the collision, B’s direction makes an angle <span class="math inline">a</span> with the barrier. Immediately after, it makes an angle <span class="math inline">b</span> with the barrier. The coefficient of restitution between B and the barrier is <span class="math inline">\frac45</span>. As a result of the collision, the speed of B is reduced to <span class="math inline">\frac{12\sqrt5}{25}u</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\sin(a+b)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> From the kinetic-energy ratio,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\frac12mv_B^2}{\frac12(2m)v_A^2}=\frac92
 \quad\Longrightarrow\quad v_B=3v_A.
-\]</span></p>
-<p>Momentum gives <span class="math inline">\(2u=2v_A+v_B\)</span>, so <span class="math inline">\(\boxed{v_B=\frac65u}\)</span>.</p>
+</span></p>
+<p>Momentum gives <span class="math inline">2u=2v_A+v_B</span>, so <span class="math inline">\boxed{v_B=\frac65u}</span>.</p>
 <p><strong>(b)</strong> Resolve parallel and perpendicular to the barrier:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac65u\cos a=\frac{12\sqrt5}{25}u\cos b,
 \qquad
 \frac45\frac65u\sin a=\frac{12\sqrt5}{25}u\sin b.
-\]</span></p>
-<p>The speed equation gives <span class="math inline">\(\sin^2a=5/9\)</span> and <span class="math inline">\(\cos^2a=4/9\)</span>. Therefore</p>
-<span class="math display">\[
+</span></p>
+<p>The speed equation gives <span class="math inline">\sin^2a=5/9</span> and <span class="math inline">\cos^2a=4/9</span>. Therefore</p>
+<span class="math display">
 \sin(a+b)=\boxed{\frac1{\sqrt5}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Question 6.
@@ -1388,27 +1402,27 @@ Show answer
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two identical uniform smooth spheres A and B, each with mass <span class="math inline">\(m\)</span>, are moving on a horizontal surface with speeds <span class="math inline">\(2u\)</span> and <span class="math inline">\(u\)</span> respectively when they collide. Immediately before the collision, the spheres are moving parallel to each other in opposite directions such that their directions of motion each make an angle <span class="math inline">\(\theta\)</span> with the line of centres. As a result of the collision, B moves in a direction perpendicular to its initial direction. The coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(\tan\theta\)</span> in terms of <span class="math inline">\(e\)</span>.</p>
+<p>Two identical uniform smooth spheres A and B, each with mass <span class="math inline">m</span>, are moving on a horizontal surface with speeds <span class="math inline">2u</span> and <span class="math inline">u</span> respectively when they collide. Immediately before the collision, the spheres are moving parallel to each other in opposite directions such that their directions of motion each make an angle <span class="math inline">\theta</span> with the line of centres. As a result of the collision, B moves in a direction perpendicular to its initial direction. The coefficient of restitution is <span class="math inline">e</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">\tan\theta</span> in terms of <span class="math inline">e</span>.</p>
 <p>As a result of the collision, A moves in a direction perpendicular to the line of centres.</p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(\theta\)</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\theta</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let <span class="math inline">\(U,V\)</span> be the final components along the line of centres. The perpendicular components are unchanged.</p>
+<p>Let <span class="math inline">U,V</span> be the final components along the line of centres. The perpendicular components are unchanged.</p>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Momentum along the line of centres: <span class="math display">\[2u\cos\theta-u\cos\theta=U+V.\]</span></li>
-<li>Newton’s experimental law: <span class="math display">\[V-U=3eu\cos\theta.\]</span></li>
-<li>The condition that B’s final velocity is perpendicular to its initial velocity gives <span class="math inline">\(V=u\sin^2\theta/\cos\theta\)</span>.</li>
-<li>Combining these equations gives <span class="math display">\[\boxed{\tan^2\theta=\frac{1+3e}{2}}.
-\]</span></li>
+<li>Momentum along the line of centres: <span class="math display">2u\cos\theta-u\cos\theta=U+V.</span></li>
+<li>Newton’s experimental law: <span class="math display">V-U=3eu\cos\theta.</span></li>
+<li>The condition that B’s final velocity is perpendicular to its initial velocity gives <span class="math inline">V=u\sin^2\theta/\cos\theta</span>.</li>
+<li>Combining these equations gives <span class="math display">\boxed{\tan^2\theta=\frac{1+3e}{2}}.
+</span></li>
 </ul>
-<p><strong>(b)</strong> If A’s final line component is zero, restitution gives <span class="math inline">\(V=3eu\cos\theta\)</span>, while momentum gives <span class="math inline">\(V=u\cos\theta\)</span>. Thus <span class="math inline">\(e=1/3\)</span>. Substitution into part <strong>(a)</strong> gives</p>
-<span class="math display">\[
+<p><strong>(b)</strong> If A’s final line component is zero, restitution gives <span class="math inline">V=3eu\cos\theta</span>, while momentum gives <span class="math inline">V=u\cos\theta</span>. Thus <span class="math inline">e=1/3</span>. Substitution into part <strong>(a)</strong> gives</p>
+<span class="math display">
 \boxed{\theta=45^\circ}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2025, Question 6.
@@ -1416,16 +1430,16 @@ Show answer
 </section>
 <section id="octobernovember-923131-and-923133-question-1-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-1-1">2025 October/November · 9231/31 and 9231/33 · Question 1</h3>
-<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(4m\)</span> and <span class="math inline">\(m\)</span> respectively. Sphere B is at rest on a smooth horizontal surface. Sphere A is moving with speed <span class="math inline">\(u\)</span> and collides directly with B. After the collision, the momentum of A is three times the momentum of B.</p>
-<p>Find the coefficient of restitution <span class="math inline">\(e\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">4m</span> and <span class="math inline">m</span> respectively. Sphere B is at rest on a smooth horizontal surface. Sphere A is moving with speed <span class="math inline">u</span> and collides directly with B. After the collision, the momentum of A is three times the momentum of B.</p>
+<p>Find the coefficient of restitution <span class="math inline">e</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let the final speeds be <span class="math inline">\(v_A,v_B\)</span>. Then <span class="math inline">\(4mv_A=3mv_B\)</span>, so <span class="math inline">\(v_B=\frac43v_A\)</span>. Momentum gives <span class="math inline">\(4u=4v_A+v_B\)</span>, hence <span class="math inline">\(v_A=\frac34u\)</span> and <span class="math inline">\(v_B=u\)</span>. Therefore</p>
-<span class="math display">\[
+<p>Let the final speeds be <span class="math inline">v_A,v_B</span>. Then <span class="math inline">4mv_A=3mv_B</span>, so <span class="math inline">v_B=\frac43v_A</span>. Momentum gives <span class="math inline">4u=4v_A+v_B</span>, hence <span class="math inline">v_A=\frac34u</span> and <span class="math inline">v_B=u</span>. Therefore</p>
+<span class="math display">
 e=\frac{v_B-v_A}{u}=\boxed{\frac14}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 1.
@@ -1439,26 +1453,26 @@ e=\frac{v_B-v_A}{u}=\boxed{\frac14}.
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>Two uniform smooth spheres A and B of equal radii are on a horizontal surface. They have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively. Sphere A is moving with speed <span class="math inline">\(u\)</span> at an angle <span class="math inline">\(\alpha\)</span> with the line of centres when it collides with stationary sphere B. Immediately after the collision, sphere A moves with speed <span class="math inline">\(v\)</span> at an angle <span class="math inline">\(2\alpha\)</span> with the line of centres. It is given that <span class="math inline">\(\tan\alpha=\frac34\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(u\)</span>.</p>
-<p><strong>(b)</strong> Find the coefficient of restitution between the spheres in terms of <span class="math inline">\(k\)</span>.</p>
+<p>Two uniform smooth spheres A and B of equal radii are on a horizontal surface. They have masses <span class="math inline">m</span> and <span class="math inline">km</span> respectively. Sphere A is moving with speed <span class="math inline">u</span> at an angle <span class="math inline">\alpha</span> with the line of centres when it collides with stationary sphere B. Immediately after the collision, sphere A moves with speed <span class="math inline">v</span> at an angle <span class="math inline">2\alpha</span> with the line of centres. It is given that <span class="math inline">\tan\alpha=\frac34</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">v</span> in terms of <span class="math inline">u</span>.</p>
+<p><strong>(b)</strong> Find the coefficient of restitution between the spheres in terms of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> The component perpendicular to the line of centres is unchanged:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 u\sin\alpha=v\sin2\alpha=2v\sin\alpha\cos\alpha.
-\]</span></p>
-<p>Therefore <span class="math inline">\(v=u/(2\cos\alpha)=\boxed{\frac58u}\)</span>.</p>
-<p><strong>(b)</strong> Along the line of centres, momentum gives the component of B after impact as <span class="math inline">\(\frac{5}{8k}u\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Therefore <span class="math inline">v=u/(2\cos\alpha)=\boxed{\frac58u}</span>.</p>
+<p><strong>(b)</strong> Along the line of centres, momentum gives the component of B after impact as <span class="math inline">\frac{5}{8k}u</span>. Hence</p>
+<p><span class="math display">
 e=\frac{\frac{5}{8k}u-\frac58u\cos2\alpha}{u\cos\alpha}.
-\]</span></p>
-<p>Using <span class="math inline">\(\cos\alpha=4/5\)</span> and <span class="math inline">\(\cos2\alpha=7/25\)</span> gives</p>
-<span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">\cos\alpha=4/5</span> and <span class="math inline">\cos2\alpha=7/25</span> gives</p>
+<span class="math display">
 \boxed{e=\frac{25/k-7}{32}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Question 5.
@@ -1466,27 +1480,27 @@ e=\frac{\frac{5}{8k}u-\frac58u\cos2\alpha}{u\cos\alpha}.
 </section>
 <section id="octobernovember-923131-and-923133-question-7" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-7">2024 October/November · 9231/31 and 9231/33 · Question 7</h3>
-<p>A particle P is projected with speed <span class="math inline">\(u\)</span> at an angle <span class="math inline">\(\tan^{-1}(4/3)\)</span> above the horizontal from a point O on a horizontal plane and moves freely under gravity. When P is moving horizontally, it strikes a smooth inclined plane at A. The plane is inclined to the horizontal at angle <span class="math inline">\(a\)</span>. As a result of the impact, P moves vertically upwards. The coefficient of restitution between P and the inclined plane is <span class="math inline">\(e\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(e\tan^2a=1\)</span>.</p>
-<p>In its subsequent motion, the greatest height reached by P above A is <span class="math inline">\(\frac3{16}\)</span> of the vertical height of A above the horizontal plane.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(e\)</span>.</p>
+<p>A particle P is projected with speed <span class="math inline">u</span> at an angle <span class="math inline">\tan^{-1}(4/3)</span> above the horizontal from a point O on a horizontal plane and moves freely under gravity. When P is moving horizontally, it strikes a smooth inclined plane at A. The plane is inclined to the horizontal at angle <span class="math inline">a</span>. As a result of the impact, P moves vertically upwards. The coefficient of restitution between P and the inclined plane is <span class="math inline">e</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">e\tan^2a=1</span>.</p>
+<p>In its subsequent motion, the greatest height reached by P above A is <span class="math inline">\frac3{16}</span> of the vertical height of A above the horizontal plane.</p>
+<p><strong>(b)</strong> Find <span class="math inline">e</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Resolve parallel and perpendicular to the plane. If the speed immediately after impact is <span class="math inline">\(w\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Resolve parallel and perpendicular to the plane. If the speed immediately after impact is <span class="math inline">w</span>,</p>
+<p><span class="math display">
 u\cos a=w\sin a,\qquad e\,u\sin a=w\cos a.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(w\)</span> gives <span class="math inline">\(\boxed{e\tan^2a=1}\)</span>.</p>
-<p><strong>(b)</strong> The vertical speed after impact is <span class="math inline">\(w=u\cot a\)</span>. The given launch angle and the height condition give</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">w</span> gives <span class="math inline">\boxed{e\tan^2a=1}</span>.</p>
+<p><strong>(b)</strong> The vertical speed after impact is <span class="math inline">w=u\cot a</span>. The given launch angle and the height condition give</p>
+<p><span class="math display">
 \frac{w^2}{2g}=\frac3{16}\frac{(u\sin(\tan^{-1}(4/3)))^2}{2g},
-\]</span></p>
-<p>so <span class="math inline">\(w/u=\sqrt3/5\)</span>. Therefore <span class="math inline">\(\cot^2a=3/25\)</span> and</p>
-<span class="math display">\[
+</span></p>
+<p>so <span class="math inline">w/u=\sqrt3/5</span>. Therefore <span class="math inline">\cot^2a=3/25</span> and</p>
+<span class="math display">
 \boxed{e=\frac3{25}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Question 7.
@@ -1500,33 +1514,33 @@ u\cos a=w\sin a,\qquad e\,u\sin a=w\cos a.
 <figcaption>Original vector diagram</figcaption>
 </figure>
 </div>
-<p>A particle P of mass <span class="math inline">\(m\)</span> is attached to one end of a light inextensible string of length <span class="math inline">\(a\)</span>, the other end being fixed at O. Initially P is held with the string taut at an angle of <span class="math inline">\(60^\circ\)</span> to the upward vertical and is projected perpendicular to the string downwards with speed <span class="math inline">\(\sqrt{17ag}\)</span>. It moves in a vertical circle. At the lowest point P collides with a stationary particle Q.</p>
+<p>A particle P of mass <span class="math inline">m</span> is attached to one end of a light inextensible string of length <span class="math inline">a</span>, the other end being fixed at O. Initially P is held with the string taut at an angle of <span class="math inline">60^\circ</span> to the upward vertical and is projected perpendicular to the string downwards with speed <span class="math inline">\sqrt{17ag}</span>. It moves in a vertical circle. At the lowest point P collides with a stationary particle Q.</p>
 <p><strong>(a)</strong> Find the speed of P immediately before the collision.</p>
 <p>As a result of the collision, P rebounds and moves back along a circular path. The string becomes slack when P reaches the point vertically above O.</p>
 <p><strong>(b)</strong> Find the speed of P immediately after the collision.</p>
-<p>The mass of Q is <span class="math inline">\(km\)</span> and the collision is perfectly elastic.</p>
-<p><strong>(c)</strong> Find <span class="math inline">\(k\)</span>.</p>
+<p>The mass of Q is <span class="math inline">km</span> and the collision is perfectly elastic.</p>
+<p><strong>(c)</strong> Find <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> Conservation of energy from the initial position to the lowest point gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12m(\sqrt{17ag})^2+\frac32mag=\frac12mv^2,
-\]</span></p>
-<p>so <span class="math inline">\(\boxed{v=\sqrt{20ag}}\)</span>.</p>
-<p><strong>(b)</strong> At the top of the rebound circle, <span class="math inline">\(T=0\)</span>, so <span class="math inline">\(V^2=ag\)</span>. Energy from the bottom to the top gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">\boxed{v=\sqrt{20ag}}</span>.</p>
+<p><strong>(b)</strong> At the top of the rebound circle, <span class="math inline">T=0</span>, so <span class="math inline">V^2=ag</span>. Energy from the bottom to the top gives</p>
+<p><span class="math display">
 \frac12mw_P^2=\frac12m(ag)+2mga,
-\]</span></p>
-<p>and hence <span class="math inline">\(\boxed{w_P=\sqrt{5ag}}\)</span>.</p>
-<p><strong>(c)</strong> Let Q’s speed after impact be <span class="math inline">\(w_Q\)</span>. Momentum and restitution give</p>
-<p><span class="math display">\[
+</span></p>
+<p>and hence <span class="math inline">\boxed{w_P=\sqrt{5ag}}</span>.</p>
+<p><strong>(c)</strong> Let Q’s speed after impact be <span class="math inline">w_Q</span>. Momentum and restitution give</p>
+<p><span class="math display">
 mv=kmw_Q-mw_P,
 \qquad
 w_P+w_Q=v.
-\]</span></p>
-Using <span class="math inline">\(v=\sqrt{20ag}\)</span> and <span class="math inline">\(w_P=\sqrt{5ag}\)</span> gives <span class="math inline">\(\boxed{k=3}\)</span>.
+</span></p>
+Using <span class="math inline">v=\sqrt{20ag}</span> and <span class="math inline">w_P=\sqrt{5ag}</span> gives <span class="math inline">\boxed{k=3}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 6; answer checked against the official Mark Scheme.
@@ -1541,8 +1555,8 @@ Using <span class="math inline">\(v=\sqrt{20ag}\)</span> and <span class="math i
 <li>smooth plane 或 smooth sphere 的 impulse 方向沿 contact normal；</li>
 <li>line-of-centres component 才使用 restitution；</li>
 <li>perpendicular component 在 smooth impact 中保持不变；</li>
-<li><span class="math inline">\(e=0\)</span> 表示最大能量损失，<span class="math inline">\(e=1\)</span> 表示 perfectly elastic；</li>
-<li>最后检查答案是否符合 <span class="math inline">\(0\le e\le1\)</span> 以及题目给定的运动方向。</li>
+<li><span class="math inline">e=0</span> 表示最大能量损失，<span class="math inline">e=1</span> 表示 perfectly elastic；</li>
+<li>最后检查答案是否符合 <span class="math inline">0\le e\le1</span> 以及题目给定的运动方向。</li>
 </ol>
 
 

@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -433,47 +447,47 @@ window.Quarto = {
 <section id="example-4.1" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.1">Example 4.1</h3>
 <p>An ornithologist records the numbers of house martins (a bird species) per day flying over a headland. Her observations cover a sample of 15 days during the migration season of this year.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 281\quad214\quad268\quad290\quad271\quad207\quad402\quad480\quad400\quad423\quad350\quad366\quad355\quad280\quad368
-\]</span></p>
+</span></p>
 <p>Records show that for several years the median number per day has been 270.5. Use a sign test to examine, at the 5% significance level, whether there has been an increase in the numbers of house martins flying over the headland during the migration season of this year.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{The median number of house martins is equal to 270.5.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The median number of house martins is greater than 270.5.}
-\]</span></p>
-<p>If the null hypothesis is true, the probability that the number of house martins flying over the headland each day is greater than 270.5 is <span class="math inline">\(\frac12\)</span>; similarly, the probability that it is less than 270.5 is also <span class="math inline">\(\frac12\)</span>. The number greater than 270.5, <span class="math inline">\(X\)</span>, will therefore have a binomial distribution <span class="math inline">\(B(15,\frac12)\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p>If the null hypothesis is true, the probability that the number of house martins flying over the headland each day is greater than 270.5 is <span class="math inline">\frac12</span>; similarly, the probability that it is less than 270.5 is also <span class="math inline">\frac12</span>. The number greater than 270.5, <span class="math inline">X</span>, will therefore have a binomial distribution <span class="math inline">B(15,\frac12)</span>.</p>
+<p><span class="math display">
 P(X\ge12)=0.0000+0.0005+0.0032+0.0139=0.0176\le0.05,
-\]</span> but <span class="math inline">\(P(X\ge11)=0.0592&gt;0.05\)</span>. So the critical region is <span class="math inline">\([12,13,14,15]\)</span>.</p>
-On 12 of the 15 days, there were more than 270.5 house martins. <span class="math inline">\(12\)</span> lies in the critical region, so there is sufficient evidence to suggest that there has been an increase in the numbers of house martins flying over the headland this year.
+</span> but <span class="math inline">P(X\ge11)=0.0592&gt;0.05</span>. So the critical region is <span class="math inline">[12,13,14,15]</span>.</p>
+On 12 of the 15 days, there were more than 270.5 house martins. <span class="math inline">12</span> lies in the critical region, so there is sufficient evidence to suggest that there has been an increase in the numbers of house martins flying over the headland this year.
 </details>
 </section>
 <section id="example-4.2" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.2">Example 4.2</h3>
 <p>It is known from previous trials that with a fully charged battery, a vacuum cleaner will be able to clean for a median time of 27.35 minutes before the battery runs out. The manufacturer is testing a new type of battery to see whether the cleaning time is different. The cleaning times for a random sample of 9 occasions with the new battery (rounded to 1 decimal place) are as follows.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 25.4\quad28.3\quad26.7\quad29.2\quad30.6\quad28.7\quad27.2\quad27.6\quad29.6
-\]</span></p>
+</span></p>
 <p>Carry out a sign test to examine, at the 5% significance level, whether there has been a change in the average cleaning time.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{The median cleaning time is equal to 27.35 minutes.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The median cleaning time is different from 27.35 minutes.}
-\]</span></p>
-<p>If the null hypothesis is true, the probability that the cleaning time is greater than 27.35 minutes is <span class="math inline">\(\frac12\)</span>; similarly, the probability that it is less than 27.35 minutes is also <span class="math inline">\(\frac12\)</span>. The number of cleaning times less than 27.35, <span class="math inline">\(X\)</span>, will therefore have a binomial distribution <span class="math inline">\(B(9,\frac12)\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p>If the null hypothesis is true, the probability that the cleaning time is greater than 27.35 minutes is <span class="math inline">\frac12</span>; similarly, the probability that it is less than 27.35 minutes is also <span class="math inline">\frac12</span>. The number of cleaning times less than 27.35, <span class="math inline">X</span>, will therefore have a binomial distribution <span class="math inline">B(9,\frac12)</span>.</p>
+<p><span class="math display">
 P(X\le1)=0.0020+0.0176=0.0195\le0.025,
-\]</span> but <span class="math inline">\(P(X\le2)=0.0898&gt;0.025\)</span>. So the critical region is <span class="math inline">\([0,1,8,9]\)</span>.</p>
-On 3 of the 9 trials, the time was less than 27.35. <span class="math inline">\(3\)</span> does not lie in the critical region so there is insufficient evidence to suggest that the median cleaning time is different from 27.35.
+</span> but <span class="math inline">P(X\le2)=0.0898&gt;0.025</span>. So the critical region is <span class="math inline">[0,1,8,9]</span>.</p>
+On 3 of the 9 trials, the time was less than 27.35. <span class="math inline">3</span> does not lie in the critical region so there is insufficient evidence to suggest that the median cleaning time is different from 27.35.
 </details>
 </section>
 <section id="example-4.3" class="level3">
@@ -484,43 +498,43 @@ On 3 of the 9 trials, the time was less than 27.35. <span class="math inline">\(
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{The median time to cure the illness is equal to 23.5 days.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The median time to cure the illness is less than 23.5 days.}
-\]</span></p>
-<p>If the null hypothesis is true, the probability that the time to cure the illness is greater than 23.5 days is <span class="math inline">\(\frac12\)</span>; similarly, the probability that the time is less than 23.5 days is also <span class="math inline">\(\frac12\)</span>. The number of times that are less than 23.5, <span class="math inline">\(X\)</span>, will therefore have a binomial distribution <span class="math inline">\(B(50,\frac12)\)</span>.</p>
-<p>Because the sample size is large, a normal approximation can be used. The mean is <span class="math inline">\(np=50\times\frac12=25\)</span>, and the variance is <span class="math inline">\(npq=50\times\frac12\times\frac12=12.5\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p>If the null hypothesis is true, the probability that the time to cure the illness is greater than 23.5 days is <span class="math inline">\frac12</span>; similarly, the probability that the time is less than 23.5 days is also <span class="math inline">\frac12</span>. The number of times that are less than 23.5, <span class="math inline">X</span>, will therefore have a binomial distribution <span class="math inline">B(50,\frac12)</span>.</p>
+<p>Because the sample size is large, a normal approximation can be used. The mean is <span class="math inline">np=50\times\frac12=25</span>, and the variance is <span class="math inline">npq=50\times\frac12\times\frac12=12.5</span>.</p>
+<p><span class="math display">
 P(X\ge33)=1-\Phi\left(\frac{32.5-25}{\sqrt{12.5}}\right)
 =1-\Phi(2.121)=1-0.9830=0.0170.
-\]</span></p>
-<span class="math inline">\(0.0170&lt;10\%\)</span>, so reject <span class="math inline">\(H_0\)</span>. There is sufficient evidence to suggest that the median time to cure the illness is less than 23.5.
+</span></p>
+<span class="math inline">0.0170&lt;10\%</span>, so reject <span class="math inline">H_0</span>. There is sufficient evidence to suggest that the median time to cure the illness is less than 23.5.
 </details>
 </section>
 <section id="example-4.4" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.4">Example 4.4</h3>
 <p>It is known from previous trials that with a fully charged battery, a vacuum cleaner will be able to clean for a median time of 27.35 minutes before the battery runs out. The manufacturer is testing a new type of battery to see whether the cleaning time is different. The cleaning times for a random sample of 9 occasions with the new battery (rounded to 1 decimal place) are as follows.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 25.4\quad28.3\quad26.7\quad29.2\quad30.6\quad28.7\quad27.2\quad27.6\quad29.6
-\]</span></p>
+</span></p>
 <p>Carry out a Wilcoxon test to examine, at the 5% significance level, whether there has been a change in the average cleaning time.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{The median cleaning time is equal to 27.35 minutes.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The median cleaning time is different from 27.35 minutes.}
-\]</span></p>
+</span></p>
 <p>Significance level: 5%. Two-tailed test.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: right;">Time</th>
-<th style="text-align: right;">Time <span class="math inline">\(-27.35\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(|\text{Time}-27.35|\)</span></th>
+<th style="text-align: right;">Time <span class="math inline">-27.35</span></th>
+<th style="text-align: right;"><span class="math inline">|\text{Time}-27.35|</span></th>
 <th style="text-align: right;">Rank</th>
 </tr>
 </thead>
@@ -581,51 +595,51 @@ H_1:\text{The median cleaning time is different from 27.35 minutes.}
 </tr>
 </tbody>
 </table>
-<p><span class="math display">\[
+<p><span class="math display">
 W_-=7+3+1=11,\qquad W_+=4+6+9+5+2+8=34.
-\]</span></p>
-<p>Check: <span class="math inline">\(W_-+W_+=11+34=45=\frac12\times9\times10\)</span>.</p>
-<p>This is a two-tailed test, so the test statistic <span class="math inline">\(T\)</span> is the smaller of <span class="math inline">\(W_+\)</span> and <span class="math inline">\(W_-\)</span>, which in this case is <span class="math inline">\(W_-=11\)</span>.</p>
-<p>From the tables, the critical value for a two-tailed test on a sample of size 9, using the 5% significance level, is 5. But <span class="math inline">\(11&gt;5\)</span>, so accept the null hypothesis.</p>
+</span></p>
+<p>Check: <span class="math inline">W_-+W_+=11+34=45=\frac12\times9\times10</span>.</p>
+<p>This is a two-tailed test, so the test statistic <span class="math inline">T</span> is the smaller of <span class="math inline">W_+</span> and <span class="math inline">W_-</span>, which in this case is <span class="math inline">W_-=11</span>.</p>
+<p>From the tables, the critical value for a two-tailed test on a sample of size 9, using the 5% significance level, is 5. But <span class="math inline">11&gt;5</span>, so accept the null hypothesis.</p>
 There is no significant evidence that the there has been a change in the average cleaning time.
 </details>
 </section>
 <section id="example-4.5" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.5">Example 4.5</h3>
 <p>The median weight of yam roots of a particular variety using the standard fertiliser is 5.6 kg. The weights in kg of a random sample of 30 roots of this variety grown using a new type of fertiliser are given below. Carry out a Wilcoxon test at the 10% significance level to investigate whether roots grown with this fertiliser are on average heavier than those grown with the usual one.</p>
-<p><span class="math display">\[5.32,4.47,7.30,7.09,6.85,4.68,6.41,8.21,3.57,5.46,\]</span> <span class="math display">\[5.96,5.72,6.18,5.99,6.54,4.78,6.11,5.22,7.21,4.67,\]</span> <span class="math display">\[5.81,7.07,5.44,6.69,5.71,7.18,5.20,6.33,5.27,5.73.\]</span></p>
+<p><span class="math display">5.32,4.47,7.30,7.09,6.85,4.68,6.41,8.21,3.57,5.46,</span> <span class="math display">5.96,5.72,6.18,5.99,6.54,4.78,6.11,5.22,7.21,4.67,</span> <span class="math display">5.81,7.07,5.44,6.69,5.71,7.18,5.20,6.33,5.27,5.73.</span></p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{The median weight with the new fertiliser is equal to 5.6.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The median weight with the new fertiliser is more than 5.6.}
-\]</span></p>
-<p>The values of Weight <span class="math inline">\(-5.6\)</span> are <span class="math display">\[
+</span></p>
+<p>The values of Weight <span class="math inline">-5.6</span> are <span class="math display">
 -0.28,-1.13,1.70,1.49,1.25,-0.92,0.81,2.61,-2.03,-0.14,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 0.36,0.12,0.58,0.39,0.94,-0.82,0.51,-0.38,1.61,-0.93,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 0.21,1.47,-0.16,1.09,0.11,1.58,-0.40,0.73,-0.33,0.13.
-\]</span></p>
-<p>The rankings are <span class="math display">\[
+</span></p>
+<p>The rankings are <span class="math display">
 7,22,28,25,23,18,16,30,29,4,\quad9,2,14,11,20,17,13,10,27,19,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 6,24,5,21,1,26,12,15,8,3.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 W_-=7+22+18+29+4+17+10+19+5+12+8=151,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 W_+=28+25+23+16+30+9+2+14+11+20+13+27+6+24+21+1+26+15+3=314.
-\]</span></p>
-<p>Check: <span class="math inline">\(W_++W_-=151+314=465=\frac12\times30\times31\)</span>. The test statistic is <span class="math inline">\(T=151\)</span>.</p>
-<p>Because <span class="math inline">\(n&gt;20\)</span>, use the normal approximation: <span class="math display">\[
+</span></p>
+<p>Check: <span class="math inline">W_++W_-=151+314=465=\frac12\times30\times31</span>. The test statistic is <span class="math inline">T=151</span>.</p>
+<p>Because <span class="math inline">n&gt;20</span>, use the normal approximation: <span class="math display">
 T\sim N(232.5,2363.75),\qquad
 T'=\frac{151.5-232.5}{\sqrt{2363.75}}=-1.667.
-\]</span></p>
-<p>The critical value at the 10% significance level (one-tailed) is <span class="math inline">\(-1.282\)</span>. Since <span class="math inline">\(\lvert-1.667\rvert&gt;\lvert-1.282\rvert\)</span>, there is sufficient evidence to reject <span class="math inline">\(H_0\)</span>.</p>
+</span></p>
+<p>The critical value at the 10% significance level (one-tailed) is <span class="math inline">-1.282</span>. Since <span class="math inline">\lvert-1.667\rvert&gt;\lvert-1.282\rvert</span>, there is sufficient evidence to reject <span class="math inline">H_0</span>.</p>
 There is sufficient evidence to suggest that the median weight with the new fertiliser is more than 5.6 kg.
 </details>
 </section>
@@ -636,23 +650,23 @@ There is sufficient evidence to suggest that the median weight with the new fert
 <summary>
 Show answer
 </summary>
-<p>Find the integer <span class="math inline">\(t\)</span> such that <span class="math display">\[
+<p>Find the integer <span class="math inline">t</span> such that <span class="math display">
 P(T\le t)\le0.01,
-\]</span> where <span class="math inline">\(T\)</span> has mean <span class="math display">\[
+</span> where <span class="math inline">T</span> has mean <span class="math display">
 \frac{84\times85}{4}=1785
-\]</span> and variance <span class="math display">\[
+</span> and variance <span class="math display">
 \frac{84\times85\times169}{24}=50277.5.
-\]</span></p>
-<p><span class="math inline">\(T\)</span> is discrete, so use a continuity correction: <span class="math display">\[
+</span></p>
+<p><span class="math inline">T</span> is discrete, so use a continuity correction: <span class="math display">
 P(T\le t)\approx P(\text{normal approximation to }T&lt;t+0.5).
-\]</span> Thus <span class="math display">\[
+</span> Thus <span class="math display">
 \Phi\left(\frac{t+0.5-1785}{\sqrt{50277.5}}\right)\le0.01,
-\]</span> so <span class="math display">\[
+</span> so <span class="math display">
 t\le1784.5+\sqrt{50277.5}\,\Phi^{-1}(0.01)
 =1784.5-\sqrt{50277.5}\times2.326
 =1262.95.
-\]</span></p>
-Values of <span class="math inline">\(T\)</span> less than or equal to 1262 are in the critical region; 1262 is the critical value.
+</span></p>
+Values of <span class="math inline">T</span> less than or equal to 1262 are in the critical region; 1262 is the critical value.
 </details>
 </section>
 <section id="example-4.7" class="level3">
@@ -734,24 +748,24 @@ Show answer
 </tr>
 </tbody>
 </table>
-<p><strong>(ii)</strong> <span class="math display">\[
+<p><strong>(ii)</strong> <span class="math display">
 H_0:\text{The median number of grades better in English is 1.25.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The median number of grades better in English is less than 1.25.}
-\]</span></p>
-<p><strong>(iii)</strong> If the null hypothesis is true, the probability that the ‘grades better’ is greater than 1.25 is <span class="math inline">\(\frac12\)</span>; similarly, the probability that it is less than 1.25 is also <span class="math inline">\(\frac12\)</span>. The number less than 1.25, <span class="math inline">\(X\)</span>, therefore has distribution <span class="math inline">\(B(8,\frac12)\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(iii)</strong> If the null hypothesis is true, the probability that the ‘grades better’ is greater than 1.25 is <span class="math inline">\frac12</span>; similarly, the probability that it is less than 1.25 is also <span class="math inline">\frac12</span>. The number less than 1.25, <span class="math inline">X</span>, therefore has distribution <span class="math inline">B(8,\frac12)</span>.</p>
+<p><span class="math display">
 P(X\ge7)=0.0039+0.0313=0.0352\le0.05,
-\]</span> but <span class="math inline">\(P(X\ge6)=0.1445&gt;0.05\)</span>. So the critical region is <span class="math inline">\([7,8]\)</span>.</p>
-<p>On 5 of the 8 trials, the number of grades better was less than 1.25. <span class="math inline">\(5\)</span> does not lie in the critical region. There is insufficient evidence to suggest that the median number of grades better in English is less than 1.25.</p>
-<p><strong>(iv)</strong> Let the number of grades better in English be the value <span class="math inline">\(g\)</span> of the random variable <span class="math inline">\(G\)</span>, assumed symmetrically distributed about its hypothesised median.</p>
+</span> but <span class="math inline">P(X\ge6)=0.1445&gt;0.05</span>. So the critical region is <span class="math inline">[7,8]</span>.</p>
+<p>On 5 of the 8 trials, the number of grades better was less than 1.25. <span class="math inline">5</span> does not lie in the critical region. There is insufficient evidence to suggest that the median number of grades better in English is less than 1.25.</p>
+<p><strong>(iv)</strong> Let the number of grades better in English be the value <span class="math inline">g</span> of the random variable <span class="math inline">G</span>, assumed symmetrically distributed about its hypothesised median.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
 <th style="text-align: right;">Student</th>
-<th style="text-align: right;"><span class="math inline">\(g\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(g-1.25\)</span></th>
-<th style="text-align: right;"><span class="math inline">\(|g-1.25|\)</span></th>
+<th style="text-align: right;"><span class="math inline">g</span></th>
+<th style="text-align: right;"><span class="math inline">g-1.25</span></th>
+<th style="text-align: right;"><span class="math inline">|g-1.25|</span></th>
 <th style="text-align: right;">Rank</th>
 </tr>
 </thead>
@@ -814,12 +828,12 @@ P(X\ge7)=0.0039+0.0313=0.0352\le0.05,
 </tr>
 </tbody>
 </table>
-<p><span class="math display">\[
+<p><span class="math display">
 W_+=4+2+6=12,\qquad W_-=5+1+7+8+3=24.
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 W_++W_-=12+24=36=\frac12\times8\times9.
-\]</span></p>
-<p>The test statistic is <span class="math inline">\(T=W_+=12\)</span>. For a one-tailed 5% test with sample size 8, the critical value is 5. Since <span class="math inline">\(12&gt;5\)</span>, accept the null hypothesis.</p>
+</span></p>
+<p>The test statistic is <span class="math inline">T=W_+=12</span>. For a one-tailed 5% test with sample size 8, the critical value is 5. Since <span class="math inline">12&gt;5</span>, accept the null hypothesis.</p>
 There is insufficient evidence to suggest that the median number of grades better in English is less than 1.25.
 </details>
 </section>
@@ -877,12 +891,12 @@ There is insufficient evidence to suggest that the median number of grades bette
 <summary>
 Show answer
 </summary>
-<p>The increases in the predictions between June and December 2014 are <span class="math inline">\(0.7,0.1,0.5,0.8,-0.4,0.2,0.6\)</span>.</p>
-<p><span class="math display">\[
+<p>The increases in the predictions between June and December 2014 are <span class="math inline">0.7,0.1,0.5,0.8,-0.4,0.2,0.6</span>.</p>
+<p><span class="math display">
 H_0:\text{The median increase in prediction is zero.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The median increase in prediction is positive.}
-\]</span></p>
+</span></p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 9%">
@@ -939,12 +953,12 @@ H_1:\text{The median increase in prediction is positive.}
 </tr>
 </tbody>
 </table>
-<p><span class="math display">\[
+<p><span class="math display">
 W_+=6+1+4+7+2+5=25,\qquad W_-=3.
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 W_++W_-=25+3=28=\frac12\times7\times8.
-\]</span></p>
-The test statistic is <span class="math inline">\(T=W_-=3\)</span>. From the tables, the critical value at the 5% level for a sample of size 7 is 3, and <span class="math inline">\(3\le3\)</span>. The test statistic lies in the critical region, so reject the null hypothesis in favour of the alternative that economists have become more optimistic.
+</span></p>
+The test statistic is <span class="math inline">T=W_-=3</span>. From the tables, the critical value at the 5% level for a sample of size 7 is 3, and <span class="math inline">3\le3</span>. The test statistic lies in the critical region, so reject the null hypothesis in favour of the alternative that economists have become more optimistic.
 </details>
 </section>
 <section id="example-4.9" class="level3">
@@ -954,22 +968,22 @@ The test statistic is <span class="math inline">\(T=W_-=3\)</span>. From the tab
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{The population median predictions for India and China are equal.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The population median prediction for China is greater than that for India.}
-\]</span></p>
+</span></p>
 <p>Significance level: 5%. One-tailed test.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 W_I=1+2+3+4+5+6+9+10+15=55,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 W_C=7+8+11+12+13+14+16=81.
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 W_I+W_C=55+81=136=\frac12\times16\times17.
-\]</span></p>
-Use the value for the smaller set. The Chinese prediction value 81 is the value from the smaller set, but as the upper tail is required, subtract it from <span class="math display">\[
+</span></p>
+Use the value for the smaller set. The Chinese prediction value 81 is the value from the smaller set, but as the upper tail is required, subtract it from <span class="math display">
 m(n+m+1)=7(9+7+1)=119.
-\]</span> Thus <span class="math inline">\(W=119-81=38\)</span>. For sample sizes 7 and 9, at the 5% one-tailed level, the critical value is 43. Since <span class="math inline">\(38&lt;43\)</span>, reject the null hypothesis in favour of the alternative hypothesis that the population median prediction for China is greater than that for India.
+</span> Thus <span class="math inline">W=119-81=38</span>. For sample sizes 7 and 9, at the 5% one-tailed level, the critical value is 43. Since <span class="math inline">38&lt;43</span>, reject the null hypothesis in favour of the alternative hypothesis that the population median prediction for China is greater than that for India.
 </details>
 </section>
 <section id="example-4.10" class="level3">
@@ -1013,49 +1027,49 @@ m(n+m+1)=7(9+7+1)=119.
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{The distributions of English and Japanese scores have the same median.}
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{The distributions of English and Japanese scores have different medians, under the assumption that the distributions have the same shape.}
-\]</span></p>
+</span></p>
 <p>Significance level: 5%. Two-tailed test.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 W_E=1+3+4+6+11+12+16+17+19+21=110,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 W_J=2+5+7+8+9+10+13+14+15+18+20+22=143.
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 W_E+W_J=110+143=253=\frac12\times22\times23.
-\]</span></p>
-<p>For the smaller sample, <span class="math inline">\(W=110\)</span>. The test statistic is the lower of <span class="math inline">\(W=110\)</span> and <span class="math inline">\(m(m+n+1)-W=10\times23-110=120\)</span>; hence the test statistic is 110.</p>
-<p>Since <span class="math inline">\(n&gt;10\)</span>, use the normal approximation. For <span class="math inline">\(m=10\)</span> and <span class="math inline">\(n=12\)</span>, <span class="math display">\[
+</span></p>
+<p>For the smaller sample, <span class="math inline">W=110</span>. The test statistic is the lower of <span class="math inline">W=110</span> and <span class="math inline">m(m+n+1)-W=10\times23-110=120</span>; hence the test statistic is 110.</p>
+<p>Since <span class="math inline">n&gt;10</span>, use the normal approximation. For <span class="math inline">m=10</span> and <span class="math inline">n=12</span>, <span class="math display">
 W\sim N(115,230),\qquad
 T'=\frac{110.5-115}{\sqrt{230}}=-0.2967.
-\]</span></p>
-<p>The critical value at the 5% significance level (two-tailed) is <span class="math inline">\(-1.96\)</span>. Since <span class="math inline">\(-0.2967&gt;-1.96\)</span>, there is not enough evidence to reject <span class="math inline">\(H_0\)</span>.</p>
+</span></p>
+<p>The critical value at the 5% significance level (two-tailed) is <span class="math inline">-1.96</span>. Since <span class="math inline">-0.2967&gt;-1.96</span>, there is not enough evidence to reject <span class="math inline">H_0</span>.</p>
 There is insufficient evidence to suggest that the English and Japanese children differ in their abilities to identify American facial expressions.
 </details>
 </section>
 <section id="example-4.11" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.11">Example 4.11</h3>
-<p>Determine the 1% one-tailed (2% two-tailed) critical value for the samples with sizes <span class="math inline">\(m=33\)</span> and <span class="math inline">\(n=58\)</span>.</p>
+<p>Determine the 1% one-tailed (2% two-tailed) critical value for the samples with sizes <span class="math inline">m=33</span> and <span class="math inline">n=58</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Find the integer <span class="math inline">\(t\)</span> such that <span class="math inline">\(P(T\le t)\le0.01\)</span>, where <span class="math inline">\(T\)</span> has mean <span class="math display">\[
+<p>Find the integer <span class="math inline">t</span> such that <span class="math inline">P(T\le t)\le0.01</span>, where <span class="math inline">T</span> has mean <span class="math display">
 \frac12m(m+n+1)=\frac12\times33\times(33+58+1)=1518
-\]</span> and variance <span class="math display">\[
+</span> and variance <span class="math display">
 \frac1{12}mn(m+n+1)=\frac1{12}\times33\times58\times(33+58+1)=14674.
-\]</span></p>
-<p><span class="math inline">\(T\)</span> is discrete, so make a continuity correction: <span class="math display">\[
+</span></p>
+<p><span class="math inline">T</span> is discrete, so make a continuity correction: <span class="math display">
 P(T\le t)\approx P(\text{normal approximation to }T&lt;t+0.5).
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 \Phi\left(\frac{t+0.5-1518}{\sqrt{14674}}\right)\le0.01,
-\]</span> so <span class="math display">\[
+</span> so <span class="math display">
 \frac{t+0.5-1518}{\sqrt{14674}}=-2.326,
 \qquad t=1517.5-\sqrt{14674}\times2.326=1235.74.
-\]</span></p>
-Values of <span class="math inline">\(T\)</span> less than or equal to 1235 are in the critical region. 1235 is the critical value.
+</span></p>
+Values of <span class="math inline">T</span> less than or equal to 1235 are in the critical region. 1235 is the critical value.
 </details>
 </section>
 </section>
@@ -1122,20 +1136,20 @@ Show answer
 </summary>
 <p><strong>(a)</strong> The underlying distribution (population) of differences is unknown; it is not known to be normally distributed.</p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{difference of population medians}=0,\qquad
 H_1:\text{difference of population medians}\ne0.
-\]</span></p>
-<p>Using X - Y, the differences are <span class="math display">\[
+</span></p>
+<p>Using X - Y, the differences are <span class="math display">
 4,\,-1,\,-21,\,3,\,-7,\,-9,\,-5,\,8,\,-10,\,-12,\,-11.
-\]</span></p>
-<p>The signed ranks are <span class="math display">\[
+</span></p>
+<p>The signed ranks are <span class="math display">
 3,\,-1,\,-11,\,2,\,-5,\,-7,\,-4,\,6,\,-8,\,-10,\,-9.
-\]</span></p>
-<p>The smaller rank sum is <span class="math inline">\(P=11\)</span>. For <span class="math inline">\(n=11\)</span>, the 10% two-tailed critical value is <span class="math inline">\(13\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p>The smaller rank sum is <span class="math inline">P=11</span>. For <span class="math inline">n=11</span>, the 10% two-tailed critical value is <span class="math inline">13</span>.</p>
+<p><span class="math display">
 11&lt;13,\quad\text{so reject }H_0.
-\]</span></p>
+</span></p>
 There is sufficient evidence of a preference for one of the uniforms.
 </details>
 </section>
@@ -1189,20 +1203,20 @@ There is sufficient evidence of a preference for one of the uniforms.
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{difference in population medians}=0,\qquad
 H_1:\text{difference in population medians}\ne0.
-\]</span></p>
-<p>Using Taster 2 - Taster 1, the differences are <span class="math display">\[
+</span></p>
+<p>Using Taster 2 - Taster 1, the differences are <span class="math display">
 12,\,-14,\,-1,\,3,\,-13,\,8,\,-5,\,15,\,6.
-\]</span></p>
-<p>The signed ranks are <span class="math display">\[
+</span></p>
+<p>The signed ranks are <span class="math display">
 6,\,-8,\,-1,\,2,\,-7,\,5,\,-3,\,9,\,4.
-\]</span></p>
-<p>The smaller rank sum is <span class="math inline">\(19\)</span>. For <span class="math inline">\(n=9\)</span>, the 10% two-tailed critical value is <span class="math inline">\(8\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p>The smaller rank sum is <span class="math inline">19</span>. For <span class="math inline">n=9</span>, the 10% two-tailed critical value is <span class="math inline">8</span>.</p>
+<p><span class="math display">
 19&gt;8,\quad\text{so accept }H_0.
-\]</span></p>
+</span></p>
 There is insufficient evidence that the marks awarded by the two tasters differ.
 </details>
 </section>
@@ -1250,7 +1264,7 @@ There is insufficient evidence that the marks awarded by the two tasters differ.
 Show answer
 </summary>
 <p>Differences from 18.0 and their signed ranks are</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{array}{rrrrrrrr}
 0.2&amp;-0.5&amp;-1.6&amp;-2.9&amp;2.5&amp;8.5&amp;1.2&amp;5.2\\
 2&amp;-5&amp;-11&amp;-18&amp;17&amp;24&amp;9&amp;21\\
@@ -1259,19 +1273,19 @@ Show answer
 -0.9&amp;2.1&amp;2.3&amp;-5.4&amp;-2.0&amp;3.4&amp;4.7&amp;0.4\\
 -8&amp;15&amp;16&amp;-22&amp;-14&amp;19&amp;20&amp;4
 \end{array}
-\]</span></p>
-<p>The rank sums are <span class="math inline">\(P=190\)</span> and <span class="math inline">\(Q=110\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p>The rank sums are <span class="math inline">P=190</span> and <span class="math inline">Q=110</span>.</p>
+<p><span class="math display">
 H_0:\text{population median}=18.0,\qquad
 H_1:\text{population median}\ne18.0.
-\]</span></p>
-<p>Using the normal approximation, <span class="math display">\[
+</span></p>
+<p>Using the normal approximation, <span class="math display">
 \mu=\frac14(24)(25)=150,\qquad
 \operatorname{Var}=\frac1{24}(24)(25)(49)=1225,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 z=\frac{110.5-150}{\sqrt{1225}}=-1.129.
-\]</span></p>
-<p>For a 10% two-tailed test, the critical value is <span class="math inline">\(1.645\)</span>. Since <span class="math inline">\(-1.129&gt;-1.645\)</span>, accept <span class="math inline">\(H_0\)</span>.</p>
+</span></p>
+<p>For a 10% two-tailed test, the critical value is <span class="math inline">1.645</span>. Since <span class="math inline">-1.129&gt;-1.645</span>, accept <span class="math inline">H_0</span>.</p>
 There is insufficient evidence to suggest that the median is not 18.0 minutes; there is insufficient evidence to reject the teacher’s claim.
 </details>
 </section>
@@ -1314,24 +1328,24 @@ There is insufficient evidence to suggest that the median is not 18.0 minutes; t
 <summary>
 Show answer
 </summary>
-<p>For both tests, <span class="math display">\[
+<p>For both tests, <span class="math display">
 H_0:\text{population median}=5.50,\qquad
 H_1:\text{population median}\ne5.50.
-\]</span></p>
-<p>For the sign test, the signs are <span class="math display">\[
+</span></p>
+<p>For the sign test, the signs are <span class="math display">
 +,-,-,+,+,+,+,-,+,+,+.
-\]</span> With <span class="math inline">\(X\sim B(11,0.5)\)</span>, <span class="math display">\[
+</span> With <span class="math inline">X\sim B(11,0.5)</span>, <span class="math display">
 P(X\ge8)=P(X\le3)=0.227,
-\]</span> so <span class="math inline">\(0.227&gt;0.1\)</span>. Accept <span class="math inline">\(H_0\)</span>.</p>
-<p>For the Wilcoxon signed-rank test, the differences are <span class="math display">\[
+</span> so <span class="math inline">0.227&gt;0.1</span>. Accept <span class="math inline">H_0</span>.</p>
+<p>For the Wilcoxon signed-rank test, the differences are <span class="math display">
 0.06,\,-0.05,\,-0.03,\,0.08,\,0.04,\,0.02,\,0.10,\,-0.15,\,0.09,\,0.01,\,0.12,
-\]</span> with signed ranks <span class="math display">\[
+</span> with signed ranks <span class="math display">
 6,\,-5,\,-3,\,7,\,4,\,2,\,9,\,-11,\,8,\,1,\,10.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 P=47,\qquad Q=19.
-\]</span></p>
-<p>The 10% two-tailed critical value is <span class="math inline">\(13\)</span>. Since <span class="math inline">\(19&gt;13\)</span>, accept <span class="math inline">\(H_0\)</span>.</p>
+</span></p>
+<p>The 10% two-tailed critical value is <span class="math inline">13</span>. Since <span class="math inline">19&gt;13</span>, accept <span class="math inline">H_0</span>.</p>
 Both tests give the same conclusion: there is insufficient evidence to support that the population median length is not 5.50 cm.
 </details>
 </section>
@@ -1416,17 +1430,17 @@ Both tests give the same conclusion: there is insufficient evidence to support t
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The differences (2022 - 2018) and signed ranks are <span class="math display">\[
+<p><strong>(a)</strong> The differences (2022 - 2018) and signed ranks are <span class="math display">
 2,5,1,-6,42,11,-3,7,20,12,-8,-10,50,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 2,4,1,-5,12,9,-3,6,11,10,-7,-8,13.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 H_0:\text{difference in population medians}=0,\qquad
 H_1:\text{population median in 2022}&gt;\text{population median in 2018}.
-\]</span></p>
-<p><span class="math inline">\(P=68\)</span>, <span class="math inline">\(Q=23\)</span>. The critical value is 21. Since <span class="math inline">\(23&gt;21\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to support the researcher’s belief.</p>
-<strong>(b)</strong> The rank for G is now <span class="math inline">\(+3\)</span>, giving <span class="math inline">\(Q=20\)</span>. Since <span class="math inline">\(20&lt;21\)</span>, the conclusion changes: reject <span class="math inline">\(H_0\)</span>.
+</span></p>
+<p><span class="math inline">P=68</span>, <span class="math inline">Q=23</span>. The critical value is 21. Since <span class="math inline">23&gt;21</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to support the researcher’s belief.</p>
+<strong>(b)</strong> The rank for G is now <span class="math inline">+3</span>, giving <span class="math inline">Q=20</span>. Since <span class="math inline">20&lt;21</span>, the conclusion changes: reject <span class="math inline">H_0</span>.
 </details>
 </section>
 <section id="mayjune-923143-question-3" class="level2">
@@ -1480,16 +1494,16 @@ H_1:\text{population median in 2022}&gt;\text{population median in 2018}.
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The differences (Paper 1 - Paper 2) and signed ranks are <span class="math display">\[
+<p><strong>(a)</strong> The differences (Paper 1 - Paper 2) and signed ranks are <span class="math display">
 5,7,-6,1,-4,2,8,26,-10,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 4,6,-5,1,-3,2,7,9,-8.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 H_0:\text{population medians are equal},\qquad
 H_1:\text{population median for Paper 1}&gt;\text{population median for Paper 2}.
-\]</span></p>
-<p><span class="math inline">\(P=29\)</span>, <span class="math inline">\(Q=16\)</span>. The critical value is 8. Since <span class="math inline">\(16&gt;8\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to support the teacher’s belief.</p>
+</span></p>
+<p><span class="math inline">P=29</span>, <span class="math inline">Q=16</span>. The critical value is 8. Since <span class="math inline">16&gt;8</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to support the teacher’s belief.</p>
 <strong>(b)</strong> The population differences are symmetrical about the median difference.
 </details>
 </section>
@@ -1579,60 +1593,60 @@ H_1:\text{population median for Paper 1}&gt;\text{population median for Paper 2}
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{practical results and written results are equal},\qquad
 H_1:\text{practical results are greater than written results}.
-\]</span></p>
-There are 10 positive signs, with <span class="math inline">\(X\sim B(15,0.5)\)</span>. <span class="math display">\[
+</span></p>
+There are 10 positive signs, with <span class="math inline">X\sim B(15,0.5)</span>. <span class="math display">
 P(X\ge10)=1-P(X\le9)=1-0.849=0.151.
-\]</span> Since <span class="math inline">\(0.151&gt;0.1\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to suggest that practical results are greater than written results.
+</span> Since <span class="math inline">0.151&gt;0.1</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to suggest that practical results are greater than written results.
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-3" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-3">2024 May/June · 9231/41 and 9231/42 · Question 3</h2>
 <p>A factory produces metal discs. The manager claims that the diameters of these discs have a median of 22.0 mm. The diameters, in mm, of a random sample of 12 discs produced by this factory are as follows.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 22.4\quad20.9\quad22.8\quad21.5\quad23.2\quad22.9\quad23.9\quad21.7\quad19.8\quad23.6\quad22.6\quad23.0
-\]</span></p>
+</span></p>
 <p><strong>(a)</strong> Carry out a Wilcoxon signed-rank test, at the 10% significance level, to test whether there is any evidence against the manager’s claim. [7]</p>
 <p><strong>(b)</strong> State an assumption that is necessary for this test to be valid. [1]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The signed differences and ranks are <span class="math display">\[
+<p><strong>(a)</strong> The signed differences and ranks are <span class="math display">
 0.4,-1.1,0.8,-0.5,1.2,0.9,1.9,-0.3,-2.2,1.6,0.6,1.0,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 2,-8,5,-3,9,6,11,-1,-12,10,4,7.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 H_0:\text{population median}=22.0,\qquad H_1:\text{population median}\ne22.0.
-\]</span></p>
-<p><span class="math inline">\(P_+=54\)</span>, <span class="math inline">\(P_-=24\)</span>. The 10% two-tailed critical value is 17. Since <span class="math inline">\(24&gt;17\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence against the manager’s claim.</p>
+</span></p>
+<p><span class="math inline">P_+=54</span>, <span class="math inline">P_-=24</span>. The 10% two-tailed critical value is 17. Since <span class="math inline">24&gt;17</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence against the manager’s claim.</p>
 <strong>(b)</strong> The population (underlying) distribution is symmetric about the population median.
 </details>
 </section>
 <section id="mayjune-923143-question-1" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923143-question-1">2024 May/June · 9231/43 · Question 1</h2>
 <p>A college uses two assessments, X and Y, when interviewing applicants for research posts at the college. These assessments have been used for a large number of applicants this year.</p>
-<p>The scores for a random sample of 9 applicants who took assessment X are as follows. <span class="math display">\[
+<p>The scores for a random sample of 9 applicants who took assessment X are as follows. <span class="math display">
 21.4\quad24.6\quad25.3\quad22.7\quad20.8\quad21.5\quad22.9\quad21.3\quad22.3
-\]</span></p>
-<p>The scores for a random sample of 10 applicants who took assessment Y are as follows. <span class="math display">\[
+</span></p>
+<p>The scores for a random sample of 10 applicants who took assessment Y are as follows. <span class="math display">
 20.9\quad23.5\quad24.8\quad21.9\quad23.4\quad24.0\quad23.8\quad24.1\quad25.1\quad25.8
-\]</span></p>
+</span></p>
 <p>The interviewer believes that the population median score from assessment X is lower than the population median score from assessment Y.</p>
 <p>Carry out a Wilcoxon rank-sum test, at the 1% significance level, to test whether the interviewer’s belief is supported by the data. [7]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The ranks for X are <span class="math inline">\(4,15,18,8,1,5,9,3,7\)</span>, giving test statistic <span class="math inline">\(70\)</span>.</p>
-<p><span class="math display">\[
+<p>The ranks for X are <span class="math inline">4,15,18,8,1,5,9,3,7</span>, giving test statistic <span class="math inline">70</span>.</p>
+<p><span class="math display">
 H_0:\text{population median of X}=\text{population median of Y},\qquad
 H_1:\text{population median of X}&lt;\text{population median of Y}.
-\]</span></p>
-For <span class="math inline">\(m=9,n=10\)</span>, the critical value is 61. Since <span class="math inline">\(70&gt;61\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to suggest that the population median of X is lower than the population median of Y.
+</span></p>
+For <span class="math inline">m=9,n=10</span>, the critical value is 61. Since <span class="math inline">70&gt;61</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to suggest that the population median of X is lower than the population median of Y.
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-5-1" class="level2">
@@ -1689,18 +1703,18 @@ For <span class="math inline">\(m=9,n=10\)</span>, the critical value is 61. Sin
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[
+<p><strong>(a)</strong> <span class="math display">
 H_0:m_S=m_C,\qquad H_1:m_S&gt;m_C.
-\]</span> Using Seaside - Cartoon, <span class="math display">\[
+</span> Using Seaside - Cartoon, <span class="math display">
 d=21,19,-2,22,-10,4,16,27,35,29,
-\]</span> with signed ranks <span class="math display">\[
+</span> with signed ranks <span class="math display">
 6,5,-1,7,-3,2,4,8,10,9.
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 P=51,\qquad Q=4,\qquad T=4.
-\]</span> Since <span class="math inline">\(4\le10\)</span>, reject <span class="math inline">\(H_0\)</span>. There is sufficient evidence to suggest that children, on average, complete the cartoon puzzle more quickly than the seaside puzzle.</p>
-<strong>(b)</strong> <span class="math inline">\(X\sim B(10,0.5)\)</span>, and <span class="math display">\[
+</span> Since <span class="math inline">4\le10</span>, reject <span class="math inline">H_0</span>. There is sufficient evidence to suggest that children, on average, complete the cartoon puzzle more quickly than the seaside puzzle.</p>
+<strong>(b)</strong> <span class="math inline">X\sim B(10,0.5)</span>, and <span class="math display">
 P(X\le2)=0.0547.
-\]</span> Since <span class="math inline">\(0.0547&gt;0.05\)</span>, accept <span class="math inline">\(H_0\)</span>. This is the opposite conclusion to part (a).
+</span> Since <span class="math inline">0.0547&gt;0.05</span>, accept <span class="math inline">H_0</span>. This is the opposite conclusion to part (a).
 </details>
 </section>
 <section id="mayjune-923143-question-4" class="level2">
@@ -1735,11 +1749,11 @@ P(X\le2)=0.0547.
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{population medians are equal for under 25s and over 50s},
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{population median for under 25s}&lt;\text{population median time for over 50s}.
-\]</span></p>
+</span></p>
 <p>The ranks are:</p>
 <table class="caption-top table">
 <thead>
@@ -1783,22 +1797,22 @@ H_1:\text{population median for under 25s}&lt;\text{population median time for o
 </tr>
 </tbody>
 </table>
-<p>For the sample of size 6, <span class="math inline">\(R_6=60\)</span>. Thus <span class="math display">\[
+<p>For the sample of size 6, <span class="math inline">R_6=60</span>. Thus <span class="math display">
 6(6+8+1)-R_6=30,\qquad W=\min(60,30)=30.
-\]</span></p>
-For <span class="math inline">\(n=6,m=8\)</span>, the critical value is 31. Since <span class="math inline">\(30\le31\)</span>, reject <span class="math inline">\(H_0\)</span>. There is sufficient evidence to suggest that older people take longer to react.
+</span></p>
+For <span class="math inline">n=6,m=8</span>, the critical value is 31. Since <span class="math inline">30\le31</span>, reject <span class="math inline">H_0</span>. There is sufficient evidence to suggest that older people take longer to react.
 </details>
 </section>
 <section id="octobernovember-923142-question-1" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-1">2025 October/November · 9231/42 · Question 1</h2>
 <p>A large company claims that the median salary of its employees is $32 500. The salaries ($) of 15 randomly selected employees are listed below.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 18\,750\quad30\,500\quad125\,000\quad42\,500\quad25\,000
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 26\,000\quad52\,500\quad23\,000\quad27\,500\quad19\,500
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 25\,500\quad33\,000\quad30\,000\quad21\,500\quad29\,000
-\]</span></p>
+</span></p>
 <p><strong>(a)</strong> Explain why a Wilcoxon signed-rank test may not be appropriate to test the company’s claim in this case. [1]</p>
 <p><strong>(b)</strong> Carry out a sign test at the 10% significance level to investigate the company’s claim. [5]</p>
 <details class="answer-panel">
@@ -1806,56 +1820,56 @@ For <span class="math inline">\(n=6,m=8\)</span>, the critical value is 31. Sinc
 Show answer
 </summary>
 <p><strong>(a)</strong> The data have outliers / are skewed / lack symmetry, so the population distribution may not be symmetrical.</p>
-<p><strong>(b)</strong> <span class="math display">\[
+<p><strong>(b)</strong> <span class="math display">
 H_0:\text{population median salary}=\$32\,500,\qquad
 H_1:\text{population median salary}\ne\$32\,500.
-\]</span></p>
-The test statistic is 4 (or 11), with <span class="math inline">\(X\sim B(15,0.5)\)</span>. <span class="math display">\[
+</span></p>
+The test statistic is 4 (or 11), with <span class="math inline">X\sim B(15,0.5)</span>. <span class="math display">
 P(X\le4)=P(X\ge11)=0.0592.
-\]</span> Since <span class="math inline">\(0.0592&gt;0.05\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to reject the company’s claim.
+</span> Since <span class="math inline">0.0592&gt;0.05</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to reject the company’s claim.
 </details>
 </section>
 <section id="octobernovember-923141-and-923143-question-6" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-6">2023 October/November · 9231/41 and 9231/43 · Question 6</h2>
 <p>A school is conducting an experiment to see whether the distance that children can throw a ball increases in hot weather. On a cold day, all the children at the school were asked to throw a ball as far as possible. The distances thrown were measured and recorded. The median distance thrown by a random sample of 25 of the children was 22.0 m. The children were asked to throw the ball again on a hot day. The distances thrown by the same 25 children were measured and recorded and these distances, in m, are shown below.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 21.2\quad23.5\quad22.9\quad18.6\quad19.4\quad22.1\quad26.5\quad20.2\quad25.7\quad20.6
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 22.3\quad17.4\quad22.2\quad27.0\quad23.9\quad28.2\quad22.6\quad27.2\quad23.0\quad23.7
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 19.8\quad22.7\quad23.3\quad21.5\quad24.3
-\]</span></p>
+</span></p>
 <p>The teacher claims that on average the distances thrown will be further when it is hot.</p>
 <p>Carry out a Wilcoxon signed-rank test, at the 5% significance level, to test whether the data supports the teacher’s claim. [10]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{population medians are equal},\qquad
 H_1:\text{population median after}&gt;\text{population median before}.
-\]</span></p>
-<p>The signed differences from 22.0 and their signed ranks are <span class="math display">\[
+</span></p>
+<p>The signed differences from 22.0 and their signed ranks are <span class="math display">
 -0.8,-7,1.5,12,0.9,8,-3.4,-19,-2.6,-18,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 0.1,1,4.5,21,-1.8,-14,3.7,20,-1.4,-11,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 0.3,3,-4.6,-22,0.2,2,5,23,1.9,15,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 6.2,25,0.6,5,5.2,24,1,9,1.7,13,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 -2.2,-16,0.7,6,1.3,10,-0.5,-4,2.3,17.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 W_+=214,\qquad W_-=111.
-\]</span></p>
-<p>Using the normal approximation, <span class="math display">\[
+</span></p>
+<p>Using the normal approximation, <span class="math display">
 \mu=\frac14(25)(26)=162.5,\qquad
 \operatorname{Var}=\frac1{24}(25)(26)(51)=1381.25,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 z=\frac{111.5-162.5}{\sqrt{1381.25}}=-1.37.
-\]</span></p>
-The critical value is <span class="math inline">\(-1.645\)</span>. Since <span class="math inline">\(-1.37&gt;-1.645\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to support the teacher’s claim.
+</span></p>
+The critical value is <span class="math inline">-1.645</span>. Since <span class="math inline">-1.37&gt;-1.645</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to support the teacher’s claim.
 </details>
 </section>
 <section id="octobernovember-923142-question-5a" class="level2">
@@ -1895,38 +1909,38 @@ The critical value is <span class="math inline">\(-1.645\)</span>. Since <span c
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{population medians are equal},\qquad H_1:\text{population median for X}&lt;\text{population median for Y}.
-\]</span></p>
-The ranks give <span class="math inline">\(R_X=55\)</span> and <span class="math inline">\(R_Y=98\)</span>, so the test statistic is 55. For <span class="math inline">\(m=8,n=9\)</span>, the tabular value is 54. Since <span class="math inline">\(55&gt;54\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to support the manager’s claim.
+</span></p>
+The ranks give <span class="math inline">R_X=55</span> and <span class="math inline">R_Y=98</span>, so the test statistic is 55. For <span class="math inline">m=8,n=9</span>, the tabular value is 54. Since <span class="math inline">55&gt;54</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to support the manager’s claim.
 </details>
 </section>
 <section id="octobernovember-923142-question-6" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-6">2024 October/November · 9231/42 · Question 6</h2>
 <p>A sports college keeps records of the times taken by students to run one lap of a running track. The population median time taken is 51.0 seconds. After a month of intensive training, a random sample of 22 new students run one lap of the track, giving times, in seconds, as follows.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 51.3\quad52.0\quad53.4\quad49.2\quad49.3\quad51.1\quad52.2\quad47.2
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 53.0\quad48.5\quad49.4\quad50.3\quad50.8\quad51.6\quad49.1\quad52.3
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 51.8\quad52.4\quad47.9\quad48.9\quad50.6\quad51.9
-\]</span></p>
+</span></p>
 <p>It is claimed that the intensive training has led to a decrease in the median time taken to run one lap of the track.</p>
 <p>Carry out a Wilcoxon signed-rank test, at the 5% significance level, to test whether there is sufficient evidence to support the claim. [9]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The signed differences from 51.0 have smaller rank sum <span class="math inline">\(102\)</span>.</p>
-<p><span class="math display">\[
+<p>The signed differences from 51.0 have smaller rank sum <span class="math inline">102</span>.</p>
+<p><span class="math display">
 H_0:\text{population median}=51.0\text{ seconds},\qquad H_1:\text{population median}&lt;51.0\text{ seconds}.
-\]</span></p>
-<p>With the normal approximation, <span class="math display">\[
+</span></p>
+<p>With the normal approximation, <span class="math display">
 \mu=126.5,\qquad \operatorname{Var}=948.75,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 z=\frac{102+0.5-126.5}{\sqrt{948.75}}=-0.779.
-\]</span></p>
-Since <span class="math inline">\(-0.779&gt;-1.645\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to suggest that the population median is less than 51.0 seconds.
+</span></p>
+Since <span class="math inline">-0.779&gt;-1.645</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to suggest that the population median is less than 51.0 seconds.
 </details>
 </section>
 <section id="octobernovember-923141-and-923143-question-2" class="level2">
@@ -2006,40 +2020,40 @@ Since <span class="math inline">\(-0.779&gt;-1.645\)</span>, accept <span class=
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The signed differences (Teacher 2 - Teacher 1) and ranks are <span class="math display">\[
+<p><strong>(a)</strong> The signed differences (Teacher 2 - Teacher 1) and ranks are <span class="math display">
 2,4,-8,5,10,7,-3,6,-12,9,14,11,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 1,3,-7,4,9,6,-2,5,-11,8,12,10.
-\]</span></p>
+</span></p>
 <p>The sum of positive ranks is 58, so the test statistic is 20.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 H_0:\text{population median for Teacher 2}=\text{population median for Teacher 1},
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 H_1:\text{population median for Teacher 2}&gt;\text{population median for Teacher 1}.
-\]</span></p>
-<p>The critical value is 17. Since <span class="math inline">\(20&gt;17\)</span>, accept <span class="math inline">\(H_0\)</span>. There is insufficient evidence to support the claim.</p>
-<strong>(b)</strong> The new test statistic is 13. Since <span class="math inline">\(13&lt;17\)</span>, reject <span class="math inline">\(H_0\)</span>; the conclusion changes, giving sufficient evidence to support the claim.
+</span></p>
+<p>The critical value is 17. Since <span class="math inline">20&gt;17</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to support the claim.</p>
+<strong>(b)</strong> The new test statistic is 13. Since <span class="math inline">13&lt;17</span>, reject <span class="math inline">H_0</span>; the conclusion changes, giving sufficient evidence to support the claim.
 </details>
 </section>
 <section id="octobernovember-923141-and-923143-question-4" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-4">2025 October/November · 9231/41 and 9231/43 · Question 4</h2>
-<p>A researcher believes that the median <span class="math inline">\(m\)</span> of a population has changed from its known previous value <span class="math inline">\(m_0\)</span>. The researcher collects a random sample of size 28. She ranks the data and calculates a test statistic <span class="math inline">\(T\)</span> using the Wilcoxon signed-rank test. The conclusion of the test carried out at a 1% significance level is that there is not sufficient evidence to support her belief.</p>
-<p>Using a normal approximation, find the least possible value of <span class="math inline">\(T\)</span>. [5]</p>
+<p>A researcher believes that the median <span class="math inline">m</span> of a population has changed from its known previous value <span class="math inline">m_0</span>. The researcher collects a random sample of size 28. She ranks the data and calculates a test statistic <span class="math inline">T</span> using the Wilcoxon signed-rank test. The conclusion of the test carried out at a 1% significance level is that there is not sufficient evidence to support her belief.</p>
+<p>Using a normal approximation, find the least possible value of <span class="math inline">T</span>. [5]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 \mu=\frac14\times28\times(28+1)=203,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 \operatorname{Var}(T)=\frac1{24}\times28\times(28+1)\times(56+1)=1928.5.
-\]</span></p>
-<p>For the two-tailed 1% test, the statistic must satisfy <span class="math display">\[
+</span></p>
+<p>For the two-tailed 1% test, the statistic must satisfy <span class="math display">
 \frac{T+0.5-203}{\sqrt{1928.5}}&gt;-2.576.
-\]</span> Therefore <span class="math display">\[
+</span> Therefore <span class="math display">
 T&gt;89.4.
-\]</span></p>
-The least possible value of <span class="math inline">\(T\)</span> is <span class="math inline">\(90\)</span>.
+</span></p>
+The least possible value of <span class="math inline">T</span> is <span class="math inline">90</span>.
 </details>
 
 

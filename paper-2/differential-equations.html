@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -442,7 +456,7 @@ window.Quarto = {
 <li>求一阶线性微分方程的积分因子，并用积分因子求通解；</li>
 <li>理解 complementary function（CF）与 particular integral（PI）的含义，并知道通解是 CF 与 PI 之和；</li>
 <li>求一阶或二阶常系数线性微分方程的 complementary function（辅助方程有互异实根、重根或共轭复根三种情形）；</li>
-<li>在多项式、<span class="math inline">\(ae^{bx}\)</span>、<span class="math inline">\(a\cos px+b\sin px\)</span> 适用时写出并求出 particular integral；其他简单情形给定 PI 形式后求系数；</li>
+<li>在多项式、<span class="math inline">ae^{bx}</span>、<span class="math inline">a\cos px+b\sin px</span> 适用时写出并求出 particular integral；其他简单情形给定 PI 形式后求系数；</li>
 <li>使用给定代换把微分方程化为常系数线性方程或可分离变量的一阶方程；</li>
 <li>用初始条件求特解，并解释解在模型中的含义。</li>
 </ol>
@@ -452,11 +466,11 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
 <div class="study-card">
 <ul class="task-list">
-<li><label><input type="checkbox">能写出并应用一阶线性方程的积分因子 <span class="math inline">\(e^{\int P(x)\mathrm dx}\)</span></label></li>
-<li><label><input type="checkbox">能根据辅助方程根的类型写出 CF：<span class="math inline">\(Ae^{rx}+Be^{sx}\)</span>、<span class="math inline">\(e^{rx}(A+Bx)\)</span>、<span class="math inline">\(e^{ax}(A\cos bx+B\sin bx)\)</span></label></li>
-<li><label><input type="checkbox">能为 <span class="math inline">\(f(x)\)</span> 为多项式、指数、正余弦时选择正确的 PI 形式</label></li>
-<li><label><input type="checkbox">当 PI 形式与 CF 重复时，知道要乘以 <span class="math inline">\(x\)</span>（或 <span class="math inline">\(x^2\)</span>）</label></li>
-<li><label><input type="checkbox">能用 <span class="math inline">\(x=e^t\)</span>、<span class="math inline">\(y=ux\)</span>、<span class="math inline">\(v=y^n\)</span> 等代换化简方程</label></li>
+<li><label><input type="checkbox">能写出并应用一阶线性方程的积分因子 <span class="math inline">e^{\int P(x)\mathrm dx}</span></label></li>
+<li><label><input type="checkbox">能根据辅助方程根的类型写出 CF：<span class="math inline">Ae^{rx}+Be^{sx}</span>、<span class="math inline">e^{rx}(A+Bx)</span>、<span class="math inline">e^{ax}(A\cos bx+B\sin bx)</span></label></li>
+<li><label><input type="checkbox">能为 <span class="math inline">f(x)</span> 为多项式、指数、正余弦时选择正确的 PI 形式</label></li>
+<li><label><input type="checkbox">当 PI 形式与 CF 重复时，知道要乘以 <span class="math inline">x</span>（或 <span class="math inline">x^2</span>）</label></li>
+<li><label><input type="checkbox">能用 <span class="math inline">x=e^t</span>、<span class="math inline">y=ux</span>、<span class="math inline">v=y^n</span> 等代换化简方程</label></li>
 <li><label><input type="checkbox">能用初始条件确定常数并写出特解</label></li>
 </ul>
 </div>
@@ -466,49 +480,49 @@ window.Quarto = {
 <section id="first-order-linear-differential-equations" class="level3">
 <h3 class="anchored" data-anchor-id="first-order-linear-differential-equations">1.1 First-order linear differential equations</h3>
 <p>一阶线性方程可写成</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}+P(x)y=Q(x).
-\]</span></p>
+</span></p>
 <p>乘以积分因子</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{R(x)=e^{\int P(x)\,\mathrm dx}},
-\]</span></p>
+</span></p>
 <p>左边成为完全导数：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\bigl(R(x)y\bigr)=R(x)Q(x),
-\]</span></p>
+</span></p>
 <p>然后两边积分即可。</p>
 </section>
 <section id="complementary-functions-for-constant-coefficient-equations" class="level3">
 <h3 class="anchored" data-anchor-id="complementary-functions-for-constant-coefficient-equations">1.2 Complementary functions for constant-coefficient equations</h3>
-<p>对 <span class="math inline">\(a\dfrac{\mathrm d^2y}{\mathrm dx^2}+b\dfrac{\mathrm dy}{\mathrm dx}+cy=0\)</span>，解辅助方程</p>
-<p><span class="math display">\[
+<p>对 <span class="math inline">a\dfrac{\mathrm d^2y}{\mathrm dx^2}+b\dfrac{\mathrm dy}{\mathrm dx}+cy=0</span>，解辅助方程</p>
+<p><span class="math display">
 ar^2+br+c=0.
-\]</span></p>
+</span></p>
 <p>三种情形：</p>
 <ul>
-<li>互异实根 <span class="math inline">\(r_1,r_2\)</span>：<span class="math inline">\(y=Ae^{r_1x}+Be^{r_2x}\)</span>；</li>
-<li>重根 <span class="math inline">\(r\)</span>：<span class="math inline">\(y=e^{rx}(A+Bx)\)</span>；</li>
-<li>共轭复根 <span class="math inline">\(a\pm\mathrm ib\)</span>：<span class="math inline">\(y=e^{ax}(A\cos bx+B\sin bx)\)</span>。</li>
+<li>互异实根 <span class="math inline">r_1,r_2</span>：<span class="math inline">y=Ae^{r_1x}+Be^{r_2x}</span>；</li>
+<li>重根 <span class="math inline">r</span>：<span class="math inline">y=e^{rx}(A+Bx)</span>；</li>
+<li>共轭复根 <span class="math inline">a\pm\mathrm ib</span>：<span class="math inline">y=e^{ax}(A\cos bx+B\sin bx)</span>。</li>
 </ul>
 </section>
 <section id="particular-integrals" class="level3">
 <h3 class="anchored" data-anchor-id="particular-integrals">1.3 Particular integrals</h3>
-<p>对非齐次方程 <span class="math inline">\(a\dfrac{\mathrm d^2y}{\mathrm dx^2}+b\dfrac{\mathrm dy}{\mathrm dx}+cy=f(x)\)</span>，根据 <span class="math inline">\(f(x)\)</span> 选择 PI 形式：</p>
+<p>对非齐次方程 <span class="math inline">a\dfrac{\mathrm d^2y}{\mathrm dx^2}+b\dfrac{\mathrm dy}{\mathrm dx}+cy=f(x)</span>，根据 <span class="math inline">f(x)</span> 选择 PI 形式：</p>
 <ul>
-<li><span class="math inline">\(f(x)\)</span> 为 <span class="math inline">\(n\)</span> 次多项式：PI 取 <span class="math inline">\(n\)</span> 次多项式；</li>
-<li><span class="math inline">\(f(x)=ae^{bx}\)</span>：PI 取 <span class="math inline">\(ke^{bx}\)</span>；</li>
-<li><span class="math inline">\(f(x)=a\cos px+b\sin px\)</span>：PI 取 <span class="math inline">\(p\cos px+q\sin px\)</span>。</li>
+<li><span class="math inline">f(x)</span> 为 <span class="math inline">n</span> 次多项式：PI 取 <span class="math inline">n</span> 次多项式；</li>
+<li><span class="math inline">f(x)=ae^{bx}</span>：PI 取 <span class="math inline">ke^{bx}</span>；</li>
+<li><span class="math inline">f(x)=a\cos px+b\sin px</span>：PI 取 <span class="math inline">p\cos px+q\sin px</span>。</li>
 </ul>
-<p>若所选形式已在 CF 中出现，则乘以 <span class="math inline">\(x\)</span>；若仍重复，再乘以 <span class="math inline">\(x^2\)</span>。</p>
+<p>若所选形式已在 CF 中出现，则乘以 <span class="math inline">x</span>；若仍重复，再乘以 <span class="math inline">x^2</span>。</p>
 </section>
 <section id="substitutions" class="level3">
 <h3 class="anchored" data-anchor-id="substitutions">1.4 Substitutions</h3>
-<p>给定代换时，先通过链式法则把 <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}\)</span>（必要时还有 <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span>）换成新变量，再化简：</p>
+<p>给定代换时，先通过链式法则把 <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}</span>（必要时还有 <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span>）换成新变量，再化简：</p>
 <ul>
-<li><span class="math inline">\(x=e^t\)</span>：<span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=e^{-t}\dfrac{\mathrm dy}{\mathrm dt}\)</span>，可处理 Euler 型方程；</li>
-<li><span class="math inline">\(y=ux\)</span>：<span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=u+x\dfrac{\mathrm du}{\mathrm dx}\)</span>，可把齐次型化为可分离变量；</li>
-<li><span class="math inline">\(v=y^n\)</span>：<span class="math inline">\(\dfrac{\mathrm dv}{\mathrm dx}=ny^{n-1}\dfrac{\mathrm dy}{\mathrm dx}\)</span>，可把 Bernoulli 型化为线性方程。</li>
+<li><span class="math inline">x=e^t</span>：<span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=e^{-t}\dfrac{\mathrm dy}{\mathrm dt}</span>，可处理 Euler 型方程；</li>
+<li><span class="math inline">y=ux</span>：<span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=u+x\dfrac{\mathrm du}{\mathrm dx}</span>，可把齐次型化为可分离变量；</li>
+<li><span class="math inline">v=y^n</span>：<span class="math inline">\dfrac{\mathrm dv}{\mathrm dx}=ny^{n-1}\dfrac{\mathrm dy}{\mathrm dx}</span>，可把 Bernoulli 型化为线性方程。</li>
 </ul>
 </section>
 </section>
@@ -516,393 +530,393 @@ ar^2+br+c=0.
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-1-page-124" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-1-page-124">Example 1 · Page 124</h3>
-<p>Show that each of these equations can be written in the form <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}+P(x)y=Q(x)\)</span>:</p>
-<p><strong>(a)</strong> <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=3x^2y+e^x\)</span>;</p>
-<p><strong>(b)</strong> <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=\dfrac1{3x}y+2x\)</span>;</p>
-<p><strong>(c)</strong> <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=\ln x\,(y+\sqrt x)\)</span>.</p>
+<p>Show that each of these equations can be written in the form <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}+P(x)y=Q(x)</span>:</p>
+<p><strong>(a)</strong> <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=3x^2y+e^x</span>;</p>
+<p><strong>(b)</strong> <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=\dfrac1{3x}y+2x</span>;</p>
+<p><strong>(c)</strong> <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=\ln x\,(y+\sqrt x)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><strong>(a)</strong> Subtract <span class="math inline">\(3x^2y\)</span> from both sides:</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Subtract <span class="math inline">3x^2y</span> from both sides:</p>
+<p><span class="math display">
 \boxed{\frac{\mathrm dy}{\mathrm dx}-3x^2y=e^x},
-\]</span></p>
-<p>so <span class="math inline">\(P(x)=-3x^2\)</span>, <span class="math inline">\(Q(x)=e^x\)</span>.</p>
-<p><strong>(b)</strong> Subtract <span class="math inline">\(\dfrac1{3x}y\)</span> from both sides:</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">P(x)=-3x^2</span>, <span class="math inline">Q(x)=e^x</span>.</p>
+<p><strong>(b)</strong> Subtract <span class="math inline">\dfrac1{3x}y</span> from both sides:</p>
+<p><span class="math display">
 \boxed{\frac{\mathrm dy}{\mathrm dx}-\frac1{3x}y=2x},
-\]</span></p>
-<p>so <span class="math inline">\(P(x)=-\dfrac1{3x}\)</span>, <span class="math inline">\(Q(x)=2x\)</span>.</p>
+</span></p>
+<p>so <span class="math inline">P(x)=-\dfrac1{3x}</span>, <span class="math inline">Q(x)=2x</span>.</p>
 <p><strong>(c)</strong> Expand the right-hand side:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=y\ln x+\sqrt x\ln x,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm dy}{\mathrm dx}-(\ln x)y=\sqrt x\ln x},
-\]</span></p>
-<p>so <span class="math inline">\(P(x)=-\ln x\)</span>, <span class="math inline">\(Q(x)=\sqrt x\ln x\)</span>.</p>
+</span></p>
+<p>so <span class="math inline">P(x)=-\ln x</span>, <span class="math inline">Q(x)=\sqrt x\ln x</span>.</p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-1"> Completed</label></p>
 </section>
 <section id="example-2-page-126" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-2-page-126">Example 2 · Page 126</h3>
 <p>Find the general solution to the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x\frac{\mathrm dy}{\mathrm dx}+4y=3\sqrt x.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Divide both sides by <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display">\[
+<p>Divide both sides by <span class="math inline">x</span>:</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}+\frac4x y=\frac{3\sqrt x}{x}=\frac3{\sqrt x}.
-\]</span></p>
+</span></p>
 <p>The integrating factor is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 R(x)=e^{\int\frac4x\,\mathrm dx}=e^{4\ln x}=x^4.
-\]</span></p>
+</span></p>
 <p>Multiplying through,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^4\frac{\mathrm dy}{\mathrm dx}+4x^3y=3x^3\sqrt x,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}(x^4y)=3x^{7/2}.
-\]</span></p>
+</span></p>
 <p>Integrating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^4y=\int3x^{7/2}\,\mathrm dx=\frac23x^{9/2}+C.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=\frac23x^{1/2}+\frac{C}{x^4}=\frac{2\sqrt x}{3}+\frac{C}{x^4}}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-2"> Completed</label></p>
 </section>
 <section id="example-3-page-126" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3-page-126">Example 3 · Page 126</h3>
 <p>Find the particular solution to the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}+4x^3y=x^3,
-\]</span></p>
-<p>for which <span class="math inline">\(y=0\)</span> when <span class="math inline">\(x=10\)</span>.</p>
+</span></p>
+<p>for which <span class="math inline">y=0</span> when <span class="math inline">x=10</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>The integrating factor is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 R(x)=e^{\int4x^3\,\mathrm dx}=e^{x^4}.
-\]</span></p>
-<p>Using <span class="math inline">\(y=\dfrac1{R(x)}\displaystyle\int R(x)Q(x)\,\mathrm dx\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=\dfrac1{R(x)}\displaystyle\int R(x)Q(x)\,\mathrm dx</span>,</p>
+<p><span class="math display">
 y=e^{-x^4}\int x^3e^{x^4}\,\mathrm dx
 =e^{-x^4}\left(\frac14e^{x^4}+C\right).
-\]</span></p>
+</span></p>
 <p>So the general solution is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=\frac14+Ce^{-x^4}.
-\]</span></p>
-<p>Using <span class="math inline">\(y=0\)</span> when <span class="math inline">\(x=10\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=0</span> when <span class="math inline">x=10</span>,</p>
+<p><span class="math display">
 0=\frac14+Ce^{-10^4}
 \;\Longrightarrow\;
 C=-\frac14e^{10^4}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=\frac14\left(1-e^{10^4-x^4}\right)}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-3"> Completed</label></p>
 </section>
 <section id="example-4-page-130" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-4-page-130">Example 4 · Page 130</h3>
-<p><strong>(a)</strong> Express <span class="math inline">\(e^{4\mathrm ix}-e^{-4\mathrm ix}\)</span> in trigonometric form and simplify your answer.</p>
-<p><strong>(b)</strong> Express <span class="math inline">\(\left(e^{3\mathrm ix}+e^{-3\mathrm ix}\right)^2\)</span> in trigonometric form and simplify your answer.</p>
+<p><strong>(a)</strong> Express <span class="math inline">e^{4\mathrm ix}-e^{-4\mathrm ix}</span> in trigonometric form and simplify your answer.</p>
+<p><strong>(b)</strong> Express <span class="math inline">\left(e^{3\mathrm ix}+e^{-3\mathrm ix}\right)^2</span> in trigonometric form and simplify your answer.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><strong>(a)</strong> Using Euler’s formula <span class="math inline">\(e^{\mathrm i\theta}=\cos\theta+\mathrm i\sin\theta\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Using Euler’s formula <span class="math inline">e^{\mathrm i\theta}=\cos\theta+\mathrm i\sin\theta</span>,</p>
+<p><span class="math display">
 e^{4\mathrm ix}=\cos4x+\mathrm i\sin4x,\qquad
 e^{-4\mathrm ix}=\cos4x-\mathrm i\sin4x.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{e^{4\mathrm ix}-e^{-4\mathrm ix}=2\mathrm i\sin4x}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 e^{3\mathrm ix}+e^{-3\mathrm ix}=2\cos3x,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\left(e^{3\mathrm ix}+e^{-3\mathrm ix}\right)^2=4\cos^23x}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-4"> Completed</label></p>
 </section>
 <section id="example-5-page-132" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5-page-132">Example 5 · Page 132</h3>
 <p><strong>(a)</strong> Find the general solution to the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 4\frac{\mathrm d^2y}{\mathrm dx^2}+12\frac{\mathrm dy}{\mathrm dx}+9y=0.
-\]</span></p>
-<p><strong>(b)</strong> Find the particular solution given that when <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y=2\)</span> and <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=1\)</span>.</p>
+</span></p>
+<p><strong>(b)</strong> Find the particular solution given that when <span class="math inline">x=0</span>, <span class="math inline">y=2</span> and <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=1</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p><strong>(a)</strong> The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 4r^2+12r+9=0,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (2r+3)^2=0
 \;\Longrightarrow\;
 r=-\frac32\ \text{(repeated root)}.
-\]</span></p>
+</span></p>
 <p>The general solution is therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=e^{-3x/2}(A+Bx)}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Differentiating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=e^{-3x/2}\left(-\frac32A+B-\frac32Bx\right).
-\]</span></p>
-<p>At <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y=2\)</span> gives <span class="math inline">\(A=2\)</span>. At <span class="math inline">\(x=0\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=1\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">x=0</span>, <span class="math inline">y=2</span> gives <span class="math inline">A=2</span>. At <span class="math inline">x=0</span>, <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=1</span> gives</p>
+<p><span class="math display">
 1=-\frac32(2)+B
 \;\Longrightarrow\;
 B=4.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=2e^{-3x/2}+4xe^{-3x/2}=2e^{-3x/2}(1+2x)}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-5"> Completed</label></p>
 </section>
 <section id="example-6-page-136" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-6-page-136">Example 6 · Page 136</h3>
 <p><strong>(a)</strong> Find the general solution to</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}+4y=6x+1.
-\]</span></p>
-<p><strong>(b)</strong> Find the particular solution given that when <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y=2.75\)</span> and <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=1\)</span>.</p>
+</span></p>
+<p><strong>(b)</strong> Find the particular solution given that when <span class="math inline">x=0</span>, <span class="math inline">y=2.75</span> and <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=1</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><strong>(a)</strong> The auxiliary equation is <span class="math inline">\(r^2+4=0\)</span>, so <span class="math inline">\(r=\pm2\mathrm i\)</span>, giving the complementary function</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> The auxiliary equation is <span class="math inline">r^2+4=0</span>, so <span class="math inline">r=\pm2\mathrm i</span>, giving the complementary function</p>
+<p><span class="math display">
 y=A\cos2x+B\sin2x.
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(y=ax+b\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">y=ax+b</span>:</p>
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}=0,
-\]</span></p>
-<p>so <span class="math inline">\(4(ax+b)=6x+1\)</span>, giving <span class="math inline">\(a=\dfrac32\)</span>, <span class="math inline">\(b=\dfrac14\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">4(ax+b)=6x+1</span>, giving <span class="math inline">a=\dfrac32</span>, <span class="math inline">b=\dfrac14</span>. Hence</p>
+<p><span class="math display">
 \boxed{y=A\cos2x+B\sin2x+\frac32x+\frac14}.
-\]</span></p>
-<p><strong>(b)</strong> Using <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y=2.75\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">x=0</span>, <span class="math inline">y=2.75</span>:</p>
+<p><span class="math display">
 2.75=A+0.25
 \;\Longrightarrow\;
 A=2.5.
-\]</span></p>
+</span></p>
 <p>Differentiating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=-2A\sin2x+2B\cos2x+\frac32.
-\]</span></p>
-<p>Using <span class="math inline">\(x=0\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=1\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">x=0</span>, <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=1</span>:</p>
+<p><span class="math display">
 1=2B+\frac32
 \;\Longrightarrow\;
 B=-\frac14.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=2.5\cos2x-0.25\sin2x+1.5x+0.25}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-6"> Completed</label></p>
 </section>
 <section id="example-7-page-137" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-7-page-137">Example 7 · Page 137</h3>
 <p>Find the general solution to</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}+\frac{\mathrm dy}{\mathrm dx}-2y=e^x.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r^2+r-2=0
 \;\Longrightarrow\;
 (r-1)(r+2)=0,
-\]</span></p>
-<p>so <span class="math inline">\(r=1,-2\)</span>, giving the complementary function</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">r=1,-2</span>, giving the complementary function</p>
+<p><span class="math display">
 y=Ae^x+Be^{-2x}.
-\]</span></p>
-<p>Since <span class="math inline">\(e^x\)</span> is a term in the complementary function, the particular integral must be <span class="math inline">\(y=axe^x\)</span>. Then</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">e^x</span> is a term in the complementary function, the particular integral must be <span class="math inline">y=axe^x</span>. Then</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=ae^x+axe^x,\qquad
 \frac{\mathrm d^2y}{\mathrm dx^2}=2ae^x+axe^x.
-\]</span></p>
+</span></p>
 <p>Substituting into the equation,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2ae^x+axe^x+ae^x+axe^x-2axe^x=e^x,
-\]</span></p>
-<p>so <span class="math inline">\(3ae^x=e^x\)</span>, giving <span class="math inline">\(a=\dfrac13\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">3ae^x=e^x</span>, giving <span class="math inline">a=\dfrac13</span>. Hence</p>
+<p><span class="math display">
 \boxed{y=Ae^x+Be^{-2x}+\frac13xe^x}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-7"> Completed</label></p>
 </section>
 <section id="example-8-page-139" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-8-page-139">Example 8 · Page 139</h3>
 <p>Find the general solution to</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}-4\frac{\mathrm dy}{\mathrm dx}+4y=3e^{2x}.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r^2-4r+4=0
 \;\Longrightarrow\;
 (r-2)^2=0,
-\]</span></p>
-<p>so <span class="math inline">\(r=2\)</span> (repeated root), giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">r=2</span> (repeated root), giving</p>
+<p><span class="math display">
 y=Ae^{2x}+Bxe^{2x}.
-\]</span></p>
-<p>Since <span class="math inline">\(e^{2x}\)</span> and <span class="math inline">\(xe^{2x}\)</span> are already in the complementary function, the particular integral must be <span class="math inline">\(y=ax^2e^{2x}\)</span>. Then</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">e^{2x}</span> and <span class="math inline">xe^{2x}</span> are already in the complementary function, the particular integral must be <span class="math inline">y=ax^2e^{2x}</span>. Then</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=2ax^2e^{2x}+2axe^{2x},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}=4ax^2e^{2x}+8axe^{2x}+2ae^{2x}.
-\]</span></p>
+</span></p>
 <p>Substituting,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (4ax^2+8ax+2a)-4(2ax^2+2ax)+4ax^2=3,
-\]</span></p>
-<p>so <span class="math inline">\(2a=3\)</span>, giving <span class="math inline">\(a=\dfrac32\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">2a=3</span>, giving <span class="math inline">a=\dfrac32</span>. Hence</p>
+<p><span class="math display">
 \boxed{y=Ae^{2x}+Bxe^{2x}+\frac32x^2e^{2x}}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-8"> Completed</label></p>
 </section>
 <section id="example-9-page-143" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-9-page-143">Example 9 · Page 143</h3>
 <p>Find the general solution of</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x\frac{\mathrm dy}{\mathrm dx}+y=x^3y^4
-\]</span></p>
-<p>using the substitution <span class="math inline">\(v=y^{-3}\)</span>.</p>
+</span></p>
+<p>using the substitution <span class="math inline">v=y^{-3}</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>With <span class="math inline">\(v=y^{-3}\)</span>,</p>
-<p><span class="math display">\[
+<p>With <span class="math inline">v=y^{-3}</span>,</p>
+<p><span class="math display">
 \frac{\mathrm dv}{\mathrm dx}=-3y^{-4}\frac{\mathrm dy}{\mathrm dx}.
-\]</span></p>
-<p>Divide the differential equation by <span class="math inline">\(y^4\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Divide the differential equation by <span class="math inline">y^4</span>:</p>
+<p><span class="math display">
 xy^{-4}\frac{\mathrm dy}{\mathrm dx}+y^{-3}=x^3.
-\]</span></p>
-<p>Using <span class="math inline">\(\dfrac{\mathrm dv}{\mathrm dx}=-3y^{-4}\dfrac{\mathrm dy}{\mathrm dx}\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">\dfrac{\mathrm dv}{\mathrm dx}=-3y^{-4}\dfrac{\mathrm dy}{\mathrm dx}</span>,</p>
+<p><span class="math display">
 -\frac{x}{3}\frac{\mathrm dv}{\mathrm dx}+v=x^3.
-\]</span></p>
+</span></p>
 <p>Rearranging,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dv}{\mathrm dx}-\frac3x v=-3x^2.
-\]</span></p>
+</span></p>
 <p>The integrating factor is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 R(x)=e^{\int-\frac3x\,\mathrm dx}=x^{-3}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}(x^{-3}v)=-3x^{-1},
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^{-3}v=-3\ln x+C.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y^{-3}=x^3(C-3\ln x)}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-9"> Completed</label></p>
 </section>
 <section id="example-10-page-144" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-10-page-144">Example 10 · Page 144</h3>
-<p>Using the substitution <span class="math inline">\(u=\dfrac yx\)</span>, find the particular solution to the differential equation</p>
-<p><span class="math display">\[
+<p>Using the substitution <span class="math inline">u=\dfrac yx</span>, find the particular solution to the differential equation</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac{x+y}{x-y},
-\]</span></p>
-<p>for which <span class="math inline">\(x=1\)</span>, <span class="math inline">\(y=1\)</span>.</p>
+</span></p>
+<p>for which <span class="math inline">x=1</span>, <span class="math inline">y=1</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>With <span class="math inline">\(u=\dfrac yx\)</span>, we have <span class="math inline">\(y=ux\)</span>, so</p>
-<p><span class="math display">\[
+<p>With <span class="math inline">u=\dfrac yx</span>, we have <span class="math inline">y=ux</span>, so</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=u+x\frac{\mathrm du}{\mathrm dx}.
-\]</span></p>
+</span></p>
 <p>Substituting into the equation,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 u+x\frac{\mathrm du}{\mathrm dx}=\frac{x+ux}{x-ux}=\frac{1+u}{1-u}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x\frac{\mathrm du}{\mathrm dx}=\frac{1+u}{1-u}-u=\frac{1+u^2}{1-u},
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \int\frac{1-u}{1+u^2}\,\mathrm du=\int\frac{\mathrm dx}{x}.
-\]</span></p>
+</span></p>
 <p>Splitting the fraction,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \int\frac{\mathrm du}{1+u^2}-\int\frac{u}{1+u^2}\,\mathrm du=\ln|x|+C.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan^{-1}u-\frac12\ln(1+u^2)=\ln|x|+C.
-\]</span></p>
-<p>Multiplying by <span class="math inline">\(2\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Multiplying by <span class="math inline">2</span>,</p>
+<p><span class="math display">
 2\tan^{-1}u-\ln(1+u^2)=2\ln|x|+2C.
-\]</span></p>
-<p>At <span class="math inline">\(x=1\)</span>, <span class="math inline">\(y=1\)</span>, so <span class="math inline">\(u=1\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">x=1</span>, <span class="math inline">y=1</span>, so <span class="math inline">u=1</span>:</p>
+<p><span class="math display">
 2\tan^{-1}(1)-\ln2=\frac{\pi}{2}-\ln2.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{2\tan^{-1}\left(\frac yx\right)-\ln\left(1+\frac{y^2}{x^2}\right)=\frac{\pi}{2}-\ln2}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="de-p2-example-10"> Completed</label></p>
 </section>
@@ -915,40 +929,40 @@ x\frac{\mathrm du}{\mathrm dx}=\frac{1+u}{1-u}-u=\frac{1+u^2}{1-u},
 <section id="mayjune-923121-923122-question-1-6-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-1-6-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 1 · 6 marks</h3>
 <p>Find the solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}+5y=e^{-7x}
-\]</span></p>
-<p>for which <span class="math inline">\(y=0\)</span> when <span class="math inline">\(x=0\)</span>. Give your answer in the form <span class="math inline">\(y=f(x)\)</span>.</p>
+</span></p>
+<p>for which <span class="math inline">y=0</span> when <span class="math inline">x=0</span>. Give your answer in the form <span class="math inline">y=f(x)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The integrating factor is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 e^{\int5\,\mathrm dx}=e^{5x}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(ye^{5x}\right)=e^{5x}e^{-7x}=e^{-2x}.
-\]</span></p>
+</span></p>
 <p>Integrating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 ye^{5x}=-\frac12e^{-2x}+C,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=-\frac12e^{-7x}+Ce^{-5x}.
-\]</span></p>
-<p>Using <span class="math inline">\(y=0\)</span> when <span class="math inline">\(x=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=0</span> when <span class="math inline">x=0</span>,</p>
+<p><span class="math display">
 0=-\frac12+C
 \;\Longrightarrow\;
 C=\frac12.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=\frac12\left(e^{-5x}-e^{-7x}\right)}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2020-mj-21-22-q1"> Completed</label>
 <div class="source-line">
@@ -958,33 +972,33 @@ C=\frac12.
 <section id="mayjune-923123-question-1-6-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-1-6-marks">2020 May/June · 9231/23 · Question 1 · 6 marks</h3>
 <p>Find the general solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2x}{\mathrm dt^2}-8\frac{\mathrm dx}{\mathrm dt}-9x=9e^{8t}.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 m^2-8m-9=0
 \;\Longrightarrow\;
 (m-9)(m+1)=0,
-\]</span></p>
-<p>so <span class="math inline">\(m=9,-1\)</span>, giving the complementary function</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">m=9,-1</span>, giving the complementary function</p>
+<p><span class="math display">
 x=Ae^{9t}+Be^{-t}.
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(x=ke^{8t}\)</span>. Then <span class="math inline">\(\dot x=8ke^{8t}\)</span> and <span class="math inline">\(\ddot x=64ke^{8t}\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">x=ke^{8t}</span>. Then <span class="math inline">\dot x=8ke^{8t}</span> and <span class="math inline">\ddot x=64ke^{8t}</span>, so</p>
+<p><span class="math display">
 64ke^{8t}-64ke^{8t}-9ke^{8t}=9e^{8t}
 \;\Longrightarrow\;
 k=-1.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=Ae^{9t}+Be^{-t}-e^{8t}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2020-mj-23-q1"> Completed</label>
 <div class="source-line">
@@ -993,38 +1007,38 @@ k=-1.
 </section>
 <section id="octobernovember-923121-923123-question-2-7-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-2-7-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 2 · 7 marks</h3>
-<p>The variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are related by the differential equation</p>
-<p><span class="math display">\[
+<p>The variables <span class="math inline">x</span> and <span class="math inline">y</span> are related by the differential equation</p>
+<p><span class="math display">
 9\frac{\mathrm d^2y}{\mathrm dx^2}+6\frac{\mathrm dy}{\mathrm dx}+y=3x^2+30x.
-\]</span></p>
-<p><strong>(a)</strong> Find the general solution for <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(x\)</span>. <strong>[6]</strong></p>
-<p><strong>(b)</strong> State an approximate solution for large positive values of <span class="math inline">\(x\)</span>. <strong>[1]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Find the general solution for <span class="math inline">y</span> in terms of <span class="math inline">x</span>. <strong>[6]</strong></p>
+<p><strong>(b)</strong> State an approximate solution for large positive values of <span class="math inline">x</span>. <strong>[1]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 9m^2+6m+1=0
 \;\Longrightarrow\;
 (3m+1)^2=0,
-\]</span></p>
-<p>so <span class="math inline">\(m=-\dfrac13\)</span> (repeated root), giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">m=-\dfrac13</span> (repeated root), giving</p>
+<p><span class="math display">
 y=e^{-x/3}(Ax+B).
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(y=px^2+qx+r\)</span>. Then <span class="math inline">\(y'=2px+q\)</span> and <span class="math inline">\(y''=2p\)</span>. Substituting,</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">y=px^2+qx+r</span>. Then <span class="math inline">y'=2px+q</span> and <span class="math inline">y''=2p</span>. Substituting,</p>
+<p><span class="math display">
 18p+6q+12px+px^2+qx+r=3x^2+30x.
-\]</span></p>
-<p>Equating coefficients gives <span class="math inline">\(p=3\)</span>, <span class="math inline">\(q=-6\)</span>, <span class="math inline">\(r=-18\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Equating coefficients gives <span class="math inline">p=3</span>, <span class="math inline">q=-6</span>, <span class="math inline">r=-18</span>. Hence</p>
+<p><span class="math display">
 \boxed{y=e^{-x/3}(Ax+B)+3x^2-6x-18}.
-\]</span></p>
-<p><strong>(b)</strong> For large positive <span class="math inline">\(x\)</span>, the exponential term tends to zero, so</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> For large positive <span class="math inline">x</span>, the exponential term tends to zero, so</p>
+<p><span class="math display">
 \boxed{y\approx3x^2-6x-18}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2020-on-21-23-q2"> Completed</label>
 <div class="source-line">
@@ -1034,45 +1048,45 @@ y=e^{-x/3}(Ax+B).
 <section id="octobernovember-923122-question-6-11-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-6-11-marks">2020 October/November · 9231/22 · Question 6 · 11 marks</h3>
 <p>Find the particular solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2x}{\mathrm dt^2}+8\frac{\mathrm dx}{\mathrm dt}+15x=102\cos3t,
-\]</span></p>
-<p>given that, when <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=1\)</span> and <span class="math inline">\(\dfrac{\mathrm dx}{\mathrm dt}=0\)</span>.</p>
+</span></p>
+<p>given that, when <span class="math inline">t=0</span>, <span class="math inline">x=1</span> and <span class="math inline">\dfrac{\mathrm dx}{\mathrm dt}=0</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 m^2+8m+15=0
 \;\Longrightarrow\;
 (m+3)(m+5)=0,
-\]</span></p>
-<p>so <span class="math inline">\(m=-3,-5\)</span>, giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">m=-3,-5</span>, giving</p>
+<p><span class="math display">
 x=Ae^{-3t}+Be^{-5t}.
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(x=p\cos3t+q\sin3t\)</span>. Then</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">x=p\cos3t+q\sin3t</span>. Then</p>
+<p><span class="math display">
 \dot x=-3p\sin3t+3q\cos3t,\qquad
 \ddot x=-9p\cos3t-9q\sin3t.
-\]</span></p>
+</span></p>
 <p>Substituting and equating coefficients,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (6p-24q)\cos3t+(24p+6q)\sin3t=102\cos3t,
-\]</span></p>
-<p>so <span class="math inline">\(p=1\)</span>, <span class="math inline">\(q=-4\)</span>. The general solution is</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">p=1</span>, <span class="math inline">q=-4</span>. The general solution is</p>
+<p><span class="math display">
 x=Ae^{-3t}+Be^{-5t}+\cos3t-4\sin3t.
-\]</span></p>
-<p>Using <span class="math inline">\(x(0)=1\)</span>: <span class="math inline">\(A+B=0\)</span>. Using <span class="math inline">\(\dot x(0)=0\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">x(0)=1</span>: <span class="math inline">A+B=0</span>. Using <span class="math inline">\dot x(0)=0</span>:</p>
+<p><span class="math display">
 -3A-5B-12=0,
-\]</span></p>
-<p>so <span class="math inline">\(A=6\)</span>, <span class="math inline">\(B=-6\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">A=6</span>, <span class="math inline">B=-6</span>. Hence</p>
+<p><span class="math display">
 \boxed{x=6e^{-3t}-6e^{-5t}+\cos3t-4\sin3t}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2020-on-22-q6"> Completed</label>
 <div class="source-line">
@@ -1084,42 +1098,42 @@ x=Ae^{-3t}+Be^{-5t}+\cos3t-4\sin3t.
 </section>
 <section id="mayjune-923123-question-5-10-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-5-10-marks">2021 May/June · 9231/23 · Question 5 · 10 marks</h3>
-<p>The variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are related by the differential equation</p>
-<p><span class="math display">\[
+<p>The variables <span class="math inline">x</span> and <span class="math inline">y</span> are related by the differential equation</p>
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}-2\frac{\mathrm dy}{\mathrm dx}-3y=4e^{-x}.
-\]</span></p>
-<p><strong>(a)</strong> Find the value of the constant <span class="math inline">\(k\)</span> such that <span class="math inline">\(y=kxe^{-x}\)</span> is a particular integral of the differential equation. <strong>[4]</strong></p>
-<p><strong>(b)</strong> Find the solution of the differential equation for which <span class="math inline">\(y=\dfrac12\)</span> and <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=1\)</span> when <span class="math inline">\(x=0\)</span>. <strong>[6]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Find the value of the constant <span class="math inline">k</span> such that <span class="math inline">y=kxe^{-x}</span> is a particular integral of the differential equation. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Find the solution of the differential equation for which <span class="math inline">y=\dfrac12</span> and <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=1</span> when <span class="math inline">x=0</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> For <span class="math inline">\(y=kxe^{-x}\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> For <span class="math inline">y=kxe^{-x}</span>,</p>
+<p><span class="math display">
 y'=ke^{-x}-kxe^{-x},\qquad
 y''=-2ke^{-x}+kxe^{-x}.
-\]</span></p>
-<p>Substituting into <span class="math inline">\(y''-2y'-3y\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting into <span class="math inline">y''-2y'-3y</span>,</p>
+<p><span class="math display">
 (-2ke^{-x}+kxe^{-x})-2(ke^{-x}-kxe^{-x})-3kxe^{-x}
 =-4ke^{-x}.
-\]</span></p>
-<p>This must equal <span class="math inline">\(4e^{-x}\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>This must equal <span class="math inline">4e^{-x}</span>, so</p>
+<p><span class="math display">
 \boxed{k=-1}.
-\]</span></p>
-<p><strong>(b)</strong> The auxiliary equation is <span class="math inline">\(r^2-2r-3=0\)</span>, so <span class="math inline">\(r=3,-1\)</span>, giving</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> The auxiliary equation is <span class="math inline">r^2-2r-3=0</span>, so <span class="math inline">r=3,-1</span>, giving</p>
+<p><span class="math display">
 y=Ae^{3x}+Be^{-x}-xe^{-x}.
-\]</span></p>
-<p>Using <span class="math inline">\(y=\frac12\)</span> at <span class="math inline">\(x=0\)</span>: <span class="math inline">\(A+B=\frac12\)</span>. Differentiating and using <span class="math inline">\(y'=1\)</span> at <span class="math inline">\(x=0\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=\frac12</span> at <span class="math inline">x=0</span>: <span class="math inline">A+B=\frac12</span>. Differentiating and using <span class="math inline">y'=1</span> at <span class="math inline">x=0</span>:</p>
+<p><span class="math display">
 y'=3Ae^{3x}-Be^{-x}+xe^{-x}-e^{-x},
-\]</span></p>
-<p>so <span class="math inline">\(3A-B-1=1\)</span>, i.e.&nbsp;<span class="math inline">\(3A-B=2\)</span>. Hence <span class="math inline">\(A=\frac58\)</span>, <span class="math inline">\(B=-\frac18\)</span>, giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">3A-B-1=1</span>, i.e.&nbsp;<span class="math inline">3A-B=2</span>. Hence <span class="math inline">A=\frac58</span>, <span class="math inline">B=-\frac18</span>, giving</p>
+<p><span class="math display">
 \boxed{y=\frac58e^{3x}-\frac18e^{-x}-xe^{-x}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2021-mj-23-q5"> Completed</label>
 <div class="source-line">
@@ -1129,36 +1143,36 @@ y'=3Ae^{3x}-Be^{-x}+xe^{-x}-e^{-x},
 <section id="octobernovember-923121-923123-question-5-11-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-5-11-marks">2021 October/November · 9231/21 &amp; 9231/23 · Question 5 · 11 marks</h3>
 <p>Find the particular solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}-2\frac{\mathrm dy}{\mathrm dx}+y=4\cos x,
-\]</span></p>
-<p>given that, when <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y=-4\)</span> and <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=3\)</span>.</p>
+</span></p>
+<p>given that, when <span class="math inline">x=0</span>, <span class="math inline">y=-4</span> and <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=3</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r^2-2r+1=0
 \;\Longrightarrow\;
 (r-1)^2=0,
-\]</span></p>
-<p>so <span class="math inline">\(r=1\)</span> (repeated root), giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">r=1</span> (repeated root), giving</p>
+<p><span class="math display">
 y=e^x(A+Bx).
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(y=p\cos x+q\sin x\)</span>. Then <span class="math inline">\(y'=-p\sin x+q\cos x\)</span> and <span class="math inline">\(y''=-p\cos x-q\sin x\)</span>. Substituting,</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">y=p\cos x+q\sin x</span>. Then <span class="math inline">y'=-p\sin x+q\cos x</span> and <span class="math inline">y''=-p\cos x-q\sin x</span>. Substituting,</p>
+<p><span class="math display">
 (-p\cos x-q\sin x)-2(-p\sin x+q\cos x)+p\cos x+q\sin x=4\cos x.
-\]</span></p>
-<p>Equating coefficients gives <span class="math inline">\(q=2\)</span>, <span class="math inline">\(p=-2\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Equating coefficients gives <span class="math inline">q=2</span>, <span class="math inline">p=-2</span>. Hence</p>
+<p><span class="math display">
 y=e^x(A+Bx)-2\cos x+2\sin x.
-\]</span></p>
-<p>Using <span class="math inline">\(y=-4\)</span> at <span class="math inline">\(x=0\)</span>: <span class="math inline">\(A-2=-4\)</span>, so <span class="math inline">\(A=-2\)</span>. Using <span class="math inline">\(y'=3\)</span> at <span class="math inline">\(x=0\)</span>: <span class="math inline">\(y'=e^x(A+B+Bx)+2\sin x+2\cos x\)</span>, so <span class="math inline">\(A+B+2=3\)</span>, giving <span class="math inline">\(B=3\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=-4</span> at <span class="math inline">x=0</span>: <span class="math inline">A-2=-4</span>, so <span class="math inline">A=-2</span>. Using <span class="math inline">y'=3</span> at <span class="math inline">x=0</span>: <span class="math inline">y'=e^x(A+B+Bx)+2\sin x+2\cos x</span>, so <span class="math inline">A+B+2=3</span>, giving <span class="math inline">B=3</span>. Hence</p>
+<p><span class="math display">
 \boxed{y=e^x(-2+3x)-2\cos x+2\sin x}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2021-on-21-23-q5"> Completed</label>
 <div class="source-line">
@@ -1170,44 +1184,44 @@ y=e^x(A+Bx)-2\cos x+2\sin x.
 </section>
 <section id="mayjune-923121-923122-question-3-11-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-3-11-marks">2022 May/June · 9231/21 &amp; 9231/22 · Question 3 · 11 marks</h3>
-<p>The variables <span class="math inline">\(t\)</span> and <span class="math inline">\(x\)</span> are related by the differential equation</p>
-<p><span class="math display">\[
+<p>The variables <span class="math inline">t</span> and <span class="math inline">x</span> are related by the differential equation</p>
+<p><span class="math display">
 \frac{\mathrm d^2x}{\mathrm dt^2}+\frac{\mathrm dx}{\mathrm dt}+x=t^2+1.
-\]</span></p>
-<p><strong>(a)</strong> Find the general solution for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>. <strong>[6]</strong></p>
-<p><strong>(b)</strong> Find the particular solution for which <span class="math inline">\(x=1\)</span> and <span class="math inline">\(\dfrac{\mathrm dx}{\mathrm dt}=0\)</span> when <span class="math inline">\(t=0\)</span>. <strong>[5]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Find the general solution for <span class="math inline">x</span> in terms of <span class="math inline">t</span>. <strong>[6]</strong></p>
+<p><strong>(b)</strong> Find the particular solution for which <span class="math inline">x=1</span> and <span class="math inline">\dfrac{\mathrm dx}{\mathrm dt}=0</span> when <span class="math inline">t=0</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r^2+r+1=0,
-\]</span></p>
-<p>with roots <span class="math inline">\(r=-\dfrac12\pm\dfrac{\mathrm i\sqrt3}{2}\)</span>, giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>with roots <span class="math inline">r=-\dfrac12\pm\dfrac{\mathrm i\sqrt3}{2}</span>, giving</p>
+<p><span class="math display">
 x=e^{-t/2}\left(A\cos\frac{\sqrt3}{2}t+B\sin\frac{\sqrt3}{2}t\right).
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(x=pt^2+qt+r\)</span>. Then <span class="math inline">\(x'=2pt+q\)</span>, <span class="math inline">\(x''=2p\)</span>. Substituting,</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">x=pt^2+qt+r</span>. Then <span class="math inline">x'=2pt+q</span>, <span class="math inline">x''=2p</span>. Substituting,</p>
+<p><span class="math display">
 2p+2pt+q+pt^2+qt+r=t^2+1.
-\]</span></p>
-<p>Equating coefficients gives <span class="math inline">\(p=1\)</span>, <span class="math inline">\(q=-2\)</span>, <span class="math inline">\(r=1\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Equating coefficients gives <span class="math inline">p=1</span>, <span class="math inline">q=-2</span>, <span class="math inline">r=1</span>. Hence</p>
+<p><span class="math display">
 \boxed{x=e^{-t/2}\left(A\cos\frac{\sqrt3}{2}t+B\sin\frac{\sqrt3}{2}t\right)+t^2-2t+1}.
-\]</span></p>
-<p><strong>(b)</strong> Using <span class="math inline">\(x=1\)</span> at <span class="math inline">\(t=0\)</span>: <span class="math inline">\(A+1=1\)</span>, so <span class="math inline">\(A=0\)</span>. Then</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">x=1</span> at <span class="math inline">t=0</span>: <span class="math inline">A+1=1</span>, so <span class="math inline">A=0</span>. Then</p>
+<p><span class="math display">
 x=e^{-t/2}B\sin\frac{\sqrt3}{2}t+t^2-2t+1.
-\]</span></p>
-<p>Differentiating and using <span class="math inline">\(x'=0\)</span> at <span class="math inline">\(t=0\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating and using <span class="math inline">x'=0</span> at <span class="math inline">t=0</span>:</p>
+<p><span class="math display">
 x'=e^{-t/2}\left(\frac{\sqrt3}{2}B\cos\frac{\sqrt3}{2}t-\frac12B\sin\frac{\sqrt3}{2}t\right)+2t-2,
-\]</span></p>
-<p>so <span class="math inline">\(\dfrac{\sqrt3}{2}B-2=0\)</span>, giving <span class="math inline">\(B=\dfrac4{\sqrt3}\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">\dfrac{\sqrt3}{2}B-2=0</span>, giving <span class="math inline">B=\dfrac4{\sqrt3}</span>. Hence</p>
+<p><span class="math display">
 \boxed{x=\frac4{\sqrt3}e^{-t/2}\sin\frac{\sqrt3}{2}t+t^2-2t+1}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2022-mj-21-22-q3"> Completed</label>
 <div class="source-line">
@@ -1220,36 +1234,36 @@ x'=e^{-t/2}\left(\frac{\sqrt3}{2}B\cos\frac{\sqrt3}{2}t-\frac12B\sin\frac{\sqrt3
 <section id="mayjune-923121-question-6-11-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-question-6-11-marks">2023 May/June · 9231/21 · Question 6 · 11 marks</h3>
 <p>Find the particular solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2x}{\mathrm dt^2}-12\frac{\mathrm dx}{\mathrm dt}+36x=37\sin t,
-\]</span></p>
-<p>given that, when <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=\dfrac{\mathrm dx}{\mathrm dt}=0\)</span>.</p>
+</span></p>
+<p>given that, when <span class="math inline">t=0</span>, <span class="math inline">x=\dfrac{\mathrm dx}{\mathrm dt}=0</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 m^2-12m+36=0
 \;\Longrightarrow\;
 (m-6)^2=0,
-\]</span></p>
-<p>so <span class="math inline">\(m=6\)</span> (repeated root), giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">m=6</span> (repeated root), giving</p>
+<p><span class="math display">
 x=e^{6t}(At+B).
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(x=p\sin t+q\cos t\)</span>. Then <span class="math inline">\(x'=p\cos t-q\sin t\)</span> and <span class="math inline">\(x''=-p\sin t-q\cos t\)</span>. Substituting,</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">x=p\sin t+q\cos t</span>. Then <span class="math inline">x'=p\cos t-q\sin t</span> and <span class="math inline">x''=-p\sin t-q\cos t</span>. Substituting,</p>
+<p><span class="math display">
 (-p\sin t-q\cos t)-12(p\cos t-q\sin t)+36(p\sin t+q\cos t)=37\sin t.
-\]</span></p>
-<p>Equating coefficients gives <span class="math inline">\(p=1\)</span>, <span class="math inline">\(q=0\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Equating coefficients gives <span class="math inline">p=1</span>, <span class="math inline">q=0</span>. Hence</p>
+<p><span class="math display">
 x=e^{6t}(At+B)+\sin t.
-\]</span></p>
-<p>Using <span class="math inline">\(x=0\)</span> at <span class="math inline">\(t=0\)</span>: <span class="math inline">\(B=0\)</span>. Using <span class="math inline">\(x'=0\)</span> at <span class="math inline">\(t=0\)</span>: <span class="math inline">\(x'=e^{6t}(A+6At)+\cos t\)</span>, so <span class="math inline">\(A+1=0\)</span>, giving <span class="math inline">\(A=-1\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">x=0</span> at <span class="math inline">t=0</span>: <span class="math inline">B=0</span>. Using <span class="math inline">x'=0</span> at <span class="math inline">t=0</span>: <span class="math inline">x'=e^{6t}(A+6At)+\cos t</span>, so <span class="math inline">A+1=0</span>, giving <span class="math inline">A=-1</span>. Hence</p>
+<p><span class="math display">
 \boxed{x=-te^{6t}+\sin t}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2023-mj-21-q6"> Completed</label>
 <div class="source-line">
@@ -1259,41 +1273,41 @@ x=e^{6t}(At+B)+\sin t.
 <section id="octobernovember-923122-question-4-9-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-4-9-marks">2023 October/November · 9231/22 · Question 4 · 9 marks</h3>
 <p>Find the solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}+3y=\sin x
-\]</span></p>
-<p>for which <span class="math inline">\(y=1\)</span> when <span class="math inline">\(x=0\)</span>. Give your answer in the form <span class="math inline">\(y=f(x)\)</span>.</p>
+</span></p>
+<p>for which <span class="math inline">y=1</span> when <span class="math inline">x=0</span>. Give your answer in the form <span class="math inline">y=f(x)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The integrating factor is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 e^{\int3\,\mathrm dx}=e^{3x}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(ye^{3x}\right)=e^{3x}\sin x.
-\]</span></p>
+</span></p>
 <p>Integrating by parts twice,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \int e^{3x}\sin x\,\mathrm dx
 =\frac{e^{3x}}{10}(3\sin x-\cos x)+C.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=\frac1{10}(3\sin x-\cos x)+Ce^{-3x}.
-\]</span></p>
-<p>Using <span class="math inline">\(y=1\)</span> when <span class="math inline">\(x=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=1</span> when <span class="math inline">x=0</span>,</p>
+<p><span class="math display">
 1=-\frac1{10}+C
 \;\Longrightarrow\;
 C=\frac{11}{10}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=\frac1{10}(3\sin x-\cos x)+\frac{11}{10}e^{-3x}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2023-on-22-q4"> Completed</label>
 <div class="source-line">
@@ -1306,38 +1320,38 @@ C=\frac{11}{10}.
 <section id="mayjune-923121-923122-question-6b-10-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-6b-10-marks">2024 May/June · 9231/21 &amp; 9231/22 · Question 6(b) · 10 marks</h3>
 <p>Find the particular solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}+\frac{\mathrm dy}{\mathrm dx}+3y=5\left(\cosh x+\sinh x\right)^{1/2},
-\]</span></p>
-<p>given that, when <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y=1\)</span> and <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=\dfrac43\)</span>.</p>
+</span></p>
+<p>given that, when <span class="math inline">x=0</span>, <span class="math inline">y=1</span> and <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=\dfrac43</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Using <span class="math inline">\(\left(\cosh x+\sinh x\right)^{1/2}=e^{x/2}\)</span>, the equation becomes</p>
-<p><span class="math display">\[
+<p>Using <span class="math inline">\left(\cosh x+\sinh x\right)^{1/2}=e^{x/2}</span>, the equation becomes</p>
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}+\frac{\mathrm dy}{\mathrm dx}+3y=5e^{x/2}.
-\]</span></p>
+</span></p>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r^2+r+3=0,
-\]</span></p>
-<p>with roots <span class="math inline">\(r=-\dfrac12\pm\dfrac{\mathrm i\sqrt{11}}{2}\)</span>, giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>with roots <span class="math inline">r=-\dfrac12\pm\dfrac{\mathrm i\sqrt{11}}{2}</span>, giving</p>
+<p><span class="math display">
 y=e^{-x/2}\left(A\cos\frac{\sqrt{11}}2x+B\sin\frac{\sqrt{11}}2x\right).
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(y=ke^{x/2}\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">y=ke^{x/2}</span>:</p>
+<p><span class="math display">
 \frac14ke^{x/2}+\frac12ke^{x/2}+3ke^{x/2}=5e^{x/2},
-\]</span></p>
-<p>so <span class="math inline">\(\dfrac{15}{4}k=5\)</span>, giving <span class="math inline">\(k=\dfrac43\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">\dfrac{15}{4}k=5</span>, giving <span class="math inline">k=\dfrac43</span>. Hence</p>
+<p><span class="math display">
 y=e^{-x/2}\left(A\cos\frac{\sqrt{11}}2x+B\sin\frac{\sqrt{11}}2x\right)+\frac43e^{x/2}.
-\]</span></p>
-<p>Using <span class="math inline">\(y=1\)</span> at <span class="math inline">\(x=0\)</span>: <span class="math inline">\(A+\frac43=1\)</span>, so <span class="math inline">\(A=-\frac13\)</span>. Using <span class="math inline">\(y'=\frac43\)</span> at <span class="math inline">\(x=0\)</span> and solving gives the particular solution</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=1</span> at <span class="math inline">x=0</span>: <span class="math inline">A+\frac43=1</span>, so <span class="math inline">A=-\frac13</span>. Using <span class="math inline">y'=\frac43</span> at <span class="math inline">x=0</span> and solving gives the particular solution</p>
+<p><span class="math display">
 \boxed{y=e^{-x/2}\left(-\frac13\cos\frac{\sqrt{11}}2x+\frac{\sqrt{11}}3\sin\frac{\sqrt{11}}2x\right)+\frac43e^{x/2}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2024-mj-21-22-q6b"> Completed</label>
 <div class="source-line">
@@ -1347,36 +1361,36 @@ y=e^{-x/2}\left(A\cos\frac{\sqrt{11}}2x+B\sin\frac{\sqrt{11}}2x\right)+\frac43e^
 <section id="octobernovember-923121-923123-question-5-10-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-5-10-marks">2024 October/November · 9231/21 &amp; 9231/23 · Question 5 · 10 marks</h3>
 <p>Find the particular solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}+4\frac{\mathrm dy}{\mathrm dx}+3y=5\cos x,
-\]</span></p>
-<p>given that, when <span class="math inline">\(x=0\)</span>, <span class="math inline">\(y=\dfrac{\mathrm dy}{\mathrm dx}=0\)</span>.</p>
+</span></p>
+<p>given that, when <span class="math inline">x=0</span>, <span class="math inline">y=\dfrac{\mathrm dy}{\mathrm dx}=0</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r^2+4r+3=0
 \;\Longrightarrow\;
 (r+1)(r+3)=0,
-\]</span></p>
-<p>so <span class="math inline">\(r=-1,-3\)</span>, giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">r=-1,-3</span>, giving</p>
+<p><span class="math display">
 y=Ae^{-x}+Be^{-3x}.
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(y=p\cos x+q\sin x\)</span>. Then <span class="math inline">\(y'=-p\sin x+q\cos x\)</span>, <span class="math inline">\(y''=-p\cos x-q\sin x\)</span>. Substituting,</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">y=p\cos x+q\sin x</span>. Then <span class="math inline">y'=-p\sin x+q\cos x</span>, <span class="math inline">y''=-p\cos x-q\sin x</span>. Substituting,</p>
+<p><span class="math display">
 (-p\cos x-q\sin x)+4(-p\sin x+q\cos x)+3(p\cos x+q\sin x)=5\cos x.
-\]</span></p>
-<p>Equating coefficients gives <span class="math inline">\(p=\dfrac12\)</span>, <span class="math inline">\(q=1\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Equating coefficients gives <span class="math inline">p=\dfrac12</span>, <span class="math inline">q=1</span>. Hence</p>
+<p><span class="math display">
 y=Ae^{-x}+Be^{-3x}+\frac12\cos x+\sin x.
-\]</span></p>
-<p>Using <span class="math inline">\(y=0\)</span> at <span class="math inline">\(x=0\)</span>: <span class="math inline">\(A+B+\frac12=0\)</span>. Using <span class="math inline">\(y'=0\)</span> at <span class="math inline">\(x=0\)</span>: <span class="math inline">\(-A-3B+1=0\)</span>. Solving gives <span class="math inline">\(A=-\dfrac54\)</span>, <span class="math inline">\(B=\dfrac34\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=0</span> at <span class="math inline">x=0</span>: <span class="math inline">A+B+\frac12=0</span>. Using <span class="math inline">y'=0</span> at <span class="math inline">x=0</span>: <span class="math inline">-A-3B+1=0</span>. Solving gives <span class="math inline">A=-\dfrac54</span>, <span class="math inline">B=\dfrac34</span>. Hence</p>
+<p><span class="math display">
 \boxed{y=-\frac54e^{-x}+\frac34e^{-3x}+\frac12\cos x+\sin x}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2024-on-21-23-q5"> Completed</label>
 <div class="source-line">
@@ -1389,43 +1403,43 @@ y=Ae^{-x}+Be^{-3x}+\frac12\cos x+\sin x.
 <section id="octobernovember-923121-923123-question-7b-9-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-7b-9-marks">2025 October/November · 9231/21 &amp; 9231/23 · Question 7(b) · 9 marks</h3>
 <p>Find the solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x\frac{\mathrm dy}{\mathrm dx}-y=x^2\tanh^{-1}x,
-\]</span></p>
-<p>for <span class="math inline">\(0\leqslant x&lt;1\)</span>, given that <span class="math inline">\(y=0\)</span> when <span class="math inline">\(x=\dfrac12\)</span>. Give your answer in an exact form.</p>
+</span></p>
+<p>for <span class="math inline">0\leqslant x&lt;1</span>, given that <span class="math inline">y=0</span> when <span class="math inline">x=\dfrac12</span>. Give your answer in an exact form.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Divide by <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display">\[
+<p>Divide by <span class="math inline">x</span>:</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}-\frac1x y=x\tanh^{-1}x.
-\]</span></p>
+</span></p>
 <p>The integrating factor is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 e^{\int-\frac1x\,\mathrm dx}=x^{-1}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(\frac yx\right)=\tanh^{-1}x.
-\]</span></p>
+</span></p>
 <p>Integrating by parts,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac yx=x\tanh^{-1}x-\int\frac{x}{1-x^2}\,\mathrm dx
 =x\tanh^{-1}x+\frac12\ln(1-x^2)+C.
-\]</span></p>
-<p>Using <span class="math inline">\(y=0\)</span> at <span class="math inline">\(x=\frac12\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">y=0</span> at <span class="math inline">x=\frac12</span>:</p>
+<p><span class="math display">
 0=\frac12\tanh^{-1}\frac12+\frac12\ln\frac34+C.
-\]</span></p>
-<p>Since <span class="math inline">\(\tanh^{-1}\frac12=\frac12\ln3\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">\tanh^{-1}\frac12=\frac12\ln3</span>,</p>
+<p><span class="math display">
 C=-\frac14\ln3-\frac12\ln\frac34.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac yx=x\tanh^{-1}x+\frac12\ln(1-x^2)-\frac14\ln3-\frac12\ln\frac34}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2025-on-21-23-q7b"> Completed</label>
 <div class="source-line">
@@ -1435,38 +1449,38 @@ C=-\frac14\ln3-\frac12\ln\frac34.
 <section id="octobernovember-923124-question-5-10-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923124-question-5-10-marks">2025 October/November · 9231/24 · Question 5 · 10 marks</h3>
 <p>Find the general solution of the differential equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}+\frac{\mathrm dy}{\mathrm dx}+y=\sin2x+\cos2x.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The auxiliary equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r^2+r+1=0,
-\]</span></p>
-<p>with roots <span class="math inline">\(r=-\dfrac12\pm\dfrac{\mathrm i\sqrt3}{2}\)</span>, giving</p>
-<p><span class="math display">\[
+</span></p>
+<p>with roots <span class="math inline">r=-\dfrac12\pm\dfrac{\mathrm i\sqrt3}{2}</span>, giving</p>
+<p><span class="math display">
 y=e^{-x/2}\left(A\cos\frac{\sqrt3}{2}x+B\sin\frac{\sqrt3}{2}x\right).
-\]</span></p>
-<p>For the particular integral, try <span class="math inline">\(y=p\sin2x+q\cos2x\)</span>. Then</p>
-<p><span class="math display">\[
+</span></p>
+<p>For the particular integral, try <span class="math inline">y=p\sin2x+q\cos2x</span>. Then</p>
+<p><span class="math display">
 y'=2p\cos2x-2q\sin2x,\qquad
 y''=-4p\sin2x-4q\cos2x.
-\]</span></p>
-<p>Substituting and equating coefficients of <span class="math inline">\(\sin2x\)</span> and <span class="math inline">\(\cos2x\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting and equating coefficients of <span class="math inline">\sin2x</span> and <span class="math inline">\cos2x</span>:</p>
+<p><span class="math display">
 (-4p+2q+p)\sin2x+(-4q-2p+q)\cos2x=\sin2x+\cos2x.
-\]</span></p>
+</span></p>
 <p>That is,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (-3p+2q)\sin2x+(-3q-2p)\cos2x=\sin2x+\cos2x.
-\]</span></p>
-<p>Solving gives <span class="math inline">\(p=-\dfrac{1}{13}\)</span>, <span class="math inline">\(q=-\dfrac{5}{13}\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>Solving gives <span class="math inline">p=-\dfrac{1}{13}</span>, <span class="math inline">q=-\dfrac{5}{13}</span>. Hence</p>
+<p><span class="math display">
 \boxed{y=e^{-x/2}\left(A\cos\frac{\sqrt3}{2}x+B\sin\frac{\sqrt3}{2}x\right)-\frac1{13}\sin2x-\frac5{13}\cos2x}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="de-p2-2025-on-24-q5"> Completed</label>
 <div class="source-line">
@@ -1479,7 +1493,7 @@ y''=-4p\sin2x-4q\cos2x.
 <ol type="1">
 <li>能求一阶线性方程的积分因子并完成求解；</li>
 <li>能根据辅助方程三种根型写出 CF；</li>
-<li>能为多项式、指数、正余弦 <span class="math inline">\(f(x)\)</span> 选择正确的 PI 形式，并处理与 CF 重复的情形；</li>
+<li>能为多项式、指数、正余弦 <span class="math inline">f(x)</span> 选择正确的 PI 形式，并处理与 CF 重复的情形；</li>
 <li>能用给定代换化简方程；</li>
 <li>能用初始条件求特解。 本节保留教材 Chapter 6 的全部编号 Example（Example 1–10）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
 </ol>

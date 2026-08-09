@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -429,230 +443,230 @@ window.Quarto = {
 <p>考生需要能够：</p>
 <ol type="1">
 <li>使用 continuous random variable 建立概率模型；</li>
-<li>使用 probability density function <span class="math inline">\(f(x)\)</span> 计算概率；</li>
-<li>检查 PDF 的非负性和总面积为 <span class="math inline">\(1\)</span>；</li>
+<li>使用 probability density function <span class="math inline">f(x)</span> 计算概率；</li>
+<li>检查 PDF 的非负性和总面积为 <span class="math inline">1</span>；</li>
 <li>由 PDF 求 expectation、variance、standard deviation、median 和 percentiles；</li>
-<li>由 PDF 求 cumulative distribution function <span class="math inline">\(F(x)\)</span>，以及由 CDF 求 PDF；</li>
-<li>求函数 <span class="math inline">\(Y=g(X)\)</span> 的 PDF 或 CDF。</li>
+<li>由 PDF 求 cumulative distribution function <span class="math inline">F(x)</span>，以及由 CDF 求 PDF；</li>
+<li>求函数 <span class="math inline">Y=g(X)</span> 的 PDF 或 CDF。</li>
 </ol>
 </div>
 </div>
 <section id="核心公式" class="level2">
 <h2 class="anchored" data-anchor-id="核心公式">1. 核心公式</h2>
-<p>若 <span class="math inline">\(X\)</span> 的 PDF 为 <span class="math inline">\(f(x)\)</span>，则</p>
-<p><span class="math display">\[
+<p>若 <span class="math inline">X</span> 的 PDF 为 <span class="math inline">f(x)</span>，则</p>
+<p><span class="math display">
 f(x)\ge 0,\qquad \int_{-\infty}^{\infty}f(x)\,dx=1.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 P(a\le X\le b)=\int_a^b f(x)\,dx,
 \qquad
 E(X)=\int_{-\infty}^{\infty}x f(x)\,dx.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 E(X^2)=\int_{-\infty}^{\infty}x^2 f(x)\,dx,
 \qquad
 \operatorname{Var}(X)=E(X^2)-[E(X)]^2.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 F(x)=P(X\le x)=\int_{-\infty}^{x}f(t)\,dt,
 \qquad f(x)=F'(x).
-\]</span></p>
+</span></p>
 </section>
 <section id="教材-examples" class="level2">
 <h2 class="anchored" data-anchor-id="教材-examples">2. 教材 Examples</h2>
 <p>以下 Examples 来自 John du Feu, <em>Further Probability &amp; Statistics</em>, Chapter 1。题目保持英文，答案按教材的展开方式整理。</p>
 <section id="example-1.1-a-piecewise-pdf" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.1-a-piecewise-pdf">Example 1.1 · A piecewise PDF</h3>
-<p>The number of hours Nabilah spends each day working in her garden is modelled by the continuous random variable <span class="math inline">\(X\)</span>, with PDF</p>
-<p><span class="math display">\[
+<p>The number of hours Nabilah spends each day working in her garden is modelled by the continuous random variable <span class="math inline">X</span>, with PDF</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 kx, &amp; 0\le x&lt;3,\\
 k(6-x), &amp; 3\le x\le 6,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p><strong>(i)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
-<p><strong>(ii)</strong> Sketch the graph of <span class="math inline">\(f(x)\)</span>.</p>
-<p><strong>(iii)</strong> Find <span class="math inline">\(P(2\le X\le 5)\)</span>.</p>
+</span></p>
+<p><strong>(i)</strong> Find the value of <span class="math inline">k</span>.</p>
+<p><strong>(ii)</strong> Sketch the graph of <span class="math inline">f(x)</span>.</p>
+<p><strong>(iii)</strong> Find <span class="math inline">P(2\le X\le 5)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \int_0^3kx\,dx+\int_3^6k(6-x)\,dx=1
 \quad\Longrightarrow\quad
 9k=1.
-\]</span></p>
-<p>Hence <span class="math inline">\(\boxed{k=\frac19}\)</span>.</p>
-<p><strong>(ii)</strong> The graph is a triangle: it rises linearly from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((3,\frac13)\)</span> and falls linearly to <span class="math inline">\((6,0)\)</span>.</p>
+</span></p>
+<p>Hence <span class="math inline">\boxed{k=\frac19}</span>.</p>
+<p><strong>(ii)</strong> The graph is a triangle: it rises linearly from <span class="math inline">(0,0)</span> to <span class="math inline">(3,\frac13)</span> and falls linearly to <span class="math inline">(6,0)</span>.</p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 P(2\le X\le5)
 &amp;=\int_2^3\frac{x}{9}\,dx+\int_3^5\frac{6-x}{9}\,dx\\
 &amp;=\frac5{18}+\frac49=\frac{13}{18}.
 \end{aligned}
-\]</span></p>
-Therefore <span class="math inline">\(\boxed{P(2\le X\le5)=0.72}\)</span> to two decimal places.
+</span></p>
+Therefore <span class="math inline">\boxed{P(2\le X\le5)=0.72}</span> to two decimal places.
 </details>
 </section>
 <section id="example-1.2-a-function-of-a-continuous-random-variable" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.2-a-function-of-a-continuous-random-variable">Example 1.2 · A function of a continuous random variable</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has PDF</p>
-<p><span class="math display">\[
+<p>The continuous random variable <span class="math inline">X</span> has PDF</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 kx, &amp; 0\le x&lt;2,\\
 k(4-x), &amp; 2\le x\le4,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p><strong>(i)</strong> Find <span class="math inline">\(k\)</span>.</p>
-<p><strong>(ii)</strong> Sketch <span class="math inline">\(y=f(x)\)</span>.</p>
-<p><strong>(iii)</strong> Find <span class="math inline">\(P(1\le X\le3.5)\)</span>.</p>
-<p>The continuous random variable <span class="math inline">\(Y=X^2\)</span>.</p>
-<p><strong>(iv)</strong> Find <span class="math inline">\(E(Y)\)</span>.</p>
+</span></p>
+<p><strong>(i)</strong> Find <span class="math inline">k</span>.</p>
+<p><strong>(ii)</strong> Sketch <span class="math inline">y=f(x)</span>.</p>
+<p><strong>(iii)</strong> Find <span class="math inline">P(1\le X\le3.5)</span>.</p>
+<p>The continuous random variable <span class="math inline">Y=X^2</span>.</p>
+<p><strong>(iv)</strong> Find <span class="math inline">E(Y)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \int_0^2kx\,dx+\int_2^4k(4-x)\,dx=1
 \quad\Longrightarrow\quad 4k=1,
-\]</span></p>
-<p>so <span class="math inline">\(\boxed{k=\frac14}\)</span>.</p>
-<p><strong>(ii)</strong> The graph is two straight-line segments: from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((2,\frac12)\)</span>, then to <span class="math inline">\((4,0)\)</span>.</p>
+</span></p>
+<p>so <span class="math inline">\boxed{k=\frac14}</span>.</p>
+<p><strong>(ii)</strong> The graph is two straight-line segments: from <span class="math inline">(0,0)</span> to <span class="math inline">(2,\frac12)</span>, then to <span class="math inline">(4,0)</span>.</p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 P(1\le X\le3.5)=\int_1^2\frac{x}{4}\,dx+\int_2^{3.5}\frac{4-x}{4}\,dx
 =0.84375.
-\]</span></p>
-<p>Thus <span class="math inline">\(\boxed{P(1\le X\le3.5)=0.84375}\)</span>.</p>
-<p><strong>(iv)</strong> Since <span class="math inline">\(Y=X^2\)</span>,</p>
-<span class="math display">\[
+</span></p>
+<p>Thus <span class="math inline">\boxed{P(1\le X\le3.5)=0.84375}</span>.</p>
+<p><strong>(iv)</strong> Since <span class="math inline">Y=X^2</span>,</p>
+<span class="math display">
 E(Y)=E(X^2)=\int_0^2x^2\frac{x}{4}\,dx+\int_2^4x^2\frac{4-x}{4}\,dx
 =\boxed{\frac{14}{3}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-1.3-linear-functions-and-variance" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.3-linear-functions-and-variance">Example 1.3 · Linear functions and variance</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has PDF</p>
-<p><span class="math display">\[
+<p>The continuous random variable <span class="math inline">X</span> has PDF</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 \dfrac{x}{50}, &amp; 0\le x\le10,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p><strong>(i)</strong> Find <span class="math inline">\(E(3X+4)\)</span>.</p>
-<p><strong>(ii)</strong> Find <span class="math inline">\(3E(X)+4\)</span>.</p>
-<p><strong>(iii)</strong> Find <span class="math inline">\(\operatorname{Var}(3X+4)\)</span>.</p>
-<p><strong>(iv)</strong> Verify that <span class="math inline">\(\operatorname{Var}(3X+4)=3^2\operatorname{Var}(X)\)</span>.</p>
+</span></p>
+<p><strong>(i)</strong> Find <span class="math inline">E(3X+4)</span>.</p>
+<p><strong>(ii)</strong> Find <span class="math inline">3E(X)+4</span>.</p>
+<p><strong>(iii)</strong> Find <span class="math inline">\operatorname{Var}(3X+4)</span>.</p>
+<p><strong>(iv)</strong> Verify that <span class="math inline">\operatorname{Var}(3X+4)=3^2\operatorname{Var}(X)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 E(X)=\int_0^{10}x\frac{x}{50}\,dx=\frac{20}{3},
 \qquad
 E(X^2)=\int_0^{10}x^2\frac{x}{50}\,dx=50.
-\]</span></p>
+</span></p>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 E(3X+4)=3E(X)+4=\boxed{24}.
-\]</span></p>
-<p><strong>(ii)</strong> <span class="math inline">\(3E(X)+4=3\cdot\frac{20}{3}+4=\boxed{24}\)</span>.</p>
+</span></p>
+<p><strong>(ii)</strong> <span class="math inline">3E(X)+4=3\cdot\frac{20}{3}+4=\boxed{24}</span>.</p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \operatorname{Var}(3X+4)=9\operatorname{Var}(X),
-\]</span></p>
+</span></p>
 <p>where</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \operatorname{Var}(X)=50-\left(\frac{20}{3}\right)^2=\frac{50}{9}.
-\]</span></p>
-<p>Therefore <span class="math inline">\(\boxed{\operatorname{Var}(3X+4)=50}\)</span>.</p>
+</span></p>
+<p>Therefore <span class="math inline">\boxed{\operatorname{Var}(3X+4)=50}</span>.</p>
 <p><strong>(iv)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 3^2\operatorname{Var}(X)=9\cdot\frac{50}{9}=50,
-\]</span></p>
+</span></p>
 which agrees with part (iii).
 </details>
 </section>
 <section id="example-1.4-finding-a-cdf-from-a-pdf" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.4-finding-a-cdf-from-a-pdf">Example 1.4 · Finding a CDF from a PDF</h3>
-<p>A machine saws planks of wood to a nominal length. The continuous random variable <span class="math inline">\(X\)</span> represents the error in millimetres. Its PDF is</p>
-<p><span class="math display">\[
+<p>A machine saws planks of wood to a nominal length. The continuous random variable <span class="math inline">X</span> represents the error in millimetres. Its PDF is</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 \dfrac{10-x}{50}, &amp; 0\le x\le10,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p><strong>(i)</strong> Sketch <span class="math inline">\(f(x)\)</span>.</p>
-<p><strong>(ii)</strong> Find the cumulative distribution function <span class="math inline">\(F(x)\)</span>.</p>
-<p><strong>(iii)</strong> Sketch <span class="math inline">\(F(x)\)</span> for <span class="math inline">\(0\le x\le10\)</span>.</p>
-<p><strong>(iv)</strong> Find <span class="math inline">\(P(2\le X\le7)\)</span>.</p>
-<p><strong>(v)</strong> Find the median value of <span class="math inline">\(X\)</span>.</p>
-<p><strong>(vi)</strong> A customer rejects planks for which the error is greater than <span class="math inline">\(8\)</span> mm. What percentage are rejected?</p>
+</span></p>
+<p><strong>(i)</strong> Sketch <span class="math inline">f(x)</span>.</p>
+<p><strong>(ii)</strong> Find the cumulative distribution function <span class="math inline">F(x)</span>.</p>
+<p><strong>(iii)</strong> Sketch <span class="math inline">F(x)</span> for <span class="math inline">0\le x\le10</span>.</p>
+<p><strong>(iv)</strong> Find <span class="math inline">P(2\le X\le7)</span>.</p>
+<p><strong>(v)</strong> Find the median value of <span class="math inline">X</span>.</p>
+<p><strong>(vi)</strong> A customer rejects planks for which the error is greater than <span class="math inline">8</span> mm. What percentage are rejected?</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(i)</strong> The graph is a straight line from <span class="math inline">\((0,0.2)\)</span> to <span class="math inline">\((10,0)\)</span>.</p>
+<p><strong>(i)</strong> The graph is a straight line from <span class="math inline">(0,0.2)</span> to <span class="math inline">(10,0)</span>.</p>
 <p><strong>(ii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 F(x)=
 \begin{cases}
 0, &amp; x&lt;0,\\
 \dfrac{x}{5}-\dfrac{x^2}{100}, &amp; 0\le x\le10,\\
 1, &amp; x&gt;10.
 \end{cases}
-\]</span></p>
-<p><strong>(iii)</strong> <span class="math inline">\(F(x)\)</span> is an increasing concave-down curve from <span class="math inline">\((0,0)\)</span> to <span class="math inline">\((10,1)\)</span>.</p>
+</span></p>
+<p><strong>(iii)</strong> <span class="math inline">F(x)</span> is an increasing concave-down curve from <span class="math inline">(0,0)</span> to <span class="math inline">(10,1)</span>.</p>
 <p><strong>(iv)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 P(2\le X\le7)=F(7)-F(2)=0.91-0.36=\boxed{0.55}.
-\]</span></p>
-<p><strong>(v)</strong> Solve <span class="math inline">\(F(m)=0.5\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(v)</strong> Solve <span class="math inline">F(m)=0.5</span>:</p>
+<p><span class="math display">
 m^2-20m+50=0.
-\]</span></p>
+</span></p>
 <p>The admissible root is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{m=10-5\sqrt2=2.93\text{ mm}}.
-\]</span></p>
+</span></p>
 <p><strong>(vi)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 P(X&gt;8)=1-F(8)=1-0.96=0.04.
-\]</span></p>
-Therefore <span class="math inline">\(\boxed{4\%}\)</span> of the planks are rejected.
+</span></p>
+Therefore <span class="math inline">\boxed{4\%}</span> of the planks are rejected.
 </details>
 </section>
 <section id="example-1.5-a-two-part-pdf-and-cdf" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.5-a-two-part-pdf-and-cdf">Example 1.5 · A two-part PDF and CDF</h3>
-<p>The PDF of a continuous random variable <span class="math inline">\(X\)</span> is</p>
-<p><span class="math display">\[
+<p>The PDF of a continuous random variable <span class="math inline">X</span> is</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 \dfrac{x}{24}, &amp; 0\le x\le4,\\
 \dfrac{12-x}{48}, &amp; 4\le x\le12,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p><strong>(i)</strong> Sketch <span class="math inline">\(f(x)\)</span>.</p>
-<p><strong>(ii)</strong> Find <span class="math inline">\(F(x)\)</span>.</p>
-<p><strong>(iii)</strong> Sketch <span class="math inline">\(F(x)\)</span>.</p>
+</span></p>
+<p><strong>(i)</strong> Sketch <span class="math inline">f(x)</span>.</p>
+<p><strong>(ii)</strong> Find <span class="math inline">F(x)</span>.</p>
+<p><strong>(iii)</strong> Sketch <span class="math inline">F(x)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(i)</strong> The graph is linear from <span class="math inline">\(0\)</span> to <span class="math inline">\(\frac16\)</span> on <span class="math inline">\([0,4]\)</span>, then linear down to <span class="math inline">\(0\)</span> at <span class="math inline">\(x=12\)</span>.</p>
+<p><strong>(i)</strong> The graph is linear from <span class="math inline">0</span> to <span class="math inline">\frac16</span> on <span class="math inline">[0,4]</span>, then linear down to <span class="math inline">0</span> at <span class="math inline">x=12</span>.</p>
 <p><strong>(ii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 F(x)=
 \begin{cases}
 0, &amp; x&lt;0,\\
@@ -660,91 +674,91 @@ F(x)=
 -\dfrac12+\dfrac{x}{4}-\dfrac{x^2}{96}, &amp; 4\le x\le12,\\
 1, &amp; x&gt;12.
 \end{cases}
-\]</span></p>
-<strong>(iii)</strong> <span class="math inline">\(F(x)\)</span> is continuous, increasing from <span class="math inline">\(0\)</span> to <span class="math inline">\(1\)</span>, with the slope first increasing and then decreasing according to <span class="math inline">\(f(x)\)</span>.
+</span></p>
+<strong>(iii)</strong> <span class="math inline">F(x)</span> is continuous, increasing from <span class="math inline">0</span> to <span class="math inline">1</span>, with the slope first increasing and then decreasing according to <span class="math inline">f(x)</span>.
 </details>
 </section>
 <section id="example-1.6-finding-a-pdf-from-a-cdf" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.6-finding-a-pdf-from-a-cdf">Example 1.6 · Finding a PDF from a CDF</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has CDF</p>
-<p><span class="math display">\[
+<p>The continuous random variable <span class="math inline">X</span> has CDF</p>
+<p><span class="math display">
 F(x)=
 \begin{cases}
 0, &amp; x&lt;2,\\
 \dfrac{x^2}{32}-\dfrac18, &amp; 2\le x\le6,\\
 1, &amp; x&gt;6.
 \end{cases}
-\]</span></p>
-<p>Find the PDF <span class="math inline">\(f(x)\)</span>.</p>
+</span></p>
+<p>Find the PDF <span class="math inline">f(x)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>Differentiate on each interval:</p>
-<span class="math display">\[
+<span class="math display">
 f(x)=F'(x)=
 \begin{cases}
 0, &amp; x&lt;2,\\
 \dfrac{x}{16}, &amp; 2\le x\le6,\\
 0, &amp; x&gt;6.
 \end{cases}
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-1.7-the-pdf-and-cdf-of-a-function" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.7-the-pdf-and-cdf-of-a-function">Example 1.7 · The PDF and CDF of a function</h3>
-<p>A company makes metal boxes by cutting four square offcuts from a sheet of metal. The length <span class="math inline">\(L\)</span> of an offcut, in decimetres, is modelled by</p>
-<p><span class="math display">\[
+<p>A company makes metal boxes by cutting four square offcuts from a sheet of metal. The length <span class="math inline">L</span> of an offcut, in decimetres, is modelled by</p>
+<p><span class="math display">
 f_L(l)=
 \begin{cases}
 \dfrac14(4-l^2), &amp; 0\le l\le2,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p>Let <span class="math inline">\(A=L^2\)</span> be the area of a square offcut.</p>
-<p><strong>(i)</strong> Find the CDF of <span class="math inline">\(L\)</span>.</p>
-<p><strong>(ii)</strong> Derive the CDF of <span class="math inline">\(A\)</span>.</p>
-<p><strong>(iii)</strong> Find the PDF of <span class="math inline">\(A\)</span>.</p>
+</span></p>
+<p>Let <span class="math inline">A=L^2</span> be the area of a square offcut.</p>
+<p><strong>(i)</strong> Find the CDF of <span class="math inline">L</span>.</p>
+<p><strong>(ii)</strong> Derive the CDF of <span class="math inline">A</span>.</p>
+<p><strong>(iii)</strong> Find the PDF of <span class="math inline">A</span>.</p>
 <p><strong>(iv)</strong> Find the mean area.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 F_L(l)=
 \begin{cases}
 0, &amp; l\le0,\\
 \dfrac{l^2}{2}-\dfrac{l^4}{16}, &amp; 0&lt;l\le2,\\
 1, &amp; l&gt;2.
 \end{cases}
-\]</span></p>
-<p><strong>(ii)</strong> Since <span class="math inline">\(L\ge0\)</span> and <span class="math inline">\(A=L^2\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> Since <span class="math inline">L\ge0</span> and <span class="math inline">A=L^2</span>,</p>
+<p><span class="math display">
 H(a)=P(A\le a)=P(L\le\sqrt a)=F_L(\sqrt a).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 H(a)=
 \begin{cases}
 0, &amp; a\le0,\\
 \dfrac a2-\dfrac{a^2}{16}, &amp; 0&lt;a\le4,\\
 1, &amp; a&gt;4.
 \end{cases}
-\]</span></p>
+</span></p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 h(a)=H'(a)=
 \begin{cases}
 \dfrac12-\dfrac a8, &amp; 0&lt;a\le4,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
+</span></p>
 <p><strong>(iv)</strong></p>
-<span class="math display">\[
+<span class="math display">
 E(A)=\int_0^4a\left(\frac12-\frac a8\right)da
 =\boxed{\frac43}.
-\]</span>
+</span>
 </details>
 </section>
 </section>
@@ -756,334 +770,334 @@ E(A)=\int_0^4a\left(\frac12-\frac a8\right)da
 <h2 class="anchored" data-anchor-id="paper-4-questions">Paper 4 questions</h2>
 <section id="mayjune-923141-and-923142-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-3">2021 May/June · 9231/41 and 9231/42 · Question 3</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has cumulative distribution function</p>
-<p><span class="math display">\[
+<p>The continuous random variable <span class="math inline">X</span> has cumulative distribution function</p>
+<p><span class="math display">
 F(x)=
 \begin{cases}
 0, &amp; x\le0,\\
 \dfrac{x^2}{81}, &amp; 0\le x\le9,\\
 1, &amp; x\ge9.
 \end{cases}
-\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(E(X)\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\operatorname{Var}(X)\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is given by <span class="math inline">\(Y^3=X\)</span>.</p>
-<p><strong>(c)</strong> Find the PDF of <span class="math inline">\(Y\)</span>.</p>
+</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">E(X)</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\operatorname{Var}(X)</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is given by <span class="math inline">Y^3=X</span>.</p>
+<p><strong>(c)</strong> Find the PDF of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The PDF is <span class="math inline">\(f_X(x)=F'(x)=\frac{2x}{81}\)</span> for <span class="math inline">\(0\le x\le9\)</span>.</p>
+<p>The PDF is <span class="math inline">f_X(x)=F'(x)=\frac{2x}{81}</span> for <span class="math inline">0\le x\le9</span>.</p>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 E(X)=\int_0^9x\frac{2x}{81}\,dx=\boxed{6}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 E(X^2)=\int_0^9x^2\frac{2x}{81}\,dx=\frac{81}{2},
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \operatorname{Var}(X)=\frac{81}{2}-6^2=\boxed{\frac92}.
-\]</span></p>
-<p><strong>(c)</strong> Since <span class="math inline">\(X=Y^3\)</span>, <span class="math inline">\(x=y^3\)</span> and <span class="math inline">\(\frac{dx}{dy}=3y^2\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">X=Y^3</span>, <span class="math inline">x=y^3</span> and <span class="math inline">\frac{dx}{dy}=3y^2</span>:</p>
+<p><span class="math display">
 f_Y(y)=f_X(y^3)\left|\frac{dx}{dy}\right|
 =\frac{2y^3}{81}(3y^2)
 =\boxed{\frac{2y^5}{27}},
-\]</span></p>
-for <span class="math inline">\(0\le y\le\sqrt[3]{9}\)</span>, and <span class="math inline">\(f_Y(y)=0\)</span> otherwise.
+</span></p>
+for <span class="math inline">0\le y\le\sqrt[3]{9}</span>, and <span class="math inline">f_Y(y)=0</span> otherwise.
 </details>
 </section>
 <section id="octobernovember-923142-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923142-question-4">2024 October/November · 9231/42 · Question 4</h3>
-<p>The random variable <span class="math inline">\(X\)</span> has probability density function <span class="math inline">\(f\)</span> given by <span class="math display">\[f(x)=\begin{cases}\dfrac1{21}(x-1)^2,&amp;2\le x\le5,\\0,&amp;\text{otherwise}.\end{cases}\]</span></p>
-<p><strong>(a)</strong> Find the cumulative distribution function of <span class="math inline">\(X\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y=(X-1)^4\)</span>.</p>
-<p><strong>(b)</strong> Find the probability density function of <span class="math inline">\(Y\)</span>.</p>
+<p>The random variable <span class="math inline">X</span> has probability density function <span class="math inline">f</span> given by <span class="math display">f(x)=\begin{cases}\dfrac1{21}(x-1)^2,&amp;2\le x\le5,\\0,&amp;\text{otherwise}.\end{cases}</span></p>
+<p><strong>(a)</strong> Find the cumulative distribution function of <span class="math inline">X</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is defined by <span class="math inline">Y=(X-1)^4</span>.</p>
+<p><strong>(b)</strong> Find the probability density function of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[F_X(x)=\begin{cases}0,&amp;x&lt;2,\\\dfrac{(x-1)^3-1}{63},&amp;2\le x\le5,\\1,&amp;x&gt;5.\end{cases}\]</span></p>
-<strong>(b)</strong> Put <span class="math inline">\(y=(x-1)^4\)</span>. Then <span class="math inline">\(x=1+y^{1/4}\)</span> and <span class="math inline">\(dx/dy=\frac14y^{-3/4}\)</span>: <span class="math display">\[\boxed{f_Y(y)=\frac1{84y^{1/4}}},\qquad1\le y\le256,\]</span> and <span class="math inline">\(f_Y(y)=0\)</span> otherwise.
+<p><strong>(a)</strong> <span class="math display">F_X(x)=\begin{cases}0,&amp;x&lt;2,\\\dfrac{(x-1)^3-1}{63},&amp;2\le x\le5,\\1,&amp;x&gt;5.\end{cases}</span></p>
+<strong>(b)</strong> Put <span class="math inline">y=(x-1)^4</span>. Then <span class="math inline">x=1+y^{1/4}</span> and <span class="math inline">dx/dy=\frac14y^{-3/4}</span>: <span class="math display">\boxed{f_Y(y)=\frac1{84y^{1/4}}},\qquad1\le y\le256,</span> and <span class="math inline">f_Y(y)=0</span> otherwise.
 </details>
 </section>
 <section id="octobernovember-923142-question-4-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923142-question-4-1">2025 October/November · 9231/42 · Question 4</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has cumulative distribution function <span class="math inline">\(F\)</span> given by <span class="math display">\[F(x)=\begin{cases}0,&amp;x&lt;1,\\\dfrac{x}{5}+a,&amp;1\le x&lt;4,\\\dfrac{x^2}{50}+b,&amp;4\le x\le6,\\1,&amp;x&gt;6,\end{cases}\]</span> where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</p>
-<p><strong>(a)</strong> Find the value of <span class="math inline">\(a\)</span> and the value of <span class="math inline">\(b\)</span>.</p>
-<p><strong>(b)</strong> Find the probability density function of <span class="math inline">\(X\)</span>.</p>
+<p>The continuous random variable <span class="math inline">X</span> has cumulative distribution function <span class="math inline">F</span> given by <span class="math display">F(x)=\begin{cases}0,&amp;x&lt;1,\\\dfrac{x}{5}+a,&amp;1\le x&lt;4,\\\dfrac{x^2}{50}+b,&amp;4\le x\le6,\\1,&amp;x&gt;6,\end{cases}</span> where <span class="math inline">a</span> and <span class="math inline">b</span> are constants.</p>
+<p><strong>(a)</strong> Find the value of <span class="math inline">a</span> and the value of <span class="math inline">b</span>.</p>
+<p><strong>(b)</strong> Find the probability density function of <span class="math inline">X</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(F(1)=0\)</span> gives <span class="math inline">\(a=-1/5\)</span>. Continuity at <span class="math inline">\(x=4\)</span> gives <span class="math display">\[\frac45+a=\frac{16}{50}+b,\]</span> so <span class="math inline">\(\boxed{a=-\frac15, b=\frac7{25}}\)</span>.</p>
-<strong>(b)</strong> Differentiate the CDF: <span class="math display">\[\boxed{f(x)=\begin{cases}\frac15,&amp;1\le x&lt;4,\\\frac{x}{25},&amp;4\le x\le6,\\0,&amp;\text{otherwise}.\end{cases}}\]</span>
+<p><strong>(a)</strong> <span class="math inline">F(1)=0</span> gives <span class="math inline">a=-1/5</span>. Continuity at <span class="math inline">x=4</span> gives <span class="math display">\frac45+a=\frac{16}{50}+b,</span> so <span class="math inline">\boxed{a=-\frac15, b=\frac7{25}}</span>.</p>
+<strong>(b)</strong> Differentiate the CDF: <span class="math display">\boxed{f(x)=\begin{cases}\frac15,&amp;1\le x&lt;4,\\\frac{x}{25},&amp;4\le x\le6,\\0,&amp;\text{otherwise}.\end{cases}}</span>
 </details>
 </section>
 <section id="mayjune-923143-question-6" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923143-question-6">2021 May/June · 9231/43 · Question 6</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function</p>
-<p><span class="math display">\[
+<p>The continuous random variable <span class="math inline">X</span> has probability density function</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 \dfrac18, &amp; 0\le x&lt;1,\\
 \dfrac1{28}(8-x), &amp; 1\le x\le8,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p><strong>(a)</strong> Find the cumulative distribution function of <span class="math inline">\(X\)</span>.</p>
-<p><strong>(b)</strong> Find the value of the constant <span class="math inline">\(a\)</span> such that <span class="math inline">\(P(X\le a)=\frac57\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is given by <span class="math inline">\(Y=3X\)</span>.</p>
-<p><strong>(c)</strong> Find the probability density function of <span class="math inline">\(Y\)</span>.</p>
+</span></p>
+<p><strong>(a)</strong> Find the cumulative distribution function of <span class="math inline">X</span>.</p>
+<p><strong>(b)</strong> Find the value of the constant <span class="math inline">a</span> such that <span class="math inline">P(X\le a)=\frac57</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is given by <span class="math inline">Y=3X</span>.</p>
+<p><strong>(c)</strong> Find the probability density function of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[F_X(x)=\begin{cases}0,&amp;x&lt;0,\\[2pt]\dfrac{x}{8},&amp;0\le x&lt;1,\\[4pt]\dfrac{x}{4}-\dfrac{x^2}{56}-\dfrac1{56},&amp;1\le x\le8,\\[4pt]1,&amp;x&gt;8.\end{cases}\]</span></p>
-<p><strong>(b)</strong> Since <span class="math inline">\(a&gt;1\)</span>, <span class="math display">\[\frac a4-\frac{a^2}{56}-\frac1{56}=\frac57,\]</span> so <span class="math inline">\(\boxed{a=6}\)</span>.</p>
-<strong>(c)</strong> <span class="math inline">\(x=y/3\)</span> and <span class="math inline">\(dx/dy=1/3\)</span>, hence <span class="math display">\[f_Y(y)=\begin{cases}\dfrac1{24},&amp;0\le y&lt;3,\\[4pt]\dfrac{8-y/3}{84},&amp;3\le y\le24,\\0,&amp;\text{otherwise}.\end{cases}\]</span>
+<p><span class="math display">F_X(x)=\begin{cases}0,&amp;x&lt;0,\\[2pt]\dfrac{x}{8},&amp;0\le x&lt;1,\\[4pt]\dfrac{x}{4}-\dfrac{x^2}{56}-\dfrac1{56},&amp;1\le x\le8,\\[4pt]1,&amp;x&gt;8.\end{cases}</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">a&gt;1</span>, <span class="math display">\frac a4-\frac{a^2}{56}-\frac1{56}=\frac57,</span> so <span class="math inline">\boxed{a=6}</span>.</p>
+<strong>(c)</strong> <span class="math inline">x=y/3</span> and <span class="math inline">dx/dy=1/3</span>, hence <span class="math display">f_Y(y)=\begin{cases}\dfrac1{24},&amp;0\le y&lt;3,\\[4pt]\dfrac{8-y/3}{84},&amp;3\le y\le24,\\0,&amp;\text{otherwise}.\end{cases}</span>
 </details>
 </section>
 <section id="mayjune-923143-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923143-question-4">2022 May/June · 9231/43 · Question 4</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function</p>
-<p><span class="math display">\[f(x)=\begin{cases}\dfrac38\left(1+\dfrac1{x^2}\right),&amp;1\le x\le3,\\0,&amp;\text{otherwise}.\end{cases}\]</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\(E(\sqrt X)\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is given by <span class="math inline">\(Y=X^2\)</span>.</p>
-<p><strong>(b)</strong> Find the probability density function of <span class="math inline">\(Y\)</span>.</p>
-<p><strong>(c)</strong> Find the 40th percentile of <span class="math inline">\(Y\)</span>.</p>
+<p>The continuous random variable <span class="math inline">X</span> has probability density function</p>
+<p><span class="math display">f(x)=\begin{cases}\dfrac38\left(1+\dfrac1{x^2}\right),&amp;1\le x\le3,\\0,&amp;\text{otherwise}.\end{cases}</span></p>
+<p><strong>(a)</strong> Find <span class="math inline">E(\sqrt X)</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is given by <span class="math inline">Y=X^2</span>.</p>
+<p><strong>(b)</strong> Find the probability density function of <span class="math inline">Y</span>.</p>
+<p><strong>(c)</strong> Find the 40th percentile of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[E(\sqrt X)=\frac38\int_1^3\left(x^{1/2}+x^{-3/2}\right)dx=\boxed{\frac{28}{45}+\frac{\sqrt6}{2}}.\]</span></p>
-<p><strong>(b)</strong> With <span class="math inline">\(x=\sqrt y\)</span>, <span class="math display">\[\boxed{f_Y(y)=\frac3{16}\left(y^{-1/2}+y^{-3/2}\right)},\qquad 1\le y\le9.\]</span></p>
-<strong>(c)</strong> <span class="math display">\[F_Y(y)=\frac38\left(\sqrt y-\frac1{\sqrt y}\right).\]</span> Putting <span class="math inline">\(F_Y(y)=0.4\)</span> gives <span class="math display">\[\boxed{y=\left(\frac{8+2\sqrt{181}}{15}\right)^2}.\]</span>
+<p><strong>(a)</strong> <span class="math display">E(\sqrt X)=\frac38\int_1^3\left(x^{1/2}+x^{-3/2}\right)dx=\boxed{\frac{28}{45}+\frac{\sqrt6}{2}}.</span></p>
+<p><strong>(b)</strong> With <span class="math inline">x=\sqrt y</span>, <span class="math display">\boxed{f_Y(y)=\frac3{16}\left(y^{-1/2}+y^{-3/2}\right)},\qquad 1\le y\le9.</span></p>
+<strong>(c)</strong> <span class="math display">F_Y(y)=\frac38\left(\sqrt y-\frac1{\sqrt y}\right).</span> Putting <span class="math inline">F_Y(y)=0.4</span> gives <span class="math display">\boxed{y=\left(\frac{8+2\sqrt{181}}{15}\right)^2}.</span>
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-6" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-6">2023 May/June · 9231/41 and 9231/42 · Question 6</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function <span class="math display">\[f(x)=\begin{cases}\dfrac3{28}\left(e^{x/2}+4e^{-x/2}\right),&amp;0\le x\le2\ln3,\\0,&amp;\text{otherwise}.\end{cases}\]</span></p>
-<p><strong>(a)</strong> Find the cumulative distribution function of <span class="math inline">\(X\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y=e^{X/2}\)</span>.</p>
-<p><strong>(b)</strong> Find the probability density function of <span class="math inline">\(Y\)</span>.</p>
-<p><strong>(c)</strong> Find the 30th percentile of <span class="math inline">\(Y\)</span>.</p>
-<p><strong>(d)</strong> Find <span class="math inline">\(E(Y^4)\)</span>.</p>
+<p>The continuous random variable <span class="math inline">X</span> has probability density function <span class="math display">f(x)=\begin{cases}\dfrac3{28}\left(e^{x/2}+4e^{-x/2}\right),&amp;0\le x\le2\ln3,\\0,&amp;\text{otherwise}.\end{cases}</span></p>
+<p><strong>(a)</strong> Find the cumulative distribution function of <span class="math inline">X</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is defined by <span class="math inline">Y=e^{X/2}</span>.</p>
+<p><strong>(b)</strong> Find the probability density function of <span class="math inline">Y</span>.</p>
+<p><strong>(c)</strong> Find the 30th percentile of <span class="math inline">Y</span>.</p>
+<p><strong>(d)</strong> Find <span class="math inline">E(Y^4)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[F_X(x)=\begin{cases}0,&amp;x&lt;0,\\\dfrac3{14}\left(e^{x/2}-4e^{-x/2}+3\right),&amp;0\le x\le2\ln3,\\1,&amp;x&gt;2\ln3.\end{cases}\]</span></p>
-<p><strong>(b)</strong> <span class="math inline">\(x=2\ln y\)</span>, <span class="math inline">\(dx/dy=2/y\)</span>, so <span class="math display">\[\boxed{f_Y(y)=\frac3{14}\left(1+\frac4{y^2}\right)},\qquad1\le y\le3.\]</span></p>
-<p><strong>(c)</strong> Solving <span class="math inline">\(\frac3{14}(y-4/y+3)=0.3\)</span> gives <span class="math display">\[\boxed{y=\frac{2\sqrt{29}-4}{5}}.\]</span></p>
-<strong>(d)</strong> <span class="math display">\[E(Y^4)=E(e^{2X})=\frac3{28}\int_0^{2\ln3}\left(e^{5x/2}+4e^{3x/2}\right)dx
-=\boxed{\frac{623}{35}}.\]</span>
+<p><strong>(a)</strong> <span class="math display">F_X(x)=\begin{cases}0,&amp;x&lt;0,\\\dfrac3{14}\left(e^{x/2}-4e^{-x/2}+3\right),&amp;0\le x\le2\ln3,\\1,&amp;x&gt;2\ln3.\end{cases}</span></p>
+<p><strong>(b)</strong> <span class="math inline">x=2\ln y</span>, <span class="math inline">dx/dy=2/y</span>, so <span class="math display">\boxed{f_Y(y)=\frac3{14}\left(1+\frac4{y^2}\right)},\qquad1\le y\le3.</span></p>
+<p><strong>(c)</strong> Solving <span class="math inline">\frac3{14}(y-4/y+3)=0.3</span> gives <span class="math display">\boxed{y=\frac{2\sqrt{29}-4}{5}}.</span></p>
+<strong>(d)</strong> <span class="math display">E(Y^4)=E(e^{2X})=\frac3{28}\int_0^{2\ln3}\left(e^{5x/2}+4e^{3x/2}\right)dx
+=\boxed{\frac{623}{35}}.</span>
 </details>
 </section>
 <section id="mayjune-923143-question-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923143-question-1">2023 May/June · 9231/43 · Question 1</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function <span class="math display">\[f(x)=\begin{cases}\dfrac16\left(x^{-1/3}-x^{-2/3}\right),&amp;1\le x\le27,\\0,&amp;\text{otherwise}.\end{cases}\]</span></p>
-<p><strong>(a)</strong> Find the cumulative distribution function of <span class="math inline">\(X\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y=X^{1/3}\)</span>.</p>
-<p><strong>(b)</strong> Find the probability density function of <span class="math inline">\(Y\)</span>.</p>
-<p><strong>(c)</strong> Find the exact value of the median of <span class="math inline">\(Y\)</span>.</p>
+<p>The continuous random variable <span class="math inline">X</span> has probability density function <span class="math display">f(x)=\begin{cases}\dfrac16\left(x^{-1/3}-x^{-2/3}\right),&amp;1\le x\le27,\\0,&amp;\text{otherwise}.\end{cases}</span></p>
+<p><strong>(a)</strong> Find the cumulative distribution function of <span class="math inline">X</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is defined by <span class="math inline">Y=X^{1/3}</span>.</p>
+<p><strong>(b)</strong> Find the probability density function of <span class="math inline">Y</span>.</p>
+<p><strong>(c)</strong> Find the exact value of the median of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(F_X(x)=0\)</span> for <span class="math inline">\(x&lt;1\)</span>, <span class="math inline">\(F_X(x)=\frac14x^{2/3}-\frac12x^{1/3}+\frac14\)</span> for <span class="math inline">\(1\le x\le27\)</span>, and <span class="math inline">\(F_X(x)=1\)</span> for <span class="math inline">\(x&gt;27\)</span>.</p>
-<p><strong>(b)</strong> With <span class="math inline">\(x=y^3\)</span>, <span class="math display">\[\boxed{f_Y(y)=\frac{y-1}{2}},\qquad1\le y\le3.\]</span></p>
-<strong>(c)</strong> <span class="math inline">\(F_Y(y)=\frac{(y-1)^2}{4}=\frac12\)</span>, so <span class="math display">\[\boxed{y=1+\sqrt2}.\]</span>
+<p><strong>(a)</strong> <span class="math inline">F_X(x)=0</span> for <span class="math inline">x&lt;1</span>, <span class="math inline">F_X(x)=\frac14x^{2/3}-\frac12x^{1/3}+\frac14</span> for <span class="math inline">1\le x\le27</span>, and <span class="math inline">F_X(x)=1</span> for <span class="math inline">x&gt;27</span>.</p>
+<p><strong>(b)</strong> With <span class="math inline">x=y^3</span>, <span class="math display">\boxed{f_Y(y)=\frac{y-1}{2}},\qquad1\le y\le3.</span></p>
+<strong>(c)</strong> <span class="math inline">F_Y(y)=\frac{(y-1)^2}{4}=\frac12</span>, so <span class="math display">\boxed{y=1+\sqrt2}.</span>
 </details>
 </section>
 <section id="octobernovember-923141-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923141-question-4">2023 October/November · 9231/41 · Question 4</h3>
-<p>As shown in the diagram, the continuous random variable <span class="math inline">\(X\)</span> has probability density function <span class="math display">\[f(x)=\begin{cases}mx,&amp;0\le x\le2,\\\dfrac{k}{x^2}+c,&amp;2\le x\le6,\\0,&amp;\text{otherwise},\end{cases}\]</span> where <span class="math inline">\(m\)</span>, <span class="math inline">\(k\)</span> and <span class="math inline">\(c\)</span> are constants. Given that <span class="math inline">\(P(X\le2)=\frac13\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(m=\frac16\)</span> and find <span class="math inline">\(k\)</span> and <span class="math inline">\(c\)</span>.</p>
-<p><strong>(b)</strong> Find the exact numerical value of the interquartile range of <span class="math inline">\(X\)</span>.</p>
+<p>As shown in the diagram, the continuous random variable <span class="math inline">X</span> has probability density function <span class="math display">f(x)=\begin{cases}mx,&amp;0\le x\le2,\\\dfrac{k}{x^2}+c,&amp;2\le x\le6,\\0,&amp;\text{otherwise},\end{cases}</span> where <span class="math inline">m</span>, <span class="math inline">k</span> and <span class="math inline">c</span> are constants. Given that <span class="math inline">P(X\le2)=\frac13</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">m=\frac16</span> and find <span class="math inline">k</span> and <span class="math inline">c</span>.</p>
+<p><strong>(b)</strong> Find the exact numerical value of the interquartile range of <span class="math inline">X</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(\frac12(2)(2m)=\frac13\)</span> gives <span class="math inline">\(m=\frac16\)</span>. Continuity and total area give <span class="math display">\[\frac{k}{4}+c=\frac13,\qquad\frac{k}{3}+4c=\frac23,\]</span> so <span class="math inline">\(\boxed{k=1, c=\frac1{12}}\)</span>.</p>
-<strong>(b)</strong> <span class="math inline">\(Q_1\)</span> lies in the first interval: <span class="math inline">\(Q_1^2/12=1/4\)</span>, hence <span class="math inline">\(Q_1=\sqrt3\)</span>. For <span class="math inline">\(Q_3\)</span>, <span class="math display">\[\frac13+\int_2^{Q_3}\left(\frac1{x^2}+\frac1{12}\right)dx=\frac34,\]</span> which gives <span class="math inline">\(Q_3=4\)</span>. Therefore <span class="math display">\[\boxed{\operatorname{IQR}=4-\sqrt3}.\]</span>
+<p><strong>(a)</strong> <span class="math inline">\frac12(2)(2m)=\frac13</span> gives <span class="math inline">m=\frac16</span>. Continuity and total area give <span class="math display">\frac{k}{4}+c=\frac13,\qquad\frac{k}{3}+4c=\frac23,</span> so <span class="math inline">\boxed{k=1, c=\frac1{12}}</span>.</p>
+<strong>(b)</strong> <span class="math inline">Q_1</span> lies in the first interval: <span class="math inline">Q_1^2/12=1/4</span>, hence <span class="math inline">Q_1=\sqrt3</span>. For <span class="math inline">Q_3</span>, <span class="math display">\frac13+\int_2^{Q_3}\left(\frac1{x^2}+\frac1{12}\right)dx=\frac34,</span> which gives <span class="math inline">Q_3=4</span>. Therefore <span class="math display">\boxed{\operatorname{IQR}=4-\sqrt3}.</span>
 </details>
 </section>
 <section id="octobernovember-923142-question-4-2" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923142-question-4-2">2023 October/November · 9231/42 · Question 4</h3>
-<p>The diagram shows the continuous random variable <span class="math inline">\(X\)</span> with probability density function <span class="math display">\[f(x)=\begin{cases}\dfrac1{128}(4ax-bx^3),&amp;0\le x\le4,\\c,&amp;4\le x\le6,\\0,&amp;\text{otherwise},\end{cases}\]</span> where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are constants. The upper quartile of <span class="math inline">\(X\)</span> is equal to 4.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(c=\frac18\)</span> and find <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
-<p><strong>(b)</strong> Find the exact value of the median of <span class="math inline">\(X\)</span>.</p>
-<p><strong>(c)</strong> Find <span class="math inline">\(E(\sqrt X)\)</span>, giving your answer correct to 2 decimal places.</p>
+<p>The diagram shows the continuous random variable <span class="math inline">X</span> with probability density function <span class="math display">f(x)=\begin{cases}\dfrac1{128}(4ax-bx^3),&amp;0\le x\le4,\\c,&amp;4\le x\le6,\\0,&amp;\text{otherwise},\end{cases}</span> where <span class="math inline">a</span>, <span class="math inline">b</span> and <span class="math inline">c</span> are constants. The upper quartile of <span class="math inline">X</span> is equal to 4.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">c=\frac18</span> and find <span class="math inline">a</span> and <span class="math inline">b</span>.</p>
+<p><strong>(b)</strong> Find the exact value of the median of <span class="math inline">X</span>.</p>
+<p><strong>(c)</strong> Find <span class="math inline">E(\sqrt X)</span>, giving your answer correct to 2 decimal places.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Since <span class="math inline">\(P(X&gt;4)=1/4\)</span>, <span class="math inline">\(2c=1/4\)</span>, so <span class="math inline">\(c=1/8\)</span>. Continuity at 4 and <span class="math inline">\(P(X\le4)=3/4\)</span> give <span class="math inline">\(\boxed{a=1,b=-1}\)</span>.</p>
-<p><strong>(b)</strong> For <span class="math inline">\(0\le x\le4\)</span>, <span class="math inline">\(F_X(x)=x^2/64+x^4/512\)</span>. Setting this equal to <span class="math inline">\(1/2\)</span> gives <span class="math display">\[\boxed{\operatorname{median}(X)=2\sqrt{\sqrt{17}-1}}.\]</span></p>
-<strong>(c)</strong> <span class="math display">\[E(\sqrt X)=\int_0^4\sqrt x\frac{4x+x^3}{128}dx+\int_4^6\frac{\sqrt x}{8}dx
-=\frac{28}{45}+\frac{\sqrt6}{2}\approx\boxed{1.69}.\]</span>
+<p><strong>(a)</strong> Since <span class="math inline">P(X&gt;4)=1/4</span>, <span class="math inline">2c=1/4</span>, so <span class="math inline">c=1/8</span>. Continuity at 4 and <span class="math inline">P(X\le4)=3/4</span> give <span class="math inline">\boxed{a=1,b=-1}</span>.</p>
+<p><strong>(b)</strong> For <span class="math inline">0\le x\le4</span>, <span class="math inline">F_X(x)=x^2/64+x^4/512</span>. Setting this equal to <span class="math inline">1/2</span> gives <span class="math display">\boxed{\operatorname{median}(X)=2\sqrt{\sqrt{17}-1}}.</span></p>
+<strong>(c)</strong> <span class="math display">E(\sqrt X)=\int_0^4\sqrt x\frac{4x+x^3}{128}dx+\int_4^6\frac{\sqrt x}{8}dx
+=\frac{28}{45}+\frac{\sqrt6}{2}\approx\boxed{1.69}.</span>
 </details>
 </section>
 <section id="mayjune-923143-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923143-question-5">2024 May/June · 9231/43 · Question 5</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has cumulative distribution function <span class="math display">\[F(x)=\begin{cases}0,&amp;x&lt;2,\\\dfrac{(x-2)^2}{12},&amp;2\le x&lt;4,\\1-\dfrac{(8-x)^2}{24},&amp;4\le x\le8,\\1,&amp;x&gt;8.\end{cases}\]</span></p>
-<p><strong>(a)</strong> Sketch the graph of the probability density function of <span class="math inline">\(X\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(E(X)\)</span>.</p>
-<p><strong>(c)</strong> Find the exact value of the interquartile range of <span class="math inline">\(X\)</span>.</p>
+<p>The continuous random variable <span class="math inline">X</span> has cumulative distribution function <span class="math display">F(x)=\begin{cases}0,&amp;x&lt;2,\\\dfrac{(x-2)^2}{12},&amp;2\le x&lt;4,\\1-\dfrac{(8-x)^2}{24},&amp;4\le x\le8,\\1,&amp;x&gt;8.\end{cases}</span></p>
+<p><strong>(a)</strong> Sketch the graph of the probability density function of <span class="math inline">X</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">E(X)</span>.</p>
+<p><strong>(c)</strong> Find the exact value of the interquartile range of <span class="math inline">X</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Differentiate each branch: <span class="math display">\[f(x)=\begin{cases}(x-2)/6,&amp;2\le x&lt;4,\\(8-x)/12,&amp;4\le x\le8,\\0,&amp;\text{otherwise}.\end{cases}\]</span> The sketch is a rising line from <span class="math inline">\((2,0)\)</span> to <span class="math inline">\((4,1/3)\)</span>, followed by a falling line to <span class="math inline">\((8,0)\)</span>.</p>
-<p><strong>(b)</strong> <span class="math inline">\(E(X)=\int xf(x)dx=\boxed{14/3}\)</span>.</p>
-<strong>(c)</strong> <span class="math inline">\(Q_1=2+\sqrt3\)</span> and <span class="math inline">\(Q_3=8-\sqrt6\)</span>, hence <span class="math display">\[\boxed{\operatorname{IQR}=6-\sqrt3-\sqrt6}.\]</span>
+<p><strong>(a)</strong> Differentiate each branch: <span class="math display">f(x)=\begin{cases}(x-2)/6,&amp;2\le x&lt;4,\\(8-x)/12,&amp;4\le x\le8,\\0,&amp;\text{otherwise}.\end{cases}</span> The sketch is a rising line from <span class="math inline">(2,0)</span> to <span class="math inline">(4,1/3)</span>, followed by a falling line to <span class="math inline">(8,0)</span>.</p>
+<p><strong>(b)</strong> <span class="math inline">E(X)=\int xf(x)dx=\boxed{14/3}</span>.</p>
+<strong>(c)</strong> <span class="math inline">Q_1=2+\sqrt3</span> and <span class="math inline">Q_3=8-\sqrt6</span>, hence <span class="math display">\boxed{\operatorname{IQR}=6-\sqrt3-\sqrt6}.</span>
 </details>
 </section>
 <section id="octobernovember-923141-923142-and-923143-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923141-923142-and-923143-question-4">2024 October/November · 9231/41, 9231/42 and 9231/43 · Question 4</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function <span class="math display">\[f(x)=\begin{cases}kx^3,&amp;0\le x&lt;1,\\k(5-x),&amp;1\le x\le5,\\0,&amp;\text{otherwise},\end{cases}\]</span> where <span class="math inline">\(k\)</span> is a constant.</p>
-<p><strong>(a)</strong> Sketch the graph of <span class="math inline">\(f\)</span>.</p>
-<p><strong>(b)</strong> Show that <span class="math inline">\(k=\frac4{33}\)</span>.</p>
-<p><strong>(c)</strong> Find the cumulative distribution function of <span class="math inline">\(X\)</span>.</p>
-<p><strong>(d)</strong> Find the median value of <span class="math inline">\(X\)</span>.</p>
+<p>The continuous random variable <span class="math inline">X</span> has probability density function <span class="math display">f(x)=\begin{cases}kx^3,&amp;0\le x&lt;1,\\k(5-x),&amp;1\le x\le5,\\0,&amp;\text{otherwise},\end{cases}</span> where <span class="math inline">k</span> is a constant.</p>
+<p><strong>(a)</strong> Sketch the graph of <span class="math inline">f</span>.</p>
+<p><strong>(b)</strong> Show that <span class="math inline">k=\frac4{33}</span>.</p>
+<p><strong>(c)</strong> Find the cumulative distribution function of <span class="math inline">X</span>.</p>
+<p><strong>(d)</strong> Find the median value of <span class="math inline">X</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> The graph is <span class="math inline">\(kx^3\)</span> on <span class="math inline">\([0,1)\)</span> and the line <span class="math inline">\(k(5-x)\)</span> on <span class="math inline">\([1,5]\)</span>.</p>
-<p><strong>(b)</strong> <span class="math inline">\(k(1/4+8)=1\)</span>, so <span class="math inline">\(\boxed{k=4/33}\)</span>.</p>
-<p><strong>(c)</strong> <span class="math display">\[F_X(x)=\begin{cases}0,&amp;x&lt;0,\\x^4/33,&amp;0\le x&lt;1,\\\dfrac4{33}\left(5x-\frac{x^2}{2}-\frac92\right)+\frac1{33},&amp;1\le x\le5,\\1,&amp;x&gt;5.\end{cases}\]</span></p>
-<strong>(d)</strong> The median is in <span class="math inline">\([1,5]\)</span>. Solving <span class="math inline">\(F_X(m)=1/2\)</span> gives <span class="math display">\[\boxed{m=5-\frac{\sqrt{33}}2}.\]</span>
+<p><strong>(a)</strong> The graph is <span class="math inline">kx^3</span> on <span class="math inline">[0,1)</span> and the line <span class="math inline">k(5-x)</span> on <span class="math inline">[1,5]</span>.</p>
+<p><strong>(b)</strong> <span class="math inline">k(1/4+8)=1</span>, so <span class="math inline">\boxed{k=4/33}</span>.</p>
+<p><strong>(c)</strong> <span class="math display">F_X(x)=\begin{cases}0,&amp;x&lt;0,\\x^4/33,&amp;0\le x&lt;1,\\\dfrac4{33}\left(5x-\frac{x^2}{2}-\frac92\right)+\frac1{33},&amp;1\le x\le5,\\1,&amp;x&gt;5.\end{cases}</span></p>
+<strong>(d)</strong> The median is in <span class="math inline">[1,5]</span>. Solving <span class="math inline">F_X(m)=1/2</span> gives <span class="math display">\boxed{m=5-\frac{\sqrt{33}}2}.</span>
 </details>
 </section>
 <section id="mayjune-923143-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923143-question-3">2025 May/June · 9231/43 · Question 3</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function <span class="math display">\[f(x)=\begin{cases}kx,&amp;0\le x&lt;1,\\k(8-x),&amp;1\le x\le8,\\0,&amp;\text{otherwise},\end{cases}\]</span> where <span class="math inline">\(k\)</span> is a constant.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(k=\frac1{25}\)</span>.</p>
-<p><strong>(b)</strong> Find the median value of <span class="math inline">\(X\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y=3X\)</span>.</p>
-<p><strong>(c)</strong> Find the probability density function of <span class="math inline">\(Y\)</span>.</p>
+<p>The continuous random variable <span class="math inline">X</span> has probability density function <span class="math display">f(x)=\begin{cases}kx,&amp;0\le x&lt;1,\\k(8-x),&amp;1\le x\le8,\\0,&amp;\text{otherwise},\end{cases}</span> where <span class="math inline">k</span> is a constant.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">k=\frac1{25}</span>.</p>
+<p><strong>(b)</strong> Find the median value of <span class="math inline">X</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is defined by <span class="math inline">Y=3X</span>.</p>
+<p><strong>(c)</strong> Find the probability density function of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(k(1/2+49/2)=1\)</span>, so <span class="math inline">\(\boxed{k=1/25}\)</span>.</p>
-<p><strong>(b)</strong> Since <span class="math inline">\(F_X(1)=1/50\)</span>, the median is in <span class="math inline">\([1,8]\)</span>: <span class="math display">\[\frac1{50}+\frac1{25}\left(8m-\frac{m^2}{2}-\frac{15}{2}\right)=\frac12,\]</span> so <span class="math inline">\(\boxed{m=8-\sqrt{26}}\)</span>.</p>
-<strong>(c)</strong> <span class="math display">\[f_Y(y)=\begin{cases}y/225,&amp;0\le y&lt;3,\\(24-y)/225,&amp;3\le y\le24,\\0,&amp;\text{otherwise}.\end{cases}\]</span>
+<p><strong>(a)</strong> <span class="math inline">k(1/2+49/2)=1</span>, so <span class="math inline">\boxed{k=1/25}</span>.</p>
+<p><strong>(b)</strong> Since <span class="math inline">F_X(1)=1/50</span>, the median is in <span class="math inline">[1,8]</span>: <span class="math display">\frac1{50}+\frac1{25}\left(8m-\frac{m^2}{2}-\frac{15}{2}\right)=\frac12,</span> so <span class="math inline">\boxed{m=8-\sqrt{26}}</span>.</p>
+<strong>(c)</strong> <span class="math display">f_Y(y)=\begin{cases}y/225,&amp;0\le y&lt;3,\\(24-y)/225,&amp;3\le y\le24,\\0,&amp;\text{otherwise}.\end{cases}</span>
 </details>
 </section>
 <section id="octobernovember-923141-and-923143-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-5">2025 October/November · 9231/41 and 9231/43 · Question 5</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has probability density function <span class="math display">\[f(x)=\begin{cases}\dfrac1{16}\sqrt x,&amp;0\le x&lt;4,\\\dfrac1{k\sqrt x},&amp;4\le x\le9,\\0,&amp;\text{otherwise},\end{cases}\]</span> where <span class="math inline">\(k\)</span> is a constant.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(k=3\)</span>.</p>
-<p><strong>(b)</strong> Find the median value of <span class="math inline">\(X\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y=\sqrt X\)</span>.</p>
-<p><strong>(c)</strong> Find the probability density function of <span class="math inline">\(Y\)</span>.</p>
+<p>The continuous random variable <span class="math inline">X</span> has probability density function <span class="math display">f(x)=\begin{cases}\dfrac1{16}\sqrt x,&amp;0\le x&lt;4,\\\dfrac1{k\sqrt x},&amp;4\le x\le9,\\0,&amp;\text{otherwise},\end{cases}</span> where <span class="math inline">k</span> is a constant.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">k=3</span>.</p>
+<p><strong>(b)</strong> Find the median value of <span class="math inline">X</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is defined by <span class="math inline">Y=\sqrt X</span>.</p>
+<p><strong>(c)</strong> Find the probability density function of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math display">\[\int_0^4\frac{\sqrt x}{16}dx+\int_4^9\frac{dx}{k\sqrt x}=\frac13+\frac2k=1,\]</span> so <span class="math inline">\(\boxed{k=3}\)</span>.</p>
-<p><strong>(b)</strong> <span class="math inline">\(P(X\le4)=1/3\)</span> and <span class="math inline">\(\int_4^9dx/(3\sqrt x)=2/3\)</span>, hence <span class="math inline">\(\boxed{\operatorname{median}(X)=9}\)</span>.</p>
-<strong>(c)</strong> With <span class="math inline">\(x=y^2\)</span> and <span class="math inline">\(dx/dy=2y\)</span>, <span class="math display">\[f_Y(y)=\begin{cases}y^2/8,&amp;0\le y&lt;2,\\2/3,&amp;2\le y\le3,\\0,&amp;\text{otherwise}.\end{cases}\]</span>
+<p><strong>(a)</strong> <span class="math display">\int_0^4\frac{\sqrt x}{16}dx+\int_4^9\frac{dx}{k\sqrt x}=\frac13+\frac2k=1,</span> so <span class="math inline">\boxed{k=3}</span>.</p>
+<p><strong>(b)</strong> <span class="math inline">P(X\le4)=1/3</span> and <span class="math inline">\int_4^9dx/(3\sqrt x)=2/3</span>, hence <span class="math inline">\boxed{\operatorname{median}(X)=9}</span>.</p>
+<strong>(c)</strong> With <span class="math inline">x=y^2</span> and <span class="math inline">dx/dy=2y</span>, <span class="math display">f_Y(y)=\begin{cases}y^2/8,&amp;0\le y&lt;2,\\2/3,&amp;2\le y\le3,\\0,&amp;\text{otherwise}.\end{cases}</span>
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-3-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-3-1">2022 May/June · 9231/41 and 9231/42 · Question 3</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has PDF</p>
-<p><span class="math display">\[
+<p>The continuous random variable <span class="math inline">X</span> has PDF</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 kx(4-x), &amp; 0\le x\le2,\\
 k(6-x), &amp; 2\le x\le6,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(k=\frac{3}{40}\)</span>.</p>
-<p><strong>(b)</strong> Given that <span class="math inline">\(E(X)=2.5\)</span>, find <span class="math inline">\(\operatorname{Var}(X)\)</span>.</p>
-<p><strong>(c)</strong> Find the median value of <span class="math inline">\(X\)</span>.</p>
+</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">k=\frac{3}{40}</span>.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">E(X)=2.5</span>, find <span class="math inline">\operatorname{Var}(X)</span>.</p>
+<p><strong>(c)</strong> Find the median value of <span class="math inline">X</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \int_0^2kx(4-x)\,dx+\int_2^6k(6-x)\,dx=1
 \quad\Longrightarrow\quad
 \boxed{k=\frac{3}{40}}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 E(X^2)=\int_0^2x^2f(x)\,dx+\int_2^6x^2f(x)\,dx=\frac{198}{25}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \operatorname{Var}(X)=\frac{198}{25}-\left(\frac52\right)^2
 =\boxed{\frac{167}{100}}.
-\]</span></p>
-<p><strong>(c)</strong> The area from <span class="math inline">\(0\)</span> to <span class="math inline">\(2\)</span> is <span class="math inline">\(\frac25\)</span>, so the median <span class="math inline">\(m\)</span> lies in <span class="math inline">\([2,6]\)</span>. Set</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(c)</strong> The area from <span class="math inline">0</span> to <span class="math inline">2</span> is <span class="math inline">\frac25</span>, so the median <span class="math inline">m</span> lies in <span class="math inline">[2,6]</span>. Set</p>
+<p><span class="math display">
 \frac25+\int_2^m\frac{3}{40}(6-x)\,dx=\frac12.
-\]</span></p>
-<p>This gives <span class="math inline">\(3m^2-36m+68=0\)</span>. The admissible root is</p>
-<span class="math display">\[
+</span></p>
+<p>This gives <span class="math inline">3m^2-36m+68=0</span>. The admissible root is</p>
+<span class="math display">
 \boxed{m=6-\frac{2\sqrt{30}}{3}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="mayjune-923141-923142-and-923143-question-7" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923141-923142-and-923143-question-7">2024 May/June · 9231/41, 9231/42 and 9231/43 · Question 7</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has PDF</p>
-<p><span class="math display">\[
+<p>The continuous random variable <span class="math inline">X</span> has PDF</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 \dfrac{x}{4}(4-x^2), &amp; 0\le x\le2,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span></p>
-<p>The random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y=X^2\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\operatorname{Var}(X)\)</span>.</p>
-<p><strong>(b)</strong> Find the PDF of <span class="math inline">\(Y\)</span>.</p>
-<p><strong>(c)</strong> Find the exact value of the median of <span class="math inline">\(Y\)</span>.</p>
+</span></p>
+<p>The random variable <span class="math inline">Y</span> is defined by <span class="math inline">Y=X^2</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\operatorname{Var}(X)</span>.</p>
+<p><strong>(b)</strong> Find the PDF of <span class="math inline">Y</span>.</p>
+<p><strong>(c)</strong> Find the exact value of the median of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 E(X^2)=\int_0^2x^2\frac{x}{4}(4-x^2)\,dx=\frac43,
 \qquad
 E(X)=\frac{16}{15}.
-\]</span></p>
+</span></p>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \operatorname{Var}(X)=\frac43-\left(\frac{16}{15}\right)^2
 =\boxed{\frac{44}{225}}.
-\]</span></p>
-<p><strong>(b)</strong> For <span class="math inline">\(0\le y\le4\)</span>, <span class="math inline">\(x=\sqrt y\)</span> and <span class="math inline">\(\frac{dx}{dy}=\frac1{2\sqrt y}\)</span>.</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> For <span class="math inline">0\le y\le4</span>, <span class="math inline">x=\sqrt y</span> and <span class="math inline">\frac{dx}{dy}=\frac1{2\sqrt y}</span>.</p>
+<p><span class="math display">
 f_Y(y)=f_X(\sqrt y)\frac1{2\sqrt y}
 =\boxed{\frac{4-y}{8}},
 \qquad 0\le y\le4.
-\]</span></p>
+</span></p>
 <p><strong>(c)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 P(Y\le m)=\int_0^m\frac{4-y}{8}\,dy
 =\frac m2-\frac{m^2}{16}=\frac12.
-\]</span></p>
-<p>The root in <span class="math inline">\([0,4]\)</span> is</p>
-<span class="math display">\[
+</span></p>
+<p>The root in <span class="math inline">[0,4]</span> is</p>
+<span class="math display">
 \boxed{m=4-2\sqrt2}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="octobernovember-923141-923142-and-923143-question-4-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923141-923142-and-923143-question-4-1">2025 October/November · 9231/41, 9231/42 and 9231/43 · Question 4</h3>
-<p>The continuous random variable <span class="math inline">\(X\)</span> has CDF</p>
-<p><span class="math display">\[
+<p>The continuous random variable <span class="math inline">X</span> has CDF</p>
+<p><span class="math display">
 F(x)=
 \begin{cases}
 0, &amp; x&lt;1,\\
@@ -1091,71 +1105,71 @@ F(x)=
 \dfrac{x^2}{50}+b, &amp; 4\le x\le6,\\
 1, &amp; x&gt;6,
 \end{cases}
-\]</span></p>
-<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
-<p><strong>(b)</strong> Find the PDF of <span class="math inline">\(X\)</span>.</p>
+</span></p>
+<p>where <span class="math inline">a</span> and <span class="math inline">b</span> are constants.</p>
+<p><strong>(a)</strong> Find <span class="math inline">a</span> and <span class="math inline">b</span>.</p>
+<p><strong>(b)</strong> Find the PDF of <span class="math inline">X</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Continuity at <span class="math inline">\(x=1\)</span> gives <span class="math inline">\(\frac15+a=0\)</span>, so <span class="math inline">\(a=-\frac15\)</span>. Continuity at <span class="math inline">\(x=4\)</span> gives</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Continuity at <span class="math inline">x=1</span> gives <span class="math inline">\frac15+a=0</span>, so <span class="math inline">a=-\frac15</span>. Continuity at <span class="math inline">x=4</span> gives</p>
+<p><span class="math display">
 \frac45-\frac15=\frac{16}{50}+b,
-\]</span></p>
-<p>so <span class="math inline">\(\boxed{a=-\frac15,\ b=\frac7{25}}\)</span>.</p>
+</span></p>
+<p>so <span class="math inline">\boxed{a=-\frac15,\ b=\frac7{25}}</span>.</p>
 <p><strong>(b)</strong> Differentiate each piece:</p>
-<span class="math display">\[
+<span class="math display">
 f(x)=
 \begin{cases}
 \frac15, &amp; 1\le x&lt;4,\\
 \frac{x}{25}, &amp; 4\le x\le6,\\
 0, &amp; \text{otherwise}.
 \end{cases}
-\]</span>
+</span>
 </details>
 </section>
 <section id="mayjune-923141-923142-and-923143-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923141-923142-and-923143-question-3">2025 May/June · 9231/41, 9231/42 and 9231/43 · Question 3</h3>
-<p>As shown in the diagram, the continuous random variable <span class="math inline">\(X\)</span> has PDF</p>
-<p><span class="math display">\[
+<p>As shown in the diagram, the continuous random variable <span class="math inline">X</span> has PDF</p>
+<p><span class="math display">
 f(x)=
 \begin{cases}
 a, &amp; 0\le x\le5,\\
 b-cx, &amp; 5\le x\le8,\\
 0, &amp; \text{otherwise},
 \end{cases}
-\]</span></p>
-<p>where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are constants.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(a=\frac{2}{13}\)</span> and find <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>.</p>
-<p><strong>(b)</strong> Find the mean of <span class="math inline">\(X\)</span>.</p>
-<p><strong>(c)</strong> Find the median of <span class="math inline">\(X\)</span>.</p>
-<p>The random variable <span class="math inline">\(Y\)</span> is defined by <span class="math inline">\(Y=X^2\)</span>.</p>
-<p><strong>(d)</strong> Find the CDF of <span class="math inline">\(Y\)</span>.</p>
+</span></p>
+<p>where <span class="math inline">a</span>, <span class="math inline">b</span> and <span class="math inline">c</span> are constants.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">a=\frac{2}{13}</span> and find <span class="math inline">b</span> and <span class="math inline">c</span>.</p>
+<p><strong>(b)</strong> Find the mean of <span class="math inline">X</span>.</p>
+<p><strong>(c)</strong> Find the median of <span class="math inline">X</span>.</p>
+<p>The random variable <span class="math inline">Y</span> is defined by <span class="math inline">Y=X^2</span>.</p>
+<p><strong>(d)</strong> Find the CDF of <span class="math inline">Y</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The graph is continuous at <span class="math inline">\(x=5\)</span> and reaches <span class="math inline">\(0\)</span> at <span class="math inline">\(x=8\)</span>.</p>
-<p><strong>(a)</strong> Total area gives <span class="math inline">\(5a+\frac12(3)a=1\)</span>, hence <span class="math inline">\(a=\frac{2}{13}\)</span>. Then</p>
-<p><span class="math display">\[
+<p>The graph is continuous at <span class="math inline">x=5</span> and reaches <span class="math inline">0</span> at <span class="math inline">x=8</span>.</p>
+<p><strong>(a)</strong> Total area gives <span class="math inline">5a+\frac12(3)a=1</span>, hence <span class="math inline">a=\frac{2}{13}</span>. Then</p>
+<p><span class="math display">
 b-5c=\frac{2}{13},
 \qquad b-8c=0,
-\]</span></p>
-<p>so <span class="math inline">\(\boxed{b=\frac{16}{39},\ c=\frac{2}{39}}\)</span>.</p>
+</span></p>
+<p>so <span class="math inline">\boxed{b=\frac{16}{39},\ c=\frac{2}{39}}</span>.</p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 E(X)=\int_0^5x\frac{2}{13}\,dx+\int_5^8x\left(\frac{16}{39}-\frac{2x}{39}\right)dx
 =\boxed{\frac{43}{13}}.
-\]</span></p>
-<p><strong>(c)</strong> Since <span class="math inline">\(F(5)=\frac{10}{13}&gt;\frac12\)</span>, the median lies in <span class="math inline">\([0,5]\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(c)</strong> Since <span class="math inline">F(5)=\frac{10}{13}&gt;\frac12</span>, the median lies in <span class="math inline">[0,5]</span>:</p>
+<p><span class="math display">
 \frac{2m}{13}=\frac12
 \quad\Longrightarrow\quad
 \boxed{m=\frac{13}{4}}.
-\]</span></p>
-<p><strong>(d)</strong> Since <span class="math inline">\(X\ge0\)</span>, <span class="math inline">\(F_Y(y)=F_X(\sqrt y)\)</span>:</p>
-<span class="math display">\[
+</span></p>
+<p><strong>(d)</strong> Since <span class="math inline">X\ge0</span>, <span class="math inline">F_Y(y)=F_X(\sqrt y)</span>:</p>
+<span class="math display">
 F_Y(y)=
 \begin{cases}
 0, &amp; y&lt;0,\\
@@ -1163,19 +1177,19 @@ F_Y(y)=
 \dfrac{16\sqrt y-y-25}{39}, &amp; 25\le y\le64,\\
 1, &amp; y&gt;64.
 \end{cases}
-\]</span>
+</span>
 </details>
 </section>
 </section>
 <section id="本节检查清单" class="level2">
 <h2 class="anchored" data-anchor-id="本节检查清单">4. 本节检查清单</h2>
 <ul class="task-list">
-<li><label><input type="checkbox">能先用总面积为 <span class="math inline">\(1\)</span> 求未知常数；</label></li>
+<li><label><input type="checkbox">能先用总面积为 <span class="math inline">1</span> 求未知常数；</label></li>
 <li><label><input type="checkbox">分段 PDF 要在每个区间分别积分；</label></li>
-<li><label><input type="checkbox">写 CDF 时包含 support 外的 <span class="math inline">\(0\)</span> 和 <span class="math inline">\(1\)</span>；</label></li>
-<li><label><input type="checkbox">求 median 时解 <span class="math inline">\(F(m)=0.5\)</span>，并检查解是否在定义域内；</label></li>
+<li><label><input type="checkbox">写 CDF 时包含 support 外的 <span class="math inline">0</span> 和 <span class="math inline">1</span>；</label></li>
+<li><label><input type="checkbox">求 median 时解 <span class="math inline">F(m)=0.5</span>，并检查解是否在定义域内；</label></li>
 <li><label><input type="checkbox">做变换时先确定新变量的取值范围；</label></li>
-<li><label><input type="checkbox">计算 variance 时使用 <span class="math inline">\(E(X^2)-[E(X)]^2\)</span>。</label></li>
+<li><label><input type="checkbox">计算 variance 时使用 <span class="math inline">E(X^2)-[E(X)]^2</span>。</label></li>
 </ul>
 
 

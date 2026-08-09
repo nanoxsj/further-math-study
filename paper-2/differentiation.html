@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -445,9 +459,9 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>考生需要能够：</p>
 <ol type="1">
-<li>求双曲函数以及 <span class="math inline">\(\sin^{-1}x\)</span>、<span class="math inline">\(\cos^{-1}x\)</span>、<span class="math inline">\(\sinh^{-1}x\)</span>、<span class="math inline">\(\cosh^{-1}x\)</span>、<span class="math inline">\(\tanh^{-1}x\)</span> 的导数；</li>
-<li>当 <span class="math inline">\(x\)</span> 与 <span class="math inline">\(y\)</span> 的关系以隐式或参数形式给出时，求 <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span>；</li>
-<li>推导并使用函数的 Maclaurin 级数前几项（不要求一般项公式；可连续隐式求导，例如对 <span class="math inline">\(y=\tan x\)</span> 先化为 <span class="math inline">\(y'=1+y^2\)</span> 再逐次求导）。</li>
+<li>求双曲函数以及 <span class="math inline">\sin^{-1}x</span>、<span class="math inline">\cos^{-1}x</span>、<span class="math inline">\sinh^{-1}x</span>、<span class="math inline">\cosh^{-1}x</span>、<span class="math inline">\tanh^{-1}x</span> 的导数；</li>
+<li>当 <span class="math inline">x</span> 与 <span class="math inline">y</span> 的关系以隐式或参数形式给出时，求 <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span>；</li>
+<li>推导并使用函数的 Maclaurin 级数前几项（不要求一般项公式；可连续隐式求导，例如对 <span class="math inline">y=\tan x</span> 先化为 <span class="math inline">y'=1+y^2</span> 再逐次求导）。</li>
 </ol>
 </div>
 </div>
@@ -455,12 +469,12 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
 <div class="study-card">
 <ul class="task-list">
-<li><label><input type="checkbox">熟记 <span class="math inline">\(\tanh x\)</span>、<span class="math inline">\(\operatorname{sech}x\)</span>、<span class="math inline">\(\operatorname{cosech}x\)</span>、<span class="math inline">\(\coth x\)</span> 的导数及符号</label></li>
-<li><label><input type="checkbox">能用反函数方法求 <span class="math inline">\(\sin^{-1}x\)</span>、<span class="math inline">\(\cos^{-1}x\)</span>、<span class="math inline">\(\sinh^{-1}x\)</span>、<span class="math inline">\(\cosh^{-1}x\)</span>、<span class="math inline">\(\tanh^{-1}x\)</span> 的导数</label></li>
-<li><label><input type="checkbox">隐式关系能先求 <span class="math inline">\(y'\)</span>，再对 <span class="math inline">\(y'\)</span> 求导得到 <span class="math inline">\(y''\)</span></label></li>
-<li><label><input type="checkbox">参数曲线能用 <span class="math inline">\(y''=\dfrac{\mathrm d}{\mathrm dt}(y')\cdot\dfrac{\mathrm dt}{\mathrm dx}\)</span> 求二阶导数</label></li>
-<li><label><input type="checkbox">能写出 <span class="math inline">\(e^x\)</span>、<span class="math inline">\(\ln(1+x)\)</span>、<span class="math inline">\(\sin x\)</span>、<span class="math inline">\(\cos x\)</span>、<span class="math inline">\(\tan^{-1}x\)</span>、<span class="math inline">\(\sinh x\)</span>、<span class="math inline">\(\cosh x\)</span>、<span class="math inline">\(\tanh x\)</span> 的 Maclaurin 级数</label></li>
-<li><label><input type="checkbox">能通过逐次隐式求导求 <span class="math inline">\(y=\tan x\)</span> 等函数的 Maclaurin 级数</label></li>
+<li><label><input type="checkbox">熟记 <span class="math inline">\tanh x</span>、<span class="math inline">\operatorname{sech}x</span>、<span class="math inline">\operatorname{cosech}x</span>、<span class="math inline">\coth x</span> 的导数及符号</label></li>
+<li><label><input type="checkbox">能用反函数方法求 <span class="math inline">\sin^{-1}x</span>、<span class="math inline">\cos^{-1}x</span>、<span class="math inline">\sinh^{-1}x</span>、<span class="math inline">\cosh^{-1}x</span>、<span class="math inline">\tanh^{-1}x</span> 的导数</label></li>
+<li><label><input type="checkbox">隐式关系能先求 <span class="math inline">y'</span>，再对 <span class="math inline">y'</span> 求导得到 <span class="math inline">y''</span></label></li>
+<li><label><input type="checkbox">参数曲线能用 <span class="math inline">y''=\dfrac{\mathrm d}{\mathrm dt}(y')\cdot\dfrac{\mathrm dt}{\mathrm dx}</span> 求二阶导数</label></li>
+<li><label><input type="checkbox">能写出 <span class="math inline">e^x</span>、<span class="math inline">\ln(1+x)</span>、<span class="math inline">\sin x</span>、<span class="math inline">\cos x</span>、<span class="math inline">\tan^{-1}x</span>、<span class="math inline">\sinh x</span>、<span class="math inline">\cosh x</span>、<span class="math inline">\tanh x</span> 的 Maclaurin 级数</label></li>
+<li><label><input type="checkbox">能通过逐次隐式求导求 <span class="math inline">y=\tan x</span> 等函数的 Maclaurin 级数</label></li>
 </ul>
 </div>
 </section>
@@ -469,325 +483,325 @@ window.Quarto = {
 <section id="differentiating-hyperbolic-functions" class="level3">
 <h3 class="anchored" data-anchor-id="differentiating-hyperbolic-functions">1.1 Differentiating hyperbolic functions</h3>
 <p>双曲函数的导数与对应三角函数的导数十分相似，但要注意符号变化：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\tanh x=\operatorname{sech}^2x,
 \qquad
 \frac{\mathrm d}{\mathrm dx}\coth x=-\operatorname{cosech}^2x,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\operatorname{sech}x=-\operatorname{sech}x\tanh x,
 \qquad
 \frac{\mathrm d}{\mathrm dx}\operatorname{cosech}x=-\operatorname{cosech}x\coth x.
-\]</span></p>
+</span></p>
 </section>
 <section id="differentiating-inverse-functions" class="level3">
 <h3 class="anchored" data-anchor-id="differentiating-inverse-functions">1.2 Differentiating inverse functions</h3>
-<p>若 <span class="math inline">\(y=f^{-1}(x)\)</span>，则 <span class="math inline">\(f(y)=x\)</span>。两边对 <span class="math inline">\(x\)</span> 求导得</p>
-<p><span class="math display">\[
+<p>若 <span class="math inline">y=f^{-1}(x)</span>，则 <span class="math inline">f(y)=x</span>。两边对 <span class="math inline">x</span> 求导得</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac1{f'(y)}.
-\]</span></p>
+</span></p>
 <p>由此可得</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\sin^{-1}x=\frac1{\sqrt{1-x^2}},\qquad
 \frac{\mathrm d}{\mathrm dx}\cos^{-1}x=-\frac1{\sqrt{1-x^2}},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\sinh^{-1}x=\frac1{\sqrt{x^2+1}},\qquad
 \frac{\mathrm d}{\mathrm dx}\cosh^{-1}x=\frac1{\sqrt{x^2-1}},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\tanh^{-1}x=\frac1{1-x^2}.
-\]</span></p>
+</span></p>
 </section>
 <section id="implicit-second-derivatives" class="level3">
 <h3 class="anchored" data-anchor-id="implicit-second-derivatives">1.3 Implicit second derivatives</h3>
-<p>当 <span class="math inline">\(y\)</span> 由隐式方程给出时，先对等式两边关于 <span class="math inline">\(x\)</span> 求导得到 <span class="math inline">\(y'\)</span>，再对 <span class="math inline">\(y'\)</span> 关于 <span class="math inline">\(x\)</span> 求导（通常需要继续使用隐式求导与 chain rule、quotient rule）得到 <span class="math inline">\(y''\)</span>。</p>
+<p>当 <span class="math inline">y</span> 由隐式方程给出时，先对等式两边关于 <span class="math inline">x</span> 求导得到 <span class="math inline">y'</span>，再对 <span class="math inline">y'</span> 关于 <span class="math inline">x</span> 求导（通常需要继续使用隐式求导与 chain rule、quotient rule）得到 <span class="math inline">y''</span>。</p>
 </section>
 <section id="parametric-second-derivatives" class="level3">
 <h3 class="anchored" data-anchor-id="parametric-second-derivatives">1.4 Parametric second derivatives</h3>
-<p>若曲线由 <span class="math inline">\(x=f(t)\)</span>、<span class="math inline">\(y=g(t)\)</span> 给出，则</p>
-<p><span class="math display">\[
+<p>若曲线由 <span class="math inline">x=f(t)</span>、<span class="math inline">y=g(t)</span> 给出，则</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac{\mathrm dy/\mathrm dt}{\mathrm dx/\mathrm dt},
 \qquad
 \frac{\mathrm d^2y}{\mathrm dx^2}
 =\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{\mathrm dt}{\mathrm dx}.
-\]</span></p>
-<p>注意：不能直接对 <span class="math inline">\(y'=\dfrac{\mathrm dy/\mathrm dt}{\mathrm dx/\mathrm dt}\)</span> 用普通的商法则除以 <span class="math inline">\(\mathrm dx/\mathrm dt\)</span> 得到 <span class="math inline">\(y''\)</span>；必须先对 <span class="math inline">\(t\)</span> 求导再乘以 <span class="math inline">\(\dfrac{\mathrm dt}{\mathrm dx}\)</span>。</p>
+</span></p>
+<p>注意：不能直接对 <span class="math inline">y'=\dfrac{\mathrm dy/\mathrm dt}{\mathrm dx/\mathrm dt}</span> 用普通的商法则除以 <span class="math inline">\mathrm dx/\mathrm dt</span> 得到 <span class="math inline">y''</span>；必须先对 <span class="math inline">t</span> 求导再乘以 <span class="math inline">\dfrac{\mathrm dt}{\mathrm dx}</span>。</p>
 </section>
 <section id="maclaurin-series" class="level3">
 <h3 class="anchored" data-anchor-id="maclaurin-series">1.5 Maclaurin series</h3>
-<p>Maclaurin 级数（在 <span class="math inline">\(x=0\)</span> 附近展开）为</p>
-<p><span class="math display">\[
+<p>Maclaurin 级数（在 <span class="math inline">x=0</span> 附近展开）为</p>
+<p><span class="math display">
 \boxed{f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots}.
-\]</span></p>
+</span></p>
 <p>常用展开式（本课程范围内）：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \ln(1+x)=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots\qquad(-1&lt;x\leqslant1),
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \tan^{-1}x=x-\frac{x^3}{3}+\frac{x^5}{5}-\cdots\qquad(-1\leqslant x\leqslant1),
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \sinh x=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \cosh x=1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \tanh x=x-\frac{x^3}{3}+\frac{2x^5}{15}-\cdots\qquad(|x|&lt;\frac{\pi}{2}).
-\]</span></p>
+</span></p>
 </section>
 <section id="maclaurin-series-by-implicit-differentiation" class="level3">
 <h3 class="anchored" data-anchor-id="maclaurin-series-by-implicit-differentiation">1.6 Maclaurin series by implicit differentiation</h3>
-<p>有些函数的导数可以写成自身的形式（如 <span class="math inline">\(y=\tan x\)</span> 满足 <span class="math inline">\(y'=1+y^2\)</span>），这时可以对 <span class="math inline">\(y'=1+y^2\)</span> 逐次隐式求导，得到 <span class="math inline">\(y''\)</span>、<span class="math inline">\(y'''\)</span> 等在 <span class="math inline">\(x=0\)</span> 处的值，再代入 Maclaurin 级数公式。这避免了每次直接求高阶导数。</p>
+<p>有些函数的导数可以写成自身的形式（如 <span class="math inline">y=\tan x</span> 满足 <span class="math inline">y'=1+y^2</span>），这时可以对 <span class="math inline">y'=1+y^2</span> 逐次隐式求导，得到 <span class="math inline">y''</span>、<span class="math inline">y'''</span> 等在 <span class="math inline">x=0</span> 处的值，再代入 Maclaurin 级数公式。这避免了每次直接求高阶导数。</p>
 </section>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-1-page-62" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-1-page-62">Example 1 · Page 62</h3>
-<p>The curve <span class="math inline">\(y=a\cosh x+b\)</span> has a gradient of <span class="math inline">\(3\)</span> at the point <span class="math inline">\((-1,2)\)</span>. Find <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>.</p>
+<p>The curve <span class="math inline">y=a\cosh x+b</span> has a gradient of <span class="math inline">3</span> at the point <span class="math inline">(-1,2)</span>. Find <span class="math inline">a</span> and <span class="math inline">b</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>The point <span class="math inline">\((-1,2)\)</span> lies on the curve, so</p>
-<p><span class="math display">\[
+<p>The point <span class="math inline">(-1,2)</span> lies on the curve, so</p>
+<p><span class="math display">
 2=a\cosh(-1)+b.
-\]</span></p>
+</span></p>
 <p>Differentiating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=a\sinh x,
-\]</span></p>
-<p>so at <span class="math inline">\(x=-1\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>so at <span class="math inline">x=-1</span>,</p>
+<p><span class="math display">
 3=a\sinh(-1)=-a\sinh1.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 a=\frac3{\sinh(-1)}=-\frac3{\sinh1}\approx-2.55\ (3\text{ s.f.}),
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 b=2-a\cosh1\approx5.94\ (3\text{ s.f.}).
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-1"> Completed</label></p>
 </section>
 <section id="example-2-page-63" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-2-page-63">Example 2 · Page 63</h3>
-<p>By finding the derivative of <span class="math inline">\(x\cos^{-1}x\)</span>, integrate <span class="math inline">\(\cos^{-1}x\)</span>.</p>
+<p>By finding the derivative of <span class="math inline">x\cos^{-1}x</span>, integrate <span class="math inline">\cos^{-1}x</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Using the product rule,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(x\cos^{-1}x\right)
 =\cos^{-1}x-\frac{x}{\sqrt{1-x^2}}.
-\]</span></p>
+</span></p>
 <p>Integrating both sides,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x\cos^{-1}x=\int\cos^{-1}x\,\mathrm dx-\int\frac{x}{\sqrt{1-x^2}}\,\mathrm dx.
-\]</span></p>
-<p>Now <span class="math inline">\(\displaystyle\int\frac{x}{\sqrt{1-x^2}}\,\mathrm dx=-\sqrt{1-x^2}\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>Now <span class="math inline">\displaystyle\int\frac{x}{\sqrt{1-x^2}}\,\mathrm dx=-\sqrt{1-x^2}</span>, so</p>
+<p><span class="math display">
 \boxed{\int\cos^{-1}x\,\mathrm dx=x\cos^{-1}x-\sqrt{1-x^2}+C}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-2"> Completed</label></p>
 </section>
 <section id="example-3-page-64" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3-page-64">Example 3 · Page 64</h3>
-<p>The curves <span class="math inline">\(y=\sinh^{-1}x\)</span> and <span class="math inline">\(y=\frac12\cosh^{-1}x\)</span> have the same gradient when <span class="math inline">\(x=a\)</span>. Find <span class="math inline">\(a\)</span>.</p>
+<p>The curves <span class="math inline">y=\sinh^{-1}x</span> and <span class="math inline">y=\frac12\cosh^{-1}x</span> have the same gradient when <span class="math inline">x=a</span>. Find <span class="math inline">a</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Differentiating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\sinh^{-1}x=\frac1{\sqrt{x^2+1}},
 \qquad
 \frac{\mathrm d}{\mathrm dx}\left(\frac12\cosh^{-1}x\right)=\frac1{2\sqrt{x^2-1}}.
-\]</span></p>
+</span></p>
 <p>Equating the gradients gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac1{\sqrt{x^2+1}}=\frac1{2\sqrt{x^2-1}}.
-\]</span></p>
+</span></p>
 <p>Squaring and rearranging,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^2+1=4(x^2-1)
 \;\Longrightarrow\;
 3x^2=5
 \;\Longrightarrow\;
 x=\sqrt{\frac53}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{a=\sqrt{\frac53}}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-3"> Completed</label></p>
 </section>
 <section id="example-4-page-69" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-4-page-69">Example 4 · Page 69</h3>
-<p>Given that <span class="math inline">\(\cosh x+\sinh y=1+y\)</span>, find expressions for <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}\)</span> and <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span>.</p>
+<p>Given that <span class="math inline">\cosh x+\sinh y=1+y</span>, find expressions for <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}</span> and <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Differentiate implicitly with respect to <span class="math inline">\(x\)</span>:</p>
-<p><span class="math display">\[
+<p>Differentiate implicitly with respect to <span class="math inline">x</span>:</p>
+<p><span class="math display">
 \sinh x+\cosh y\,\frac{\mathrm dy}{\mathrm dx}=\frac{\mathrm dy}{\mathrm dx}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm dy}{\mathrm dx}=\frac{1-\sinh x}{\cosh y-1}}.
-\]</span></p>
+</span></p>
 <p>For the second derivative, differentiate</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sinh x+\cosh y\,\frac{\mathrm dy}{\mathrm dx}=\frac{\mathrm dy}{\mathrm dx}
-\]</span></p>
+</span></p>
 <p>again:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \cosh x+\cosh y\,\frac{\mathrm d^2y}{\mathrm dx^2}
 +\sinh y\left(\frac{\mathrm dy}{\mathrm dx}\right)^2
 =\frac{\mathrm d^2y}{\mathrm dx^2}.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{
 \frac{\mathrm d^2y}{\mathrm dx^2}
 =\frac{-\cosh x-\sinh y\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}{\cosh y-1}
 =\frac{-\cosh x(\cosh y-1)^2-\sinh y(1-\sinh x)^2}{(\cosh y-1)^3}.
 }
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-4"> Completed</label></p>
 </section>
 <section id="example-5-page-70" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5-page-70">Example 5 · Page 70</h3>
-<p>You are given the curve <span class="math inline">\(x^2+xy+y^2=3\)</span>. Show that the point <span class="math inline">\((1,-2)\)</span> is on the curve and that it is a stationary point. Is this a maximum, a minimum, or a point of inflection?</p>
+<p>You are given the curve <span class="math inline">x^2+xy+y^2=3</span>. Show that the point <span class="math inline">(1,-2)</span> is on the curve and that it is a stationary point. Is this a maximum, a minimum, or a point of inflection?</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Substituting <span class="math inline">\((1,-2)\)</span>,</p>
-<p><span class="math display">\[
+<p>Substituting <span class="math inline">(1,-2)</span>,</p>
+<p><span class="math display">
 1^2+1(-2)+(-2)^2=1-2+4=3,
-\]</span></p>
+</span></p>
 <p>so the point is on the curve. Differentiating implicitly,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2x+y+x\,\frac{\mathrm dy}{\mathrm dx}+2y\,\frac{\mathrm dy}{\mathrm dx}=0,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac{-2x-y}{x+2y}.
-\]</span></p>
-<p>At <span class="math inline">\((1,-2)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">(1,-2)</span>,</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac{-2+2}{1-4}=0,
-\]</span></p>
+</span></p>
 <p>so it is a stationary point. Differentiating again (using the quotient rule),</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}
 =\frac{(x+2y)\left(-2-\frac{\mathrm dy}{\mathrm dx}\right)-(-2x-y)\left(1+2\frac{\mathrm dy}{\mathrm dx}\right)}{(x+2y)^2}.
-\]</span></p>
-<p>At <span class="math inline">\((1,-2)\)</span>, where <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">(1,-2)</span>, where <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=0</span>,</p>
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}
 =\frac{(1-4)(-2)-0}{(1-4)^2}
 =\frac{6}{9}
 =\frac23&gt;0.
-\]</span></p>
+</span></p>
 <p>Hence the stationary point is a</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\text{minimum}}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-5"> Completed</label></p>
 </section>
 <section id="example-6-page-73" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-6-page-73">Example 6 · Page 73</h3>
-<p>Find the first four non-zero terms of the Maclaurin expansion for <span class="math inline">\(\sin x\)</span>.</p>
+<p>Find the first four non-zero terms of the Maclaurin expansion for <span class="math inline">\sin x</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Let</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sin x=a_0+a_1x+a_2x^2+a_3x^3+a_4x^4+\cdots.
-\]</span></p>
-<p>Putting <span class="math inline">\(x=0\)</span> gives <span class="math inline">\(a_0=0\)</span>. Differentiating and putting <span class="math inline">\(x=0\)</span> repeatedly:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Putting <span class="math inline">x=0</span> gives <span class="math inline">a_0=0</span>. Differentiating and putting <span class="math inline">x=0</span> repeatedly:</p>
+<p><span class="math display">
 \cos x=a_1+2a_2x+\cdots
 \;\Longrightarrow\;
 a_1=1,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 -\sin x=2a_2+6a_3x+\cdots
 \;\Longrightarrow\;
 a_2=0,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 -\cos x=6a_3+\cdots
 \;\Longrightarrow\;
 a_3=-\frac16,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \sin x=24a_4+\cdots
 \;\Longrightarrow\;
 a_4=0,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \cos x=120a_5+\cdots
 \;\Longrightarrow\;
 a_5=\frac1{120}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots
 =x-\frac{x^3}6+\frac{x^5}{120}-\cdots}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-6"> Completed</label></p>
 </section>
 <section id="example-7-page-74" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-7-page-74">Example 7 · Page 74</h3>
-<p>Find the Maclaurin expansion of <span class="math inline">\(\tan x\)</span> as far as the term in <span class="math inline">\(x^5\)</span>.</p>
+<p>Find the Maclaurin expansion of <span class="math inline">\tan x</span> as far as the term in <span class="math inline">x^5</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Let <span class="math inline">\(f(x)=\tan x\)</span>, so <span class="math inline">\(f(0)=0\)</span>. Differentiating,</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">f(x)=\tan x</span>, so <span class="math inline">f(0)=0</span>. Differentiating,</p>
+<p><span class="math display">
 f'(x)=\sec^2x=1+\tan^2x=1+(f(x))^2,
-\]</span></p>
-<p>so <span class="math inline">\(f'(0)=1\)</span>. Differentiating implicitly,</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">f'(0)=1</span>. Differentiating implicitly,</p>
+<p><span class="math display">
 f''(x)=2f(x)f'(x),
-\]</span></p>
-<p>so <span class="math inline">\(f''(0)=0\)</span>. Differentiating again,</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">f''(0)=0</span>. Differentiating again,</p>
+<p><span class="math display">
 f'''(x)=2(f'(x))^2+2f(x)f''(x),
-\]</span></p>
-<p>so <span class="math inline">\(f'''(0)=2\)</span>. Continuing gives <span class="math inline">\(f^{(4)}(0)=0\)</span> and <span class="math inline">\(f^{(5)}(0)=16\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">f'''(0)=2</span>. Continuing gives <span class="math inline">f^{(4)}(0)=0</span> and <span class="math inline">f^{(5)}(0)=16</span>. Hence</p>
+<p><span class="math display">
 \tan x=f(0)+f'(0)x+\frac{f''(0)}2x^2+\frac{f'''(0)}6x^3+\frac{f^{(4)}(0)}{24}x^4+\frac{f^{(5)}(0)}{120}x^5+\cdots,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\tan x=x+\frac{x^3}3+\frac{2x^5}{15}+\cdots}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="diff-p2-example-7"> Completed</label></p>
 </section>
@@ -799,40 +813,40 @@ f'''(x)=2(f'(x))^2+2f(x)f''(x),
 </section>
 <section id="mayjune-923121-923122-question-2-7-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-2-7-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 2 · 7 marks</h3>
-<p>It is given that <span class="math inline">\(y=2^x\)</span>.</p>
-<p><strong>(a)</strong> By differentiating <span class="math inline">\(\ln y\)</span> with respect to <span class="math inline">\(x\)</span>, show that</p>
-<p><span class="math display">\[
+<p>It is given that <span class="math inline">y=2^x</span>.</p>
+<p><strong>(a)</strong> By differentiating <span class="math inline">\ln y</span> with respect to <span class="math inline">x</span>, show that</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=2^x\ln2.
-\]</span></p>
+</span></p>
 <p><strong>[3]</strong></p>
-<p><strong>(b)</strong> Write down <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span>. <strong>[1]</strong></p>
-<p><strong>(c)</strong> Hence find the first three terms in the Maclaurin’s series for <span class="math inline">\(2^x\)</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Write down <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span>. <strong>[1]</strong></p>
+<p><strong>(c)</strong> Hence find the first three terms in the Maclaurin’s series for <span class="math inline">2^x</span>. <strong>[3]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> Taking logarithms,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \ln y=x\ln2.
-\]</span></p>
-<p>Differentiating with respect to <span class="math inline">\(x\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating with respect to <span class="math inline">x</span>,</p>
+<p><span class="math display">
 \frac1y\frac{\mathrm dy}{\mathrm dx}=\ln2
 \;\Longrightarrow\;
 \frac{\mathrm dy}{\mathrm dx}=y\ln2=2^x\ln2.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=2^x(\ln2)^2}.
-\]</span></p>
-<p><strong>(c)</strong> At <span class="math inline">\(x=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(c)</strong> At <span class="math inline">x=0</span>,</p>
+<p><span class="math display">
 y(0)=1,\qquad y'(0)=\ln2,\qquad y''(0)=(\ln2)^2.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{2^x=1+(\ln2)x+\frac{(\ln2)^2}{2}x^2+\cdots}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-21-22-q2"> Completed</label>
 <div class="source-line">
@@ -841,35 +855,35 @@ y(0)=1,\qquad y'(0)=\ln2,\qquad y''(0)=(\ln2)^2.
 </section>
 <section id="mayjune-923123-question-5b-4-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-5b-4-marks">2020 May/June · 9231/23 · Question 5(b) · 4 marks</h3>
-<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has parametric equations</p>
+<p><span class="math display">
 x=\frac12t^2-\ln t,\qquad y=2t+1,\qquad \frac12\leqslant t\leqslant2.
-\]</span></p>
-<p>Find <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> in terms of <span class="math inline">\(t\)</span>, simplifying your answer.</p>
+</span></p>
+<p>Find <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> in terms of <span class="math inline">t</span>, simplifying your answer.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dx}{\mathrm dt}=t-\frac1t=t-\frac1t,\qquad
 \frac{\mathrm dy}{\mathrm dt}=2.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac2{t-\frac1t}=\frac{2t}{t^2-1}.
-\]</span></p>
-<p>Differentiating with respect to <span class="math inline">\(t\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating with respect to <span class="math inline">t</span>,</p>
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
 =\frac{2(t^2-1)-2t(2t)}{(t^2-1)^2}
 =-\frac{2(t^2+1)}{(t^2-1)^2}.
-\]</span></p>
+</span></p>
 <p>Applying the chain rule,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
 =-\frac{2(1+t^{-2})}{(t-t^{-1})^3}
 =-\frac{2t(t^2+1)}{(t^2-1)^3}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-23-q5b"> Completed</label>
 <div class="source-line">
@@ -878,66 +892,66 @@ Show answer and mark scheme
 </section>
 <section id="mayjune-923123-question-6bc-9-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-6bc-9-marks">2020 May/June · 9231/23 · Question 6(b)–(c) · 9 marks</h3>
-<p>The variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are such that</p>
-<p><span class="math display">\[
+<p>The variables <span class="math inline">x</span> and <span class="math inline">y</span> are such that</p>
+<p><span class="math display">
 \tanh y=\cos\left(x+\frac{\pi}{4}\right),
 \qquad -\frac{\pi}{4}\leqslant x\leqslant\frac{3\pi}{4}.
-\]</span></p>
-<p><strong>(b)</strong> By differentiating the equation <span class="math inline">\(\tanh y=\cos\left(x+\frac{\pi}{4}\right)\)</span> with respect to <span class="math inline">\(x\)</span>, show that</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> By differentiating the equation <span class="math inline">\tanh y=\cos\left(x+\frac{\pi}{4}\right)</span> with respect to <span class="math inline">x</span>, show that</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=-\operatorname{cosec}\left(x+\frac{\pi}{4}\right).
-\]</span></p>
+</span></p>
 <p><strong>[4]</strong></p>
 <p><strong>(c)</strong> Hence find the first three terms in the Maclaurin’s series for</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tanh^{-1}\left(\cos\left(x+\frac{\pi}{4}\right)\right)
-\]</span></p>
+</span></p>
 <p>in the form</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12\ln a+bx+cx^2,
-\]</span></p>
-<p>giving the exact values of the constants <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span>. <strong>[5]</strong></p>
+</span></p>
+<p>giving the exact values of the constants <span class="math inline">a</span>, <span class="math inline">b</span> and <span class="math inline">c</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(b)</strong> Differentiating <span class="math inline">\(\tanh y=\cos\left(x+\frac{\pi}{4}\right)\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(b)</strong> Differentiating <span class="math inline">\tanh y=\cos\left(x+\frac{\pi}{4}\right)</span>,</p>
+<p><span class="math display">
 \operatorname{sech}^2y\,\frac{\mathrm dy}{\mathrm dx}
 =-\sin\left(x+\frac{\pi}{4}\right).
-\]</span></p>
-<p>Using <span class="math inline">\(1-\tanh^2y=\operatorname{sech}^2y\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">1-\tanh^2y=\operatorname{sech}^2y</span>,</p>
+<p><span class="math display">
 \left(1-\cos^2\left(x+\frac{\pi}{4}\right)\right)\frac{\mathrm dy}{\mathrm dx}
 =-\sin\left(x+\frac{\pi}{4}\right).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}
 =-\frac{\sin\left(x+\frac{\pi}{4}\right)}{\sin^2\left(x+\frac{\pi}{4}\right)}
 =\boxed{-\operatorname{cosec}\left(x+\frac{\pi}{4}\right)}.
-\]</span></p>
-<p><strong>(c)</strong> Let <span class="math inline">\(y=\tanh^{-1}\left(\cos\left(x+\frac{\pi}{4}\right)\right)\)</span>. At <span class="math inline">\(x=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(c)</strong> Let <span class="math inline">y=\tanh^{-1}\left(\cos\left(x+\frac{\pi}{4}\right)\right)</span>. At <span class="math inline">x=0</span>,</p>
+<p><span class="math display">
 y(0)=\tanh^{-1}\left(\frac1{\sqrt2}\right)=\frac12\ln\left(\frac{2+\sqrt2}{2-\sqrt2}\right)=\frac12\ln(3+2\sqrt2).
-\]</span></p>
+</span></p>
 <p>From part (b),</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y'(0)=-\operatorname{cosec}\frac{\pi}{4}=-\sqrt2.
-\]</span></p>
-<p>Differentiating <span class="math inline">\(y'=-\operatorname{cosec}\left(x+\frac{\pi}{4}\right)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating <span class="math inline">y'=-\operatorname{cosec}\left(x+\frac{\pi}{4}\right)</span>,</p>
+<p><span class="math display">
 y''(x)=\operatorname{cosec}\left(x+\frac{\pi}{4}\right)\cot\left(x+\frac{\pi}{4}\right),
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y''(0)=\sqrt2.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=\frac12\ln(3+2\sqrt2)-\sqrt2\,x+\frac{\sqrt2}{2}x^2}.
-\]</span></p>
-<p>So <span class="math inline">\(a=3+2\sqrt2\)</span>, <span class="math inline">\(b=-\sqrt2\)</span> and <span class="math inline">\(c=\dfrac{\sqrt2}{2}\)</span>.</p>
+</span></p>
+<p>So <span class="math inline">a=3+2\sqrt2</span>, <span class="math inline">b=-\sqrt2</span> and <span class="math inline">c=\dfrac{\sqrt2}{2}</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-mj-23-q6bc"> Completed</label>
 <div class="source-line">
@@ -947,43 +961,43 @@ y''(0)=\sqrt2.
 <section id="octobernovember-923121-923123-question-5-9-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-5-9-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 5 · 9 marks</h3>
 <p>It is given that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=\sinh^{-1}t,\qquad y=\cos^{-1}t,\qquad -1\leqslant t\leqslant1.
-\]</span></p>
-<p><strong>(a)</strong> By differentiating <span class="math inline">\(\cos y\)</span> with respect to <span class="math inline">\(t\)</span>, show that</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(a)</strong> By differentiating <span class="math inline">\cos y</span> with respect to <span class="math inline">t</span>, show that</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dt}=-\frac1{\sqrt{1-t^2}}.
-\]</span></p>
+</span></p>
 <p><strong>[4]</strong></p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> in terms of <span class="math inline">\(t\)</span>, simplifying your answer. <strong>[5]</strong></p>
+<p><strong>(b)</strong> Find <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> in terms of <span class="math inline">t</span>, simplifying your answer. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> From <span class="math inline">\(y=\cos^{-1}t\)</span> we have <span class="math inline">\(\cos y=t\)</span>. Differentiating with respect to <span class="math inline">\(t\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> From <span class="math inline">y=\cos^{-1}t</span> we have <span class="math inline">\cos y=t</span>. Differentiating with respect to <span class="math inline">t</span>,</p>
+<p><span class="math display">
 -\sin y\,\frac{\mathrm dy}{\mathrm dt}=1.
-\]</span></p>
-<p>Since <span class="math inline">\(0&lt;y&lt;\pi\)</span>, <span class="math inline">\(\sin y&gt;0\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">0&lt;y&lt;\pi</span>, <span class="math inline">\sin y&gt;0</span>, so</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dt}=-\frac1{\sin y}
 =-\frac1{\sqrt{1-\cos^2y}}
 =\boxed{-\frac1{\sqrt{1-t^2}}}.
-\]</span></p>
-<p><strong>(b)</strong> Since <span class="math inline">\(x=\sinh^{-1}t\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">x=\sinh^{-1}t</span>,</p>
+<p><span class="math display">
 \frac{\mathrm dx}{\mathrm dt}=\frac1{\sqrt{1+t^2}}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}
 =-\frac{\sqrt{1+t^2}}{\sqrt{1-t^2}}.
-\]</span></p>
-<p>Differentiating with respect to <span class="math inline">\(t\)</span> and applying the chain rule,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating with respect to <span class="math inline">t</span> and applying the chain rule,</p>
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
 =-\frac{2t}{(1-t^2)^{3/2}}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-on-21-23-q5"> Completed</label>
 <div class="source-line">
@@ -992,29 +1006,29 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923122-question-1-5-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-1-5-marks">2020 October/November · 9231/22 · Question 1 · 5 marks</h3>
-<p>Find the Maclaurin’s series for <span class="math inline">\(\tan\left(x+\frac{\pi}{4}\right)\)</span> up to and including the term in <span class="math inline">\(x^2\)</span>.</p>
+<p>Find the Maclaurin’s series for <span class="math inline">\tan\left(x+\frac{\pi}{4}\right)</span> up to and including the term in <span class="math inline">x^2</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Let <span class="math inline">\(f(x)=\tan\left(x+\frac{\pi}{4}\right)\)</span>. Then</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">f(x)=\tan\left(x+\frac{\pi}{4}\right)</span>. Then</p>
+<p><span class="math display">
 f(0)=1,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 f'(x)=\sec^2\left(x+\frac{\pi}{4}\right),
 \qquad
 f'(0)=\sec^2\frac{\pi}{4}=2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 f''(x)=2\sec^2\left(x+\frac{\pi}{4}\right)\tan\left(x+\frac{\pi}{4}\right),
 \qquad
 f''(0)=2(2)(1)=4.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\tan\left(x+\frac{\pi}{4}\right)=1+2x+2x^2+\cdots}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2020-on-22-q1"> Completed</label>
 <div class="source-line">
@@ -1026,32 +1040,32 @@ f''(0)=2(2)(1)=4.
 </section>
 <section id="mayjune-923123-question-2-7-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-2-7-marks">2021 May/June · 9231/23 · Question 2 · 7 marks</h3>
-<p>Find the Maclaurin’s series for <span class="math inline">\(\ln\cosh x\)</span> up to and including the term in <span class="math inline">\(x^4\)</span>.</p>
+<p>Find the Maclaurin’s series for <span class="math inline">\ln\cosh x</span> up to and including the term in <span class="math inline">x^4</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Let <span class="math inline">\(f(x)=\ln\cosh x\)</span>. Then</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">f(x)=\ln\cosh x</span>. Then</p>
+<p><span class="math display">
 f(0)=0,\qquad
 f'(x)=\tanh x,
 \qquad
 f''(x)=\operatorname{sech}^2x,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 f'''(x)=-2\operatorname{sech}^2x\tanh x=-2\frac{\sinh x}{\cosh^3x},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 f^{(4)}(x)=-2\frac{\cosh^2x-3\sinh^2x}{\cosh^4x}.
-\]</span></p>
-<p>At <span class="math inline">\(x=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">x=0</span>,</p>
+<p><span class="math display">
 f(0)=0,\quad f'(0)=0,\quad f''(0)=1,\quad f'''(0)=0,\quad f^{(4)}(0)=-2.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\ln\cosh x=\frac12x^2-\frac1{12}x^4+\cdots}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-mj-23-q2"> Completed</label>
 <div class="source-line">
@@ -1060,25 +1074,25 @@ f(0)=0,\quad f'(0)=0,\quad f''(0)=1,\quad f'''(0)=0,\quad f^{(4)}(0)=-2.
 </section>
 <section id="octobernovember-923122-question-1-3-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-1-3-marks">2021 October/November · 9231/22 · Question 1 · 3 marks</h3>
-<p>It is given that <span class="math inline">\(y=\sinh(x^2)+\cosh(x^2)\)</span>.</p>
-<p><strong>(a)</strong> Use standard results from the list of formulae (MF19) to find the Maclaurin’s series for <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(x\)</span> up to and including the term in <span class="math inline">\(x^4\)</span>. <strong>[2]</strong></p>
-<p><strong>(b)</strong> Deduce the value of <span class="math inline">\(\dfrac{\mathrm d^4y}{\mathrm dx^4}\)</span> when <span class="math inline">\(x=0\)</span>. <strong>[1]</strong></p>
+<p>It is given that <span class="math inline">y=\sinh(x^2)+\cosh(x^2)</span>.</p>
+<p><strong>(a)</strong> Use standard results from the list of formulae (MF19) to find the Maclaurin’s series for <span class="math inline">y</span> in terms of <span class="math inline">x</span> up to and including the term in <span class="math inline">x^4</span>. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Deduce the value of <span class="math inline">\dfrac{\mathrm d^4y}{\mathrm dx^4}</span> when <span class="math inline">x=0</span>. <strong>[1]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> Since</p>
-<p><span class="math display">\[
+<p><span class="math display">
 e^{x^2}=\cosh(x^2)+\sinh(x^2),
-\]</span></p>
+</span></p>
 <p>the Maclaurin series is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=e^{x^2}=1+x^2+\frac12x^4+\cdots}.
-\]</span></p>
-<p><strong>(b)</strong> The coefficient of <span class="math inline">\(x^4\)</span> is <span class="math inline">\(\dfrac{1}{4!}\dfrac{\mathrm d^4y}{\mathrm dx^4}(0)=\dfrac12\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> The coefficient of <span class="math inline">x^4</span> is <span class="math inline">\dfrac{1}{4!}\dfrac{\mathrm d^4y}{\mathrm dx^4}(0)=\dfrac12</span>, so</p>
+<p><span class="math display">
 \boxed{\frac{\mathrm d^4y}{\mathrm dx^4}(0)=12}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-on-22-q1"> Completed</label>
 <div class="source-line">
@@ -1087,44 +1101,44 @@ e^{x^2}=\cosh(x^2)+\sinh(x^2),
 </section>
 <section id="octobernovember-923122-question-5b-4-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-5b-4-marks">2021 October/November · 9231/22 · Question 5(b) · 4 marks</h3>
-<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has parametric equations</p>
+<p><span class="math display">
 x=3t+2t^{-1}+at^3,\qquad y=4t-\frac32t^{-1}+bt^3,\qquad 1\leqslant t\leqslant2,
-\]</span></p>
-<p>where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</p>
-<p>It is given instead that <span class="math inline">\(a=b=0\)</span>. Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> when <span class="math inline">\(t=1\)</span>.</p>
+</span></p>
+<p>where <span class="math inline">a</span> and <span class="math inline">b</span> are constants.</p>
+<p>It is given instead that <span class="math inline">a=b=0</span>. Find the value of <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> when <span class="math inline">t=1</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>With <span class="math inline">\(a=b=0\)</span>,</p>
-<p><span class="math display">\[
+<p>With <span class="math inline">a=b=0</span>,</p>
+<p><span class="math display">
 x=3t+2t^{-1},\qquad y=4t-\frac32t^{-1}.
-\]</span></p>
+</span></p>
 <p>Then</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dx}{\mathrm dt}=3-2t^{-2},\qquad
 \frac{\mathrm dy}{\mathrm dt}=4+\frac32t^{-2},
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac{4+\frac32t^{-2}}{3-2t^{-2}}.
-\]</span></p>
-<p>Differentiating with respect to <span class="math inline">\(t\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating with respect to <span class="math inline">t</span>,</p>
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
 =\frac{(3-2t^{-2})(-3t^{-3})-(4+\frac32t^{-2})(4t^{-3})}{(3-2t^{-2})^2}
 =-\frac{25t^{-3}}{(3-2t^{-2})^2}.
-\]</span></p>
-<p>Applying the chain rule with <span class="math inline">\(\dfrac{\mathrm dx}{\mathrm dt}=3-2t^{-2}\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Applying the chain rule with <span class="math inline">\dfrac{\mathrm dx}{\mathrm dt}=3-2t^{-2}</span>,</p>
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}
 =-\frac{25t^{-3}}{(3-2t^{-2})^3}.
-\]</span></p>
-<p>At <span class="math inline">\(t=1\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">t=1</span>,</p>
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-25}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2021-on-22-q5b"> Completed</label>
 <div class="source-line">
@@ -1136,23 +1150,23 @@ x=3t+2t^{-1},\qquad y=4t-\frac32t^{-1}.
 </section>
 <section id="mayjune-923123-question-2a-4-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-2a-4-marks">2022 May/June · 9231/23 · Question 2(a) · 4 marks</h3>
-<p>Find the coefficient of <span class="math inline">\(x^2\)</span> in the Maclaurin’s series for <span class="math inline">\(-\ln\cos x\)</span>.</p>
+<p>Find the coefficient of <span class="math inline">x^2</span> in the Maclaurin’s series for <span class="math inline">-\ln\cos x</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Let <span class="math inline">\(f(x)=-\ln\cos x\)</span>. Then</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">f(x)=-\ln\cos x</span>. Then</p>
+<p><span class="math display">
 f'(x)=\tan x,\qquad f''(x)=\sec^2x.
-\]</span></p>
-<p>At <span class="math inline">\(x=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">x=0</span>,</p>
+<p><span class="math display">
 f'(0)=0,\qquad f''(0)=1.
-\]</span></p>
-<p>Hence the coefficient of <span class="math inline">\(x^2\)</span> is</p>
-<p><span class="math display">\[
+</span></p>
+<p>Hence the coefficient of <span class="math inline">x^2</span> is</p>
+<p><span class="math display">
 \boxed{\frac{f''(0)}{2!}=\frac12}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2022-mj-23-q2a"> Completed</label>
 <div class="source-line">
@@ -1162,51 +1176,51 @@ f'(0)=0,\qquad f''(0)=1.
 <section id="mayjune-923123-question-4-9-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-4-9-marks">2022 May/June · 9231/23 · Question 4 · 9 marks</h3>
 <p>It is given that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=-t+\tan^{-1}t,\qquad y=t+\sinh^{-1}t.
-\]</span></p>
+</span></p>
 <p><strong>(a)</strong> Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=-\frac{\sqrt{1+t^2}+1+t^2}{t^2}.
-\]</span></p>
+</span></p>
 <p><strong>[4]</strong></p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> when <span class="math inline">\(t=\frac34\)</span>. <strong>[5]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> when <span class="math inline">t=\frac34</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dx}{\mathrm dt}=-1+\frac1{1+t^2}=-\frac{t^2}{1+t^2},
 \qquad
 \frac{\mathrm dy}{\mathrm dt}=1+\frac1{\sqrt{1+t^2}}.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}
 =\frac{1+\frac1{\sqrt{1+t^2}}}{-\frac{t^2}{1+t^2}}
 =-\frac{(1+t^2)\left(1+\frac1{\sqrt{1+t^2}}\right)}{t^2}
 =-\frac{1+t^2+\sqrt{1+t^2}}{t^2}.
-\]</span></p>
+</span></p>
 <p>So</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm dy}{\mathrm dx}=-\frac{\sqrt{1+t^2}+1+t^2}{t^2}}.
-\]</span></p>
-<p><strong>(b)</strong> Differentiating <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}\)</span> with respect to <span class="math inline">\(t\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Differentiating <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}</span> with respect to <span class="math inline">t</span> gives</p>
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
 =-\frac{t^2\left(2t+\frac{t}{\sqrt{1+t^2}}\right)-2t\left(1+t^2+\sqrt{1+t^2}\right)}{t^4}.
-\]</span></p>
+</span></p>
 <p>Applying the chain rule,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}
 =\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{\mathrm dt}{\mathrm dx}
 =-\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)\cdot\frac{1+t^2}{t^2}.
-\]</span></p>
-<p>At <span class="math inline">\(t=\frac34\)</span> this simplifies to</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">t=\frac34</span> this simplifies to</p>
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-\frac{80}{3}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2022-mj-23-q4"> Completed</label>
 <div class="source-line">
@@ -1218,24 +1232,24 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923122-question-1-5-marks-1" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-1-5-marks-1">2023 October/November · 9231/22 · Question 1 · 5 marks</h3>
-<p>Find the Maclaurin’s series for <span class="math inline">\(\ln(x+2)+\ln(x^2+5)\)</span> up to and including the term in <span class="math inline">\(x^2\)</span>.</p>
+<p>Find the Maclaurin’s series for <span class="math inline">\ln(x+2)+\ln(x^2+5)</span> up to and including the term in <span class="math inline">x^2</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Using <span class="math inline">\(\ln(1+u)=u-\frac12u^2+\cdots\)</span>,</p>
-<p><span class="math display">\[
+<p>Using <span class="math inline">\ln(1+u)=u-\frac12u^2+\cdots</span>,</p>
+<p><span class="math display">
 \ln(x+2)=\ln2+\ln\left(1+\frac{x}{2}\right)
 =\ln2+\frac{x}{2}-\frac{x^2}{8}+\cdots,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \ln(x^2+5)=\ln5+\ln\left(1+\frac{x^2}{5}\right)
 =\ln5+\frac{x^2}{5}+\cdots.
-\]</span></p>
+</span></p>
 <p>Adding,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\ln(x+2)+\ln(x^2+5)=\ln10+\frac{x}{2}+\frac{3x^2}{40}+\cdots}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2023-on-22-q1"> Completed</label>
 <div class="source-line">
@@ -1244,30 +1258,30 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923122-question-2b-4-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-2b-4-marks">2023 October/November · 9231/22 · Question 2(b) · 4 marks</h3>
-<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has parametric equations</p>
+<p><span class="math display">
 x=e^{-t}(t^3+t^2),\qquad y=2e^t(t-1),\qquad 0\leqslant t\leqslant1.
-\]</span></p>
-<p>Find <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+</span></p>
+<p>Find <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dx}{\mathrm dt}=e^{-t}(-t^3-t^2+3t^2+2t)=e^{-t}(-t^3+2t^2+2t),
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dt}=2e^t(t-1)+2e^t=2te^t.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac{2te^t}{e^{-t}(-t^3+2t^2+2t)}
 =\frac{2te^{2t}}{-t^3+2t^2+2t}.
-\]</span></p>
-<p>Differentiating with respect to <span class="math inline">\(t\)</span> and applying the chain rule,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating with respect to <span class="math inline">t</span> and applying the chain rule,</p>
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=t^3e^t(t^2+4t+2)}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2023-on-22-q2b"> Completed</label>
 <div class="source-line">
@@ -1279,38 +1293,38 @@ Show answer and mark scheme
 </section>
 <section id="mayjune-923123-question-2b-5-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-2b-5-marks">2024 May/June · 9231/23 · Question 2(b) · 5 marks</h3>
-<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has parametric equations</p>
+<p><span class="math display">
 x=\cosh t,\qquad y=\sinh t,\qquad 0\leqslant t\leqslant\frac35.
-\]</span></p>
-<p>The length of <span class="math inline">\(C\)</span> is denoted by <span class="math inline">\(s\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(s=\displaystyle\int_0^{3/5}\sqrt{\cosh 2t}\,\mathrm dt\)</span>. <strong>[4]</strong></p>
-<p><strong>(b)</strong> By finding the Maclaurin’s series for <span class="math inline">\(\sqrt{\cosh 2t}\)</span> up to and including the term in <span class="math inline">\(t^2\)</span>, deduce an approximation to <span class="math inline">\(s\)</span>. <strong>[5]</strong></p>
+</span></p>
+<p>The length of <span class="math inline">C</span> is denoted by <span class="math inline">s</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">s=\displaystyle\int_0^{3/5}\sqrt{\cosh 2t}\,\mathrm dt</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> By finding the Maclaurin’s series for <span class="math inline">\sqrt{\cosh 2t}</span> up to and including the term in <span class="math inline">t^2</span>, deduce an approximation to <span class="math inline">s</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> Differentiating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dx}{\mathrm dt}=\sinh t,\qquad
 \frac{\mathrm dy}{\mathrm dt}=\cosh t.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \left(\frac{\mathrm dx}{\mathrm dt}\right)^2+\left(\frac{\mathrm dy}{\mathrm dt}\right)^2
 =\sinh^2t+\cosh^2t=\cosh 2t,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 s=\int_0^{3/5}\sqrt{\cosh 2t}\,\mathrm dt.
-\]</span></p>
-<p><strong>(b)</strong> Using <span class="math inline">\(\sqrt{\cosh 2t}\approx1+t^2\)</span> (from the Maclaurin series of <span class="math inline">\(\cosh 2t\)</span> up to <span class="math inline">\(t^2\)</span>),</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">\sqrt{\cosh 2t}\approx1+t^2</span> (from the Maclaurin series of <span class="math inline">\cosh 2t</span> up to <span class="math inline">t^2</span>),</p>
+<p><span class="math display">
 s\approx\int_0^{3/5}(1+t^2)\,\mathrm dt
 =\left[t+\frac{t^3}{3}\right]_0^{3/5}
 =\frac35+\frac{9}{125}
 =\boxed{\frac{84}{125}=0.672}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q2b"> Completed</label>
 <div class="source-line">
@@ -1319,22 +1333,22 @@ s\approx\int_0^{3/5}(1+t^2)\,\mathrm dt
 </section>
 <section id="mayjune-923123-question-3b-5-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-3b-5-marks">2024 May/June · 9231/23 · Question 3(b) · 5 marks</h3>
-<p>The curve <span class="math inline">\(C\)</span> has equation</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has equation</p>
+<p><span class="math display">
 3x^2+2xy+24y^2=13.
-\]</span></p>
-<p><strong>(a)</strong> Show that, at the point <span class="math inline">\((-2,-1)\)</span> on <span class="math inline">\(C\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac12\)</span>. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> at the point <span class="math inline">\((-2,-1)\)</span>. <strong>[5]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Show that, at the point <span class="math inline">(-2,-1)</span> on <span class="math inline">C</span>, <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac12</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> at the point <span class="math inline">(-2,-1)</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> Differentiating implicitly,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 6x+2xy'+2y+48yy'=0.
-\]</span></p>
-<p>At <span class="math inline">\((-2,-1)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">(-2,-1)</span>,</p>
+<p><span class="math display">
 3(-2)^2+2(-2)y'+2(-1)+24(-1)^2y'=0
 \;\Longrightarrow\;
 12-4y'-2+24y'=0
@@ -1342,29 +1356,29 @@ Show answer and mark scheme
 20y'=-10
 \;\Longrightarrow\;
 \boxed{y'=-\frac12}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Differentiating</p>
-<p><span class="math display">\[
+<p><span class="math display">
 3x^2+2xy'+2y+24y^2y'=0
-\]</span></p>
-<p>with respect to <span class="math inline">\(x\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>with respect to <span class="math inline">x</span>,</p>
+<p><span class="math display">
 6x+2xy''+2y'+2y'+24y^2y''+48y(y')^2=0.
-\]</span></p>
-<p>Substituting <span class="math inline">\(x=-2\)</span>, <span class="math inline">\(y=-1\)</span> and <span class="math inline">\(y'=-\frac12\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting <span class="math inline">x=-2</span>, <span class="math inline">y=-1</span> and <span class="math inline">y'=-\frac12</span>,</p>
+<p><span class="math display">
 6(-2)+2(-2)y''+4\left(-\frac12\right)+24(-1)^2y''+48(-1)\left(-\frac12\right)^2=0.
-\]</span></p>
+</span></p>
 <p>That is,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 -12-4y''-2+24y''-12=0
 \;\Longrightarrow\;
 20y''-26=0,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{13}{10}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q3b"> Completed</label>
 <div class="source-line">
@@ -1374,29 +1388,29 @@ Show answer and mark scheme
 <section id="mayjune-923123-question-7a-3-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-7a-3-marks">2024 May/June · 9231/23 · Question 7(a) · 3 marks</h3>
 <p>Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(\frac{x}{2}\sqrt{x^2-9}-\frac{9}{2}\cosh^{-1}\frac{x}{3}\right)=\sqrt{x^2-9}.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Using the product rule and <span class="math inline">\(\dfrac{\mathrm d}{\mathrm dx}\cosh^{-1}\dfrac{x}{3}=\dfrac1{\sqrt{x^2-9}}\)</span>,</p>
-<p><span class="math display">\[
+<p>Using the product rule and <span class="math inline">\dfrac{\mathrm d}{\mathrm dx}\cosh^{-1}\dfrac{x}{3}=\dfrac1{\sqrt{x^2-9}}</span>,</p>
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(\frac{x}{2}\sqrt{x^2-9}\right)
 =\frac12\sqrt{x^2-9}+\frac{x^2}{2\sqrt{x^2-9}},
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(-\frac92\cosh^{-1}\frac{x}{3}\right)
 =-\frac92\cdot\frac1{\sqrt{x^2-9}}.
-\]</span></p>
+</span></p>
 <p>Adding,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12\sqrt{x^2-9}+\frac{x^2-9}{2\sqrt{x^2-9}}
 =\frac12\sqrt{x^2-9}+\frac12\sqrt{x^2-9}
 =\sqrt{x^2-9}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-mj-23-q7a"> Completed</label>
 <div class="source-line">
@@ -1405,42 +1419,42 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923122-question-2-7-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-2-7-marks">2024 October/November · 9231/22 · Question 2 · 7 marks</h3>
-<p>The curve <span class="math inline">\(C\)</span> has equation</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has equation</p>
+<p><span class="math display">
 4y^2+4\ln(xy)=1.
-\]</span></p>
-<p><strong>(a)</strong> Show that, at the point <span class="math inline">\(\left(2,\frac12\right)\)</span> on <span class="math inline">\(C\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac16\)</span>. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> at the point <span class="math inline">\(\left(2,\frac12\right)\)</span>. <strong>[4]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Show that, at the point <span class="math inline">\left(2,\frac12\right)</span> on <span class="math inline">C</span>, <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac16</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> at the point <span class="math inline">\left(2,\frac12\right)</span>. <strong>[4]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> Differentiating implicitly,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 8yy'+4\cdot\frac{xy'+y}{xy}=0
 \;\Longrightarrow\;
 8yy'+4y^{-1}y'+4x^{-1}=0.
-\]</span></p>
-<p>At <span class="math inline">\(\left(2,\frac12\right)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">\left(2,\frac12\right)</span>,</p>
+<p><span class="math display">
 8\left(\frac12\right)y'+4(2)y'+\frac42=0
 \;\Longrightarrow\;
 4y'+8y'+2=0
 \;\Longrightarrow\;
 y'=-\frac16.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Differentiating again,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 8(y')^2+8yy''-4(y')^2y^{-2}+4y^{-1}y''-4x^{-2}=0.
-\]</span></p>
-<p>Substituting <span class="math inline">\(x=2\)</span>, <span class="math inline">\(y=\frac12\)</span> and <span class="math inline">\(y'=-\frac16\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting <span class="math inline">x=2</span>, <span class="math inline">y=\frac12</span> and <span class="math inline">y'=-\frac16</span>,</p>
+<p><span class="math display">
 8\cdot\frac1{36}+4y''-4\cdot\frac1{36}\cdot4+8y''-1=0.
-\]</span></p>
+</span></p>
 <p>Solving gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{11}{108}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-on-22-q2"> Completed</label>
 <div class="source-line">
@@ -1450,21 +1464,21 @@ y'=-\frac16.
 <section id="octobernovember-923122-question-7a-3-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-7a-3-marks">2024 October/November · 9231/22 · Question 7(a) · 3 marks</h3>
 <p>Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(\ln\tanh x\right)=2\operatorname{cosech}2x.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Using the chain rule,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d}{\mathrm dx}\left(\ln\tanh x\right)
 =\frac{\operatorname{sech}^2x}{\tanh x}
 =\frac1{\sinh x\cosh x}
 =\frac2{\sinh2x}
 =\boxed{2\operatorname{cosech}2x}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2024-on-22-q7a"> Completed</label>
 <div class="source-line">
@@ -1476,57 +1490,57 @@ Show answer and mark scheme
 </section>
 <section id="mayjune-923123-question-3-10-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-3-10-marks">2025 May/June · 9231/23 · Question 3 · 10 marks</h3>
-<p>The curve <span class="math inline">\(C\)</span> has equation</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has equation</p>
+<p><span class="math display">
 9y^2-3\sinh^{-1}(xy)=1-3\ln3.
-\]</span></p>
-<p><strong>(a)</strong> Show that, at the point <span class="math inline">\((4,\frac13)\)</span> on <span class="math inline">\(C\)</span>, <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac12\)</span>. <strong>[4]</strong></p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> at the point <span class="math inline">\((4,\frac13)\)</span>. <strong>[6]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Show that, at the point <span class="math inline">(4,\frac13)</span> on <span class="math inline">C</span>, <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=-\dfrac12</span>. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> at the point <span class="math inline">(4,\frac13)</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> Differentiating implicitly,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 18yy'-3\cdot\frac{xy'+y}{\sqrt{1+x^2y^2}}=0.
-\]</span></p>
-<p>At <span class="math inline">\((4,\frac13)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">(4,\frac13)</span>,</p>
+<p><span class="math display">
 18\cdot\frac13\,y'-3\cdot\frac{4y'+\frac13}{\sqrt{1+\frac{16}9}}=0.
-\]</span></p>
-<p>Since <span class="math inline">\(\sqrt{1+\frac{16}9}=\frac53\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">\sqrt{1+\frac{16}9}=\frac53</span>,</p>
+<p><span class="math display">
 6y'-3\cdot\frac{4y'+\frac13}{\frac53}=0
 \;\Longrightarrow\;
 6y'-\frac95\left(4y'+\frac13\right)=0
 \;\Longrightarrow\;
 6y'-\frac{36}{5}y'-\frac35=0.
-\]</span></p>
-<p>Multiplying through by <span class="math inline">\(5\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Multiplying through by <span class="math inline">5</span>,</p>
+<p><span class="math display">
 30y'-36y'-3=0
 \;\Longrightarrow\;
 -6y'=3
 \;\Longrightarrow\;
 \boxed{y'=-\frac12}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Differentiating</p>
-<p><span class="math display">\[
+<p><span class="math display">
 18yy'-\frac{3(xy'+y)}{\sqrt{1+x^2y^2}}=0
-\]</span></p>
-<p>with respect to <span class="math inline">\(x\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>with respect to <span class="math inline">x</span> gives</p>
+<p><span class="math display">
 18yy''+18(y')^2
 -3\cdot\frac{\sqrt{1+x^2y^2}(xy''+2y')-(xy'+y)\cdot\frac{x^2y}{\sqrt{1+x^2y^2}}}{1+x^2y^2}=0.
-\]</span></p>
-<p>Substituting <span class="math inline">\(x=4\)</span>, <span class="math inline">\(y=\frac13\)</span>, <span class="math inline">\(y'=-\frac12\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting <span class="math inline">x=4</span>, <span class="math inline">y=\frac13</span>, <span class="math inline">y'=-\frac12</span> gives</p>
+<p><span class="math display">
 -6y''+\frac{87}{10}=0,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=\frac{29}{4}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-mj-23-q3"> Completed</label>
 <div class="source-line">
@@ -1535,22 +1549,22 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923122-question-3-9-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923122-question-3-9-marks">2025 October/November · 9231/22 · Question 3 · 9 marks</h3>
-<p>The variables <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are such that <span class="math inline">\(y=2\)</span> when <span class="math inline">\(x=-1\)</span> and</p>
-<p><span class="math display">\[
+<p>The variables <span class="math inline">x</span> and <span class="math inline">y</span> are such that <span class="math inline">y=2</span> when <span class="math inline">x=-1</span> and</p>
+<p><span class="math display">
 x^2y+(x+y)^3=3.
-\]</span></p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(\dfrac{\mathrm dy}{\mathrm dx}=\dfrac14\)</span> when <span class="math inline">\(x=-1\)</span>. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(\dfrac{\mathrm d^2y}{\mathrm dx^2}\)</span> when <span class="math inline">\(x=-1\)</span>. <strong>[6]</strong></p>
+</span></p>
+<p><strong>(a)</strong> Show that <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}=\dfrac14</span> when <span class="math inline">x=-1</span>. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\dfrac{\mathrm d^2y}{\mathrm dx^2}</span> when <span class="math inline">x=-1</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p><strong>(a)</strong> Differentiating implicitly,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^2y'+2xy+3(x+y)^2(1+y')=0.
-\]</span></p>
-<p>At <span class="math inline">\((-1,2)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">(-1,2)</span>,</p>
+<p><span class="math display">
 y'+2(-1)(2)+3(1)^2(1+y')=0
 \;\Longrightarrow\;
 y'-4+3+3y'=0
@@ -1558,19 +1572,19 @@ y'-4+3+3y'=0
 4y'=1
 \;\Longrightarrow\;
 \boxed{y'=\frac14}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Differentiating again,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x^2y''+4xy'+2y+3(x+y)^2y''+6(1+y')^2(x+y)=0.
-\]</span></p>
-<p>Substituting <span class="math inline">\(x=-1\)</span>, <span class="math inline">\(y=2\)</span>, <span class="math inline">\(y'=\frac14\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substituting <span class="math inline">x=-1</span>, <span class="math inline">y=2</span>, <span class="math inline">y'=\frac14</span>,</p>
+<p><span class="math display">
 y''-1+4+3y''+6\left(\frac54\right)^2(1)=0.
-\]</span></p>
+</span></p>
 <p>Solving gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}=-\frac{99}{32}}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-on-22-q3"> Completed</label>
 <div class="source-line">
@@ -1579,37 +1593,37 @@ y''-1+4+3y''+6\left(\frac54\right)^2(1)=0.
 </section>
 <section id="octobernovember-923124-question-7b-5-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923124-question-7b-5-marks">2025 October/November · 9231/24 · Question 7(b) · 5 marks</h3>
-<p>The curve <span class="math inline">\(C\)</span> has parametric equations</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has parametric equations</p>
+<p><span class="math display">
 x=8\ln\left(\tan\frac{t}{2}\right)-3\cot t-3t,\qquad
 y=6\ln\left(\tan\frac{t}{2}\right)+4\cot t+4t,
-\]</span></p>
-<p>for <span class="math inline">\(\frac{\pi}{6}\leqslant t\leqslant\frac{\pi}{3}\)</span>.</p>
+</span></p>
+<p>for <span class="math inline">\frac{\pi}{6}\leqslant t\leqslant\frac{\pi}{3}</span>.</p>
 <p>Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm d^2y}{\mathrm dx^2}=\frac{a\cot t\operatorname{cosec}t(\operatorname{cosec}^2t+1)}{(b\operatorname{cosec}t+c\cot^2t)^n},
-\]</span></p>
-<p>where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> and <span class="math inline">\(n\)</span> are integers to be determined.</p>
+</span></p>
+<p>where <span class="math inline">a</span>, <span class="math inline">b</span>, <span class="math inline">c</span> and <span class="math inline">n</span> are integers to be determined.</p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Differentiating,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dx}{\mathrm dt}=8\operatorname{cosec}t+3\cot^2t,
 \qquad
 \frac{\mathrm dy}{\mathrm dt}=6\operatorname{cosec}t-4\cot^2t.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\frac{6\operatorname{cosec}t-4\cot^2t}{8\operatorname{cosec}t+3\cot^2t}.
-\]</span></p>
-<p>Differentiating this with respect to <span class="math inline">\(t\)</span> and applying the chain rule gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating this with respect to <span class="math inline">t</span> and applying the chain rule gives</p>
+<p><span class="math display">
 \boxed{\frac{\mathrm d^2y}{\mathrm dx^2}
 =\frac{50\cot t\operatorname{cosec}t(\operatorname{cosec}^2t+1)}{(8\operatorname{cosec}t+3\cot^2t)^3}}.
-\]</span></p>
-<p>So <span class="math inline">\(a=50\)</span>, <span class="math inline">\(b=8\)</span>, <span class="math inline">\(c=3\)</span> and <span class="math inline">\(n=3\)</span>.</p>
+</span></p>
+<p>So <span class="math inline">a=50</span>, <span class="math inline">b=8</span>, <span class="math inline">c=3</span> and <span class="math inline">n=3</span>.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="diff-p2-2025-on-24-q7b"> Completed</label>
 <div class="source-line">
@@ -1621,10 +1635,10 @@ Show answer and mark scheme
 <h2 class="anchored" data-anchor-id="完成本节的判断标准">4. 完成本节的判断标准</h2>
 <ol type="1">
 <li>能写出双曲函数与反三角、反双曲函数的导数并注意符号；</li>
-<li>隐式关系能正确求出 <span class="math inline">\(y'\)</span> 与 <span class="math inline">\(y''\)</span>；</li>
-<li>参数曲线能正确使用 <span class="math inline">\(y''=\dfrac{\mathrm d}{\mathrm dt}(y')\cdot\dfrac{\mathrm dt}{\mathrm dx}\)</span>；</li>
-<li>能求常见函数的 Maclaurin 级数前几项，并知道收敛范围（如 <span class="math inline">\(|x|&lt;1\)</span> 等）；</li>
-<li>能用隐式求导方法处理 <span class="math inline">\(y=\tan x\)</span> 这类函数的 Maclaurin 展开。 本节保留教材 Chapter 3 的全部编号 Example（Example 1–7）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
+<li>隐式关系能正确求出 <span class="math inline">y'</span> 与 <span class="math inline">y''</span>；</li>
+<li>参数曲线能正确使用 <span class="math inline">y''=\dfrac{\mathrm d}{\mathrm dt}(y')\cdot\dfrac{\mathrm dt}{\mathrm dx}</span>；</li>
+<li>能求常见函数的 Maclaurin 级数前几项，并知道收敛范围（如 <span class="math inline">|x|&lt;1</span> 等）；</li>
+<li>能用隐式求导方法处理 <span class="math inline">y=\tan x</span> 这类函数的 Maclaurin 展开。 本节保留教材 Chapter 3 的全部编号 Example（Example 1–7）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
 </ol>
 
 

@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -447,11 +461,11 @@ window.Quarto = {
 <p>考生需要能够：</p>
 <ol type="1">
 <li>用 Newton’s second law 建立 variable-force differential equation；</li>
-<li>根据 force 是 <span class="math inline">\(t\)</span>、<span class="math inline">\(x\)</span> 或 <span class="math inline">\(v\)</span> 的函数选择 <span class="math display">\[
+<li>根据 force 是 <span class="math inline">t</span>、<span class="math inline">x</span> 或 <span class="math inline">v</span> 的函数选择 <span class="math display">
 a=\frac{dv}{dt}
 \quad\text{或}\quad
 a=v\frac{dv}{dx};
-\]</span></li>
+</span></li>
 <li>分离变量并使用初始条件；</li>
 <li>处理重力、阻力、驱动力和 limiting speed；</li>
 <li>处理方向改变、上升/下降以及 displacement 和 distance 的区别。</li>
@@ -462,45 +476,45 @@ a=v\frac{dv}{dx};
 <h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
 <section id="newtons-second-law-as-a-differential-equation" class="level3">
 <h3 class="anchored" data-anchor-id="newtons-second-law-as-a-differential-equation">1.1 Newton’s second law as a differential equation</h3>
-<p>对于质量恒定的粒子， <span class="math display">\[
+<p>对于质量恒定的粒子， <span class="math display">
 \boxed{F=m\frac{dv}{dt}}.
-\]</span></p>
-<p>使用 chain rule： <span class="math display">\[
+</span></p>
+<p>使用 chain rule： <span class="math display">
 \frac{dv}{dt}=\frac{dv}{dx}\frac{dx}{dt}
 =v\frac{dv}{dx},
-\]</span> 所以也有 <span class="math display">\[
+</span> 所以也有 <span class="math display">
 \boxed{F=mv\frac{dv}{dx}}.
-\]</span></p>
+</span></p>
 </section>
 <section id="如何选择形式" class="level3">
 <h3 class="anchored" data-anchor-id="如何选择形式">1.2 如何选择形式</h3>
 <ul>
-<li>若 force 是 <span class="math inline">\(F(t)\)</span>，通常使用 <span class="math inline">\(\dfrac{dv}{dt}\)</span>，先求 <span class="math inline">\(v(t)\)</span>，再积分求 <span class="math inline">\(x(t)\)</span>。</li>
-<li>若 force 是 <span class="math inline">\(F(x)\)</span>，通常使用 <span class="math inline">\(v\dfrac{dv}{dx}\)</span>，可直接求 <span class="math inline">\(v(x)\)</span>。</li>
-<li>若 force 是 <span class="math inline">\(F(v)\)</span>，两种形式都可用：求时间用 <span class="math inline">\(\dfrac{dv}{dt}\)</span>，求位移用 <span class="math inline">\(v\dfrac{dv}{dx}\)</span>。</li>
+<li>若 force 是 <span class="math inline">F(t)</span>，通常使用 <span class="math inline">\dfrac{dv}{dt}</span>，先求 <span class="math inline">v(t)</span>，再积分求 <span class="math inline">x(t)</span>。</li>
+<li>若 force 是 <span class="math inline">F(x)</span>，通常使用 <span class="math inline">v\dfrac{dv}{dx}</span>，可直接求 <span class="math inline">v(x)</span>。</li>
+<li>若 force 是 <span class="math inline">F(v)</span>，两种形式都可用：求时间用 <span class="math inline">\dfrac{dv}{dt}</span>，求位移用 <span class="math inline">v\dfrac{dv}{dx}</span>。</li>
 </ul>
 </section>
 <section id="resistance-and-limiting-speed" class="level3">
 <h3 class="anchored" data-anchor-id="resistance-and-limiting-speed">1.3 Resistance and limiting speed</h3>
-<p>阻力方向与速度方向相反。若下落时 <span class="math display">\[
+<p>阻力方向与速度方向相反。若下落时 <span class="math display">
 m\frac{dv}{dt}=mg-cv,
-\]</span> 则 limiting speed 满足 <span class="math display">\[
+</span> 则 limiting speed 满足 <span class="math display">
 mg-cv=0.
-\]</span></p>
+</span></p>
 </section>
 <section id="initial-conditions" class="level3">
 <h3 class="anchored" data-anchor-id="initial-conditions">1.4 Initial conditions</h3>
-<p>积分后必须使用题目给出的 <span class="math inline">\(t=0\)</span>、<span class="math inline">\(x=0\)</span>、<span class="math inline">\(v=U\)</span> 等条件确定常数。若只写出含 arbitrary constant 的结果，通常不能得到最后的 numerical answer。</p>
+<p>积分后必须使用题目给出的 <span class="math inline">t=0</span>、<span class="math inline">x=0</span>、<span class="math inline">v=U</span> 等条件确定常数。若只写出含 arbitrary constant 的结果，通常不能得到最后的 numerical answer。</p>
 </section>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-6.1---tension-depending-on-time" class="level3">
 <h3 class="anchored" data-anchor-id="example-6.1---tension-depending-on-time">Example 6.1 - Tension depending on time</h3>
-<p>A crate of mass <span class="math inline">\(m\)</span> is freely suspended at rest from a crane. When the operator begins to lift the crate further, the tension in the suspending cable increases uniformly from <span class="math inline">\(mg\)</span> newtons to <span class="math inline">\(1.2mg\)</span> newtons over a period of <span class="math inline">\(2\)</span> seconds.</p>
-<p><strong>(i)</strong> What is the tension in the cable <span class="math inline">\(t\)</span> seconds after the lifting has begun, for <span class="math inline">\(t\leq 2\)</span>?</p>
-<p><strong>(ii)</strong> What is the velocity after <span class="math inline">\(2\)</span> seconds?</p>
-<p><strong>(iii)</strong> How far has the crate risen after <span class="math inline">\(2\)</span> seconds?</p>
+<p>A crate of mass <span class="math inline">m</span> is freely suspended at rest from a crane. When the operator begins to lift the crate further, the tension in the suspending cable increases uniformly from <span class="math inline">mg</span> newtons to <span class="math inline">1.2mg</span> newtons over a period of <span class="math inline">2</span> seconds.</p>
+<p><strong>(i)</strong> What is the tension in the cable <span class="math inline">t</span> seconds after the lifting has begun, for <span class="math inline">t\leq 2</span>?</p>
+<p><strong>(ii)</strong> What is the velocity after <span class="math inline">2</span> seconds?</p>
+<p><strong>(iii)</strong> How far has the crate risen after <span class="math inline">2</span> seconds?</p>
 <p>Assume the situation may be modelled with air resistance and cable stretching ignored.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -520,31 +534,31 @@ Show answer
 </summary>
 <p><strong>(i)</strong></p>
 <ul>
-<li><span class="math inline">\(T=mg+0.1mgt\)</span>.</li>
+<li><span class="math inline">T=mg+0.1mgt</span>.</li>
 </ul>
 <p><strong>(ii)</strong></p>
 <ul>
-<li>Taking upwards as positive, <span class="math display">\[
+<li>Taking upwards as positive, <span class="math display">
 m\frac{dv}{dt}=T-mg=0.1mgt.
-\]</span></li>
-<li>Using <span class="math inline">\(v=0\)</span> at <span class="math inline">\(t=0\)</span> gives <span class="math inline">\(v=0.05gt^2\)</span>.</li>
-<li>Therefore <span class="math inline">\(\boxed{v=2\ \mathrm{m\,s^{-1}}}\)</span> when <span class="math inline">\(t=2\)</span> and <span class="math inline">\(g=10\)</span>.</li>
+</span></li>
+<li>Using <span class="math inline">v=0</span> at <span class="math inline">t=0</span> gives <span class="math inline">v=0.05gt^2</span>.</li>
+<li>Therefore <span class="math inline">\boxed{v=2\ \mathrm{m\,s^{-1}}}</span> when <span class="math inline">t=2</span> and <span class="math inline">g=10</span>.</li>
 </ul>
 <p><strong>(iii)</strong></p>
 <ul>
-<li>Since <span class="math inline">\(ds/dt=v\)</span>, <span class="math display">\[
+<li>Since <span class="math inline">ds/dt=v</span>, <span class="math display">
 s=0.05g\frac{t^3}{3}.
-\]</span></li>
-<li>Therefore <span class="math inline">\(\boxed{s=\frac43\ \mathrm m}\)</span>.</li>
+</span></li>
+<li>Therefore <span class="math inline">\boxed{s=\frac43\ \mathrm m}</span>.</li>
 </ul>
 </details>
 </section>
 <section id="example-6.2---gravitational-force-depending-on-displacement" class="level3">
 <h3 class="anchored" data-anchor-id="example-6.2---gravitational-force-depending-on-displacement">Example 6.2 - Gravitational force depending on displacement</h3>
-<p>A prototype projectile of mass <span class="math inline">\(m\)</span> is launched vertically upwards from the Earth’s surface, but only just reaches a height of one tenth of the Earth’s radius. When the height <span class="math inline">\(s\)</span> above the surface is small compared with the radius <span class="math inline">\(R\)</span> of the Earth, the magnitude of the Earth’s gravitational force on the projectile may be modelled as <span class="math inline">\(mg\left(1-\frac{2s}{R}\right)\)</span>.</p>
-<p><strong>(i)</strong> Write down a differential equation of motion involving <span class="math inline">\(s\)</span> and velocity <span class="math inline">\(v\)</span>.</p>
-<p><strong>(ii)</strong> Integrate this equation and obtain an expression for the loss of kinetic energy between launch and height <span class="math inline">\(s\)</span>.</p>
-<p><strong>(iii)</strong> Show that the launch velocity is <span class="math inline">\(0.3\sqrt{2gR}\)</span>.</p>
+<p>A prototype projectile of mass <span class="math inline">m</span> is launched vertically upwards from the Earth’s surface, but only just reaches a height of one tenth of the Earth’s radius. When the height <span class="math inline">s</span> above the surface is small compared with the radius <span class="math inline">R</span> of the Earth, the magnitude of the Earth’s gravitational force on the projectile may be modelled as <span class="math inline">mg\left(1-\frac{2s}{R}\right)</span>.</p>
+<p><strong>(i)</strong> Write down a differential equation of motion involving <span class="math inline">s</span> and velocity <span class="math inline">v</span>.</p>
+<p><strong>(ii)</strong> Integrate this equation and obtain an expression for the loss of kinetic energy between launch and height <span class="math inline">s</span>.</p>
+<p><strong>(iii)</strong> Show that the launch velocity is <span class="math inline">0.3\sqrt{2gR}</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/linear-motion/pic/6.2a1.png" class="img-fluid figure-img" style="width:82.0%"></p>
@@ -557,45 +571,45 @@ Show answer
 </summary>
 <p><strong>(i)</strong></p>
 <ul>
-<li>Taking upwards as positive, <span class="math display">\[
+<li>Taking upwards as positive, <span class="math display">
 mv\frac{dv}{ds}=-mg\left(1-\frac{2s}{R}\right).
-\]</span></li>
+</span></li>
 </ul>
 <p><strong>(ii)</strong></p>
 <ul>
-<li>Integrating gives <span class="math display">\[
+<li>Integrating gives <span class="math display">
 \frac12mv_0^2-\frac12mv^2=mgs-\frac{mgs^2}{R}.
-\]</span></li>
+</span></li>
 </ul>
 <p><strong>(iii)</strong></p>
 <ul>
-<li>At <span class="math inline">\(s=R/10\)</span>, <span class="math inline">\(v=0\)</span>.</li>
-<li>Hence <span class="math inline">\(\frac12mv_0^2=\frac{9}{100}mgR\)</span> and <span class="math display">\[
+<li>At <span class="math inline">s=R/10</span>, <span class="math inline">v=0</span>.</li>
+<li>Hence <span class="math inline">\frac12mv_0^2=\frac{9}{100}mgR</span> and <span class="math display">
 \boxed{v_0=0.3\sqrt{2gR}}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 </section>
 <section id="example-6.3---force-depending-on-velocity" class="level3">
 <h3 class="anchored" data-anchor-id="example-6.3---force-depending-on-velocity">Example 6.3 - Force depending on velocity</h3>
-<p>A body of mass <span class="math inline">\(2\)</span> kg, initially at rest on a smooth horizontal plane, is subjected to a horizontal force of magnitude <span class="math inline">\(\dfrac{1}{2v+1}\)</span> N, where <span class="math inline">\(v\geq 0\)</span> is the velocity of the body.</p>
-<p><strong>(i)</strong> Find the time at which the velocity is <span class="math inline">\(1\ \mathrm{m\,s^{-1}}\)</span>.</p>
-<p><strong>(ii)</strong> Find the displacement when the velocity is <span class="math inline">\(1\ \mathrm{m\,s^{-1}}\)</span>.</p>
+<p>A body of mass <span class="math inline">2</span> kg, initially at rest on a smooth horizontal plane, is subjected to a horizontal force of magnitude <span class="math inline">\dfrac{1}{2v+1}</span> N, where <span class="math inline">v\geq 0</span> is the velocity of the body.</p>
+<p><strong>(i)</strong> Find the time at which the velocity is <span class="math inline">1\ \mathrm{m\,s^{-1}}</span>.</p>
+<p><strong>(ii)</strong> Find the displacement when the velocity is <span class="math inline">1\ \mathrm{m\,s^{-1}}</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(i)</strong></p>
 <ul>
-<li><span class="math inline">\(1=2(2v+1)\dfrac{dv}{dt}\)</span>.</li>
-<li>With <span class="math inline">\(t=0\)</span> at <span class="math inline">\(v=0\)</span>, <span class="math inline">\(t=2v^2+2v\)</span>.</li>
-<li>Hence <span class="math inline">\(\boxed{t=4\ \mathrm s}\)</span>.</li>
+<li><span class="math inline">1=2(2v+1)\dfrac{dv}{dt}</span>.</li>
+<li>With <span class="math inline">t=0</span> at <span class="math inline">v=0</span>, <span class="math inline">t=2v^2+2v</span>.</li>
+<li>Hence <span class="math inline">\boxed{t=4\ \mathrm s}</span>.</li>
 </ul>
 <p><strong>(ii)</strong></p>
 <ul>
-<li><span class="math inline">\(1=2v(2v+1)\dfrac{dv}{ds}\)</span>.</li>
-<li>With <span class="math inline">\(s=0\)</span> at <span class="math inline">\(v=0\)</span>, <span class="math inline">\(s=\frac43v^3+v^2\)</span>.</li>
-<li>Hence <span class="math inline">\(\boxed{s=\frac73\ \mathrm m}\)</span>.</li>
+<li><span class="math inline">1=2v(2v+1)\dfrac{dv}{ds}</span>.</li>
+<li>With <span class="math inline">s=0</span> at <span class="math inline">v=0</span>, <span class="math inline">s=\frac43v^3+v^2</span>.</li>
+<li>Hence <span class="math inline">\boxed{s=\frac73\ \mathrm m}</span>.</li>
 </ul>
 </details>
 </section>
@@ -609,142 +623,142 @@ Show answer
 <p>The following questions are reproduced from Exercise 6A. The original English wording and every sub-part are retained.</p>
 <section id="exercise-6a-question-4---cambridge-international-9709-paper-53-november-2015" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-4---cambridge-international-9709-paper-53-november-2015">Exercise 6A Question 4 - Cambridge International 9709 Paper 53, November 2015</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.5\)</span> kg is projected vertically upwards from a point on a horizontal surface. A resisting force of magnitude <span class="math inline">\(0.02v^2\)</span> N acts on <span class="math inline">\(P\)</span>, where <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> is the upward velocity of <span class="math inline">\(P\)</span> when it is at a height of <span class="math inline">\(x\)</span> m above the surface. The initial speed of <span class="math inline">\(P\)</span> is <span class="math inline">\(8\ \mathrm{m\,s^{-1}}\)</span>.</p>
-<p><strong>(i)</strong> Show that, while <span class="math inline">\(P\)</span> is moving upwards, <span class="math display">\[v\frac{dv}{dx}=-10-0.04v^2.\]</span></p>
-<p><strong>(ii)</strong> Find the greatest height of <span class="math inline">\(P\)</span> above the surface.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">0.5</span> kg is projected vertically upwards from a point on a horizontal surface. A resisting force of magnitude <span class="math inline">0.02v^2</span> N acts on <span class="math inline">P</span>, where <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> is the upward velocity of <span class="math inline">P</span> when it is at a height of <span class="math inline">x</span> m above the surface. The initial speed of <span class="math inline">P</span> is <span class="math inline">8\ \mathrm{m\,s^{-1}}</span>.</p>
+<p><strong>(i)</strong> Show that, while <span class="math inline">P</span> is moving upwards, <span class="math display">v\frac{dv}{dx}=-10-0.04v^2.</span></p>
+<p><strong>(ii)</strong> Find the greatest height of <span class="math inline">P</span> above the surface.</p>
 <p><strong>(iii)</strong> Find the speed of $P immediately before it strikes the surface after descending.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(i)</strong> <span class="math inline">\(0.5v\,dv/dx=-5-0.02v^2\)</span>, hence <span class="math inline">\(\boxed{v\,dv/dx=-10-0.04v^2}\)</span>.</p>
-<p><strong>(ii)</strong> At the greatest height <span class="math inline">\(v=0\)</span>; integration gives <span class="math inline">\(\boxed{x=2.85\ \mathrm m}\)</span>.</p>
-<strong>(iii)</strong> Applying the descent equation from the greatest height to the surface gives <span class="math inline">\(\boxed{v=7.14\ \mathrm{m\,s^{-1}}}\)</span>.
+<p><strong>(i)</strong> <span class="math inline">0.5v\,dv/dx=-5-0.02v^2</span>, hence <span class="math inline">\boxed{v\,dv/dx=-10-0.04v^2}</span>.</p>
+<p><strong>(ii)</strong> At the greatest height <span class="math inline">v=0</span>; integration gives <span class="math inline">\boxed{x=2.85\ \mathrm m}</span>.</p>
+<strong>(iii)</strong> Applying the descent equation from the greatest height to the surface gives <span class="math inline">\boxed{v=7.14\ \mathrm{m\,s^{-1}}}</span>.
 </details>
 </section>
 <section id="exercise-6a-question-5---cambridge-international-9709-paper-5-june-2006" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-5---cambridge-international-9709-paper-5-june-2006">Exercise 6A Question 5 - Cambridge International 9709 Paper 5, June 2006</h3>
-<p>An object of mass <span class="math inline">\(0.4\)</span> kg is projected vertically upwards from the ground, with an initial speed of <span class="math inline">\(16\ \mathrm{m\,s^{-1}}\)</span>. A resisting force of magnitude <span class="math inline">\(0.1v\)</span> N acts on the object during its ascent, where <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> is the speed of the object at time <span class="math inline">\(t\)</span> s after it starts to move.</p>
-<p><strong>(i)</strong> Show that <span class="math inline">\(\dfrac{dv}{dt}=-0.25(v+40)\)</span>.</p>
-<p><strong>(ii)</strong> Find the value of <span class="math inline">\(t\)</span> at the instant that the object reaches its maximum height.</p>
+<p>An object of mass <span class="math inline">0.4</span> kg is projected vertically upwards from the ground, with an initial speed of <span class="math inline">16\ \mathrm{m\,s^{-1}}</span>. A resisting force of magnitude <span class="math inline">0.1v</span> N acts on the object during its ascent, where <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> is the speed of the object at time <span class="math inline">t</span> s after it starts to move.</p>
+<p><strong>(i)</strong> Show that <span class="math inline">\dfrac{dv}{dt}=-0.25(v+40)</span>.</p>
+<p><strong>(ii)</strong> Find the value of <span class="math inline">t</span> at the instant that the object reaches its maximum height.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li><span class="math inline">\(0.4\,dv/dt=-4-0.1v\)</span>, so the required equation follows.</li>
-<li><span class="math inline">\(v=56e^{-0.25t}-40\)</span>; setting <span class="math inline">\(v=0\)</span> gives <span class="math inline">\(\boxed{t=4\ln(7/5)=1.35\ \mathrm s}\)</span>.</li>
+<li><span class="math inline">0.4\,dv/dt=-4-0.1v</span>, so the required equation follows.</li>
+<li><span class="math inline">v=56e^{-0.25t}-40</span>; setting <span class="math inline">v=0</span> gives <span class="math inline">\boxed{t=4\ln(7/5)=1.35\ \mathrm s}</span>.</li>
 </ul>
 </details>
 </section>
 <section id="exercise-6a-question-6---cambridge-international-9709-paper-5-june-2008" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-6---cambridge-international-9709-paper-5-june-2008">Exercise 6A Question 6 - Cambridge International 9709 Paper 5, June 2008</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.5\)</span> kg moves on a horizontal surface along the straight line <span class="math inline">\(OA\)</span>, in the direction from <span class="math inline">\(O\)</span> to <span class="math inline">\(A\)</span>. The coefficient of friction between <span class="math inline">\(P\)</span> and the surface is <span class="math inline">\(0.08\)</span>. Air resistance of magnitude <span class="math inline">\(0.2v\)</span> N opposes the motion, where <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> is the speed of <span class="math inline">\(P\)</span> at time <span class="math inline">\(t\)</span> s. The particle passes through <span class="math inline">\(O\)</span> with speed <span class="math inline">\(4\ \mathrm{m\,s^{-1}}\)</span> when <span class="math inline">\(t=0\)</span>.</p>
-<p><strong>(i)</strong> Show that <span class="math inline">\(2.5\dfrac{dv}{dt}=-(v+2)\)</span> and hence find the value of <span class="math inline">\(t\)</span> when <span class="math inline">\(v=0\)</span>.</p>
-<p><strong>(ii)</strong> Show that <span class="math inline">\(\dfrac{dx}{dt}=6e^{-0.4t}-2\)</span>, where <span class="math inline">\(x\)</span> m is the displacement of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span> at time <span class="math inline">\(t\)</span> s, and hence find the distance <span class="math inline">\(OP\)</span> when <span class="math inline">\(v=0\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">0.5</span> kg moves on a horizontal surface along the straight line <span class="math inline">OA</span>, in the direction from <span class="math inline">O</span> to <span class="math inline">A</span>. The coefficient of friction between <span class="math inline">P</span> and the surface is <span class="math inline">0.08</span>. Air resistance of magnitude <span class="math inline">0.2v</span> N opposes the motion, where <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> is the speed of <span class="math inline">P</span> at time <span class="math inline">t</span> s. The particle passes through <span class="math inline">O</span> with speed <span class="math inline">4\ \mathrm{m\,s^{-1}}</span> when <span class="math inline">t=0</span>.</p>
+<p><strong>(i)</strong> Show that <span class="math inline">2.5\dfrac{dv}{dt}=-(v+2)</span> and hence find the value of <span class="math inline">t</span> when <span class="math inline">v=0</span>.</p>
+<p><strong>(ii)</strong> Show that <span class="math inline">\dfrac{dx}{dt}=6e^{-0.4t}-2</span>, where <span class="math inline">x</span> m is the displacement of <span class="math inline">P</span> from <span class="math inline">O</span> at time <span class="math inline">t</span> s, and hence find the distance <span class="math inline">OP</span> when <span class="math inline">v=0</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li><span class="math inline">\(v=6e^{-0.4t}-2\)</span>.</li>
-<li>Hence <span class="math inline">\(\boxed{t=2.75\ \mathrm s}\)</span> when <span class="math inline">\(v=0\)</span>.</li>
-<li><span class="math inline">\(x=15(1-e^{-0.4t})-2t\)</span>, so <span class="math inline">\(\boxed{OP=4.51\ \mathrm m}\)</span>.</li>
+<li><span class="math inline">v=6e^{-0.4t}-2</span>.</li>
+<li>Hence <span class="math inline">\boxed{t=2.75\ \mathrm s}</span> when <span class="math inline">v=0</span>.</li>
+<li><span class="math inline">x=15(1-e^{-0.4t})-2t</span>, so <span class="math inline">\boxed{OP=4.51\ \mathrm m}</span>.</li>
 </ul>
 </details>
 </section>
 <section id="exercise-6a-question-7---cambridge-international-9709-paper-5-june-2009" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-7---cambridge-international-9709-paper-5-june-2009">Exercise 6A Question 7 - Cambridge International 9709 Paper 5, June 2009</h3>
-<p>A particle <span class="math inline">\(P\)</span> starts from a fixed point <span class="math inline">\(O\)</span> and moves in a straight line. When the displacement of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span> is <span class="math inline">\(x\)</span> m, its velocity is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> and its acceleration is <span class="math inline">\(\dfrac{1}{x+2}\ \mathrm{m\,s^{-2}}\)</span>. Given that <span class="math inline">\(v=2\)</span> when <span class="math inline">\(x=0\)</span>, use integration to show that <span class="math display">\[v^2=2\ln\left(\frac{x}{2}+1\right)+4.\]</span></p>
-<p>Find the value of <span class="math inline">\(v\)</span> when the acceleration of <span class="math inline">\(P\)</span> is <span class="math inline">\(\frac14\ \mathrm{m\,s^{-2}}\)</span>.</p>
+<p>A particle <span class="math inline">P</span> starts from a fixed point <span class="math inline">O</span> and moves in a straight line. When the displacement of <span class="math inline">P</span> from <span class="math inline">O</span> is <span class="math inline">x</span> m, its velocity is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> and its acceleration is <span class="math inline">\dfrac{1}{x+2}\ \mathrm{m\,s^{-2}}</span>. Given that <span class="math inline">v=2</span> when <span class="math inline">x=0</span>, use integration to show that <span class="math display">v^2=2\ln\left(\frac{x}{2}+1\right)+4.</span></p>
+<p>Find the value of <span class="math inline">v</span> when the acceleration of <span class="math inline">P</span> is <span class="math inline">\frac14\ \mathrm{m\,s^{-2}}</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li><span class="math inline">\(v\,dv/dx=1/(x+2)\)</span> gives the stated expression.</li>
-<li><span class="math inline">\(a=1/4\)</span> gives <span class="math inline">\(x=2\)</span>.</li>
-<li>Therefore <span class="math inline">\(\boxed{v=\sqrt{4+2\ln2}=2.32\ \mathrm{m\,s^{-1}}}\)</span>.</li>
+<li><span class="math inline">v\,dv/dx=1/(x+2)</span> gives the stated expression.</li>
+<li><span class="math inline">a=1/4</span> gives <span class="math inline">x=2</span>.</li>
+<li>Therefore <span class="math inline">\boxed{v=\sqrt{4+2\ln2}=2.32\ \mathrm{m\,s^{-1}}}</span>.</li>
 </ul>
 </details>
 </section>
 <section id="exercise-6a-question-8---cambridge-international-9709-paper-51-june-2012" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-8---cambridge-international-9709-paper-51-june-2012">Exercise 6A Question 8 - Cambridge International 9709 Paper 51, June 2012</h3>
-<p>A particle of mass <span class="math inline">\(0.4\)</span> kg is released from rest at the top of a smooth plane inclined at <span class="math inline">\(30^\circ\)</span> to the horizontal. The motion of <span class="math inline">\(P\)</span> down the slope is opposed by a force of magnitude <span class="math inline">\(0.6x\)</span> N, where <span class="math inline">\(x\)</span> m is the distance <span class="math inline">\(P\)</span> has travelled down the slope. <span class="math inline">\(P\)</span> comes to rest before reaching the foot of the slope. Calculate</p>
-<p><strong>(i)</strong> the greatest speed of <span class="math inline">\(P\)</span> during its motion;</p>
-<p><strong>(ii)</strong> the distance travelled by <span class="math inline">\(P\)</span> during its motion.</p>
+<p>A particle of mass <span class="math inline">0.4</span> kg is released from rest at the top of a smooth plane inclined at <span class="math inline">30^\circ</span> to the horizontal. The motion of <span class="math inline">P</span> down the slope is opposed by a force of magnitude <span class="math inline">0.6x</span> N, where <span class="math inline">x</span> m is the distance <span class="math inline">P</span> has travelled down the slope. <span class="math inline">P</span> comes to rest before reaching the foot of the slope. Calculate</p>
+<p><strong>(i)</strong> the greatest speed of <span class="math inline">P</span> during its motion;</p>
+<p><strong>(ii)</strong> the distance travelled by <span class="math inline">P</span> during its motion.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li><span class="math inline">\(0.4v\,dv/dx=2-0.6x\)</span>.</li>
-<li>The greatest speed occurs at <span class="math inline">\(x=10/3\)</span>, giving <span class="math inline">\(\boxed{v_{\max}=4.08\ \mathrm{m\,s^{-1}}}\)</span>.</li>
-<li>At the final rest point, integration gives <span class="math inline">\(\boxed{x=6.67\ \mathrm m}\)</span>.</li>
+<li><span class="math inline">0.4v\,dv/dx=2-0.6x</span>.</li>
+<li>The greatest speed occurs at <span class="math inline">x=10/3</span>, giving <span class="math inline">\boxed{v_{\max}=4.08\ \mathrm{m\,s^{-1}}}</span>.</li>
+<li>At the final rest point, integration gives <span class="math inline">\boxed{x=6.67\ \mathrm m}</span>.</li>
 </ul>
 </details>
 </section>
 <section id="exercise-6a-question-9---cambridge-international-9709-paper-52-june-2013" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-9---cambridge-international-9709-paper-52-june-2013">Exercise 6A Question 9 - Cambridge International 9709 Paper 52, June 2013</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.5\)</span> kg moves in a straight line on a smooth horizontal surface. The velocity of <span class="math inline">\(P\)</span> is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> when the displacement of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span> is <span class="math inline">\(x\)</span> m. A single horizontal force of magnitude <span class="math inline">\(0.16e^x\)</span> N acts on <span class="math inline">\(P\)</span> in the direction <span class="math inline">\(OP\)</span>. The velocity of <span class="math inline">\(P\)</span> when it is at <span class="math inline">\(O\)</span> is <span class="math inline">\(0.8\ \mathrm{m\,s^{-1}}\)</span>.</p>
-<p><strong>(i)</strong> Show that <span class="math inline">\(v=0.8e^{x/2}\)</span>.</p>
-<p><strong>(ii)</strong> Find the time taken by <span class="math inline">\(P\)</span> to travel <span class="math inline">\(1.4\)</span> m from <span class="math inline">\(O\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">0.5</span> kg moves in a straight line on a smooth horizontal surface. The velocity of <span class="math inline">P</span> is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> when the displacement of <span class="math inline">P</span> from <span class="math inline">O</span> is <span class="math inline">x</span> m. A single horizontal force of magnitude <span class="math inline">0.16e^x</span> N acts on <span class="math inline">P</span> in the direction <span class="math inline">OP</span>. The velocity of <span class="math inline">P</span> when it is at <span class="math inline">O</span> is <span class="math inline">0.8\ \mathrm{m\,s^{-1}}</span>.</p>
+<p><strong>(i)</strong> Show that <span class="math inline">v=0.8e^{x/2}</span>.</p>
+<p><strong>(ii)</strong> Find the time taken by <span class="math inline">P</span> to travel <span class="math inline">1.4</span> m from <span class="math inline">O</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li><span class="math inline">\(0.5v\,dv/dx=0.16e^x\)</span> gives <span class="math inline">\(v=0.8e^{x/2}\)</span>.</li>
-<li><span class="math inline">\(t=\int_0^{1.4}1/v\,dx=2.5(1-e^{-0.7})\)</span>, so <span class="math inline">\(\boxed{t=1.26\ \mathrm s}\)</span>.</li>
+<li><span class="math inline">0.5v\,dv/dx=0.16e^x</span> gives <span class="math inline">v=0.8e^{x/2}</span>.</li>
+<li><span class="math inline">t=\int_0^{1.4}1/v\,dx=2.5(1-e^{-0.7})</span>, so <span class="math inline">\boxed{t=1.26\ \mathrm s}</span>.</li>
 </ul>
 </details>
 </section>
 <section id="exercise-6a-question-10---cambridge-international-9709-paper-53-june-2015" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-10---cambridge-international-9709-paper-53-june-2015">Exercise 6A Question 10 - Cambridge International 9709 Paper 53, June 2015</h3>
-<p>A cyclist and her bicycle have a total mass of <span class="math inline">\(60\)</span> kg. The cyclist rides in a horizontal straight line, and exerts a constant force in the direction of motion of <span class="math inline">\(150\)</span> N. The motion is opposed by a resistance of magnitude <span class="math inline">\(12v\)</span> N, where <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> is the cyclist’s speed at time <span class="math inline">\(t\)</span> s after passing through a fixed point <span class="math inline">\(A\)</span>.</p>
-<p><strong>(i)</strong> Show that <span class="math inline">\(5\dfrac{dv}{dt}=12.5-v\)</span>.</p>
-<p><strong>(ii)</strong> Given that the cyclist passes through <span class="math inline">\(A\)</span> with speed <span class="math inline">\(11.5\ \mathrm{m\,s^{-1}}\)</span>, solve this differential equation to show that <span class="math inline">\(v=12.5-e^{-0.2t}\)</span>.</p>
-<p><strong>(iii)</strong> Express the displacement of the cyclist from <span class="math inline">\(A\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+<p>A cyclist and her bicycle have a total mass of <span class="math inline">60</span> kg. The cyclist rides in a horizontal straight line, and exerts a constant force in the direction of motion of <span class="math inline">150</span> N. The motion is opposed by a resistance of magnitude <span class="math inline">12v</span> N, where <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> is the cyclist’s speed at time <span class="math inline">t</span> s after passing through a fixed point <span class="math inline">A</span>.</p>
+<p><strong>(i)</strong> Show that <span class="math inline">5\dfrac{dv}{dt}=12.5-v</span>.</p>
+<p><strong>(ii)</strong> Given that the cyclist passes through <span class="math inline">A</span> with speed <span class="math inline">11.5\ \mathrm{m\,s^{-1}}</span>, solve this differential equation to show that <span class="math inline">v=12.5-e^{-0.2t}</span>.</p>
+<p><strong>(iii)</strong> Express the displacement of the cyclist from <span class="math inline">A</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li><span class="math inline">\(60\,dv/dt=150-12v\)</span>, hence the equation in <strong>(i)</strong>.</li>
-<li>The solution is <span class="math inline">\(v=12.5-e^{-0.2t}\)</span>.</li>
-<li>Therefore <span class="math inline">\(\boxed{x=12.5t+5e^{-0.2t}-5}\)</span>.</li>
+<li><span class="math inline">60\,dv/dt=150-12v</span>, hence the equation in <strong>(i)</strong>.</li>
+<li>The solution is <span class="math inline">v=12.5-e^{-0.2t}</span>.</li>
+<li>Therefore <span class="math inline">\boxed{x=12.5t+5e^{-0.2t}-5}</span>.</li>
 </ul>
 </details>
 </section>
 <section id="exercise-6a-question-11---cambridge-international-9709-paper-52-november-2009" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-11---cambridge-international-9709-paper-52-november-2009">Exercise 6A Question 11 - Cambridge International 9709 Paper 52, November 2009</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.3\)</span> kg is projected vertically upwards from the ground with an initial speed of <span class="math inline">\(20\ \mathrm{m\,s^{-1}}\)</span>. When <span class="math inline">\(P\)</span> is at height <span class="math inline">\(x\)</span> m above the ground, its upward speed is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span>. It is given that <span class="math display">\[3v-90\ln(v+30)+x=A,\]</span> where <span class="math inline">\(A\)</span> is a constant.</p>
-<p><strong>(i)</strong> Differentiate this equation with respect to <span class="math inline">\(x\)</span> and hence show that the acceleration of the particle is <span class="math inline">\(-\frac13(v+30)\ \mathrm{m\,s^{-2}}\)</span>.</p>
-<p><strong>(ii)</strong> Find, in terms of <span class="math inline">\(v\)</span>, the resisting force acting on the particle.</p>
-<p><strong>(iii)</strong> Find the time taken for <span class="math inline">\(P\)</span> to reach its maximum height.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">0.3</span> kg is projected vertically upwards from the ground with an initial speed of <span class="math inline">20\ \mathrm{m\,s^{-1}}</span>. When <span class="math inline">P</span> is at height <span class="math inline">x</span> m above the ground, its upward speed is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span>. It is given that <span class="math display">3v-90\ln(v+30)+x=A,</span> where <span class="math inline">A</span> is a constant.</p>
+<p><strong>(i)</strong> Differentiate this equation with respect to <span class="math inline">x</span> and hence show that the acceleration of the particle is <span class="math inline">-\frac13(v+30)\ \mathrm{m\,s^{-2}}</span>.</p>
+<p><strong>(ii)</strong> Find, in terms of <span class="math inline">v</span>, the resisting force acting on the particle.</p>
+<p><strong>(iii)</strong> Find the time taken for <span class="math inline">P</span> to reach its maximum height.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>Differentiating gives <span class="math inline">\(\boxed{a=-\frac13(v+30)}\)</span>.</li>
-<li>Comparing <span class="math inline">\(0.3a=-3-0.1v\)</span> gives resisting force <span class="math inline">\(\boxed{0.1v\ \mathrm N}\)</span>.</li>
-<li>Setting <span class="math inline">\(v=0\)</span> in the time solution gives <span class="math inline">\(\boxed{t=3\ln(5/3)=1.53\ \mathrm s}\)</span>.</li>
+<li>Differentiating gives <span class="math inline">\boxed{a=-\frac13(v+30)}</span>.</li>
+<li>Comparing <span class="math inline">0.3a=-3-0.1v</span> gives resisting force <span class="math inline">\boxed{0.1v\ \mathrm N}</span>.</li>
+<li>Setting <span class="math inline">v=0</span> in the time solution gives <span class="math inline">\boxed{t=3\ln(5/3)=1.53\ \mathrm s}</span>.</li>
 </ul>
 </details>
 </section>
 <section id="exercise-6a-question-12---cambridge-international-9709-june-2010" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-6a-question-12---cambridge-international-9709-june-2010">Exercise 6A Question 12 - Cambridge International 9709, June 2010</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.25\)</span> kg moves in a straight line on a smooth horizontal surface. <span class="math inline">\(P\)</span> starts at the point <span class="math inline">\(O\)</span> with speed <span class="math inline">\(10\ \mathrm{m\,s^{-1}}\)</span> and moves towards a fixed point <span class="math inline">\(A\)</span> on the line. At time <span class="math inline">\(t\)</span> s the displacement of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span> is <span class="math inline">\(x\)</span> m and the velocity of <span class="math inline">\(P\)</span> is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span>. A resistive force of magnitude <span class="math inline">\((5-x)\)</span> N acts on <span class="math inline">\(P\)</span> in the direction towards <span class="math inline">\(O\)</span>.</p>
-<p><strong>(i)</strong> Form a differential equation in <span class="math inline">\(v\)</span> and <span class="math inline">\(x\)</span>. By solving this differential equation, show that <span class="math inline">\(v=10-2x\)</span>.</p>
-<p><strong>(ii)</strong> Find <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>, and hence show that the particle is always less than <span class="math inline">\(5\)</span> m from <span class="math inline">\(O\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">0.25</span> kg moves in a straight line on a smooth horizontal surface. <span class="math inline">P</span> starts at the point <span class="math inline">O</span> with speed <span class="math inline">10\ \mathrm{m\,s^{-1}}</span> and moves towards a fixed point <span class="math inline">A</span> on the line. At time <span class="math inline">t</span> s the displacement of <span class="math inline">P</span> from <span class="math inline">O</span> is <span class="math inline">x</span> m and the velocity of <span class="math inline">P</span> is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span>. A resistive force of magnitude <span class="math inline">(5-x)</span> N acts on <span class="math inline">P</span> in the direction towards <span class="math inline">O</span>.</p>
+<p><strong>(i)</strong> Form a differential equation in <span class="math inline">v</span> and <span class="math inline">x</span>. By solving this differential equation, show that <span class="math inline">v=10-2x</span>.</p>
+<p><strong>(ii)</strong> Find <span class="math inline">x</span> in terms of <span class="math inline">t</span>, and hence show that the particle is always less than <span class="math inline">5</span> m from <span class="math inline">O</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li><span class="math inline">\(0.25v\,dv/dx=-(5-x)\)</span> gives <span class="math inline">\(v=10-2x\)</span>.</li>
-<li>Solving <span class="math inline">\(dx/dt=10-2x\)</span> gives <span class="math inline">\(\boxed{x=5(1-e^{-2t})&lt;5}\)</span>.</li>
+<li><span class="math inline">0.25v\,dv/dx=-(5-x)</span> gives <span class="math inline">v=10-2x</span>.</li>
+<li>Solving <span class="math inline">dx/dt=10-2x</span> gives <span class="math inline">\boxed{x=5(1-e^{-2t})&lt;5}</span>.</li>
 </ul>
 </details>
 <!-- The following Paper Supplement questions are intentionally excluded: only explicitly marked Cambridge International AS & A Level Mathematics questions are shown. -->
@@ -817,21 +831,21 @@ A particle of mass $0.4$ kg is projected vertically upwards with a speed of $20\
 <p>Questions are arranged by examination session and question number. The original English wording, all sub-parts and component references are retained. Answers are written as mark-scheme points.</p>
 <section id="mayjune-923131-and-923132-question-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-1">2021 May/June · 9231/31 and 9231/32 · Question 1</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(1\)</span> kg is moving along a straight line against a resistive force of magnitude <span class="math inline">\(\dfrac{10v}{(t+1)^2}\)</span> N, where <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> is the speed of <span class="math inline">\(P\)</span> at time <span class="math inline">\(t\)</span> s. When <span class="math inline">\(t=0\)</span>, <span class="math inline">\(v=25\)</span>.</p>
-<p>Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">1</span> kg is moving along a straight line against a resistive force of magnitude <span class="math inline">\dfrac{10v}{(t+1)^2}</span> N, where <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> is the speed of <span class="math inline">P</span> at time <span class="math inline">t</span> s. When <span class="math inline">t=0</span>, <span class="math inline">v=25</span>.</p>
+<p>Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>Taking the direction of motion as positive, <span class="math display">\[
+<li>Taking the direction of motion as positive, <span class="math display">
 \frac{dv}{dt}=-\frac{10v}{(t+1)^2}.
-\]</span></li>
-<li>Separating and integrating, <span class="math display">\[
+</span></li>
+<li>Separating and integrating, <span class="math display">
 \ln v=\frac{10}{t+1}+C.
-\]</span></li>
-<li>Using <span class="math inline">\(v=25\)</span> when <span class="math inline">\(t=0\)</span> gives <span class="math inline">\(C=\ln25-10\)</span>.</li>
-<li>Therefore <span class="math inline">\(\boxed{v=25e^{\,10/(t+1)-10}}\)</span>.</li>
+</span></li>
+<li>Using <span class="math inline">v=25</span> when <span class="math inline">t=0</span> gives <span class="math inline">C=\ln25-10</span>.</li>
+<li>Therefore <span class="math inline">\boxed{v=25e^{\,10/(t+1)-10}}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -840,34 +854,34 @@ Show answer
 </section>
 <section id="mayjune-923133-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-5">2021 May/June · 9231/33 · Question 5</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> kg is projected vertically upwards from a point <span class="math inline">\(O\)</span>, with speed <span class="math inline">\(20\ \mathrm{m\,s^{-1}}\)</span>, and moves under gravity. There is a resistive force of magnitude <span class="math inline">\(2mv\)</span> N, where <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> is the speed of <span class="math inline">\(P\)</span> at time <span class="math inline">\(t\)</span> s after projection.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span>, while <span class="math inline">\(P\)</span> is moving upwards.</p>
-<p>The displacement of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span> is <span class="math inline">\(x\)</span> m at time <span class="math inline">\(t\)</span> s.</p>
-<p><strong>(b)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>, while <span class="math inline">\(P\)</span> is moving upwards.</p>
-<p><strong>(c)</strong> Find, correct to 3 significant figures, the greatest height above <span class="math inline">\(O\)</span> reached by <span class="math inline">\(P\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> kg is projected vertically upwards from a point <span class="math inline">O</span>, with speed <span class="math inline">20\ \mathrm{m\,s^{-1}}</span>, and moves under gravity. There is a resistive force of magnitude <span class="math inline">2mv</span> N, where <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> is the speed of <span class="math inline">P</span> at time <span class="math inline">t</span> s after projection.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span>, while <span class="math inline">P</span> is moving upwards.</p>
+<p>The displacement of <span class="math inline">P</span> from <span class="math inline">O</span> is <span class="math inline">x</span> m at time <span class="math inline">t</span> s.</p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>, while <span class="math inline">P</span> is moving upwards.</p>
+<p><strong>(c)</strong> Find, correct to 3 significant figures, the greatest height above <span class="math inline">O</span> reached by <span class="math inline">P</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Taking upwards as positive and using <span class="math inline">\(g=10\)</span>, <span class="math display">\[
+<li>Taking upwards as positive and using <span class="math inline">g=10</span>, <span class="math display">
 \frac{dv}{dt}=-10-2v.
-\]</span></li>
-<li>With <span class="math inline">\(v(0)=20\)</span>, <span class="math inline">\(\boxed{v=25e^{-2t}-5}\)</span>.</li>
+</span></li>
+<li>With <span class="math inline">v(0)=20</span>, <span class="math inline">\boxed{v=25e^{-2t}-5}</span>.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>Since <span class="math inline">\(dx/dt=v\)</span> and <span class="math inline">\(x(0)=0\)</span>, <span class="math display">\[
+<li>Since <span class="math inline">dx/dt=v</span> and <span class="math inline">x(0)=0</span>, <span class="math display">
 \boxed{x=\frac{25}{2}(1-e^{-2t})-5t}.
-\]</span></li>
+</span></li>
 </ul>
 <p><strong>(c)</strong></p>
 <ul>
-<li>At maximum height, <span class="math inline">\(v=0\)</span>, so <span class="math inline">\(t=\frac12\ln5\)</span>.</li>
-<li>Substitution gives <span class="math display">\[
+<li>At maximum height, <span class="math inline">v=0</span>, so <span class="math inline">t=\frac12\ln5</span>.</li>
+<li>Substitution gives <span class="math display">
 \boxed{x=10-\frac52\ln5=5.98\ \mathrm m}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -876,31 +890,31 @@ Show answer
 </section>
 <section id="octobernovember-923131-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-question-2">2021 October/November · 9231/31 · Question 2</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> kg moves along a horizontal straight line with acceleration <span class="math inline">\(a\ \mathrm{m\,s^{-2}}\)</span> given by <span class="math display">\[
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> kg moves along a horizontal straight line with acceleration <span class="math inline">a\ \mathrm{m\,s^{-2}}</span> given by <span class="math display">
 a=\frac{v(1-2t^2)}{t},
-\]</span> where <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> is the velocity of <span class="math inline">\(P\)</span> at time <span class="math inline">\(t\)</span> s.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span> and an arbitrary constant.</p>
-<p><strong>(b)</strong> Given that <span class="math inline">\(a=5\)</span> when <span class="math inline">\(t=1\)</span>, find an expression, in terms of <span class="math inline">\(m\)</span> and <span class="math inline">\(t\)</span>, for the horizontal force acting on <span class="math inline">\(P\)</span> at time <span class="math inline">\(t\)</span>.</p>
+</span> where <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> is the velocity of <span class="math inline">P</span> at time <span class="math inline">t</span> s.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span> and an arbitrary constant.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">a=5</span> when <span class="math inline">t=1</span>, find an expression, in terms of <span class="math inline">m</span> and <span class="math inline">t</span>, for the horizontal force acting on <span class="math inline">P</span> at time <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Since <span class="math inline">\(a=dv/dt\)</span>, <span class="math display">\[
+<li>Since <span class="math inline">a=dv/dt</span>, <span class="math display">
 \frac1v\frac{dv}{dt}=\frac1t-2t.
-\]</span></li>
-<li>Therefore <span class="math inline">\(\boxed{v=At e^{-t^2}}\)</span>, where <span class="math inline">\(A\)</span> is arbitrary.</li>
+</span></li>
+<li>Therefore <span class="math inline">\boxed{v=At e^{-t^2}}</span>, where <span class="math inline">A</span> is arbitrary.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>When <span class="math inline">\(t=1\)</span>, <span class="math inline">\(5=v(1-2)=-v\)</span>, so <span class="math inline">\(v=-5\)</span>.</li>
-<li>Hence <span class="math inline">\(A=-5e\)</span> and <span class="math display">\[
+<li>When <span class="math inline">t=1</span>, <span class="math inline">5=v(1-2)=-v</span>, so <span class="math inline">v=-5</span>.</li>
+<li>Hence <span class="math inline">A=-5e</span> and <span class="math display">
 v=-5et e^{-t^2}.
-\]</span></li>
-<li>Therefore <span class="math display">\[
+</span></li>
+<li>Therefore <span class="math display">
 \boxed{F=ma=5me^{\,1-t^2}(2t^2-1)}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -909,31 +923,31 @@ v=-5et e^{-t^2}.
 </section>
 <section id="octobernovember-923132-question-6" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-6">2021 October/November · 9231/32 · Question 6</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(2\)</span> kg moves along a horizontal straight line. The point <span class="math inline">\(O\)</span> is a fixed point on this line. At time <span class="math inline">\(t\)</span> s the velocity of <span class="math inline">\(P\)</span> is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> and the displacement of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span> is <span class="math inline">\(x\)</span> m.</p>
-<p>A force of magnitude <span class="math inline">\(\left(8x-\dfrac{128}{x^3}\right)\)</span> N acts on <span class="math inline">\(P\)</span> in the direction <span class="math inline">\(OP\)</span>. When <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=8\)</span> and <span class="math inline">\(v=-15\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math display">\[
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">2</span> kg moves along a horizontal straight line. The point <span class="math inline">O</span> is a fixed point on this line. At time <span class="math inline">t</span> s the velocity of <span class="math inline">P</span> is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> and the displacement of <span class="math inline">P</span> from <span class="math inline">O</span> is <span class="math inline">x</span> m.</p>
+<p>A force of magnitude <span class="math inline">\left(8x-\dfrac{128}{x^3}\right)</span> N acts on <span class="math inline">P</span> in the direction <span class="math inline">OP</span>. When <span class="math inline">t=0</span>, <span class="math inline">x=8</span> and <span class="math inline">v=-15</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math display">
 v=-\frac{2}{x}(x^2-4).
-\]</span></p>
-<p><strong>(b)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+</span></p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Use <span class="math inline">\(2v\,dv/dx=8x-\dfrac{128}{x^3}\)</span>.</li>
-<li>Integrating and using <span class="math inline">\(x=8\)</span>, <span class="math inline">\(v=-15\)</span> gives <span class="math display">\[
+<li>Use <span class="math inline">2v\,dv/dx=8x-\dfrac{128}{x^3}</span>.</li>
+<li>Integrating and using <span class="math inline">x=8</span>, <span class="math inline">v=-15</span> gives <span class="math display">
 v^2=4\frac{(x^2-4)^2}{x^2}.
-\]</span></li>
-<li>The sign is negative initially, so <span class="math inline">\(\boxed{v=-\dfrac{2}{x}(x^2-4)}\)</span>.</li>
+</span></li>
+<li>The sign is negative initially, so <span class="math inline">\boxed{v=-\dfrac{2}{x}(x^2-4)}</span>.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>Since <span class="math inline">\(dx/dt=-2(x^2-4)/x\)</span>, <span class="math display">\[
+<li>Since <span class="math inline">dx/dt=-2(x^2-4)/x</span>, <span class="math display">
 \frac{x\,dx}{x^2-4}=-2\,dt.
-\]</span></li>
-<li>Using <span class="math inline">\(x=8\)</span> at <span class="math inline">\(t=0\)</span> gives <span class="math inline">\(x^2-4=60e^{-4t}\)</span>.</li>
-<li>Therefore <span class="math inline">\(\boxed{x=2\sqrt{1+15e^{-4t}}}\)</span>.</li>
+</span></li>
+<li>Using <span class="math inline">x=8</span> at <span class="math inline">t=0</span> gives <span class="math inline">x^2-4=60e^{-4t}</span>.</li>
+<li>Therefore <span class="math inline">\boxed{x=2\sqrt{1+15e^{-4t}}}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -942,22 +956,22 @@ v^2=4\frac{(x^2-4)^2}{x^2}.
 </section>
 <section id="mayjune-923131-and-923132-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-3">2022 May/June · 9231/31 and 9231/32 · Question 3</h3>
-<p>A particle <span class="math inline">\(P\)</span> is moving in a horizontal straight line. Initially <span class="math inline">\(P\)</span> is at the point <span class="math inline">\(O\)</span> on the line and is moving with velocity <span class="math inline">\(25\ \mathrm{m\,s^{-1}}\)</span>. At time <span class="math inline">\(t\)</span> s after passing through <span class="math inline">\(O\)</span>, the acceleration of <span class="math inline">\(P\)</span> is <span class="math inline">\(\dfrac{4000}{(5t+4)^3}\ \mathrm{m\,s^{-2}}\)</span> in the direction <span class="math inline">\(PO\)</span>. The displacement of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span> at time <span class="math inline">\(t\)</span> is <span class="math inline">\(x\)</span> m.</p>
-<p>Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+<p>A particle <span class="math inline">P</span> is moving in a horizontal straight line. Initially <span class="math inline">P</span> is at the point <span class="math inline">O</span> on the line and is moving with velocity <span class="math inline">25\ \mathrm{m\,s^{-1}}</span>. At time <span class="math inline">t</span> s after passing through <span class="math inline">O</span>, the acceleration of <span class="math inline">P</span> is <span class="math inline">\dfrac{4000}{(5t+4)^3}\ \mathrm{m\,s^{-2}}</span> in the direction <span class="math inline">PO</span>. The displacement of <span class="math inline">P</span> from <span class="math inline">O</span> at time <span class="math inline">t</span> is <span class="math inline">x</span> m.</p>
+<p>Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>Taking the direction <span class="math inline">\(OP\)</span> as positive, <span class="math display">\[
+<li>Taking the direction <span class="math inline">OP</span> as positive, <span class="math display">
 \frac{dv}{dt}=-\frac{4000}{(5t+4)^3}.
-\]</span></li>
-<li>Using <span class="math inline">\(v(0)=25\)</span> gives <span class="math display">\[
+</span></li>
+<li>Using <span class="math inline">v(0)=25</span> gives <span class="math display">
 v=\frac{400}{(5t+4)^2}.
-\]</span></li>
-<li>Since <span class="math inline">\(dx/dt=v\)</span> and <span class="math inline">\(x(0)=0\)</span>, <span class="math display">\[
+</span></li>
+<li>Since <span class="math inline">dx/dt=v</span> and <span class="math inline">x(0)=0</span>, <span class="math display">
 \boxed{x=20-\frac{80}{5t+4}}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -966,32 +980,32 @@ v=\frac{400}{(5t+4)^2}.
 </section>
 <section id="mayjune-923133-question-5-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-5-1">2022 May/June · 9231/33 · Question 5</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(4\)</span> kg is moving in a horizontal straight line. At time <span class="math inline">\(t\)</span> s the velocity of <span class="math inline">\(P\)</span> is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> and the displacement of <span class="math inline">\(P\)</span> from a fixed point <span class="math inline">\(O\)</span> on the line is <span class="math inline">\(x\)</span> m. The only force acting on <span class="math inline">\(P\)</span> is a resistive force of magnitude <span class="math inline">\((4e^{-x}+12)e^{-x}\)</span> N. When <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=0\)</span> and <span class="math inline">\(v=4\)</span>.</p>
-<p><strong>(a)</strong> Show by integration that <span class="math display">\[
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">4</span> kg is moving in a horizontal straight line. At time <span class="math inline">t</span> s the velocity of <span class="math inline">P</span> is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> and the displacement of <span class="math inline">P</span> from a fixed point <span class="math inline">O</span> on the line is <span class="math inline">x</span> m. The only force acting on <span class="math inline">P</span> is a resistive force of magnitude <span class="math inline">(4e^{-x}+12)e^{-x}</span> N. When <span class="math inline">t=0</span>, <span class="math inline">x=0</span> and <span class="math inline">v=4</span>.</p>
+<p><strong>(a)</strong> Show by integration that <span class="math display">
 v=\frac{1+3e^x}{e^x}.
-\]</span></p>
-<p><strong>(b)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+</span></p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>The equation of motion is <span class="math display">\[
+<li>The equation of motion is <span class="math display">
 4v\frac{dv}{dx}=-(4e^{-x}+12)e^{-x}.
-\]</span></li>
-<li>Integrating and using <span class="math inline">\(v=4\)</span> at <span class="math inline">\(x=0\)</span> gives <span class="math display">\[
+</span></li>
+<li>Integrating and using <span class="math inline">v=4</span> at <span class="math inline">x=0</span> gives <span class="math display">
 v^2=(3+e^{-x})^2.
-\]</span></li>
-<li>Since <span class="math inline">\(v&gt;0\)</span>, <span class="math inline">\(\boxed{v=3+e^{-x}=\dfrac{1+3e^x}{e^x}}\)</span>.</li>
+</span></li>
+<li>Since <span class="math inline">v&gt;0</span>, <span class="math inline">\boxed{v=3+e^{-x}=\dfrac{1+3e^x}{e^x}}</span>.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li><span class="math inline">\(dx/dt=3+e^{-x}\)</span>.</li>
-<li>Let <span class="math inline">\(y=e^x\)</span>. Then <span class="math inline">\(dy/dt=3y+1\)</span>, <span class="math inline">\(y(0)=1\)</span>.</li>
-<li>Hence <span class="math inline">\(y=(4e^{3t}-1)/3\)</span> and <span class="math display">\[
+<li><span class="math inline">dx/dt=3+e^{-x}</span>.</li>
+<li>Let <span class="math inline">y=e^x</span>. Then <span class="math inline">dy/dt=3y+1</span>, <span class="math inline">y(0)=1</span>.</li>
+<li>Hence <span class="math inline">y=(4e^{3t}-1)/3</span> and <span class="math display">
 \boxed{x=\ln\left(\frac{4e^{3t}-1}{3}\right)}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -1000,26 +1014,26 @@ v^2=(3+e^{-x})^2.
 </section>
 <section id="octobernovember-923131-and-923133-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-4">2022 October/November · 9231/31 and 9231/33 · Question 4</h3>
-<p>A particle of mass <span class="math inline">\(0.5\)</span> kg moves along a horizontal straight line. Its velocity is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> at time <span class="math inline">\(t\)</span> s. The forces acting on the particle are a driving force of magnitude <span class="math inline">\(50\)</span> N and a resistance of magnitude <span class="math inline">\(2v^2\)</span> N. The initial velocity of the particle is <span class="math inline">\(3\ \mathrm{m\,s^{-1}}\)</span>.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>(b)</strong> Deduce the limiting value of <span class="math inline">\(v\)</span>.</p>
+<p>A particle of mass <span class="math inline">0.5</span> kg moves along a horizontal straight line. Its velocity is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> at time <span class="math inline">t</span> s. The forces acting on the particle are a driving force of magnitude <span class="math inline">50</span> N and a resistance of magnitude <span class="math inline">2v^2</span> N. The initial velocity of the particle is <span class="math inline">3\ \mathrm{m\,s^{-1}}</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span>.</p>
+<p><strong>(b)</strong> Deduce the limiting value of <span class="math inline">v</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li><span class="math inline">\(0.5\,dv/dt=50-2v^2\)</span>, so <span class="math display">\[
+<li><span class="math inline">0.5\,dv/dt=50-2v^2</span>, so <span class="math display">
 \frac{dv}{dt}=4(25-v^2).
-\]</span></li>
-<li>Separating and using <span class="math inline">\(v(0)=3\)</span> gives <span class="math display">\[
+</span></li>
+<li>Separating and using <span class="math inline">v(0)=3</span> gives <span class="math display">
 \frac{5+v}{5-v}=4e^{40t}.
-\]</span></li>
-<li>Therefore <span class="math display">\[
+</span></li>
+<li>Therefore <span class="math display">
 \boxed{v=5\frac{4e^{40t}-1}{4e^{40t}+1}}.
-\]</span></li>
+</span></li>
 </ul>
-<strong>(b)</strong> <span class="math inline">\(\boxed{v\to5\ \mathrm{m\,s^{-1}}}\)</span>.
+<strong>(b)</strong> <span class="math inline">\boxed{v\to5\ \mathrm{m\,s^{-1}}}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2022, Question 4; answer checked against the official Mark Scheme.
@@ -1027,26 +1041,26 @@ Show answer
 </section>
 <section id="octobernovember-923132-question-4" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-4">2022 October/November · 9231/32 · Question 4</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(5\)</span> kg moves along a horizontal straight line. At time <span class="math inline">\(t\)</span> s, the velocity of <span class="math inline">\(P\)</span> is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> and its displacement from a fixed point <span class="math inline">\(O\)</span> on the line is <span class="math inline">\(x\)</span> m. The forces acting on <span class="math inline">\(P\)</span> are a force of magnitude <span class="math inline">\(\dfrac{500}{v}\)</span> N in the direction <span class="math inline">\(OP\)</span> and a resistive force of magnitude <span class="math inline">\(12v^2\)</span> N. When <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=0\)</span> and <span class="math inline">\(v=5\)</span>.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(x\)</span>.</p>
-<p><strong>(b)</strong> State the value that the speed approaches for large values of <span class="math inline">\(x\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">5</span> kg moves along a horizontal straight line. At time <span class="math inline">t</span> s, the velocity of <span class="math inline">P</span> is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> and its displacement from a fixed point <span class="math inline">O</span> on the line is <span class="math inline">x</span> m. The forces acting on <span class="math inline">P</span> are a force of magnitude <span class="math inline">\dfrac{500}{v}</span> N in the direction <span class="math inline">OP</span> and a resistive force of magnitude <span class="math inline">12v^2</span> N. When <span class="math inline">t=0</span>, <span class="math inline">x=0</span> and <span class="math inline">v=5</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">x</span>.</p>
+<p><strong>(b)</strong> State the value that the speed approaches for large values of <span class="math inline">x</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Using <span class="math inline">\(5v\,dv/dx=500/v-12v^2\)</span> and setting <span class="math inline">\(y=v^3\)</span> gives <span class="math display">\[
+<li>Using <span class="math inline">5v\,dv/dx=500/v-12v^2</span> and setting <span class="math inline">y=v^3</span> gives <span class="math display">
 \frac{dy}{dx}+\frac{36}{5}y=300.
-\]</span></li>
-<li>With <span class="math inline">\(y(0)=125\)</span>, <span class="math display">\[
+</span></li>
+<li>With <span class="math inline">y(0)=125</span>, <span class="math display">
 y=\frac{125}{3}\left(1+2e^{-36x/5}\right).
-\]</span></li>
-<li>Therefore <span class="math display">\[
+</span></li>
+<li>Therefore <span class="math display">
 \boxed{v=5\left(\frac{1+2e^{-36x/5}}{3}\right)^{1/3}}.
-\]</span></li>
+</span></li>
 </ul>
-<strong>(b)</strong> <span class="math inline">\(\boxed{v\to\dfrac{5}{\sqrt[3]{3}}\ \mathrm{m\,s^{-1}}}\)</span>.
+<strong>(b)</strong> <span class="math inline">\boxed{v\to\dfrac{5}{\sqrt[3]{3}}\ \mathrm{m\,s^{-1}}}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2022, Question 4; answer checked against the official Mark Scheme.
@@ -1054,28 +1068,28 @@ y=\frac{125}{3}\left(1+2e^{-36x/5}\right).
 </section>
 <section id="mayjune-923131-and-923132-question-6" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-6">2023 May/June · 9231/31 and 9231/32 · Question 6</h3>
-<p>A particle <span class="math inline">\(P\)</span> moving in a straight line has displacement <span class="math inline">\(x\)</span> m from a fixed point <span class="math inline">\(O\)</span> on the line and velocity <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> at time <span class="math inline">\(t\)</span> s. The acceleration of <span class="math inline">\(P\)</span>, in <span class="math inline">\(\mathrm{m\,s^{-2}}\)</span>, is given by <span class="math inline">\(6v\sqrt{v+9}\)</span>. When <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=2\)</span> and <span class="math inline">\(v=72\)</span>.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(x\)</span>.</p>
-<p><strong>(b)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+<p>A particle <span class="math inline">P</span> moving in a straight line has displacement <span class="math inline">x</span> m from a fixed point <span class="math inline">O</span> on the line and velocity <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> at time <span class="math inline">t</span> s. The acceleration of <span class="math inline">P</span>, in <span class="math inline">\mathrm{m\,s^{-2}}</span>, is given by <span class="math inline">6v\sqrt{v+9}</span>. When <span class="math inline">t=0</span>, <span class="math inline">x=2</span> and <span class="math inline">v=72</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">x</span>.</p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Use <span class="math inline">\(v\,dv/dx=6v\sqrt{v+9}\)</span>, so <span class="math inline">\(dv/dx=6\sqrt{v+9}\)</span>.</li>
-<li>Integration gives <span class="math inline">\(2\sqrt{v+9}=6x+C\)</span>.</li>
-<li>Using <span class="math inline">\(x=2\)</span>, <span class="math inline">\(v=72\)</span> gives <span class="math inline">\(C=6\)</span>.</li>
-<li>Hence <span class="math inline">\(\boxed{v=9(x+1)^2-9}\)</span>.</li>
+<li>Use <span class="math inline">v\,dv/dx=6v\sqrt{v+9}</span>, so <span class="math inline">dv/dx=6\sqrt{v+9}</span>.</li>
+<li>Integration gives <span class="math inline">2\sqrt{v+9}=6x+C</span>.</li>
+<li>Using <span class="math inline">x=2</span>, <span class="math inline">v=72</span> gives <span class="math inline">C=6</span>.</li>
+<li>Hence <span class="math inline">\boxed{v=9(x+1)^2-9}</span>.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>Since <span class="math inline">\(dx/dt=9x(x+2)\)</span>, <span class="math display">\[
+<li>Since <span class="math inline">dx/dt=9x(x+2)</span>, <span class="math display">
 \frac{dx}{x(x+2)}=9\,dt.
-\]</span></li>
-<li>Using <span class="math inline">\(x=2\)</span> at <span class="math inline">\(t=0\)</span> gives <span class="math display">\[
+</span></li>
+<li>Using <span class="math inline">x=2</span> at <span class="math inline">t=0</span> gives <span class="math display">
 \boxed{x=\frac{2e^{18t}}{2-e^{18t}}}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -1084,19 +1098,19 @@ Show answer
 </section>
 <section id="mayjune-923133-question-6" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-6">2023 May/June · 9231/33 · Question 6</h3>
-<p>A particle of mass <span class="math inline">\(m\)</span> kg falls vertically under gravity, from rest. At time <span class="math inline">\(t\)</span> s, <span class="math inline">\(P\)</span> has fallen <span class="math inline">\(x\)</span> m and has velocity <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span>. The only forces acting on <span class="math inline">\(P\)</span> are its weight and a resistance of magnitude <span class="math inline">\(kmgv\)</span> N, where <span class="math inline">\(k\)</span> is a constant.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span>, <span class="math inline">\(g\)</span> and <span class="math inline">\(k\)</span>.</p>
+<p>A particle of mass <span class="math inline">m</span> kg falls vertically under gravity, from rest. At time <span class="math inline">t</span> s, <span class="math inline">P</span> has fallen <span class="math inline">x</span> m and has velocity <span class="math inline">v\ \mathrm{m\,s^{-1}}</span>. The only forces acting on <span class="math inline">P</span> are its weight and a resistance of magnitude <span class="math inline">kmgv</span> N, where <span class="math inline">k</span> is a constant.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span>, <span class="math inline">g</span> and <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>Taking downwards as positive, <span class="math display">\[
+<li>Taking downwards as positive, <span class="math display">
 \frac{dv}{dt}=g(1-kv).
-\]</span></li>
-<li>Using <span class="math inline">\(v(0)=0\)</span> gives <span class="math display">\[
+</span></li>
+<li>Using <span class="math inline">v(0)=0</span> gives <span class="math display">
 \boxed{v=\frac1k(1-e^{-kgt})}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -1105,23 +1119,23 @@ Show answer
 </section>
 <section id="octobernovember-923131-and-923133-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-2">2023 October/November · 9231/31 and 9231/33 · Question 2</h3>
-<p>A ball of mass <span class="math inline">\(2\)</span> kg is projected vertically downwards with speed <span class="math inline">\(5\ \mathrm{m\,s^{-1}}\)</span> through a liquid. At time <span class="math inline">\(t\)</span> s after projection, the velocity of the ball is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> and its displacement from its starting point is <span class="math inline">\(x\)</span> m. The forces acting on the ball are its weight and a resistive force of magnitude <span class="math inline">\(0.2v^2\)</span> N.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>(b)</strong> Deduce what happens to <span class="math inline">\(v\)</span> for large values of <span class="math inline">\(t\)</span>.</p>
+<p>A ball of mass <span class="math inline">2</span> kg is projected vertically downwards with speed <span class="math inline">5\ \mathrm{m\,s^{-1}}</span> through a liquid. At time <span class="math inline">t</span> s after projection, the velocity of the ball is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> and its displacement from its starting point is <span class="math inline">x</span> m. The forces acting on the ball are its weight and a resistive force of magnitude <span class="math inline">0.2v^2</span> N.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span>.</p>
+<p><strong>(b)</strong> Deduce what happens to <span class="math inline">v</span> for large values of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Taking downwards as positive, <span class="math display">\[
+<li>Taking downwards as positive, <span class="math display">
 2\frac{dv}{dt}=20-0.2v^2.
-\]</span></li>
-<li>Using <span class="math inline">\(v(0)=5\)</span>, <span class="math display">\[
+</span></li>
+<li>Using <span class="math inline">v(0)=5</span>, <span class="math display">
 \boxed{v=10\frac{3e^{2t}-1}{3e^{2t}+1}}.
-\]</span></li>
+</span></li>
 </ul>
-<strong>(b)</strong> <span class="math inline">\(\boxed{v\to10\ \mathrm{m\,s^{-1}}}\)</span>.
+<strong>(b)</strong> <span class="math inline">\boxed{v\to10\ \mathrm{m\,s^{-1}}}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Question 2; answer checked against the official Mark Scheme.
@@ -1129,20 +1143,20 @@ Show answer
 </section>
 <section id="octobernovember-923132-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-2">2023 October/November · 9231/32 · Question 2</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.5\)</span> kg moves in a straight line. At time <span class="math inline">\(t\)</span> s the velocity of <span class="math inline">\(P\)</span> is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> and its displacement from a fixed point <span class="math inline">\(O\)</span> on the line is <span class="math inline">\(x\)</span> m. The only forces acting on <span class="math inline">\(P\)</span> are a force of magnitude <span class="math inline">\(\dfrac{150}{(x+1)^2}\)</span> N in the direction of increasing displacement and a resistive force of magnitude <span class="math inline">\(\dfrac{450}{(x+1)^3}\)</span> N. When <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=0\)</span> and <span class="math inline">\(v=20\)</span>.</p>
-<p>Find <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(x\)</span>, giving your answer in the form <span class="math inline">\(v=\dfrac{Ax+B}{x+1}\)</span>, where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are constants to be determined.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">0.5</span> kg moves in a straight line. At time <span class="math inline">t</span> s the velocity of <span class="math inline">P</span> is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> and its displacement from a fixed point <span class="math inline">O</span> on the line is <span class="math inline">x</span> m. The only forces acting on <span class="math inline">P</span> are a force of magnitude <span class="math inline">\dfrac{150}{(x+1)^2}</span> N in the direction of increasing displacement and a resistive force of magnitude <span class="math inline">\dfrac{450}{(x+1)^3}</span> N. When <span class="math inline">t=0</span>, <span class="math inline">x=0</span> and <span class="math inline">v=20</span>.</p>
+<p>Find <span class="math inline">v</span> in terms of <span class="math inline">x</span>, giving your answer in the form <span class="math inline">v=\dfrac{Ax+B}{x+1}</span>, where <span class="math inline">A</span> and <span class="math inline">B</span> are constants to be determined.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>Using <span class="math inline">\(0.5v\,dv/dx=\dfrac{150}{(x+1)^2}-\dfrac{450}{(x+1)^3}\)</span> and integrating gives <span class="math display">\[
+<li>Using <span class="math inline">0.5v\,dv/dx=\dfrac{150}{(x+1)^2}-\dfrac{450}{(x+1)^3}</span> and integrating gives <span class="math display">
 v^2=\left(\frac{30}{x+1}-10\right)^2.
-\]</span></li>
-<li>Since <span class="math inline">\(v=20\)</span> at <span class="math inline">\(x=0\)</span>, <span class="math display">\[
+</span></li>
+<li>Since <span class="math inline">v=20</span> at <span class="math inline">x=0</span>, <span class="math display">
 \boxed{v=\frac{-10x+20}{x+1}}.
-\]</span></li>
-<li>Thus <span class="math inline">\(\boxed{A=-10,\ B=20}\)</span>.</li>
+</span></li>
+<li>Thus <span class="math inline">\boxed{A=-10,\ B=20}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1151,27 +1165,27 @@ v^2=\left(\frac{30}{x+1}-10\right)^2.
 </section>
 <section id="mayjune-923131-and-923132-question-6-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-6-1">2024 May/June · 9231/31 and 9231/32 · Question 6</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(2\)</span> kg moving on a horizontal straight line has displacement <span class="math inline">\(x\)</span> m from a fixed point <span class="math inline">\(O\)</span> on the line and velocity <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> at time <span class="math inline">\(t\)</span> s. The only horizontal force acting on <span class="math inline">\(P\)</span> has magnitude <span class="math inline">\(\frac1{10}(2v^2-1)e^{-t}\)</span> N and acts towards <span class="math inline">\(O\)</span>. When <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=1\)</span> and <span class="math inline">\(v=3\)</span>.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>(b)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">2</span> kg moving on a horizontal straight line has displacement <span class="math inline">x</span> m from a fixed point <span class="math inline">O</span> on the line and velocity <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> at time <span class="math inline">t</span> s. The only horizontal force acting on <span class="math inline">P</span> has magnitude <span class="math inline">\frac1{10}(2v^2-1)e^{-t}</span> N and acts towards <span class="math inline">O</span>. When <span class="math inline">t=0</span>, <span class="math inline">x=1</span> and <span class="math inline">v=3</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span>.</p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>The equation of motion is <span class="math display">\[
+<li>The equation of motion is <span class="math display">
 \frac{dv}{dt}=-\frac1{20}(2v^2-1)e^{-t}.
-\]</span></li>
-<li>Separation and the condition <span class="math inline">\(v(0)=3\)</span> give <span class="math display">\[
+</span></li>
+<li>Separation and the condition <span class="math inline">v(0)=3</span> give <span class="math display">
 \boxed{v=\frac12+\frac{5e^t}{3e^t-1}}.
-\]</span></li>
+</span></li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>Integrating <span class="math inline">\(dx/dt=v\)</span> and using <span class="math inline">\(x(0)=1\)</span> gives <span class="math display">\[
+<li>Integrating <span class="math inline">dx/dt=v</span> and using <span class="math inline">x(0)=1</span> gives <span class="math display">
 \boxed{x=\frac12t+\frac53\ln(3e^t-1)+1-\frac53\ln2}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -1180,21 +1194,21 @@ Show answer
 </section>
 <section id="mayjune-923133-question-7" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-7">2024 May/June · 9231/33 · Question 7</h3>
-<p>A parachutist of mass <span class="math inline">\(m\)</span> kg opens his parachute when he is moving vertically downwards with a speed of <span class="math inline">\(50\ \mathrm{m\,s^{-1}}\)</span>. At time <span class="math inline">\(t\)</span> s after opening his parachute, he has fallen a distance <span class="math inline">\(x\)</span> m from the point where he opened his parachute, and his speed is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span>. The forces acting on him are his weight and a resistive force of magnitude <span class="math inline">\(mv\)</span> N.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>(b)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>(c)</strong> Find the distance that the parachutist has fallen, since opening his parachute, when his speed is <span class="math inline">\(15\ \mathrm{m\,s^{-1}}\)</span>.</p>
+<p>A parachutist of mass <span class="math inline">m</span> kg opens his parachute when he is moving vertically downwards with a speed of <span class="math inline">50\ \mathrm{m\,s^{-1}}</span>. At time <span class="math inline">t</span> s after opening his parachute, he has fallen a distance <span class="math inline">x</span> m from the point where he opened his parachute, and his speed is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span>. The forces acting on him are his weight and a resistive force of magnitude <span class="math inline">mv</span> N.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span>.</p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
+<p><strong>(c)</strong> Find the distance that the parachutist has fallen, since opening his parachute, when his speed is <span class="math inline">15\ \mathrm{m\,s^{-1}}</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Taking downwards as positive, <span class="math inline">\(dv/dt=10-v\)</span> and <span class="math inline">\(v(0)=50\)</span>, so <span class="math inline">\(\boxed{v=10+40e^{-t}}\)</span>.</p>
-<p><strong>(b)</strong> Since <span class="math inline">\(dx/dt=v\)</span> and <span class="math inline">\(x(0)=0\)</span>, <span class="math display">\[
+<p><strong>(a)</strong> Taking downwards as positive, <span class="math inline">dv/dt=10-v</span> and <span class="math inline">v(0)=50</span>, so <span class="math inline">\boxed{v=10+40e^{-t}}</span>.</p>
+<p><strong>(b)</strong> Since <span class="math inline">dx/dt=v</span> and <span class="math inline">x(0)=0</span>, <span class="math display">
 \boxed{x=10t+40(1-e^{-t})}.
-\]</span></p>
-<strong>(c)</strong> When <span class="math inline">\(v=15\)</span>, <span class="math inline">\(e^{-t}=1/8\)</span>, so <span class="math inline">\(t=\ln8\)</span> and <span class="math display">\[
+</span></p>
+<strong>(c)</strong> When <span class="math inline">v=15</span>, <span class="math inline">e^{-t}=1/8</span>, so <span class="math inline">t=\ln8</span> and <span class="math display">
 \boxed{x=35+10\ln8=55.8\ \mathrm m}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2024, Question 7; answer checked against the official Mark Scheme.
@@ -1202,29 +1216,29 @@ Show answer
 </section>
 <section id="octobernovember-923131-and-923133-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-5">2024 October/November · 9231/31 and 9231/33 · Question 5</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(2\)</span> kg moving on a horizontal straight line has displacement <span class="math inline">\(x\)</span> m from a fixed point <span class="math inline">\(O\)</span> on the line and velocity <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> at time <span class="math inline">\(t\)</span> s. The only horizontal force acting on <span class="math inline">\(P\)</span> is a variable force <span class="math inline">\(F\)</span> N which can be expressed as a function of <span class="math inline">\(t\)</span>. It is given that <span class="math display">\[
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">2</span> kg moving on a horizontal straight line has displacement <span class="math inline">x</span> m from a fixed point <span class="math inline">O</span> on the line and velocity <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> at time <span class="math inline">t</span> s. The only horizontal force acting on <span class="math inline">P</span> is a variable force <span class="math inline">F</span> N which can be expressed as a function of <span class="math inline">t</span>. It is given that <span class="math display">
 \frac{v}{x}=\frac{3-t}{1+t}
-\]</span> and when <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=5\)</span>.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>(b)</strong> Find the magnitude of <span class="math inline">\(F\)</span> when <span class="math inline">\(t=3\)</span>.</p>
+</span> and when <span class="math inline">t=0</span>, <span class="math inline">x=5</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
+<p><strong>(b)</strong> Find the magnitude of <span class="math inline">F</span> when <span class="math inline">t=3</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Since <span class="math inline">\(dx/dt=v\)</span>, <span class="math display">\[
+<li>Since <span class="math inline">dx/dt=v</span>, <span class="math display">
 \frac1x\frac{dx}{dt}=\frac{3-t}{1+t}=-1+\frac4{1+t}.
-\]</span></li>
-<li>Using <span class="math inline">\(x(0)=5\)</span> gives <span class="math display">\[
+</span></li>
+<li>Using <span class="math inline">x(0)=5</span> gives <span class="math display">
 \boxed{x=5(1+t)^4e^{-t}}.
-\]</span></li>
+</span></li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>At <span class="math inline">\(t=3\)</span>, <span class="math inline">\(v=0\)</span> and <span class="math inline">\(dv/dt=x\,d[(3-t)/(1+t)]/dt=-x/4\)</span>.</li>
-<li>Hence <span class="math inline">\(|F|=2|dv/dt|=x/2=640e^{-3}\)</span>.</li>
-<li>Therefore <span class="math inline">\(\boxed{|F|=31.9\ \mathrm N}\)</span>.</li>
+<li>At <span class="math inline">t=3</span>, <span class="math inline">v=0</span> and <span class="math inline">dv/dt=x\,d[(3-t)/(1+t)]/dt=-x/4</span>.</li>
+<li>Hence <span class="math inline">|F|=2|dv/dt|=x/2=640e^{-3}</span>.</li>
+<li>Therefore <span class="math inline">\boxed{|F|=31.9\ \mathrm N}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1233,19 +1247,19 @@ Show answer
 </section>
 <section id="octobernovember-923132-question-7" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-7">2024 October/November · 9231/32 · Question 7</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> kg is held at rest at a point <span class="math inline">\(O\)</span> and released so that it moves vertically under gravity against a resistive force of magnitude <span class="math inline">\(0.1mv^2\)</span> N, where <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> is the velocity of <span class="math inline">\(P\)</span> at time <span class="math inline">\(t\)</span> s.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>(b)</strong> Find an expression for <span class="math inline">\(v^2\)</span> in terms of <span class="math inline">\(x\)</span>, where <span class="math inline">\(x\)</span> is the displacement of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> kg is held at rest at a point <span class="math inline">O</span> and released so that it moves vertically under gravity against a resistive force of magnitude <span class="math inline">0.1mv^2</span> N, where <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> is the velocity of <span class="math inline">P</span> at time <span class="math inline">t</span> s.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">t</span>.</p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">v^2</span> in terms of <span class="math inline">x</span>, where <span class="math inline">x</span> is the displacement of <span class="math inline">P</span> from <span class="math inline">O</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Taking downwards as positive and using <span class="math inline">\(g=10\)</span>, <span class="math display">\[
+<p><strong>(a)</strong> Taking downwards as positive and using <span class="math inline">g=10</span>, <span class="math display">
 \frac{dv}{dt}=10-v^2/10.
-\]</span> Thus <span class="math inline">\(\boxed{v=10\tanh t}\)</span>.</p>
-<strong>(b)</strong> Using <span class="math inline">\(v\,dv/dx=10-v^2/10\)</span> gives <span class="math display">\[
+</span> Thus <span class="math inline">\boxed{v=10\tanh t}</span>.</p>
+<strong>(b)</strong> Using <span class="math inline">v\,dv/dx=10-v^2/10</span> gives <span class="math display">
 \boxed{v^2=100(1-e^{-x/5})}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Question 7; answer checked against the official Mark Scheme.
@@ -1253,25 +1267,25 @@ Show answer
 </section>
 <section id="mayjune-923131-and-923132-question-1-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-1-1">2025 May/June · 9231/31 and 9231/32 · Question 1</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(8\)</span> kg is moving in a straight horizontal line. At time <span class="math inline">\(t\)</span> s, <span class="math inline">\(P\)</span> has displacement <span class="math inline">\(x\)</span> m from a fixed point <span class="math inline">\(O\)</span> on the line and velocity <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span>. The only horizontal force acting on <span class="math inline">\(P\)</span> has magnitude <span class="math inline">\((x^3+4x)\)</span> N and acts in the direction <span class="math inline">\(OP\)</span>. When <span class="math inline">\(t=0\)</span>, <span class="math inline">\(x=0\)</span> and <span class="math inline">\(v=1\)</span>.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(x\)</span>, giving your answer in the form <span class="math inline">\(v=ax^2+b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants to be determined.</p>
-<p><strong>(b)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">8</span> kg is moving in a straight horizontal line. At time <span class="math inline">t</span> s, <span class="math inline">P</span> has displacement <span class="math inline">x</span> m from a fixed point <span class="math inline">O</span> on the line and velocity <span class="math inline">v\ \mathrm{m\,s^{-1}}</span>. The only horizontal force acting on <span class="math inline">P</span> has magnitude <span class="math inline">(x^3+4x)</span> N and acts in the direction <span class="math inline">OP</span>. When <span class="math inline">t=0</span>, <span class="math inline">x=0</span> and <span class="math inline">v=1</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">x</span>, giving your answer in the form <span class="math inline">v=ax^2+b</span>, where <span class="math inline">a</span> and <span class="math inline">b</span> are constants to be determined.</p>
+<p><strong>(b)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li><span class="math inline">\(8v\,dv/dx=x^3+4x\)</span>.</li>
-<li>Using <span class="math inline">\(v=1\)</span> when <span class="math inline">\(x=0\)</span>, <span class="math display">\[
+<li><span class="math inline">8v\,dv/dx=x^3+4x</span>.</li>
+<li>Using <span class="math inline">v=1</span> when <span class="math inline">x=0</span>, <span class="math display">
 v^2=\left(\frac{x^2}{4}+1\right)^2.
-\]</span></li>
-<li>Since <span class="math inline">\(v&gt;0\)</span>, <span class="math inline">\(\boxed{v=\frac14x^2+1}\)</span>, so <span class="math inline">\(a=\frac14\)</span> and <span class="math inline">\(b=1\)</span>.</li>
+</span></li>
+<li>Since <span class="math inline">v&gt;0</span>, <span class="math inline">\boxed{v=\frac14x^2+1}</span>, so <span class="math inline">a=\frac14</span> and <span class="math inline">b=1</span>.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li><span class="math inline">\(dx/dt=1+x^2/4\)</span>, <span class="math inline">\(x(0)=0\)</span>.</li>
-<li>Therefore <span class="math inline">\(\boxed{x=2\tan(t/2)}\)</span>.</li>
+<li><span class="math inline">dx/dt=1+x^2/4</span>, <span class="math inline">x(0)=0</span>.</li>
+<li>Therefore <span class="math inline">\boxed{x=2\tan(t/2)}</span>.</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1280,10 +1294,10 @@ v^2=\left(\frac{x^2}{4}+1\right)^2.
 </section>
 <section id="mayjune-923133-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-3">2025 May/June · 9231/33 · Question 3</h3>
-<p>A ball of mass <span class="math inline">\(m\)</span> kg is projected vertically upwards with initial speed <span class="math inline">\(U\ \mathrm{m\,s^{-1}}\)</span> and moves under gravity. At time <span class="math inline">\(t\)</span> s after projection, the ball has travelled a distance <span class="math inline">\(x\)</span> m and its speed is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span>. There is a resistive force of magnitude <span class="math inline">\(mkv^2\)</span> N, where <span class="math inline">\(k\)</span> is a positive constant.</p>
-<p><strong>(a)</strong> Show that the distance travelled by the ball when it is moving upwards is <span class="math display">\[
+<p>A ball of mass <span class="math inline">m</span> kg is projected vertically upwards with initial speed <span class="math inline">U\ \mathrm{m\,s^{-1}}</span> and moves under gravity. At time <span class="math inline">t</span> s after projection, the ball has travelled a distance <span class="math inline">x</span> m and its speed is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span>. There is a resistive force of magnitude <span class="math inline">mkv^2</span> N, where <span class="math inline">k</span> is a positive constant.</p>
+<p><strong>(a)</strong> Show that the distance travelled by the ball when it is moving upwards is <span class="math display">
 x=\frac{1}{2k}\ln\left(\frac{g+kU^2}{g+kv^2}\right).
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Find the time taken for the ball to reach its maximum height.</p>
 <details class="answer-panel">
 <summary>
@@ -1291,18 +1305,18 @@ Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Taking upwards as positive, <span class="math display">\[
+<li>Taking upwards as positive, <span class="math display">
 v\frac{dv}{dx}=-g-kv^2.
-\]</span></li>
-<li>Separating and integrating from <span class="math inline">\(v=U\)</span> at <span class="math inline">\(x=0\)</span> gives the stated result.</li>
+</span></li>
+<li>Separating and integrating from <span class="math inline">v=U</span> at <span class="math inline">x=0</span> gives the stated result.</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>At maximum height, <span class="math inline">\(v=0\)</span>.</li>
-<li>From <span class="math inline">\(dv/dt=-g-kv^2\)</span>, <span class="math display">\[
+<li>At maximum height, <span class="math inline">v=0</span>.</li>
+<li>From <span class="math inline">dv/dt=-g-kv^2</span>, <span class="math display">
 t=\int_0^U\frac{dv}{g+kv^2}
 =\boxed{\frac1{\sqrt{gk}}\tan^{-1}\left(U\sqrt{\frac{k}{g}}\right)}.
-\]</span></li>
+</span></li>
 </ul>
 </details>
 <div class="source-line">
@@ -1311,22 +1325,22 @@ t=\int_0^U\frac{dv}{g+kv^2}
 </section>
 <section id="octobernovember-923131-and-923133-question-3" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-3">2025 October/November · 9231/31 and 9231/33 · Question 3</h3>
-<p>A particle <span class="math inline">\(P\)</span> is moving in a straight horizontal line. At time <span class="math inline">\(t\)</span> s, the displacement of $P from a fixed point <span class="math inline">\(O\)</span> on the line is <span class="math inline">\(x\)</span> m and the velocity of <span class="math inline">\(P\)</span> is <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span>. The acceleration of <span class="math inline">\(P\)</span> is <span class="math inline">\(\frac12(v^2+4)\ \mathrm{m\,s^{-2}}\)</span> in the direction <span class="math inline">\(PO\)</span>. Initially <span class="math inline">\(P\)</span> is at <span class="math inline">\(O\)</span> and is moving with velocity <span class="math inline">\(2\ \mathrm{m\,s^{-1}}\)</span>.</p>
-<p><strong>(a)</strong> Find an expression for <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(t\)</span>.</p>
-<p><strong>(b)</strong> Find the time when <span class="math inline">\(P\)</span> next goes through <span class="math inline">\(O\)</span>.</p>
+<p>A particle <span class="math inline">P</span> is moving in a straight horizontal line. At time <span class="math inline">t</span> s, the displacement of $P from a fixed point <span class="math inline">O</span> on the line is <span class="math inline">x</span> m and the velocity of <span class="math inline">P</span> is <span class="math inline">v\ \mathrm{m\,s^{-1}}</span>. The acceleration of <span class="math inline">P</span> is <span class="math inline">\frac12(v^2+4)\ \mathrm{m\,s^{-2}}</span> in the direction <span class="math inline">PO</span>. Initially <span class="math inline">P</span> is at <span class="math inline">O</span> and is moving with velocity <span class="math inline">2\ \mathrm{m\,s^{-1}}</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">x</span> in terms of <span class="math inline">t</span>.</p>
+<p><strong>(b)</strong> Find the time when <span class="math inline">P</span> next goes through <span class="math inline">O</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>Taking <span class="math inline">\(OP\)</span> as positive, <span class="math inline">\(dv/dt=-\frac12(v^2+4)\)</span>.</li>
-<li>Solving with <span class="math inline">\(v(0)=2\)</span> gives <span class="math inline">\(v=2\tan(\frac\pi4-t)\)</span>.</li>
-<li>Integrating <span class="math inline">\(dx/dt=v\)</span> and using <span class="math inline">\(x(0)=0\)</span> gives <span class="math display">\[
+<li>Taking <span class="math inline">OP</span> as positive, <span class="math inline">dv/dt=-\frac12(v^2+4)</span>.</li>
+<li>Solving with <span class="math inline">v(0)=2</span> gives <span class="math inline">v=2\tan(\frac\pi4-t)</span>.</li>
+<li>Integrating <span class="math inline">dx/dt=v</span> and using <span class="math inline">x(0)=0</span> gives <span class="math display">
 \boxed{x=2\ln\left(\cos\left(\frac\pi4-t\right)\right)+\ln2}.
-\]</span></li>
+</span></li>
 </ul>
-<strong>(b)</strong> Setting <span class="math inline">\(x=0\)</span> again gives <span class="math inline">\(\boxed{t=\frac\pi2\ \mathrm s}\)</span>.
+<strong>(b)</strong> Setting <span class="math inline">x=0</span> again gives <span class="math inline">\boxed{t=\frac\pi2\ \mathrm s}</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 3; answer checked against the official Mark Scheme.
@@ -1334,28 +1348,28 @@ Show answer
 </section>
 <section id="octobernovember-923132-question-7-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-7-1">2025 October/November · 9231/32 · Question 7</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> kg moving along a rough horizontal table has displacement <span class="math inline">\(x\)</span> m from a fixed point <span class="math inline">\(O\)</span> on the table and velocity <span class="math inline">\(v\ \mathrm{m\,s^{-1}}\)</span> at time <span class="math inline">\(t\)</span> s. The particle <span class="math inline">\(P\)</span> is subject to a resistive force of magnitude <span class="math inline">\(mgkv\)</span> N, where <span class="math inline">\(k\)</span> is a positive constant, and a frictional force of magnitude <span class="math inline">\(nmg\)</span>. The particle <span class="math inline">\(P\)</span> is initially at <span class="math inline">\(O\)</span> with speed <span class="math inline">\(U\ \mathrm{m\,s^{-1}}\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math display">\[
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> kg moving along a rough horizontal table has displacement <span class="math inline">x</span> m from a fixed point <span class="math inline">O</span> on the table and velocity <span class="math inline">v\ \mathrm{m\,s^{-1}}</span> at time <span class="math inline">t</span> s. The particle <span class="math inline">P</span> is subject to a resistive force of magnitude <span class="math inline">mgkv</span> N, where <span class="math inline">k</span> is a positive constant, and a frictional force of magnitude <span class="math inline">nmg</span>. The particle <span class="math inline">P</span> is initially at <span class="math inline">O</span> with speed <span class="math inline">U\ \mathrm{m\,s^{-1}}</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math display">
 t=\frac1{gk}\ln\left(\frac{kU+n}{kv+n}\right).
-\]</span></p>
-<p><strong>(b)</strong> Find the distance <span class="math inline">\(P\)</span> moves before coming to rest.</p>
-<p><strong>(c)</strong> Find the average speed of <span class="math inline">\(P\)</span> over the period it is moving.</p>
+</span></p>
+<p><strong>(b)</strong> Find the distance <span class="math inline">P</span> moves before coming to rest.</p>
+<p><strong>(c)</strong> Find the average speed of <span class="math inline">P</span> over the period it is moving.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Taking the direction of motion as positive, <span class="math display">\[
+<p><strong>(a)</strong> Taking the direction of motion as positive, <span class="math display">
 \frac{dv}{dt}=-g(kv+n).
-\]</span> Separating and using <span class="math inline">\(v=U\)</span> at <span class="math inline">\(t=0\)</span> gives the stated formula.</p>
-<p><strong>(b)</strong> Let <span class="math inline">\(L\)</span> be the stopping distance. Since <span class="math inline">\(dt=-dv/[g(kv+n)]\)</span>, <span class="math display">\[
+</span> Separating and using <span class="math inline">v=U</span> at <span class="math inline">t=0</span> gives the stated formula.</p>
+<p><strong>(b)</strong> Let <span class="math inline">L</span> be the stopping distance. Since <span class="math inline">dt=-dv/[g(kv+n)]</span>, <span class="math display">
 \boxed{L=\frac{1}{gk^2}\left[kU-n\ln\left(\frac{kU+n}{n}\right)\right]}.
-\]</span></p>
-<strong>(c)</strong> The stopping time is <span class="math display">\[
+</span></p>
+<strong>(c)</strong> The stopping time is <span class="math display">
 T=\frac1{gk}\ln\left(\frac{kU+n}{n}\right).
-\]</span> Therefore <span class="math display">\[
+</span> Therefore <span class="math display">
 \boxed{\bar v=\frac{L}{T}
 =\frac{U}{\ln((kU+n)/n)}-\frac{n}{k}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Question 7; answer checked against the official Mark Scheme.
@@ -1367,9 +1381,9 @@ T=\frac1{gk}\ln\left(\frac{kU+n}{n}\right).
 <ol type="1">
 <li>先确定 positive direction；</li>
 <li>阻力方向始终与 velocity 相反；</li>
-<li><span class="math inline">\(F(t)\)</span> 用 <span class="math inline">\(m\,dv/dt\)</span>；</li>
-<li><span class="math inline">\(F(x)\)</span> 常用 <span class="math inline">\(mv\,dv/dx\)</span>；</li>
-<li><span class="math inline">\(F(v)\)</span> 根据题目要求选择时间形式或位移形式；</li>
+<li><span class="math inline">F(t)</span> 用 <span class="math inline">m\,dv/dt</span>；</li>
+<li><span class="math inline">F(x)</span> 常用 <span class="math inline">mv\,dv/dx</span>；</li>
+<li><span class="math inline">F(v)</span> 根据题目要求选择时间形式或位移形式；</li>
 <li>重新积分后要代入初始条件；</li>
 <li>limiting speed 要令 acceleration 为 zero；</li>
 <li>不要把 variable acceleration 当作 constant acceleration 使用。</li>

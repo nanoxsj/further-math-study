@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -414,8 +428,8 @@ window.Quarto = {
 </div>
 <section id="core-formulae" class="level2">
 <h2 class="anchored" data-anchor-id="core-formulae">1. Core formulae</h2>
-<p>For a contingency table, <span class="math display">\[f_e=\frac{(\text{row total})(\text{column total})}{\text{grand total}},\qquad \chi^2=\sum\frac{(f_o-f_e)^2}{f_e}.\]</span></p>
-<p>For an <span class="math inline">\(m\times n\)</span> contingency table, <span class="math inline">\(v=(m-1)(n-1)\)</span>. For a goodness-of-fit test, subtract one degree of freedom for each estimated parameter, and combine adjacent classes when an expected frequency is below 5.</p>
+<p>For a contingency table, <span class="math display">f_e=\frac{(\text{row total})(\text{column total})}{\text{grand total}},\qquad \chi^2=\sum\frac{(f_o-f_e)^2}{f_e}.</span></p>
+<p>For an <span class="math inline">m\times n</span> contingency table, <span class="math inline">v=(m-1)(n-1)</span>. For a goodness-of-fit test, subtract one degree of freedom for each estimated parameter, and combine adjacent classes when an expected frequency is below 5.</p>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
@@ -430,7 +444,7 @@ window.Quarto = {
 </colgroup>
 <thead>
 <tr class="header">
-<th>Observed frequency <span class="math inline">\(f_o\)</span></th>
+<th>Observed frequency <span class="math inline">f_o</span></th>
 <th style="text-align: right;">Enjoyed horror films</th>
 <th style="text-align: right;">Did not enjoy horror films</th>
 </tr>
@@ -453,7 +467,7 @@ window.Quarto = {
 <summary>
 Show answer
 </summary>
-The expected frequencies are <span class="math inline">\(40.48,51.52,25.52,32.48\)</span>. <span class="math display">\[\chi^2=\frac{(51-40.48)^2}{40.48}+\frac{(41-51.52)^2}{51.52}+\frac{(15-25.52)^2}{25.52}+\frac{(43-32.48)^2}{32.48}=12.626.\]</span> Here <span class="math inline">\(v=1\)</span> and the 10% critical value is <span class="math inline">\(2.706\)</span>. Since <span class="math inline">\(12.626&gt;2.706\)</span>, reject <span class="math inline">\(H_0\)</span>. Enjoyment of the two types of film is not independent; they are associated.
+The expected frequencies are <span class="math inline">40.48,51.52,25.52,32.48</span>. <span class="math display">\chi^2=\frac{(51-40.48)^2}{40.48}+\frac{(41-51.52)^2}{51.52}+\frac{(15-25.52)^2}{25.52}+\frac{(43-32.48)^2}{32.48}=12.626.</span> Here <span class="math inline">v=1</span> and the 10% critical value is <span class="math inline">2.706</span>. Since <span class="math inline">12.626&gt;2.706</span>, reject <span class="math inline">H_0</span>. Enjoyment of the two types of film is not independent; they are associated.
 </details>
 </section>
 <section id="example-3.2-goodness-of-fit-test-for-the-poisson-distribution" class="level3">
@@ -492,7 +506,7 @@ The expected frequencies are <span class="math inline">\(40.48,51.52,25.52,32.48
 <summary>
 Show answer
 </summary>
-The estimate is <span class="math inline">\(\lambda=155/70=2.214\)</span>. Combine the last two classes because expected frequencies must be at least 5. The expected frequencies are <span class="math inline">\(7.65,16.93,18.74,13.84,7.66,5.18\)</span>. Use <span class="math display">\[H_0:\text{the number of calls is Poisson},\qquad H_1:\text{it is not Poisson}.\]</span> Compute <span class="math inline">\(\chi^2=\sum (f_o-f_e)^2/f_e\)</span> with <span class="math inline">\(v=6-1-1=4\)</span>, compare with <span class="math inline">\(\chi^2_{0.95,4}=9.488\)</span>, and state the conclusion in context.
+The estimate is <span class="math inline">\lambda=155/70=2.214</span>. Combine the last two classes because expected frequencies must be at least 5. The expected frequencies are <span class="math inline">7.65,16.93,18.74,13.84,7.66,5.18</span>. Use <span class="math display">H_0:\text{the number of calls is Poisson},\qquad H_1:\text{it is not Poisson}.</span> Compute <span class="math inline">\chi^2=\sum (f_o-f_e)^2/f_e</span> with <span class="math inline">v=6-1-1=4</span>, compare with <span class="math inline">\chi^2_{0.95,4}=9.488</span>, and state the conclusion in context.
 </details>
 </section>
 <section id="example-3.3-goodness-of-fit-test-for-the-binomial-distribution" class="level3">
@@ -514,7 +528,7 @@ The estimate is <span class="math inline">\(\lambda=155/70=2.214\)</span>. Combi
 </thead>
 <tbody>
 <tr class="odd">
-<td>Number of boxes <span class="math inline">\(f_o\)</span></td>
+<td>Number of boxes <span class="math inline">f_o</span></td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">27</td>
@@ -531,7 +545,7 @@ The estimate is <span class="math inline">\(\lambda=155/70=2.214\)</span>. Combi
 <summary>
 Show answer
 </summary>
-The mean is <span class="math inline">\(3.45\)</span>, so <span class="math inline">\(6p=3.45\)</span> and <span class="math inline">\(p=0.575\)</span>. Combine the classes <span class="math inline">\(0,1\)</span> and <span class="math inline">\(5,6\)</span> because their expected frequencies are below 5. The test statistic is <span class="math inline">\(\chi^2=39.74\)</span> with <span class="math inline">\(v=5\)</span>. Since <span class="math inline">\(39.74&gt;\chi^2_{0.995,5}=16.75\)</span> (or the table value used in the text), reject <span class="math inline">\(H_0\)</span>. The binomial model is not appropriate.
+The mean is <span class="math inline">3.45</span>, so <span class="math inline">6p=3.45</span> and <span class="math inline">p=0.575</span>. Combine the classes <span class="math inline">0,1</span> and <span class="math inline">5,6</span> because their expected frequencies are below 5. The test statistic is <span class="math inline">\chi^2=39.74</span> with <span class="math inline">v=5</span>. Since <span class="math inline">39.74&gt;\chi^2_{0.995,5}=16.75</span> (or the table value used in the text), reject <span class="math inline">H_0</span>. The binomial model is not appropriate.
 </details>
 </section>
 </section>
@@ -584,10 +598,10 @@ The mean is <span class="math inline">\(3.45\)</span>, so <span class="math inli
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(H_0:\)</span> success is independent of instructor; <span class="math inline">\(H_1:\)</span> success is not independent.</p>
-<p><strong>(b)</strong> Calculate each expected frequency by <span class="math inline">\(f_e=(\text{row total})(\text{column total})/400\)</span>.</p>
-<p><strong>(c)</strong> Calculate <span class="math inline">\(\chi^2=\sum(f_o-f_e)^2/f_e\)</span>, with <span class="math inline">\(v=(2-1)(4-1)=3\)</span>.</p>
-<strong>(d)</strong> Compare with <span class="math inline">\(\chi^2_{0.90,3}=6.251\)</span> and state the conclusion at 10% in context.
+<p><strong>(a)</strong> <span class="math inline">H_0:</span> success is independent of instructor; <span class="math inline">H_1:</span> success is not independent.</p>
+<p><strong>(b)</strong> Calculate each expected frequency by <span class="math inline">f_e=(\text{row total})(\text{column total})/400</span>.</p>
+<p><strong>(c)</strong> Calculate <span class="math inline">\chi^2=\sum(f_o-f_e)^2/f_e</span>, with <span class="math inline">v=(2-1)(4-1)=3</span>.</p>
+<strong>(d)</strong> Compare with <span class="math inline">\chi^2_{0.90,3}=6.251</span> and state the conclusion at 10% in context.
 </details>
 </section>
 <section id="mayjune-923143-question-5" class="level2">
@@ -599,44 +613,44 @@ Show answer
 <summary>
 Show answer
 </summary>
-Estimate the Poisson parameter from the sample mean, calculate expected frequencies, combine classes with expected frequency below 5, then calculate <span class="math inline">\(\chi^2\)</span>. Use <span class="math inline">\(H_0:\)</span> the data follow <span class="math inline">\(\operatorname{Po}(2.4)\)</span> and <span class="math inline">\(H_1:\)</span> they do not. Compare with the Mark Scheme critical value using the correct degrees of freedom and give the contextual conclusion.
+Estimate the Poisson parameter from the sample mean, calculate expected frequencies, combine classes with expected frequency below 5, then calculate <span class="math inline">\chi^2</span>. Use <span class="math inline">H_0:</span> the data follow <span class="math inline">\operatorname{Po}(2.4)</span> and <span class="math inline">H_1:</span> they do not. Compare with the Mark Scheme critical value using the correct degrees of freedom and give the contextual conclusion.
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-4" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-4">2022 May/June · 9231/41 and 9231/42 · Question 4</h2>
-<p>The number of butterflies per square metre is investigated. The observed frequencies and the claim that the number follows <span class="math inline">\(\operatorname{Po}(2.5)\)</span> are given in the original question.</p>
+<p>The number of butterflies per square metre is investigated. The observed frequencies and the claim that the number follows <span class="math inline">\operatorname{Po}(2.5)</span> are given in the original question.</p>
 <p><strong>(a)</strong> Find the expected frequencies.</p>
 <p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to test the scientist’s claim.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-Use <span class="math inline">\(H_0:\)</span> the data fit <span class="math inline">\(\operatorname{Po}(2.5)\)</span> and <span class="math inline">\(H_1:\)</span> the data do not fit. Calculate <span class="math inline">\(f_e= nP(X=x)\)</span>, combine the final classes as required, obtain <span class="math inline">\(\chi^2=8.12\)</span>, and compare with <span class="math inline">\(\chi^2_{0.90,4}=7.779\)</span> after using the correct degrees of freedom from the Mark Scheme. State the conclusion in context.
+Use <span class="math inline">H_0:</span> the data fit <span class="math inline">\operatorname{Po}(2.5)</span> and <span class="math inline">H_1:</span> the data do not fit. Calculate <span class="math inline">f_e= nP(X=x)</span>, combine the final classes as required, obtain <span class="math inline">\chi^2=8.12</span>, and compare with <span class="math inline">\chi^2_{0.90,4}=7.779</span> after using the correct degrees of freedom from the Mark Scheme. State the conclusion in context.
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-3" class="level2">
 <h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-3">2023 May/June · 9231/41 and 9231/42 · Question 3</h2>
-<p>A random sample of 50 values of the continuous random variable <span class="math inline">\(X\)</span> was taken. The observed frequencies and the proposed PDF <span class="math inline">\(f\)</span> are given in the original question.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(a=4.6007\)</span> and find <span class="math inline">\(b\)</span>.</p>
-<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to test whether <span class="math inline">\(f\)</span> is a satisfactory model.</p>
+<p>A random sample of 50 values of the continuous random variable <span class="math inline">X</span> was taken. The observed frequencies and the proposed PDF <span class="math inline">f</span> are given in the original question.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">a=4.6007</span> and find <span class="math inline">b</span>.</p>
+<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to test whether <span class="math inline">f</span> is a satisfactory model.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Use the sample data and the stated PDF to obtain <span class="math inline">\(\boxed{a=4.6007}\)</span> and the corresponding <span class="math inline">\(b\)</span>.</p>
-<strong>(b)</strong> Calculate the interval probabilities from the proposed PDF, obtain the expected frequencies, combine classes where necessary, then use <span class="math inline">\(\chi^2=\sum(f_o-f_e)^2/f_e\)</span>. Subtract one degree of freedom for each fitted parameter, compare with the 10% critical value, and state the contextual conclusion.
+<p><strong>(a)</strong> Use the sample data and the stated PDF to obtain <span class="math inline">\boxed{a=4.6007}</span> and the corresponding <span class="math inline">b</span>.</p>
+<strong>(b)</strong> Calculate the interval probabilities from the proposed PDF, obtain the expected frequencies, combine classes where necessary, then use <span class="math inline">\chi^2=\sum(f_o-f_e)^2/f_e</span>. Subtract one degree of freedom for each fitted parameter, compare with the 10% critical value, and state the contextual conclusion.
 </details>
 </section>
 <section id="octobernovember-923142-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923142-question-2">2023 October/November · 9231/42 · Question 2</h2>
 <p>The number of breakdowns on a particular section of road is recorded each day over 90 days. It is suggested that the number of breakdowns follows a Poisson distribution with mean 3.5.</p>
 <p><strong>(a)</strong> Complete the table.</p>
-<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to determine whether or not <span class="math inline">\(\operatorname{Po}(3.5)\)</span> is an appropriate model.</p>
+<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to determine whether or not <span class="math inline">\operatorname{Po}(3.5)</span> is an appropriate model.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-Calculate the expected frequencies from <span class="math inline">\(P(X=x)=e^{-3.5}3.5^x/x!\)</span>, combine the final classes if required, calculate <span class="math inline">\(\chi^2\)</span>, use the appropriate degrees of freedom, and compare with the 10% critical value. State whether the data support the Poisson model.
+Calculate the expected frequencies from <span class="math inline">P(X=x)=e^{-3.5}3.5^x/x!</span>, combine the final classes if required, calculate <span class="math inline">\chi^2</span>, use the appropriate degrees of freedom, and compare with the 10% critical value. State whether the data support the Poisson model.
 </details>
 </section>
 <section id="octobernovember-923141-923142-and-923143-question-3" class="level2">
@@ -648,7 +662,7 @@ Calculate the expected frequencies from <span class="math inline">\(P(X=x)=e^{-3
 <summary>
 Show answer
 </summary>
-Use the sample mean to estimate <span class="math inline">\(\lambda\)</span>, calculate expected frequencies without premature rounding, combine classes with expected frequency below 5, calculate <span class="math inline">\(\chi^2\)</span> and compare with the Mark Scheme critical value using the correct degrees of freedom.
+Use the sample mean to estimate <span class="math inline">\lambda</span>, calculate expected frequencies without premature rounding, combine classes with expected frequency below 5, calculate <span class="math inline">\chi^2</span> and compare with the Mark Scheme critical value using the correct degrees of freedom.
 </details>
 </section>
 <section id="mayjune-923141-and-923142-question-3-1" class="level2">
@@ -661,20 +675,20 @@ Use the sample mean to estimate <span class="math inline">\(\lambda\)</span>, ca
 <summary>
 Show answer
 </summary>
-Estimate the binomial parameter from the sample mean, combine low expected frequencies, calculate <span class="math inline">\(\chi^2\)</span>, use the correct degrees of freedom after estimating the parameter, compare with the 0.5% critical value, and state the conclusion in context.
+Estimate the binomial parameter from the sample mean, combine low expected frequencies, calculate <span class="math inline">\chi^2</span>, use the correct degrees of freedom after estimating the parameter, compare with the 0.5% critical value, and state the conclusion in context.
 </details>
 </section>
 <section id="octobernovember-923141-and-923143-question-2" class="level2">
 <h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-2">2025 October/November · 9231/41 and 9231/43 · Question 2</h2>
 <p>The manager of a car park claims that the number of cars entering the car park follows a Poisson distribution with mean 2.8. The numbers of cars entering are recorded on a working day.</p>
-<p><strong>(a)</strong> Find the values of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>.</p>
+<p><strong>(a)</strong> Find the values of <span class="math inline">p</span> and <span class="math inline">q</span>.</p>
 <p><strong>(b)</strong> Carry out a goodness-of-fit test at the 5% significance level to investigate the manager’s claim.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Use <span class="math inline">\(p=P(X=0)=e^{-2.8}\)</span> and the corresponding probability for the final class.</p>
-<strong>(b)</strong> Use <span class="math inline">\(H_0:\)</span> the data fit <span class="math inline">\(\operatorname{Po}(2.8)\)</span>, calculate expected frequencies and <span class="math inline">\(\chi^2\)</span>, combine classes where necessary, compare with the 5% critical value, and state the conclusion in context.
+<p><strong>(a)</strong> Use <span class="math inline">p=P(X=0)=e^{-2.8}</span> and the corresponding probability for the final class.</p>
+<strong>(b)</strong> Use <span class="math inline">H_0:</span> the data fit <span class="math inline">\operatorname{Po}(2.8)</span>, calculate expected frequencies and <span class="math inline">\chi^2</span>, combine classes where necessary, compare with the 5% critical value, and state the conclusion in context.
 </details>
 
 

@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -446,9 +460,9 @@ window.Quarto = {
 <div class="callout-body-container callout-body">
 <p>考生需要能够：</p>
 <ol type="1">
-<li>理解双曲函数 <span class="math inline">\(\sinh x\)</span>、<span class="math inline">\(\cosh x\)</span>、<span class="math inline">\(\tanh x\)</span>、<span class="math inline">\(\operatorname{sech}x\)</span>、<span class="math inline">\(\operatorname{cosech}x\)</span>、<span class="math inline">\(\coth x\)</span> 用指数函数给出的定义；</li>
+<li>理解双曲函数 <span class="math inline">\sinh x</span>、<span class="math inline">\cosh x</span>、<span class="math inline">\tanh x</span>、<span class="math inline">\operatorname{sech}x</span>、<span class="math inline">\operatorname{cosech}x</span>、<span class="math inline">\coth x</span> 用指数函数给出的定义；</li>
 <li>作出双曲函数的图像；</li>
-<li>证明并使用双曲函数恒等式，例如 <span class="math inline">\(\cosh^2x-\sinh^2x\equiv1\)</span>、<span class="math inline">\(\sinh2x\equiv2\sinh x\cosh x\)</span>，以及对应于标准三角恒等式的类似结果；</li>
+<li>证明并使用双曲函数恒等式，例如 <span class="math inline">\cosh^2x-\sinh^2x\equiv1</span>、<span class="math inline">\sinh2x\equiv2\sinh x\cosh x</span>，以及对应于标准三角恒等式的类似结果；</li>
 <li>理解反双曲函数的定义，推导并使用其对数形式。</li>
 </ol>
 </div>
@@ -457,11 +471,11 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
 <div class="study-card">
 <ul class="task-list">
-<li><label><input type="checkbox">能由指数定义直接计算 <span class="math inline">\(\sinh\)</span>、<span class="math inline">\(\cosh\)</span>、<span class="math inline">\(\tanh\)</span> 及余函数的值</label></li>
+<li><label><input type="checkbox">能由指数定义直接计算 <span class="math inline">\sinh</span>、<span class="math inline">\cosh</span>、<span class="math inline">\tanh</span> 及余函数的值</label></li>
 <li><label><input type="checkbox">能说明每个双曲函数的定义域、值域、奇偶性与渐近线</label></li>
-<li><label><input type="checkbox">能由 <span class="math inline">\(\sinh x\)</span>、<span class="math inline">\(\cosh x\)</span> 的图像作出 <span class="math inline">\(\tanh x\)</span>、<span class="math inline">\(\coth x\)</span>、<span class="math inline">\(\operatorname{sech}x\)</span>、<span class="math inline">\(\operatorname{cosech}x\)</span> 的图像</label></li>
-<li><label><input type="checkbox">能证明 <span class="math inline">\(\cosh^2x-\sinh^2x=1\)</span> 并会用 Osborn’s rule 转换三角恒等式</label></li>
-<li><label><input type="checkbox">能写出 <span class="math inline">\(\sinh^{-1}x\)</span>、<span class="math inline">\(\cosh^{-1}x\)</span>、<span class="math inline">\(\tanh^{-1}x\)</span> 的对数形式并注意定义域</label></li>
+<li><label><input type="checkbox">能由 <span class="math inline">\sinh x</span>、<span class="math inline">\cosh x</span> 的图像作出 <span class="math inline">\tanh x</span>、<span class="math inline">\coth x</span>、<span class="math inline">\operatorname{sech}x</span>、<span class="math inline">\operatorname{cosech}x</span> 的图像</label></li>
+<li><label><input type="checkbox">能证明 <span class="math inline">\cosh^2x-\sinh^2x=1</span> 并会用 Osborn’s rule 转换三角恒等式</label></li>
+<li><label><input type="checkbox">能写出 <span class="math inline">\sinh^{-1}x</span>、<span class="math inline">\cosh^{-1}x</span>、<span class="math inline">\tanh^{-1}x</span> 的对数形式并注意定义域</label></li>
 </ul>
 </div>
 </section>
@@ -470,33 +484,33 @@ window.Quarto = {
 <section id="definitions-of-the-hyperbolic-functions" class="level3">
 <h3 class="anchored" data-anchor-id="definitions-of-the-hyperbolic-functions">1.1 Definitions of the hyperbolic functions</h3>
 <p>双曲正弦与双曲余弦用指数函数定义为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\sinh x=\frac{e^x-e^{-x}}2,\qquad x\in\mathbb R}
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \boxed{\cosh x=\frac{e^x+e^{-x}}2,\qquad x\in\mathbb R}.
-\]</span></p>
+</span></p>
 <p>由它们可以定义其余四个双曲函数：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tanh x=\frac{\sinh x}{\cosh x}
 =\frac{e^x-e^{-x}}{e^x+e^{-x}},\qquad x\in\mathbb R,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \coth x=\frac{\cosh x}{\sinh x}
 =\frac{e^x+e^{-x}}{e^x-e^{-x}},\qquad x\in\mathbb R,\ x\ne0,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \operatorname{cosech}x=\frac1{\sinh x}
 =\frac2{e^x-e^{-x}},\qquad x\in\mathbb R,\ x\ne0,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \operatorname{sech}x=\frac1{\cosh x}
 =\frac2{e^x+e^{-x}},\qquad x\in\mathbb R.
-\]</span></p>
+</span></p>
 </section>
 <section id="graphs-of-the-hyperbolic-functions" class="level3">
 <h3 class="anchored" data-anchor-id="graphs-of-the-hyperbolic-functions">1.2 Graphs of the hyperbolic functions</h3>
-<p>作双曲函数图像时，常用 <span class="math inline">\(\sinh x\)</span> 与 <span class="math inline">\(\cosh x\)</span> 分别作为 <span class="math inline">\(e^x\)</span> 与 <span class="math inline">\(\pm e^{-x}\)</span> 的平均值来理解，再逐段分析奇偶性、渐近线和极值。</p>
+<p>作双曲函数图像时，常用 <span class="math inline">\sinh x</span> 与 <span class="math inline">\cosh x</span> 分别作为 <span class="math inline">e^x</span> 与 <span class="math inline">\pm e^{-x}</span> 的平均值来理解，再逐段分析奇偶性、渐近线和极值。</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-sinh-title graph-sinh-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-sinh-title">
@@ -567,133 +581,133 @@ y = sech x is even, with maximum (0, 1) and horizontal asymptote y = 0.
 <section id="identities-involving-hyperbolic-functions" class="level3">
 <h3 class="anchored" data-anchor-id="identities-involving-hyperbolic-functions">1.3 Identities involving hyperbolic functions</h3>
 <p>双曲函数恒等式与三角恒等式十分相似。核心恒等式为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\cosh^2x-\sinh^2x=1}.
-\]</span></p>
+</span></p>
 <p>由此可推出</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \operatorname{sech}^2x=1-\tanh^2x,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \operatorname{cosech}^2x=\coth^2x-1.
-\]</span></p>
+</span></p>
 <p>二倍角公式：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sinh2x=2\sinh x\cosh x,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \cosh2x=\cosh^2x+\sinh^2x=2\cosh^2x-1=2\sinh^2x+1.
-\]</span></p>
+</span></p>
 <p>加法公式：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \cosh(A\pm B)=\cosh A\cosh B\pm\sinh A\sinh B,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \sinh(A\pm B)=\sinh A\cosh B\pm\cosh A\sinh B,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \tanh(A\pm B)=\frac{\tanh A\pm\tanh B}{1\pm\tanh A\tanh B}.
-\]</span></p>
-<p>把三角恒等式转换为双曲恒等式时使用 Osborn’s rule：把三角函数换成对应的双曲函数，凡出现两个 <span class="math inline">\(\sinh\)</span> 相乘，就把该处的正负号反转。例如由 <span class="math inline">\(\cos^2x+\sin^2x=1\)</span> 得到 <span class="math inline">\(\cosh^2x-\sinh^2x=1\)</span>。</p>
+</span></p>
+<p>把三角恒等式转换为双曲恒等式时使用 Osborn’s rule：把三角函数换成对应的双曲函数，凡出现两个 <span class="math inline">\sinh</span> 相乘，就把该处的正负号反转。例如由 <span class="math inline">\cos^2x+\sin^2x=1</span> 得到 <span class="math inline">\cosh^2x-\sinh^2x=1</span>。</p>
 </section>
 <section id="inverse-hyperbolic-functions" class="level3">
 <h3 class="anchored" data-anchor-id="inverse-hyperbolic-functions">1.4 Inverse hyperbolic functions</h3>
-<p>反双曲函数是对应双曲函数在限制定义域后的反函数，图像是原函数关于直线 <span class="math inline">\(y=x\)</span> 的反射。考试常用对数形式：</p>
-<p><span class="math display">\[
+<p>反双曲函数是对应双曲函数在限制定义域后的反函数，图像是原函数关于直线 <span class="math inline">y=x</span> 的反射。考试常用对数形式：</p>
+<p><span class="math display">
 \boxed{\sinh^{-1}x=\ln\left(x+\sqrt{x^2+1}\right),\qquad x\in\mathbb R}
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \boxed{\cosh^{-1}x=\ln\left(x+\sqrt{x^2-1}\right),\qquad x\geqslant1}
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \boxed{\tanh^{-1}x=\frac12\ln\left(\frac{1+x}{1-x}\right),\qquad |x|&lt;1.}
-\]</span></p>
-<p>反双曲函数也可写成 <span class="math inline">\(\operatorname{arsinh}x\)</span>、<span class="math inline">\(\operatorname{arcosh}x\)</span>、<span class="math inline">\(\operatorname{artanh}x\)</span> 等形式。<span class="math inline">\(\cosh x\)</span> 必须先限制为 <span class="math inline">\(x\geqslant0\)</span> 才是单射，因此 <span class="math inline">\(\cosh^{-1}x\)</span> 只取非负值。</p>
+</span></p>
+<p>反双曲函数也可写成 <span class="math inline">\operatorname{arsinh}x</span>、<span class="math inline">\operatorname{arcosh}x</span>、<span class="math inline">\operatorname{artanh}x</span> 等形式。<span class="math inline">\cosh x</span> 必须先限制为 <span class="math inline">x\geqslant0</span> 才是单射，因此 <span class="math inline">\cosh^{-1}x</span> 只取非负值。</p>
 </section>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-1-page-4" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-1-page-4">Example 1 · Page 4</h3>
-<p>Write <span class="math inline">\(\sinh 2\)</span> in terms of the exponential function.</p>
+<p>Write <span class="math inline">\sinh 2</span> in terms of the exponential function.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Since</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sinh x=\frac{e^x-e^{-x}}2,
-\]</span></p>
-<p>putting <span class="math inline">\(x=2\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>putting <span class="math inline">x=2</span> gives</p>
+<p><span class="math display">
 \boxed{\sinh 2=\frac{e^2-e^{-2}}2}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-1"> Completed</label></p>
 </section>
 <section id="example-2-page-4" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-2-page-4">Example 2 · Page 4</h3>
-<p>Find the value of <span class="math inline">\(\sinh 2\)</span> to 3 decimal places.</p>
+<p>Find the value of <span class="math inline">\sinh 2</span> to 3 decimal places.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Using the hyperbolic function on a calculator, or substituting into the exponential form,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\sinh 2=3.627}\ \text{to 3 d.p.}
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-2"> Completed</label></p>
 </section>
 <section id="example-3-page-5" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-3-page-5">Example 3 · Page 5</h3>
-<p>Find the exact value of <span class="math inline">\(\operatorname{sech}(\ln 2)\)</span>.</p>
+<p>Find the exact value of <span class="math inline">\operatorname{sech}(\ln 2)</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Using <span class="math inline">\(\operatorname{sech}x=\dfrac2{e^x+e^{-x}}\)</span> with <span class="math inline">\(x=\ln2\)</span>,</p>
-<p><span class="math display">\[
+<p>Using <span class="math inline">\operatorname{sech}x=\dfrac2{e^x+e^{-x}}</span> with <span class="math inline">x=\ln2</span>,</p>
+<p><span class="math display">
 \operatorname{sech}(\ln2)=\frac2{2+\frac12}
 =\frac2{\frac52}
 =\boxed{\frac45}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-3"> Completed</label></p>
 </section>
 <section id="example-4-page-5" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-4-page-5">Example 4 · Page 5</h3>
-<p>Find the value(s) of <span class="math inline">\(x\)</span>, to 3 decimal places, for which <span class="math inline">\(\cosh x=2\)</span>.</p>
+<p>Find the value(s) of <span class="math inline">x</span>, to 3 decimal places, for which <span class="math inline">\cosh x=2</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Using <span class="math inline">\(\cosh x=\dfrac{e^x+e^{-x}}2\)</span>,</p>
-<p><span class="math display">\[
+<p>Using <span class="math inline">\cosh x=\dfrac{e^x+e^{-x}}2</span>,</p>
+<p><span class="math display">
 \frac{e^x+e^{-x}}2=2
 \;\Longrightarrow\;
 e^{2x}-4e^x+1=0.
-\]</span></p>
+</span></p>
 <p>The quadratic formula gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 e^x=2\pm\sqrt3=3.732\ldots\ \text{or}\ 0.267\ldots,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=\ln(3.732\ldots)=1.317\ \text{or}\ x=\ln(0.267\ldots)=-1.317}
-\]</span></p>
+</span></p>
 <p>to 3 decimal places.</p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-4"> Completed</label></p>
 </section>
 <section id="example-5-page-6" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5-page-6">Example 5 · Page 6</h3>
-<p>Sketch the graph of <span class="math inline">\(f(x)=\sinh x\)</span> for <span class="math inline">\(-5\leqslant x\leqslant5\)</span>.</p>
+<p>Sketch the graph of <span class="math inline">f(x)=\sinh x</span> for <span class="math inline">-5\leqslant x\leqslant5</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><span class="math inline">\(\sinh x\)</span> is the mean of <span class="math inline">\(e^x\)</span> and <span class="math inline">\(-e^{-x}\)</span>. Sketch these two curves and take their mean at each value of <span class="math inline">\(x\)</span>.</p>
+<p><span class="math inline">\sinh x</span> is the mean of <span class="math inline">e^x</span> and <span class="math inline">-e^{-x}</span>. Sketch these two curves and take their mean at each value of <span class="math inline">x</span>.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-sinh-title graph-sinh-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-sinh-title">
@@ -710,12 +724,12 @@ y = sinh x is odd, strictly increasing and one-to-one, with sinh x ≈ ±(1/2)e^
 </section>
 <section id="example-6-page-6" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-6-page-6">Example 6 · Page 6</h3>
-<p>Sketch the graph of <span class="math inline">\(f(x)=\cosh x\)</span> for <span class="math inline">\(-5\leqslant x\leqslant5\)</span>.</p>
+<p>Sketch the graph of <span class="math inline">f(x)=\cosh x</span> for <span class="math inline">-5\leqslant x\leqslant5</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><span class="math inline">\(\cosh x\)</span> is the mean of <span class="math inline">\(e^x\)</span> and <span class="math inline">\(e^{-x}\)</span>; the curve is symmetric about the <span class="math inline">\(y\)</span>-axis and has minimum point <span class="math inline">\((0,1)\)</span>.</p>
+<p><span class="math inline">\cosh x</span> is the mean of <span class="math inline">e^x</span> and <span class="math inline">e^{-x}</span>; the curve is symmetric about the <span class="math inline">y</span>-axis and has minimum point <span class="math inline">(0,1)</span>.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-cosh-title graph-cosh-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-cosh-title">
@@ -732,12 +746,12 @@ y = cosh x is the mean of e^x and e^(−x), even, with minimum (0, 1).
 </section>
 <section id="example-7-page-7" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-7-page-7">Example 7 · Page 7</h3>
-<p>Sketch the graph of <span class="math inline">\(f(x)=\tanh x\)</span> for <span class="math inline">\(-2.5\leqslant x\leqslant2.5\)</span>.</p>
+<p>Sketch the graph of <span class="math inline">f(x)=\tanh x</span> for <span class="math inline">-2.5\leqslant x\leqslant2.5</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><span class="math inline">\(y=\tanh x\)</span> is odd and approaches the horizontal asymptotes <span class="math inline">\(y=\pm1\)</span>.</p>
+<p><span class="math inline">y=\tanh x</span> is odd and approaches the horizontal asymptotes <span class="math inline">y=\pm1</span>.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-tanh-title graph-tanh-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-tanh-title">
@@ -754,12 +768,12 @@ y = tanh x is odd and approaches the horizontal asymptotes y = ±1.
 </section>
 <section id="example-8-page-7" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-8-page-7">Example 8 · Page 7</h3>
-<p>Sketch the graph of <span class="math inline">\(f(x)=\coth x\)</span> for <span class="math inline">\(-10\leqslant x\leqslant10\)</span>.</p>
+<p>Sketch the graph of <span class="math inline">f(x)=\coth x</span> for <span class="math inline">-10\leqslant x\leqslant10</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><span class="math inline">\(y=\coth x\)</span> is undefined at <span class="math inline">\(x=0\)</span>; the lines <span class="math inline">\(x=0\)</span> and <span class="math inline">\(y=\pm1\)</span> are asymptotes.</p>
+<p><span class="math inline">y=\coth x</span> is undefined at <span class="math inline">x=0</span>; the lines <span class="math inline">x=0</span> and <span class="math inline">y=\pm1</span> are asymptotes.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-coth-title graph-coth-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-coth-title">
@@ -776,12 +790,12 @@ y = coth x has vertical asymptote x = 0 and horizontal asymptotes y = ±1.
 </section>
 <section id="example-9-page-8" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-9-page-8">Example 9 · Page 8</h3>
-<p>Sketch the graph of <span class="math inline">\(f(x)=\operatorname{cosech}x\)</span> for <span class="math inline">\(-10\leqslant x\leqslant10\)</span>.</p>
+<p>Sketch the graph of <span class="math inline">f(x)=\operatorname{cosech}x</span> for <span class="math inline">-10\leqslant x\leqslant10</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><span class="math inline">\(y=\operatorname{cosech}x\)</span> is undefined at <span class="math inline">\(x=0\)</span>, and the lines <span class="math inline">\(x=0\)</span> and <span class="math inline">\(y=0\)</span> are asymptotes.</p>
+<p><span class="math inline">y=\operatorname{cosech}x</span> is undefined at <span class="math inline">x=0</span>, and the lines <span class="math inline">x=0</span> and <span class="math inline">y=0</span> are asymptotes.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-cosech-title graph-cosech-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-cosech-title">
@@ -798,12 +812,12 @@ y = cosech x is undefined at x = 0 with asymptotes x = 0 and y = 0.
 </section>
 <section id="example-10-page-8" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-10-page-8">Example 10 · Page 8</h3>
-<p>Sketch the graph of <span class="math inline">\(f(x)=\operatorname{sech}x\)</span> for <span class="math inline">\(-5\leqslant x\leqslant5\)</span>.</p>
+<p>Sketch the graph of <span class="math inline">f(x)=\operatorname{sech}x</span> for <span class="math inline">-5\leqslant x\leqslant5</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><span class="math inline">\(y=\operatorname{sech}x\)</span> has a maximum at <span class="math inline">\((0,1)\)</span> and the line <span class="math inline">\(y=0\)</span> is an asymptote.</p>
+<p><span class="math inline">y=\operatorname{sech}x</span> has a maximum at <span class="math inline">(0,1)</span> and the line <span class="math inline">y=0</span> is an asymptote.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-sech-title graph-sech-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-sech-title">
@@ -820,38 +834,38 @@ y = sech x is even, with maximum (0, 1) and horizontal asymptote y = 0.
 </section>
 <section id="example-11-page-9" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-11-page-9">Example 11 · Page 9</h3>
-<p>Determine whether the trigonometric identity <span class="math inline">\(\cos^2x+\sin^2x=1\)</span> can be converted to <span class="math inline">\(\cosh^2x+\sinh^2x=1\)</span> for hyperbolic functions.</p>
+<p>Determine whether the trigonometric identity <span class="math inline">\cos^2x+\sin^2x=1</span> can be converted to <span class="math inline">\cosh^2x+\sinh^2x=1</span> for hyperbolic functions.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Substitute the exponential forms:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \cosh^2x+\sinh^2x
 =\left(\frac{e^x+e^{-x}}2\right)^2+\left(\frac{e^x-e^{-x}}2\right)^2.
-\]</span></p>
+</span></p>
 <p>Expanding,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{e^{2x}+2+e^{-2x}}4+\frac{e^{2x}-2+e^{-2x}}4
 =\frac{e^{2x}+e^{-2x}}2.
-\]</span></p>
-<p>This is not equal to <span class="math inline">\(1\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>This is not equal to <span class="math inline">1</span>, so</p>
+<p><span class="math display">
 \boxed{\cosh^2x+\sinh^2x\neq1}.
-\]</span></p>
-<p>The correct identity is <span class="math inline">\(\cosh^2x-\sinh^2x=1\)</span>.</p>
+</span></p>
+<p>The correct identity is <span class="math inline">\cosh^2x-\sinh^2x=1</span>.</p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-11"> Completed</label></p>
 </section>
 <section id="example-12-page-10" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-12-page-10">Example 12 · Page 10</h3>
-<p>Show that <span class="math inline">\(\cosh(A+B)=\cosh A\cosh B+\sinh A\sinh B\)</span>.</p>
+<p>Show that <span class="math inline">\cosh(A+B)=\cosh A\cosh B+\sinh A\sinh B</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>Substitute the exponential forms:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \cosh A\cosh B+\sinh A\sinh B
 &amp;=\left(\frac{e^A+e^{-A}}2\right)\left(\frac{e^B+e^{-B}}2\right)
@@ -862,55 +876,55 @@ Show solution
 &amp;=\frac{e^{A+B}+e^{-(A+B)}}2\\
 &amp;=\cosh(A+B).
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>The related results</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \cosh(A-B)=\cosh A\cosh B-\sinh A\sinh B,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \sinh(A\pm B)=\sinh A\cosh B\pm\cosh A\sinh B
-\]</span></p>
+</span></p>
 <p>follow in the same way.</p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-12"> Completed</label></p>
 </section>
 <section id="example-13-page-11" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-13-page-11">Example 13 · Page 11</h3>
-<p>Given that <span class="math inline">\(\cosh x=3\)</span>, find the value of:</p>
-<p><strong>(a)</strong> <span class="math inline">\(\sinh x\)</span>;</p>
-<p><strong>(b)</strong> <span class="math inline">\(\tanh x\)</span>.</p>
+<p>Given that <span class="math inline">\cosh x=3</span>, find the value of:</p>
+<p><strong>(a)</strong> <span class="math inline">\sinh x</span>;</p>
+<p><strong>(b)</strong> <span class="math inline">\tanh x</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><strong>(a)</strong> Using <span class="math inline">\(\cosh^2x-\sinh^2x=1\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Using <span class="math inline">\cosh^2x-\sinh^2x=1</span>,</p>
+<p><span class="math display">
 9-\sinh^2x=1
 \;\Longrightarrow\;
 \sinh^2x=8,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\sinh x=\pm2\sqrt2}.
-\]</span></p>
-<p><strong>(b)</strong> Using <span class="math inline">\(\tanh x=\dfrac{\sinh x}{\cosh x}\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Using <span class="math inline">\tanh x=\dfrac{\sinh x}{\cosh x}</span>,</p>
+<p><span class="math display">
 \boxed{\tanh x=\pm\frac{2\sqrt2}3}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-13"> Completed</label></p>
 </section>
 <section id="example-14-page-13" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-14-page-13">Example 14 · Page 13</h3>
-<p>Sketch the graph and state the domain of <span class="math inline">\(y=\sinh^{-1}x\)</span>.</p>
+<p>Sketch the graph and state the domain of <span class="math inline">y=\sinh^{-1}x</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>The graph of <span class="math inline">\(y=\sinh^{-1}x\)</span> is the reflection of <span class="math inline">\(y=\sinh x\)</span> in the line <span class="math inline">\(y=x\)</span>. Since <span class="math inline">\(\sinh x\)</span> is one-to-one on <span class="math inline">\(\mathbb R\)</span>,</p>
-<p><span class="math display">\[
+<p>The graph of <span class="math inline">y=\sinh^{-1}x</span> is the reflection of <span class="math inline">y=\sinh x</span> in the line <span class="math inline">y=x</span>. Since <span class="math inline">\sinh x</span> is one-to-one on <span class="math inline">\mathbb R</span>,</p>
+<p><span class="math display">
 \boxed{\text{domain: }x\in\mathbb R}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-arsinh-title graph-arsinh-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-arsinh-title">
@@ -927,15 +941,15 @@ The graph of sinh⁻¹ x is the reflection of sinh x in y = x; domain ℝ.
 </section>
 <section id="example-15-page-14" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-15-page-14">Example 15 · Page 14</h3>
-<p>State a possible domain of <span class="math inline">\(\cosh^{-1}x\)</span> and sketch the graph for your chosen domain. What are the implications for the domain of <span class="math inline">\(y=\cosh x\)</span> for <span class="math inline">\(y=\cosh^{-1}x\)</span> to be a function?</p>
+<p>State a possible domain of <span class="math inline">\cosh^{-1}x</span> and sketch the graph for your chosen domain. What are the implications for the domain of <span class="math inline">y=\cosh x</span> for <span class="math inline">y=\cosh^{-1}x</span> to be a function?</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><span class="math inline">\(\cosh x\)</span> is many-to-one, so its domain is restricted to <span class="math inline">\(x\geqslant0\)</span>. The inverse function then has</p>
-<p><span class="math display">\[
+<p><span class="math inline">\cosh x</span> is many-to-one, so its domain is restricted to <span class="math inline">x\geqslant0</span>. The inverse function then has</p>
+<p><span class="math display">
 \boxed{\text{domain: }x\geqslant1}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-arcosh-title graph-arcosh-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-arcosh-title">
@@ -952,39 +966,39 @@ Restricting cosh x to x ≥ 0 makes it one-to-one; cosh⁻¹ x has domain x ≥ 
 </section>
 <section id="example-16-page-14" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-16-page-14">Example 16 · Page 14</h3>
-<p>Write <span class="math inline">\(\sinh^{-1}x\)</span> in logarithmic form.</p>
+<p>Write <span class="math inline">\sinh^{-1}x</span> in logarithmic form.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Let <span class="math inline">\(y=\sinh^{-1}x\)</span>, so <span class="math inline">\(x=\sinh y\)</span>. Then</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">y=\sinh^{-1}x</span>, so <span class="math inline">x=\sinh y</span>. Then</p>
+<p><span class="math display">
 x=\frac{e^y-e^{-y}}2
 \;\Longrightarrow\;
 e^{2y}-2xe^y-1=0.
-\]</span></p>
+</span></p>
 <p>The quadratic formula gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 e^y=x\pm\sqrt{x^2+1}.
-\]</span></p>
-<p>The negative sign gives a negative value of <span class="math inline">\(e^y\)</span>, which is impossible, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>The negative sign gives a negative value of <span class="math inline">e^y</span>, which is impossible, so</p>
+<p><span class="math display">
 \boxed{\sinh^{-1}x=\ln\left(x+\sqrt{x^2+1}\right)}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-16"> Completed</label></p>
 </section>
 <section id="example-17-page-15" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-17-page-15">Example 17 · Page 15</h3>
-<p>Write <span class="math inline">\(\sinh^{-1}2\)</span> in logarithmic form.</p>
+<p>Write <span class="math inline">\sinh^{-1}2</span> in logarithmic form.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>Substitute <span class="math inline">\(x=2\)</span> into <span class="math inline">\(\sinh^{-1}x=\ln\left(x+\sqrt{x^2+1}\right)\)</span>:</p>
-<p><span class="math display">\[
+<p>Substitute <span class="math inline">x=2</span> into <span class="math inline">\sinh^{-1}x=\ln\left(x+\sqrt{x^2+1}\right)</span>:</p>
+<p><span class="math display">
 \boxed{\sinh^{-1}2=\ln\left(2+\sqrt5\right)}.
-\]</span></p>
+</span></p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="hyp-example-17"> Completed</label></p>
 </section>
@@ -996,40 +1010,40 @@ Show solution
 </section>
 <section id="mayjune-923121-923122-question-5-11-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-5-11-marks">2020 May/June · 9231/21 &amp; 9231/22 · Question 5 · 11 marks</h3>
-<p>The curves <span class="math inline">\(C_1:y=\cosh x\)</span> and <span class="math inline">\(C_2:y=\sinh 2x\)</span> intersect at the point where <span class="math inline">\(x=a\)</span>.</p>
-<p><strong>(a)</strong> Find the exact value of <span class="math inline">\(a\)</span>, giving your answer in logarithmic form. <strong>[4]</strong></p>
-<p><strong>(b)</strong> Sketch <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> on the same diagram. <strong>[2]</strong></p>
-<p><strong>(c)</strong> Find the exact value of the length of the arc of <span class="math inline">\(C_1\)</span> from <span class="math inline">\(x=0\)</span> to <span class="math inline">\(x=a\)</span>. <strong>[5]</strong></p>
+<p>The curves <span class="math inline">C_1:y=\cosh x</span> and <span class="math inline">C_2:y=\sinh 2x</span> intersect at the point where <span class="math inline">x=a</span>.</p>
+<p><strong>(a)</strong> Find the exact value of <span class="math inline">a</span>, giving your answer in logarithmic form. <strong>[4]</strong></p>
+<p><strong>(b)</strong> Sketch <span class="math inline">C_1</span> and <span class="math inline">C_2</span> on the same diagram. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find the exact value of the length of the arc of <span class="math inline">C_1</span> from <span class="math inline">x=0</span> to <span class="math inline">x=a</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> At the intersection, <span class="math inline">\(\cosh a=\sinh 2a=2\sinh a\cosh a\)</span>. Since <span class="math inline">\(\cosh a\neq0\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> At the intersection, <span class="math inline">\cosh a=\sinh 2a=2\sinh a\cosh a</span>. Since <span class="math inline">\cosh a\neq0</span>,</p>
+<p><span class="math display">
 \sinh a=\frac12.
-\]</span></p>
-<p>Using the logarithmic form of <span class="math inline">\(\sinh^{-1}\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using the logarithmic form of <span class="math inline">\sinh^{-1}</span>,</p>
+<p><span class="math display">
 \boxed{a=\sinh^{-1}\!\left(\frac12\right)
 =\ln\left(\frac12+\sqrt{\frac14+1}\right)
 =\ln\left(\frac12+\frac{\sqrt5}2\right)}.
-\]</span></p>
-<p><strong>(b)</strong> <span class="math inline">\(C_1\)</span> is the even U-shaped curve <span class="math inline">\(\cosh x\)</span>, and <span class="math inline">\(C_2\)</span> is the odd increasing curve <span class="math inline">\(\sinh 2x\)</span>. They intersect in the first quadrant at <span class="math inline">\(x=a=\ln\left(\frac12+\frac{\sqrt5}2\right)\)</span> and, by symmetry, also at <span class="math inline">\(x=-a\)</span>.</p>
-<p><strong>(c)</strong> For <span class="math inline">\(C_1:y=\cosh x\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math inline">C_1</span> is the even U-shaped curve <span class="math inline">\cosh x</span>, and <span class="math inline">C_2</span> is the odd increasing curve <span class="math inline">\sinh 2x</span>. They intersect in the first quadrant at <span class="math inline">x=a=\ln\left(\frac12+\frac{\sqrt5}2\right)</span> and, by symmetry, also at <span class="math inline">x=-a</span>.</p>
+<p><strong>(c)</strong> For <span class="math inline">C_1:y=\cosh x</span>,</p>
+<p><span class="math display">
 \frac{\mathrm dy}{\mathrm dx}=\sinh x,
 \qquad
 \sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}
 =\sqrt{1+\sinh^2x}
 =\cosh x.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 s=\int_0^a\cosh x\,\mathrm dx
 =\bigl[\sinh x\bigr]_0^a
 =\sinh a
 =\boxed{\frac12}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2020-mj-21-22-q5"> Completed</label>
 <div class="source-line">
@@ -1038,20 +1052,20 @@ s=\int_0^a\cosh x\,\mathrm dx
 </section>
 <section id="mayjune-923123-question-6a-3-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-6a-3-marks">2020 May/June · 9231/23 · Question 6(a) · 3 marks</h3>
-<p>Starting from the definitions of <span class="math inline">\(\tanh\)</span> and <span class="math inline">\(\operatorname{sech}\)</span> in terms of exponentials, prove that</p>
-<p><span class="math display">\[
+<p>Starting from the definitions of <span class="math inline">\tanh</span> and <span class="math inline">\operatorname{sech}</span> in terms of exponentials, prove that</p>
+<p><span class="math display">
 1-\tanh^2\theta=\operatorname{sech}^2\theta.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Starting from</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tanh\theta=\frac{e^\theta-e^{-\theta}}{e^\theta+e^{-\theta}},\qquad
 \operatorname{sech}\theta=\frac2{e^\theta+e^{-\theta}},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \begin{aligned}
 1-\tanh^2\theta
 &amp;=1-\left(\frac{e^\theta-e^{-\theta}}{e^\theta+e^{-\theta}}\right)^2\\
@@ -1059,7 +1073,7 @@ Show answer and mark scheme
 &amp;=\frac4{(e^\theta+e^{-\theta})^2}\\
 &amp;=\boxed{\operatorname{sech}^2\theta}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2020-mj-23-q6a"> Completed</label>
 <div class="source-line">
@@ -1068,17 +1082,17 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923121-923123-question-8ab-5-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-8ab-5-marks">2020 October/November · 9231/21 &amp; 9231/23 · Question 8(a)–(b) · 5 marks</h3>
-<p><strong>(a)</strong> Sketch the graph of <span class="math inline">\(y=\coth x\)</span> for <span class="math inline">\(x\geqslant0\)</span> and state the equations of the asymptotes. <strong>[2]</strong></p>
-<p><strong>(b)</strong> Starting from the definitions of <span class="math inline">\(\coth\)</span> and <span class="math inline">\(\operatorname{cosech}\)</span> in terms of exponentials, prove that</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Sketch the graph of <span class="math inline">y=\coth x</span> for <span class="math inline">x\geqslant0</span> and state the equations of the asymptotes. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Starting from the definitions of <span class="math inline">\coth</span> and <span class="math inline">\operatorname{cosech}</span> in terms of exponentials, prove that</p>
+<p><span class="math display">
 \coth^2x-\operatorname{cosech}^2x=1.
-\]</span></p>
+</span></p>
 <p><strong>[3]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> For <span class="math inline">\(x\geqslant0\)</span>, <span class="math inline">\(y=\coth x\)</span> starts at the vertical asymptote <span class="math inline">\(x=0\)</span> and decreases towards <span class="math inline">\(y=1\)</span>.</p>
+<p><strong>(a)</strong> For <span class="math inline">x\geqslant0</span>, <span class="math inline">y=\coth x</span> starts at the vertical asymptote <span class="math inline">x=0</span> and decreases towards <span class="math inline">y=1</span>.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="graph-coth-title graph-coth-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="graph-coth-title">
@@ -1091,15 +1105,15 @@ y = coth x has vertical asymptote x = 0 and horizontal asymptotes y = ±1.
 </figcaption>
 </figure>
 <p>The asymptotes are</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=0\ \text{and}\ y=1}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Starting from</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \coth x=\frac{e^x+e^{-x}}{e^x-e^{-x}},\qquad
 \operatorname{cosech}x=\frac2{e^x-e^{-x}},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \begin{aligned}
 \coth^2x-\operatorname{cosech}^2x
 &amp;=\left(\frac{e^x+e^{-x}}{e^x-e^{-x}}\right)^2-\left(\frac2{e^x-e^{-x}}\right)^2\\
@@ -1107,7 +1121,7 @@ y = coth x has vertical asymptote x = 0 and horizontal asymptotes y = ±1.
 &amp;=\frac{e^{2x}-2+e^{-2x}}{(e^x-e^{-x})^2}\\
 &amp;=1.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2020-on-21-23-q8ab"> Completed</label>
 <div class="source-line">
@@ -1120,61 +1134,61 @@ y = coth x has vertical asymptote x = 0 and horizontal asymptotes y = ±1.
 <section id="mayjune-923121-923122-question-7-10-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-7-10-marks">2021 May/June · 9231/21 &amp; 9231/22 · Question 7 · 10 marks</h3>
 <p>It is given that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=\operatorname{sech}^{-1}\left(x+\frac12\right).
-\]</span></p>
-<p><strong>(a)</strong> Express <span class="math inline">\(\cosh y\)</span> in terms of <span class="math inline">\(x\)</span> and hence show that</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(a)</strong> Express <span class="math inline">\cosh y</span> in terms of <span class="math inline">x</span> and hence show that</p>
+<p><span class="math display">
 \sinh y\,\frac{\mathrm dy}{\mathrm dx}=-\frac1{\left(x+\frac12\right)^2}.
-\]</span></p>
+</span></p>
 <p><strong>[3]</strong></p>
-<p><strong>(b)</strong> Find the first three terms in the Maclaurin’s series for <span class="math inline">\(\operatorname{sech}^{-1}\left(x+\frac12\right)\)</span> in the form</p>
-<p><span class="math display">\[
+<p><strong>(b)</strong> Find the first three terms in the Maclaurin’s series for <span class="math inline">\operatorname{sech}^{-1}\left(x+\frac12\right)</span> in the form</p>
+<p><span class="math display">
 \ln a+bx+cx^2,
-\]</span></p>
-<p>where <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span> and <span class="math inline">\(c\)</span> are constants to be determined. <strong>[7]</strong></p>
+</span></p>
+<p>where <span class="math inline">a</span>, <span class="math inline">b</span> and <span class="math inline">c</span> are constants to be determined. <strong>[7]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Since <span class="math inline">\(\operatorname{sech}y=x+\dfrac12\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Since <span class="math inline">\operatorname{sech}y=x+\dfrac12</span>,</p>
+<p><span class="math display">
 \boxed{\cosh y=\left(x+\frac12\right)^{-1}}.
-\]</span></p>
-<p>Differentiating <span class="math inline">\(\operatorname{sech}y=x+\dfrac12\)</span> with respect to <span class="math inline">\(x\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Differentiating <span class="math inline">\operatorname{sech}y=x+\dfrac12</span> with respect to <span class="math inline">x</span>,</p>
+<p><span class="math display">
 -\operatorname{sech}y\tanh y\,\frac{\mathrm dy}{\mathrm dx}=1.
-\]</span></p>
-<p>Using <span class="math inline">\(\operatorname{sech}y\tanh y=\dfrac{\sinh y}{\cosh^2y}=\sinh y\left(\operatorname{sech}y\right)^2\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">\operatorname{sech}y\tanh y=\dfrac{\sinh y}{\cosh^2y}=\sinh y\left(\operatorname{sech}y\right)^2</span>,</p>
+<p><span class="math display">
 \sinh y\,\frac{\mathrm dy}{\mathrm dx}=-\left(\operatorname{sech}y\right)^2
 =\boxed{-\frac1{\left(x+\frac12\right)^2}}.
-\]</span></p>
-<p><strong>(b)</strong> At <span class="math inline">\(x=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> At <span class="math inline">x=0</span>,</p>
+<p><span class="math display">
 y(0)=\operatorname{sech}^{-1}\!\left(\frac12\right)
 =\cosh^{-1}2=\ln\left(2+\sqrt3\right).
-\]</span></p>
+</span></p>
 <p>From part (a),</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y'(0)=-\frac1{\left(\frac12\right)^2\sinh y(0)}
 =-\frac4{\sinh(\cosh^{-1}2)}
 =-\frac4{\sqrt3}.
-\]</span></p>
+</span></p>
 <p>Differentiating</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sinh y\,y'=-\left(x+\frac12\right)^{-2}
-\]</span></p>
-<p>gives, at <span class="math inline">\(x=0\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>gives, at <span class="math inline">x=0</span>,</p>
+<p><span class="math display">
 \sinh y\,y''+\cosh y\,(y')^2=2\left(x+\frac12\right)^{-3}
 \;\Longrightarrow\;
 \sqrt3\,y''(0)+\frac{16}{3}=16,
-\]</span></p>
-<p>so <span class="math inline">\(y''(0)=\dfrac{16}{3\sqrt3}\)</span>. Hence</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">y''(0)=\dfrac{16}{3\sqrt3}</span>. Hence</p>
+<p><span class="math display">
 \boxed{y=\ln\left(2+\sqrt3\right)-\frac4{\sqrt3}x+\frac8{3\sqrt3}x^2}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2021-mj-21-22"> Completed</label>
 <div class="source-line">
@@ -1183,20 +1197,20 @@ y'(0)=-\frac1{\left(\frac12\right)^2\sinh y(0)}
 </section>
 <section id="mayjune-923123-question-6a-3-marks-1" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-6a-3-marks-1">2021 May/June · 9231/23 · Question 6(a) · 3 marks</h3>
-<p>Starting from the definitions of <span class="math inline">\(\sinh\)</span> and <span class="math inline">\(\cosh\)</span> in terms of exponentials, prove that</p>
-<p><span class="math display">\[
+<p>Starting from the definitions of <span class="math inline">\sinh</span> and <span class="math inline">\cosh</span> in terms of exponentials, prove that</p>
+<p><span class="math display">
 2\sinh2x=\cosh2x-1.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Using</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sinh2x=\frac{e^{2x}-e^{-2x}}2,\qquad
 \cosh2x=\frac{e^{2x}+e^{-2x}}2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \begin{aligned}
 2\sinh2x
 &amp;=2\left(\frac{e^{2x}-e^{-2x}}2\right)\\
@@ -1205,7 +1219,7 @@ Show answer and mark scheme
 &amp;=\frac{e^{2x}+e^{-2x}}2-1\\
 &amp;=\boxed{\cosh2x-1}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2021-mj-23-q6a"> Completed</label>
 <div class="source-line">
@@ -1217,16 +1231,16 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923121-923123-question-8a-3-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-8a-3-marks">2021 October/November · 9231/21 &amp; 9231/23 · Question 8(a) · 3 marks</h3>
-<p>Starting from the definition of <span class="math inline">\(\cosh\)</span> in terms of exponentials, prove that</p>
-<p><span class="math display">\[
+<p>Starting from the definition of <span class="math inline">\cosh</span> in terms of exponentials, prove that</p>
+<p><span class="math display">
 2\cosh^2A=\cosh2A+1.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Starting from <span class="math inline">\(\cosh A=\dfrac{e^A+e^{-A}}2\)</span>,</p>
-<p><span class="math display">\[
+<p>Starting from <span class="math inline">\cosh A=\dfrac{e^A+e^{-A}}2</span>,</p>
+<p><span class="math display">
 \begin{aligned}
 2\cosh^2A
 &amp;=2\left(\frac{e^A+e^{-A}}2\right)^2\\
@@ -1234,7 +1248,7 @@ Show answer and mark scheme
 &amp;=\frac{e^{2A}+e^{-2A}}2+1\\
 &amp;=\boxed{\cosh2A+1}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2021-on-21-23-q8a"> Completed</label>
 <div class="source-line">
@@ -1246,22 +1260,22 @@ Show answer and mark scheme
 </section>
 <section id="mayjune-923121-923122-question-2-8-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-2-8-marks">2022 May/June · 9231/21 &amp; 9231/22 · Question 2 · 8 marks</h3>
-<p><strong>(a)</strong> Starting from the definitions of <span class="math inline">\(\cosh\)</span> and <span class="math inline">\(\sinh\)</span> in terms of exponentials, prove that</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Starting from the definitions of <span class="math inline">\cosh</span> and <span class="math inline">\sinh</span> in terms of exponentials, prove that</p>
+<p><span class="math display">
 \cosh2x=2\sinh^2x+1.
-\]</span></p>
+</span></p>
 <p><strong>[3]</strong></p>
-<p><strong>(b)</strong> Find the set of values of <span class="math inline">\(k\)</span> for which</p>
-<p><span class="math display">\[
+<p><strong>(b)</strong> Find the set of values of <span class="math inline">k</span> for which</p>
+<p><span class="math display">
 \cosh2x=k\sinh x
-\]</span></p>
+</span></p>
 <p>has two distinct real roots. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Using <span class="math inline">\(\cosh x=\dfrac{e^x+e^{-x}}2\)</span> and <span class="math inline">\(\sinh x=\dfrac{e^x-e^{-x}}2\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Using <span class="math inline">\cosh x=\dfrac{e^x+e^{-x}}2</span> and <span class="math inline">\sinh x=\dfrac{e^x-e^{-x}}2</span>,</p>
+<p><span class="math display">
 \begin{aligned}
 2\sinh^2x+1
 &amp;=2\left(\frac{e^x-e^{-x}}2\right)^2+1\\
@@ -1269,21 +1283,21 @@ Show answer and mark scheme
 &amp;=\frac{e^{2x}+e^{-2x}}2\\
 &amp;=\boxed{\cosh2x}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Using part (a),</p>
-<p><span class="math display">\[
+<p><span class="math display">
 2\sinh^2x+1=k\sinh x
 \;\Longrightarrow\;
 2\sinh^2x-k\sinh x+1=0.
-\]</span></p>
-<p>This is a quadratic in <span class="math inline">\(\sinh x\)</span>. It has two distinct real roots when its discriminant is positive:</p>
-<p><span class="math display">\[
+</span></p>
+<p>This is a quadratic in <span class="math inline">\sinh x</span>. It has two distinct real roots when its discriminant is positive:</p>
+<p><span class="math display">
 k^2-8&gt;0.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{k&lt;-\sqrt8\ \text{or}\ k&gt;\sqrt8}.
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2022-mj-21-22-q2"> Completed</label>
 <div class="source-line">
@@ -1295,20 +1309,20 @@ k^2-8&gt;0.
 </section>
 <section id="mayjune-923121-question-8a-3-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-question-8a-3-marks">2023 May/June · 9231/21 · Question 8(a) · 3 marks</h3>
-<p>Starting from the definitions of <span class="math inline">\(\operatorname{sech}\)</span> and <span class="math inline">\(\tanh\)</span> in terms of exponentials, prove that</p>
-<p><span class="math display">\[
+<p>Starting from the definitions of <span class="math inline">\operatorname{sech}</span> and <span class="math inline">\tanh</span> in terms of exponentials, prove that</p>
+<p><span class="math display">
 1-\operatorname{sech}^2t=\tanh^2t.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Starting from</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \operatorname{sech}t=\frac2{e^t+e^{-t}},\qquad
 \tanh t=\frac{e^t-e^{-t}}{e^t+e^{-t}},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \begin{aligned}
 1-\operatorname{sech}^2t
 &amp;=1-\left(\frac2{e^t+e^{-t}}\right)^2\\
@@ -1318,7 +1332,7 @@ Show answer and mark scheme
 &amp;=\frac{(e^t-e^{-t})^2}{(e^t+e^{-t})^2}\\
 &amp;=\boxed{\tanh^2t}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2023-mj-21-q8a"> Completed</label>
 <div class="source-line">
@@ -1327,20 +1341,20 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923121-923123-question-6a-3-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923121-923123-question-6a-3-marks">2023 October/November · 9231/21 &amp; 9231/23 · Question 6(a) · 3 marks</h3>
-<p>Starting from the definitions of <span class="math inline">\(\cosh\)</span> and <span class="math inline">\(\sinh\)</span> in terms of exponentials, prove that</p>
-<p><span class="math display">\[
+<p>Starting from the definitions of <span class="math inline">\cosh</span> and <span class="math inline">\sinh</span> in terms of exponentials, prove that</p>
+<p><span class="math display">
 \sinh2x=2\sinh x\cosh x.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Starting from</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \cosh x=\frac{e^x+e^{-x}}2,\qquad
 \sinh x=\frac{e^x-e^{-x}}2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \begin{aligned}
 2\sinh x\cosh x
 &amp;=2\left(\frac{e^x-e^{-x}}2\right)\left(\frac{e^x+e^{-x}}2\right)\\
@@ -1348,7 +1362,7 @@ Show answer and mark scheme
 &amp;=\frac{e^{2x}-e^{-2x}}2\\
 &amp;=\boxed{\sinh2x}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2023-on-21-23-q6a"> Completed</label>
 <div class="source-line">
@@ -1361,22 +1375,22 @@ Show answer and mark scheme
 <section id="mayjune-923121-923122-question-6a-2-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923121-923122-question-6a-2-marks">2024 May/June · 9231/21 &amp; 9231/22 · Question 6(a) · 2 marks</h3>
 <p>Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \left(\cosh x+\sinh x\right)^{1/2}=e^{\frac12x}.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Substituting the exponential definitions,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 \left(\cosh x+\sinh x\right)^{1/2}
 &amp;=\left(\frac{e^x+e^{-x}}2+\frac{e^x-e^{-x}}2\right)^{1/2}\\
 &amp;=\left(e^x\right)^{1/2}\\
 &amp;=\boxed{e^{\frac12x}}.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2024-mj-21-22-q6a"> Completed</label>
 <div class="source-line">
@@ -1388,20 +1402,20 @@ Show answer and mark scheme
 </section>
 <section id="mayjune-923123-question-2a-3-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="mayjune-923123-question-2a-3-marks">2025 May/June · 9231/23 · Question 2(a) · 3 marks</h3>
-<p>Starting from the definitions of <span class="math inline">\(\tanh\)</span> and <span class="math inline">\(\operatorname{sech}\)</span> in terms of exponentials, prove that</p>
-<p><span class="math display">\[
+<p>Starting from the definitions of <span class="math inline">\tanh</span> and <span class="math inline">\operatorname{sech}</span> in terms of exponentials, prove that</p>
+<p><span class="math display">
 \tanh^2t+\operatorname{sech}^2t=1.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Starting from</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tanh t=\frac{e^t-e^{-t}}{e^t+e^{-t}},\qquad
 \operatorname{sech}t=\frac2{e^t+e^{-t}},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \begin{aligned}
 \tanh^2t+\operatorname{sech}^2t
 &amp;=\left(\frac{e^t-e^{-t}}{e^t+e^{-t}}\right)^2+\left(\frac2{e^t+e^{-t}}\right)^2\\
@@ -1409,7 +1423,7 @@ Show answer and mark scheme
 &amp;=\frac{e^{2t}+2+e^{-2t}}{(e^t+e^{-t})^2}\\
 &amp;=1.
 \end{aligned}
-\]</span></p>
+</span></p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2025-mj-23-q2a"> Completed</label>
 <div class="source-line">
@@ -1418,33 +1432,33 @@ Show answer and mark scheme
 </section>
 <section id="octobernovember-923124-question-2-6-marks" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="octobernovember-923124-question-2-6-marks">2025 October/November · 9231/24 · Question 2 · 6 marks</h3>
-<p><strong>(a)</strong> Find the exact values of <span class="math inline">\(x\)</span> for which</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Find the exact values of <span class="math inline">x</span> for which</p>
+<p><span class="math display">
 \cosh 2x=6\sinh^2x,
-\]</span></p>
+</span></p>
 <p>giving your answers in logarithmic form. <strong>[4]</strong></p>
-<p><strong>(b)</strong> Sketch the curves <span class="math inline">\(C_1:y=\cosh 2x\)</span> and <span class="math inline">\(C_2:y=6\sinh^2x\)</span> on the same diagram. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Sketch the curves <span class="math inline">C_1:y=\cosh 2x</span> and <span class="math inline">C_2:y=6\sinh^2x</span> on the same diagram. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(a)</strong> Using <span class="math inline">\(\cosh2x=1+2\sinh^2x\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Using <span class="math inline">\cosh2x=1+2\sinh^2x</span>,</p>
+<p><span class="math display">
 1+2\sinh^2x=6\sinh^2x
 \;\Longrightarrow\;
 4\sinh^2x=1
 \;\Longrightarrow\;
 \sinh x=\pm\frac12.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=\pm\ln\left(\frac12+\frac{\sqrt5}2\right)}.
-\]</span></p>
-<p><strong>(b)</strong> <span class="math inline">\(C_1:y=\cosh2x\)</span> is even with minimum <span class="math inline">\((0,1)\)</span>; <span class="math inline">\(C_2:y=6\sinh^2x\)</span> is even, passes through the origin and increases rapidly. The curves intersect at</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> <span class="math inline">C_1:y=\cosh2x</span> is even with minimum <span class="math inline">(0,1)</span>; <span class="math inline">C_2:y=6\sinh^2x</span> is even, passes through the origin and increases rapidly. The curves intersect at</p>
+<p><span class="math display">
 x=\pm\ln\left(\frac12+\frac{\sqrt5}2\right),
-\]</span></p>
-<p>with <span class="math inline">\(C_1\)</span> above <span class="math inline">\(C_2\)</span> between these points and below it outside.</p>
+</span></p>
+<p>with <span class="math inline">C_1</span> above <span class="math inline">C_2</span> between these points and below it outside.</p>
 </details>
 <label class="done-toggle"><input type="checkbox" data-progress="hyp-2025-on-24-q2"> Completed</label>
 <div class="source-line">
@@ -1457,8 +1471,8 @@ x=\pm\ln\left(\frac12+\frac{\sqrt5}2\right),
 <ol type="1">
 <li>能熟练在指数形式与双曲函数形式之间转换；</li>
 <li>能说出六个双曲函数的定义域、值域、奇偶性和渐近线；</li>
-<li>能证明 <span class="math inline">\(\cosh^2x-\sinh^2x=1\)</span> 以及二倍角、加法公式；</li>
-<li>能解含 <span class="math inline">\(\sinh x\)</span>、<span class="math inline">\(\cosh x\)</span> 的方程，必要时化为关于 <span class="math inline">\(e^x\)</span> 或 <span class="math inline">\(\sinh x\)</span> 的二次方程；</li>
+<li>能证明 <span class="math inline">\cosh^2x-\sinh^2x=1</span> 以及二倍角、加法公式；</li>
+<li>能解含 <span class="math inline">\sinh x</span>、<span class="math inline">\cosh x</span> 的方程，必要时化为关于 <span class="math inline">e^x</span> 或 <span class="math inline">\sinh x</span> 的二次方程；</li>
 <li>能写出三个常用反双曲函数的对数形式并正确使用定义域。 本节保留教材 Chapter 1 的全部编号 Example（Example 1–17）。题意与符号按教材重写，作图题配原创 SVG 示意图。</li>
 </ol>
 

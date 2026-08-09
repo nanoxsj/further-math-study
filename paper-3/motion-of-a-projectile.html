@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -428,10 +442,10 @@ window.Quarto = {
 <div class="study-card">
 <ul class="task-list">
 <li><label><input type="checkbox">能写出 modelling assumptions，并说明何时不能忽略 air resistance</label></li>
-<li><label><input type="checkbox">能把初速度分解为 <span class="math inline">\(ucos\alpha\)</span> 与 <span class="math inline">\(u\sin\alpha\)</span></label></li>
-<li><label><input type="checkbox">能分别写出 <span class="math inline">\(x,y,v_x,v_y\)</span></label></li>
-<li><label><input type="checkbox">能用 <span class="math inline">\(v_y=0\)</span> 求最高点，用 <span class="math inline">\(y=0\)</span> 求落地时刻</label></li>
-<li><label><input type="checkbox">能用 <span class="math inline">\(y=x\tan\alpha-\dfrac{gx^2}{2u^2}(1+\tan^2\alpha)\)</span> 消去时间</label></li>
+<li><label><input type="checkbox">能把初速度分解为 <span class="math inline">ucos\alpha</span> 与 <span class="math inline">u\sin\alpha</span></label></li>
+<li><label><input type="checkbox">能分别写出 <span class="math inline">x,y,v_x,v_y</span></label></li>
+<li><label><input type="checkbox">能用 <span class="math inline">v_y=0</span> 求最高点，用 <span class="math inline">y=0</span> 求落地时刻</label></li>
+<li><label><input type="checkbox">能用 <span class="math inline">y=x\tan\alpha-\dfrac{gx^2}{2u^2}(1+\tan^2\alpha)</span> 消去时间</label></li>
 <li><label><input type="checkbox">能把 projectile motion 与 Paper 3 的碰撞、轨迹和极值问题联系起来</label></li>
 </ul>
 </div>
@@ -445,64 +459,64 @@ window.Quarto = {
 <li>projectile 是 particle，不考虑大小与自转；</li>
 <li>projectile 没有 engine 或其他持续动力；</li>
 <li>air resistance、wind 等空气效应可以忽略；</li>
-<li>重力加速度恒定，教材取 <span class="math inline">\(g=10\,\mathrm{m\,s^{-2}}\)</span>。</li>
+<li>重力加速度恒定，教材取 <span class="math inline">g=10\,\mathrm{m\,s^{-2}}</span>。</li>
 </ul>
 <p>因此 acceleration 始终竖直向下：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \mathbf a=\begin{pmatrix}0\\-g\end{pmatrix}.
-\]</span></p>
+</span></p>
 </section>
 <section id="standard-equations" class="level3">
 <h3 class="anchored" data-anchor-id="standard-equations">1.2 Standard equations</h3>
-<p>若 projectile 从原点以 speed <span class="math inline">\(u\)</span>、仰角 <span class="math inline">\(\alpha\)</span> 发射，则</p>
-<p><span class="math display">\[
+<p>若 projectile 从原点以 speed <span class="math inline">u</span>、仰角 <span class="math inline">\alpha</span> 发射，则</p>
+<p><span class="math display">
 u_x=u\cos\alpha,\qquad u_y=u\sin\alpha.
-\]</span></p>
+</span></p>
 <p>水平与竖直运动分别给出</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=ut\cos\alpha},\qquad
 \boxed{y=ut\sin\alpha-\frac12gt^2},
-\]</span></p>
+</span></p>
 <p>以及</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{v_x=u\cos\alpha},\qquad
 \boxed{v_y=u\sin\alpha-gt}.
-\]</span></p>
-<p>若初始点为 <span class="math inline">\((x_0,y_0)\)</span>，只需改写为</p>
-<p><span class="math display">\[
+</span></p>
+<p>若初始点为 <span class="math inline">(x_0,y_0)</span>，只需改写为</p>
+<p><span class="math display">
 x=x_0+ut\cos\alpha,\qquad
 y=y_0+ut\sin\alpha-\frac12gt^2.
-\]</span></p>
+</span></p>
 </section>
 <section id="maximum-height-time-of-flight-and-range" class="level3">
 <h3 class="anchored" data-anchor-id="maximum-height-time-of-flight-and-range">1.3 Maximum height, time of flight and range</h3>
-<p>最高点满足 <span class="math inline">\(v_y=0\)</span>。从原点水平地面发射时，若落地点仍在 <span class="math inline">\(y=0\)</span>，则</p>
-<p><span class="math display">\[
+<p>最高点满足 <span class="math inline">v_y=0</span>。从原点水平地面发射时，若落地点仍在 <span class="math inline">y=0</span>，则</p>
+<p><span class="math display">
 t_{\max}=\frac{u\sin\alpha}{g},\qquad
 H=\frac{u^2\sin^2\alpha}{2g},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 T=\frac{2u\sin\alpha}{g},\qquad
 R=u\cos\alpha\,T=\frac{u^2\sin2\alpha}{g}.
-\]</span></p>
-<p>注意：<span class="math inline">\(T=2t_{\max}\)</span> 只适用于发射点与落地点同高的情形。</p>
+</span></p>
+<p>注意：<span class="math inline">T=2t_{\max}</span> 只适用于发射点与落地点同高的情形。</p>
 </section>
 <section id="equation-of-the-trajectory" class="level3">
 <h3 class="anchored" data-anchor-id="equation-of-the-trajectory">1.4 Equation of the trajectory</h3>
-<p>由 <span class="math inline">\(x=ut\cos\alpha\)</span> 得 <span class="math inline">\(t=x/(u\cos\alpha)\)</span>。代入 <span class="math inline">\(y\)</span>：</p>
-<p><span class="math display">\[
+<p>由 <span class="math inline">x=ut\cos\alpha</span> 得 <span class="math inline">t=x/(u\cos\alpha)</span>。代入 <span class="math inline">y</span>：</p>
+<p><span class="math display">
 \boxed{y=x\tan\alpha-\frac{gx^2}{2u^2}\sec^2\alpha}
-\]</span></p>
+</span></p>
 <p>或</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{y=x\tan\alpha-\frac{gx^2}{2u^2}(1+\tan^2\alpha)}.
-\]</span></p>
-<p>这说明在模型成立时，trajectory 是 parabola。若初始高度是 <span class="math inline">\(h\)</span>，则在右侧加上 <span class="math inline">\(h\)</span>。</p>
+</span></p>
+<p>这说明在模型成立时，trajectory 是 parabola。若初始高度是 <span class="math inline">h</span>，则在右侧加上 <span class="math inline">h</span>。</p>
 </section>
 <section id="常见解题结构" class="level3">
 <h3 class="anchored" data-anchor-id="常见解题结构">1.5 常见解题结构</h3>
 <ol type="1">
-<li>先选坐标轴并明确 <span class="math inline">\(g\)</span> 的正负；</li>
+<li>先选坐标轴并明确 <span class="math inline">g</span> 的正负；</li>
 <li>先在水平、竖直方向写 component equations；</li>
 <li>用题目给出的高度、水平距离或方向条件建立方程；</li>
 <li>保留计算器中的未四舍五入值，最后按题目要求取三位有效数字；</li>
@@ -514,7 +528,7 @@ R=u\cos\alpha\,T=\frac{u^2\sin2\alpha}{g}.
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-1.1-horizontal-projection-from-a-window" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.1-horizontal-projection-from-a-window">Example 1.1 · Horizontal projection from a window</h3>
-<p>A ball is thrown horizontally at <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> out of a window <span class="math inline">\(4\,\mathrm m\)</span> above the ground.</p>
+<p>A ball is thrown horizontally at <span class="math inline">5\,\mathrm{m\,s^{-1}}</span> out of a window <span class="math inline">4\,\mathrm m</span> above the ground.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/motion/pic/1.1.png" class="img-fluid figure-img" style="width:48.0%"></p>
@@ -528,37 +542,37 @@ R=u\cos\alpha\,T=\frac{u^2\sin2\alpha}{g}.
 <summary>
 Show answer
 </summary>
-<p>取地面上投影点为原点，<span class="math inline">\(x\)</span> 水平向右，<span class="math inline">\(y\)</span> 竖直向上。于是</p>
-<p><span class="math display">\[
+<p>取地面上投影点为原点，<span class="math inline">x</span> 水平向右，<span class="math inline">y</span> 竖直向上。于是</p>
+<p><span class="math display">
 x=5t,\qquad y=4-5t^2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 v_x=5,\qquad v_y=-10t.
-\]</span></p>
-<p><strong>(i)</strong> 落地时 <span class="math inline">\(y=0\)</span>，所以</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(i)</strong> 落地时 <span class="math inline">y=0</span>，所以</p>
+<p><span class="math display">
 t=\sqrt{4/5}=\boxed{0.894\,\mathrm s}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> 因此</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{t=0.894\,\mathrm s},\qquad
 \boxed{x=5t=4.47\,\mathrm m}.
-\]</span></p>
-<p><strong>(iii)</strong> 落地瞬间 <span class="math inline">\(v_y=-8.94\,\mathrm{m\,s^{-1}}\)</span>，故</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(iii)</strong> 落地瞬间 <span class="math inline">v_y=-8.94\,\mathrm{m\,s^{-1}}</span>，故</p>
+<p><span class="math display">
 v=\sqrt{5^2+8.94^2}=\boxed{10.2\,\mathrm{m\,s^{-1}}},
-\]</span></p>
-<span class="math display">\[
+</span></p>
+<span class="math display">
 \tan\alpha=\frac{8.94}{5}
 \quad\Longrightarrow\quad
 \boxed{\alpha=60.8^\circ\text{ below the horizontal}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-1.2-kicking-a-ball-over-vans" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.2-kicking-a-ball-over-vans">Example 1.2 · Kicking a ball over vans</h3>
 <p>In this question, neglect air resistance.</p>
-<p>In an attempt to raise money for a charity, participants are sponsored to kick a ball over some vans. The vans are each <span class="math inline">\(2.2\,\mathrm m\)</span> high and <span class="math inline">\(2\,\mathrm m\)</span> wide and stand on horizontal ground. One participant kicks the ball at an initial speed of <span class="math inline">\(24\,\mathrm{m\,s^{-1}}\)</span> inclined at <span class="math inline">\(30^\circ\)</span> to the horizontal.</p>
+<p>In an attempt to raise money for a charity, participants are sponsored to kick a ball over some vans. The vans are each <span class="math inline">2.2\,\mathrm m</span> high and <span class="math inline">2\,\mathrm m</span> wide and stand on horizontal ground. One participant kicks the ball at an initial speed of <span class="math inline">24\,\mathrm{m\,s^{-1}}</span> inclined at <span class="math inline">30^\circ</span> to the horizontal.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/motion/pic/1.2.png" class="img-fluid figure-img" style="width:96.0%"></p>
@@ -566,45 +580,45 @@ v=\sqrt{5^2+8.94^2}=\boxed{10.2\,\mathrm{m\,s^{-1}}},
 </figure>
 </div>
 <p><strong>(i)</strong> What are the initial values of the vertical and horizontal components of velocity?<br>
-<strong>(ii)</strong> Show that while in flight the vertical height <span class="math inline">\(y\)</span> metres at time <span class="math inline">\(t\)</span> seconds satisfies the equation <span class="math inline">\(y=12t-5t^2\)</span>. Calculate at what times the ball is at least <span class="math inline">\(2.2\,\mathrm m\)</span> above the ground.</p>
+<strong>(ii)</strong> Show that while in flight the vertical height <span class="math inline">y</span> metres at time <span class="math inline">t</span> seconds satisfies the equation <span class="math inline">y=12t-5t^2</span>. Calculate at what times the ball is at least <span class="math inline">2.2\,\mathrm m</span> above the ground.</p>
 <p>The ball should pass over as many vans as possible.</p>
-<p><strong>(iii)</strong> Deduce that the ball should be placed about <span class="math inline">\(4.2\)</span> m from the first van and find how many vans the ball will clear.<br>
+<p><strong>(iii)</strong> Deduce that the ball should be placed about <span class="math inline">4.2</span> m from the first van and find how many vans the ball will clear.<br>
 <strong>(iv)</strong> What is the greatest vertical distance between the ball and the top of the vans?</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 u_x=24\cos30^\circ=20.8\,\mathrm{m\,s^{-1}},\qquad
 u_y=24\sin30^\circ=12\,\mathrm{m\,s^{-1}}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> 所以</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=12t-5t^2.
-\]</span></p>
-<p>球在 <span class="math inline">\(2.2\)</span> m 高度时满足</p>
-<p><span class="math display">\[
+</span></p>
+<p>球在 <span class="math inline">2.2</span> m 高度时满足</p>
+<p><span class="math display">
 12t-5t^2=2.2
 \Longrightarrow 5t^2-12t+2.2=0
 \Longrightarrow t=0.2\text{ or }2.2.
-\]</span></p>
-<p>故球位于 van 顶部以上的时间区间为 <span class="math inline">\(0.2\le t\le2.2\)</span>。</p>
+</span></p>
+<p>故球位于 van 顶部以上的时间区间为 <span class="math inline">0.2\le t\le2.2</span>。</p>
 <p><strong>(iii)</strong> 对应水平位置为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=24\cos30^\circ t=20.8t,
-\]</span></p>
-<p>即 <span class="math inline">\(x=4.15\)</span> m 到 <span class="math inline">\(x=45.7\)</span> m。球应放在第一辆 van 前约 <span class="math inline">\(\boxed{4.2\,\mathrm m}\)</span>；可覆盖长度约 <span class="math inline">\(41.5\)</span> m，因此最多越过 <span class="math inline">\(\boxed{20}\)</span> 辆。</p>
-<p><strong>(iv)</strong> 最高点时 <span class="math inline">\(v_y=12-10t=0\)</span>，得 <span class="math inline">\(t=1.2\)</span>，所以</p>
-<p><span class="math display">\[
+</span></p>
+<p>即 <span class="math inline">x=4.15</span> m 到 <span class="math inline">x=45.7</span> m。球应放在第一辆 van 前约 <span class="math inline">\boxed{4.2\,\mathrm m}</span>；可覆盖长度约 <span class="math inline">41.5</span> m，因此最多越过 <span class="math inline">\boxed{20}</span> 辆。</p>
+<p><strong>(iv)</strong> 最高点时 <span class="math inline">v_y=12-10t=0</span>，得 <span class="math inline">t=1.2</span>，所以</p>
+<p><span class="math display">
 y_{\max}=12(1.2)-5(1.2)^2=7.2\,\mathrm m.
-\]</span></p>
-最大间距为 <span class="math inline">\(7.2-2.2=\boxed{5.0\,\mathrm m}\)</span>。
+</span></p>
+最大间距为 <span class="math inline">7.2-2.2=\boxed{5.0\,\mathrm m}</span>。
 </details>
 </section>
 <section id="example-1.3-sharon-diving-into-a-swimming-pool" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.3-sharon-diving-into-a-swimming-pool">Example 1.3 · Sharon diving into a swimming pool</h3>
-<p>Sharon is diving into a swimming pool. During her flight she may be modelled as a particle. Her initial velocity is <span class="math inline">\(1.8\,\mathrm{m\,s^{-1}}\)</span> at an angle of <span class="math inline">\(30^\circ\)</span> above the horizontal and initial position <span class="math inline">\(3.1\)</span> m above the water. Air resistance may be neglected.</p>
+<p>Sharon is diving into a swimming pool. During her flight she may be modelled as a particle. Her initial velocity is <span class="math inline">1.8\,\mathrm{m\,s^{-1}}</span> at an angle of <span class="math inline">30^\circ</span> above the horizontal and initial position <span class="math inline">3.1</span> m above the water. Air resistance may be neglected.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/motion/pic/1.3.png" class="img-fluid figure-img" style="width:96.0%"></p>
@@ -612,79 +626,79 @@ y_{\max}=12(1.2)-5(1.2)^2=7.2\,\mathrm m.
 </figure>
 </div>
 <p><strong>(i)</strong> Find the greatest height above the water that Sharon reaches during her dive.<br>
-<strong>(ii)</strong> Show that the time <span class="math inline">\(t\)</span>, in seconds, that it takes Sharon to reach the water is given by <span class="math inline">\(5t^2-0.9t-3.1=0\)</span> and solve the equation to find <span class="math inline">\(t\)</span>. Explain the significance of the other root.</p>
-<p>Just as Sharon is diving a small boy jumps into the swimming pool. He hits the water at a point in line with the diving board and <span class="math inline">\(1.5\)</span> m from its end.</p>
+<strong>(ii)</strong> Show that the time <span class="math inline">t</span>, in seconds, that it takes Sharon to reach the water is given by <span class="math inline">5t^2-0.9t-3.1=0</span> and solve the equation to find <span class="math inline">t</span>. Explain the significance of the other root.</p>
+<p>Just as Sharon is diving a small boy jumps into the swimming pool. He hits the water at a point in line with the diving board and <span class="math inline">1.5</span> m from its end.</p>
 <p><strong>(iii)</strong> Is there an accident?</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>取跳板投影点为原点：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v_x=1.8\cos30^\circ=1.56,
 \quad v_y=0.9-10t,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 x=1.56t,\qquad y=3.1+0.9t-5t^2.
-\]</span></p>
-<p><strong>(i)</strong> 最高点满足 <span class="math inline">\(v_y=0\)</span>，故 <span class="math inline">\(t=0.09\)</span>，从而</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(i)</strong> 最高点满足 <span class="math inline">v_y=0</span>，故 <span class="math inline">t=0.09</span>，从而</p>
+<p><span class="math display">
 H=3.1+0.9(0.09)-5(0.09)^2=\boxed{3.14\,\mathrm m}.
-\]</span></p>
-<p><strong>(ii)</strong> 到水面时 <span class="math inline">\(y=0\)</span>：</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> 到水面时 <span class="math inline">y=0</span>：</p>
+<p><span class="math display">
 5t^2-0.9t-3.1=0,
-\]</span></p>
-<p>所以 <span class="math inline">\(t=-0.702\)</span> 或 <span class="math inline">\(0.882\)</span>。物理上采用正根，故入水时间为 <span class="math inline">\(\boxed{0.882\,\mathrm s}\)</span>。负根代表抛物线向过去延伸时与水面相交的另一点，并非实际跳水时刻。</p>
+</span></p>
+<p>所以 <span class="math inline">t=-0.702</span> 或 <span class="math inline">0.882</span>。物理上采用正根，故入水时间为 <span class="math inline">\boxed{0.882\,\mathrm s}</span>。负根代表抛物线向过去延伸时与水面相交的另一点，并非实际跳水时刻。</p>
 <p><strong>(iii)</strong> 入水水平距离为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=1.56(0.882)=1.38\,\mathrm m.
-\]</span></p>
-与 <span class="math inline">\(1.5\)</span> m 相差约 <span class="math inline">\(0.12\)</span> m，不足以确保两人的质心错开，因此按教材模型结论为：$。
+</span></p>
+与 <span class="math inline">1.5</span> m 相差约 <span class="math inline">0.12</span> m，不足以确保两人的质心错开，因此按教材模型结论为：$。
 </details>
 </section>
 <section id="example-1.4-a-ceiling-constraint" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.4-a-ceiling-constraint">Example 1.4 · A ceiling constraint</h3>
-<p>A boy kicks a small ball from the floor of a gymnasium with an initial velocity of <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span> inclined at an angle <span class="math inline">\(\alpha\)</span> to the horizontal. Air resistance may be neglected.</p>
+<p>A boy kicks a small ball from the floor of a gymnasium with an initial velocity of <span class="math inline">15\,\mathrm{m\,s^{-1}}</span> inclined at an angle <span class="math inline">\alpha</span> to the horizontal. Air resistance may be neglected.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/motion/pic/1.4.png" class="img-fluid figure-img" style="width:96.0%"></p>
 <figcaption>Figure 1.14</figcaption>
 </figure>
 </div>
-<p><strong>(i)</strong> Write down expressions in terms of <span class="math inline">\(\alpha\)</span> for the vertical speed of the ball and vertical height of the ball after <span class="math inline">\(t\)</span> seconds.</p>
-<p>The ball just fails to touch the ceiling, which is <span class="math inline">\(5\)</span> m high. The highest point of the motion of the ball is reached after <span class="math inline">\(T\)</span> seconds.</p>
-<p><strong>(ii)</strong> Use one of your expressions to show that <span class="math inline">\(3\sin\alpha=2T\)</span> and the other to form a second equation involving <span class="math inline">\(\sin\alpha\)</span> and <span class="math inline">\(T\)</span>.<br>
-<strong>(iii)</strong> Eliminate <span class="math inline">\(\sin\alpha\)</span> from your two equations to show that <span class="math inline">\(T\)</span> has a value of <span class="math inline">\(1\)</span>.<br>
-<strong>(iv)</strong> Find the horizontal range of the ball when it is kicked at <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span> from the floor of the gymnasium so that it just misses the ceiling.</p>
+<p><strong>(i)</strong> Write down expressions in terms of <span class="math inline">\alpha</span> for the vertical speed of the ball and vertical height of the ball after <span class="math inline">t</span> seconds.</p>
+<p>The ball just fails to touch the ceiling, which is <span class="math inline">5</span> m high. The highest point of the motion of the ball is reached after <span class="math inline">T</span> seconds.</p>
+<p><strong>(ii)</strong> Use one of your expressions to show that <span class="math inline">3\sin\alpha=2T</span> and the other to form a second equation involving <span class="math inline">\sin\alpha</span> and <span class="math inline">T</span>.<br>
+<strong>(iii)</strong> Eliminate <span class="math inline">\sin\alpha</span> from your two equations to show that <span class="math inline">T</span> has a value of <span class="math inline">1</span>.<br>
+<strong>(iv)</strong> Find the horizontal range of the ball when it is kicked at <span class="math inline">15\,\mathrm{m\,s^{-1}}</span> from the floor of the gymnasium so that it just misses the ceiling.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 v_y=15\sin\alpha-10t,qquad
 y=15t\sin\alpha-5t^2.
-\]</span></p>
-<p><strong>(ii)</strong> 最高点时 <span class="math inline">\(v_y=0\)</span> 且 <span class="math inline">\(t=T\)</span>，所以</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> 最高点时 <span class="math inline">v_y=0</span> 且 <span class="math inline">t=T</span>，所以</p>
+<p><span class="math display">
 15\sin\alpha=10T
 \Longrightarrow \boxed{3\sin\alpha=2T}.
-\]</span></p>
-<p>最高点高度为 <span class="math inline">\(5\)</span> m，因此</p>
-<p><span class="math display">\[
+</span></p>
+<p>最高点高度为 <span class="math inline">5</span> m，因此</p>
+<p><span class="math display">
 5=15T\sin\alpha-5T^2.
-\]</span></p>
-<p><strong>(iii)</strong> 代入 <span class="math inline">\(15\sin\alpha=10T\)</span>：</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(iii)</strong> 代入 <span class="math inline">15\sin\alpha=10T</span>：</p>
+<p><span class="math display">
 5=10T^2-5T^2=5T^2
 \Longrightarrow \boxed{T=1}.
-\]</span></p>
-<p><strong>(iv)</strong> 于是 <span class="math inline">\(\sin\alpha=2/3\)</span>，总飞行时间为 <span class="math inline">\(2T=2\)</span> s。水平速度为 <span class="math inline">\(15\cos\alpha\)</span>，因此</p>
-<span class="math display">\[
+</span></p>
+<p><strong>(iv)</strong> 于是 <span class="math inline">\sin\alpha=2/3</span>，总飞行时间为 <span class="math inline">2T=2</span> s。水平速度为 <span class="math inline">15\cos\alpha</span>，因此</p>
+<span class="math display">
 R=15\cos\alpha(2)=30\sqrt{1-\frac49}
 =\boxed{22.4\,\mathrm m}.
-\]</span>
+</span>
 </details>
 </section>
 </section>
@@ -692,213 +706,213 @@ R=15\cos\alpha(2)=30\sqrt{1-\frac49}
 <h2 class="anchored" data-anchor-id="教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</h2>
 <p>这里只收录 Chapter 1 Exercise 中明确印有 Cambridge International 来源的题目；这些教材题的原始来源是 Cambridge International AS &amp; A Level Mathematics 9709，适合作为 projectile 技巧的基础训练。配套答案依据 <code>9781510421806_Answers.pdf</code>。</p>
 <div class="question-card" title="Exercise 1C, Question 7 · 9709 Paper 52 Q6 June 2011">
-<p>A particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(26\,\mathrm{m\,s^{-1}}\)</span> at an angle of <span class="math inline">\(30^\circ\)</span> below the horizontal, from a point <span class="math inline">\(O\)</span> which is <span class="math inline">\(80\,\mathrm m\)</span> above horizontal ground.</p>
-<p><strong>(a)</strong> Calculate the distance from <span class="math inline">\(O\)</span> of <span class="math inline">\(P\)</span> <span class="math inline">\(2.3\)</span> s after projection.<br>
-<strong>(b)</strong> Find the horizontal distance travelled by <span class="math inline">\(P\)</span> before it reaches the ground.<br>
-<strong>(c)</strong> Calculate the speed and direction of motion of <span class="math inline">\(P\)</span> immediately before it reaches the ground.</p>
+<p>A particle <span class="math inline">P</span> is projected with speed <span class="math inline">26\,\mathrm{m\,s^{-1}}</span> at an angle of <span class="math inline">30^\circ</span> below the horizontal, from a point <span class="math inline">O</span> which is <span class="math inline">80\,\mathrm m</span> above horizontal ground.</p>
+<p><strong>(a)</strong> Calculate the distance from <span class="math inline">O</span> of <span class="math inline">P</span> <span class="math inline">2.3</span> s after projection.<br>
+<strong>(b)</strong> Find the horizontal distance travelled by <span class="math inline">P</span> before it reaches the ground.<br>
+<strong>(c)</strong> Calculate the speed and direction of motion of <span class="math inline">P</span> immediately before it reaches the ground.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>取水平向右、竖直向上为正：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 u_x=26\cos30^\circ=22.5,\qquad u_y=-26\sin30^\circ=-13.
-\]</span></p>
+</span></p>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=22.5(2.3)=51.8,\qquad
 y=80-13(2.3)-5(2.3)^2=56.3.
-\]</span></p>
+</span></p>
 <p>因此</p>
-<p><span class="math display">\[
+<p><span class="math display">
 OP=\sqrt{51.8^2+56.3^2}=\boxed{76.5\,\mathrm m}.
-\]</span></p>
-<p><strong>(b)</strong> 落地时 <span class="math inline">\(y=0\)</span>：</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> 落地时 <span class="math inline">y=0</span>：</p>
+<p><span class="math display">
 0=80-13t-5t^2
 \Longrightarrow t=\frac{-13+\sqrt{1769}}{10}=2.91\,\mathrm s.
-\]</span></p>
+</span></p>
 <p>所以水平距离为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=22.5t=65.4\,\mathrm m}.
-\]</span></p>
+</span></p>
 <p><strong>(c)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 v_x=22.5,\qquad v_y=-13-10(2.91)=-42.1.
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 v=\sqrt{22.5^2+42.1^2}=\boxed{47.7\,\mathrm{m\,s^{-1}}},
-\]</span></p>
-<span class="math display">\[
+</span></p>
+<span class="math display">
 \tan\phi=\frac{42.1}{22.5}
 \Longrightarrow \boxed{\phi=61.8^\circ\text{ below the horizontal}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 52 Q6, June 2011. Textbook answer: 9781510421806_Answers.pdf, Exercise 1C.
 </div>
 </div>
 <div class="question-card" title="Exercise 1C, Question 8 · 9709 Paper 52 Q3 November 2009">
-<p>Particle <span class="math inline">\(P\)</span> is released from rest at a point <span class="math inline">\(A\)</span> which is <span class="math inline">\(7\,\mathrm m\)</span> above horizontal ground. At the same instant particle <span class="math inline">\(Q\)</span> is projected from a point <span class="math inline">\(O\)</span> on the ground. The horizontal distance from <span class="math inline">\(O\)</span> to the vertical projection of <span class="math inline">\(A\)</span> is <span class="math inline">\(24\,\mathrm m\)</span>. Particle <span class="math inline">\(Q\)</span> moves in the vertical plane containing <span class="math inline">\(O\)</span> and <span class="math inline">\(A\)</span>, with initial speed <span class="math inline">\(50\,\mathrm{m\,s^{-1}}\)</span> and initial direction making an angle <span class="math inline">\(\theta\)</span> above the horizontal, where <span class="math inline">\(\tan\theta=7/24\)</span>.</p>
+<p>Particle <span class="math inline">P</span> is released from rest at a point <span class="math inline">A</span> which is <span class="math inline">7\,\mathrm m</span> above horizontal ground. At the same instant particle <span class="math inline">Q</span> is projected from a point <span class="math inline">O</span> on the ground. The horizontal distance from <span class="math inline">O</span> to the vertical projection of <span class="math inline">A</span> is <span class="math inline">24\,\mathrm m</span>. Particle <span class="math inline">Q</span> moves in the vertical plane containing <span class="math inline">O</span> and <span class="math inline">A</span>, with initial speed <span class="math inline">50\,\mathrm{m\,s^{-1}}</span> and initial direction making an angle <span class="math inline">\theta</span> above the horizontal, where <span class="math inline">\tan\theta=7/24</span>.</p>
 <p><strong>(a)</strong> Show that the particles collide.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><span class="math display">\[
+<p><span class="math display">
 \cos\theta=\frac{24}{25},\qquad \sin\theta=\frac7{25}.
-\]</span></p>
-<p><strong>(a)</strong> Particle <span class="math inline">\(Q\)</span> reaches the vertical line through <span class="math inline">\(A\)</span> when</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(a)</strong> Particle <span class="math inline">Q</span> reaches the vertical line through <span class="math inline">A</span> when</p>
+<p><span class="math display">
 24=50\cos\theta\,t
 \Longrightarrow t=\frac{24}{50(24/25)}=0.5\,\mathrm s.
-\]</span></p>
+</span></p>
 <p>At this time,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y_Q=50\sin\theta(0.5)-5(0.5)^2=5.75\,\mathrm m.
-\]</span></p>
-<p>Particle <span class="math inline">\(P\)</span> has fallen <span class="math inline">\(5(0.5)^2=1.25\)</span> m, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>Particle <span class="math inline">P</span> has fallen <span class="math inline">5(0.5)^2=1.25</span> m, so</p>
+<p><span class="math display">
 y_P=7-1.25=5.75\,\mathrm m.
-\]</span></p>
-<p>Thus <span class="math inline">\(y_P=y_Q\)</span> at the same horizontal position, and</p>
-<span class="math display">\[
+</span></p>
+<p>Thus <span class="math inline">y_P=y_Q</span> at the same horizontal position, and</p>
+<span class="math display">
 \boxed{P\text{ and }Q\text{ collide}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 52 Q3, November 2009.
 </div>
 </div>
 <div class="question-card" title="Exercise 1C, Question 9 · 9709 Paper 53 Q2 June 2015">
-<p>A particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(V\,\mathrm{m\,s^{-1}}\)</span> at an angle of <span class="math inline">\(60^\circ\)</span> above the horizontal from a point <span class="math inline">\(O\)</span> on horizontal ground. At the instant <span class="math inline">\(1.5\)</span> s after projection, <span class="math inline">\(P\)</span> is moving at an angle of <span class="math inline">\(45^\circ\)</span> above the horizontal.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(V\)</span>.<br>
-<strong>(b)</strong> Hence calculate the horizontal and vertical displacements of <span class="math inline">\(P\)</span> from <span class="math inline">\(O\)</span> at that instant.</p>
+<p>A particle <span class="math inline">P</span> is projected with speed <span class="math inline">V\,\mathrm{m\,s^{-1}}</span> at an angle of <span class="math inline">60^\circ</span> above the horizontal from a point <span class="math inline">O</span> on horizontal ground. At the instant <span class="math inline">1.5</span> s after projection, <span class="math inline">P</span> is moving at an angle of <span class="math inline">45^\circ</span> above the horizontal.</p>
+<p><strong>(a)</strong> Find <span class="math inline">V</span>.<br>
+<strong>(b)</strong> Hence calculate the horizontal and vertical displacements of <span class="math inline">P</span> from <span class="math inline">O</span> at that instant.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> At <span class="math inline">\(t=1.5\)</span> s,</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> At <span class="math inline">t=1.5</span> s,</p>
+<p><span class="math display">
 v_x=V\cos60^\circ,\qquad
 v_y=V\sin60^\circ-15.
-\]</span></p>
-<p>The direction is <span class="math inline">\(45^\circ\)</span> above the horizontal, so <span class="math inline">\(v_y=v_x\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>The direction is <span class="math inline">45^\circ</span> above the horizontal, so <span class="math inline">v_y=v_x</span>:</p>
+<p><span class="math display">
 V\sin60^\circ-15=V\cos60^\circ
 \Longrightarrow \boxed{V=41.0\,\mathrm{m\,s^{-1}}}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=V\cos60^\circ(1.5)=\boxed{30.7\,\mathrm m},
-\]</span></p>
-<span class="math display">\[
+</span></p>
+<span class="math display">
 y=V\sin60^\circ(1.5)-5(1.5)^2
 =\boxed{42.0\,\mathrm m}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q2, June 2015.
 </div>
 </div>
 <div class="question-card" title="Exercise 1E, Question 6 · 9709 Paper 51 Q5 June 2010">
-<p>A particle is projected from a point <span class="math inline">\(O\)</span> on horizontal ground. Its speed of projection is <span class="math inline">\(20\,\mathrm{m\,s^{-1}}\)</span>, and its direction is upwards at angle <span class="math inline">\(\theta\)</span> to the horizontal. The particle passes through the point <span class="math inline">\((16,7)\)</span> and hits the ground at <span class="math inline">\(A\)</span>.</p>
-<p><strong>(a)</strong> Using the equation of the trajectory and <span class="math inline">\(\sec^2\theta=1+\tan^2\theta\)</span>, show that the possible values of <span class="math inline">\(\tan\theta\)</span> are <span class="math inline">\(3/4\)</span> and <span class="math inline">\(17/4\)</span>.<br>
-<strong>(b)</strong> Find <span class="math inline">\(OA\)</span> for each possible value.<br>
+<p>A particle is projected from a point <span class="math inline">O</span> on horizontal ground. Its speed of projection is <span class="math inline">20\,\mathrm{m\,s^{-1}}</span>, and its direction is upwards at angle <span class="math inline">\theta</span> to the horizontal. The particle passes through the point <span class="math inline">(16,7)</span> and hits the ground at <span class="math inline">A</span>.</p>
+<p><strong>(a)</strong> Using the equation of the trajectory and <span class="math inline">\sec^2\theta=1+\tan^2\theta</span>, show that the possible values of <span class="math inline">\tan\theta</span> are <span class="math inline">3/4</span> and <span class="math inline">17/4</span>.<br>
+<strong>(b)</strong> Find <span class="math inline">OA</span> for each possible value.<br>
 <strong>(c)</strong> Sketch the two possible trajectories on the same diagram.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> Let <span class="math inline">\(z=\tan\theta\)</span>. The trajectory equation is</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> Let <span class="math inline">z=\tan\theta</span>. The trajectory equation is</p>
+<p><span class="math display">
 y=xz-\frac{gx^2}{2(20)^2}(1+z^2).
-\]</span></p>
-<p>At <span class="math inline">\((16,7)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">(16,7)</span>,</p>
+<p><span class="math display">
 7=16z-\frac{10(16)^2}{800}(1+z^2)
 \Longrightarrow 5z^2-20z+13=0.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{z=\tan\theta=\frac34\text{ or }\frac{17}{4}}.
-\]</span></p>
-<p><strong>(b)</strong> At the landing point <span class="math inline">\(y=0\)</span>. For each root, substitute into the trajectory equation and take the non-zero root:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> At the landing point <span class="math inline">y=0</span>. For each root, substitute into the trajectory equation and take the non-zero root:</p>
+<p><span class="math display">
 \boxed{OA=38.4\,\mathrm m\quad\text{or}\quad17.8\,\mathrm m}.
-\]</span></p>
-<strong>(c)</strong> Draw two parabolas through <span class="math inline">\(O\)</span> and <span class="math inline">\((16,7)\)</span>, one with the lower launch angle and the longer range, the other with the higher launch angle and the shorter range.
+</span></p>
+<strong>(c)</strong> Draw two parabolas through <span class="math inline">O</span> and <span class="math inline">(16,7)</span>, one with the lower launch angle and the longer range, the other with the higher launch angle and the shorter range.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 51 Q5, June 2010.
 </div>
 </div>
 <div class="question-card" title="Exercise 1E, Question 7 · 9709 Paper 53 Q3 November 2011">
-<p>A particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(25\,\mathrm{m\,s^{-1}}\)</span> at an angle of <span class="math inline">\(45^\circ\)</span> above the horizontal from a point <span class="math inline">\(O\)</span> on horizontal ground. At time <span class="math inline">\(t\)</span> seconds after projection, its horizontal and vertically upward displacements from <span class="math inline">\(O\)</span> are <span class="math inline">\(x\)</span> m and <span class="math inline">\(y\)</span> m.</p>
-<p><strong>(a)</strong> Express <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(t\)</span>, and hence show that the equation of the path is <span class="math inline">\(y=x-0.016x^2\)</span>.<br>
-<strong>(b)</strong> Calculate the horizontal distance between the two positions at which <span class="math inline">\(P\)</span> is <span class="math inline">\(2.4\)</span> m above the ground.</p>
+<p>A particle <span class="math inline">P</span> is projected with speed <span class="math inline">25\,\mathrm{m\,s^{-1}}</span> at an angle of <span class="math inline">45^\circ</span> above the horizontal from a point <span class="math inline">O</span> on horizontal ground. At time <span class="math inline">t</span> seconds after projection, its horizontal and vertically upward displacements from <span class="math inline">O</span> are <span class="math inline">x</span> m and <span class="math inline">y</span> m.</p>
+<p><strong>(a)</strong> Express <span class="math inline">x</span> and <span class="math inline">y</span> in terms of <span class="math inline">t</span>, and hence show that the equation of the path is <span class="math inline">y=x-0.016x^2</span>.<br>
+<strong>(b)</strong> Calculate the horizontal distance between the two positions at which <span class="math inline">P</span> is <span class="math inline">2.4</span> m above the ground.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=25\cos45^\circ t=12.5\sqrt2\,t,
 \qquad
 y=25\sin45^\circ t-5t^2=12.5\sqrt2\,t-5t^2.
-\]</span></p>
-<p>Since <span class="math inline">\(t=x/(12.5\sqrt2)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">t=x/(12.5\sqrt2)</span>,</p>
+<p><span class="math display">
 y=x-\frac{x^2}{62.5}=\boxed{x-0.016x^2}.
-\]</span></p>
-<p><strong>(b)</strong> Set <span class="math inline">\(y=2.4\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Set <span class="math inline">y=2.4</span>:</p>
+<p><span class="math display">
 2.4=x-0.016x^2
 \Longrightarrow 0.016x^2-x+2.4=0.
-\]</span></p>
+</span></p>
 <p>The two roots differ by</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{57.5\,\mathrm m}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q3, November 2011.
 </div>
 </div>
 <div class="question-card" title="Exercise 1E, Question 8 · 9709 Paper 53 Q5 June 2014">
-<p>A small ball is thrown horizontally with speed <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> from a point <span class="math inline">\(O\)</span> on the roof of a building. At time <span class="math inline">\(t\)</span> s after projection, the horizontal and vertically downwards displacements from <span class="math inline">\(O\)</span> are <span class="math inline">\(x\)</span> m and <span class="math inline">\(y\)</span> m. The ball strikes the horizontal ground at <span class="math inline">\(A\)</span>, and <span class="math inline">\(OA=18\)</span> m.</p>
+<p>A small ball is thrown horizontally with speed <span class="math inline">5\,\mathrm{m\,s^{-1}}</span> from a point <span class="math inline">O</span> on the roof of a building. At time <span class="math inline">t</span> s after projection, the horizontal and vertically downwards displacements from <span class="math inline">O</span> are <span class="math inline">x</span> m and <span class="math inline">y</span> m. The ball strikes the horizontal ground at <span class="math inline">A</span>, and <span class="math inline">OA=18</span> m.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/motion/pic/1.EB_8.png" class="img-fluid figure-img" style="width:72.0%"></p>
 <figcaption>Exercise 1C, Question 8</figcaption>
 </figure>
 </div>
-<p><strong>(a)</strong> Express <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(t\)</span>, and hence show that the trajectory is <span class="math inline">\(y=0.2x^2\)</span>.<br>
-<strong>(b)</strong> Calculate <span class="math inline">\(x\)</span> at <span class="math inline">\(A\)</span> and the speed immediately before impact.</p>
+<p><strong>(a)</strong> Express <span class="math inline">x</span> and <span class="math inline">y</span> in terms of <span class="math inline">t</span>, and hence show that the trajectory is <span class="math inline">y=0.2x^2</span>.<br>
+<strong>(b)</strong> Calculate <span class="math inline">x</span> at <span class="math inline">A</span> and the speed immediately before impact.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong> Taking vertically downwards as positive,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=5t,\qquad y=5t^2.
-\]</span></p>
-<p>Thus <span class="math inline">\(t=x/5\)</span> and</p>
-<p><span class="math display">\[
+</span></p>
+<p>Thus <span class="math inline">t=x/5</span> and</p>
+<p><span class="math display">
 y=5\left(\frac{x}{5}\right)^2=\boxed{0.2x^2}.
-\]</span></p>
-<p><strong>(b)</strong> Since <span class="math inline">\(OA=18\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> Since <span class="math inline">OA=18</span>,</p>
+<p><span class="math display">
 x^2+y^2=18^2,qquad y=0.2x^2.
-\]</span></p>
+</span></p>
 <p>Solving gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=8.85\,\mathrm m}.
-\]</span></p>
-<p>At impact <span class="math inline">\(t=x/5\)</span> and <span class="math inline">\(v_y=10t\)</span>, so</p>
-<span class="math display">\[
+</span></p>
+<p>At impact <span class="math inline">t=x/5</span> and <span class="math inline">v_y=10t</span>, so</p>
+<span class="math display">
 v=\sqrt{5^2+(10t)^2}=\boxed{18.4\,\mathrm{m\,s^{-1}}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q5, June 2014.
@@ -923,27 +937,27 @@ v=\sqrt{5^2+(10t)^2}=\boxed{18.4\,\mathrm{m\,s^{-1}}}.
 </div>
 </div>
 <div class="question-card" title="2021 May/June · 9231/31 &amp; 9231/32 · Question 7">
-<p>A particle <span class="math inline">\(P\)</span> is projected from <span class="math inline">\(O\)</span> on a horizontal plane and moves freely under gravity. Its initial velocity is <span class="math inline">\(100\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal, where <span class="math inline">\(\tan i=4/3\)</span>. The two times at which <span class="math inline">\(P\)</span> has height <span class="math inline">\(H\)</span> above the plane differ by <span class="math inline">\(10\)</span> s.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(H\)</span>.<br>
-<strong>(b)</strong> Find the magnitude and direction of the velocity of <span class="math inline">\(P\)</span> one second before it strikes the plane.</p>
+<p>A particle <span class="math inline">P</span> is projected from <span class="math inline">O</span> on a horizontal plane and moves freely under gravity. Its initial velocity is <span class="math inline">100\,\mathrm{m\,s^{-1}}</span> at angle <span class="math inline">i</span> above the horizontal, where <span class="math inline">\tan i=4/3</span>. The two times at which <span class="math inline">P</span> has height <span class="math inline">H</span> above the plane differ by <span class="math inline">10</span> s.</p>
+<p><strong>(a)</strong> Find <span class="math inline">H</span>.<br>
+<strong>(b)</strong> Find the magnitude and direction of the velocity of <span class="math inline">P</span> one second before it strikes the plane.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>最高点竖直速度为零：<span class="math inline">\(0=100\sin i-10t\)</span>。</li>
-<li>由 <span class="math inline">\(\sin i=4/5\)</span> 得最高点时刻 <span class="math inline">\(t=8\)</span>。</li>
-<li>两个等高时刻相差 <span class="math inline">\(10\)</span> s，所以取 <span class="math inline">\(t=3\)</span> 与 <span class="math inline">\(t=13\)</span>。</li>
-<li>代入 <span class="math inline">\(H=100\sin i\,t-5t^2\)</span>。</li>
-<li><span class="math inline">\(\boxed{H=195\,\mathrm m}\)</span>。</li>
+<li>最高点竖直速度为零：<span class="math inline">0=100\sin i-10t</span>。</li>
+<li>由 <span class="math inline">\sin i=4/5</span> 得最高点时刻 <span class="math inline">t=8</span>。</li>
+<li>两个等高时刻相差 <span class="math inline">10</span> s，所以取 <span class="math inline">t=3</span> 与 <span class="math inline">t=13</span>。</li>
+<li>代入 <span class="math inline">H=100\sin i\,t-5t^2</span>。</li>
+<li><span class="math inline">\boxed{H=195\,\mathrm m}</span>。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>一秒前时刻为 <span class="math inline">\(t=15\)</span> s。</li>
-<li><span class="math inline">\(v_x=100\cos i=60\)</span>，<span class="math inline">\(v_y=100\sin i-10(15)=-70\)</span>。</li>
-<li><span class="math inline">\(|\mathbf v|=\sqrt{60^2+70^2}=\boxed{92.2\,\mathrm{m\,s^{-1}}}\)</span>。</li>
-<li><span class="math inline">\(\tan\phi=70/60\)</span>，所以方向为 <span class="math inline">\(\boxed{49.4^\circ}\)</span> below the horizontal。</li>
+<li>一秒前时刻为 <span class="math inline">t=15</span> s。</li>
+<li><span class="math inline">v_x=100\cos i=60</span>，<span class="math inline">v_y=100\sin i-10(15)=-70</span>。</li>
+<li><span class="math inline">|\mathbf v|=\sqrt{60^2+70^2}=\boxed{92.2\,\mathrm{m\,s^{-1}}}</span>。</li>
+<li><span class="math inline">\tan\phi=70/60</span>，所以方向为 <span class="math inline">\boxed{49.4^\circ}</span> below the horizontal。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -951,38 +965,38 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2021 May/June · 9231/33 · Question 7">
-<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane. It moves freely under gravity; its horizontal and vertical displacements are <span class="math inline">\(x,y\)</span>.</p>
-<p><strong>(a)</strong> Use the trajectory equation and <span class="math inline">\(y=0\)</span> to establish the range <span class="math inline">\(R\)</span> in terms of <span class="math inline">\(u,i,g\)</span>.<br>
-<strong>(b)</strong> Deduce the greatest height <span class="math inline">\(H\)</span> in terms of <span class="math inline">\(u,i,g\)</span>.<br>
-It is given that <span class="math inline">\(R=4H/3\)</span>.</p>
-<p><strong>(c)</strong> Show that <span class="math inline">\(i=60^\circ\)</span>. It is also given that <span class="math inline">\(u=40\,\mathrm{m\,s^{-1}}\)</span>.</p>
-<p><strong>(d)</strong> Find the values of <span class="math inline">\(x\)</span> for which the direction of motion makes an angle less than <span class="math inline">\(45^\circ\)</span> with the horizontal.</p>
+<p>A particle is projected with speed <span class="math inline">u</span> at angle <span class="math inline">i</span> above the horizontal from <span class="math inline">O</span> on a horizontal plane. It moves freely under gravity; its horizontal and vertical displacements are <span class="math inline">x,y</span>.</p>
+<p><strong>(a)</strong> Use the trajectory equation and <span class="math inline">y=0</span> to establish the range <span class="math inline">R</span> in terms of <span class="math inline">u,i,g</span>.<br>
+<strong>(b)</strong> Deduce the greatest height <span class="math inline">H</span> in terms of <span class="math inline">u,i,g</span>.<br>
+It is given that <span class="math inline">R=4H/3</span>.</p>
+<p><strong>(c)</strong> Show that <span class="math inline">i=60^\circ</span>. It is also given that <span class="math inline">u=40\,\mathrm{m\,s^{-1}}</span>.</p>
+<p><strong>(d)</strong> Find the values of <span class="math inline">x</span> for which the direction of motion makes an angle less than <span class="math inline">45^\circ</span> with the horizontal.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>在 trajectory equation 中令 <span class="math inline">\(y=0\)</span>，并取非零根 <span class="math inline">\(x=R\)</span>。</li>
-<li><span class="math inline">\(\boxed{R=u^2\sin i\cos i/g=u^2\sin2i/g}\)</span>。</li>
+<li>在 trajectory equation 中令 <span class="math inline">y=0</span>，并取非零根 <span class="math inline">x=R</span>。</li>
+<li><span class="math inline">\boxed{R=u^2\sin i\cos i/g=u^2\sin2i/g}</span>。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>最高点满足 <span class="math inline">\(v_y=0\)</span>，即 <span class="math inline">\(t=u\sin i/g\)</span>，并代回 <span class="math inline">\(y\)</span>。</li>
-<li><span class="math inline">\(\boxed{H=u^2\sin^2i/(2g)}\)</span>。</li>
+<li>最高点满足 <span class="math inline">v_y=0</span>，即 <span class="math inline">t=u\sin i/g</span>，并代回 <span class="math inline">y</span>。</li>
+<li><span class="math inline">\boxed{H=u^2\sin^2i/(2g)}</span>。</li>
 </ul>
 <p><strong>(c)</strong></p>
 <ul>
-<li>把 <span class="math inline">\(R=4H/3\)</span> 代入上面两式并化简：<span class="math inline">\(\tan i=\sqrt3\)</span>。</li>
-<li><span class="math inline">\(\boxed{i=60^\circ}\)</span>。</li>
+<li>把 <span class="math inline">R=4H/3</span> 代入上面两式并化简：<span class="math inline">\tan i=\sqrt3</span>。</li>
+<li><span class="math inline">\boxed{i=60^\circ}</span>。</li>
 </ul>
 <p><strong>(d)</strong></p>
 <ul>
-<li>微分 trajectory：<span class="math inline">\(dy/dx=\tan i-gx/(u^2\cos^2i)\)</span>。</li>
-<li>“与水平夹角小于 <span class="math inline">\(45^\circ\)</span>”分别检查上升、下降两支，使用 <span class="math inline">\(|dy/dx|&lt;1\)</span>。</li>
-<li>代入 <span class="math inline">\(u=40,i=60^\circ,g=10\)</span>，得到对应的 <span class="math inline">\(x\)</span> 区间。</li>
-<li>临界斜率 <span class="math inline">\(dy/dx=\pm1\)</span> 给出 <span class="math inline">\(x=40(\sqrt3\pm1)\)</span>。</li>
-<li>题目是 strict less than，所以 <span class="math inline">\(\boxed{40(\sqrt3-1)&lt;x&lt;40(\sqrt3+1)}\)</span>。</li>
+<li>微分 trajectory：<span class="math inline">dy/dx=\tan i-gx/(u^2\cos^2i)</span>。</li>
+<li>“与水平夹角小于 <span class="math inline">45^\circ</span>”分别检查上升、下降两支，使用 <span class="math inline">|dy/dx|&lt;1</span>。</li>
+<li>代入 <span class="math inline">u=40,i=60^\circ,g=10</span>，得到对应的 <span class="math inline">x</span> 区间。</li>
+<li>临界斜率 <span class="math inline">dy/dx=\pm1</span> 给出 <span class="math inline">x=40(\sqrt3\pm1)</span>。</li>
+<li>题目是 strict less than，所以 <span class="math inline">\boxed{40(\sqrt3-1)&lt;x&lt;40(\sqrt3+1)}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -990,23 +1004,23 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2021 October/November · 9231/31 · Question 5">
-<p>A particle <span class="math inline">\(P\)</span> is projected from <span class="math inline">\(O\)</span> on a horizontal plane. Its speed is <span class="math inline">\(u\)</span> and its angle of projection is <span class="math inline">\(\sin^{-1}(4/5)\)</span>. At <span class="math inline">\(8\)</span> s after projection it is at <span class="math inline">\(A\)</span>; at <span class="math inline">\(32\)</span> s it is at <span class="math inline">\(B\)</span>. The direction of motion at <span class="math inline">\(B\)</span> is perpendicular to the direction of motion at <span class="math inline">\(A\)</span>. Find <span class="math inline">\(u\)</span>.</p>
+<p>A particle <span class="math inline">P</span> is projected from <span class="math inline">O</span> on a horizontal plane. Its speed is <span class="math inline">u</span> and its angle of projection is <span class="math inline">\sin^{-1}(4/5)</span>. At <span class="math inline">8</span> s after projection it is at <span class="math inline">A</span>; at <span class="math inline">32</span> s it is at <span class="math inline">B</span>. The direction of motion at <span class="math inline">B</span> is perpendicular to the direction of motion at <span class="math inline">A</span>. Find <span class="math inline">u</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li><span class="math inline">\(\sin i=4/5\)</span>，所以 <span class="math inline">\(u_x=3u/5\)</span>、<span class="math inline">\(u_y=4u/5\)</span>。</li>
-<li>写出 <span class="math inline">\(t=8\)</span> 和 <span class="math inline">\(t=32\)</span> 时的两个速度向量：</li>
+<li><span class="math inline">\sin i=4/5</span>，所以 <span class="math inline">u_x=3u/5</span>、<span class="math inline">u_y=4u/5</span>。</li>
+<li>写出 <span class="math inline">t=8</span> 和 <span class="math inline">t=32</span> 时的两个速度向量：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 \left(\frac{3u}{5},\frac{4u}{5}-80\right),\qquad
 \left(\frac{3u}{5},\frac{4u}{5}-320\right).
-\]</span></p>
+</span></p>
 <ul>
 <li>垂直条件为两个速度向量点积等于零。</li>
-<li>化简得 <span class="math inline">\(25(4u/5)^2-6400(4u/5)+409600=0\)</span>。</li>
-<li>取唯一正根：<span class="math inline">\(\boxed{u=160\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+<li>化简得 <span class="math inline">25(4u/5)^2-6400(4u/5)+409600=0</span>。</li>
+<li>取唯一正根：<span class="math inline">\boxed{u=160\,\mathrm{m\,s^{-1}}}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1014,27 +1028,27 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2021 October/November · 9231/32 · Question 1">
-<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(a\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane and moves freely under gravity.</p>
-<p><strong>(a)</strong> Write the horizontal and vertical velocity components at time <span class="math inline">\(T\)</span>. At this time the direction of motion is perpendicular to the direction of projection.</p>
-<p><strong>(b)</strong> Express <span class="math inline">\(T\)</span> in terms of <span class="math inline">\(u,g,a\)</span>.</p>
-<p><strong>(c)</strong> Deduce the stated lower bound for <span class="math inline">\(T\)</span>.</p>
+<p>A particle is projected with speed <span class="math inline">u</span> at angle <span class="math inline">a</span> above the horizontal from <span class="math inline">O</span> on a horizontal plane and moves freely under gravity.</p>
+<p><strong>(a)</strong> Write the horizontal and vertical velocity components at time <span class="math inline">T</span>. At this time the direction of motion is perpendicular to the direction of projection.</p>
+<p><strong>(b)</strong> Express <span class="math inline">T</span> in terms of <span class="math inline">u,g,a</span>.</p>
+<p><strong>(c)</strong> Deduce the stated lower bound for <span class="math inline">T</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li><span class="math inline">\(v_x=u\cos a\)</span>。</li>
-<li><span class="math inline">\(v_y=u\sin a-gT\)</span>。</li>
+<li><span class="math inline">v_x=u\cos a</span>。</li>
+<li><span class="math inline">v_y=u\sin a-gT</span>。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>方向垂直即 <span class="math inline">\(\mathbf v(T)\boldsymbol\cdot\mathbf u=0\)</span>。</li>
-<li><span class="math inline">\(u^2\cos^2a+u\sin a(u\sin a-gT)=0\)</span>，故 <span class="math inline">\(\boxed{T=u/(g\sin a)}\)</span>。</li>
+<li>方向垂直即 <span class="math inline">\mathbf v(T)\boldsymbol\cdot\mathbf u=0</span>。</li>
+<li><span class="math inline">u^2\cos^2a+u\sin a(u\sin a-gT)=0</span>，故 <span class="math inline">\boxed{T=u/(g\sin a)}</span>。</li>
 </ul>
 <p><strong>(c)</strong></p>
 <ul>
-<li>因为 <span class="math inline">\(\sin a\le1\)</span>，所以 <span class="math inline">\(\boxed{T\ge u/g}\)</span>。</li>
+<li>因为 <span class="math inline">\sin a\le1</span>，所以 <span class="math inline">\boxed{T\ge u/g}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1042,57 +1056,57 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2022 May/June · 9231/31 &amp; 9231/32 · Question 7">
-<p>Particles <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are projected in the same vertical plane from a point <span class="math inline">\(O\)</span> at the top of a cliff. The cliff is higher than <span class="math inline">\(50\)</span> m. Both move freely under gravity. <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(35/2\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(\alpha\)</span>, where <span class="math inline">\(\tan\alpha=4/3\)</span>. <span class="math inline">\(Q\)</span> is projected one second later with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(\beta\)</span>, where <span class="math inline">\(\tan\beta=1/2\)</span>. They collide <span class="math inline">\(T\)</span> seconds after <span class="math inline">\(Q\)</span> is projected.</p>
-<p><strong>(a)</strong> Write expressions in terms of <span class="math inline">\(T\)</span> for the horizontal displacements.</p>
-<p><strong>(b)</strong> Use collision to find the relation between <span class="math inline">\(u\)</span> and <span class="math inline">\(T\)</span>.</p>
-<p><strong>(c)</strong> Use the vertical displacement equation to find <span class="math inline">\(T\)</span>, <span class="math inline">\(u\)</span>, and the coordinates of the collision point.</p>
+<p>Particles <span class="math inline">P</span> and <span class="math inline">Q</span> are projected in the same vertical plane from a point <span class="math inline">O</span> at the top of a cliff. The cliff is higher than <span class="math inline">50</span> m. Both move freely under gravity. <span class="math inline">P</span> is projected with speed <span class="math inline">35/2\,\mathrm{m\,s^{-1}}</span> at angle <span class="math inline">\alpha</span>, where <span class="math inline">\tan\alpha=4/3</span>. <span class="math inline">Q</span> is projected one second later with speed <span class="math inline">u</span> at angle <span class="math inline">\beta</span>, where <span class="math inline">\tan\beta=1/2</span>. They collide <span class="math inline">T</span> seconds after <span class="math inline">Q</span> is projected.</p>
+<p><strong>(a)</strong> Write expressions in terms of <span class="math inline">T</span> for the horizontal displacements.</p>
+<p><strong>(b)</strong> Use collision to find the relation between <span class="math inline">u</span> and <span class="math inline">T</span>.</p>
+<p><strong>(c)</strong> Use the vertical displacement equation to find <span class="math inline">T</span>, <span class="math inline">u</span>, and the coordinates of the collision point.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>对 <span class="math inline">\(Q\)</span> 写水平位移：<span class="math inline">\(x_Q=u\cos\beta\,T=2uT/\sqrt5\)</span>。</li>
-<li>对 <span class="math inline">\(P\)</span> 使用延迟一秒后的时间：<span class="math inline">\(x_P=(35/2)\cos\alpha(T+1)=21(T+1)/2\)</span>。</li>
+<li>对 <span class="math inline">Q</span> 写水平位移：<span class="math inline">x_Q=u\cos\beta\,T=2uT/\sqrt5</span>。</li>
+<li>对 <span class="math inline">P</span> 使用延迟一秒后的时间：<span class="math inline">x_P=(35/2)\cos\alpha(T+1)=21(T+1)/2</span>。</li>
 <li>碰撞时令水平位移相等：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{2uT}{\sqrt5}=\frac{21}{2}(T+1)
 \Longrightarrow u=\frac{21\sqrt5(T+1)}{4T}.
-\]</span></p>
-<p><strong>(b)</strong> 写出两个粒子的竖直位移，并正确处理 <span class="math inline">\(P\)</span> 比 <span class="math inline">\(Q\)</span> 多运动一秒：</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> 写出两个粒子的竖直位移，并正确处理 <span class="math inline">P</span> 比 <span class="math inline">Q</span> 多运动一秒：</p>
+<p><span class="math display">
 y_Q=u\sin\beta\,T-5T^2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 y_P=\frac{35}{2}\sin\alpha\,(T+1)-5(T+1)^2
 =14(T+1)-5(T+1)^2.
-\]</span></p>
-<p><strong>(c)</strong> 令 <span class="math inline">\(y_P=y_Q\)</span>，代入 <span class="math inline">\(\sin\beta=1/\sqrt5\)</span>：</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(c)</strong> 令 <span class="math inline">y_P=y_Q</span>，代入 <span class="math inline">\sin\beta=1/\sqrt5</span>：</p>
+<p><span class="math display">
 \frac{uT}{\sqrt5}-5T^2=14(T+1)-5(T+1)^2.
-\]</span></p>
-<p>代入上式的 <span class="math inline">\(u\)</span> 并化简，得 <span class="math inline">\(15=5T\)</span>，所以</p>
-<p><span class="math display">\[
+</span></p>
+<p>代入上式的 <span class="math inline">u</span> 并化简，得 <span class="math inline">15=5T</span>，所以</p>
+<p><span class="math display">
 \boxed{T=3},\qquad \boxed{u=7\sqrt5\,\mathrm{m\,s^{-1}}}.
-\]</span></p>
+</span></p>
 <p>碰撞点为</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{x=42\,\mathrm m},\qquad
 \boxed{y=21-45=-24\,\mathrm m}.
-\]</span></p>
+</span></p>
 <p>其中水平式为</p>
-<span class="math display">\[
+<span class="math display">
 x_P=42(T+1),\qquad x_Q=\frac{2uT}{\sqrt5}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2022, Q7.
 </div>
 </div>
 <div class="question-card" title="2022 May/June · 9231/33 · Question 3">
-<p>A particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(25\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane and moves freely under gravity. After <span class="math inline">\(2\)</span> s its speed is <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\sin i\)</span>.</p>
+<p>A particle <span class="math inline">P</span> is projected with speed <span class="math inline">25\,\mathrm{m\,s^{-1}}</span> at angle <span class="math inline">i</span> above the horizontal from <span class="math inline">O</span> on a horizontal plane and moves freely under gravity. After <span class="math inline">2</span> s its speed is <span class="math inline">15\,\mathrm{m\,s^{-1}}</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\sin i</span>.</p>
 <p><strong>(b)</strong> Find the range of the flight.</p>
 <details class="answer-panel">
 <summary>
@@ -1100,85 +1114,85 @@ Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li><span class="math inline">\(t=2\)</span> s 时 <span class="math inline">\(v_x=25\cos i\)</span>、<span class="math inline">\(v_y=25\sin i-20\)</span>。</li>
+<li><span class="math inline">t=2</span> s 时 <span class="math inline">v_x=25\cos i</span>、<span class="math inline">v_y=25\sin i-20</span>。</li>
 <li>使用速度大小条件：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 (25\cos i)^2+(25\sin i-20)^2=15^2.
-\]</span></p>
+</span></p>
 <ul>
 <li>展开并化为</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 625-100(10)\sin i+4(10)^2=225
 \Longrightarrow 1000\sin i=800
 \Longrightarrow \boxed{\sin i=4/5}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
 <ul>
-<li>使用 <span class="math inline">\(T=2(25\sin i)/g\)</span> 或在 <span class="math inline">\(y=0\)</span> 时求非零飞行时间。</li>
-<li>使用 <span class="math inline">\(R=25\cos i\,T\)</span>。</li>
-<li>飞行时间为 <span class="math inline">\(T=2(25\sin i)/10=4\)</span> s，因此</li>
+<li>使用 <span class="math inline">T=2(25\sin i)/g</span> 或在 <span class="math inline">y=0</span> 时求非零飞行时间。</li>
+<li>使用 <span class="math inline">R=25\cos i\,T</span>。</li>
+<li>飞行时间为 <span class="math inline">T=2(25\sin i)/10=4</span> s，因此</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 R=\frac{25^2\sin2i}{g}.
-\]</span></p>
-<span class="math display">\[
+</span></p>
+<span class="math display">
 \boxed{R=60\,\mathrm m}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2022, Q3.
 </div>
 </div>
 <div class="question-card" title="2022 October/November · 9231/31 &amp; 9231/33 · Question 7">
-<p>A particle is projected with speed <span class="math inline">\(V\)</span> at <span class="math inline">\(75^\circ\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane.</p>
-<p><strong>(a)</strong> Show that its total time of flight is <span class="math inline">\(\dfrac{2V\sin75^\circ}{g}\)</span>.</p>
-<p>A smooth vertical barrier is placed <span class="math inline">\(15\)</span> m from <span class="math inline">\(O\)</span>; the particle strikes it, rebounds and returns to <span class="math inline">\(O\)</span>, with coefficient of restitution <span class="math inline">\(3/5\)</span>.</p>
+<p>A particle is projected with speed <span class="math inline">V</span> at <span class="math inline">75^\circ</span> above the horizontal from <span class="math inline">O</span> on a horizontal plane.</p>
+<p><strong>(a)</strong> Show that its total time of flight is <span class="math inline">\dfrac{2V\sin75^\circ}{g}</span>.</p>
+<p>A smooth vertical barrier is placed <span class="math inline">15</span> m from <span class="math inline">O</span>; the particle strikes it, rebounds and returns to <span class="math inline">O</span>, with coefficient of restitution <span class="math inline">3/5</span>.</p>
 <p><strong>(b)</strong> Explain why total time of flight is unchanged.</p>
-<p><strong>(c)</strong> Find <span class="math inline">\(V\)</span> in terms of <span class="math inline">\(g\)</span>.</p>
+<p><strong>(c)</strong> Find <span class="math inline">V</span> in terms of <span class="math inline">g</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>竖直运动：<span class="math inline">\(0=V\sin75^\circ T-\frac12gT^2\)</span>。</li>
-<li>取非零根：<span class="math inline">\(\boxed{T=2V\sin75^\circ/g}\)</span>。</li>
+<li>竖直运动：<span class="math inline">0=V\sin75^\circ T-\frac12gT^2</span>。</li>
+<li>取非零根：<span class="math inline">\boxed{T=2V\sin75^\circ/g}</span>。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
 <li>barrier 只改变水平速度；竖直分量和竖直位移不变。</li>
-<li>落地条件仍由同一个 <span class="math inline">\(y=0\)</span> 决定，所以 total time of flight unchanged。</li>
+<li>落地条件仍由同一个 <span class="math inline">y=0</span> 决定，所以 total time of flight unchanged。</li>
 </ul>
 <p><strong>(c)</strong></p>
 <ul>
 <li>到达 barrier 的时间为</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 t_1=\frac{15}{V\cos75^\circ}.
-\]</span></p>
+</span></p>
 <ul>
-<li>碰撞后水平速度大小为 <span class="math inline">\(eV\cos75^\circ=\frac35V\cos75^\circ\)</span>，所以返回 <span class="math inline">\(O\)</span> 所需时间为</li>
+<li>碰撞后水平速度大小为 <span class="math inline">eV\cos75^\circ=\frac35V\cos75^\circ</span>，所以返回 <span class="math inline">O</span> 所需时间为</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 t_2=\frac{15}{(3/5)V\cos75^\circ}=\frac{25}{V\cos75^\circ}.
-\]</span></p>
+</span></p>
 <ul>
 <li>整个飞行时间也等于竖直方向回到地面的时间：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 t_1+t_2=\frac{2V\sin75^\circ}{g}.
-\]</span></p>
+</span></p>
 <ul>
 <li>代入并整理：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{40}{V\cos75^\circ}=\frac{2V\sin75^\circ}{g}
 \Longrightarrow V^2\sin75^\circ\cos75^\circ=20g.
-\]</span></p>
+</span></p>
 <ul>
-<li>因为 <span class="math inline">\(\sin75^\circ\cos75^\circ=1/4\)</span>，所以 <span class="math inline">\(\boxed{V^2=80g}\)</span>。</li>
+<li>因为 <span class="math inline">\sin75^\circ\cos75^\circ=1/4</span>，所以 <span class="math inline">\boxed{V^2=80g}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1186,43 +1200,43 @@ t_1+t_2=\frac{2V\sin75^\circ}{g}.
 </div>
 </div>
 <div class="question-card" title="2022 October/November · 9231/32 · Question 5">
-<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> and moves freely under gravity. Its displacements after time <span class="math inline">\(t\)</span> are <span class="math inline">\(x,y\)</span>.</p>
+<p>A particle is projected with speed <span class="math inline">u</span> at angle <span class="math inline">i</span> above the horizontal from <span class="math inline">O</span> and moves freely under gravity. Its displacements after time <span class="math inline">t</span> are <span class="math inline">x,y</span>.</p>
 <p><strong>(a)</strong> Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=x\tan i-\frac{gx^2}{2u^2}(1+\tan^2i).
-\]</span></p>
-<p>The particle passes through <span class="math inline">\((30,20)\)</span>.</p>
-<p><strong>(b)</strong> Given one possible value of <span class="math inline">\(\tan i\)</span> is <span class="math inline">\(4/3\)</span>, find the other possible value.</p>
+</span></p>
+<p>The particle passes through <span class="math inline">(30,20)</span>.</p>
+<p><strong>(b)</strong> Given one possible value of <span class="math inline">\tan i</span> is <span class="math inline">4/3</span>, find the other possible value.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>写出 <span class="math inline">\(x=ut\cos i\)</span> 与 <span class="math inline">\(y=ut\sin i-\frac12gt^2\)</span>。</li>
-<li>消去 <span class="math inline">\(t=x/(u\cos i)\)</span>。</li>
-<li>得到 <span class="math inline">\(y=x\tan i-\dfrac{gx^2}{2u^2}\sec^2i\)</span>。</li>
-<li>用 <span class="math inline">\(\sec^2i=1+\tan^2i\)</span> 写成题目给定形式。</li>
+<li>写出 <span class="math inline">x=ut\cos i</span> 与 <span class="math inline">y=ut\sin i-\frac12gt^2</span>。</li>
+<li>消去 <span class="math inline">t=x/(u\cos i)</span>。</li>
+<li>得到 <span class="math inline">y=x\tan i-\dfrac{gx^2}{2u^2}\sec^2i</span>。</li>
+<li>用 <span class="math inline">\sec^2i=1+\tan^2i</span> 写成题目给定形式。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>将 <span class="math inline">\((30,20)\)</span> 代入 trajectory equation。</li>
+<li>将 <span class="math inline">(30,20)</span> 代入 trajectory equation。</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 20=30\left(\frac43\right)-\frac{10(30)^2}{2u^2}\left(1+\frac{16}{9}\right).
-\]</span></p>
+</span></p>
 <ul>
-<li>由此得到 <span class="math inline">\(u^2=625\)</span>，所以 <span class="math inline">\(u=25\)</span>。</li>
-<li>令 <span class="math inline">\(z=\tan i\)</span>，再代入 trajectory equation：</li>
+<li>由此得到 <span class="math inline">u^2=625</span>，所以 <span class="math inline">u=25</span>。</li>
+<li>令 <span class="math inline">z=\tan i</span>，再代入 trajectory equation：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 20=30z-\frac{36}{5}(1+z^2)
 \Longrightarrow 18z^2-75z+68=0.
-\]</span></p>
+</span></p>
 <ul>
-<li>得到关于 <span class="math inline">\(z=\tan i\)</span> 的二次方程。</li>
-<li>代入已知根 <span class="math inline">\(z=4/3\)</span> 并因式分解：<span class="math inline">\((3z-4)(6z-17)=0\)</span>。</li>
-<li>选择符合题设的值：<span class="math inline">\(\boxed{\tan i=17/6}\)</span>。</li>
+<li>得到关于 <span class="math inline">z=\tan i</span> 的二次方程。</li>
+<li>代入已知根 <span class="math inline">z=4/3</span> 并因式分解：<span class="math inline">(3z-4)(6z-17)=0</span>。</li>
+<li>选择符合题设的值：<span class="math inline">\boxed{\tan i=17/6}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1230,23 +1244,23 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2023 May/June · 9231/31 &amp; 9231/32 · Question 7">
-<p>At time <span class="math inline">\(t\)</span> a particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(40\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane and moves freely under gravity. The greatest height is <span class="math inline">\(H\)</span> and the corresponding time is <span class="math inline">\(T\)</span>.</p>
-<p><strong>(a)</strong> Obtain expressions for <span class="math inline">\(H\)</span> and <span class="math inline">\(T\)</span> in terms of <span class="math inline">\(i\)</span>. During the time between <span class="math inline">\(t=T\)</span> and <span class="math inline">\(t=3\)</span>, <span class="math inline">\(P\)</span> descends a distance <span class="math inline">\(H/4\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(i\)</span>.</p>
-<p><strong>(c)</strong> Find the speed when <span class="math inline">\(t=3\)</span>.</p>
+<p>At time <span class="math inline">t</span> a particle <span class="math inline">P</span> is projected with speed <span class="math inline">40\,\mathrm{m\,s^{-1}}</span> at angle <span class="math inline">i</span> above the horizontal from <span class="math inline">O</span> on a horizontal plane and moves freely under gravity. The greatest height is <span class="math inline">H</span> and the corresponding time is <span class="math inline">T</span>.</p>
+<p><strong>(a)</strong> Obtain expressions for <span class="math inline">H</span> and <span class="math inline">T</span> in terms of <span class="math inline">i</span>. During the time between <span class="math inline">t=T</span> and <span class="math inline">t=3</span>, <span class="math inline">P</span> descends a distance <span class="math inline">H/4</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">i</span>.</p>
+<p><strong>(c)</strong> Find the speed when <span class="math inline">t=3</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>最高点条件：<span class="math inline">\(0=40\sin i-gT\)</span>，所以 <span class="math inline">\(\boxed{T=40\sin i/g}\)</span>。</li>
-<li>代入竖直位移：<span class="math inline">\(\boxed{H=(40\sin i)^2/(2g)}\)</span>。</li>
-<li>使用下降距离：<span class="math inline">\(H/4=\frac12g(3-T)^2\)</span>。</li>
-<li>代入 <span class="math inline">\(H=80\sin^2i\)</span>、<span class="math inline">\(T=4\sin i\)</span>。</li>
-<li>得到 <span class="math inline">\(4\sin^2i-8\sin i+3=0\)</span>，取可行根 <span class="math inline">\(\sin i=1/2\)</span>。</li>
-<li><span class="math inline">\(\boxed{i=30^\circ}\)</span>。</li>
-<li><span class="math inline">\(t=3\)</span> 时速度分量为 <span class="math inline">\(40\cos i=20\sqrt3\)</span> 和 <span class="math inline">\(40\sin i-30=-10\)</span>。</li>
-<li><span class="math inline">\(\boxed{v=10\sqrt{13}\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+<li>最高点条件：<span class="math inline">0=40\sin i-gT</span>，所以 <span class="math inline">\boxed{T=40\sin i/g}</span>。</li>
+<li>代入竖直位移：<span class="math inline">\boxed{H=(40\sin i)^2/(2g)}</span>。</li>
+<li>使用下降距离：<span class="math inline">H/4=\frac12g(3-T)^2</span>。</li>
+<li>代入 <span class="math inline">H=80\sin^2i</span>、<span class="math inline">T=4\sin i</span>。</li>
+<li>得到 <span class="math inline">4\sin^2i-8\sin i+3=0</span>，取可行根 <span class="math inline">\sin i=1/2</span>。</li>
+<li><span class="math inline">\boxed{i=30^\circ}</span>。</li>
+<li><span class="math inline">t=3</span> 时速度分量为 <span class="math inline">40\cos i=20\sqrt3</span> 和 <span class="math inline">40\sin i-30=-10</span>。</li>
+<li><span class="math inline">\boxed{v=10\sqrt{13}\,\mathrm{m\,s^{-1}}}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1254,21 +1268,21 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2023 May/June · 9231/33 · Question 7">
-<p>The points <span class="math inline">\(O,P\)</span> are <span class="math inline">\(8\)</span> m apart on a horizontal plane. A ball is thrown from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=4/3\)</span>. At the same instant a model aircraft is launched horizontally at <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> from a point <span class="math inline">\(4\)</span> m vertically above <span class="math inline">\(P\)</span>. Both move in the same vertical plane and direction. After <span class="math inline">\(T\)</span> seconds they collide.</p>
+<p>The points <span class="math inline">O,P</span> are <span class="math inline">8</span> m apart on a horizontal plane. A ball is thrown from <span class="math inline">O</span> with speed <span class="math inline">u</span> at angle <span class="math inline">i</span>, where <span class="math inline">\tan i=4/3</span>. At the same instant a model aircraft is launched horizontally at <span class="math inline">5\,\mathrm{m\,s^{-1}}</span> from a point <span class="math inline">4</span> m vertically above <span class="math inline">P</span>. Both move in the same vertical plane and direction. After <span class="math inline">T</span> seconds they collide.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>球的水平位移：<span class="math inline">\(x_B=u\cos i\,T\)</span>。</li>
-<li>球的竖直位移：<span class="math inline">\(y_B=u\sin i\,T-5T^2\)</span>。</li>
-<li>飞机的水平位置：<span class="math inline">\(x_A=8+5T\)</span>。</li>
-<li>飞机保持高度 <span class="math inline">\(y_A=4\)</span>。</li>
-<li>碰撞要求 <span class="math inline">\(x_B=x_A\)</span>、<span class="math inline">\(y_B=y_A\)</span>。</li>
-<li>代入 <span class="math inline">\(\tan i=4/3\)</span> 得 <span class="math inline">\(3T^2-4T-4=0\)</span>。</li>
-<li>取正根：<span class="math inline">\(\boxed{T=2\,\mathrm s}\)</span>。</li>
-<li>碰撞前球的速度方向满足 <span class="math inline">\(\tan\phi=(u\sin i-10T)/(u\cos i)\)</span>。</li>
-<li>得 <span class="math inline">\(\tan\phi=-8/9\)</span>，所以方向为 <span class="math inline">\(\boxed{41.6^\circ}\)</span> below the horizontal。</li>
+<li>球的水平位移：<span class="math inline">x_B=u\cos i\,T</span>。</li>
+<li>球的竖直位移：<span class="math inline">y_B=u\sin i\,T-5T^2</span>。</li>
+<li>飞机的水平位置：<span class="math inline">x_A=8+5T</span>。</li>
+<li>飞机保持高度 <span class="math inline">y_A=4</span>。</li>
+<li>碰撞要求 <span class="math inline">x_B=x_A</span>、<span class="math inline">y_B=y_A</span>。</li>
+<li>代入 <span class="math inline">\tan i=4/3</span> 得 <span class="math inline">3T^2-4T-4=0</span>。</li>
+<li>取正根：<span class="math inline">\boxed{T=2\,\mathrm s}</span>。</li>
+<li>碰撞前球的速度方向满足 <span class="math inline">\tan\phi=(u\sin i-10T)/(u\cos i)</span>。</li>
+<li>得 <span class="math inline">\tan\phi=-8/9</span>，所以方向为 <span class="math inline">\boxed{41.6^\circ}</span> below the horizontal。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1276,104 +1290,104 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2023 October/November · 9231/31 &amp; 9231/33 · Question 5">
-<p>Particle <span class="math inline">\(P\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal. During its flight, <span class="math inline">\(P\)</span> passes through a point whose horizontal distance from <span class="math inline">\(O\)</span> is <span class="math inline">\(3a\)</span> and whose vertical height above the horizontal plane is <span class="math inline">\(3a/8\)</span>. It is given that <span class="math inline">\(\tan i=1/3\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(u^2=8ag\)</span>.</p>
-<p>A particle <span class="math inline">\(Q\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(V\)</span> at angle <span class="math inline">\(\alpha\)</span> above the horizontal at the instant when <span class="math inline">\(P\)</span> is at its highest point. Particles <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> land at the same point on the horizontal plane at the same time.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(V\)</span> in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(g\)</span>.</p>
+<p>Particle <span class="math inline">P</span> is projected from <span class="math inline">O</span> with speed <span class="math inline">u</span> at angle <span class="math inline">i</span> above the horizontal. During its flight, <span class="math inline">P</span> passes through a point whose horizontal distance from <span class="math inline">O</span> is <span class="math inline">3a</span> and whose vertical height above the horizontal plane is <span class="math inline">3a/8</span>. It is given that <span class="math inline">\tan i=1/3</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">u^2=8ag</span>.</p>
+<p>A particle <span class="math inline">Q</span> is projected from <span class="math inline">O</span> with speed <span class="math inline">V</span> at angle <span class="math inline">\alpha</span> above the horizontal at the instant when <span class="math inline">P</span> is at its highest point. Particles <span class="math inline">P</span> and <span class="math inline">Q</span> land at the same point on the horizontal plane at the same time.</p>
+<p><strong>(b)</strong> Find <span class="math inline">V</span> in terms of <span class="math inline">a</span> and <span class="math inline">g</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>将 <span class="math inline">\((x,y)=(3a,3a/8)\)</span>、<span class="math inline">\(\tan i=1/3\)</span> 代入 trajectory equation：</li>
+<li>将 <span class="math inline">(x,y)=(3a,3a/8)</span>、<span class="math inline">\tan i=1/3</span> 代入 trajectory equation：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{3a}{8}=3a\left(\frac13\right)-\frac{g(3a)^2}{2u^2}\left(1+\frac19\right)
 \Longrightarrow \boxed{u^2=8ag}.
-\]</span></p>
+</span></p>
 <ul>
-<li>若 <span class="math inline">\(P\)</span> 的飞行时间为 <span class="math inline">\(T\)</span>，则 <span class="math inline">\(T=2u\sin i/g\)</span>，其 range 为 <span class="math inline">\(Tu\cos i\)</span>。</li>
-<li><span class="math inline">\(Q\)</span> 在 <span class="math inline">\(P\)</span> 最高点才发射，因此 <span class="math inline">\(Q\)</span> 的飞行时间为 <span class="math inline">\(T/2\)</span>。</li>
-<li><span class="math inline">\(Q\)</span> 的 range 为 <span class="math inline">\((T/2)V\cos\alpha\)</span>。</li>
+<li>若 <span class="math inline">P</span> 的飞行时间为 <span class="math inline">T</span>，则 <span class="math inline">T=2u\sin i/g</span>，其 range 为 <span class="math inline">Tu\cos i</span>。</li>
+<li><span class="math inline">Q</span> 在 <span class="math inline">P</span> 最高点才发射，因此 <span class="math inline">Q</span> 的飞行时间为 <span class="math inline">T/2</span>。</li>
+<li><span class="math inline">Q</span> 的 range 为 <span class="math inline">(T/2)V\cos\alpha</span>。</li>
 <li>两个粒子同时落在同一点，令两个 range 相等。</li>
 <li>得到</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{V\cos\alpha=2u\cos i}.
-\]</span></p>
+</span></p>
 <ul>
-<li>对 <span class="math inline">\(Q\)</span> 竖直方向使用 <span class="math inline">\(0=V\sin\alpha(T/2)-\frac12g(T/2)^2\)</span>，得 <span class="math inline">\(V\sin\alpha=u\sin i/2\)</span>。</li>
+<li>对 <span class="math inline">Q</span> 竖直方向使用 <span class="math inline">0=V\sin\alpha(T/2)-\frac12g(T/2)^2</span>，得 <span class="math inline">V\sin\alpha=u\sin i/2</span>。</li>
 <li>对两个分量平方相加。</li>
 <li>由上面的水平、竖直分量关系：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 V\cos\alpha=2u\cos i,\qquad
 V\sin\alpha=\frac12u\sin i.
-\]</span></p>
+</span></p>
 <ul>
 <li>平方相加：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 V^2=u^2\left(4\cos^2i+\frac14\sin^2i\right)
 =u^2\left(4\cdot\frac9{10}+\frac14\cdot\frac1{10}\right)
 =\frac{29}{8}u^2.
-\]</span></p>
+</span></p>
 <ul>
-<li>代入 <span class="math inline">\(u^2=8ag\)</span>，得</li>
+<li>代入 <span class="math inline">u^2=8ag</span>，得</li>
 </ul>
-<span class="math display">\[
+<span class="math display">
 \boxed{V^2=29ag},\qquad \boxed{V=\sqrt{29ag}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Q5.
 </div>
 </div>
 <div class="question-card" title="2023 October/November · 9231/32 · Question 6">
-<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(a\)</span> above the horizontal from <span class="math inline">\(O\)</span> and moves freely under gravity.</p>
+<p>A particle is projected with speed <span class="math inline">u</span> at angle <span class="math inline">a</span> above the horizontal from <span class="math inline">O</span> and moves freely under gravity.</p>
 <p><strong>(a)</strong> Derive</p>
-<p><span class="math display">\[
+<p><span class="math display">
 y=x\tan a-\frac{gx^2}{2u^2}\sec^2a.
-\]</span></p>
-<p>During flight, <span class="math inline">\(P\)</span> must clear an obstacle of height <span class="math inline">\(h\)</span> at horizontal distance <span class="math inline">\(32\)</span> m. When <span class="math inline">\(u=40\sqrt2\)</span>, it just clears the obstacle; when <span class="math inline">\(u=40\)</span>, it achieves <span class="math inline">\(80\%\)</span> of the height required.</p>
-<p><strong>(b)</strong> Find the two possible values of <span class="math inline">\(h\)</span>.</p>
+</span></p>
+<p>During flight, <span class="math inline">P</span> must clear an obstacle of height <span class="math inline">h</span> at horizontal distance <span class="math inline">32</span> m. When <span class="math inline">u=40\sqrt2</span>, it just clears the obstacle; when <span class="math inline">u=40</span>, it achieves <span class="math inline">80\%</span> of the height required.</p>
+<p><strong>(b)</strong> Find the two possible values of <span class="math inline">h</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>写出 <span class="math inline">\(x=ut\cos a\)</span>、<span class="math inline">\(y=ut\sin a-\frac12gt^2\)</span>。</li>
-<li>由 <span class="math inline">\(t=x/(u\cos a)\)</span> 消去 <span class="math inline">\(t\)</span>：</li>
+<li>写出 <span class="math inline">x=ut\cos a</span>、<span class="math inline">y=ut\sin a-\frac12gt^2</span>。</li>
+<li>由 <span class="math inline">t=x/(u\cos a)</span> 消去 <span class="math inline">t</span>：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 y=u\sin a\left(\frac{x}{u\cos a}\right)
 -\frac12g\left(\frac{x}{u\cos a}\right)^2
 =\boxed{x\tan a-\frac{gx^2}{2u^2}\sec^2a}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
 <ul>
-<li>在 <span class="math inline">\(x=32,u=40\sqrt2\)</span> 时：</li>
+<li>在 <span class="math inline">x=32,u=40\sqrt2</span> 时：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 h=32\tan a-\frac{8}{5}\sec^2a.
-\]</span></p>
+</span></p>
 <ul>
-<li>在 <span class="math inline">\(x=32,u=40\)</span> 时：</li>
+<li>在 <span class="math inline">x=32,u=40</span> 时：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 0.8h=32\tan a-\frac{16}{5}\sec^2a.
-\]</span></p>
+</span></p>
 <ul>
-<li>消去 <span class="math inline">\(h\)</span>，令 <span class="math inline">\(t=\tan a\)</span> 且 <span class="math inline">\(\sec^2a=1+t^2\)</span>：</li>
+<li>消去 <span class="math inline">h</span>，令 <span class="math inline">t=\tan a</span> 且 <span class="math inline">\sec^2a=1+t^2</span>：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{16}{5}(1+t^2)=\frac45\left(32t-\frac85(1+t^2)\right)
 \Longrightarrow 3t^2-10t+3=0.
-\]</span></p>
+</span></p>
 <ul>
-<li>所以 <span class="math inline">\(t=3\)</span> 或 <span class="math inline">\(t=1/3\)</span>，再分别代回 <span class="math inline">\(h=32t-\frac85(1+t^2)\)</span>。</li>
-<li>评分标准结果：<span class="math inline">\(\boxed{h=80\,\mathrm m}\)</span> 或 <span class="math inline">\(\boxed{h=80/9\,\mathrm m}\)</span>。</li>
+<li>所以 <span class="math inline">t=3</span> 或 <span class="math inline">t=1/3</span>，再分别代回 <span class="math inline">h=32t-\frac85(1+t^2)</span>。</li>
+<li>评分标准结果：<span class="math inline">\boxed{h=80\,\mathrm m}</span> 或 <span class="math inline">\boxed{h=80/9\,\mathrm m}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1381,7 +1395,7 @@ h=32\tan a-\frac{8}{5}\sec^2a.
 </div>
 </div>
 <div class="question-card" title="2024 May/June · 9231/31 &amp; 9231/32 · Question 3">
-<p>At <span class="math inline">\(t=0\)</span>, particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(u\)</span> at <span class="math inline">\(60^\circ\)</span> above the horizontal from <span class="math inline">\(O\)</span>. It moves freely under gravity. The direction of motion at <span class="math inline">\(t=5\)</span> is perpendicular to the direction at <span class="math inline">\(t=15\)</span>. Find <span class="math inline">\(u\)</span>.</p>
+<p>At <span class="math inline">t=0</span>, particle <span class="math inline">P</span> is projected with speed <span class="math inline">u</span> at <span class="math inline">60^\circ</span> above the horizontal from <span class="math inline">O</span>. It moves freely under gravity. The direction of motion at <span class="math inline">t=5</span> is perpendicular to the direction at <span class="math inline">t=15</span>. Find <span class="math inline">u</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -1389,16 +1403,16 @@ Show answer
 <ul>
 <li>写出两个时刻的速度：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 \mathbf v(5)=(u\cos60^\circ,\,u\sin60^\circ-5g),
 \quad
 \mathbf v(15)=(u\cos60^\circ,\,u\sin60^\circ-15g).
-\]</span></p>
+</span></p>
 <ul>
-<li>垂直条件：<span class="math inline">\(\mathbf v(5)\boldsymbol\cdot\mathbf v(15)=0\)</span>。</li>
-<li>代入 <span class="math inline">\(\cos60^\circ=1/2,\sin60^\circ=\sqrt3/2\)</span> 并展开。</li>
-<li>得 <span class="math inline">\(u^2-100\sqrt3u+7500=0\)</span>。</li>
-<li>取重根：<span class="math inline">\(\boxed{u=50\sqrt3\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+<li>垂直条件：<span class="math inline">\mathbf v(5)\boldsymbol\cdot\mathbf v(15)=0</span>。</li>
+<li>代入 <span class="math inline">\cos60^\circ=1/2,\sin60^\circ=\sqrt3/2</span> 并展开。</li>
+<li>得 <span class="math inline">u^2-100\sqrt3u+7500=0</span>。</li>
+<li>取重根：<span class="math inline">\boxed{u=50\sqrt3\,\mathrm{m\,s^{-1}}}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1406,30 +1420,30 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2024 May/June · 9231/33 · Question 6">
-<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> and moves freely under gravity. After <span class="math inline">\(5\)</span> s its speed is <span class="math inline">\(\tfrac34u\)</span>.</p>
+<p>A particle is projected with speed <span class="math inline">u</span> at angle <span class="math inline">i</span> above the horizontal from <span class="math inline">O</span> and moves freely under gravity. After <span class="math inline">5</span> s its speed is <span class="math inline">\tfrac34u</span>.</p>
 <p><strong>(a)</strong> Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac7{16}u^2-100u\sin i+2500=0.
-\]</span></p>
-<p>It is given that the velocity of <span class="math inline">\(P\)</span> after <span class="math inline">\(5\)</span> s is perpendicular to the initial velocity.</p>
-<p><strong>(b)</strong> Find, in either order, the value of <span class="math inline">\(u\)</span> and the value of <span class="math inline">\(\sin i\)</span>.</p>
+</span></p>
+<p>It is given that the velocity of <span class="math inline">P</span> after <span class="math inline">5</span> s is perpendicular to the initial velocity.</p>
+<p><strong>(b)</strong> Find, in either order, the value of <span class="math inline">u</span> and the value of <span class="math inline">\sin i</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li><span class="math inline">\(t=5\)</span> 时 <span class="math inline">\(v_x=u\cos i\)</span>、<span class="math inline">\(v_y=u\sin i-5g\)</span>。</li>
-<li>使用 <span class="math inline">\(v^2=(3u/4)^2\)</span>。</li>
-<li>展开并化简为 <span class="math inline">\(\boxed{\frac7{16}u^2-100u\sin i+2500=0}\)</span>。</li>
+<li><span class="math inline">t=5</span> 时 <span class="math inline">v_x=u\cos i</span>、<span class="math inline">v_y=u\sin i-5g</span>。</li>
+<li>使用 <span class="math inline">v^2=(3u/4)^2</span>。</li>
+<li>展开并化简为 <span class="math inline">\boxed{\frac7{16}u^2-100u\sin i+2500=0}</span>。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>设 <span class="math inline">\(t=5\)</span> 时速度方向与水平夹角为 <span class="math inline">\(\alpha\)</span>，则 <span class="math inline">\(\tan\alpha=(u\sin i-50)/(u\cos i)\)</span>。</li>
-<li>垂直初速度给出 <span class="math inline">\(\tan\alpha\tan i=-1\)</span>。</li>
-<li>联立后得 <span class="math inline">\(u=50\sin i\)</span>。</li>
-<li>与 (a) 式联立，得到 <span class="math inline">\(\boxed{u=40\,\mathrm{m\,s^{-1}}}\)</span>。</li>
-<li><span class="math inline">\(\boxed{\sin i=4/5}\)</span>。</li>
+<li>设 <span class="math inline">t=5</span> 时速度方向与水平夹角为 <span class="math inline">\alpha</span>，则 <span class="math inline">\tan\alpha=(u\sin i-50)/(u\cos i)</span>。</li>
+<li>垂直初速度给出 <span class="math inline">\tan\alpha\tan i=-1</span>。</li>
+<li>联立后得 <span class="math inline">u=50\sin i</span>。</li>
+<li>与 (a) 式联立，得到 <span class="math inline">\boxed{u=40\,\mathrm{m\,s^{-1}}}</span>。</li>
+<li><span class="math inline">\boxed{\sin i=4/5}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1437,23 +1451,23 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2024 October/November · 9231/31 &amp; 9231/33 · Question 1">
-<p>A particle is projected at angle <span class="math inline">\(\tan^{-1}2\)</span> from <span class="math inline">\(O\)</span> on a horizontal plane. At horizontal distances <span class="math inline">\(56\)</span> m and <span class="math inline">\(84\)</span> m, its heights are <span class="math inline">\(H\)</span> and <span class="math inline">\(H/2\)</span> respectively. Find <span class="math inline">\(u\)</span> and <span class="math inline">\(H\)</span>.</p>
+<p>A particle is projected at angle <span class="math inline">\tan^{-1}2</span> from <span class="math inline">O</span> on a horizontal plane. At horizontal distances <span class="math inline">56</span> m and <span class="math inline">84</span> m, its heights are <span class="math inline">H</span> and <span class="math inline">H/2</span> respectively. Find <span class="math inline">u</span> and <span class="math inline">H</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <ul>
-<li>由 <span class="math inline">\(\tan i=2\)</span> 写出 trajectory equation：</li>
+<li>由 <span class="math inline">\tan i=2</span> 写出 trajectory equation：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 y=2x-\frac{5gx^2}{2u^2}
-\]</span></p>
+</span></p>
 <ul>
-<li>在 <span class="math inline">\(x=56\)</span> 代入 <span class="math inline">\(y=H\)</span>。</li>
-<li>在 <span class="math inline">\(x=84\)</span> 代入 <span class="math inline">\(y=H/2\)</span>。</li>
-<li>联立两个方程消去 <span class="math inline">\(H\)</span>，求 <span class="math inline">\(u^2\)</span>。</li>
-<li>回代得到 <span class="math inline">\(\boxed{u=35\,\mathrm{m\,s^{-1}}}\)</span>。</li>
-<li><span class="math inline">\(\boxed{H=48\,\mathrm m}\)</span>。</li>
+<li>在 <span class="math inline">x=56</span> 代入 <span class="math inline">y=H</span>。</li>
+<li>在 <span class="math inline">x=84</span> 代入 <span class="math inline">y=H/2</span>。</li>
+<li>联立两个方程消去 <span class="math inline">H</span>，求 <span class="math inline">u^2</span>。</li>
+<li>回代得到 <span class="math inline">\boxed{u=35\,\mathrm{m\,s^{-1}}}</span>。</li>
+<li><span class="math inline">\boxed{H=48\,\mathrm m}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1461,130 +1475,130 @@ y=2x-\frac{5gx^2}{2u^2}
 </div>
 </div>
 <div class="question-card" title="2024 October/November · 9231/31 &amp; 9231/33 · Question 7">
-<p>A particle is projected at angle <span class="math inline">\(\tan^{-1}(b/\sqrt3)\)</span> from <span class="math inline">\(O\)</span>. When it is moving horizontally, it strikes a smooth inclined plane at <span class="math inline">\(A\)</span>. The plane is inclined at angle <span class="math inline">\(a\)</span>; after impact the particle moves vertically upwards and the coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(e\tan^2a=1\)</span>.</p>
-<p>In its subsequent motion, the greatest height reached by <span class="math inline">\(P\)</span> above <span class="math inline">\(A\)</span> is <span class="math inline">\(3/16\)</span> of the vertical height of <span class="math inline">\(A\)</span> above the horizontal plane.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(e\)</span>.</p>
+<p>A particle is projected at angle <span class="math inline">\tan^{-1}(b/\sqrt3)</span> from <span class="math inline">O</span>. When it is moving horizontally, it strikes a smooth inclined plane at <span class="math inline">A</span>. The plane is inclined at angle <span class="math inline">a</span>; after impact the particle moves vertically upwards and the coefficient of restitution is <span class="math inline">e</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">e\tan^2a=1</span>.</p>
+<p>In its subsequent motion, the greatest height reached by <span class="math inline">P</span> above <span class="math inline">A</span> is <span class="math inline">3/16</span> of the vertical height of <span class="math inline">A</span> above the horizontal plane.</p>
+<p><strong>(b)</strong> Find <span class="math inline">e</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <p>“moving horizontally” means the incoming velocity is horizontal. Resolve the velocity parallel and perpendicular to the plane:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{before: }\frac35u\cos a\text{ parallel},\quad \frac35u\sin a\text{ normal},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \text{after: }\frac35u\cos a\text{ parallel},\quad \frac35eu\sin a\text{ normal}.
-\]</span></p>
+</span></p>
 <p>The outgoing velocity is vertical, so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan a=\frac{(3/5)u\cos a}{(3/5)eu\sin a}
 \Longrightarrow \boxed{e\tan^2a=1}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
-<p>The greatest height of <span class="math inline">\(P\)</span> before impact is</p>
-<p><span class="math display">\[
+<p>The greatest height of <span class="math inline">P</span> before impact is</p>
+<p><span class="math display">
 H=\frac{(u\sin i)^2}{2g}=\frac{8u^2}{25g}.
-\]</span></p>
+</span></p>
 <p>After impact, the vertical speed is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac35u\cos a+e\frac35u\sin a.
-\]</span></p>
-<p>Since the subsequent rise is <span class="math inline">\(3H/16\)</span>, use <span class="math inline">\(v^2=2g(3H/16)\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since the subsequent rise is <span class="math inline">3H/16</span>, use <span class="math inline">v^2=2g(3H/16)</span>:</p>
+<p><span class="math display">
 \left[\frac35u(\cos a+e\sin a)\right]^2
 =2g\left(\frac3{16}H\right).
-\]</span></p>
-<p>Using <span class="math inline">\(e\tan^2a=1\)</span> and simplifying gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">e\tan^2a=1</span> and simplifying gives</p>
+<p><span class="math display">
 3e^2+2e-1=0.
-\]</span></p>
-<p>Since <span class="math inline">\(e&gt;0\)</span>,</p>
-<span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">e&gt;0</span>,</p>
+<span class="math display">
 \boxed{e=\frac13}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Q7.
 </div>
 </div>
 <div class="question-card" title="2024 October/November · 9231/32 · Question 5">
-<p>A particle is projected from <span class="math inline">\(O\)</span> on horizontal ground with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=1/3\)</span>. It passes through <span class="math inline">\((3a,4a/5)\)</span>.</p>
-<p><strong>(a)</strong> Use the trajectory equation to show <span class="math inline">\(u^2=25ag\)</span>.</p>
-<p>At the instant <span class="math inline">\(P\)</span> is moving horizontally, particle <span class="math inline">\(Q\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(V\)</span> at angle <span class="math inline">\(\alpha\)</span>; both particles reach the ground at the same point and time.</p>
-<p><strong>(b)</strong> Express <span class="math inline">\(V^2\)</span> in the form <span class="math inline">\(kag\)</span>.</p>
+<p>A particle is projected from <span class="math inline">O</span> on horizontal ground with speed <span class="math inline">u</span> at angle <span class="math inline">i</span>, where <span class="math inline">\tan i=1/3</span>. It passes through <span class="math inline">(3a,4a/5)</span>.</p>
+<p><strong>(a)</strong> Use the trajectory equation to show <span class="math inline">u^2=25ag</span>.</p>
+<p>At the instant <span class="math inline">P</span> is moving horizontally, particle <span class="math inline">Q</span> is projected from <span class="math inline">O</span> with speed <span class="math inline">V</span> at angle <span class="math inline">\alpha</span>; both particles reach the ground at the same point and time.</p>
+<p><strong>(b)</strong> Express <span class="math inline">V^2</span> in the form <span class="math inline">kag</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>写出 <span class="math inline">\(y=x\tan i-\dfrac{gx^2}{2u^2}\sec^2i\)</span>。</li>
-<li>代入 <span class="math inline">\(x=3a,y=4a/5,\tan i=1/3,\sec^2i=10/9\)</span>。</li>
-<li>整理得 <span class="math inline">\(\boxed{u^2=25ag}\)</span>。</li>
+<li>写出 <span class="math inline">y=x\tan i-\dfrac{gx^2}{2u^2}\sec^2i</span>。</li>
+<li>代入 <span class="math inline">x=3a,y=4a/5,\tan i=1/3,\sec^2i=10/9</span>。</li>
+<li>整理得 <span class="math inline">\boxed{u^2=25ag}</span>。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li><span class="math inline">\(P\)</span> moving horizontally means <span class="math inline">\(v_y=0\)</span>，所以这一时刻是 <span class="math inline">\(P\)</span> 的最高点。</li>
-<li><span class="math inline">\(P\)</span> 的 flight time 为 <span class="math inline">\(T=2u\sin i/g=10a/g\)</span>，range 为</li>
+<li><span class="math inline">P</span> moving horizontally means <span class="math inline">v_y=0</span>，所以这一时刻是 <span class="math inline">P</span> 的最高点。</li>
+<li><span class="math inline">P</span> 的 flight time 为 <span class="math inline">T=2u\sin i/g=10a/g</span>，range 为</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 R=u\cos i\,T=15a.
-\]</span></p>
+</span></p>
 <ul>
-<li><span class="math inline">\(Q\)</span> 的 flight time 为 <span class="math inline">\(T/2\)</span>。水平位移相同给出</li>
+<li><span class="math inline">Q</span> 的 flight time 为 <span class="math inline">T/2</span>。水平位移相同给出</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 R=V\cos\alpha\frac{T}{2}
 \Longrightarrow V\cos\alpha=2u\cos i.
-\]</span></p>
+</span></p>
 <ul>
-<li><span class="math inline">\(Q\)</span> 从 <span class="math inline">\(O\)</span> 出发并在 <span class="math inline">\(T/2\)</span> 后落地，竖直位移给出</li>
+<li><span class="math inline">Q</span> 从 <span class="math inline">O</span> 出发并在 <span class="math inline">T/2</span> 后落地，竖直位移给出</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 0=V\sin\alpha\frac{T}{2}-\frac12g\left(\frac{T}{2}\right)^2
 \Longrightarrow V\sin\alpha=\frac14gT=\frac12u\sin i.
-\]</span></p>
+</span></p>
 <ul>
-<li>平方相加并代入 <span class="math inline">\(\tan i=1/3\)</span>、<span class="math inline">\(u^2=25ag\)</span>：</li>
+<li>平方相加并代入 <span class="math inline">\tan i=1/3</span>、<span class="math inline">u^2=25ag</span>：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 V^2=u^2\left(4\cos^2i+\frac14\sin^2i\right)
 =25ag\left(4\cdot\frac9{10}+\frac14\cdot\frac1{10}\right)
 =\boxed{\frac{725}{8}ag}.
-\]</span></p>
-所以 <span class="math inline">\(\boxed{k=725/8}\)</span>。
+</span></p>
+所以 <span class="math inline">\boxed{k=725/8}</span>。
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Q5.
 </div>
 </div>
 <div class="question-card" title="2025 May/June · 9231/31 &amp; 9231/32 · Question 2">
-<p>A particle is projected with speed <span class="math inline">\(24\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span>. A vertical wall <span class="math inline">\(35\)</span> m from <span class="math inline">\(O\)</span> has height <span class="math inline">\(10\)</span> m.</p>
-<p><strong>(a)</strong> Determine the two values of <span class="math inline">\(i\)</span> for which <span class="math inline">\(P\)</span> just clears the wall.</p>
-<p><strong>(b)</strong> Given that <span class="math inline">\(P\)</span> clears the wall, find the minimum distance from <span class="math inline">\(O\)</span> where <span class="math inline">\(P\)</span> can land.</p>
+<p>A particle is projected with speed <span class="math inline">24\,\mathrm{m\,s^{-1}}</span> at angle <span class="math inline">i</span> above the horizontal from <span class="math inline">O</span>. A vertical wall <span class="math inline">35</span> m from <span class="math inline">O</span> has height <span class="math inline">10</span> m.</p>
+<p><strong>(a)</strong> Determine the two values of <span class="math inline">i</span> for which <span class="math inline">P</span> just clears the wall.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">P</span> clears the wall, find the minimum distance from <span class="math inline">O</span> where <span class="math inline">P</span> can land.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>将墙顶点 <span class="math inline">\((35,10)\)</span> 代入 trajectory equation：</li>
+<li>将墙顶点 <span class="math inline">(35,10)</span> 代入 trajectory equation：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 y=x\tan i-\frac{g x^2}{2(24)^2}(1+\tan^2i).
-\]</span></p>
+</span></p>
 <ul>
-<li>整理为关于 <span class="math inline">\(\tan i\)</span> 的 quadratic。</li>
+<li>整理为关于 <span class="math inline">\tan i</span> 的 quadratic。</li>
 <li>解出两个 admissible roots。</li>
-<li><span class="math inline">\(\tan i=0.769\)</span>，所以 <span class="math inline">\(\boxed{i=37.6^\circ}\)</span>。</li>
-<li><span class="math inline">\(\tan i=2.52\)</span>，所以 <span class="math inline">\(\boxed{i=68.4^\circ}\)</span>。</li>
+<li><span class="math inline">\tan i=0.769</span>，所以 <span class="math inline">\boxed{i=37.6^\circ}</span>。</li>
+<li><span class="math inline">\tan i=2.52</span>，所以 <span class="math inline">\boxed{i=68.4^\circ}</span>。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>对每个 launch angle，用 <span class="math inline">\(y=0\)</span> 求非零落地时间或 range。</li>
-<li>取较大角度对应的 range，得到 <span class="math inline">\(\boxed{39.5\,\mathrm m}\)</span>（<span class="math inline">\(39.4\)</span>–<span class="math inline">\(39.5\)</span> m 均按评分标准可接受）。</li>
+<li>对每个 launch angle，用 <span class="math inline">y=0</span> 求非零落地时间或 range。</li>
+<li>取较大角度对应的 range，得到 <span class="math inline">\boxed{39.5\,\mathrm m}</span>（<span class="math inline">39.4</span>–<span class="math inline">39.5</span> m 均按评分标准可接受）。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1592,110 +1606,110 @@ y=x\tan i-\frac{g x^2}{2(24)^2}(1+\tan^2i).
 </div>
 </div>
 <div class="question-card" title="2025 May/June · 9231/33 · Question 7">
-<p>A particle <span class="math inline">\(P\)</span> is projected from a point <span class="math inline">\(O\)</span> with speed <span class="math inline">\(U\)</span> at an angle <span class="math inline">\(45^\circ\)</span> above the horizontal and moves freely under gravity.</p>
-<p><strong>(a)</strong> State the vertical and horizontal components of velocity at time <span class="math inline">\(t\)</span>.</p>
-<p>At time <span class="math inline">\(T\)</span>, particle <span class="math inline">\(P\)</span> is moving at an angle of <span class="math inline">\(60^\circ\)</span> below the horizontal.</p>
+<p>A particle <span class="math inline">P</span> is projected from a point <span class="math inline">O</span> with speed <span class="math inline">U</span> at an angle <span class="math inline">45^\circ</span> above the horizontal and moves freely under gravity.</p>
+<p><strong>(a)</strong> State the vertical and horizontal components of velocity at time <span class="math inline">t</span>.</p>
+<p>At time <span class="math inline">T</span>, particle <span class="math inline">P</span> is moving at an angle of <span class="math inline">60^\circ</span> below the horizontal.</p>
 <p><strong>(b)</strong> Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T=\frac{U}{2g}(\sqrt2+\sqrt6).
-\]</span></p>
-<p>At time <span class="math inline">\(T\)</span>, the particle strikes a smooth horizontal plane at a point which is a horizontal distance <span class="math inline">\(D\)</span> from <span class="math inline">\(O\)</span> and a vertical distance <span class="math inline">\(H\)</span> below <span class="math inline">\(O\)</span>.</p>
-<p><strong>(c)</strong> Find the ratio <span class="math inline">\(H:D\)</span>.</p>
-<p>After striking the horizontal plane, <span class="math inline">\(P\)</span> rebounds with speed <span class="math inline">\(w\)</span>. The coefficient of restitution between <span class="math inline">\(P\)</span> and the plane is <span class="math inline">\(\frac23\)</span>.</p>
-<p><strong>(d)</strong> Find <span class="math inline">\(w\)</span> in terms of <span class="math inline">\(U\)</span>.</p>
+</span></p>
+<p>At time <span class="math inline">T</span>, the particle strikes a smooth horizontal plane at a point which is a horizontal distance <span class="math inline">D</span> from <span class="math inline">O</span> and a vertical distance <span class="math inline">H</span> below <span class="math inline">O</span>.</p>
+<p><strong>(c)</strong> Find the ratio <span class="math inline">H:D</span>.</p>
+<p>After striking the horizontal plane, <span class="math inline">P</span> rebounds with speed <span class="math inline">w</span>. The coefficient of restitution between <span class="math inline">P</span> and the plane is <span class="math inline">\frac23</span>.</p>
+<p><strong>(d)</strong> Find <span class="math inline">w</span> in terms of <span class="math inline">U</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{v_x=U\cos45^\circ=\frac{U}{\sqrt2}},
 \qquad
 \boxed{v_y=U\sin45^\circ-gt=\frac{U}{\sqrt2}-gt}.
-\]</span></p>
-<p><strong>(b)</strong> At time <span class="math inline">\(T\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(b)</strong> At time <span class="math inline">T</span>,</p>
+<p><span class="math display">
 \frac{v_y}{v_x}=-\tan60^\circ=-\sqrt3.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\frac{U}{\sqrt2}-gT}{\frac{U}{\sqrt2}}=-\sqrt3,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac{U}{\sqrt2}-gT=-\frac{\sqrt3U}{\sqrt2}.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{T=\frac{U}{2g}(\sqrt2+\sqrt6)}.
-\]</span></p>
+</span></p>
 <p><strong>(c)</strong> The horizontal distance is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 D=U\cos45^\circ T=\frac{U}{\sqrt2}T.
-\]</span></p>
-<p>The vertical displacement at time <span class="math inline">\(T\)</span> is</p>
-<p><span class="math display">\[
+</span></p>
+<p>The vertical displacement at time <span class="math inline">T</span> is</p>
+<p><span class="math display">
 \frac{U}{\sqrt2}T-\frac12gT^2.
-\]</span></p>
-<p>Since the particle is below <span class="math inline">\(O\)</span> at impact,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since the particle is below <span class="math inline">O</span> at impact,</p>
+<p><span class="math display">
 H=\frac12gT^2-\frac{U}{\sqrt2}T.
-\]</span></p>
-<p>Substitution of <span class="math inline">\(T\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Substitution of <span class="math inline">T</span> gives</p>
+<p><span class="math display">
 \boxed{H:D=(\sqrt3-1):2}.
-\]</span></p>
+</span></p>
 <p><strong>(d)</strong> Just before impact, the downward vertical component has magnitude</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\sqrt3}{2}U.
-\]</span></p>
+</span></p>
 <p>Using the coefficient of restitution,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 w_y=\frac23\left(\frac{\sqrt3}{2}U\right)=\frac{\sqrt3}{3}U.
-\]</span></p>
-<p>The horizontal component is unchanged, with magnitude <span class="math inline">\(U/\sqrt2\)</span>. Therefore</p>
-<p><span class="math display">\[
+</span></p>
+<p>The horizontal component is unchanged, with magnitude <span class="math inline">U/\sqrt2</span>. Therefore</p>
+<p><span class="math display">
 w^2=\left(\frac{U}{\sqrt2}\right)^2
 +\left(\frac{\sqrt3}{3}U\right)^2
 =\frac{7}{12}U^2,
-\]</span></p>
+</span></p>
 <p>so</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{w=U\sqrt{\frac7{12}}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2025, Question 7; checked against the official mark scheme.
 </div>
 </div>
 <div class="question-card" title="2025 October/November · 9231/31 &amp; 9231/33 · Question 7">
-<p>A particle is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(25\,\mathrm{m\,s^{-1}}\)</span> and <span class="math inline">\(\tan i=4/3\)</span>. At <span class="math inline">\(A\)</span>, the direction of motion makes an angle <span class="math inline">\(45^\circ\)</span> with the downward vertical.</p>
-<p><strong>(a)</strong> Find the coordinates of <span class="math inline">\(A\)</span>. At <span class="math inline">\(A\)</span> the particle strikes a fixed smooth barrier inclined at <span class="math inline">\(45^\circ\)</span> to the horizontal, rebounds and lands on the horizontal plane.</p>
+<p>A particle is projected from <span class="math inline">O</span> with speed <span class="math inline">25\,\mathrm{m\,s^{-1}}</span> and <span class="math inline">\tan i=4/3</span>. At <span class="math inline">A</span>, the direction of motion makes an angle <span class="math inline">45^\circ</span> with the downward vertical.</p>
+<p><strong>(a)</strong> Find the coordinates of <span class="math inline">A</span>. At <span class="math inline">A</span> the particle strikes a fixed smooth barrier inclined at <span class="math inline">45^\circ</span> to the horizontal, rebounds and lands on the horizontal plane.</p>
 <p><strong>(b)</strong> Find the speed immediately before collision with the barrier.</p>
-<p><strong>(c)</strong> Given that the coefficient of restitution is <span class="math inline">\(1/9\)</span>, find the horizontal distance travelled after the collision.</p>
+<p><strong>(c)</strong> Given that the coefficient of restitution is <span class="math inline">1/9</span>, find the horizontal distance travelled after the collision.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <ul>
-<li>由 <span class="math inline">\(\tan i=4/3\)</span> 得 <span class="math inline">\(u_x=15,u_y=20\)</span>。</li>
-<li>写出 <span class="math inline">\(dy/dx=v_y/v_x\)</span>，并把方向与 downward vertical 成 <span class="math inline">\(45^\circ\)</span> 转换为 <span class="math inline">\(v_y/v_x=-1\)</span>。</li>
-<li><span class="math inline">\(20-10t=-15\)</span>，所以 <span class="math inline">\(t_A=7/2\)</span>。</li>
-<li><span class="math inline">\(x_A=15(7/2)=\boxed{105/2=52.5\,\mathrm m}\)</span>。</li>
-<li><span class="math inline">\(y_A=20(7/2)-5(7/2)^2=\boxed{35/4=8.75\,\mathrm m}\)</span>。</li>
+<li>由 <span class="math inline">\tan i=4/3</span> 得 <span class="math inline">u_x=15,u_y=20</span>。</li>
+<li>写出 <span class="math inline">dy/dx=v_y/v_x</span>，并把方向与 downward vertical 成 <span class="math inline">45^\circ</span> 转换为 <span class="math inline">v_y/v_x=-1</span>。</li>
+<li><span class="math inline">20-10t=-15</span>，所以 <span class="math inline">t_A=7/2</span>。</li>
+<li><span class="math inline">x_A=15(7/2)=\boxed{105/2=52.5\,\mathrm m}</span>。</li>
+<li><span class="math inline">y_A=20(7/2)-5(7/2)^2=\boxed{35/4=8.75\,\mathrm m}</span>。</li>
 </ul>
 <p><strong>(b)</strong></p>
 <ul>
-<li>碰撞前速度为 <span class="math inline">\(\mathbf v=(15,-15)\)</span>。</li>
-<li>计算 speed：<span class="math inline">\(|\mathbf v|=\sqrt{15^2+15^2}\)</span>。</li>
-<li><span class="math inline">\(\boxed{|\mathbf v|=15\sqrt2\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+<li>碰撞前速度为 <span class="math inline">\mathbf v=(15,-15)</span>。</li>
+<li>计算 speed：<span class="math inline">|\mathbf v|=\sqrt{15^2+15^2}</span>。</li>
+<li><span class="math inline">\boxed{|\mathbf v|=15\sqrt2\,\mathrm{m\,s^{-1}}}</span>。</li>
 </ul>
 <p><strong>(c)</strong></p>
 <ul>
-<li>碰撞前速度垂直于 barrier，碰撞后速度反向且大小乘以 <span class="math inline">\(e\)</span>。</li>
-<li><span class="math inline">\(\mathbf w=(-5/3,5/3)\)</span>。</li>
-<li><span class="math inline">\(0=35/4+(5/3)t-5t^2\)</span>，取正根 <span class="math inline">\(t=3/2\)</span>。</li>
-<li>水平距离为 <span class="math inline">\(|(5/3)(3/2)|=\boxed{5/2\,\mathrm m}\)</span>。</li>
+<li>碰撞前速度垂直于 barrier，碰撞后速度反向且大小乘以 <span class="math inline">e</span>。</li>
+<li><span class="math inline">\mathbf w=(-5/3,5/3)</span>。</li>
+<li><span class="math inline">0=35/4+(5/3)t-5t^2</span>，取正根 <span class="math inline">t=3/2</span>。</li>
+<li>水平距离为 <span class="math inline">|(5/3)(3/2)|=\boxed{5/2\,\mathrm m}</span>。</li>
 </ul>
 </details>
 <div class="source-line">
@@ -1703,53 +1717,53 @@ Show answer
 </div>
 </div>
 <div class="question-card" title="2025 October/November · 9231/32 · Question 4">
-<p>Particle <span class="math inline">\(Q\)</span> is initially a distance <span class="math inline">\(d\)</span> vertically above particle <span class="math inline">\(P\)</span>. <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(U\)</span> at angle <span class="math inline">\(a\)</span> above the horizontal; simultaneously <span class="math inline">\(Q\)</span> is projected with speed <span class="math inline">\(V\)</span> at angle <span class="math inline">\(b\)</span> below the horizontal. Both move freely under gravity and collide at time <span class="math inline">\(T\)</span>.</p>
+<p>Particle <span class="math inline">Q</span> is initially a distance <span class="math inline">d</span> vertically above particle <span class="math inline">P</span>. <span class="math inline">P</span> is projected with speed <span class="math inline">U</span> at angle <span class="math inline">a</span> above the horizontal; simultaneously <span class="math inline">Q</span> is projected with speed <span class="math inline">V</span> at angle <span class="math inline">b</span> below the horizontal. Both move freely under gravity and collide at time <span class="math inline">T</span>.</p>
 <p><strong>(a)</strong> Show that</p>
-<p><span class="math display">\[
+<p><span class="math display">
 d=UT(\sin a+\cos a\tan b).
-\]</span></p>
-<p>The particles collide when <span class="math inline">\(P\)</span> is at maximum height.</p>
-<p><strong>(b)</strong> Given <span class="math inline">\(a=30^\circ\)</span> and <span class="math inline">\(b=60^\circ\)</span>, find <span class="math inline">\(d\)</span> in terms of <span class="math inline">\(U\)</span> and <span class="math inline">\(g\)</span>.</p>
+</span></p>
+<p>The particles collide when <span class="math inline">P</span> is at maximum height.</p>
+<p><strong>(b)</strong> Given <span class="math inline">a=30^\circ</span> and <span class="math inline">b=60^\circ</span>, find <span class="math inline">d</span> in terms of <span class="math inline">U</span> and <span class="math inline">g</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p><strong>(a)</strong></p>
 <p>水平相遇给出</p>
-<p><span class="math display">\[
+<p><span class="math display">
 U\cos a\,T=V\cos b\,T
 \Longrightarrow V=\frac{U\cos a}{\cos b}.
-\]</span></p>
-<p>取 <span class="math inline">\(P\)</span> 的初始高度为 <span class="math inline">\(0\)</span>，则碰撞时两粒子的竖直坐标分别为</p>
-<p><span class="math display">\[
+</span></p>
+<p>取 <span class="math inline">P</span> 的初始高度为 <span class="math inline">0</span>，则碰撞时两粒子的竖直坐标分别为</p>
+<p><span class="math display">
 y_P=U\sin a\,T-\frac12gT^2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 y_Q=d-V\sin b\,T-\frac12gT^2.
-\]</span></p>
-<p>令 <span class="math inline">\(y_P=y_Q\)</span>，重力项抵消：</p>
-<p><span class="math display">\[
+</span></p>
+<p>令 <span class="math inline">y_P=y_Q</span>，重力项抵消：</p>
+<p><span class="math display">
 d=U\sin a\,T+V\sin b\,T.
-\]</span></p>
-<p>代入 <span class="math inline">\(V=U\cos a/\cos b\)</span>：</p>
-<p><span class="math display">\[
+</span></p>
+<p>代入 <span class="math inline">V=U\cos a/\cos b</span>：</p>
+<p><span class="math display">
 \boxed{d=UT(\sin a+\cos a\tan b)}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong></p>
 <ul>
-<li><span class="math inline">\(P\)</span> 在最高点相撞，所以</li>
+<li><span class="math inline">P</span> 在最高点相撞，所以</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 0=U\sin a-gT
 \Longrightarrow T=\frac{U\sin a}{g}.
-\]</span></p>
+</span></p>
 <ul>
-<li>代入 <span class="math inline">\(a=30^\circ,b=60^\circ\)</span>：</li>
+<li>代入 <span class="math inline">a=30^\circ,b=60^\circ</span>：</li>
 </ul>
-<p><span class="math display">\[
+<p><span class="math display">
 d=\frac{U^2\sin a}{g}(\sin a+\cos a\tan b),
-\]</span></p>
-从而 <span class="math inline">\(\boxed{d=U^2/g}\)</span>。
+</span></p>
+从而 <span class="math inline">\boxed{d=U^2/g}</span>。
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Q4.
@@ -1759,11 +1773,11 @@ d=\frac{U^2\sin a}{g}(\sin a+\cos a\tan b),
 <section id="本章检查清单" class="level2">
 <h2 class="anchored" data-anchor-id="本章检查清单">5. 本章检查清单</h2>
 <ol type="1">
-<li>只要 air resistance 被忽略，水平 acceleration 就是 <span class="math inline">\(0\)</span>，但竖直 acceleration 仍是 <span class="math inline">\(-g\)</span>；</li>
-<li>“moving horizontally” 的含义是 <span class="math inline">\(v_y=0\)</span>，不是 <span class="math inline">\(y=0\)</span>；</li>
-<li>求 trajectory 时，必须使用与坐标原点相符的 <span class="math inline">\(x,y\)</span>；</li>
+<li>只要 air resistance 被忽略，水平 acceleration 就是 <span class="math inline">0</span>，但竖直 acceleration 仍是 <span class="math inline">-g</span>；</li>
+<li>“moving horizontally” 的含义是 <span class="math inline">v_y=0</span>，不是 <span class="math inline">y=0</span>；</li>
+<li>求 trajectory 时，必须使用与坐标原点相符的 <span class="math inline">x,y</span>；</li>
 <li>同一高度的两个时刻可以由同一个 quadratic 的两个根得到；</li>
-<li>题目若改变初始高度，不能直接套用 <span class="math inline">\(T=2u\sin\alpha/g\)</span>；</li>
+<li>题目若改变初始高度，不能直接套用 <span class="math inline">T=2u\sin\alpha/g</span>；</li>
 <li>真题中若出现 barrier、string、liquid 或 air resistance，先判断它是否已经超出本章的简单 projectile model。</li>
 </ol>
 

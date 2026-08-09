@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -440,7 +454,7 @@ window.Quarto = {
 <ol type="1">
 <li>使用弧长、angular speed、速度和加速度之间的关系；</li>
 <li>写出圆周运动中 radial 与 transverse acceleration；</li>
-<li>使用 <span class="math inline">\(a=r\omega^2=v^2/r\)</span> 判断 centripetal acceleration；</li>
+<li>使用 <span class="math inline">a=r\omega^2=v^2/r</span> 判断 centripetal acceleration；</li>
 <li>对水平圆、conical pendulum、banked track 列出 Newton’s second law 方程；</li>
 <li>处理 vertical circle 中的 tension、normal reaction、energy 和 loss of contact；</li>
 <li>判断 string、rod、smooth surface 和 smooth ring 能否维持 circular motion。</li>
@@ -451,13 +465,13 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
 <div class="study-card">
 <ul class="task-list">
-<li><label><input type="checkbox">能把 rpm 转换为 <span class="math inline">\(\mathrm{rad\ s^{-1}}\)</span>；</label></li>
-<li><label><input type="checkbox">能区分 angular speed <span class="math inline">\(\omega\)</span> 与 linear speed <span class="math inline">\(v\)</span>；</label></li>
-<li><label><input type="checkbox">能写出 <span class="math inline">\(v=r\omega\)</span> 与 <span class="math inline">\(a=r\omega^2=v^2/r\)</span>；</label></li>
+<li><label><input type="checkbox">能把 rpm 转换为 <span class="math inline">\mathrm{rad\ s^{-1}}</span>；</label></li>
+<li><label><input type="checkbox">能区分 angular speed <span class="math inline">\omega</span> 与 linear speed <span class="math inline">v</span>；</label></li>
+<li><label><input type="checkbox">能写出 <span class="math inline">v=r\omega</span> 与 <span class="math inline">a=r\omega^2=v^2/r</span>；</label></li>
 <li><label><input type="checkbox">能把 acceleration 方向画向圆心；</label></li>
 <li><label><input type="checkbox">能在水平圆中分别列水平 radial equation 与竖直 equilibrium equation；</label></li>
 <li><label><input type="checkbox">能在 vertical circle 中结合 Newton’s second law 与 conservation of energy；</label></li>
-<li><label><input type="checkbox">能用 <span class="math inline">\(T=0\)</span> 或 <span class="math inline">\(R=0\)</span> 判断 string 或 surface 何时失效。</label></li>
+<li><label><input type="checkbox">能用 <span class="math inline">T=0</span> 或 <span class="math inline">R=0</span> 判断 string 或 surface 何时失效。</label></li>
 </ul>
 </div>
 </section>
@@ -465,124 +479,124 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
 <section id="angular-speed-and-linear-speed" class="level3">
 <h3 class="anchored" data-anchor-id="angular-speed-and-linear-speed">1.1 Angular speed and linear speed</h3>
-<p>若粒子沿半径 <span class="math inline">\(r\)</span> 的圆运动，转过的角度为 <span class="math inline">\(\theta\)</span>（必须用 radians），则弧长</p>
-<p><span class="math display">\[
+<p>若粒子沿半径 <span class="math inline">r</span> 的圆运动，转过的角度为 <span class="math inline">\theta</span>（必须用 radians），则弧长</p>
+<p><span class="math display">
 s=r\theta.
-\]</span></p>
+</span></p>
 <p>对时间求导：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{v=r\omega},
 \qquad
 \omega=\dot\theta.
-\]</span></p>
-<p>若转速为 <span class="math inline">\(n\)</span> rpm，则</p>
-<p><span class="math display">\[
+</span></p>
+<p>若转速为 <span class="math inline">n</span> rpm，则</p>
+<p><span class="math display">
 \boxed{\omega=\frac{2\pi n}{60}\ \mathrm{rad\ s^{-1}}}.
-\]</span></p>
+</span></p>
 </section>
 <section id="velocity-and-acceleration" class="level3">
 <h3 class="anchored" data-anchor-id="velocity-and-acceleration">1.2 Velocity and acceleration</h3>
 <p>圆周运动中 velocity 沿圆的 tangent，始终与 radius 垂直。Acceleration 的 radial component 指向圆心：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{a_r=-r\dot\theta^2=-r\omega^2=-\frac{v^2}{r}}.
-\]</span></p>
+</span></p>
 <p>若 angular speed 变化，还有 transverse component：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{a_t=r\ddot\theta=r\dot\omega}.
-\]</span></p>
-<p>Uniform circular motion 中 <span class="math inline">\(\omega\)</span> 恒定，因此 <span class="math inline">\(a_t=0\)</span>，但 radial acceleration 仍然存在。</p>
+</span></p>
+<p>Uniform circular motion 中 <span class="math inline">\omega</span> 恒定，因此 <span class="math inline">a_t=0</span>，但 radial acceleration 仍然存在。</p>
 </section>
 <section id="centripetal-force" class="level3">
 <h3 class="anchored" data-anchor-id="centripetal-force">1.3 Centripetal force</h3>
 <p>“centripetal force”不是一种额外的新力，而是指合力的 radial component。由 Newton’s second law：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{F_\text{radial}=mr\omega^2=\frac{mv^2}{r}}.
-\]</span></p>
+</span></p>
 <p>实际提供该合力的可能是 friction、tension、normal reaction、weight 或这些力的合力。</p>
 </section>
 <section id="horizontal-circular-motion" class="level3">
 <h3 class="anchored" data-anchor-id="horizontal-circular-motion">1.4 Horizontal circular motion</h3>
 <p>水平圆运动中，竖直方向通常没有 acceleration：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum F_y=0.
-\]</span></p>
+</span></p>
 <p>水平方向指向圆心：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sum F_\text{towards centre}=mr\omega^2=\frac{mv^2}{r}.
-\]</span></p>
-<p>例如 conical pendulum 中，若 string 与竖直方向夹角为 <span class="math inline">\(\alpha\)</span>：</p>
-<p><span class="math display">\[
+</span></p>
+<p>例如 conical pendulum 中，若 string 与竖直方向夹角为 <span class="math inline">\alpha</span>：</p>
+<p><span class="math display">
 T\cos\alpha=mg,
 \qquad
 T\sin\alpha=mr\omega^2,
 \qquad
 r=l\sin\alpha.
-\]</span></p>
+</span></p>
 </section>
 <section id="banked-tracks" class="level3">
 <h3 class="anchored" data-anchor-id="banked-tracks">1.5 Banked tracks</h3>
-<p>理想 banked track 中没有 sideways friction。若道路倾角为 <span class="math inline">\(\alpha\)</span>，则 normal reaction 的 vertical component 平衡 weight，horizontal component 提供 centripetal force：</p>
-<p><span class="math display">\[
+<p>理想 banked track 中没有 sideways friction。若道路倾角为 <span class="math inline">\alpha</span>，则 normal reaction 的 vertical component 平衡 weight，horizontal component 提供 centripetal force：</p>
+<p><span class="math display">
 R\cos\alpha=mg,
 \qquad
 R\sin\alpha=\frac{mv^2}{r}.
-\]</span></p>
+</span></p>
 <p>因此</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\tan\alpha=\frac{v^2}{rg}}.
-\]</span></p>
+</span></p>
 </section>
 <section id="vertical-circular-motion" class="level3">
 <h3 class="anchored" data-anchor-id="vertical-circular-motion">1.6 Vertical circular motion</h3>
-<p>取圆心 <span class="math inline">\(O\)</span> 为参考，若粒子在半径 <span class="math inline">\(r\)</span> 的 vertical circle 上，位置与最低点半径夹角为 <span class="math inline">\(\theta\)</span>，最低点速度为 <span class="math inline">\(u\)</span>，则 conservation of energy 给出</p>
-<p><span class="math display">\[
+<p>取圆心 <span class="math inline">O</span> 为参考，若粒子在半径 <span class="math inline">r</span> 的 vertical circle 上，位置与最低点半径夹角为 <span class="math inline">\theta</span>，最低点速度为 <span class="math inline">u</span>，则 conservation of energy 给出</p>
+<p><span class="math display">
 \frac12m(r\dot\theta)^2-mgr\cos\theta
 =\frac12mu^2-mgr,
-\]</span></p>
+</span></p>
 <p>即</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{v^2=u^2-2gr(1-\cos\theta)}.
-\]</span></p>
+</span></p>
 <p>向圆心取 moments/forces 时，必须根据题型判断 tension 或 normal reaction 的方向。失去约束时：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{T=0\quad\text{或}\quad R=0}.
-\]</span></p>
+</span></p>
 </section>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-4.1-angular-speed-of-a-car" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.1-angular-speed-of-a-car">Example 4.1 · Angular speed of a car</h3>
-<p>A police car drives at <span class="math inline">\(64\ \mathrm{km\ h^{-1}}\)</span> around a circular bend of radius <span class="math inline">\(16\)</span> m. A second car moves so that it has the same angular speed as the police car but in a circle of radius <span class="math inline">\(12\)</span> m. Is the second car breaking the <span class="math inline">\(50\ \mathrm{km\ h^{-1}}\)</span> speed limit?</p>
+<p>A police car drives at <span class="math inline">64\ \mathrm{km\ h^{-1}}</span> around a circular bend of radius <span class="math inline">16</span> m. A second car moves so that it has the same angular speed as the police car but in a circle of radius <span class="math inline">12</span> m. Is the second car breaking the <span class="math inline">50\ \mathrm{km\ h^{-1}}</span> speed limit?</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>Convert the speed of the police car:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 64\ \mathrm{km\ h^{-1}}=\frac{160}{9}\ \mathrm{m\ s^{-1}}.
-\]</span></p>
+</span></p>
 <p>Its angular speed is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \omega=\frac{v}{r}=\frac{160/9}{16}=\frac{10}{9}\ \mathrm{rad\ s^{-1}}.
-\]</span></p>
+</span></p>
 <p>For the second car,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v=r\omega=12\left(\frac{10}{9}\right)=\frac{40}{3}\ \mathrm{m\ s^{-1}}.
-\]</span></p>
+</span></p>
 <p>Converting back to kilometres per hour,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{40}{3}\times\frac{18}{5}=48\ \mathrm{km\ h^{-1}}.
-\]</span></p>
+</span></p>
 <p>Therefore the second car is</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\text{not breaking the speed limit}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-4.2-velocity-and-acceleration-on-a-turntable" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.2-velocity-and-acceleration-on-a-turntable">Example 4.2 · Velocity and acceleration on a turntable</h3>
-<p>A turntable is rotating at <span class="math inline">\(45\)</span> rpm. A fly is standing on the turntable at a distance of <span class="math inline">\(8\)</span> cm from the centre. Find</p>
+<p>A turntable is rotating at <span class="math inline">45</span> rpm. A fly is standing on the turntable at a distance of <span class="math inline">8</span> cm from the centre. Find</p>
 <p><strong>(i)</strong> the angular speed of the fly in radians per second;</p>
 <p><strong>(ii)</strong> the speed of the fly in metres per second;</p>
 <p><strong>(iii)</strong> the acceleration of the fly.</p>
@@ -590,26 +604,26 @@ v=r\omega=12\left(\frac{10}{9}\right)=\frac{40}{3}\ \mathrm{m\ s^{-1}}.
 <summary>
 Show answer
 </summary>
-<p><strong>(i)</strong> One revolution is <span class="math inline">\(2\pi\)</span> radians, so</p>
-<p><span class="math display">\[
+<p><strong>(i)</strong> One revolution is <span class="math inline">2\pi</span> radians, so</p>
+<p><span class="math display">
 \omega=45\times\frac{2\pi}{60}=\boxed{\frac{3\pi}{2}\ \mathrm{rad\ s^{-1}}}.
-\]</span></p>
-<p><strong>(ii)</strong> With <span class="math inline">\(r=0.08\)</span> m,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> With <span class="math inline">r=0.08</span> m,</p>
+<p><span class="math display">
 v=r\omega=0.08\times\frac{3\pi}{2}
 =\boxed{0.377\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <p><strong>(iii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 a=r\omega^2=0.08\left(\frac{3\pi}{2}\right)^2
 =\boxed{1.78\ \mathrm{m\ s^{-2}}}
-\]</span></p>
+</span></p>
 directed towards the centre of the turntable.
 </details>
 </section>
 <section id="example-4.3-a-coin-on-a-rotating-turntable" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.3-a-coin-on-a-rotating-turntable">Example 4.3 · A coin on a rotating turntable</h3>
-<p>A coin is placed on a rotating turntable. Its centre is <span class="math inline">\(5\)</span> cm from the centre of rotation. The coefficient of friction, <span class="math inline">\(\mu\)</span>, between the coin and the turntable is <span class="math inline">\(0.5\)</span>.</p>
+<p>A coin is placed on a rotating turntable. Its centre is <span class="math inline">5</span> cm from the centre of rotation. The coefficient of friction, <span class="math inline">\mu</span>, between the coin and the turntable is <span class="math inline">0.5</span>.</p>
 <p><strong>(i)</strong> The speed of rotation of the turntable is gradually increased. At what angular speed will the coin begin to slide?</p>
 <p><strong>(ii)</strong> What happens next?</p>
 <details class="answer-panel">
@@ -623,32 +637,32 @@ Show answer
 </figure>
 </div>
 <p>Because the angular speed is increased gradually, the coin does not initially slip tangentially. The frictional force provides the centripetal force.</p>
-<p><span class="math display">\[
+<p><span class="math display">
 R-mg=0\quad\Longrightarrow\quad R=mg.
-\]</span></p>
+</span></p>
 <p>The required friction is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 F=mr\omega^2.
-\]</span></p>
-<p>At limiting equilibrium, <span class="math inline">\(F=\mu R\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>At limiting equilibrium, <span class="math inline">F=\mu R</span>, so</p>
+<p><span class="math display">
 mr\omega^2=\mu mg
 \quad\Longrightarrow\quad
 \omega^2=\frac{\mu g}{r}.
-\]</span></p>
-<p>Using <span class="math inline">\(\mu=0.5\)</span>, <span class="math inline">\(g=10\)</span> and <span class="math inline">\(r=0.05\)</span> m:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">\mu=0.5</span>, <span class="math inline">g=10</span> and <span class="math inline">r=0.05</span> m:</p>
+<p><span class="math display">
 \omega^2=100
 \quad\Longrightarrow\quad
 \boxed{\omega=10\ \mathrm{rad\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <strong>(ii)</strong> Once the angular speed exceeds this value, the required friction is greater than the limiting friction. The coin slides to a new position farther from the centre; if the speed continues to increase, it eventually reaches the edge and leaves the turntable along the tangent.
 </details>
 </section>
 <section id="example-4.4-a-fairground-ride" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.4-a-fairground-ride">Example 4.4 · A fairground ride</h3>
 <p>In Figure 4.10, the diagram on the right represents one of several arms of a fairground ride, shown on the left. The arms rotate about an axis and riders sit in chairs linked to the arms by chains.</p>
-<p>The chains are <span class="math inline">\(2\)</span> m long and the arms are <span class="math inline">\(3\)</span> m long. Find the angle that the chains make with the vertical when the rider rotates at <span class="math inline">\(1.1\ \mathrm{rad\ s^{-1}}\)</span>.</p>
+<p>The chains are <span class="math inline">2</span> m long and the arms are <span class="math inline">3</span> m long. Find the angle that the chains make with the vertical when the rider rotates at <span class="math inline">1.1\ \mathrm{rad\ s^{-1}}</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/circular-motion/pic/4.4.png" class="img-fluid figure-img" style="width:96.0%"></p>
@@ -665,30 +679,30 @@ Show answer
 <figcaption>Forces on the rider</figcaption>
 </figure>
 </div>
-<p>Let the resultant tension be <span class="math inline">\(T\)</span> and let the angle with the vertical be <span class="math inline">\(\alpha\)</span>. The radius of the circular path is</p>
-<p><span class="math display">\[
+<p>Let the resultant tension be <span class="math inline">T</span> and let the angle with the vertical be <span class="math inline">\alpha</span>. The radius of the circular path is</p>
+<p><span class="math display">
 r=3+2\sin\alpha.
-\]</span></p>
+</span></p>
 <p>Resolving horizontally towards the centre and vertically:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T\sin\alpha=m r\omega^2=m(3+2\sin\alpha)(1.1)^2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 T\cos\alpha=mg.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(T\)</span> and using <span class="math inline">\(g=10\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">T</span> and using <span class="math inline">g=10</span>:</p>
+<p><span class="math display">
 10\tan\alpha=1.21(3+2\sin\alpha).
-\]</span></p>
+</span></p>
 <p>Solving numerically gives</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\alpha=24.9^\circ}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-4.5-a-banked-road-without-sideways-friction" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.5-a-banked-road-without-sideways-friction">Example 4.5 · A banked road without sideways friction</h3>
-<p>A car is rounding a bend of radius <span class="math inline">\(100\)</span> m that is banked at an angle of <span class="math inline">\(10^\circ\)</span> to the horizontal. At what speed must the car travel to ensure it has no tendency to slip sideways?</p>
+<p>A car is rounding a bend of radius <span class="math inline">100</span> m that is banked at an angle of <span class="math inline">10^\circ</span> to the horizontal. At what speed must the car travel to ensure it has no tendency to slip sideways?</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -700,25 +714,25 @@ Show answer
 </figure>
 </div>
 <p>With no tendency to slip, there is no frictional force. Resolving vertically and horizontally towards the centre:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 R\cos10^\circ=mg,
 \qquad
 R\sin10^\circ=\frac{mv^2}{100}.
-\]</span></p>
+</span></p>
 <p>Dividing the second equation by the first:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan10^\circ=\frac{v^2}{100g}.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<span class="math display">\[
+<span class="math display">
 v=\sqrt{100g\tan10^\circ}
 =\boxed{13.3\ \mathrm{m\ s^{-1}}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-4.6-banking-a-railway-track" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.6-banking-a-railway-track">Example 4.6 · Banking a railway track</h3>
-<p>A bend on a railway track has a radius of <span class="math inline">\(500\)</span> m and is to be banked so that a train can negotiate it at <span class="math inline">\(96\ \mathrm{km\ h^{-1}}\)</span> without the need for a lateral force between its wheels and the rail. The distance between the rails is <span class="math inline">\(1.43\)</span> m. How much higher should the outside rail be than the inside one?</p>
+<p>A bend on a railway track has a radius of <span class="math inline">500</span> m and is to be banked so that a train can negotiate it at <span class="math inline">96\ \mathrm{km\ h^{-1}}</span> without the need for a lateral force between its wheels and the rail. The distance between the rails is <span class="math inline">1.43</span> m. How much higher should the outside rail be than the inside one?</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -730,34 +744,34 @@ Show answer
 </figure>
 </div>
 <p>Convert the speed:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 96\ \mathrm{km\ h^{-1}}=\frac{80}{3}\ \mathrm{m\ s^{-1}}.
-\]</span></p>
+</span></p>
 <p>With zero lateral thrust,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 R\sin\alpha=\frac{mv^2}{r},
 \qquad R\cos\alpha=mg.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan\alpha=\frac{v^2}{rg}
 =\frac{(80/3)^2}{500(10)}=\frac{32}{225}.
-\]</span></p>
-<p>Hence <span class="math inline">\(\alpha=8.1^\circ\)</span> and the required height difference is</p>
-<span class="math display">\[
+</span></p>
+<p>Hence <span class="math inline">\alpha=8.1^\circ</span> and the required height difference is</p>
+<span class="math display">
 1.43\sin8.1^\circ
 =\boxed{0.20\ \mathrm{m}\text{ approximately}}.
-\]</span>
+</span>
 </details>
 </section>
 <section id="example-4.7-a-particle-attached-to-a-light-rod" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.7-a-particle-attached-to-a-light-rod">Example 4.7 · A particle attached to a light rod</h3>
-<p>A particle of mass <span class="math inline">\(0.03\)</span> kg is attached to the end, <span class="math inline">\(P\)</span>, of a light rod, <span class="math inline">\(OP\)</span>, of length <span class="math inline">\(0.5\)</span> m that is free to rotate in a vertical circle with centre <span class="math inline">\(O\)</span>. The particle is set in motion, starting at the lowest point of the circle. The initial speed of the particle is <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>.</p>
+<p>A particle of mass <span class="math inline">0.03</span> kg is attached to the end, <span class="math inline">P</span>, of a light rod, <span class="math inline">OP</span>, of length <span class="math inline">0.5</span> m that is free to rotate in a vertical circle with centre <span class="math inline">O</span>. The particle is set in motion, starting at the lowest point of the circle. The initial speed of the particle is <span class="math inline">2\ \mathrm{m\ s^{-1}}</span>.</p>
 <p><strong>(i)</strong> Find the initial kinetic energy of the particle.</p>
-<p><strong>(ii)</strong> Find an expression for the potential energy gained when the rod has turned through an angle <span class="math inline">\(\theta\)</span>.</p>
-<p><strong>(iii)</strong> Find the value of <span class="math inline">\(\theta\)</span> when the particle first comes to rest.</p>
+<p><strong>(ii)</strong> Find an expression for the potential energy gained when the rod has turned through an angle <span class="math inline">\theta</span>.</p>
+<p><strong>(iii)</strong> Find the value of <span class="math inline">\theta</span> when the particle first comes to rest.</p>
 <p><strong>(iv)</strong> Find the stress in the rod at this point, stating whether it is a tension or a thrust.</p>
-<p><strong>(v)</strong> Repeat parts (i) to (iv) using an initial speed of <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span>.</p>
+<p><strong>(v)</strong> Repeat parts (i) to (iv) using an initial speed of <span class="math inline">4\ \mathrm{m\ s^{-1}}</span>.</p>
 <p><strong>(vi)</strong> Why is it possible for the first motion to take place if the rod is replaced by a string, but not the second motion?</p>
 <details class="answer-panel">
 <summary>
@@ -769,37 +783,37 @@ Show answer
 <figcaption>Particle and radial forces</figcaption>
 </figure>
 </div>
-<p>The rise through angle <span class="math inline">\(\theta\)</span> is <span class="math inline">\(0.5(1-\cos\theta)\)</span> m.</p>
-<p>For initial speed <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>:</p>
+<p>The rise through angle <span class="math inline">\theta</span> is <span class="math inline">0.5(1-\cos\theta)</span> m.</p>
+<p>For initial speed <span class="math inline">2\ \mathrm{m\ s^{-1}}</span>:</p>
 <p><strong>(i)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\frac12(0.03)(2)^2=0.06\ \mathrm J}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\Delta PE=0.03g\,[0.5(1-\cos\theta)]
 =0.015g(1-\cos\theta)\ \mathrm J}.
-\]</span></p>
-<p><strong>(iii)</strong> At the first rest point, <span class="math inline">\(0.015g(1-\cos\theta)=0.06\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(iii)</strong> At the first rest point, <span class="math inline">0.015g(1-\cos\theta)=0.06</span>, so</p>
+<p><span class="math display">
 \boxed{\theta=53.1^\circ}.
-\]</span></p>
+</span></p>
 <p><strong>(iv)</strong> At rest, the radial acceleration is zero:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T-0.03g\cos\theta=0.
-\]</span></p>
-<p>Thus <span class="math inline">\(T=0.180\)</span> N, so the rod is in</p>
-<p><span class="math display">\[
+</span></p>
+<p>Thus <span class="math inline">T=0.180</span> N, so the rod is in</p>
+<p><span class="math display">
 \boxed{\text{tension of }0.180\ \mathrm N}.
-\]</span></p>
-<p>For initial speed <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span>, the initial kinetic energy is <span class="math inline">\(0.24\)</span> J. The same energy equation gives <span class="math inline">\(\cos\theta=-0.6\)</span>, so <span class="math inline">\(\theta=126.9^\circ\)</span>. The radial equation gives <span class="math inline">\(T=-0.180\)</span> N, which means a thrust of magnitude <span class="math inline">\(0.180\)</span> N.</p>
+</span></p>
+<p>For initial speed <span class="math inline">4\ \mathrm{m\ s^{-1}}</span>, the initial kinetic energy is <span class="math inline">0.24</span> J. The same energy equation gives <span class="math inline">\cos\theta=-0.6</span>, so <span class="math inline">\theta=126.9^\circ</span>. The radial equation gives <span class="math inline">T=-0.180</span> N, which means a thrust of magnitude <span class="math inline">0.180</span> N.</p>
 <strong>(vi)</strong> A string can exert tension but cannot exert thrust. Therefore the first motion is possible with a string, whereas the second is not: the particle would leave the circular path when the tension becomes zero.
 </details>
 </section>
 <section id="example-4.8-a-bead-on-a-smooth-circular-wire" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.8-a-bead-on-a-smooth-circular-wire">Example 4.8 · A bead on a smooth circular wire</h3>
-<p>A bead of mass <span class="math inline">\(0.01\)</span> kg is threaded onto a smooth circular wire of radius <span class="math inline">\(0.6\)</span> m and is set in motion with a speed of <span class="math inline">\(u\ \mathrm{m\ s^{-1}}\)</span> at the bottom of the circle. This just enables the bead to reach the top of the wire.</p>
-<p><strong>(i)</strong> Find the value of <span class="math inline">\(u\)</span>.</p>
+<p>A bead of mass <span class="math inline">0.01</span> kg is threaded onto a smooth circular wire of radius <span class="math inline">0.6</span> m and is set in motion with a speed of <span class="math inline">u\ \mathrm{m\ s^{-1}}</span> at the bottom of the circle. This just enables the bead to reach the top of the wire.</p>
+<p><strong>(i)</strong> Find the value of <span class="math inline">u</span>.</p>
 <p><strong>(ii)</strong> What is the direction of the reaction of the wire on the bead when the bead is at the top of the circle?</p>
 <details class="answer-panel">
 <summary>
@@ -811,20 +825,20 @@ Show answer
 <figcaption>Energy at the bottom and top</figcaption>
 </figure>
 </div>
-<p><strong>(i)</strong> The bead just reaches the top with zero speed. The gain in height is <span class="math inline">\(1.2\)</span> m, so</p>
-<p><span class="math display">\[
+<p><strong>(i)</strong> The bead just reaches the top with zero speed. The gain in height is <span class="math inline">1.2</span> m, so</p>
+<p><span class="math display">
 \frac12(0.01)u^2=(0.01)g(1.2).
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 u^2=2.4g
 \quad\Longrightarrow\quad
 \boxed{u=4.90\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> At the top, the weight acts towards the centre. Since the speed is zero, the required radial resultant is zero, so the reaction must act upwards, away from the centre:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\text{upwards, with magnitude }0.01g\ \mathrm N}.
-\]</span></p>
+</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/circular-motion/pic/4.8a2.png" class="img-fluid figure-img" style="width:66.0%"></p>
@@ -835,10 +849,10 @@ u^2=2.4g
 </section>
 <section id="example-4.9-a-particle-on-a-vertical-circle" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.9-a-particle-on-a-vertical-circle">Example 4.9 · A particle on a vertical circle</h3>
-<p>Determine whether it is possible for a particle, <span class="math inline">\(P\)</span>, of mass <span class="math inline">\(m\)</span> kg to be in the position shown, moving round a vertical circle of radius <span class="math inline">\(0.5\)</span> m with an angular speed of <span class="math inline">\(4\ \mathrm{rad\ s^{-1}}\)</span>, when it is</p>
+<p>Determine whether it is possible for a particle, <span class="math inline">P</span>, of mass <span class="math inline">m</span> kg to be in the position shown, moving round a vertical circle of radius <span class="math inline">0.5</span> m with an angular speed of <span class="math inline">4\ \mathrm{rad\ s^{-1}}</span>, when it is</p>
 <p><strong>(i)</strong> sliding on the outside of a smooth surface;</p>
 <p><strong>(ii)</strong> sliding on the inside of a smooth surface;</p>
-<p><strong>(iii)</strong> attached to the end of a string <span class="math inline">\(OP\)</span>;</p>
+<p><strong>(iii)</strong> attached to the end of a string <span class="math inline">OP</span>;</p>
 <p><strong>(iv)</strong> threaded on a smooth ring.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -851,42 +865,42 @@ u^2=2.4g
 Show answer
 </summary>
 <p>The required radial acceleration is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 a=r\omega^2=0.5(4)^2=8\ \mathrm{m\ s^{-2}}.
-\]</span></p>
-<p>At the shown position, the component of weight towards <span class="math inline">\(O\)</span> is <span class="math inline">\(mg\cos60^\circ=5m\)</span> N.</p>
-<p><strong>(i)</strong> On the outside, the normal reaction acts away from <span class="math inline">\(O\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>At the shown position, the component of weight towards <span class="math inline">O</span> is <span class="math inline">mg\cos60^\circ=5m</span> N.</p>
+<p><strong>(i)</strong> On the outside, the normal reaction acts away from <span class="math inline">O</span>:</p>
+<p><span class="math display">
 mg\cos60^\circ-R=8m
 \quad\Longrightarrow\quad R=-3m.
-\]</span></p>
+</span></p>
 <p>This is impossible, so the motion is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\text{not possible}}.
-\]</span></p>
-<p><strong>(ii)</strong> On the inside, the normal reaction acts towards <span class="math inline">\(O\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> On the inside, the normal reaction acts towards <span class="math inline">O</span>:</p>
+<p><span class="math display">
 R+5m=8m
 \quad\Longrightarrow\quad R=3m&gt;0.
-\]</span></p>
+</span></p>
 <p>Therefore the motion is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\text{possible}}.
-\]</span></p>
+</span></p>
 <p><strong>(iii)</strong> A string can provide an inward tension, so the motion is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\text{possible}}.
-\]</span></p>
+</span></p>
 <p><strong>(iv)</strong> A smooth ring can exert a reaction in either radial direction, so the motion is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\text{possible for any angular speed}}.
-\]</span></p>
+</span></p>
 <img src="assets/circular-motion/pic/4.9a1.png" class="img-fluid" style="width:76.0%" alt="Radial force diagrams"> <img src="assets/circular-motion/pic/4.9a2.png" class="img-fluid" style="width:76.0%" alt="Alternative radial diagram">
 </details>
 </section>
 <section id="example-4.10-a-skier-on-a-smooth-hump" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.10-a-skier-on-a-smooth-hump">Example 4.10 · A skier on a smooth hump</h3>
-<p>Eddie, a skier of mass <span class="math inline">\(m\)</span> kg, is skiing down a hillside when he reaches a smooth hump in the form of an arc <span class="math inline">\(AB\)</span> of a circle with centre <span class="math inline">\(O\)</span> and radius <span class="math inline">\(8\)</span> m, as shown. <span class="math inline">\(O\)</span>, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> lie in a vertical plane and <span class="math inline">\(OA\)</span> and <span class="math inline">\(OB\)</span> make angles of <span class="math inline">\(20^\circ\)</span> and <span class="math inline">\(40^\circ\)</span> with the vertical, respectively. Eddie’s speed at <span class="math inline">\(A\)</span> is <span class="math inline">\(7\ \mathrm{m\ s^{-1}}\)</span>. Determine whether Eddie will lose contact with the ground before reaching the point <span class="math inline">\(B\)</span>.</p>
+<p>Eddie, a skier of mass <span class="math inline">m</span> kg, is skiing down a hillside when he reaches a smooth hump in the form of an arc <span class="math inline">AB</span> of a circle with centre <span class="math inline">O</span> and radius <span class="math inline">8</span> m, as shown. <span class="math inline">O</span>, <span class="math inline">A</span> and <span class="math inline">B</span> lie in a vertical plane and <span class="math inline">OA</span> and <span class="math inline">OB</span> make angles of <span class="math inline">20^\circ</span> and <span class="math inline">40^\circ</span> with the vertical, respectively. Eddie’s speed at <span class="math inline">A</span> is <span class="math inline">7\ \mathrm{m\ s^{-1}}</span>. Determine whether Eddie will lose contact with the ground before reaching the point <span class="math inline">B</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/circular-motion/pic/4.10.png" class="img-fluid figure-img" style="width:92.0%"></p>
@@ -903,33 +917,33 @@ Show answer
 <figcaption>Forces and energy at a general point</figcaption>
 </figure>
 </div>
-<p>Let <span class="math inline">\(S\)</span> be a general point on the arc and let <span class="math inline">\(OS\)</span> make an angle <span class="math inline">\(\beta\)</span> with the upward vertical. Taking the horizontal through <span class="math inline">\(O\)</span> as the zero level for potential energy,</p>
-<p><span class="math display">\[
+<p>Let <span class="math inline">S</span> be a general point on the arc and let <span class="math inline">OS</span> make an angle <span class="math inline">\beta</span> with the upward vertical. Taking the horizontal through <span class="math inline">O</span> as the zero level for potential energy,</p>
+<p><span class="math display">
 \frac12mv^2+mg(8\cos\beta)
 =\frac12m(7)^2+mg(8\cos20^\circ).
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v^2=199.3-16g\cos\beta.
-\]</span></p>
-<p>Resolving towards <span class="math inline">\(O\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Resolving towards <span class="math inline">O</span>,</p>
+<p><span class="math display">
 mg\cos\beta-R=\frac{mv^2}{8}.
-\]</span></p>
-<p>Eddie loses contact when <span class="math inline">\(R=0\)</span>, so <span class="math inline">\(v^2=8g\cos\beta\)</span>. Substitution gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eddie loses contact when <span class="math inline">R=0</span>, so <span class="math inline">v^2=8g\cos\beta</span>. Substitution gives</p>
+<p><span class="math display">
 8g\cos\beta=199.3-16g\cos\beta
 \quad\Longrightarrow\quad
 \cos\beta=0.830\ldots
-\]</span></p>
+</span></p>
 <p>and hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \beta=33.8^\circ.
-\]</span></p>
-<p>Since <span class="math inline">\(33.8^\circ&lt;40^\circ\)</span>, Eddie loses contact before reaching <span class="math inline">\(B\)</span>:</p>
-<span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">33.8^\circ&lt;40^\circ</span>, Eddie loses contact before reaching <span class="math inline">B</span>:</p>
+<span class="math display">
 \boxed{\text{he loses contact with the ground before }B}.
-\]</span>
+</span>
 </details>
 </section>
 </section>
@@ -937,99 +951,99 @@ mg\cos\beta-R=\frac{mv^2}{8}.
 <h2 class="anchored" data-anchor-id="教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</h2>
 <p>本节收录 Further Mechanics Chapter 4 Exercise 4B 中明确标注 Cambridge International 来源的题目。题目保留英文，图像使用 <code>Pic</code> 文件夹中的独立图片；每个小问单独列出，答案使用 <code>Show answer</code>。</p>
 <div class="question-card" title="Exercise 4B, Question 13 · Cambridge International 9709 Paper 51 Q3 June 2012">
-<p>A small sphere <span class="math inline">\(S\)</span> of mass <span class="math inline">\(m\)</span> kg is moving inside a smooth hollow bowl whose axis is vertical and whose sloping side is inclined at <span class="math inline">\(60^\circ\)</span> to the horizontal. <span class="math inline">\(S\)</span> moves with constant speed in a horizontal circle of radius <span class="math inline">\(0.6\)</span> m (see Diagram a). <span class="math inline">\(S\)</span> is in contact with both the plane base and the sloping side of the bowl (see Diagram b).</p>
+<p>A small sphere <span class="math inline">S</span> of mass <span class="math inline">m</span> kg is moving inside a smooth hollow bowl whose axis is vertical and whose sloping side is inclined at <span class="math inline">60^\circ</span> to the horizontal. <span class="math inline">S</span> moves with constant speed in a horizontal circle of radius <span class="math inline">0.6</span> m (see Diagram a). <span class="math inline">S</span> is in contact with both the plane base and the sloping side of the bowl (see Diagram b).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/circular-motion/pic/4.EB_13.png" class="img-fluid figure-img" style="width:96.0%"></p>
 <figcaption>Exercise 4B Question 13</figcaption>
 </figure>
 </div>
-<p><strong>(i)</strong> Given that the magnitudes of the forces exerted on <span class="math inline">\(S\)</span> by the base and the sloping side of the bowl are equal, calculate the speed of <span class="math inline">\(S\)</span>.</p>
-<p><strong>(ii)</strong> Given instead that <span class="math inline">\(S\)</span> is on the point of losing contact with one of the surfaces, find the angular speed of <span class="math inline">\(S\)</span>.</p>
+<p><strong>(i)</strong> Given that the magnitudes of the forces exerted on <span class="math inline">S</span> by the base and the sloping side of the bowl are equal, calculate the speed of <span class="math inline">S</span>.</p>
+<p><strong>(ii)</strong> Given instead that <span class="math inline">S</span> is on the point of losing contact with one of the surfaces, find the angular speed of <span class="math inline">S</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let the normal reactions from the base and sloping side both have magnitude <span class="math inline">\(N\)</span> in part <strong>(i)</strong>. The sloping side is at <span class="math inline">\(60^\circ\)</span> to the horizontal, so its normal has vertical component <span class="math inline">\(N\sin30^\circ\)</span> and horizontal inward component <span class="math inline">\(N\cos30^\circ\)</span>.</p>
+<p>Let the normal reactions from the base and sloping side both have magnitude <span class="math inline">N</span> in part <strong>(i)</strong>. The sloping side is at <span class="math inline">60^\circ</span> to the horizontal, so its normal has vertical component <span class="math inline">N\sin30^\circ</span> and horizontal inward component <span class="math inline">N\cos30^\circ</span>.</p>
 <p><strong>(i)</strong> Resolving vertically,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 N+N\sin30^\circ=mg
 \quad\Longrightarrow\quad
 N=\frac23mg.
-\]</span></p>
+</span></p>
 <p>The horizontal radial equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 N\cos30^\circ=\frac{mv^2}{0.6}.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v^2=0.6\left(\frac23g\right)\cos30^\circ
 =3.464\ldots
-\]</span></p>
+</span></p>
 <p>and therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{v=1.86\ \mathrm{m\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> At the limiting case, the base reaction becomes zero. Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 N\sin30^\circ=mg
 \quad\Longrightarrow\quad N=2mg.
-\]</span></p>
+</span></p>
 <p>The radial equation gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 N\cos30^\circ=m(0.6)\omega^2.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \omega^2=\frac{2g\cos30^\circ}{0.6}
 \quad\Longrightarrow\quad
 \boxed{\omega=5.37\ \mathrm{rad\ s^{-1}}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 51 Q3, June 2012; textbook answer checked.
 </div>
 </div>
 <div class="question-card" title="Exercise 4B, Question 14 · Cambridge International 9709 Paper 53 Q3 November 2010">
-<p>Particles <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> have masses <span class="math inline">\(0.8\)</span> kg and <span class="math inline">\(0.4\)</span> kg, respectively. <span class="math inline">\(P\)</span> is attached to a fixed point <span class="math inline">\(A\)</span> by a light inextensible string that is inclined at an angle <span class="math inline">\(\alpha\)</span> to the vertical. <span class="math inline">\(Q\)</span> is attached to a fixed point <span class="math inline">\(B\)</span>, which is vertically below <span class="math inline">\(A\)</span>, by a light inextensible string of length <span class="math inline">\(0.3\)</span> m. The string <span class="math inline">\(BQ\)</span> is horizontal. <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are joined to each other by a light inextensible string that is vertical. The particles rotate in horizontal circles of radius <span class="math inline">\(0.3\)</span> m about the axis through <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> with constant angular speed <span class="math inline">\(5\ \mathrm{rad\ s^{-1}}\)</span> (see diagram).</p>
+<p>Particles <span class="math inline">P</span> and <span class="math inline">Q</span> have masses <span class="math inline">0.8</span> kg and <span class="math inline">0.4</span> kg, respectively. <span class="math inline">P</span> is attached to a fixed point <span class="math inline">A</span> by a light inextensible string that is inclined at an angle <span class="math inline">\alpha</span> to the vertical. <span class="math inline">Q</span> is attached to a fixed point <span class="math inline">B</span>, which is vertically below <span class="math inline">A</span>, by a light inextensible string of length <span class="math inline">0.3</span> m. The string <span class="math inline">BQ</span> is horizontal. <span class="math inline">P</span> and <span class="math inline">Q</span> are joined to each other by a light inextensible string that is vertical. The particles rotate in horizontal circles of radius <span class="math inline">0.3</span> m about the axis through <span class="math inline">A</span> and <span class="math inline">B</span> with constant angular speed <span class="math inline">5\ \mathrm{rad\ s^{-1}}</span> (see diagram).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/circular-motion/pic/4.EB_14.png" class="img-fluid figure-img" style="width:62.0%"></p>
 <figcaption>Exercise 4B Question 14</figcaption>
 </figure>
 </div>
-<p><strong>(i)</strong> By considering the motion of <span class="math inline">\(Q\)</span>, find the tensions in the strings <span class="math inline">\(PQ\)</span> and <span class="math inline">\(BQ\)</span>.</p>
-<p><strong>(ii)</strong> Find the tension in the string <span class="math inline">\(AP\)</span> and the value of <span class="math inline">\(\alpha\)</span>.</p>
+<p><strong>(i)</strong> By considering the motion of <span class="math inline">Q</span>, find the tensions in the strings <span class="math inline">PQ</span> and <span class="math inline">BQ</span>.</p>
+<p><strong>(ii)</strong> Find the tension in the string <span class="math inline">AP</span> and the value of <span class="math inline">\alpha</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>For <span class="math inline">\(Q\)</span>, the horizontal string <span class="math inline">\(BQ\)</span> supplies the centripetal force:</p>
-<p><span class="math display">\[
+<p>For <span class="math inline">Q</span>, the horizontal string <span class="math inline">BQ</span> supplies the centripetal force:</p>
+<p><span class="math display">
 T_{BQ}=0.4(0.3)(5)^2=\boxed{3\ \mathrm N}.
-\]</span></p>
+</span></p>
 <p>There is no vertical acceleration, so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T_{PQ}=0.4g=\boxed{4\ \mathrm N}.
-\]</span></p>
-<p>For <span class="math inline">\(P\)</span>, the vertical component of <span class="math inline">\(T_{AP}\)</span> balances the weight of <span class="math inline">\(P\)</span> and the downward tension from <span class="math inline">\(PQ\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>For <span class="math inline">P</span>, the vertical component of <span class="math inline">T_{AP}</span> balances the weight of <span class="math inline">P</span> and the downward tension from <span class="math inline">PQ</span>:</p>
+<p><span class="math display">
 T_{AP}\cos\alpha=0.8g+4=12.
-\]</span></p>
+</span></p>
 <p>The horizontal component supplies the centripetal force:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T_{AP}\sin\alpha=0.8(0.3)(5)^2=6.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T_{AP}=\sqrt{12^2+6^2}=\boxed{13.4\ \mathrm N},
-\]</span></p>
+</span></p>
 <p>and</p>
-<span class="math display">\[
+<span class="math display">
 \tan\alpha=\frac{6}{12}=\frac12
 \quad\Longrightarrow\quad
 \boxed{\alpha=26.6^\circ}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q3, November 2010; textbook answer checked.
@@ -1045,46 +1059,46 @@ T_{AP}=\sqrt{12^2+6^2}=\boxed{13.4\ \mathrm N},
 <p>Questions are arranged by examination session and question number. The wording is kept in English, including every sub-question. Each solution is presented as a sequence of mark-scheme points.</p>
 <section id="mayjune-923131-and-923132-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-5">2021 May/June · 9231/31 and 9231/32 · Question 5</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to one end of a light inextensible string of length <span class="math inline">\(a\)</span>. The other end of the string is attached to a fixed point <span class="math inline">\(O\)</span>. The particle completes vertical circles with centre <span class="math inline">\(O\)</span>. The points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are on the path of <span class="math inline">\(P\)</span>, both on the same side of the vertical through <span class="math inline">\(O\)</span>. <span class="math inline">\(OA\)</span> makes an angle <span class="math inline">\(i\)</span> with the downward vertical through <span class="math inline">\(O\)</span> and <span class="math inline">\(OB\)</span> makes an angle <span class="math inline">\(i\)</span> with the upward vertical through <span class="math inline">\(O\)</span>.</p>
-<p>The speed of <span class="math inline">\(P\)</span> when it is at <span class="math inline">\(A\)</span> is <span class="math inline">\(u\)</span> and the speed of <span class="math inline">\(P\)</span> when it is at <span class="math inline">\(B\)</span> is <span class="math inline">\(\sqrt{ag}\)</span>. The tensions in the string at <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are <span class="math inline">\(T_A\)</span> and <span class="math inline">\(T_B\)</span> respectively. It is given that <span class="math inline">\(T_A=7T_B\)</span>.</p>
-<p>Find the value of <span class="math inline">\(i\)</span> and find an expression for <span class="math inline">\(u\)</span> in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(g\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to one end of a light inextensible string of length <span class="math inline">a</span>. The other end of the string is attached to a fixed point <span class="math inline">O</span>. The particle completes vertical circles with centre <span class="math inline">O</span>. The points <span class="math inline">A</span> and <span class="math inline">B</span> are on the path of <span class="math inline">P</span>, both on the same side of the vertical through <span class="math inline">O</span>. <span class="math inline">OA</span> makes an angle <span class="math inline">i</span> with the downward vertical through <span class="math inline">O</span> and <span class="math inline">OB</span> makes an angle <span class="math inline">i</span> with the upward vertical through <span class="math inline">O</span>.</p>
+<p>The speed of <span class="math inline">P</span> when it is at <span class="math inline">A</span> is <span class="math inline">u</span> and the speed of <span class="math inline">P</span> when it is at <span class="math inline">B</span> is <span class="math inline">\sqrt{ag}</span>. The tensions in the string at <span class="math inline">A</span> and <span class="math inline">B</span> are <span class="math inline">T_A</span> and <span class="math inline">T_B</span> respectively. It is given that <span class="math inline">T_A=7T_B</span>.</p>
+<p>Find the value of <span class="math inline">i</span> and find an expression for <span class="math inline">u</span> in terms of <span class="math inline">a</span> and <span class="math inline">g</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Taking forces towards the centre at <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>:</p>
-<p><span class="math display">\[
+<p>Taking forces towards the centre at <span class="math inline">A</span> and <span class="math inline">B</span>:</p>
+<p><span class="math display">
 T_A-mg\cos i=\frac{mu^2}{a},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 T_B+mg\cos i=mg.
-\]</span></p>
-<p>Using <span class="math inline">\(T_A=7T_B\)</span> and eliminating the tensions gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">T_A=7T_B</span> and eliminating the tensions gives</p>
+<p><span class="math display">
 u^2=ag(7-8\cos i).
-\]</span></p>
-<p>Conservation of energy between <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Conservation of energy between <span class="math inline">A</span> and <span class="math inline">B</span> gives</p>
+<p><span class="math display">
 \frac12mu^2-\frac12m(ag)=mg(2a\cos i),
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 u^2=ag(4\cos i+1).
-\]</span></p>
-<p>Equating the two expressions for <span class="math inline">\(u^2\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Equating the two expressions for <span class="math inline">u^2</span>:</p>
+<p><span class="math display">
 7-8\cos i=4\cos i+1
 \quad\Longrightarrow\quad
 \cos i=\frac12.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{i=60^\circ}.
-\]</span></p>
+</span></p>
 <p>Substitution gives</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{u=\sqrt{3ag}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Question 5; answer checked against the official Mark Scheme.
@@ -1098,45 +1112,45 @@ u^2=ag(4\cos i+1).
 <figcaption>Original diagram for 2021 May/June Question 4</figcaption>
 </figure>
 </div>
-<p>A particle of mass <span class="math inline">\(m\)</span> is attached to one end of a light inextensible string of length <span class="math inline">\(a\)</span>. The other end of the string is attached to a fixed point <span class="math inline">\(O\)</span>. The particle is initially held with the string taut at the point <span class="math inline">\(A\)</span>, where <span class="math inline">\(OA\)</span> makes an angle <span class="math inline">\(i\)</span> with the downward vertical through <span class="math inline">\(O\)</span>. The particle is then projected with speed <span class="math inline">\(u\)</span> perpendicular to <span class="math inline">\(OA\)</span> and begins to move upwards in part of a vertical circle. The string goes slack when the particle is at the point <span class="math inline">\(B\)</span> where angle <span class="math inline">\(AOB\)</span> is a right angle. The speed of the particle when it is at <span class="math inline">\(B\)</span> is <span class="math inline">\(\frac12u\)</span>.</p>
-<p>Find the tension in the string at <span class="math inline">\(A\)</span>, giving your answer in terms of <span class="math inline">\(m\)</span> and <span class="math inline">\(g\)</span>.</p>
+<p>A particle of mass <span class="math inline">m</span> is attached to one end of a light inextensible string of length <span class="math inline">a</span>. The other end of the string is attached to a fixed point <span class="math inline">O</span>. The particle is initially held with the string taut at the point <span class="math inline">A</span>, where <span class="math inline">OA</span> makes an angle <span class="math inline">i</span> with the downward vertical through <span class="math inline">O</span>. The particle is then projected with speed <span class="math inline">u</span> perpendicular to <span class="math inline">OA</span> and begins to move upwards in part of a vertical circle. The string goes slack when the particle is at the point <span class="math inline">B</span> where angle <span class="math inline">AOB</span> is a right angle. The speed of the particle when it is at <span class="math inline">B</span> is <span class="math inline">\frac12u</span>.</p>
+<p>Find the tension in the string at <span class="math inline">A</span>, giving your answer in terms of <span class="math inline">m</span> and <span class="math inline">g</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The gain in height from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> is <span class="math inline">\(a\cos i+a\sin i\)</span>. Conservation of energy gives</p>
-<p><span class="math display">\[
+<p>The gain in height from <span class="math inline">A</span> to <span class="math inline">B</span> is <span class="math inline">a\cos i+a\sin i</span>. Conservation of energy gives</p>
+<p><span class="math display">
 \frac12mu^2-\frac12m\left(\frac u2\right)^2
 =mg(a\cos i+a\sin i),
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac34u^2=2ag(\cos i+\sin i).
-\]</span></p>
-<p>At <span class="math inline">\(B\)</span> the string is slack, so <span class="math inline">\(T=0\)</span>. Resolving towards <span class="math inline">\(O\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">B</span> the string is slack, so <span class="math inline">T=0</span>. Resolving towards <span class="math inline">O</span>:</p>
+<p><span class="math display">
 mg\sin i=\frac{m(u/2)^2}{a}
 \quad\Longrightarrow\quad
 u^2=4ag\sin i.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(u\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">u</span> gives</p>
+<p><span class="math display">
 \tan i=2.
-\]</span></p>
-<p>At <span class="math inline">\(A\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">A</span>,</p>
+<p><span class="math display">
 T_A-mg\cos i=\frac{mu^2}{a}.
-\]</span></p>
-<p>Using <span class="math inline">\(\sin i=2/\sqrt5\)</span>, <span class="math inline">\(\cos i=1/\sqrt5\)</span> and <span class="math inline">\(u^2=8ag/\sqrt5\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">\sin i=2/\sqrt5</span>, <span class="math inline">\cos i=1/\sqrt5</span> and <span class="math inline">u^2=8ag/\sqrt5</span>:</p>
+<p><span class="math display">
 T_A=mg\cos i+\frac{mu^2}{a}
 =\frac{mg}{\sqrt5}+\frac{8mg}{\sqrt5}.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{T_A=\frac{9}{\sqrt5}mg\ \mathrm N}
-\]</span></p>
-or <span class="math inline">\(T_A=4.02mg\ \mathrm N\)</span>.
+</span></p>
+or <span class="math inline">T_A=4.02mg\ \mathrm N</span>.
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2021, Question 4; answer checked against the official Mark Scheme.
@@ -1144,44 +1158,44 @@ or <span class="math inline">\(T_A=4.02mg\ \mathrm N\)</span>.
 </section>
 <section id="octobernovember-923131-question-5" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-question-5">2022 October/November · 9231/31 · Question 5</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to one end of a light inextensible string of length <span class="math inline">\(a\)</span>. The other end of the string is attached to a fixed point <span class="math inline">\(O\)</span>. The string is held taut with <span class="math inline">\(OP\)</span> horizontal. The particle <span class="math inline">\(P\)</span> is projected vertically downwards with speed <span class="math inline">\(\frac13\sqrt{ag}\)</span> and starts to move in a vertical circle. <span class="math inline">\(P\)</span> passes through the lowest point of the circle and reaches the point <span class="math inline">\(Q\)</span> where <span class="math inline">\(OQ\)</span> makes an angle <span class="math inline">\(i\)</span> with the downward vertical. At <span class="math inline">\(Q\)</span> the speed of <span class="math inline">\(P\)</span> is <span class="math inline">\(\sqrt{kag}\)</span> and the tension in the string is <span class="math inline">\(\frac{11}{6}mg\)</span>.</p>
-<p><strong>(a)</strong> Find the value of <span class="math inline">\(k\)</span> and the value of <span class="math inline">\(\cos i\)</span>.</p>
-<p>At <span class="math inline">\(Q\)</span> the particle <span class="math inline">\(P\)</span> becomes detached from the string.</p>
-<p><strong>(b)</strong> In the subsequent motion, find the greatest height reached by <span class="math inline">\(P\)</span> above the level of the lowest point of the circle.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to one end of a light inextensible string of length <span class="math inline">a</span>. The other end of the string is attached to a fixed point <span class="math inline">O</span>. The string is held taut with <span class="math inline">OP</span> horizontal. The particle <span class="math inline">P</span> is projected vertically downwards with speed <span class="math inline">\frac13\sqrt{ag}</span> and starts to move in a vertical circle. <span class="math inline">P</span> passes through the lowest point of the circle and reaches the point <span class="math inline">Q</span> where <span class="math inline">OQ</span> makes an angle <span class="math inline">i</span> with the downward vertical. At <span class="math inline">Q</span> the speed of <span class="math inline">P</span> is <span class="math inline">\sqrt{kag}</span> and the tension in the string is <span class="math inline">\frac{11}{6}mg</span>.</p>
+<p><strong>(a)</strong> Find the value of <span class="math inline">k</span> and the value of <span class="math inline">\cos i</span>.</p>
+<p>At <span class="math inline">Q</span> the particle <span class="math inline">P</span> becomes detached from the string.</p>
+<p><strong>(b)</strong> In the subsequent motion, find the greatest height reached by <span class="math inline">P</span> above the level of the lowest point of the circle.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> From energy between the initial horizontal position and <span class="math inline">\(Q\)</span>:</p>
-<p><span class="math display">\[
+<p><strong>(a)</strong> From energy between the initial horizontal position and <span class="math inline">Q</span>:</p>
+<p><span class="math display">
 \frac12m(kag)-\frac12m\left(\frac19ag\right)=mga\cos i.
-\]</span></p>
-<p>At <span class="math inline">\(Q\)</span>, resolving towards <span class="math inline">\(O\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>At <span class="math inline">Q</span>, resolving towards <span class="math inline">O</span>:</p>
+<p><span class="math display">
 \frac{11}{6}mg-mg\cos i=\frac{m(kag)}{a}=kmg.
-\]</span></p>
+</span></p>
 <p>Solving these two equations gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{k=\frac43},
 \qquad
 \boxed{\cos i=\frac12}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> After detachment, the initial upward component of velocity is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sqrt{\frac43ag}\sin i.
-\]</span></p>
-<p>The particle rises a further distance <span class="math inline">\(s\)</span> satisfying</p>
-<p><span class="math display">\[
+</span></p>
+<p>The particle rises a further distance <span class="math inline">s</span> satisfying</p>
+<p><span class="math display">
 0=\left(\sqrt{\frac43ag}\sin i\right)^2-2gs,
-\]</span></p>
-<p>so <span class="math inline">\(s=\frac12a\)</span>. The height of <span class="math inline">\(Q\)</span> above the lowest point is</p>
-<p><span class="math display">\[
+</span></p>
+<p>so <span class="math inline">s=\frac12a</span>. The height of <span class="math inline">Q</span> above the lowest point is</p>
+<p><span class="math display">
 a(1-\cos i)=\frac12a.
-\]</span></p>
+</span></p>
 <p>Therefore the required total height is</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{a}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31, October/November 2022, Question 5; answer checked against the official Mark Scheme.
@@ -1195,49 +1209,49 @@ a(1-\cos i)=\frac12a.
 <figcaption>Original diagram for 2022 October/November Question 6</figcaption>
 </figure>
 </div>
-<p>A light inextensible string is threaded through a fixed smooth ring <span class="math inline">\(R\)</span> which is at a height <span class="math inline">\(h\)</span> above a smooth horizontal surface. One end of the string is attached to a particle <span class="math inline">\(A\)</span> of mass <span class="math inline">\(m\)</span>. The other end is attached to a particle <span class="math inline">\(B\)</span> of mass <span class="math inline">\(\frac67m\)</span>. Particle <span class="math inline">\(A\)</span> moves in a horizontal circle on the surface. Particle <span class="math inline">\(B\)</span> hangs in equilibrium below the ring and above the surface.</p>
-<p>When <span class="math inline">\(A\)</span> has constant angular speed <span class="math inline">\(\omega\)</span>, the angle between <span class="math inline">\(AR\)</span> and <span class="math inline">\(BR\)</span> is <span class="math inline">\(i\)</span> and the normal reaction between <span class="math inline">\(A\)</span> and the surface is <span class="math inline">\(N\)</span>. When <span class="math inline">\(A\)</span> has constant angular speed <span class="math inline">\(\frac32\omega\)</span>, the angle is <span class="math inline">\(\alpha\)</span> and the normal reaction is <span class="math inline">\(\frac12N\)</span>.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(\cos i=\frac49\cos\alpha\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(N\)</span> in terms of <span class="math inline">\(m\)</span> and <span class="math inline">\(g\)</span> and find <span class="math inline">\(\cos\alpha\)</span>.</p>
+<p>A light inextensible string is threaded through a fixed smooth ring <span class="math inline">R</span> which is at a height <span class="math inline">h</span> above a smooth horizontal surface. One end of the string is attached to a particle <span class="math inline">A</span> of mass <span class="math inline">m</span>. The other end is attached to a particle <span class="math inline">B</span> of mass <span class="math inline">\frac67m</span>. Particle <span class="math inline">A</span> moves in a horizontal circle on the surface. Particle <span class="math inline">B</span> hangs in equilibrium below the ring and above the surface.</p>
+<p>When <span class="math inline">A</span> has constant angular speed <span class="math inline">\omega</span>, the angle between <span class="math inline">AR</span> and <span class="math inline">BR</span> is <span class="math inline">i</span> and the normal reaction between <span class="math inline">A</span> and the surface is <span class="math inline">N</span>. When <span class="math inline">A</span> has constant angular speed <span class="math inline">\frac32\omega</span>, the angle is <span class="math inline">\alpha</span> and the normal reaction is <span class="math inline">\frac12N</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\cos i=\frac49\cos\alpha</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">N</span> in terms of <span class="math inline">m</span> and <span class="math inline">g</span> and find <span class="math inline">\cos\alpha</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The tension is constant because <span class="math inline">\(B\)</span> is in equilibrium:</p>
-<p><span class="math display">\[
+<p>The tension is constant because <span class="math inline">B</span> is in equilibrium:</p>
+<p><span class="math display">
 T=\frac67mg.
-\]</span></p>
-<p>For <span class="math inline">\(A\)</span>, the radius is <span class="math inline">\(h\tan i\)</span>. Resolving vertically and horizontally:</p>
-<p><span class="math display">\[
+</span></p>
+<p>For <span class="math inline">A</span>, the radius is <span class="math inline">h\tan i</span>. Resolving vertically and horizontally:</p>
+<p><span class="math display">
 N+T\cos i=mg,
 \qquad
 T\sin i=m(h\tan i)\omega^2.
-\]</span></p>
+</span></p>
 <p>The second equation simplifies to</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \omega^2=\frac{6g}{7h}\cos i.
-\]</span></p>
+</span></p>
 <p>For the second angular speed,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \left(\frac32\omega\right)^2=\frac{6g}{7h}\cos\alpha.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\cos i=\frac49\cos\alpha}.
-\]</span></p>
+</span></p>
 <p>For the normal reactions,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 N=mg-\frac67mg\cos i,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac12N=mg-\frac67mg\cos\alpha.
-\]</span></p>
-<p>Substitute <span class="math inline">\(\cos i=\frac49\cos\alpha\)</span> and solve:</p>
-<span class="math display">\[
+</span></p>
+<p>Substitute <span class="math inline">\cos i=\frac49\cos\alpha</span> and solve:</p>
+<span class="math display">
 \boxed{\cos\alpha=\frac34},
 \qquad
 \boxed{N=\frac57mg}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2022, Question 6; answer checked against the official Mark Scheme.
@@ -1245,33 +1259,33 @@ N=mg-\frac67mg\cos i,
 </section>
 <section id="mayjune-923131-and-923132-question-5-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-5-1">2024 May/June · 9231/31 and 9231/32 · Question 5</h3>
-<p>Two particles <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> of masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively are connected by a light inextensible string of length <span class="math inline">\(a\)</span>. The particles are placed on a rough horizontal circular turntable with the string taut and lying along a radius of the turntable. Particle <span class="math inline">\(A\)</span> is at a distance <span class="math inline">\(a\)</span> from the centre and particle <span class="math inline">\(B\)</span> is at a distance <span class="math inline">\(2a\)</span> from the centre. The coefficient of friction between each particle and the turntable is <span class="math inline">\(\frac15\)</span>. When the turntable rotates with angular speed <span class="math inline">\(\frac25\sqrt{g/a}\)</span>, the system is in limiting equilibrium.</p>
-<p><strong>(a)</strong> Find the tension in the string, in terms of <span class="math inline">\(m\)</span> and <span class="math inline">\(g\)</span>.</p>
-<p><strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<p>Two particles <span class="math inline">A</span> and <span class="math inline">B</span> of masses <span class="math inline">m</span> and <span class="math inline">km</span> respectively are connected by a light inextensible string of length <span class="math inline">a</span>. The particles are placed on a rough horizontal circular turntable with the string taut and lying along a radius of the turntable. Particle <span class="math inline">A</span> is at a distance <span class="math inline">a</span> from the centre and particle <span class="math inline">B</span> is at a distance <span class="math inline">2a</span> from the centre. The coefficient of friction between each particle and the turntable is <span class="math inline">\frac15</span>. When the turntable rotates with angular speed <span class="math inline">\frac25\sqrt{g/a}</span>, the system is in limiting equilibrium.</p>
+<p><strong>(a)</strong> Find the tension in the string, in terms of <span class="math inline">m</span> and <span class="math inline">g</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">k</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>The angular speed gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 a\omega^2=\frac4{25}g.
-\]</span></p>
-<p>For <span class="math inline">\(A\)</span>, friction acts outwards at the limiting value <span class="math inline">\(\frac15mg\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>For <span class="math inline">A</span>, friction acts outwards at the limiting value <span class="math inline">\frac15mg</span>:</p>
+<p><span class="math display">
 \frac15mg-T=\frac4{25}mg.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{T=\frac1{25}mg}.
-\]</span></p>
-<p>For <span class="math inline">\(B\)</span>, the limiting friction is <span class="math inline">\(\frac15kmg\)</span> and its radius is <span class="math inline">\(2a\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>For <span class="math inline">B</span>, the limiting friction is <span class="math inline">\frac15kmg</span> and its radius is <span class="math inline">2a</span>:</p>
+<p><span class="math display">
 T+\frac15kmg=km(2a)\omega^2=\frac8{25}kmg.
-\]</span></p>
-<p>Substitution of <span class="math inline">\(T=\frac1{25}mg\)</span> gives</p>
-<span class="math display">\[
+</span></p>
+<p>Substitution of <span class="math inline">T=\frac1{25}mg</span> gives</p>
+<span class="math display">
 \boxed{k=\frac13}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2024, Question 5; answer checked against the official Mark Scheme.
@@ -1285,50 +1299,50 @@ T+\frac15kmg=km(2a)\omega^2=\frac8{25}kmg.
 <figcaption>Original diagram for 2024 October/November Question 6</figcaption>
 </figure>
 </div>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(0.05\)</span> kg is attached to one end of a light inextensible string of length <span class="math inline">\(1\)</span> m. The other end is attached to a fixed point <span class="math inline">\(O\)</span>. A particle <span class="math inline">\(Q\)</span> of mass <span class="math inline">\(0.04\)</span> kg is attached to one end of a second light inextensible string, whose other end is attached to <span class="math inline">\(P\)</span>.</p>
-<p>Particle <span class="math inline">\(P\)</span> moves in a horizontal circle of radius <span class="math inline">\(0.8\)</span> m with angular speed <span class="math inline">\(\omega\)</span>. Particle <span class="math inline">\(Q\)</span> moves in a horizontal circle of radius <span class="math inline">\(1.4\)</span> m with the same angular speed. The centres of the circles are vertically below <span class="math inline">\(O\)</span>, and the strings remain at constant angles <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> to the vertical.</p>
-<p><strong>(a)</strong> Find the tension in <span class="math inline">\(OP\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(\omega\)</span>.</p>
-<p><strong>(c)</strong> Find <span class="math inline">\(\beta\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">0.05</span> kg is attached to one end of a light inextensible string of length <span class="math inline">1</span> m. The other end is attached to a fixed point <span class="math inline">O</span>. A particle <span class="math inline">Q</span> of mass <span class="math inline">0.04</span> kg is attached to one end of a second light inextensible string, whose other end is attached to <span class="math inline">P</span>.</p>
+<p>Particle <span class="math inline">P</span> moves in a horizontal circle of radius <span class="math inline">0.8</span> m with angular speed <span class="math inline">\omega</span>. Particle <span class="math inline">Q</span> moves in a horizontal circle of radius <span class="math inline">1.4</span> m with the same angular speed. The centres of the circles are vertically below <span class="math inline">O</span>, and the strings remain at constant angles <span class="math inline">\alpha</span> and <span class="math inline">\beta</span> to the vertical.</p>
+<p><strong>(a)</strong> Find the tension in <span class="math inline">OP</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\omega</span>.</p>
+<p><strong>(c)</strong> Find <span class="math inline">\beta</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let the tensions in <span class="math inline">\(OP\)</span> and <span class="math inline">\(PQ\)</span> be <span class="math inline">\(T_1\)</span> and <span class="math inline">\(T_2\)</span>.</p>
-<p><strong>(a)</strong> Vertical equilibrium for <span class="math inline">\(Q\)</span> and then for <span class="math inline">\(P\)</span> gives</p>
-<p><span class="math display">\[
+<p>Let the tensions in <span class="math inline">OP</span> and <span class="math inline">PQ</span> be <span class="math inline">T_1</span> and <span class="math inline">T_2</span>.</p>
+<p><strong>(a)</strong> Vertical equilibrium for <span class="math inline">Q</span> and then for <span class="math inline">P</span> gives</p>
+<p><span class="math display">
 T_2\cos\beta=0.04g,
 \qquad
 T_1\cos\alpha=T_2\cos\beta+0.05g=0.09g.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{T_1=0.15g=1.50\ \mathrm N}.
-\]</span></p>
+</span></p>
 <p><strong>(b)</strong> Radial equations give</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T_1\sin\alpha-T_2\sin\beta=0.05(0.8)\omega^2,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 T_2\sin\beta=0.04(1.4)\omega^2.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T_1\sin\alpha=0.096\omega^2.
-\]</span></p>
-<p>Using <span class="math inline">\(T_1\cos\alpha=0.09g\)</span> and the geometry of <span class="math inline">\(OP\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">T_1\cos\alpha=0.09g</span> and the geometry of <span class="math inline">OP</span> gives</p>
+<p><span class="math display">
 \boxed{\omega=\frac{5}{\sqrt2}\ \mathrm{rad\ s^{-1}}}.
-\]</span></p>
+</span></p>
 <p><strong>(c)</strong></p>
-<p><span class="math display">\[
+<p><span class="math display">
 \tan\beta=\frac{T_2\sin\beta}{T_2\cos\beta}
 =\frac{0.04(1.4)\omega^2}{0.04g}=\frac74.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\beta=60.3^\circ}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Question 6; answer checked against the official Mark Scheme.
@@ -1336,26 +1350,26 @@ T_1\sin\alpha=0.096\omega^2.
 </section>
 <section id="octobernovember-923132-question-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923132-question-1">2024 October/November · 9231/32 · Question 1</h3>
-<p>A particle of mass <span class="math inline">\(2\)</span> kg is attached to one end of a light elastic string of natural length <span class="math inline">\(0.8\)</span> m and modulus of elasticity <span class="math inline">\(100\)</span> N. The other end is attached to a fixed point <span class="math inline">\(O\)</span> on a smooth horizontal surface. The particle moves in a horizontal circle about <span class="math inline">\(O\)</span> with the string taut and constant angular speed <span class="math inline">\(5\ \mathrm{rad\ s^{-1}}\)</span>.</p>
+<p>A particle of mass <span class="math inline">2</span> kg is attached to one end of a light elastic string of natural length <span class="math inline">0.8</span> m and modulus of elasticity <span class="math inline">100</span> N. The other end is attached to a fixed point <span class="math inline">O</span> on a smooth horizontal surface. The particle moves in a horizontal circle about <span class="math inline">O</span> with the string taut and constant angular speed <span class="math inline">5\ \mathrm{rad\ s^{-1}}</span>.</p>
 <p>Find the extension of the string.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let the extension be <span class="math inline">\(x\)</span>. The string length is <span class="math inline">\(0.8+x\)</span>, so the radial equation is</p>
-<p><span class="math display">\[
+<p>Let the extension be <span class="math inline">x</span>. The string length is <span class="math inline">0.8+x</span>, so the radial equation is</p>
+<p><span class="math display">
 \frac{100}{0.8}x=2(0.8+x)(5)^2.
-\]</span></p>
+</span></p>
 <p>Solving,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 100x=40(0.8+x)
 \quad\Longrightarrow\quad
 60x=32.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{x=\frac8{15}=0.533\ \mathrm m}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Question 1; answer checked against the official Mark Scheme.
@@ -1369,38 +1383,38 @@ Show answer
 <figcaption>Original diagram for 2024 October/November Question 6</figcaption>
 </figure>
 </div>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to one end of a light inextensible string of length <span class="math inline">\(a\)</span>. The other end is attached to a fixed point <span class="math inline">\(O\)</span>. The particle is projected at right angles to the string and moves downwards in a circular path. When the string is vertical, it strikes a smooth peg <span class="math inline">\(A\)</span> below <span class="math inline">\(O\)</span> and <span class="math inline">\(P\)</span> then moves in a vertical circle with centre <span class="math inline">\(A\)</span>. The string becomes slack when it makes an angle <span class="math inline">\(i\)</span> with the upward vertical through <span class="math inline">\(A\)</span>. The distance of <span class="math inline">\(A\)</span> below <span class="math inline">\(O\)</span> is <span class="math inline">\(\frac59a\)</span>.</p>
-<p><strong>(a)</strong> Find <span class="math inline">\(\cos i\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to one end of a light inextensible string of length <span class="math inline">a</span>. The other end is attached to a fixed point <span class="math inline">O</span>. The particle is projected at right angles to the string and moves downwards in a circular path. When the string is vertical, it strikes a smooth peg <span class="math inline">A</span> below <span class="math inline">O</span> and <span class="math inline">P</span> then moves in a vertical circle with centre <span class="math inline">A</span>. The string becomes slack when it makes an angle <span class="math inline">i</span> with the upward vertical through <span class="math inline">A</span>. The distance of <span class="math inline">A</span> below <span class="math inline">O</span> is <span class="math inline">\frac59a</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\cos i</span>.</p>
 <p><strong>(b)</strong> Find the ratio of the tensions immediately before and immediately after the string strikes the peg.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Using conservation of energy before and after the peg, and using <span class="math inline">\(T=0\)</span> when the string becomes slack, the two radial equations are</p>
-<p><span class="math display">\[
+<p>Using conservation of energy before and after the peg, and using <span class="math inline">T=0</span> when the string becomes slack, the two radial equations are</p>
+<p><span class="math display">
 v^2=\frac{28}{9}ag-2ag\cos i,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 w^2=\frac{20}{9}ag-\frac{26}{9}ag\cos i,
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 mg\cos i=\frac{mw^2}{4a/9}.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(w\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">w</span> gives</p>
+<p><span class="math display">
 \boxed{\cos i=\frac23}.
-\]</span></p>
-<p>Immediately before and after the peg, the radial equations use radii <span class="math inline">\(a\)</span> and <span class="math inline">\(\frac49a\)</span>. Substitution gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Immediately before and after the peg, the radial equations use radii <span class="math inline">a</span> and <span class="math inline">\frac49a</span>. Substitution gives</p>
+<p><span class="math display">
 T_1=\frac{25}{9}mg,
 \qquad
 T_2=5mg.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{T_1:T_2=5:9}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Question 6; answer checked against the official Mark Scheme.
@@ -1414,37 +1428,37 @@ T_2=5mg.
 <figcaption>Original diagram for 2025 May/June Question 3</figcaption>
 </figure>
 </div>
-<p>A rough horizontal disc, centre <span class="math inline">\(O\)</span>, rotates with constant angular speed <span class="math inline">\(\omega\)</span>. A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(1.6\)</span> kg lies on the disc at a distance <span class="math inline">\(1.5\)</span> m from <span class="math inline">\(O\)</span> and is attached to a point <span class="math inline">\(A\)</span> vertically above <span class="math inline">\(O\)</span> by a light elastic string. The string has natural length <span class="math inline">\(2\)</span> m, modulus of elasticity <span class="math inline">\(32\)</span> N and makes an angle <span class="math inline">\(\alpha\)</span> with the vertical. Particle <span class="math inline">\(P\)</span> moves in a horizontal circle with the same angular speed. <span class="math inline">\(P\)</span> is on the point of slipping in the direction <span class="math inline">\(OP\)</span> and the coefficient of friction is <span class="math inline">\(0.5\)</span>.</p>
-<p><strong>(a)</strong> Given that the tension is <span class="math inline">\(8\)</span> N, show that <span class="math inline">\(\sin\alpha=0.6\)</span>.</p>
-<p><strong>(b)</strong> Find the number of revolutions per minute made by the disc and <span class="math inline">\(P\)</span>.</p>
+<p>A rough horizontal disc, centre <span class="math inline">O</span>, rotates with constant angular speed <span class="math inline">\omega</span>. A particle <span class="math inline">P</span> of mass <span class="math inline">1.6</span> kg lies on the disc at a distance <span class="math inline">1.5</span> m from <span class="math inline">O</span> and is attached to a point <span class="math inline">A</span> vertically above <span class="math inline">O</span> by a light elastic string. The string has natural length <span class="math inline">2</span> m, modulus of elasticity <span class="math inline">32</span> N and makes an angle <span class="math inline">\alpha</span> with the vertical. Particle <span class="math inline">P</span> moves in a horizontal circle with the same angular speed. <span class="math inline">P</span> is on the point of slipping in the direction <span class="math inline">OP</span> and the coefficient of friction is <span class="math inline">0.5</span>.</p>
+<p><strong>(a)</strong> Given that the tension is <span class="math inline">8</span> N, show that <span class="math inline">\sin\alpha=0.6</span>.</p>
+<p><strong>(b)</strong> Find the number of revolutions per minute made by the disc and <span class="math inline">P</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>The extension is found from the elastic-string law:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 8=\frac{32}{2}x\quad\Longrightarrow\quad x=0.5.
-\]</span></p>
-<p>The string length is <span class="math inline">\(2.5\)</span> m and its horizontal projection is <span class="math inline">\(1.5\)</span> m, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>The string length is <span class="math inline">2.5</span> m and its horizontal projection is <span class="math inline">1.5</span> m, so</p>
+<p><span class="math display">
 \sin\alpha=\frac{1.5}{2.5}=\boxed{0.6}.
-\]</span></p>
+</span></p>
 <p>The vertical reaction is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 R=1.6g-8\cos\alpha.
-\]</span></p>
+</span></p>
 <p>At limiting friction,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 8\sin\alpha+0.5R=1.6(1.5)\omega^2.
-\]</span></p>
-<p>Using <span class="math inline">\(\sin\alpha=3/5\)</span>, <span class="math inline">\(\cos\alpha=4/5\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">\sin\alpha=3/5</span>, <span class="math inline">\cos\alpha=4/5</span> gives</p>
+<p><span class="math display">
 \omega^2=4\quad\Longrightarrow\quad\omega=2\ \mathrm{rad\ s^{-1}}.
-\]</span></p>
+</span></p>
 <p>Hence the number of revolutions per minute is</p>
-<span class="math display">\[
+<span class="math display">
 \frac{60\omega}{2\pi}=\boxed{19.1\ \mathrm{rpm}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Question 3; answer checked against the official Mark Scheme.
@@ -1452,27 +1466,27 @@ R=1.6g-8\cos\alpha.
 </section>
 <section id="mayjune-923133-question-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923133-question-1">2025 May/June · 9231/33 · Question 1</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to one end of a light inextensible string of length <span class="math inline">\(a\)</span>. The other end is attached to a fixed point <span class="math inline">\(O\)</span>. The particle moves in a horizontal circle with constant angular speed <span class="math inline">\(\omega\)</span>, and the string is inclined at an angle <span class="math inline">\(i\)</span> to the downward vertical. Given that <span class="math inline">\(\tan i=\frac43\)</span>, find <span class="math inline">\(\omega\)</span> in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(g\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to one end of a light inextensible string of length <span class="math inline">a</span>. The other end is attached to a fixed point <span class="math inline">O</span>. The particle moves in a horizontal circle with constant angular speed <span class="math inline">\omega</span>, and the string is inclined at an angle <span class="math inline">i</span> to the downward vertical. Given that <span class="math inline">\tan i=\frac43</span>, find <span class="math inline">\omega</span> in terms of <span class="math inline">a</span> and <span class="math inline">g</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>For the conical pendulum,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 T\cos i=mg,
 \qquad
 T\sin i=mr\omega^2,
 \qquad
 r=a\sin i.
-\]</span></p>
-<p>Using <span class="math inline">\(r=a\sin i\)</span> and eliminating <span class="math inline">\(T\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">r=a\sin i</span> and eliminating <span class="math inline">T</span> gives</p>
+<p><span class="math display">
 a\omega^2=g\sec i=\frac53g.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\omega=\sqrt{\frac{5g}{3a}}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2025, Question 1; answer checked against the official Mark Scheme.
@@ -1486,43 +1500,43 @@ a\omega^2=g\sec i=\frac53g.
 <figcaption>Original diagram for 2025 May/June Question 5</figcaption>
 </figure>
 </div>
-<p>A hollow cylinder of radius <span class="math inline">\(r\)</span> is fixed with its axis horizontal. Points <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> and <span class="math inline">\(O\)</span> are in the same vertical plane perpendicular to the axis, with <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> on the smooth inner surface and <span class="math inline">\(O\)</span> on the axis. <span class="math inline">\(OA\)</span> and <span class="math inline">\(OB\)</span> make angles <span class="math inline">\(90^\circ\)</span> and <span class="math inline">\(\alpha\)</span> respectively with the upward vertical through <span class="math inline">\(O\)</span>, with <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> on opposite sides of the vertical. A particle of mass <span class="math inline">\(m\)</span> is projected vertically downwards from <span class="math inline">\(A\)</span> with speed <span class="math inline">\(\frac32\sqrt{rg}\)</span> and moves in a vertical circle inside the cylinder. The particle loses contact with the cylinder at <span class="math inline">\(B\)</span>.</p>
-<p><strong>(a)</strong> Find the value of <span class="math inline">\(\alpha\)</span>.</p>
-<p><strong>(b)</strong> In the subsequent motion find, in terms of <span class="math inline">\(r\)</span>, the greatest height above <span class="math inline">\(O\)</span> reached by the particle.</p>
+<p>A hollow cylinder of radius <span class="math inline">r</span> is fixed with its axis horizontal. Points <span class="math inline">A</span>, <span class="math inline">B</span> and <span class="math inline">O</span> are in the same vertical plane perpendicular to the axis, with <span class="math inline">A</span> and <span class="math inline">B</span> on the smooth inner surface and <span class="math inline">O</span> on the axis. <span class="math inline">OA</span> and <span class="math inline">OB</span> make angles <span class="math inline">90^\circ</span> and <span class="math inline">\alpha</span> respectively with the upward vertical through <span class="math inline">O</span>, with <span class="math inline">A</span> and <span class="math inline">B</span> on opposite sides of the vertical. A particle of mass <span class="math inline">m</span> is projected vertically downwards from <span class="math inline">A</span> with speed <span class="math inline">\frac32\sqrt{rg}</span> and moves in a vertical circle inside the cylinder. The particle loses contact with the cylinder at <span class="math inline">B</span>.</p>
+<p><strong>(a)</strong> Find the value of <span class="math inline">\alpha</span>.</p>
+<p><strong>(b)</strong> In the subsequent motion find, in terms of <span class="math inline">r</span>, the greatest height above <span class="math inline">O</span> reached by the particle.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>At <span class="math inline">\(B\)</span>, loss of contact means <span class="math inline">\(R=0\)</span>. Energy from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> gives</p>
-<p><span class="math display">\[
+<p>At <span class="math inline">B</span>, loss of contact means <span class="math inline">R=0</span>. Energy from <span class="math inline">A</span> to <span class="math inline">B</span> gives</p>
+<p><span class="math display">
 v^2=\frac32rg-2rg\cos\alpha.
-\]</span></p>
-<p>The radial equation at <span class="math inline">\(B\)</span> is</p>
-<p><span class="math display">\[
+</span></p>
+<p>The radial equation at <span class="math inline">B</span> is</p>
+<p><span class="math display">
 mg\cos\alpha=\frac{mv^2}{r}.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(v\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">v</span>:</p>
+<p><span class="math display">
 g\cos\alpha=\frac32g-2g\cos\alpha
 \quad\Longrightarrow\quad
 \cos\alpha=\frac12.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\alpha=60^\circ},
 \qquad
 \boxed{v^2=\frac12rg}.
-\]</span></p>
-<p>After leaving the cylinder, the upward component of velocity is <span class="math inline">\(v\sin60^\circ\)</span>. If the further rise is <span class="math inline">\(h\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>After leaving the cylinder, the upward component of velocity is <span class="math inline">v\sin60^\circ</span>. If the further rise is <span class="math inline">h</span>,</p>
+<p><span class="math display">
 0=(v\sin60^\circ)^2-2gh
 \quad\Longrightarrow\quad
 h=\frac{3r}{16}.
-\]</span></p>
-<p>The height of <span class="math inline">\(B\)</span> above <span class="math inline">\(O\)</span> is <span class="math inline">\(r\cos60^\circ=\frac12r\)</span>, so the greatest height above <span class="math inline">\(O\)</span> is</p>
-<span class="math display">\[
+</span></p>
+<p>The height of <span class="math inline">B</span> above <span class="math inline">O</span> is <span class="math inline">r\cos60^\circ=\frac12r</span>, so the greatest height above <span class="math inline">O</span> is</p>
+<span class="math display">
 \boxed{\frac{11}{16}r}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/33, May/June 2025, Question 5; answer checked against the official Mark Scheme.
@@ -1530,35 +1544,35 @@ h=\frac{3r}{16}.
 </section>
 <section id="octobernovember-923131-and-923133-question-2" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-2">2025 October/November · 9231/31 and 9231/33 · Question 2</h3>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is moving in a horizontal circle on the smooth inner surface of a hemispherical shell of radius <span class="math inline">\(r\)</span>. The angle between the upward vertical and the normal reaction is <span class="math inline">\(i_1\)</span>, where <span class="math inline">\(\tan i_1=\frac34\)</span>. When the angular speed is increased to <span class="math inline">\(\omega_2\)</span>, the angle becomes <span class="math inline">\(i_2\)</span>, where <span class="math inline">\(\tan i_2=\frac43\)</span>. Find the ratio <span class="math inline">\(\omega_1/\omega_2\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is moving in a horizontal circle on the smooth inner surface of a hemispherical shell of radius <span class="math inline">r</span>. The angle between the upward vertical and the normal reaction is <span class="math inline">i_1</span>, where <span class="math inline">\tan i_1=\frac34</span>. When the angular speed is increased to <span class="math inline">\omega_2</span>, the angle becomes <span class="math inline">i_2</span>, where <span class="math inline">\tan i_2=\frac43</span>. Find the ratio <span class="math inline">\omega_1/\omega_2</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
 <p>For either position, resolving vertically and radially:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 N\cos i=mg,
 \qquad
 N\sin i=m(r\sin i)\omega^2.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(N\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">N</span> gives</p>
+<p><span class="math display">
 \omega^2=\frac{g}{r\cos i}.
-\]</span></p>
+</span></p>
 <p>Thus</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{\omega_1^2}{\omega_2^2}=\frac{\cos i_2}{\cos i_1}.
-\]</span></p>
-<p>Since <span class="math inline">\(\tan i_1=3/4\)</span> and <span class="math inline">\(\tan i_2=4/3\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">\tan i_1=3/4</span> and <span class="math inline">\tan i_2=4/3</span>,</p>
+<p><span class="math display">
 \cos i_1=\frac45,
 \qquad
 \cos i_2=\frac35.
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\frac{\omega_1}{\omega_2}=\frac{\sqrt3}{2}}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 2; answer checked against the official Mark Scheme.
@@ -1572,27 +1586,27 @@ N\sin i=m(r\sin i)\omega^2.
 <figcaption>Original diagram for 2025 October/November Question 1</figcaption>
 </figure>
 </div>
-<p>A particle <span class="math inline">\(P\)</span> of mass <span class="math inline">\(m\)</span> is attached to two light inextensible strings each of length <span class="math inline">\(l\)</span>. The end of one string is attached to a fixed point <span class="math inline">\(A\)</span> and the end of the other string is attached to a fixed point <span class="math inline">\(B\)</span>, with <span class="math inline">\(A\)</span> vertically above <span class="math inline">\(B\)</span>. Angle <span class="math inline">\(APB\)</span> is a right angle. The particle <span class="math inline">\(P\)</span> rotates in a horizontal circle at constant angular speed <span class="math inline">\(\omega\)</span>, with both strings taut.</p>
-<p>Find the tension in string <span class="math inline">\(AP\)</span> in terms of <span class="math inline">\(m\)</span>, <span class="math inline">\(g\)</span>, <span class="math inline">\(l\)</span> and <span class="math inline">\(\omega\)</span>.</p>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to two light inextensible strings each of length <span class="math inline">l</span>. The end of one string is attached to a fixed point <span class="math inline">A</span> and the end of the other string is attached to a fixed point <span class="math inline">B</span>, with <span class="math inline">A</span> vertically above <span class="math inline">B</span>. Angle <span class="math inline">APB</span> is a right angle. The particle <span class="math inline">P</span> rotates in a horizontal circle at constant angular speed <span class="math inline">\omega</span>, with both strings taut.</p>
+<p>Find the tension in string <span class="math inline">AP</span> in terms of <span class="math inline">m</span>, <span class="math inline">g</span>, <span class="math inline">l</span> and <span class="math inline">\omega</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>Let the tensions in <span class="math inline">\(AP\)</span> and <span class="math inline">\(BP\)</span> be <span class="math inline">\(T_A\)</span> and <span class="math inline">\(T_B\)</span>. Resolving horizontally towards the axis and vertically:</p>
-<p><span class="math display">\[
+<p>Let the tensions in <span class="math inline">AP</span> and <span class="math inline">BP</span> be <span class="math inline">T_A</span> and <span class="math inline">T_B</span>. Resolving horizontally towards the axis and vertically:</p>
+<p><span class="math display">
 T_A\cos45^\circ+T_B\sin45^\circ=m\omega^2l\sin45^\circ,
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 T_A\sin45^\circ-T_B\cos45^\circ=mg.
-\]</span></p>
-<p>Adding the appropriate multiples eliminates <span class="math inline">\(T_B\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p>Adding the appropriate multiples eliminates <span class="math inline">T_B</span>:</p>
+<p><span class="math display">
 2T_A=m\omega^2l+2mg.
-\]</span></p>
+</span></p>
 <p>Hence</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{T_A=\frac12m(\omega^2l+2g)}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Question 1; answer checked against the official Mark Scheme.
@@ -1606,41 +1620,41 @@ T_A\sin45^\circ-T_B\cos45^\circ=mg.
 <figcaption>Original diagram for 2025 October/November Question 6</figcaption>
 </figure>
 </div>
-<p>A fixed smooth sphere with radius <span class="math inline">\(a\)</span> and centre <span class="math inline">\(O\)</span> rests on horizontal ground. A particle is projected horizontally from the highest point <span class="math inline">\(A\)</span> with speed <span class="math inline">\(u\)</span>. It moves along the surface and loses contact at <span class="math inline">\(B\)</span>, where the angle <span class="math inline">\(AOB\)</span> is <span class="math inline">\(i\)</span>. After leaving the sphere, it moves freely under gravity before striking the ground with speed <span class="math inline">\(3u\)</span> at an angle <span class="math inline">\(\beta\)</span> to the horizontal. Find <span class="math inline">\(\beta\)</span>.</p>
+<p>A fixed smooth sphere with radius <span class="math inline">a</span> and centre <span class="math inline">O</span> rests on horizontal ground. A particle is projected horizontally from the highest point <span class="math inline">A</span> with speed <span class="math inline">u</span>. It moves along the surface and loses contact at <span class="math inline">B</span>, where the angle <span class="math inline">AOB</span> is <span class="math inline">i</span>. After leaving the sphere, it moves freely under gravity before striking the ground with speed <span class="math inline">3u</span> at an angle <span class="math inline">\beta</span> to the horizontal. Find <span class="math inline">\beta</span>.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The whole motion from <span class="math inline">\(A\)</span> to the ground gives</p>
-<p><span class="math display">\[
+<p>The whole motion from <span class="math inline">A</span> to the ground gives</p>
+<p><span class="math display">
 9u^2=u^2+4ag
 \quad\Longrightarrow\quad
 u^2=\frac12ag.
-\]</span></p>
-<p>At the point of losing contact, <span class="math inline">\(R=0\)</span>. Resolving towards <span class="math inline">\(O\)</span> and using energy from <span class="math inline">\(A\)</span> to <span class="math inline">\(B\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>At the point of losing contact, <span class="math inline">R=0</span>. Resolving towards <span class="math inline">O</span> and using energy from <span class="math inline">A</span> to <span class="math inline">B</span> gives</p>
+<p><span class="math display">
 mg\cos i=\frac{mv^2}{a},
-\]</span></p>
-<p><span class="math display">\[
+</span></p>
+<p><span class="math display">
 \frac12mv^2+mg(a\cos i)=\frac12mu^2+mga.
-\]</span></p>
-<p>Eliminating <span class="math inline">\(v\)</span> gives the standard loss-of-contact condition</p>
-<p><span class="math display">\[
+</span></p>
+<p>Eliminating <span class="math inline">v</span> gives the standard loss-of-contact condition</p>
+<p><span class="math display">
 \cos i=\frac56,
 \qquad v^2=\frac56ag.
-\]</span></p>
-<p>After leaving the sphere, horizontal velocity is unchanged. Resolving the final velocity into horizontal and vertical components and using final speed <span class="math inline">\(3u\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>After leaving the sphere, horizontal velocity is unchanged. Resolving the final velocity into horizontal and vertical components and using final speed <span class="math inline">3u</span> gives</p>
+<p><span class="math display">
 \tan\beta=\frac{\text{vertical component}}{\text{horizontal component}}.
-\]</span></p>
+</span></p>
 <p>Using the unchanged horizontal component of velocity after leaving the sphere,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 v\cos i=3u\cos\beta.
-\]</span></p>
+</span></p>
 <p>Substitution of the loss-of-contact values gives</p>
-<span class="math display">\[
+<span class="math display">
 \boxed{\beta=69.0^\circ}.
-\]</span>
+</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Question 6; answer checked against the official Mark Scheme.
@@ -1652,12 +1666,12 @@ v\cos i=3u\cos\beta.
 <ol type="1">
 <li>angular speed 的单位必须是 radians per second；</li>
 <li>velocity 是 tangent 方向，centripetal acceleration 指向圆心；</li>
-<li><span class="math inline">\(a=v^2/r\)</span> 是 acceleration magnitude，不是 force；</li>
+<li><span class="math inline">a=v^2/r</span> 是 acceleration magnitude，不是 force；</li>
 <li>水平圆运动必须分别处理 horizontal radial 与 vertical directions；</li>
-<li>banked track 无 sideways force 时使用 <span class="math inline">\(\tan\alpha=v^2/(rg)\)</span>；</li>
+<li>banked track 无 sideways force 时使用 <span class="math inline">\tan\alpha=v^2/(rg)</span>；</li>
 <li>vertical circle 必须结合能量和 radial Newton’s second law；</li>
 <li>string 只能提供 tension，不能提供 thrust；</li>
-<li>particle 离开 surface 的临界条件是 <span class="math inline">\(R=0\)</span>，不是 <span class="math inline">\(R=mg\)</span>。</li>
+<li>particle 离开 surface 的临界条件是 <span class="math inline">R=0</span>，不是 <span class="math inline">R=mg</span>。</li>
 </ol>
 
 

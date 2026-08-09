@@ -75,8 +75,22 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -460,9 +474,9 @@ window.Quarto = {
 <p>考生需要能够：</p>
 <ol type="1">
 <li>理解 Cartesian coordinates 与 polar coordinates 的关系，并在两种形式之间转换点和曲线方程；</li>
-<li>按照 <span class="math inline">\(r\geqslant0\)</span> 的约定，在指定的 <span class="math inline">\(\theta\)</span> 区间内描绘简单极坐标曲线；</li>
-<li>在图中标出对称性、与 initial line 的交点、曲线在 pole 附近的形状，以及 <span class="math inline">\(r\)</span> 的最大值和最小值；</li>
-<li>使用 <span class="math display">\[A=\frac12\int r^2\,\mathrm d\theta\]</span> 求简单极坐标区域的面积。</li>
+<li>按照 <span class="math inline">r\geqslant0</span> 的约定，在指定的 <span class="math inline">\theta</span> 区间内描绘简单极坐标曲线；</li>
+<li>在图中标出对称性、与 initial line 的交点、曲线在 pole 附近的形状，以及 <span class="math inline">r</span> 的最大值和最小值；</li>
+<li>使用 <span class="math display">A=\frac12\int r^2\,\mathrm d\theta</span> 求简单极坐标区域的面积。</li>
 </ol>
 </div>
 </div>
@@ -472,8 +486,8 @@ window.Quarto = {
 <ul class="task-list">
 <li><label><input type="checkbox">能在 Cartesian coordinates 与 principal polar coordinates 之间转换</label></li>
 <li><label><input type="checkbox">能把直线、圆和简单代数曲线的方程转换为极坐标形式或 Cartesian 形式</label></li>
-<li><label><input type="checkbox">作图前能确定定义域、<span class="math inline">\(r=0\)</span>、initial-line intersections、对称性和极值</label></li>
-<li><label><input type="checkbox">坚持本课程的约定：只绘制 <span class="math inline">\(r\geqslant0\)</span> 的部分</label></li>
+<li><label><input type="checkbox">作图前能确定定义域、<span class="math inline">r=0</span>、initial-line intersections、对称性和极值</label></li>
+<li><label><input type="checkbox">坚持本课程的约定：只绘制 <span class="math inline">r\geqslant0</span> 的部分</label></li>
 <li><label><input type="checkbox">能准确确定面积积分的角度上下限，并利用对称性简化积分</label></li>
 </ul>
 </div>
@@ -482,41 +496,41 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
 <section id="polar-coordinates-of-a-point" class="level3">
 <h3 class="anchored" data-anchor-id="polar-coordinates-of-a-point">1.1 Polar coordinates of a point</h3>
-<p>点 <span class="math inline">\(P\)</span> 的极坐标写成 <span class="math inline">\((r,\theta)\)</span>：<span class="math inline">\(r\)</span> 是 <span class="math inline">\(P\)</span> 到 pole <span class="math inline">\(O\)</span> 的距离，<span class="math inline">\(\theta\)</span> 是从 initial line 逆时针量到 <span class="math inline">\(OP\)</span> 的角，通常用弧度表示。</p>
+<p>点 <span class="math inline">P</span> 的极坐标写成 <span class="math inline">(r,\theta)</span>：<span class="math inline">r</span> 是 <span class="math inline">P</span> 到 pole <span class="math inline">O</span> 的距离，<span class="math inline">\theta</span> 是从 initial line 逆时针量到 <span class="math inline">OP</span> 的角，通常用弧度表示。</p>
 <p>同一点有无限多种表示：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (r,\theta)\equiv(r,\theta+2k\pi),\; k\in\mathbb Z.
-\]</span></p>
+</span></p>
 <p>本教材的 principal polar coordinates 满足</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r&gt;0,\; -\pi&lt;\theta\leqslant\pi.
-\]</span></p>
-<p>在 pole 处 <span class="math inline">\(r=0\)</span>，而 <span class="math inline">\(\theta\)</span> 没有唯一值。</p>
+</span></p>
+<p>在 pole 处 <span class="math inline">r=0</span>，而 <span class="math inline">\theta</span> 没有唯一值。</p>
 </section>
 <section id="converting-points-and-equations" class="level3">
 <h3 class="anchored" data-anchor-id="converting-points-and-equations">1.2 Converting points and equations</h3>
 <p>两种坐标之间的基本关系是</p>
-<p><span class="math display">\[
+<p><span class="math display">
 x=r\cos\theta,\; y=r\sin\theta,
 \; r=\sqrt{x^2+y^2},\; \tan\theta=\frac yx.
-\]</span></p>
-<p>由 Cartesian coordinates 求 <span class="math inline">\(\theta\)</span> 时，必须结合点所在象限选择正确的角，不能只使用计算器给出的 <span class="math inline">\(\arctan(y/x)\)</span>。</p>
+</span></p>
+<p>由 Cartesian coordinates 求 <span class="math inline">\theta</span> 时，必须结合点所在象限选择正确的角，不能只使用计算器给出的 <span class="math inline">\arctan(y/x)</span>。</p>
 <p>转换曲线方程时常用</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r^2=x^2+y^2,\; r\cos\theta=x,\; r\sin\theta=y.
-\]</span></p>
-<p>如果极坐标式中仍含 <span class="math inline">\(\sin\theta\)</span> 或 <span class="math inline">\(\cos\theta\)</span>，可乘以适当的 <span class="math inline">\(r\)</span> 的幂，使它们与 <span class="math inline">\(x\)</span>、<span class="math inline">\(y\)</span> 配对。平方消去根号时，应保留原极坐标方程所给的 <span class="math inline">\(r\)</span> 与 <span class="math inline">\(\theta\)</span> 范围。</p>
+</span></p>
+<p>如果极坐标式中仍含 <span class="math inline">\sin\theta</span> 或 <span class="math inline">\cos\theta</span>，可乘以适当的 <span class="math inline">r</span> 的幂，使它们与 <span class="math inline">x</span>、<span class="math inline">y</span> 配对。平方消去根号时，应保留原极坐标方程所给的 <span class="math inline">r</span> 与 <span class="math inline">\theta</span> 范围。</p>
 </section>
 <section id="sketching-a-polar-curve" class="level3">
 <h3 class="anchored" data-anchor-id="sketching-a-polar-curve">1.3 Sketching a polar curve</h3>
 <p>作图时依次检查：</p>
 <ol type="1">
-<li><strong>Range of <span class="math inline">\(\theta\)</span> and the convention <span class="math inline">\(r\geqslant0\)</span></strong>：先确定题目要求的角度范围，再排除使 <span class="math inline">\(r&lt;0\)</span> 的部分；</li>
-<li><strong>Pole</strong>：解 <span class="math inline">\(r=0\)</span>，确定曲线从哪些方向到达或离开 pole；</li>
-<li><strong>Initial line</strong>：检查 <span class="math inline">\(\theta=0\)</span>，以及区间内与 initial line 同方向的角；</li>
-<li><strong>Symmetry</strong>：比较 <span class="math inline">\(r(-\theta)\)</span>、<span class="math inline">\(r(\pi-\theta)\)</span> 或观察函数的周期；</li>
-<li><strong>Least and greatest values of <span class="math inline">\(r\)</span></strong>：由三角函数范围或微分求极值；</li>
-<li><strong>Direction and shape</strong>：取少量关键角，按 <span class="math inline">\(\theta\)</span> 增大的方向连接。</li>
+<li><strong>Range of <span class="math inline">\theta</span> and the convention <span class="math inline">r\geqslant0</span></strong>：先确定题目要求的角度范围，再排除使 <span class="math inline">r&lt;0</span> 的部分；</li>
+<li><strong>Pole</strong>：解 <span class="math inline">r=0</span>，确定曲线从哪些方向到达或离开 pole；</li>
+<li><strong>Initial line</strong>：检查 <span class="math inline">\theta=0</span>，以及区间内与 initial line 同方向的角；</li>
+<li><strong>Symmetry</strong>：比较 <span class="math inline">r(-\theta)</span>、<span class="math inline">r(\pi-\theta)</span> 或观察函数的周期；</li>
+<li><strong>Least and greatest values of <span class="math inline">r</span></strong>：由三角函数范围或微分求极值；</li>
+<li><strong>Direction and shape</strong>：取少量关键角，按 <span class="math inline">\theta</span> 增大的方向连接。</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -528,52 +542,52 @@ r^2=x^2+y^2,\; r\cos\theta=x,\; r\sin\theta=y.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>若公式给出 <span class="math inline">\(r&lt;0\)</span>，本课程不把点画到相反方向，也不以虚线延伸；只绘制 <span class="math inline">\(r\geqslant0\)</span> 的部分。</p>
+<p>若公式给出 <span class="math inline">r&lt;0</span>，本课程不把点画到相反方向，也不以虚线延伸；只绘制 <span class="math inline">r\geqslant0</span> 的部分。</p>
 </div>
 </div>
 </section>
 <section id="symmetry-tests" class="level3">
 <h3 class="anchored" data-anchor-id="symmetry-tests">1.4 Symmetry tests</h3>
 <p>以下代换可帮助判断对称性：</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{array}{c|c}
 \text{test} &amp; \text{possible symmetry}\\ \hline
 \theta\mapsto-\theta &amp; \text{initial line}\\
 \theta\mapsto\pi-\theta &amp; \theta=\frac\pi2\\
 \theta\mapsto\theta+\pi &amp; \text{pole}
 \end{array}
-\]</span></p>
+</span></p>
 <p>即使方程形式在代换后不完全相同，也可根据给定区间、周期和关键点确认实际图形的对称性。</p>
 </section>
 <section id="distances-from-lines" class="level3">
 <h3 class="anchored" data-anchor-id="distances-from-lines">1.5 Distances from lines</h3>
-<p>点 <span class="math inline">\((r,\theta)\)</span> 到 initial line 的垂直距离为</p>
-<p><span class="math display">\[
+<p>点 <span class="math inline">(r,\theta)</span> 到 initial line 的垂直距离为</p>
+<p><span class="math display">
 |y|=|r\sin\theta|.
-\]</span></p>
-<p>在第一象限内可直接使用 <span class="math inline">\(r\sin\theta\)</span>。点到半直线 <span class="math inline">\(\theta=\alpha\)</span> 所在直线的垂直距离为</p>
-<p><span class="math display">\[
+</span></p>
+<p>在第一象限内可直接使用 <span class="math inline">r\sin\theta</span>。点到半直线 <span class="math inline">\theta=\alpha</span> 所在直线的垂直距离为</p>
+<p><span class="math display">
 |r\sin(\theta-\alpha)|.
-\]</span></p>
+</span></p>
 <p>求最远点时，应对相应距离函数微分，并检查端点以及区间内部的 stationary points。</p>
 </section>
 <section id="intersections-of-polar-curves" class="level3">
 <h3 class="anchored" data-anchor-id="intersections-of-polar-curves">1.6 Intersections of polar curves</h3>
-<p>在共同的 <span class="math inline">\(\theta\)</span> 范围内令两个 <span class="math inline">\(r\)</span> 表达式相等。还必须单独检查 pole，因为不同的 <span class="math inline">\(\theta\)</span> 值都可能表示 <span class="math inline">\(r=0\)</span> 的同一点。</p>
-<p>若一条曲线是直线 <span class="math inline">\(r\sin\theta=c\)</span>，它的 Cartesian equation 是 <span class="math inline">\(y=c\)</span>；这有时能帮助判断交点个数和位置。</p>
+<p>在共同的 <span class="math inline">\theta</span> 范围内令两个 <span class="math inline">r</span> 表达式相等。还必须单独检查 pole，因为不同的 <span class="math inline">\theta</span> 值都可能表示 <span class="math inline">r=0</span> 的同一点。</p>
+<p>若一条曲线是直线 <span class="math inline">r\sin\theta=c</span>，它的 Cartesian equation 是 <span class="math inline">y=c</span>；这有时能帮助判断交点个数和位置。</p>
 </section>
 <section id="area-enclosed-by-a-polar-curve" class="level3">
 <h3 class="anchored" data-anchor-id="area-enclosed-by-a-polar-curve">1.7 Area enclosed by a polar curve</h3>
-<p>曲线 <span class="math inline">\(r=f(\theta)\)</span>、半直线 <span class="math inline">\(\theta=\alpha\)</span> 与 <span class="math inline">\(\theta=\beta\)</span> 所围区域的面积为</p>
-<p><span class="math display">\[
+<p>曲线 <span class="math inline">r=f(\theta)</span>、半直线 <span class="math inline">\theta=\alpha</span> 与 <span class="math inline">\theta=\beta</span> 所围区域的面积为</p>
+<p><span class="math display">
 \boxed{A=\frac12\int_\alpha^\beta r^2\,\mathrm d\theta}.
-\]</span></p>
-<p>选择上下限前，应先由 <span class="math inline">\(r=0\)</span>、曲线交点或题目给出的半直线确定边界。若图形关于某条直线对称，可只积一半再乘以 <span class="math inline">\(2\)</span>。</p>
+</span></p>
+<p>选择上下限前，应先由 <span class="math inline">r=0</span>、曲线交点或题目给出的半直线确定边界。若图形关于某条直线对称，可只积一半再乘以 <span class="math inline">2</span>。</p>
 <p>两条曲线之间的面积通常写成</p>
-<p><span class="math display">\[
+<p><span class="math display">
 A=\frac12\int_\alpha^\beta
 \left(r_{\text{outer}}^2-r_{\text{inner}}^2\right)\,\mathrm d\theta.
-\]</span></p>
+</span></p>
 </section>
 </section>
 <section id="textbook-examples" class="level2">
@@ -581,48 +595,48 @@ A=\frac12\int_\alpha^\beta
 <section id="example-5.1-pages-118119" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5.1-pages-118119">Example 5.1 · Pages 118–119</h3>
 <p><strong>(i)</strong> Find the Cartesian coordinates of:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \left(4,\frac{2\pi}{3}\right),\;
 \left(12,-\frac\pi6\right).
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> Find the principal polar coordinates of:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (-\sqrt3,1),\; (4,-4).
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><strong>(i)</strong> Using <span class="math inline">\(x=r\cos\theta\)</span> and <span class="math inline">\(y=r\sin\theta\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(i)</strong> Using <span class="math inline">x=r\cos\theta</span> and <span class="math inline">y=r\sin\theta</span>,</p>
+<p><span class="math display">
 \begin{aligned}
 x&amp;=4\cos\frac{2\pi}{3}=-2,&amp;
 y&amp;=4\sin\frac{2\pi}{3}=2\sqrt3,\\
 x&amp;=12\cos\left(-\frac\pi6\right)=6\sqrt3,&amp;
 y&amp;=12\sin\left(-\frac\pi6\right)=-6.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>Hence the Cartesian coordinates are</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{(-2,2\sqrt3)},\;
 \boxed{(6\sqrt3,-6)}.
-\]</span></p>
-<p><strong>(ii)</strong> For <span class="math inline">\((-\sqrt3,1)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> For <span class="math inline">(-\sqrt3,1)</span>,</p>
+<p><span class="math display">
 r=\sqrt{(-\sqrt3)^2+1^2}=2.
-\]</span></p>
-<p>The point is in quadrant II and its reference angle is <span class="math inline">\(\pi/6\)</span>, so</p>
-<p><span class="math display">\[
+</span></p>
+<p>The point is in quadrant II and its reference angle is <span class="math inline">\pi/6</span>, so</p>
+<p><span class="math display">
 \boxed{\left(2,\frac{5\pi}{6}\right)}.
-\]</span></p>
-<p>For <span class="math inline">\((4,-4)\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>For <span class="math inline">(4,-4)</span>,</p>
+<p><span class="math display">
 r=\sqrt{4^2+(-4)^2}=4\sqrt2.
-\]</span></p>
-<p>The point is in quadrant IV, so the principal angle is <span class="math inline">\(-\pi/4\)</span>. Thus</p>
-<p><span class="math display">\[
+</span></p>
+<p>The point is in quadrant IV, so the principal angle is <span class="math inline">-\pi/4</span>. Thus</p>
+<p><span class="math display">
 \boxed{\left(4\sqrt2,-\frac\pi4\right)}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="example-5-1-title example-5-1-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="example-5-1-title">
@@ -640,39 +654,39 @@ Each point is located by a radius from the pole and an angle from the initial li
 <section id="example-5.2-pages-120121" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5.2-pages-120121">Example 5.2 · Pages 120–121</h3>
 <p>Find polar equations of the curves</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{(i) }x^2-y^2=9,\;
 \text{(ii) }y=x+4.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><strong>(i)</strong> Substitute <span class="math inline">\(x=r\cos\theta\)</span> and <span class="math inline">\(y=r\sin\theta\)</span>:</p>
-<p><span class="math display">\[
+<p><strong>(i)</strong> Substitute <span class="math inline">x=r\cos\theta</span> and <span class="math inline">y=r\sin\theta</span>:</p>
+<p><span class="math display">
 r^2(\cos^2\theta-\sin^2\theta)=9.
-\]</span></p>
-<p>Since <span class="math inline">\(\cos^2\theta-\sin^2\theta=\cos2\theta\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">\cos^2\theta-\sin^2\theta=\cos2\theta</span>,</p>
+<p><span class="math display">
 \boxed{r^2=9\sec2\theta}.
-\]</span></p>
+</span></p>
 <p><strong>(ii)</strong> Substitution gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r\sin\theta=r\cos\theta+4,
-\]</span></p>
+</span></p>
 <p>so</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r(\sin\theta-\cos\theta)=4.
-\]</span></p>
+</span></p>
 <p>Using</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \sin\theta-\cos\theta
 =\sqrt2\sin\left(\theta-\frac\pi4\right),
-\]</span></p>
+</span></p>
 <p>the required equation is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{r=2\sqrt2\,\operatorname{cosec}\left(\theta-\frac\pi4\right)}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="example-5-2-title example-5-2-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="example-5-2-title">
@@ -690,30 +704,30 @@ The same geometric curves can be described by polar equations.
 <section id="example-5.3-page-121" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5.3-page-121">Example 5.3 · Page 121</h3>
 <p>Find Cartesian equations of the curves</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{(i) }r=5,\;
 \text{(ii) }r^2=4\sin\theta.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p><strong>(i)</strong> Since <span class="math inline">\(r^2=x^2+y^2\)</span>,</p>
-<p><span class="math display">\[
+<p><strong>(i)</strong> Since <span class="math inline">r^2=x^2+y^2</span>,</p>
+<p><span class="math display">
 \boxed{x^2+y^2=25}.
-\]</span></p>
-<p><strong>(ii)</strong> Multiply by <span class="math inline">\(r\)</span>:</p>
-<p><span class="math display">\[
+</span></p>
+<p><strong>(ii)</strong> Multiply by <span class="math inline">r</span>:</p>
+<p><span class="math display">
 r^3=4r\sin\theta=4y.
-\]</span></p>
-<p>Squaring and using <span class="math inline">\(r^2=x^2+y^2\)</span> gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>Squaring and using <span class="math inline">r^2=x^2+y^2</span> gives</p>
+<p><span class="math display">
 r^6=16y^2,
-\]</span></p>
+</span></p>
 <p>and hence</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{(x^2+y^2)^3=16y^2}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="example-5-3-title example-5-3-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="example-5-3-title">
@@ -731,16 +745,16 @@ The plotted polar curves correspond to the derived Cartesian equations.
 <section id="example-5.4-page-124" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5.4-page-124">Example 5.4 · Page 124</h3>
 <p>Sketch the graphs of</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \text{(i) }r=3,\;
 \text{(ii) }\theta=\frac\pi4.
-\]</span></p>
+</span></p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>For <span class="math inline">\(r=3\)</span>, every point is a distance <span class="math inline">\(3\)</span> from the pole, so the graph is a circle with centre <span class="math inline">\(O\)</span> and radius <span class="math inline">\(3\)</span>. It crosses the initial line at <span class="math inline">\((3,0)\)</span>.</p>
-<p>For <span class="math inline">\(\theta=\pi/4\)</span>, the angle is fixed while <span class="math inline">\(r\geqslant0\)</span> varies. The graph is therefore a half-line from the pole at angle <span class="math inline">\(\pi/4\)</span>; it is not the complete Cartesian line <span class="math inline">\(y=x\)</span>.</p>
+<p>For <span class="math inline">r=3</span>, every point is a distance <span class="math inline">3</span> from the pole, so the graph is a circle with centre <span class="math inline">O</span> and radius <span class="math inline">3</span>. It crosses the initial line at <span class="math inline">(3,0)</span>.</p>
+<p>For <span class="math inline">\theta=\pi/4</span>, the angle is fixed while <span class="math inline">r\geqslant0</span> varies. The graph is therefore a half-line from the pole at angle <span class="math inline">\pi/4</span>; it is not the complete Cartesian line <span class="math inline">y=x</span>.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="example-5-4-title example-5-4-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="example-5-4-title">
@@ -758,32 +772,32 @@ A constant r gives a circle; a constant θ gives a half-line.
 <section id="example-5.5-page-125" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5.5-page-125">Example 5.5 · Page 125</h3>
 <p>A curve is defined by</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r=5\cos^2\theta.
-\]</span></p>
-<p><strong>(i)</strong> Create a table of values for <span class="math inline">\(0\leqslant\theta\leqslant\pi\)</span>.</p>
-<p><strong>(ii)</strong> Plot the curve for <span class="math inline">\(0\leqslant\theta\leqslant2\pi\)</span>.</p>
-<p><strong>(iii)</strong> State the least and greatest values of <span class="math inline">\(r\)</span> and the values of <span class="math inline">\(\theta\)</span> at which they occur.</p>
+</span></p>
+<p><strong>(i)</strong> Create a table of values for <span class="math inline">0\leqslant\theta\leqslant\pi</span>.</p>
+<p><strong>(ii)</strong> Plot the curve for <span class="math inline">0\leqslant\theta\leqslant2\pi</span>.</p>
+<p><strong>(iii)</strong> State the least and greatest values of <span class="math inline">r</span> and the values of <span class="math inline">\theta</span> at which they occur.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>At intervals of <span class="math inline">\(\pi/12\)</span> from <span class="math inline">\(0\)</span> to <span class="math inline">\(\pi/2\)</span>:</p>
-<p><span class="math display">\[
+<p>At intervals of <span class="math inline">\pi/12</span> from <span class="math inline">0</span> to <span class="math inline">\pi/2</span>:</p>
+<p><span class="math display">
 \begin{array}{c|rrrrrrr}
 \theta&amp;0&amp;\frac\pi{12}&amp;\frac\pi6&amp;\frac\pi4&amp;\frac\pi3&amp;\frac{5\pi}{12}&amp;\frac\pi2\\ \hline
 r&amp;5&amp;4.67&amp;3.75&amp;2.50&amp;1.25&amp;0.34&amp;0
 \end{array}
-\]</span></p>
-<p>The values are reflected between <span class="math inline">\(\pi/2\)</span> and <span class="math inline">\(\pi\)</span> and repeat with period <span class="math inline">\(\pi\)</span>. The initial line is an axis of symmetry.</p>
-<p>Since <span class="math inline">\(0\leqslant\cos^2\theta\leqslant1\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>The values are reflected between <span class="math inline">\pi/2</span> and <span class="math inline">\pi</span> and repeat with period <span class="math inline">\pi</span>. The initial line is an axis of symmetry.</p>
+<p>Since <span class="math inline">0\leqslant\cos^2\theta\leqslant1</span>,</p>
+<p><span class="math display">
 \boxed{r_{\max}=5\text{ at }\theta=0,\pi},
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{r_{\min}=0\text{ at }\theta=\frac\pi2,\frac{3\pi}{2}}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="example-5-5-title example-5-5-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="example-5-5-title">
@@ -800,32 +814,32 @@ The curve is symmetric about both coordinate axes and reaches the pole when cos 
 </section>
 <section id="example-5.6-page-126" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5.6-page-126">Example 5.6 · Page 126</h3>
-<p>Find the least and greatest values of <span class="math inline">\(r\)</span> for</p>
-<p><span class="math display">\[
+<p>Find the least and greatest values of <span class="math inline">r</span> for</p>
+<p><span class="math display">
 r=3+2\cos4\theta
-\]</span></p>
-<p>and the values of <span class="math inline">\(\theta\)</span> at which they occur. Hence sketch the graph.</p>
+</span></p>
+<p>and the values of <span class="math inline">\theta</span> at which they occur. Hence sketch the graph.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>The least value is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 3-2=1,
-\]</span></p>
-<p>which occurs when <span class="math inline">\(\cos4\theta=-1\)</span>. For <span class="math inline">\(-\pi&lt;\theta\leqslant\pi\)</span>, this gives</p>
-<p><span class="math display">\[
+</span></p>
+<p>which occurs when <span class="math inline">\cos4\theta=-1</span>. For <span class="math inline">-\pi&lt;\theta\leqslant\pi</span>, this gives</p>
+<p><span class="math display">
 \theta=\pm\frac\pi4,\ \pm\frac{3\pi}{4}.
-\]</span></p>
+</span></p>
 <p>The greatest value is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 3+2=5,
-\]</span></p>
-<p>which occurs when <span class="math inline">\(\cos4\theta=1\)</span>, including</p>
-<p><span class="math display">\[
+</span></p>
+<p>which occurs when <span class="math inline">\cos4\theta=1</span>, including</p>
+<p><span class="math display">
 \theta=0,\ \pm\frac\pi2,\ \pi.
-\]</span></p>
-<p>The function has period <span class="math inline">\(\pi/2\)</span>, so the graph repeats in each quadrant and has rotational symmetry of order <span class="math inline">\(4\)</span>. It never reaches the pole because <span class="math inline">\(r\geqslant1\)</span>.</p>
+</span></p>
+<p>The function has period <span class="math inline">\pi/2</span>, so the graph repeats in each quadrant and has rotational symmetry of order <span class="math inline">4</span>. It never reaches the pole because <span class="math inline">r\geqslant1</span>.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="example-5-6-title example-5-6-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="example-5-6-title">
@@ -843,35 +857,35 @@ Fourfold rotational symmetry; 1 ≤ r ≤ 5.
 <section id="example-5.7-pages-126129" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5.7-pages-126129">Example 5.7 · Pages 126–129</h3>
 <p>A curve is given by</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r=\theta(\pi-\theta).
-\]</span></p>
-<p><strong>(i)</strong> Plot the curve for <span class="math inline">\(0\leqslant\theta\leqslant\pi\)</span>, where <span class="math inline">\(r\)</span> is non-negative.</p>
-<p><strong>(ii)</strong> Create tables of values for <span class="math inline">\(\pi\leqslant\theta\leqslant3\pi/2\)</span> and <span class="math inline">\(-\pi/2\leqslant\theta\leqslant0\)</span>.</p>
-<p><strong>(iii)</strong> Sketch the curve for <span class="math inline">\(-\pi/2\leqslant\theta\leqslant3\pi/2\)</span> using the convention for this course.</p>
+</span></p>
+<p><strong>(i)</strong> Plot the curve for <span class="math inline">0\leqslant\theta\leqslant\pi</span>, where <span class="math inline">r</span> is non-negative.</p>
+<p><strong>(ii)</strong> Create tables of values for <span class="math inline">\pi\leqslant\theta\leqslant3\pi/2</span> and <span class="math inline">-\pi/2\leqslant\theta\leqslant0</span>.</p>
+<p><strong>(iii)</strong> Sketch the curve for <span class="math inline">-\pi/2\leqslant\theta\leqslant3\pi/2</span> using the convention for this course.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>For <span class="math inline">\(0\leqslant\theta\leqslant\pi\)</span>, <span class="math inline">\(r\geqslant0\)</span>. The curve starts at the pole when <span class="math inline">\(\theta=0\)</span>, reaches its greatest radius at <span class="math inline">\(\theta=\pi/2\)</span>, and returns to the pole at <span class="math inline">\(\theta=\pi\)</span>:</p>
-<p><span class="math display">\[
+<p>For <span class="math inline">0\leqslant\theta\leqslant\pi</span>, <span class="math inline">r\geqslant0</span>. The curve starts at the pole when <span class="math inline">\theta=0</span>, reaches its greatest radius at <span class="math inline">\theta=\pi/2</span>, and returns to the pole at <span class="math inline">\theta=\pi</span>:</p>
+<p><span class="math display">
 r_{\max}=\frac\pi2\left(\pi-\frac\pi2\right)=\frac{\pi^2}{4}.
-\]</span></p>
-<p>Outside this interval, <span class="math inline">\(\theta(\pi-\theta)&lt;0\)</span>. For instance,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Outside this interval, <span class="math inline">\theta(\pi-\theta)&lt;0</span>. For instance,</p>
+<p><span class="math display">
 \begin{array}{c|rrrr}
 \theta&amp;\pi&amp;\frac{7\pi}{6}&amp;\frac{4\pi}{3}&amp;\frac{3\pi}{2}\\ \hline
 r&amp;0&amp;-\frac{7\pi^2}{36}&amp;-\frac{4\pi^2}{9}&amp;-\frac{3\pi^2}{4}
 \end{array}
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{array}{c|rrrr}
 \theta&amp;-\frac\pi2&amp;-\frac\pi3&amp;-\frac\pi6&amp;0\\ \hline
 r&amp;-\frac{3\pi^2}{4}&amp;-\frac{4\pi^2}{9}&amp;-\frac{7\pi^2}{36}&amp;0.
 \end{array}
-\]</span></p>
-<p>Under the convention <span class="math inline">\(r\geqslant0\)</span>, these negative-radius portions are omitted. The required graph therefore consists only of the loop traced for <span class="math inline">\(0\leqslant\theta\leqslant\pi\)</span>.</p>
+</span></p>
+<p>Under the convention <span class="math inline">r\geqslant0</span>, these negative-radius portions are omitted. The required graph therefore consists only of the loop traced for <span class="math inline">0\leqslant\theta\leqslant\pi</span>.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="example-5-7-title example-5-7-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="example-5-7-title">
@@ -889,37 +903,37 @@ Only the interval 0 ≤ θ ≤ π is drawn because the stated course convention 
 <section id="example-5.8-pages-132133" class="level3 study-card">
 <h3 class="anchored" data-anchor-id="example-5.8-pages-132133">Example 5.8 · Pages 132–133</h3>
 <p>The curve has equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 r=1+2\cos\theta.
-\]</span></p>
-<p>Find the area enclosed, using the convention <span class="math inline">\(r\geqslant0\)</span>.</p>
+</span></p>
+<p>Find the area enclosed, using the convention <span class="math inline">r\geqslant0</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
 <p>The curve reaches the pole when</p>
-<p><span class="math display">\[
+<p><span class="math display">
 1+2\cos\theta=0
 \Longrightarrow
 \cos\theta=-\frac12.
-\]</span></p>
-<p>The relevant limiting angles are <span class="math inline">\(\theta=\pm2\pi/3\)</span>. By symmetry about the initial line,</p>
-<p><span class="math display">\[
+</span></p>
+<p>The relevant limiting angles are <span class="math inline">\theta=\pm2\pi/3</span>. By symmetry about the initial line,</p>
+<p><span class="math display">
 A=2\left(\frac12\int_0^{2\pi/3}(1+2\cos\theta)^2\,\mathrm d\theta\right).
-\]</span></p>
-<p>Using <span class="math inline">\(4\cos^2\theta=2+2\cos2\theta\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Using <span class="math inline">4\cos^2\theta=2+2\cos2\theta</span>,</p>
+<p><span class="math display">
 \begin{aligned}
 A
 &amp;=\int_0^{2\pi/3}(3+4\cos\theta+2\cos2\theta)\,\mathrm d\theta\\
 &amp;=\left[3\theta+4\sin\theta+\sin2\theta\right]_0^{2\pi/3}\\
 &amp;=2\pi+2\sqrt3-\frac{\sqrt3}{2}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{A=2\pi+\frac{3\sqrt3}{2}}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="example-5-8-title example-5-8-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="example-5-8-title">
@@ -953,34 +967,34 @@ The curve reaches the pole at θ = ±2π/3 and is symmetric about the initial li
 <div id="polar-textbook-5b-9" class="question-card">
 <section id="exercise-5b-question-9-page-131" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5b-question-9-page-131">Exercise 5B · Question 9 · Page 131</h3>
-<p>The curves <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> have polar equations</p>
-<p><span class="math display">\[
+<p>The curves <span class="math inline">C_1</span> and <span class="math inline">C_2</span> have polar equations</p>
+<p><span class="math display">
 C_1:r=\frac12,\; 0\leqslant\theta\leqslant2\pi,
-\]</span></p>
+</span></p>
 <p>and</p>
-<p><span class="math display">\[
+<p><span class="math display">
 C_2:r=\sin\frac\theta2,\; 0\leqslant\theta\leqslant\pi.
-\]</span></p>
-<p>Find the polar coordinates of the point of intersection of <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span>. Sketch <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> on the same diagram.</p>
+</span></p>
+<p>Find the polar coordinates of the point of intersection of <span class="math inline">C_1</span> and <span class="math inline">C_2</span>. Sketch <span class="math inline">C_1</span> and <span class="math inline">C_2</span> on the same diagram.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>At an intersection away from the pole, the two curves have the same <span class="math inline">\(r\)</span> and <span class="math inline">\(\theta\)</span>:</p>
-<p><span class="math display">\[
+<p>At an intersection away from the pole, the two curves have the same <span class="math inline">r</span> and <span class="math inline">\theta</span>:</p>
+<p><span class="math display">
 \sin\frac\theta2=\frac12.
-\]</span></p>
-<p>Since <span class="math inline">\(0\leqslant\theta/2\leqslant\pi/2\)</span>,</p>
-<p><span class="math display">\[
+</span></p>
+<p>Since <span class="math inline">0\leqslant\theta/2\leqslant\pi/2</span>,</p>
+<p><span class="math display">
 \frac\theta2=\frac\pi6
 \Longrightarrow
 \theta=\frac\pi3.
-\]</span></p>
+</span></p>
 <p>Thus the point of intersection is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{\left(\frac12,\frac\pi3\right)}.
-\]</span></p>
-<p><span class="math inline">\(C_1\)</span> is the circle with centre at the pole and radius <span class="math inline">\(1/2\)</span>. The curve <span class="math inline">\(C_2\)</span> starts at the pole, passes through the stated intersection and reaches <span class="math inline">\((-1,0)\)</span> when <span class="math inline">\(\theta=\pi\)</span>.</p>
+</span></p>
+<p><span class="math inline">C_1</span> is the circle with centre at the pole and radius <span class="math inline">1/2</span>. The curve <span class="math inline">C_2</span> starts at the pole, passes through the stated intersection and reaches <span class="math inline">(-1,0)</span> when <span class="math inline">\theta=\pi</span>.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="exercise-5b-9-title exercise-5b-9-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="exercise-5b-9-title">
@@ -1002,33 +1016,33 @@ The circle and C₂ meet at θ = π/3.
 <div id="polar-textbook-5c-9" class="question-card">
 <section id="exercise-5c-question-9-page-134" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5c-question-9-page-134">Exercise 5C · Question 9 · Page 134</h3>
-<p>The curve <span class="math inline">\(C\)</span> has polar equation</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has polar equation</p>
+<p><span class="math display">
 r=a(1+\sin\theta),\; 0\leqslant\theta&lt;2\pi,
-\]</span></p>
-<p>where <span class="math inline">\(a\)</span> is a positive constant. Draw a sketch of <span class="math inline">\(C\)</span>.</p>
-<p>Find the exact area of the region enclosed by <span class="math inline">\(C\)</span> and the half-lines <span class="math inline">\(\theta=\pi/3\)</span> and <span class="math inline">\(\theta=2\pi/3\)</span>.</p>
+</span></p>
+<p>where <span class="math inline">a</span> is a positive constant. Draw a sketch of <span class="math inline">C</span>.</p>
+<p>Find the exact area of the region enclosed by <span class="math inline">C</span> and the half-lines <span class="math inline">\theta=\pi/3</span> and <span class="math inline">\theta=2\pi/3</span>.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>The curve is symmetric about <span class="math inline">\(\theta=\pi/2\)</span>. It has</p>
-<p><span class="math display">\[
+<p>The curve is symmetric about <span class="math inline">\theta=\pi/2</span>. It has</p>
+<p><span class="math display">
 r=2a\text{ at }\theta=\frac\pi2,\;
 r=0\text{ at }\theta=\frac{3\pi}{2},
-\]</span></p>
-<p>and meets the initial line at <span class="math inline">\(r=a\)</span>.</p>
+</span></p>
+<p>and meets the initial line at <span class="math inline">r=a</span>.</p>
 <p>The required area is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 A=\frac12a^2\int_{\pi/3}^{2\pi/3}(1+\sin\theta)^2\,\mathrm d\theta.
-\]</span></p>
+</span></p>
 <p>Since</p>
-<p><span class="math display">\[
+<p><span class="math display">
 (1+\sin\theta)^2
 =\frac32+2\sin\theta-\frac12\cos2\theta,
-\]</span></p>
+</span></p>
 <p>we obtain</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 A
 &amp;=\frac{a^2}{2}
@@ -1037,11 +1051,11 @@ A
 \right]_{\pi/3}^{2\pi/3}\\
 &amp;=\frac{a^2}{2}left(\frac\pi2+2+\frac{\sqrt3}{4}\right).
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boxed{A=\frac{a^2}{8}\left(2\pi+8+\sqrt3\right)}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="exercise-5c-9-title exercise-5c-9-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="exercise-5c-9-title">
@@ -1063,18 +1077,18 @@ The required sector lies between the two coral half-lines; the drawing is scaled
 <div id="polar-textbook-5c-10" class="question-card">
 <section id="exercise-5c-question-10-page-134" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-5c-question-10-page-134">Exercise 5C · Question 10 · Page 134</h3>
-<p>The curve <span class="math inline">\(C\)</span> has polar equation</p>
-<p><span class="math display">\[
+<p>The curve <span class="math inline">C</span> has polar equation</p>
+<p><span class="math display">
 r=2+2\cos\theta,\; 0\leqslant\theta&lt;\pi.
-\]</span></p>
-<p>Sketch <span class="math inline">\(C\)</span>. Find the area of the region <span class="math inline">\(R\)</span> enclosed by <span class="math inline">\(C\)</span> and the initial line.</p>
-<p>The half-line <span class="math inline">\(\theta=\pi/5\)</span> divides <span class="math inline">\(R\)</span> into two parts. Find the area of each part, correct to <span class="math inline">\(3\)</span> decimal places.</p>
+</span></p>
+<p>Sketch <span class="math inline">C</span>. Find the area of the region <span class="math inline">R</span> enclosed by <span class="math inline">C</span> and the initial line.</p>
+<p>The half-line <span class="math inline">\theta=\pi/5</span> divides <span class="math inline">R</span> into two parts. Find the area of each part, correct to <span class="math inline">3</span> decimal places.</p>
 <details class="answer-panel">
 <summary>
 Show solution
 </summary>
-<p>The curve starts at <span class="math inline">\((4,0)\)</span> and reaches the pole at <span class="math inline">\(\theta=\pi\)</span>. The required region is the part above the initial line.</p>
-<p><span class="math display">\[
+<p>The curve starts at <span class="math inline">(4,0)</span> and reaches the pole at <span class="math inline">\theta=\pi</span>. The required region is the part above the initial line.</p>
+<p><span class="math display">
 \begin{aligned}
 \operatorname{area}(R)
 &amp;=\frac12\int_0^\pi(2+2\cos\theta)^2\,\mathrm d\theta\\
@@ -1082,20 +1096,20 @@ Show solution
 &amp;=\left[3\theta+4\sin\theta+\frac12\sin2\theta\right]_0^\pi\\
 &amp;=\boxed{3\pi}.
 \end{aligned}
-\]</span></p>
-<p>The area between <span class="math inline">\(\theta=0\)</span> and <span class="math inline">\(\theta=\pi/5\)</span> is</p>
-<p><span class="math display">\[
+</span></p>
+<p>The area between <span class="math inline">\theta=0</span> and <span class="math inline">\theta=\pi/5</span> is</p>
+<p><span class="math display">
 \begin{aligned}
 A_1
 &amp;=\left[3\theta+4\sin\theta+\frac12\sin2\theta\right]_0^{\pi/5}\\
 &amp;=4.71163\ldots\\
 &amp;=\boxed{4.712}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>The remaining area is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 A_2=3\pi-A_1=4.71315\ldots=\boxed{4.713}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="exercise-5c-10-title exercise-5c-10-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="exercise-5c-10-title">
@@ -1136,34 +1150,34 @@ The half-line θ = π/5 divides the upper half-cardioid into the two required re
 <div id="polar-2019-mj-11-12" class="question-card">
 <section id="mayjune-923111-923112-question-11-either-14-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-923112-question-11-either-14-marks">2019 May/June · 9231/11 &amp; 9231/12 · Question 11 EITHER · 14 marks</h3>
-<p><span class="math inline">\(C_1\)</span> has equation <span class="math inline">\(r^2=2\theta\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>. The point <span class="math inline">\(P\)</span> is furthest from the line <span class="math inline">\(\theta=\pi/2\)</span>.</p>
-<p><strong>(i)</strong> Show that <span class="math inline">\(2\theta\tan\theta=1\)</span> at <span class="math inline">\(P\)</span>, and verify a root between <span class="math inline">\(0.6\)</span> and <span class="math inline">\(0.7\)</span>. <strong>[5]</strong></p>
-<p><span class="math inline">\(C_2\)</span> has equation <span class="math inline">\(r^2=\theta\sec^2\theta\)</span> for <span class="math inline">\(0\leqslant\theta&lt;\pi/2\)</span>. The curves meet at the pole and at <span class="math inline">\(Q\)</span>.</p>
-<p><strong>(ii)</strong> Find the exact value of <span class="math inline">\(\theta\)</span> at <span class="math inline">\(Q\)</span>. <strong>[2]</strong></p>
-<p><strong>(iii)</strong> Sketch <span class="math inline">\(C_1\)</span> and <span class="math inline">\(C_2\)</span> together. <strong>[2]</strong></p>
+<p><span class="math inline">C_1</span> has equation <span class="math inline">r^2=2\theta</span> for <span class="math inline">0\leqslant\theta\leqslant\pi/2</span>. The point <span class="math inline">P</span> is furthest from the line <span class="math inline">\theta=\pi/2</span>.</p>
+<p><strong>(i)</strong> Show that <span class="math inline">2\theta\tan\theta=1</span> at <span class="math inline">P</span>, and verify a root between <span class="math inline">0.6</span> and <span class="math inline">0.7</span>. <strong>[5]</strong></p>
+<p><span class="math inline">C_2</span> has equation <span class="math inline">r^2=\theta\sec^2\theta</span> for <span class="math inline">0\leqslant\theta&lt;\pi/2</span>. The curves meet at the pole and at <span class="math inline">Q</span>.</p>
+<p><strong>(ii)</strong> Find the exact value of <span class="math inline">\theta</span> at <span class="math inline">Q</span>. <strong>[2]</strong></p>
+<p><strong>(iii)</strong> Sketch <span class="math inline">C_1</span> and <span class="math inline">C_2</span> together. <strong>[2]</strong></p>
 <p><strong>(iv)</strong> Find exactly the area enclosed by the curves. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><strong>(i)</strong> Distance from <span class="math inline">\(\theta=\pi/2\)</span> is <span class="math inline">\(x=r\cos\theta=(2\theta)^{1/2}\cos\theta\)</span>. Hence</p>
-<p><span class="math display">\[
+<p><strong>(i)</strong> Distance from <span class="math inline">\theta=\pi/2</span> is <span class="math inline">x=r\cos\theta=(2\theta)^{1/2}\cos\theta</span>. Hence</p>
+<p><span class="math display">
 \frac{dx}{d\theta}=(2\theta)^{1/2}\left(\frac{\cos\theta}{2\theta}-\sin\theta\right)=0
 \Longrightarrow \boxed{2\theta\tan\theta=1}.
-\]</span></p>
-<p>For <span class="math inline">\(f(\theta)=2\theta\tan\theta-1\)</span>,</p>
-<p><span class="math display">\[f(0.6)=-0.179&lt;0,\; f(0.7)=0.179&gt;0,\]</span></p>
-<p>so a root lies in <span class="math inline">\((0.6,0.7)\)</span>.</p>
+</span></p>
+<p>For <span class="math inline">f(\theta)=2\theta\tan\theta-1</span>,</p>
+<p><span class="math display">f(0.6)=-0.179&lt;0,\; f(0.7)=0.179&gt;0,</span></p>
+<p>so a root lies in <span class="math inline">(0.6,0.7)</span>.</p>
 <p><strong>(ii)</strong> Away from the pole,</p>
-<p><span class="math display">\[2\theta=\theta\sec^2\theta\Longrightarrow\cos^2\theta=\frac12,\]</span></p>
-<p>so <span class="math inline">\(\boxed{\theta=\pi/4}\)</span>.</p>
-<p><strong>(iv)</strong> <span class="math inline">\(C_1\)</span> is outside <span class="math inline">\(C_2\)</span> for <span class="math inline">\(0&lt;\theta&lt;\pi/4\)</span>, so</p>
-<p><span class="math display">\[
+<p><span class="math display">2\theta=\theta\sec^2\theta\Longrightarrow\cos^2\theta=\frac12,</span></p>
+<p>so <span class="math inline">\boxed{\theta=\pi/4}</span>.</p>
+<p><strong>(iv)</strong> <span class="math inline">C_1</span> is outside <span class="math inline">C_2</span> for <span class="math inline">0&lt;\theta&lt;\pi/4</span>, so</p>
+<p><span class="math display">
 \begin{aligned}
 A&amp;=\frac12\int_0^{\pi/4}\left(2\theta-\theta\sec^2\theta\right)d\theta\\
 &amp;=\boxed{\frac{\pi^2}{32}-\frac\pi8+\frac14\ln2}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2019-mj-11-12-title past-2019-mj-11-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2019-mj-11-12-title">
@@ -1184,22 +1198,22 @@ The curves meet at θ = π/4; the shaded-area calculation uses 0 ≤ θ ≤ π/4
 <div id="polar-2019-mj-13" class="question-card">
 <section id="mayjune-923113-question-2-7-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-2-7-marks">2019 May/June · 9231/13 · Question 2 · 7 marks</h3>
-<p><span class="math inline">\(C\)</span> has equation <span class="math inline">\(r^2=\ln(1+\theta)\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant2\pi\)</span>.</p>
-<p><strong>(i)</strong> Sketch <span class="math inline">\(C\)</span>. <strong>[2]</strong></p>
-<p><strong>(ii)</strong> Find exactly the area bounded by <span class="math inline">\(C\)</span> and the initial line. <strong>[5]</strong></p>
+<p><span class="math inline">C</span> has equation <span class="math inline">r^2=\ln(1+\theta)</span> for <span class="math inline">0\leqslant\theta\leqslant2\pi</span>.</p>
+<p><strong>(i)</strong> Sketch <span class="math inline">C</span>. <strong>[2]</strong></p>
+<p><strong>(ii)</strong> Find exactly the area bounded by <span class="math inline">C</span> and the initial line. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>The curve starts at the pole, spirals anticlockwise with increasing <span class="math inline">\(r\)</span>, and returns to the initial line at <span class="math inline">\(\theta=2\pi\)</span>; it is tangent to the initial line at the pole.</p>
-<p><span class="math display">\[
+<p>The curve starts at the pole, spirals anticlockwise with increasing <span class="math inline">r</span>, and returns to the initial line at <span class="math inline">\theta=2\pi</span>; it is tangent to the initial line at the pole.</p>
+<p><span class="math display">
 \begin{aligned}
 A&amp;=\frac12\int_0^{2\pi}\ln(1+\theta)d\theta\\
 &amp;=\frac12\int_1^{2\pi+1}\ln u\,du\\
 &amp;=\frac12[u\ln u-u]_1^{2\pi+1}\\
 &amp;=\boxed{\left(\pi+\frac12\right)\ln(2\pi+1)-\pi}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2019-mj-13-title past-2019-mj-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2019-mj-13-title">
@@ -1220,30 +1234,30 @@ An increasing anticlockwise spiral, tangent to the initial line at the pole.
 <div id="polar-2019-on" class="question-card">
 <section id="octobernovember-923111-12-13-question-11-either-14-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-12-13-question-11-either-14-marks">2019 October/November · 9231/11, /12 &amp; /13 · Question 11 EITHER · 14 marks</h3>
-<p>For <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>,</p>
-<p><span class="math display">\[C_1:r=2(e^\theta+e^{-\theta}),\; C_2:r=e^{2\theta}-e^{-2\theta}.\]</span></p>
-<p>The curves meet at <span class="math inline">\(P\)</span> where <span class="math inline">\(\theta=\alpha\)</span>.</p>
-<p><strong>(i)</strong> Show that <span class="math inline">\(e^{2\alpha}-2e^\alpha-1=0\)</span>, find <span class="math inline">\(\alpha\)</span> exactly and show that <span class="math inline">\(r=4\sqrt2\)</span> at <span class="math inline">\(P\)</span>. <strong>[6]</strong></p>
+<p>For <span class="math inline">0\leqslant\theta\leqslant\pi/2</span>,</p>
+<p><span class="math display">C_1:r=2(e^\theta+e^{-\theta}),\; C_2:r=e^{2\theta}-e^{-2\theta}.</span></p>
+<p>The curves meet at <span class="math inline">P</span> where <span class="math inline">\theta=\alpha</span>.</p>
+<p><strong>(i)</strong> Show that <span class="math inline">e^{2\alpha}-2e^\alpha-1=0</span>, find <span class="math inline">\alpha</span> exactly and show that <span class="math inline">r=4\sqrt2</span> at <span class="math inline">P</span>. <strong>[6]</strong></p>
 <p><strong>(ii)</strong> Sketch both curves. <strong>[3]</strong></p>
-<p><strong>(iii)</strong> Find to <span class="math inline">\(3\)</span> significant figures the area enclosed by the curves and initial line. <strong>[5]</strong></p>
+<p><strong>(iii)</strong> Find to <span class="math inline">3</span> significant figures the area enclosed by the curves and initial line. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Equating radii and dividing by <span class="math inline">\(e^\alpha+e^{-\alpha}\)</span> gives <span class="math inline">\(e^\alpha-e^{-\alpha}=2\)</span>, hence</p>
-<p><span class="math display">\[e^{2\alpha}-2e^\alpha-1=0,\; e^\alpha=1+\sqrt2,\]</span></p>
+<p>Equating radii and dividing by <span class="math inline">e^\alpha+e^{-\alpha}</span> gives <span class="math inline">e^\alpha-e^{-\alpha}=2</span>, hence</p>
+<p><span class="math display">e^{2\alpha}-2e^\alpha-1=0,\; e^\alpha=1+\sqrt2,</span></p>
 <p>so</p>
-<p><span class="math display">\[\boxed{\alpha=\ln(1+\sqrt2)},\; \boxed{r=4\sqrt2}.\]</span></p>
+<p><span class="math display">\boxed{\alpha=\ln(1+\sqrt2)},\; \boxed{r=4\sqrt2}.</span></p>
 <p>The required area is</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac12\int_0^\alpha\left[4(e^\theta+e^{-\theta})^2-(e^{2\theta}-e^{-2\theta})^2\right]d\theta.
-\]</span></p>
+</span></p>
 <p>After expansion this equals</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \left[5\theta+e^{2\theta}-e^{-2\theta}-\frac18e^{4\theta}+\frac18e^{-4\theta}\right]_0^\alpha
 =5\alpha+\sqrt2.
-\]</span></p>
-<p>Thus <span class="math inline">\(\boxed{A=5.82}\)</span> to <span class="math inline">\(3\)</span> significant figures.</p>
+</span></p>
+<p>Thus <span class="math inline">\boxed{A=5.82}</span> to <span class="math inline">3</span> significant figures.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2019-on-title past-2019-on-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2019-on-title">
@@ -1267,23 +1281,23 @@ The curves and the initial line enclose the required region before P.
 <div id="polar-2020-mj-11-12" class="question-card">
 <section id="mayjune-923111-12-question-7-12-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-12-question-7-12-marks">2020 May/June · 9231/11 &amp; /12 · Question 7 · 12 marks</h3>
-<p><span class="math inline">\(C_1:r=\theta\cos\theta\)</span> and <span class="math inline">\(C_2:r=\theta\sin\theta\)</span>, for <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>.</p>
-<p><strong>(a)</strong> Show that the point of <span class="math inline">\(C_1\)</span> furthest from <span class="math inline">\(\theta=\pi/2\)</span> satisfies <span class="math inline">\(2\theta\tan\theta-1=0\)</span>, and verify a root in <span class="math inline">\((0.6,0.7)\)</span>. <strong>[5]</strong></p>
+<p><span class="math inline">C_1:r=\theta\cos\theta</span> and <span class="math inline">C_2:r=\theta\sin\theta</span>, for <span class="math inline">0\leqslant\theta\leqslant\pi/2</span>.</p>
+<p><strong>(a)</strong> Show that the point of <span class="math inline">C_1</span> furthest from <span class="math inline">\theta=\pi/2</span> satisfies <span class="math inline">2\theta\tan\theta-1=0</span>, and verify a root in <span class="math inline">(0.6,0.7)</span>. <strong>[5]</strong></p>
 <p><strong>(b)</strong> Find the non-pole intersection. <strong>[2]</strong> <strong>(c)</strong> Sketch both curves. <strong>[3]</strong> <strong>(d)</strong> Find the enclosed area exactly. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(x=r\cos\theta=\theta\cos^2\theta\)</span>, so</p>
-<p><span class="math display">\[\frac{dx}{d\theta}=\cos^2\theta-2\theta\sin\theta\cos\theta=0
-\Longrightarrow 2\theta\tan\theta-1=0.\]</span></p>
-<p>The values at <span class="math inline">\(0.6\)</span> and <span class="math inline">\(0.7\)</span> are <span class="math inline">\(-0.179\)</span> and <span class="math inline">\(0.179\)</span>, establishing the root. At the other intersection,</p>
-<p><span class="math display">\[\theta\cos\theta=\theta\sin\theta\Longrightarrow\boxed{(r,\theta)=\left(\frac\pi{4\sqrt2},\frac\pi4\right)}.\]</span></p>
+<p><span class="math inline">x=r\cos\theta=\theta\cos^2\theta</span>, so</p>
+<p><span class="math display">\frac{dx}{d\theta}=\cos^2\theta-2\theta\sin\theta\cos\theta=0
+\Longrightarrow 2\theta\tan\theta-1=0.</span></p>
+<p>The values at <span class="math inline">0.6</span> and <span class="math inline">0.7</span> are <span class="math inline">-0.179</span> and <span class="math inline">0.179</span>, establishing the root. At the other intersection,</p>
+<p><span class="math display">\theta\cos\theta=\theta\sin\theta\Longrightarrow\boxed{(r,\theta)=\left(\frac\pi{4\sqrt2},\frac\pi4\right)}.</span></p>
 <p>Finally,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 A=\frac12\int_0^{\pi/4}\theta^2(\cos^2\theta-\sin^2\theta)d\theta
 =\boxed{\frac{\pi^2}{64}-\frac18}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2020-mj-11-12-title past-2020-mj-11-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2020-mj-11-12-title">
@@ -1304,19 +1318,19 @@ The curves meet away from the pole at θ = π/4.
 <div id="polar-2020-mj-13" class="question-card">
 <section id="mayjune-923113-question-5-6-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-5-6-marks">2020 May/June · 9231/13 · Question 5 · 6 marks</h3>
-<p><span class="math inline">\(C:r=a\tan\theta\)</span>, where <span class="math inline">\(a&gt;0\)</span> and <span class="math inline">\(0\leqslant\theta\leqslant\pi/4\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state the greatest distance from the pole. <strong>[2]</strong></p>
-<p><strong>(b)</strong> Find exactly the area bounded by <span class="math inline">\(C\)</span> and <span class="math inline">\(\theta=\pi/4\)</span>. <strong>[4]</strong></p>
+<p><span class="math inline">C:r=a\tan\theta</span>, where <span class="math inline">a&gt;0</span> and <span class="math inline">0\leqslant\theta\leqslant\pi/4</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state the greatest distance from the pole. <strong>[2]</strong></p>
+<p><strong>(b)</strong> Find exactly the area bounded by <span class="math inline">C</span> and <span class="math inline">\theta=\pi/4</span>. <strong>[4]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r\)</span> increases from <span class="math inline">\(0\)</span> to <span class="math inline">\(a\)</span>, so the greatest distance is <span class="math inline">\(\boxed{a}\)</span>.</p>
-<p><span class="math display">\[
+<p><span class="math inline">r</span> increases from <span class="math inline">0</span> to <span class="math inline">a</span>, so the greatest distance is <span class="math inline">\boxed{a}</span>.</p>
+<p><span class="math display">
 A=\frac{a^2}{2}\int_0^{\pi/4}\tan^2\theta\,d\theta
 =\frac{a^2}{2}[\tan\theta-\theta]_0^{\pi/4}
 =\boxed{\frac{a^2}{2}\left(1-\frac\pi4\right)}.
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2020-mj-13-title past-2020-mj-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2020-mj-13-title">
@@ -1337,18 +1351,18 @@ Scaled with a = 1; the greatest radius is a.
 <div id="polar-2020-on-11-13" class="question-card">
 <section id="octobernovember-923111-13-question-7-11-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-13-question-7-11-marks">2020 October/November · 9231/11 &amp; /13 · Question 7 · 11 marks</h3>
-<p><strong>(a)</strong> Show that <span class="math inline">\((x^2+y^2)^{5/2}=4xy(x^2-y^2)\)</span> has polar equation <span class="math inline">\(r=\sin4\theta\)</span>. <strong>[4]</strong></p>
-<p>For <span class="math inline">\(0\leqslant\theta\leqslant\pi/4\)</span>, <strong>(b)</strong> sketch the curve and state its symmetry line; <strong>[3]</strong> <strong>(c)</strong> find its enclosed area exactly. <strong>[4]</strong></p>
+<p><strong>(a)</strong> Show that <span class="math inline">(x^2+y^2)^{5/2}=4xy(x^2-y^2)</span> has polar equation <span class="math inline">r=\sin4\theta</span>. <strong>[4]</strong></p>
+<p>For <span class="math inline">0\leqslant\theta\leqslant\pi/4</span>, <strong>(b)</strong> sketch the curve and state its symmetry line; <strong>[3]</strong> <strong>(c)</strong> find its enclosed area exactly. <strong>[4]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Substitution gives</p>
-<p><span class="math display">\[r^5=4r^4\cos\theta\sin\theta(\cos^2\theta-\sin^2\theta),\]</span></p>
-<p>so <span class="math inline">\(r=2\sin2\theta\cos2\theta=\boxed{\sin4\theta}\)</span>. The single loop is symmetric about <span class="math inline">\(\boxed{\theta=\pi/8}\)</span>.</p>
-<p><span class="math display">\[A=\frac12\int_0^{\pi/4}\sin^24\theta\,d\theta
+<p><span class="math display">r^5=4r^4\cos\theta\sin\theta(\cos^2\theta-\sin^2\theta),</span></p>
+<p>so <span class="math inline">r=2\sin2\theta\cos2\theta=\boxed{\sin4\theta}</span>. The single loop is symmetric about <span class="math inline">\boxed{\theta=\pi/8}</span>.</p>
+<p><span class="math display">A=\frac12\int_0^{\pi/4}\sin^24\theta\,d\theta
 =\frac14\left[\theta-\frac18\sin8\theta\right]_0^{\pi/4}
-=\boxed{\frac\pi{16}}.\]</span></p>
+=\boxed{\frac\pi{16}}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2020-on-11-13-title past-2020-on-11-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2020-on-11-13-title">
@@ -1369,22 +1383,22 @@ A single loop symmetric about θ = π/8.
 <div id="polar-2020-on-12" class="question-card">
 <section id="octobernovember-923112-question-5-8-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-5-8-marks">2020 October/November · 9231/12 · Question 5 · 8 marks</h3>
-<p><span class="math inline">\(C:r=\ln(1+\pi-\theta)\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state the point furthest from the pole. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Find exactly the area bounded by <span class="math inline">\(C\)</span> and the initial line. <strong>[5]</strong></p>
+<p><span class="math inline">C:r=\ln(1+\pi-\theta)</span> for <span class="math inline">0\leqslant\theta\leqslant\pi</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state the point furthest from the pole. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find exactly the area bounded by <span class="math inline">C</span> and the initial line. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r\)</span> decreases from <span class="math inline">\(\ln(1+\pi)\)</span> to <span class="math inline">\(0\)</span>, so the furthest point is <span class="math inline">\(\boxed{(\ln(1+\pi),0)}\)</span>.</p>
-<p>With <span class="math inline">\(u=1+\pi-\theta\)</span>,</p>
-<p><span class="math display">\[
+<p><span class="math inline">r</span> decreases from <span class="math inline">\ln(1+\pi)</span> to <span class="math inline">0</span>, so the furthest point is <span class="math inline">\boxed{(\ln(1+\pi),0)}</span>.</p>
+<p>With <span class="math inline">u=1+\pi-\theta</span>,</p>
+<p><span class="math display">
 \begin{aligned}
 A&amp;=\frac12\int_1^{1+\pi}\ln^2u\,du\\
 &amp;=\frac12[u(\ln^2u-2\ln u+2)]_1^{1+\pi}\\
 &amp;=\boxed{\frac12(1+\pi)\{\ln^2(1+\pi)-2\ln(1+\pi)+2\}-1}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2020-on-12-title past-2020-on-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2020-on-12-title">
@@ -1408,20 +1422,20 @@ The radius decreases from ln(1 + π) to zero.
 <div id="polar-2021-mj-11-12" class="question-card">
 <section id="mayjune-923111-12-question-5-7-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-12-question-5-7-marks">2021 May/June · 9231/11 &amp; /12 · Question 5 · 7 marks</h3>
-<p><span class="math inline">\(C:r=a\cot(\pi/3-\theta)\)</span>, where <span class="math inline">\(a&gt;0\)</span>, <span class="math inline">\(0\leqslant\theta\leqslant\pi/6\)</span>, and the greatest radius is <span class="math inline">\(2\sqrt3\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and show that <span class="math inline">\(a=2\)</span>. <strong>[3]</strong> <strong>(b)</strong> Find the bounded area exactly. <strong>[4]</strong></p>
+<p><span class="math inline">C:r=a\cot(\pi/3-\theta)</span>, where <span class="math inline">a&gt;0</span>, <span class="math inline">0\leqslant\theta\leqslant\pi/6</span>, and the greatest radius is <span class="math inline">2\sqrt3</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and show that <span class="math inline">a=2</span>. <strong>[3]</strong> <strong>(b)</strong> Find the bounded area exactly. <strong>[4]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>At <span class="math inline">\(\theta=\pi/6\)</span>, <span class="math inline">\(r=a\cot(\pi/6)=a\sqrt3=2\sqrt3\)</span>, hence <span class="math inline">\(\boxed{a=2}\)</span>.</p>
-<p><span class="math display">\[
+<p>At <span class="math inline">\theta=\pi/6</span>, <span class="math inline">r=a\cot(\pi/6)=a\sqrt3=2\sqrt3</span>, hence <span class="math inline">\boxed{a=2}</span>.</p>
+<p><span class="math display">
 \begin{aligned}
 A&amp;=2\int_0^{\pi/6}\cot^2(\pi/3-\theta)d\theta\\
 &amp;=2[-\cot u-u]_{\pi/6}^{\pi/3}
 =\boxed{\frac{4\sqrt3-\pi}{3}}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2021-mj-11-12-title past-2021-mj-11-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2021-mj-11-12-title">
@@ -1442,20 +1456,20 @@ The radius increases to 2√3.
 <div id="polar-2021-mj-13" class="question-card">
 <section id="mayjune-923113-question-5-9-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-5-9-marks">2021 May/June · 9231/13 · Question 5 · 9 marks</h3>
-<p>For <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>,</p>
-<p><span class="math display">\[r=\frac1{\pi-\theta}-\frac1\pi.\]</span></p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span>. <strong>[3]</strong> <strong>(b)</strong> Show that the area bounded by <span class="math inline">\(C\)</span> and <span class="math inline">\(\theta=\pi/2\)</span> is <span class="math inline">\((3-4\ln2)/(4\pi)\)</span>. <strong>[6]</strong></p>
+<p>For <span class="math inline">0\leqslant\theta\leqslant\pi/2</span>,</p>
+<p><span class="math display">r=\frac1{\pi-\theta}-\frac1\pi.</span></p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span>. <strong>[3]</strong> <strong>(b)</strong> Show that the area bounded by <span class="math inline">C</span> and <span class="math inline">\theta=\pi/2</span> is <span class="math inline">(3-4\ln2)/(4\pi)</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r\)</span> increases from <span class="math inline">\(0\)</span> and the curve is tangent to the initial line at the pole.</p>
-<p><span class="math display">\[
+<p><span class="math inline">r</span> increases from <span class="math inline">0</span> and the curve is tangent to the initial line at the pole.</p>
+<p><span class="math display">
 A=\frac1{2\pi^2}\int_0^{\pi/2}\frac{\theta^2}{(\pi-\theta)^2}d\theta.
-\]</span></p>
-<p>Let <span class="math inline">\(u=\pi-\theta\)</span>. Then</p>
-<p><span class="math display">\[A=\frac1{2\pi^2}\int_{\pi/2}^{\pi}\left(\frac{\pi^2}{u^2}-\frac{2\pi}{u}+1\right)du
-=\boxed{\frac{3-4\ln2}{4\pi}}.\]</span></p>
+</span></p>
+<p>Let <span class="math inline">u=\pi-\theta</span>. Then</p>
+<p><span class="math display">A=\frac1{2\pi^2}\int_{\pi/2}^{\pi}\left(\frac{\pi^2}{u^2}-\frac{2\pi}{u}+1\right)du
+=\boxed{\frac{3-4\ln2}{4\pi}}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2021-mj-13-title past-2021-mj-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2021-mj-13-title">
@@ -1476,17 +1490,17 @@ The curve leaves the pole tangentially and has increasing radius.
 <div id="polar-2021-on-11-13" class="question-card">
 <section id="octobernovember-923111-13-question-6-7-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-13-question-6-7-marks">2021 October/November · 9231/11 &amp; /13 · Question 6 · 7 marks</h3>
-<p><span class="math inline">\(C:r=2\cos\theta(1+\sin\theta)\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>.</p>
-<p><strong>(a)</strong> Find the point furthest from the pole. <strong>[5]</strong> <strong>(b)</strong> Sketch <span class="math inline">\(C\)</span>. <strong>[2]</strong></p>
+<p><span class="math inline">C:r=2\cos\theta(1+\sin\theta)</span> for <span class="math inline">0\leqslant\theta\leqslant\pi/2</span>.</p>
+<p><strong>(a)</strong> Find the point furthest from the pole. <strong>[5]</strong> <strong>(b)</strong> Sketch <span class="math inline">C</span>. <strong>[2]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>Differentiating gives</p>
-<p><span class="math display">\[\frac{dr}{d\theta}=2\{\cos^2\theta-(1+\sin\theta)\sin\theta\}=0.\]</span></p>
-<p>Thus <span class="math inline">\(1-sin\theta-2\sin^2\theta=0\)</span>, so <span class="math inline">\(\sin\theta=1/2\)</span> in the interval. Hence</p>
-<p><span class="math display">\[\boxed{(r,\theta)=\left(\frac{3\sqrt3}{2},\frac\pi6\right)}.\]</span></p>
-<p>The curve begins at <span class="math inline">\((2,0)\)</span>, reaches this maximum, then is tangent to <span class="math inline">\(\theta=\pi/2\)</span> at the pole.</p>
+<p><span class="math display">\frac{dr}{d\theta}=2\{\cos^2\theta-(1+\sin\theta)\sin\theta\}=0.</span></p>
+<p>Thus <span class="math inline">1-sin\theta-2\sin^2\theta=0</span>, so <span class="math inline">\sin\theta=1/2</span> in the interval. Hence</p>
+<p><span class="math display">\boxed{(r,\theta)=\left(\frac{3\sqrt3}{2},\frac\pi6\right)}.</span></p>
+<p>The curve begins at <span class="math inline">(2,0)</span>, reaches this maximum, then is tangent to <span class="math inline">\theta=\pi/2</span> at the pole.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2021-on-11-13-title past-2021-on-11-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2021-on-11-13-title">
@@ -1507,21 +1521,21 @@ The maximum radius occurs at θ = π/6.
 <div id="polar-2021-on-12" class="question-card">
 <section id="octobernovember-923112-question-5-12-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-5-12-marks">2021 October/November · 9231/12 · Question 5 · 12 marks</h3>
-<p><span class="math inline">\(C:r=3+2\sin\theta\)</span> for <span class="math inline">\(-\pi&lt;\theta\leqslant\pi\)</span>, and <span class="math inline">\(l:r\sin\theta=2\)</span>.</p>
-<p><strong>(a)</strong> Complete the sketch. <strong>[1]</strong> <strong>(b)</strong> Add <span class="math inline">\(l\)</span> and find both intersections. <strong>[5]</strong> <strong>(c)</strong> Find exactly the area enclosed by <span class="math inline">\(C\)</span> and <span class="math inline">\(l\)</span> that contains the pole. <strong>[6]</strong></p>
+<p><span class="math inline">C:r=3+2\sin\theta</span> for <span class="math inline">-\pi&lt;\theta\leqslant\pi</span>, and <span class="math inline">l:r\sin\theta=2</span>.</p>
+<p><strong>(a)</strong> Complete the sketch. <strong>[1]</strong> <strong>(b)</strong> Add <span class="math inline">l</span> and find both intersections. <strong>[5]</strong> <strong>(c)</strong> Find exactly the area enclosed by <span class="math inline">C</span> and <span class="math inline">l</span> that contains the pole. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(l\)</span> is <span class="math inline">\(y=2\)</span>. At an intersection,</p>
-<p><span class="math display">\[2=(3+2\sin\theta)\sin\theta,\]</span></p>
-<p>giving <span class="math inline">\(\sin\theta=1/2\)</span>. Therefore the intersections are</p>
-<p><span class="math display">\[\boxed{(4,\pi/6)},\;\boxed{(4,5\pi/6)}.\]</span></p>
+<p><span class="math inline">l</span> is <span class="math inline">y=2</span>. At an intersection,</p>
+<p><span class="math display">2=(3+2\sin\theta)\sin\theta,</span></p>
+<p>giving <span class="math inline">\sin\theta=1/2</span>. Therefore the intersections are</p>
+<p><span class="math display">\boxed{(4,\pi/6)},\;\boxed{(4,5\pi/6)}.</span></p>
 <p>Using symmetry, the curved part with two radii has area</p>
-<p><span class="math display">\[2\cdot\frac12\int_{-\pi/2}^{\pi/6}(3+2\sin\theta)^2d\theta
-=\frac{22\pi}{3}-\frac{13\sqrt3}{2}.\]</span></p>
-<p>Adding the two congruent triangles gives <span class="math inline">\(4\cos(\pi/6)\times2=4\sqrt3\)</span>. Hence</p>
-<p><span class="math display">\[\boxed{A=\frac{22\pi}{3}-\frac{5\sqrt3}{2}}.\]</span></p>
+<p><span class="math display">2\cdot\frac12\int_{-\pi/2}^{\pi/6}(3+2\sin\theta)^2d\theta
+=\frac{22\pi}{3}-\frac{13\sqrt3}{2}.</span></p>
+<p>Adding the two congruent triangles gives <span class="math inline">4\cos(\pi/6)\times2=4\sqrt3</span>. Hence</p>
+<p><span class="math display">\boxed{A=\frac{22\pi}{3}-\frac{5\sqrt3}{2}}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2021-on-12-title past-2021-on-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2021-on-12-title">
@@ -1545,32 +1559,32 @@ The horizontal line y = 2 cuts the symmetric closed curve at two points.
 <div id="polar-2022-mj-11-12" class="question-card">
 <section id="mayjune-923111-12-question-6-13-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-12-question-6-13-marks">2022 May/June · 9231/11 &amp; /12 · Question 6 · 13 marks</h3>
-<p><span class="math inline">\(C:r^2=\tan^{-1}(\theta/2)\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant2\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state exactly its greatest radius. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Find exactly the area bounded by <span class="math inline">\(C\)</span> and <span class="math inline">\(\theta=2\)</span>. <strong>[5]</strong></p>
-<p>For <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>, <strong>(c)</strong> show that the point furthest from <span class="math inline">\(\theta=\pi/2\)</span> satisfies</p>
-<p><span class="math display">\[
+<p><span class="math inline">C:r^2=\tan^{-1}(\theta/2)</span> for <span class="math inline">0\leqslant\theta\leqslant2</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state exactly its greatest radius. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find exactly the area bounded by <span class="math inline">C</span> and <span class="math inline">\theta=2</span>. <strong>[5]</strong></p>
+<p>For <span class="math inline">0\leqslant\theta\leqslant\pi/2</span>, <strong>(c)</strong> show that the point furthest from <span class="math inline">\theta=\pi/2</span> satisfies</p>
+<p><span class="math display">
 (\theta^2+4)\tan^{-1}(\theta/2)\sin\theta-\cos\theta=0,
-\]</span></p>
-<p>and verify a root in <span class="math inline">\((0.6,0.7)\)</span>. <strong>[5]</strong></p>
+</span></p>
+<p>and verify a root in <span class="math inline">(0.6,0.7)</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r\)</span> increases throughout the interval, so</p>
-<p><span class="math display">\[r_{\max}=\sqrt{\tan^{-1}1}=\boxed{\frac{\sqrt\pi}{2}}.\]</span></p>
+<p><span class="math inline">r</span> increases throughout the interval, so</p>
+<p><span class="math display">r_{\max}=\sqrt{\tan^{-1}1}=\boxed{\frac{\sqrt\pi}{2}}.</span></p>
 <p>For the area, integration by parts gives</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \begin{aligned}
 A&amp;=\frac12\int_0^2\tan^{-1}(\theta/2)d\theta\\
 &amp;=\frac12\left[\theta\tan^{-1}(\theta/2)-\ln(\theta^2+4)\right]_0^2\\
 &amp;=\boxed{\frac\pi4-\frac12\ln2}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>For part (c), the perpendicular distance is</p>
-<p><span class="math display">\[x=r\cos\theta=\{  an^{-1}(\theta/2)\}^{1/2}\cos\theta.\]</span></p>
-<p>Setting <span class="math inline">\(dx/d\theta=0\)</span> and clearing the positive factors gives the required equation. Its left side is</p>
-<p><span class="math display">\[-0.108\text{ at }\theta=0.6,\; 0.209\text{ at }\theta=0.7,\]</span></p>
+<p><span class="math display">x=r\cos\theta=\{  an^{-1}(\theta/2)\}^{1/2}\cos\theta.</span></p>
+<p>Setting <span class="math inline">dx/d\theta=0</span> and clearing the positive factors gives the required equation. Its left side is</p>
+<p><span class="math display">-0.108\text{ at }\theta=0.6,\; 0.209\text{ at }\theta=0.7,</span></p>
 <p>so the root is verified.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2022-mj-11-12-title past-2022-mj-11-12-desc" xmlns="http://www.w3.org/2000/svg">
@@ -1592,22 +1606,22 @@ The radius increases to √π/2.
 <div id="polar-2022-mj-13" class="question-card">
 <section id="mayjune-923113-question-6-13-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-6-13-marks">2022 May/June · 9231/13 · Question 6 · 13 marks</h3>
-<p><span class="math inline">\(C\)</span> has Cartesian equation <span class="math inline">\(x^2+xy+y^2=a\)</span>, where <span class="math inline">\(a&gt;0\)</span>.</p>
+<p><span class="math inline">C</span> has Cartesian equation <span class="math inline">x^2+xy+y^2=a</span>, where <span class="math inline">a&gt;0</span>.</p>
 <p><strong>(a)</strong> Show that</p>
-<p><span class="math display">\[r^2=\frac{2a}{2+\sin2\theta}.\]</span></p>
-<p><strong>[3]</strong> <strong>(b)</strong> Sketch the part for <span class="math inline">\(0\leqslant\theta\leqslant\pi/4\)</span>. <strong>[2]</strong></p>
-<p><strong>(c)</strong> Find exactly the area enclosed by this part, the initial line and <span class="math inline">\(\theta=\pi/4\)</span>. <strong>[8]</strong></p>
+<p><span class="math display">r^2=\frac{2a}{2+\sin2\theta}.</span></p>
+<p><strong>[3]</strong> <strong>(b)</strong> Sketch the part for <span class="math inline">0\leqslant\theta\leqslant\pi/4</span>. <strong>[2]</strong></p>
+<p><strong>(c)</strong> Find exactly the area enclosed by this part, the initial line and <span class="math inline">\theta=\pi/4</span>. <strong>[8]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Substituting <span class="math inline">\(x=r\cos\theta\)</span> and <span class="math inline">\(y=r\sin\theta\)</span> gives</p>
-<p><span class="math display">\[r^2(1+\sin\theta\cos\theta)=a,\]</span></p>
+<p>Substituting <span class="math inline">x=r\cos\theta</span> and <span class="math inline">y=r\sin\theta</span> gives</p>
+<p><span class="math display">r^2(1+\sin\theta\cos\theta)=a,</span></p>
 <p>hence</p>
-<p><span class="math display">\[\boxed{r^2=\frac{2a}{2+\sin2\theta}}.\]</span></p>
-<p>The radius decreases smoothly from <span class="math inline">\(\sqrt a\)</span> at <span class="math inline">\(\theta=0\)</span> to <span class="math inline">\(\sqrt{2a/3}\)</span> at <span class="math inline">\(\theta=\pi/4\)</span>.</p>
-<p>Using <span class="math inline">\(t=\tan\theta\)</span> and <span class="math inline">\(dt=(1+t^2)d\theta\)</span>,</p>
-<p><span class="math display">\[
+<p><span class="math display">\boxed{r^2=\frac{2a}{2+\sin2\theta}}.</span></p>
+<p>The radius decreases smoothly from <span class="math inline">\sqrt a</span> at <span class="math inline">\theta=0</span> to <span class="math inline">\sqrt{2a/3}</span> at <span class="math inline">\theta=\pi/4</span>.</p>
+<p>Using <span class="math inline">t=\tan\theta</span> and <span class="math inline">dt=(1+t^2)d\theta</span>,</p>
+<p><span class="math display">
 \begin{aligned}
 A&amp;=\frac12\int_0^{\pi/4}r^2d\theta
 =\frac a2\int_0^1\frac{dt}{t^2+t+1}\\
@@ -1615,7 +1629,7 @@ A&amp;=\frac12\int_0^{\pi/4}r^2d\theta
 &amp;=\frac a{\sqrt3}\left[\tan^{-1}\frac{2t+1}{\sqrt3}\right]_0^1\\
 &amp;=\boxed{\frac{\pi a}{6\sqrt3}}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2022-mj-13-title past-2022-mj-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2022-mj-13-title">
@@ -1639,27 +1653,27 @@ Scaled with a = 1; the radius decreases on 0 ≤ θ ≤ π/4.
 <div id="polar-2023-on-11-13" class="question-card">
 <section id="octobernovember-923111-13-question-6-15-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-13-question-6-15-marks">2023 October/November · 9231/11 &amp; /13 · Question 6 · 15 marks</h3>
-<p><strong>(a)</strong> Show that <span class="math inline">\((x-1/2)^2+y^2=1/4\)</span> has polar equation <span class="math inline">\(r=\cos\theta\)</span>. <strong>[3]</strong></p>
-<p><span class="math inline">\(C_1:r=\cos\theta\)</span> and <span class="math inline">\(C_2:r=\sin2\theta\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span> meet at the pole and <span class="math inline">\(P\)</span>.</p>
-<p><strong>(b)</strong> Find <span class="math inline">\(P\)</span>. <strong>[3]</strong> <strong>(c)</strong> Sketch both curves and mark <span class="math inline">\(P\)</span>. <strong>[3]</strong> <strong>(d)</strong> Find exactly the enclosed area containing <span class="math inline">\(OP\)</span>. <strong>[6]</strong></p>
+<p><strong>(a)</strong> Show that <span class="math inline">(x-1/2)^2+y^2=1/4</span> has polar equation <span class="math inline">r=\cos\theta</span>. <strong>[3]</strong></p>
+<p><span class="math inline">C_1:r=\cos\theta</span> and <span class="math inline">C_2:r=\sin2\theta</span> for <span class="math inline">0\leqslant\theta\leqslant\pi/2</span> meet at the pole and <span class="math inline">P</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">P</span>. <strong>[3]</strong> <strong>(c)</strong> Sketch both curves and mark <span class="math inline">P</span>. <strong>[3]</strong> <strong>(d)</strong> Find exactly the enclosed area containing <span class="math inline">OP</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Expanding the Cartesian equation gives <span class="math inline">\(x^2-x+y^2=0\)</span>, hence</p>
-<p><span class="math display">\[r^2-r\cos\theta=0\Longrightarrow\boxed{r=\cos\theta}.\]</span></p>
+<p>Expanding the Cartesian equation gives <span class="math inline">x^2-x+y^2=0</span>, hence</p>
+<p><span class="math display">r^2-r\cos\theta=0\Longrightarrow\boxed{r=\cos\theta}.</span></p>
 <p>At the non-pole intersection,</p>
-<p><span class="math display">\[\sin2\theta=\cos\theta\Longrightarrow 2\sin\theta=1,\]</span></p>
+<p><span class="math display">\sin2\theta=\cos\theta\Longrightarrow 2\sin\theta=1,</span></p>
 <p>so</p>
-<p><span class="math display">\[\boxed{P\left(\frac{\sqrt3}{2},\frac\pi6\right)}.\]</span></p>
-<p><span class="math inline">\(C_2\)</span> bounds the region for <span class="math inline">\(0\leqslant\theta\leqslant\pi/6\)</span>, and <span class="math inline">\(C_1\)</span> for <span class="math inline">\(\pi/6\leqslant\theta\leqslant\pi/2\)</span>. Therefore</p>
-<p><span class="math display">\[
+<p><span class="math display">\boxed{P\left(\frac{\sqrt3}{2},\frac\pi6\right)}.</span></p>
+<p><span class="math inline">C_2</span> bounds the region for <span class="math inline">0\leqslant\theta\leqslant\pi/6</span>, and <span class="math inline">C_1</span> for <span class="math inline">\pi/6\leqslant\theta\leqslant\pi/2</span>. Therefore</p>
+<p><span class="math display">
 \begin{aligned}
 A&amp;=\frac12\int_0^{\pi/6}\sin^22\theta\,d\theta
 +\frac12\int_{\pi/6}^{\pi/2}\cos^2\theta\,d\theta\\
 &amp;=\boxed{\frac\pi8-\frac{3\sqrt3}{32}}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2023-on-11-13-title past-2023-on-11-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2023-on-11-13-title">
@@ -1680,26 +1694,26 @@ The required region is bounded by different curves on either side of P.
 <div id="polar-2023-on-12" class="question-card">
 <section id="octobernovember-923112-question-6-13-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-6-13-marks">2023 October/November · 9231/12 · Question 6 · 13 marks</h3>
-<p><span class="math display">\[C:r=e^{-\theta}-e^{-\pi/2},\;0\leqslant\theta\leqslant\pi/2.\]</span></p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state exactly its greatest radius. <strong>[3]</strong> <strong>(b)</strong> Find exactly the area bounded by <span class="math inline">\(C\)</span> and the initial line. <strong>[5]</strong></p>
+<p><span class="math display">C:r=e^{-\theta}-e^{-\pi/2},\;0\leqslant\theta\leqslant\pi/2.</span></p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state exactly its greatest radius. <strong>[3]</strong> <strong>(b)</strong> Find exactly the area bounded by <span class="math inline">C</span> and the initial line. <strong>[5]</strong></p>
 <p><strong>(c)</strong> Show that the point furthest from the initial line satisfies</p>
-<p><span class="math display">\[1-e^{\theta-\pi/2}-\tan\theta=0,\]</span></p>
-<p>and verify a root in <span class="math inline">\((0.56,0.57)\)</span>. <strong>[5]</strong></p>
+<p><span class="math display">1-e^{\theta-\pi/2}-\tan\theta=0,</span></p>
+<p>and verify a root in <span class="math inline">(0.56,0.57)</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r\)</span> decreases from <span class="math inline">\(1-e^{-\pi/2}\)</span> to <span class="math inline">\(0\)</span>, so the greatest radius is</p>
-<p><span class="math display">\[\boxed{1-e^{-\pi/2}}.\]</span></p>
-<p><span class="math display">\[
+<p><span class="math inline">r</span> decreases from <span class="math inline">1-e^{-\pi/2}</span> to <span class="math inline">0</span>, so the greatest radius is</p>
+<p><span class="math display">\boxed{1-e^{-\pi/2}}.</span></p>
+<p><span class="math display">
 \begin{aligned}
 A&amp;=\frac12\int_0^{\pi/2}(e^{-\theta}-e^{-\pi/2})^2d\theta\\
 &amp;=\boxed{\frac14-e^{-\pi/2}+\frac{\pi+3}{4}e^{-\pi}}.
 \end{aligned}
-\]</span></p>
+</span></p>
 <p>The distance from the initial line is</p>
-<p><span class="math display">\[y=(e^{-\theta}-e^{-\pi/2})\sin\theta.\]</span></p>
-<p>Setting <span class="math inline">\(dy/d\theta=0\)</span> and dividing by <span class="math inline">\(e^{-\theta}\cos\theta\)</span> gives the stated equation. Its values at <span class="math inline">\(0.56\)</span> and <span class="math inline">\(0.57\)</span> have opposite signs, so the root is verified.</p>
+<p><span class="math display">y=(e^{-\theta}-e^{-\pi/2})\sin\theta.</span></p>
+<p>Setting <span class="math inline">dy/d\theta=0</span> and dividing by <span class="math inline">e^{-\theta}\cos\theta</span> gives the stated equation. Its values at <span class="math inline">0.56</span> and <span class="math inline">0.57</span> have opposite signs, so the root is verified.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2023-on-12-title past-2023-on-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2023-on-12-title">
@@ -1723,28 +1737,28 @@ The radius decreases from 1 − e^(−π/2) to the pole.
 <div id="polar-2024-mj-11-12" class="question-card">
 <section id="mayjune-923111-12-question-7-15-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-12-question-7-15-marks">2024 May/June · 9231/11 &amp; /12 · Question 7 · 15 marks</h3>
-<p><span class="math inline">\(C:r^2=(\pi-\theta)\tan^{-1}(\pi-\theta)\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state the point furthest from the pole. <strong>[3]</strong></p>
-<p><strong>(b)</strong> Find the area enclosed by <span class="math inline">\(C\)</span> and the initial line. <strong>[7]</strong></p>
+<p><span class="math inline">C:r^2=(\pi-\theta)\tan^{-1}(\pi-\theta)</span> for <span class="math inline">0\leqslant\theta\leqslant\pi</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state the point furthest from the pole. <strong>[3]</strong></p>
+<p><strong>(b)</strong> Find the area enclosed by <span class="math inline">C</span> and the initial line. <strong>[7]</strong></p>
 <p><strong>(c)</strong> Show that the point furthest from the initial line satisfies</p>
-<p><span class="math display">\[2(\pi-\theta)\tan^{-1}(\pi-\theta)\cot\theta-
-\frac{\pi-\theta}{1+(\pi-\theta)^2}-\tan^{-1}(\pi-\theta)=0,\]</span></p>
-<p>and verify a root in <span class="math inline">\((1.2,1.3)\)</span>. <strong>[5]</strong></p>
+<p><span class="math display">2(\pi-\theta)\tan^{-1}(\pi-\theta)\cot\theta-
+\frac{\pi-\theta}{1+(\pi-\theta)^2}-\tan^{-1}(\pi-\theta)=0,</span></p>
+<p>and verify a root in <span class="math inline">(1.2,1.3)</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r\)</span> decreases to the pole, so the furthest point is</p>
-<p><span class="math display">\[\boxed{\left(\sqrt{\pi\tan^{-1}\pi},0\right)}.\]</span></p>
-<p>With <span class="math inline">\(u=\pi-\theta\)</span> and integration by parts,</p>
-<p><span class="math display">\[
+<p><span class="math inline">r</span> decreases to the pole, so the furthest point is</p>
+<p><span class="math display">\boxed{\left(\sqrt{\pi\tan^{-1}\pi},0\right)}.</span></p>
+<p>With <span class="math inline">u=\pi-\theta</span> and integration by parts,</p>
+<p><span class="math display">
 \begin{aligned}
 A&amp;=\frac12\int_0^\pi u\tan^{-1}u\,du\\
 &amp;=\frac14(\pi^2+1)\tan^{-1}\pi-\frac\pi4.
 \end{aligned}
-\]</span></p>
-<p>Thus <span class="math inline">\(\boxed{A=\frac14\{(\pi^2+1)\tan^{-1}\pi-\pi\}}\)</span>.</p>
-<p>For part (c), use <span class="math inline">\(y=r\sin\theta\)</span> and differentiate <span class="math inline">\(y^2=r^2\sin^2\theta\)</span>. Clearing non-zero factors yields the stated equation; its two endpoint values have opposite signs.</p>
+</span></p>
+<p>Thus <span class="math inline">\boxed{A=\frac14\{(\pi^2+1)\tan^{-1}\pi-\pi\}}</span>.</p>
+<p>For part (c), use <span class="math inline">y=r\sin\theta</span> and differentiate <span class="math inline">y^2=r^2\sin^2\theta</span>. Clearing non-zero factors yields the stated equation; its two endpoint values have opposite signs.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2024-mj-11-12-title past-2024-mj-11-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2024-mj-11-12-title">
@@ -1765,20 +1779,20 @@ A decreasing-radius arc from the initial line to the pole.
 <div id="polar-2024-mj-13" class="question-card">
 <section id="mayjune-923113-question-7-10-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-7-10-marks">2024 May/June · 9231/13 · Question 7 · 10 marks</h3>
-<p><span class="math inline">\(C:r^2=\sin2\theta\cos\theta\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state its symmetry line. <strong>[3]</strong> <strong>(b)</strong> Find a Cartesian equation. <strong>[3]</strong> <strong>(c)</strong> Find the total enclosed area. <strong>[4]</strong></p>
+<p><span class="math inline">C:r^2=\sin2\theta\cos\theta</span> for <span class="math inline">0\leqslant\theta\leqslant\pi</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state its symmetry line. <strong>[3]</strong> <strong>(b)</strong> Find a Cartesian equation. <strong>[3]</strong> <strong>(c)</strong> Find the total enclosed area. <strong>[4]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Since <span class="math inline">\(r^2\geqslant0\)</span>, the two loops occur for <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span> and meet at the pole. They are symmetric about <span class="math inline">\(\boxed{\theta=\pi/2}\)</span>.</p>
-<p><span class="math display">\[r^2=2\sin\theta\cos^2\theta.\]</span></p>
-<p>Multiplying by <span class="math inline">\(r^3\)</span> gives <span class="math inline">\(r^5=2(r\sin\theta)(r\cos\theta)^2=2yx^2\)</span>, so</p>
-<p><span class="math display">\[\boxed{(x^2+y^2)^5=4x^4y^2}.\]</span></p>
+<p>Since <span class="math inline">r^2\geqslant0</span>, the two loops occur for <span class="math inline">0\leqslant\theta\leqslant\pi/2</span> and meet at the pole. They are symmetric about <span class="math inline">\boxed{\theta=\pi/2}</span>.</p>
+<p><span class="math display">r^2=2\sin\theta\cos^2\theta.</span></p>
+<p>Multiplying by <span class="math inline">r^3</span> gives <span class="math inline">r^5=2(r\sin\theta)(r\cos\theta)^2=2yx^2</span>, so</p>
+<p><span class="math display">\boxed{(x^2+y^2)^5=4x^4y^2}.</span></p>
 <p>For both loops,</p>
-<p><span class="math display">\[A=\frac12\int_0^\pi\sin2\theta\cos\theta,d\theta
+<p><span class="math display">A=\frac12\int_0^\pi\sin2\theta\cos\theta,d\theta
 =\int_0^\pi\sin\theta\cos^2\theta,d\theta
-=\boxed{\frac23}.\]</span></p>
+=\boxed{\frac23}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2024-mj-13-title past-2024-mj-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2024-mj-13-title">
@@ -1799,19 +1813,19 @@ Two loops symmetric about θ = π/2.
 <div id="polar-2024-on-11-13" class="question-card">
 <section id="octobernovember-923111-13-question-5-13-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-13-question-5-13-marks">2024 October/November · 9231/11 &amp; /13 · Question 5 · 13 marks</h3>
-<p><strong>(a)</strong> Show that <span class="math inline">\((x^2+y^2)^2=6xy\)</span> has polar equation <span class="math inline">\(r^2=3\sin2\theta\)</span>. <strong>[2]</strong></p>
-<p>For <span class="math inline">\(0\leqslant\theta\leqslant\pi/2\)</span>, <strong>(b)</strong> sketch <span class="math inline">\(C\)</span> and state its maximum radius; <strong>[3]</strong> <strong>(c)</strong> find the enclosed area; <strong>[2]</strong> <strong>(d)</strong> find the maximum distance from the initial line. <strong>[6]</strong></p>
+<p><strong>(a)</strong> Show that <span class="math inline">(x^2+y^2)^2=6xy</span> has polar equation <span class="math inline">r^2=3\sin2\theta</span>. <strong>[2]</strong></p>
+<p>For <span class="math inline">0\leqslant\theta\leqslant\pi/2</span>, <strong>(b)</strong> sketch <span class="math inline">C</span> and state its maximum radius; <strong>[3]</strong> <strong>(c)</strong> find the enclosed area; <strong>[2]</strong> <strong>(d)</strong> find the maximum distance from the initial line. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>Substitution gives <span class="math inline">\(r^4=6r^2\sin\theta\cos\theta\)</span>, hence <span class="math inline">\(\boxed{r^2=3\sin2\theta}\)</span>.</p>
-<p>The loop is symmetric about <span class="math inline">\(\theta=\pi/4\)</span> and its maximum radius is <span class="math inline">\(\boxed{\sqrt3}\)</span>. Its area is</p>
-<p><span class="math display">\[\frac12\int_0^{\pi/2}3\sin2\theta,d\theta=\boxed{\frac32}.\]</span></p>
-<p>For the distance <span class="math inline">\(y=r\sin\theta\)</span>, maximise</p>
-<p><span class="math display">\[y^2=3\sin2\theta\sin^2\theta=6\sin^3\theta\cos\theta.\]</span></p>
-<p>Differentiation gives <span class="math inline">\(3\cos^2\theta=\sin^2\theta\)</span>, so <span class="math inline">\(\theta=\pi/3\)</span> and</p>
-<p><span class="math display">\[\boxed{y_{\max}=\sqrt{\frac{9\sqrt3}{8}}}.\]</span></p>
+<p>Substitution gives <span class="math inline">r^4=6r^2\sin\theta\cos\theta</span>, hence <span class="math inline">\boxed{r^2=3\sin2\theta}</span>.</p>
+<p>The loop is symmetric about <span class="math inline">\theta=\pi/4</span> and its maximum radius is <span class="math inline">\boxed{\sqrt3}</span>. Its area is</p>
+<p><span class="math display">\frac12\int_0^{\pi/2}3\sin2\theta,d\theta=\boxed{\frac32}.</span></p>
+<p>For the distance <span class="math inline">y=r\sin\theta</span>, maximise</p>
+<p><span class="math display">y^2=3\sin2\theta\sin^2\theta=6\sin^3\theta\cos\theta.</span></p>
+<p>Differentiation gives <span class="math inline">3\cos^2\theta=\sin^2\theta</span>, so <span class="math inline">\theta=\pi/3</span> and</p>
+<p><span class="math display">\boxed{y_{\max}=\sqrt{\frac{9\sqrt3}{8}}}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2024-on-11-13-title past-2024-on-11-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2024-on-11-13-title">
@@ -1832,28 +1846,28 @@ A loop symmetric about θ = π/4 with maximum radius √3.
 <div id="polar-2024-on-12" class="question-card">
 <section id="octobernovember-923112-question-7-16-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-7-16-marks">2024 October/November · 9231/12 · Question 7 · 16 marks</h3>
-<p><span class="math inline">\(C_1:r=a(\cos\theta+\sin\theta)\)</span> for <span class="math inline">\(-\pi/4\leqslant\theta\leqslant3\pi/4\)</span>.</p>
+<p><span class="math inline">C_1:r=a(\cos\theta+\sin\theta)</span> for <span class="math inline">-\pi/4\leqslant\theta\leqslant3\pi/4</span>.</p>
 <p><strong>(a)</strong> Find its Cartesian equation, centre and radius. <strong>[4]</strong> <strong>(b)</strong> Sketch it and state its greatest radius. <strong>[3]</strong></p>
-<p><span class="math inline">\(C_2:r=a\theta\)</span> meets <span class="math inline">\(C_1\)</span> at the pole and <span class="math inline">\((a\phi,\phi)\)</span>.</p>
-<p><strong>(c)</strong> Verify <span class="math inline">\(1.25&lt;\phi&lt;1.26\)</span>. <strong>[2]</strong></p>
+<p><span class="math inline">C_2:r=a\theta</span> meets <span class="math inline">C_1</span> at the pole and <span class="math inline">(a\phi,\phi)</span>.</p>
+<p><strong>(c)</strong> Verify <span class="math inline">1.25&lt;\phi&lt;1.26</span>. <strong>[2]</strong></p>
 <p><strong>(d)</strong> Show that the smaller enclosed area is</p>
-<p><span class="math display">\[\frac{a^2}{2}\left(\frac{\phi^3}{3}+\frac{3\pi}{4}-\phi+\frac12\cos2\phi\right),\]</span></p>
+<p><span class="math display">\frac{a^2}{2}\left(\frac{\phi^3}{3}+\frac{3\pi}{4}-\phi+\frac12\cos2\phi\right),</span></p>
 <p>and deduce the larger area. <strong>[7]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r^2=a(x+y)\)</span> gives</p>
-<p><span class="math display">\[\boxed{(x-a/2)^2+(y-a/2)^2=a^2/2}.\]</span></p>
-<p>Thus the centre is <span class="math inline">\((a/2,a/2)\)</span>, the radius is <span class="math inline">\(a/\sqrt2\)</span>, and the greatest polar radius is <span class="math inline">\(\boxed{a\sqrt2}\)</span>.</p>
+<p><span class="math inline">r^2=a(x+y)</span> gives</p>
+<p><span class="math display">\boxed{(x-a/2)^2+(y-a/2)^2=a^2/2}.</span></p>
+<p>Thus the centre is <span class="math inline">(a/2,a/2)</span>, the radius is <span class="math inline">a/\sqrt2</span>, and the greatest polar radius is <span class="math inline">\boxed{a\sqrt2}</span>.</p>
 <p>At the non-pole intersection,</p>
-<p><span class="math display">\[\cos\phi+\sin\phi-\phi=0.\]</span></p>
-<p>The left side is positive at <span class="math inline">\(1.25\)</span> and negative at <span class="math inline">\(1.26\)</span>, verifying the interval.</p>
+<p><span class="math display">\cos\phi+\sin\phi-\phi=0.</span></p>
+<p>The left side is positive at <span class="math inline">1.25</span> and negative at <span class="math inline">1.26</span>, verifying the interval.</p>
 <p>The smaller area is</p>
-<p><span class="math display">\[\frac{a^2}{2}\left\{\int_0^\phi\theta^2d\theta+
-\int_\phi^{3\pi/4}(\cos\theta+\sin\theta)^2d\theta\right\},\]</span></p>
-<p>which gives the stated expression. Since the circle has area <span class="math inline">\(\pi a^2/2\)</span>, the larger area is</p>
-<p><span class="math display">\[\boxed{\frac{a^2}{2}\left(\frac\pi4+\phi-\frac{\phi^3}{3}-\frac12\cos2\phi\right)}.\]</span></p>
+<p><span class="math display">\frac{a^2}{2}\left\{\int_0^\phi\theta^2d\theta+
+\int_\phi^{3\pi/4}(\cos\theta+\sin\theta)^2d\theta\right\},</span></p>
+<p>which gives the stated expression. Since the circle has area <span class="math inline">\pi a^2/2</span>, the larger area is</p>
+<p><span class="math display">\boxed{\frac{a^2}{2}\left(\frac\pi4+\phi-\frac{\phi^3}{3}-\frac12\cos2\phi\right)}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2024-on-12-title past-2024-on-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2024-on-12-title">
@@ -1877,23 +1891,23 @@ Scaled with a = 1; the circle and spiral meet at φ ≈ 1.259.
 <div id="polar-2025-mj-11-12" class="question-card">
 <section id="mayjune-923111-12-question-5-13-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923111-12-question-5-13-marks">2025 May/June · 9231/11 &amp; /12 · Question 5 · 13 marks</h3>
-<p><span class="math inline">\(C:r=\theta e^{\theta/8}\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant2\pi\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span>. <strong>[2]</strong> <strong>(b)</strong> Find the area bounded by <span class="math inline">\(C\)</span> and the initial line in the form <span class="math inline">\((p\pi^2+q\pi+r)e^{\pi/2}+s\)</span>. <strong>[6]</strong></p>
+<p><span class="math inline">C:r=\theta e^{\theta/8}</span> for <span class="math inline">0\leqslant\theta\leqslant2\pi</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span>. <strong>[2]</strong> <strong>(b)</strong> Find the area bounded by <span class="math inline">C</span> and the initial line in the form <span class="math inline">(p\pi^2+q\pi+r)e^{\pi/2}+s</span>. <strong>[6]</strong></p>
 <p><strong>(c)</strong> Show that the point furthest from the initial line satisfies</p>
-<p><span class="math display">\[\theta\cos\theta+(\theta/8+1)\sin\theta=0,\]</span></p>
-<p>and verify a root in <span class="math inline">\((5,5.05)\)</span>. <strong>[5]</strong></p>
+<p><span class="math display">\theta\cos\theta+(\theta/8+1)\sin\theta=0,</span></p>
+<p>and verify a root in <span class="math inline">(5,5.05)</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
 <p>The curve is an anticlockwise outward spiral from the pole. For the area,</p>
-<p><span class="math display">\[
+<p><span class="math display">
 A=\frac12\int_0^{2\pi}\theta^2e^{\theta/4}d\theta
 =\boxed{(8\pi^2-32\pi+64)e^{\pi/2}-64}.
-\]</span></p>
-<p>Thus <span class="math inline">\((p,q,r,s)=(8,-32,64,-64)\)</span>. Differentiating</p>
-<p><span class="math display">\[y=\theta e^{\theta/8}\sin\theta\]</span></p>
-<p>gives the stated stationary equation. Substitution at <span class="math inline">\(5\)</span> and <span class="math inline">\(5.05\)</span> gives opposite signs.</p>
+</span></p>
+<p>Thus <span class="math inline">(p,q,r,s)=(8,-32,64,-64)</span>. Differentiating</p>
+<p><span class="math display">y=\theta e^{\theta/8}\sin\theta</span></p>
+<p>gives the stated stationary equation. Substitution at <span class="math inline">5</span> and <span class="math inline">5.05</span> gives opposite signs.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2025-mj-11-12-title past-2025-mj-11-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2025-mj-11-12-title">
@@ -1914,21 +1928,21 @@ An outward anticlockwise spiral from θ = 0 to 2π.
 <div id="polar-2025-mj-13" class="question-card">
 <section id="mayjune-923113-question-7-10-marks-1" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923113-question-7-10-marks-1">2025 May/June · 9231/13 · Question 7 · 10 marks</h3>
-<p><span class="math inline">\(C:r^2=e^{\sin\theta}\cos\theta\)</span> for <span class="math inline">\(-\pi/2\leqslant\theta\leqslant\pi/2\)</span>.</p>
-<p><strong>(a)</strong> Find to <span class="math inline">\(3\)</span> decimal places the point furthest from the pole. <strong>[5]</strong></p>
-<p><strong>(b)</strong> Find to <span class="math inline">\(3\)</span> decimal places the point furthest from the half-line <span class="math inline">\(\theta=\pi/2\)</span>. <strong>[5]</strong></p>
+<p><span class="math inline">C:r^2=e^{\sin\theta}\cos\theta</span> for <span class="math inline">-\pi/2\leqslant\theta\leqslant\pi/2</span>.</p>
+<p><strong>(a)</strong> Find to <span class="math inline">3</span> decimal places the point furthest from the pole. <strong>[5]</strong></p>
+<p><strong>(b)</strong> Find to <span class="math inline">3</span> decimal places the point furthest from the half-line <span class="math inline">\theta=\pi/2</span>. <strong>[5]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>For maximum <span class="math inline">\(r\)</span>, differentiate <span class="math inline">\(r^2\)</span>:</p>
-<p><span class="math display">\[e^{\sin\theta}(\cos^2\theta-\sin\theta)=0.\]</span></p>
-<p>Thus <span class="math inline">\(\sin\theta=(\sqrt5-1)/2\)</span>, giving</p>
-<p><span class="math display">\[\boxed{(r,\theta)=(1.208,0.666)}.\]</span></p>
-<p>Distance from <span class="math inline">\(\theta=\pi/2\)</span> is <span class="math inline">\(x=r\cos\theta\)</span>. Maximising</p>
-<p><span class="math display">\[x^2=e^{\sin\theta}\cos^3\theta\]</span></p>
-<p>gives <span class="math inline">\(\cos^2\theta=3\sin\theta\)</span>, hence <span class="math inline">\(\sin\theta=(\sqrt{13}-3)/2\)</span>. Therefore</p>
-<p><span class="math display">\[\boxed{(r,\theta)=(1.136,0.308)}.\]</span></p>
+<p>For maximum <span class="math inline">r</span>, differentiate <span class="math inline">r^2</span>:</p>
+<p><span class="math display">e^{\sin\theta}(\cos^2\theta-\sin\theta)=0.</span></p>
+<p>Thus <span class="math inline">\sin\theta=(\sqrt5-1)/2</span>, giving</p>
+<p><span class="math display">\boxed{(r,\theta)=(1.208,0.666)}.</span></p>
+<p>Distance from <span class="math inline">\theta=\pi/2</span> is <span class="math inline">x=r\cos\theta</span>. Maximising</p>
+<p><span class="math display">x^2=e^{\sin\theta}\cos^3\theta</span></p>
+<p>gives <span class="math inline">\cos^2\theta=3\sin\theta</span>, hence <span class="math inline">\sin\theta=(\sqrt{13}-3)/2</span>. Therefore</p>
+<p><span class="math display">\boxed{(r,\theta)=(1.136,0.308)}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2025-mj-13-title past-2025-mj-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2025-mj-13-title">
@@ -1949,17 +1963,17 @@ The two marked extrema are found by maximising r and r cos θ.
 <div id="polar-2025-mj-14" class="question-card">
 <section id="mayjune-923114-question-6-13-marks" class="level3">
 <h3 class="anchored" data-anchor-id="mayjune-923114-question-6-13-marks">2025 May/June · 9231/14 · Question 6 · 13 marks</h3>
-<p><span class="math inline">\(C:r=a\tan(\theta/8)\)</span> for <span class="math inline">\(a&gt;0\)</span> and <span class="math inline">\(0\leqslant\theta\leqslant2\pi\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state its greatest radius. <strong>[3]</strong> <strong>(b)</strong> Find its enclosed area. <strong>[4]</strong></p>
-<p><strong>(c)</strong> Show that the point furthest from the initial line satisfies <span class="math inline">\(4\sin(\theta/4)\cos\theta+\sin\theta=0\)</span>, and verify a root in <span class="math inline">\((4.95,5)\)</span>. <strong>[6]</strong></p>
+<p><span class="math inline">C:r=a\tan(\theta/8)</span> for <span class="math inline">a&gt;0</span> and <span class="math inline">0\leqslant\theta\leqslant2\pi</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state its greatest radius. <strong>[3]</strong> <strong>(b)</strong> Find its enclosed area. <strong>[4]</strong></p>
+<p><strong>(c)</strong> Show that the point furthest from the initial line satisfies <span class="math inline">4\sin(\theta/4)\cos\theta+\sin\theta=0</span>, and verify a root in <span class="math inline">(4.95,5)</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r\)</span> increases from <span class="math inline">\(0\)</span> to <span class="math inline">\(a\)</span>, so <span class="math inline">\(\boxed{r_{\max}=a}\)</span>.</p>
-<p><span class="math display">\[A=\frac{a^2}{2}\int_0^{2\pi}\tan^2(\theta/8)d\theta
-=\boxed{a^2(4-\pi)}.\]</span></p>
-<p>Differentiating <span class="math inline">\(y=a\tan(\theta/8)\sin\theta\)</span> and simplifying with double-angle identities gives the stated equation; its signs at <span class="math inline">\(4.95\)</span> and <span class="math inline">\(5\)</span> differ.</p>
+<p><span class="math inline">r</span> increases from <span class="math inline">0</span> to <span class="math inline">a</span>, so <span class="math inline">\boxed{r_{\max}=a}</span>.</p>
+<p><span class="math display">A=\frac{a^2}{2}\int_0^{2\pi}\tan^2(\theta/8)d\theta
+=\boxed{a^2(4-\pi)}.</span></p>
+<p>Differentiating <span class="math inline">y=a\tan(\theta/8)\sin\theta</span> and simplifying with double-angle identities gives the stated equation; its signs at <span class="math inline">4.95</span> and <span class="math inline">5</span> differ.</p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2025-mj-14-title past-2025-mj-14-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2025-mj-14-title">
@@ -1980,19 +1994,19 @@ Scaled with a = 1; the spiral reaches r = a at θ = 2π.
 <div id="polar-2025-on-11-13" class="question-card">
 <section id="octobernovember-923111-13-question-6-15-marks-1" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923111-13-question-6-15-marks-1">2025 October/November · 9231/11 &amp; /13 · Question 6 · 15 marks</h3>
-<p><span class="math inline">\(C:r=\sin3\theta\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi/3\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state its symmetry line. <strong>[3]</strong> <strong>(b)</strong> Find the enclosed area exactly. <strong>[4]</strong> <strong>(c)</strong> Find the maximum distance from the initial line. <strong>[5]</strong> <strong>(d)</strong> Find a Cartesian equation. <strong>[3]</strong></p>
+<p><span class="math inline">C:r=\sin3\theta</span> for <span class="math inline">0\leqslant\theta\leqslant\pi/3</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state its symmetry line. <strong>[3]</strong> <strong>(b)</strong> Find the enclosed area exactly. <strong>[4]</strong> <strong>(c)</strong> Find the maximum distance from the initial line. <strong>[5]</strong> <strong>(d)</strong> Find a Cartesian equation. <strong>[3]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>The single first-quadrant loop is symmetric about <span class="math inline">\(\boxed{\theta=\pi/6}\)</span>.</p>
-<p><span class="math display">\[A=\frac12\int_0^{\pi/3}\sin^23\theta,d\theta=\boxed{\frac\pi{12}}.\]</span></p>
-<p>Using <span class="math inline">\(\sin3\theta=3\sin\theta-4\sin^3\theta\)</span>,</p>
-<p><span class="math display">\[y=r\sin\theta=3\sin^2\theta-4\sin^4\theta.\]</span></p>
-<p>Stationarity gives <span class="math inline">\(\sin^2\theta=3/8\)</span>, and hence <span class="math inline">\(\boxed{y_{\max}=9/16}\)</span>.</p>
-<p>Multiplying the polar equation by suitable powers of <span class="math inline">\(r\)</span> gives</p>
-<p><span class="math display">\[\boxed{(x^2+y^2)^2=y^2(3x^2-y^2)}.\]</span></p>
+<p>The single first-quadrant loop is symmetric about <span class="math inline">\boxed{\theta=\pi/6}</span>.</p>
+<p><span class="math display">A=\frac12\int_0^{\pi/3}\sin^23\theta,d\theta=\boxed{\frac\pi{12}}.</span></p>
+<p>Using <span class="math inline">\sin3\theta=3\sin\theta-4\sin^3\theta</span>,</p>
+<p><span class="math display">y=r\sin\theta=3\sin^2\theta-4\sin^4\theta.</span></p>
+<p>Stationarity gives <span class="math inline">\sin^2\theta=3/8</span>, and hence <span class="math inline">\boxed{y_{\max}=9/16}</span>.</p>
+<p>Multiplying the polar equation by suitable powers of <span class="math inline">r</span> gives</p>
+<p><span class="math display">\boxed{(x^2+y^2)^2=y^2(3x^2-y^2)}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2025-on-11-13-title past-2025-on-11-13-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2025-on-11-13-title">
@@ -2013,21 +2027,21 @@ A single loop symmetric about θ = π/6.
 <div id="polar-2025-on-12" class="question-card">
 <section id="octobernovember-923112-question-5-10-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923112-question-5-10-marks">2025 October/November · 9231/12 · Question 5 · 10 marks</h3>
-<p><span class="math inline">\(C:r^2=\tan2\theta\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi/8\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span> and state its greatest radius. <strong>[2]</strong> <strong>(b)</strong> Find exactly the area bounded by <span class="math inline">\(C\)</span> and <span class="math inline">\(\theta=\pi/8\)</span>. <strong>[4]</strong></p>
-<p><strong>(c)</strong> Show that <span class="math inline">\(C\)</span> has Cartesian equation <span class="math inline">\(x^4-2xy-y^4=0\)</span>, with the stated first-quadrant restrictions. <strong>[4]</strong></p>
+<p><span class="math inline">C:r^2=\tan2\theta</span> for <span class="math inline">0\leqslant\theta\leqslant\pi/8</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span> and state its greatest radius. <strong>[2]</strong> <strong>(b)</strong> Find exactly the area bounded by <span class="math inline">C</span> and <span class="math inline">\theta=\pi/8</span>. <strong>[4]</strong></p>
+<p><strong>(c)</strong> Show that <span class="math inline">C</span> has Cartesian equation <span class="math inline">x^4-2xy-y^4=0</span>, with the stated first-quadrant restrictions. <strong>[4]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p><span class="math inline">\(r\)</span> increases from <span class="math inline">\(0\)</span> to <span class="math inline">\(\boxed{1}\)</span>.</p>
-<p><span class="math display">\[A=\frac12\int_0^{\pi/8}\tan2\theta,d\theta
+<p><span class="math inline">r</span> increases from <span class="math inline">0</span> to <span class="math inline">\boxed{1}</span>.</p>
+<p><span class="math display">A=\frac12\int_0^{\pi/8}\tan2\theta,d\theta
 =-\frac14[\ln(\cos2\theta)]_0^{\pi/8}
-=\boxed{\frac18\ln2}.\]</span></p>
+=\boxed{\frac18\ln2}.</span></p>
 <p>Since</p>
-<p><span class="math display">\[r^2=\frac{2\sin\theta\cos\theta}{\cos^2\theta-\sin^2\theta},\]</span></p>
+<p><span class="math display">r^2=\frac{2\sin\theta\cos\theta}{\cos^2\theta-\sin^2\theta},</span></p>
 <p>cross-multiplication and substitution give</p>
-<p><span class="math display">\[r^2(x^2-y^2)=2xy\Longrightarrow\boxed{x^4-2xy-y^4=0}.\]</span></p>
+<p><span class="math display">r^2(x^2-y^2)=2xy\Longrightarrow\boxed{x^4-2xy-y^4=0}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2025-on-12-title past-2025-on-12-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2025-on-12-title">
@@ -2048,20 +2062,20 @@ The radius increases from zero to one.
 <div id="polar-2025-on-14" class="question-card">
 <section id="octobernovember-923114-question-6-12-marks" class="level3">
 <h3 class="anchored" data-anchor-id="octobernovember-923114-question-6-12-marks">2025 October/November · 9231/14 · Question 6 · 12 marks</h3>
-<p><span class="math inline">\(C:r=\cos(\theta/2)\)</span> for <span class="math inline">\(0\leqslant\theta\leqslant\pi\)</span>.</p>
-<p><strong>(a)</strong> Sketch <span class="math inline">\(C\)</span>. <strong>[2]</strong> <strong>(b)</strong> Find exactly the area enclosed by <span class="math inline">\(C\)</span> and the initial line. <strong>[4]</strong> <strong>(c)</strong> Find the maximum distance from the initial line in the form <span class="math inline">\(p\sqrt q\)</span>. <strong>[6]</strong></p>
+<p><span class="math inline">C:r=\cos(\theta/2)</span> for <span class="math inline">0\leqslant\theta\leqslant\pi</span>.</p>
+<p><strong>(a)</strong> Sketch <span class="math inline">C</span>. <strong>[2]</strong> <strong>(b)</strong> Find exactly the area enclosed by <span class="math inline">C</span> and the initial line. <strong>[4]</strong> <strong>(c)</strong> Find the maximum distance from the initial line in the form <span class="math inline">p\sqrt q</span>. <strong>[6]</strong></p>
 <details class="answer-panel">
 <summary>
 Show answer and mark scheme
 </summary>
-<p>The curve is a single arc from <span class="math inline">\((1,0)\)</span> to the pole, lying in the first and second quadrants.</p>
-<p><span class="math display">\[A=\frac12\int_0^\pi\cos^2(\theta/2)d\theta
+<p>The curve is a single arc from <span class="math inline">(1,0)</span> to the pole, lying in the first and second quadrants.</p>
+<p><span class="math display">A=\frac12\int_0^\pi\cos^2(\theta/2)d\theta
 =\frac14\int_0^\pi(1+\cos\theta)d\theta
-=\boxed{\frac\pi4}.\]</span></p>
-<p>For <span class="math inline">\(y=\cos(\theta/2)\sin\theta\)</span>, differentiation gives</p>
-<p><span class="math display">\[\cos(\theta/2)\cos\theta-\frac12\sin\theta\sin(\theta/2)=0.\]</span></p>
-<p>Using the given identities leads to <span class="math inline">\(\cos^2(\theta/2)=2/3\)</span>. Therefore</p>
-<p><span class="math display">\[\boxed{y_{\max}=\frac{4\sqrt3}{9}}.\]</span></p>
+=\boxed{\frac\pi4}.</span></p>
+<p>For <span class="math inline">y=\cos(\theta/2)\sin\theta</span>, differentiation gives</p>
+<p><span class="math display">\cos(\theta/2)\cos\theta-\frac12\sin\theta\sin(\theta/2)=0.</span></p>
+<p>Using the given identities leads to <span class="math inline">\cos^2(\theta/2)=2/3</span>. Therefore</p>
+<p><span class="math display">\boxed{y_{\max}=\frac{4\sqrt3}{9}}.</span></p>
 <figure class="math-figure figure">
 <svg class="math-plot" viewbox="0 0 720 480" role="img" aria-labelledby="past-2025-on-14-title past-2025-on-14-desc" xmlns="http://www.w3.org/2000/svg">
 <title id="past-2025-on-14-title">
@@ -2084,8 +2098,8 @@ A single arc from (1, 0) to the pole through the upper half-plane.
 <h2 class="anchored" data-anchor-id="完成本节的判断标准">5. 完成本节的判断标准</h2>
 <ol type="1">
 <li>坐标转换时能够正确判断角所在象限；</li>
-<li>极坐标图能标出 pole、initial line、关键角、对称轴和 <span class="math inline">\(r\)</span> 的极值；</li>
-<li>遇到 <span class="math inline">\(r&lt;0\)</span> 时能按本课程约定截取正确区间；</li>
+<li>极坐标图能标出 pole、initial line、关键角、对称轴和 <span class="math inline">r</span> 的极值；</li>
+<li>遇到 <span class="math inline">r&lt;0</span> 时能按本课程约定截取正确区间；</li>
 <li>求最远距离时能写出正确的 Cartesian 距离函数并检查端点；</li>
 <li>面积题能从图形确定积分上下限，并完整写出代入、积分和精确值。</li>
 </ol>
