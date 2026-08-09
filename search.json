@@ -209,6 +209,17 @@
     ]
   },
   {
+    "objectID": "paper-4/non-parametric-tests.html#octobernovember-923141-and-923143-question-4",
+    "href": "paper-4/non-parametric-tests.html#octobernovember-923141-and-923143-question-4",
+    "title": "4.4 Non-parametric tests",
+    "section": "2025 October/November · 9231/41 and 9231/43 · Question 4",
+    "text": "2025 October/November · 9231/41 and 9231/43 · Question 4\nA researcher believes that the median (m) of a population has changed from its known previous value (m_0). The researcher collects a random sample of size 28. She ranks the data and calculates a test statistic (T) using the Wilcoxon signed-rank test. The conclusion of the test carried out at a 1% significance level is that there is not sufficient evidence to support her belief.\nUsing a normal approximation, find the least possible value of (T). [5]\n\n\nShow answer\n\n[ =(28+1)=203, ] [ (T)=(28+1)(56+1)=1928.5. ]\nFor the two-tailed 1% test, the statistic must satisfy [ &gt;-2.576. ] Therefore [ T&gt;89.4. ]\nThe least possible value of (T) is (90).",
+    "crumbs": [
+      "Paper 4 · Further Probability & Statistics",
+      "4.4 Non-parametric tests"
+    ]
+  },
+  {
     "objectID": "paper-4/inference-normal-t-distributions.html",
     "href": "paper-4/inference-normal-t-distributions.html",
     "title": "4.2 Inference using normal and t-distributions",
