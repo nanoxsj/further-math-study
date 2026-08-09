@@ -1,0 +1,2386 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 3 Further Mechanics，Momentum，依据 Cambridge International Further Mechanics 教材。">
+
+<title>3.7 Momentum – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-3/linear-motion.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">Paper 3 · Further Mechanics</a></li><li class="breadcrumb-item"><a href="../paper-3/momentum.html">3.7 Momentum</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Hyperbolic functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/complex-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Complex numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differential-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Differential equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 3 · Further Mechanics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/motion-of-a-projectile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Motion of a projectile</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/equilibrium-of-a-rigid-body.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Equilibrium of a rigid body</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/centre-of-mass.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Centre of mass</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/circular-motion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4 Circular motion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/hookes-law.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5 Hooke’s law</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/linear-motion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6 Linear motion under a variable force</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/momentum.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3.7 Momentum</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#核心公式" id="toc-核心公式" class="nav-link active" data-scroll-target="#核心公式">1. 核心公式</a>
+  <ul class="collapse">
+  <li><a href="#momentum-and-impulse" id="toc-momentum-and-impulse" class="nav-link" data-scroll-target="#momentum-and-impulse">1.1 Momentum and impulse</a></li>
+  <li><a href="#conservation-of-momentum" id="toc-conservation-of-momentum" class="nav-link" data-scroll-target="#conservation-of-momentum">1.2 Conservation of momentum</a></li>
+  <li><a href="#newtons-experimental-law" id="toc-newtons-experimental-law" class="nav-link" data-scroll-target="#newtons-experimental-law">1.3 Newton’s experimental law</a></li>
+  <li><a href="#impact-with-a-smooth-plane" id="toc-impact-with-a-smooth-plane" class="nav-link" data-scroll-target="#impact-with-a-smooth-plane">1.4 Impact with a smooth plane</a></li>
+  <li><a href="#oblique-impact-of-smooth-spheres" id="toc-oblique-impact-of-smooth-spheres" class="nav-link" data-scroll-target="#oblique-impact-of-smooth-spheres">1.5 Oblique impact of smooth spheres</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-7.1---impulse-on-a-tennis-ball" id="toc-example-7.1---impulse-on-a-tennis-ball" class="nav-link" data-scroll-target="#example-7.1---impulse-on-a-tennis-ball">Example 7.1 - Impulse on a tennis ball</a></li>
+  <li><a href="#example-7.2---a-ball-rebounding-from-the-ground" id="toc-example-7.2---a-ball-rebounding-from-the-ground" class="nav-link" data-scroll-target="#example-7.2---a-ball-rebounding-from-the-ground">Example 7.2 - A ball rebounding from the ground</a></li>
+  <li><a href="#example-7.3---constant-force-and-impulse" id="toc-example-7.3---constant-force-and-impulse" class="nav-link" data-scroll-target="#example-7.3---constant-force-and-impulse">Example 7.3 - Constant force and impulse</a></li>
+  <li><a href="#example-7.4---conservation-of-momentum-and-impulse" id="toc-example-7.4---conservation-of-momentum-and-impulse" class="nav-link" data-scroll-target="#example-7.4---conservation-of-momentum-and-impulse">Example 7.4 - Conservation of momentum and impulse</a></li>
+  <li><a href="#example-7.5---newtons-experimental-law" id="toc-example-7.5---newtons-experimental-law" class="nav-link" data-scroll-target="#example-7.5---newtons-experimental-law">Example 7.5 - Newton’s experimental law</a></li>
+  <li><a href="#example-7.6---collision-of-two-unequal-masses" id="toc-example-7.6---collision-of-two-unequal-masses" class="nav-link" data-scroll-target="#example-7.6---collision-of-two-unequal-masses">Example 7.6 - Collision of two unequal masses</a></li>
+  <li><a href="#example-7.7---oblique-impact-with-a-smooth-plane" id="toc-example-7.7---oblique-impact-with-a-smooth-plane" class="nav-link" data-scroll-target="#example-7.7---oblique-impact-with-a-smooth-plane">Example 7.7 - Oblique impact with a smooth plane</a></li>
+  <li><a href="#example-7.8---rebound-from-a-smooth-plane" id="toc-example-7.8---rebound-from-a-smooth-plane" class="nav-link" data-scroll-target="#example-7.8---rebound-from-a-smooth-plane">Example 7.8 - Rebound from a smooth plane</a></li>
+  <li><a href="#example-7.9---oblique-collision-of-equal-spheres" id="toc-example-7.9---oblique-collision-of-equal-spheres" class="nav-link" data-scroll-target="#example-7.9---oblique-collision-of-equal-spheres">Example 7.9 - Oblique collision of equal spheres</a></li>
+  <li><a href="#example-7.10---oblique-collision-of-unequal-spheres" id="toc-example-7.10---oblique-collision-of-unequal-spheres" class="nav-link" data-scroll-target="#example-7.10---oblique-collision-of-unequal-spheres">Example 7.10 - Oblique collision of unequal spheres</a></li>
+  </ul></li>
+  <li><a href="#教材-chapter-7-exercises" id="toc-教材-chapter-7-exercises" class="nav-link" data-scroll-target="#教材-chapter-7-exercises">3. 教材 Chapter 7 Exercises</a></li>
+  <li><a href="#exercise-7a---impulse" id="toc-exercise-7a---impulse" class="nav-link" data-scroll-target="#exercise-7a---impulse">Exercise 7A - Impulse</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">3</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">4</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">5</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">6</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">7</a></li>
+  <li><a href="#section-7" id="toc-section-7" class="nav-link" data-scroll-target="#section-7">8</a></li>
+  <li><a href="#section-8" id="toc-section-8" class="nav-link" data-scroll-target="#section-8">9</a></li>
+  <li><a href="#section-9" id="toc-section-9" class="nav-link" data-scroll-target="#section-9">10</a></li>
+  </ul></li>
+  <li><a href="#exercise-7b---conservation-of-momentum" id="toc-exercise-7b---conservation-of-momentum" class="nav-link" data-scroll-target="#exercise-7b---conservation-of-momentum">Exercise 7B - Conservation of momentum</a>
+  <ul class="collapse">
+  <li><a href="#section-10" id="toc-section-10" class="nav-link" data-scroll-target="#section-10">1</a></li>
+  <li><a href="#section-11" id="toc-section-11" class="nav-link" data-scroll-target="#section-11">2</a></li>
+  <li><a href="#section-12" id="toc-section-12" class="nav-link" data-scroll-target="#section-12">3</a></li>
+  <li><a href="#section-13" id="toc-section-13" class="nav-link" data-scroll-target="#section-13">4</a></li>
+  <li><a href="#section-14" id="toc-section-14" class="nav-link" data-scroll-target="#section-14">5</a></li>
+  </ul></li>
+  <li><a href="#exercise-7c---newtons-experimental-law" id="toc-exercise-7c---newtons-experimental-law" class="nav-link" data-scroll-target="#exercise-7c---newtons-experimental-law">Exercise 7C - Newton’s experimental law</a>
+  <ul class="collapse">
+  <li><a href="#section-15" id="toc-section-15" class="nav-link" data-scroll-target="#section-15">1-4</a></li>
+  <li><a href="#section-16" id="toc-section-16" class="nav-link" data-scroll-target="#section-16">5</a></li>
+  <li><a href="#section-17" id="toc-section-17" class="nav-link" data-scroll-target="#section-17">6</a></li>
+  <li><a href="#section-18" id="toc-section-18" class="nav-link" data-scroll-target="#section-18">7</a></li>
+  <li><a href="#section-19" id="toc-section-19" class="nav-link" data-scroll-target="#section-19">8</a></li>
+  <li><a href="#section-20" id="toc-section-20" class="nav-link" data-scroll-target="#section-20">9</a></li>
+  <li><a href="#section-21" id="toc-section-21" class="nav-link" data-scroll-target="#section-21">10</a></li>
+  <li><a href="#section-22" id="toc-section-22" class="nav-link" data-scroll-target="#section-22">11</a></li>
+  <li><a href="#section-23" id="toc-section-23" class="nav-link" data-scroll-target="#section-23">12</a></li>
+  </ul></li>
+  <li><a href="#exercise-7d---oblique-impact-with-a-smooth-plane" id="toc-exercise-7d---oblique-impact-with-a-smooth-plane" class="nav-link" data-scroll-target="#exercise-7d---oblique-impact-with-a-smooth-plane">Exercise 7D - Oblique impact with a smooth plane</a>
+  <ul class="collapse">
+  <li><a href="#section-24" id="toc-section-24" class="nav-link" data-scroll-target="#section-24">1-5</a></li>
+  <li><a href="#section-25" id="toc-section-25" class="nav-link" data-scroll-target="#section-25">6-10</a></li>
+  </ul></li>
+  <li><a href="#exercise-7e---oblique-impact-of-smooth-elastic-spheres" id="toc-exercise-7e---oblique-impact-of-smooth-elastic-spheres" class="nav-link" data-scroll-target="#exercise-7e---oblique-impact-of-smooth-elastic-spheres">Exercise 7E - Oblique impact of smooth elastic spheres</a>
+  <ul class="collapse">
+  <li><a href="#section-26" id="toc-section-26" class="nav-link" data-scroll-target="#section-26">1-6</a></li>
+  <li><a href="#section-27" id="toc-section-27" class="nav-link" data-scroll-target="#section-27">7-10</a></li>
+  </ul></li>
+  <li><a href="#paper-3-真题题库" id="toc-paper-3-真题题库" class="nav-link" data-scroll-target="#paper-3-真题题库">4. Paper 3 真题题库</a></li>
+  <li><a href="#paper-3-questions" id="toc-paper-3-questions" class="nav-link" data-scroll-target="#paper-3-questions">Paper 3 questions</a>
+  <ul class="collapse">
+  <li><a href="#mayjune-923131-and-923132-question-6" id="toc-mayjune-923131-and-923132-question-6" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-6">2021 May/June · 9231/31 and 9231/32 · Question 6</a></li>
+  <li><a href="#mayjune-923133-question-6" id="toc-mayjune-923133-question-6" class="nav-link" data-scroll-target="#mayjune-923133-question-6">2021 May/June · 9231/33 · Question 6</a></li>
+  <li><a href="#octobernovember-923131-question-7" id="toc-octobernovember-923131-question-7" class="nav-link" data-scroll-target="#octobernovember-923131-question-7">2021 October/November · 9231/31 · Question 7</a></li>
+  <li><a href="#octobernovember-923132-question-5" id="toc-octobernovember-923132-question-5" class="nav-link" data-scroll-target="#octobernovember-923132-question-5">2021 October/November · 9231/32 · Question 5</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-6-1" id="toc-mayjune-923131-and-923132-question-6-1" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-6-1">2022 May/June · 9231/31 and 9231/32 · Question 6</a></li>
+  <li><a href="#mayjune-923133-question-6-1" id="toc-mayjune-923133-question-6-1" class="nav-link" data-scroll-target="#mayjune-923133-question-6-1">2022 May/June · 9231/33 · Question 6</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-6" id="toc-octobernovember-923131-and-923133-question-6" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-6">2022 October/November · 9231/31 and 9231/33 · Question 6</a></li>
+  <li><a href="#octobernovember-923132-question-7" id="toc-octobernovember-923132-question-7" class="nav-link" data-scroll-target="#octobernovember-923132-question-7">2022 October/November · 9231/32 · Question 7</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-1" id="toc-mayjune-923131-and-923132-question-1" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-1">2023 May/June · 9231/31 and 9231/32 · Question 1</a></li>
+  <li><a href="#mayjune-923133-question-4" id="toc-mayjune-923133-question-4" class="nav-link" data-scroll-target="#mayjune-923133-question-4">2023 May/June · 9231/33 · Question 4</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-1" id="toc-octobernovember-923131-and-923133-question-1" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-1">2023 October/November · 9231/31 and 9231/33 · Question 1</a></li>
+  <li><a href="#octobernovember-923132-question-4" id="toc-octobernovember-923132-question-4" class="nav-link" data-scroll-target="#octobernovember-923132-question-4">2023 October/November · 9231/32 · Question 4</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-1-1" id="toc-mayjune-923131-and-923132-question-1-1" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-1-1">2024 May/June · 9231/31 and 9231/32 · Question 1</a></li>
+  <li><a href="#mayjune-923133-question-1" id="toc-mayjune-923133-question-1" class="nav-link" data-scroll-target="#mayjune-923133-question-1">2024 May/June · 9231/33 · Question 1</a></li>
+  <li><a href="#octobernovember-923132-question-3" id="toc-octobernovember-923132-question-3" class="nav-link" data-scroll-target="#octobernovember-923132-question-3">2024 October/November · 9231/32 · Question 3</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-6-2" id="toc-mayjune-923131-and-923132-question-6-2" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-6-2">2025 May/June · 9231/31 and 9231/32 · Question 6</a></li>
+  <li><a href="#mayjune-923133-question-6-2" id="toc-mayjune-923133-question-6-2" class="nav-link" data-scroll-target="#mayjune-923133-question-6-2">2025 May/June · 9231/33 · Question 6</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-1-1" id="toc-octobernovember-923131-and-923133-question-1-1" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-1-1">2025 October/November · 9231/31 and 9231/33 · Question 1</a></li>
+  <li><a href="#octobernovember-923132-question-5-1" id="toc-octobernovember-923132-question-5-1" class="nav-link" data-scroll-target="#octobernovember-923132-question-5-1">2025 October/November · 9231/32 · Question 5</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-7" id="toc-octobernovember-923131-and-923133-question-7" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-7">2024 October/November · 9231/31 and 9231/33 · Question 7</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-6-1" id="toc-octobernovember-923131-and-923133-question-6-1" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-6-1">2025 October/November · 9231/31 and 9231/33 · Question 6</a></li>
+  </ul></li>
+  <li><a href="#本章检查清单" id="toc-本章检查清单" class="nav-link" data-scroll-target="#本章检查清单">5. 本章检查清单</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">Paper 3 · Further Mechanics</a></li><li class="breadcrumb-item"><a href="../paper-3/momentum.html">3.7 Momentum</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">3.7 Momentum</h1>
+<p class="subtitle lead">Further Mechanics · impulse · collisions · restitution · oblique impact</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 3 Further Mechanics，Momentum，依据 Cambridge International Further Mechanics 教材。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本章考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>使用 impulse-momentum equation；</li>
+<li>对无外力系统使用 conservation of momentum；</li>
+<li>使用 Newton’s experimental law 和 coefficient of restitution；</li>
+<li>处理球与 fixed smooth plane、wall 或 barrier 的 impact；</li>
+<li>处理 smooth spheres 的 oblique impact；</li>
+<li>正确分解 line-of-centres 与 perpendicular components；</li>
+<li>判断 kinetic-energy loss，并保持速度方向和符号一致。</li>
+</ol>
+</div>
+</div>
+<section id="核心公式" class="level2">
+<h2 class="anchored" data-anchor-id="核心公式">1. 核心公式</h2>
+<section id="momentum-and-impulse" class="level3">
+<h3 class="anchored" data-anchor-id="momentum-and-impulse">1.1 Momentum and impulse</h3>
+<p>质量为 <span class="math inline">\(m\)</span>、速度为 <span class="math inline">\(v\)</span> 的粒子的 momentum 为</p>
+<p><span class="math display">\[
+\boxed{p=mv}.
+\]</span></p>
+<p>Impulse is change in momentum:</p>
+<p><span class="math display">\[
+\boxed{J=\text{final momentum}-\text{initial momentum}}.
+\]</span></p>
+<p>若力恒为 <span class="math inline">\(F\)</span>、作用时间为 <span class="math inline">\(t\)</span>，则 <span class="math inline">\(J=Ft\)</span>。若力随时间变化，则</p>
+<p><span class="math display">\[
+\boxed{J=\int F\,dt}.
+\]</span></p>
+</section>
+<section id="conservation-of-momentum" class="level3">
+<h3 class="anchored" data-anchor-id="conservation-of-momentum">1.2 Conservation of momentum</h3>
+<p>对没有外力冲量的系统，按同一正方向写 signed velocities：</p>
+<p><span class="math display">\[
+\boxed{\text{total momentum before} = \text{total momentum after}}.
+\]</span></p>
+</section>
+<section id="newtons-experimental-law" class="level3">
+<h3 class="anchored" data-anchor-id="newtons-experimental-law">1.3 Newton’s experimental law</h3>
+<p>对于 direct impact，</p>
+<p><span class="math display">\[
+\boxed{e=\frac{\text{speed of separation}}{\text{speed of approach}}},
+\qquad 0\le e\le1.
+\]</span></p>
+</section>
+<section id="impact-with-a-smooth-plane" class="level3">
+<h3 class="anchored" data-anchor-id="impact-with-a-smooth-plane">1.4 Impact with a smooth plane</h3>
+<p>平行于 plane 的速度分量不变；垂直于 plane 的速度分量反向并乘以 <span class="math inline">\(e\)</span>：</p>
+<p><span class="math display">\[
+v\cos\beta=u\cos\alpha,
+\qquad
+v\sin\beta=e\,u\sin\alpha.
+\]</span></p>
+<p>因此 kinetic-energy loss 为</p>
+<p><span class="math display">\[
+\boxed{\frac12mu^2(1-e^2)\sin^2\alpha}.
+\]</span></p>
+</section>
+<section id="oblique-impact-of-smooth-spheres" class="level3">
+<h3 class="anchored" data-anchor-id="oblique-impact-of-smooth-spheres">1.5 Oblique impact of smooth spheres</h3>
+<p>沿 line of centres 使用 momentum conservation 和 restitution；垂直方向没有 impulse，所以两球的 perpendicular components unchanged。</p>
+<p>若碰撞前的 line components 为 <span class="math inline">\(u\cos\alpha\)</span>、<span class="math inline">\(v\cos\beta\)</span>，碰撞后的 line components 为 <span class="math inline">\(U,V\)</span>，则</p>
+<p><span class="math display">\[
+m_Au\cos\alpha+m_Bv\cos\beta=m_AU+m_BV,
+\]</span></p>
+<p><span class="math display">\[
+V-U=e\bigl(u\cos\alpha-v\cos\beta\bigr),
+\]</span></p>
+<p>并保留 perpendicular components <span class="math inline">\(u\sin\alpha\)</span>、<span class="math inline">\(v\sin\beta\)</span>。</p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-7.1---impulse-on-a-tennis-ball" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.1---impulse-on-a-tennis-ball">Example 7.1 - Impulse on a tennis ball</h3>
+<p>A tennis player hits the ball as it is travelling towards her at <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span> horizontally. Immediately after she hits it, the ball is travelling away from her at <span class="math inline">\(20\ \mathrm{m\ s^{-1}}\)</span> horizontally. The mass of the ball is <span class="math inline">\(0.06\ \mathrm{kg}\)</span>. What force does the tennis player apply to the ball?</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The force cannot be found unless the impact time is known. The impulse can be found:</p>
+<p><span class="math display">\[
+J=mv-mu=0.06(20)-0.06(-10)=\boxed{1.8\ \mathrm{N\ s}}.
+\]</span></p>
+<p>If the impact lasts <span class="math inline">\(0.1\ \mathrm s\)</span>,</p>
+<p><span class="math display">\[
+F=\frac{1.8}{0.1}=\boxed{18\ \mathrm N}.
+\]</span></p>
+<p>If the impact lasts <span class="math inline">\(0.015\ \mathrm s\)</span>,</p>
+<p><span class="math display">\[
+F=\frac{1.8}{0.015}=\boxed{120\ \mathrm N}.
+\]</span></p>
+The average force is the constant force which, acting for the same time interval, would have the same impulse as the actual variable force.
+</details>
+</section>
+<section id="example-7.2---a-ball-rebounding-from-the-ground" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.2---a-ball-rebounding-from-the-ground">Example 7.2 - A ball rebounding from the ground</h3>
+<p>A ball of mass <span class="math inline">\(50\ \mathrm g\)</span> hits the ground with a speed of <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span> and rebounds with an initial speed of <span class="math inline">\(3\ \mathrm{m\ s^{-1}}\)</span>. The situation is modelled by assuming that the ball is in contact with the ground for <span class="math inline">\(0.01\ \mathrm s\)</span> and that during this time the reaction force on it is constant.</p>
+<p><strong>(i)</strong> Find the average force exerted on the ball by the ground.</p>
+<p><strong>(ii)</strong> Find the loss in kinetic energy during the impact.</p>
+<p><strong>(iii)</strong> Which of the answers to parts <strong>(i)</strong> and <strong>(ii)</strong> would be affected by a change in the modelling assumption that the ball is only in contact with the ground for <span class="math inline">\(0.01\ \mathrm s\)</span>?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/momentum/pic/7.2a.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Figure 7.2</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> Take upwards as positive. The impulse from the ground is</p>
+<p><span class="math display">\[
+J=mv-mu=0.05(3)-0.05(-4)=0.35\ \mathrm{N\ s}.
+\]</span></p>
+<p>Therefore the average force is</p>
+<p><span class="math display">\[
+F=\frac{J}{t}=\frac{0.35}{0.01}=\boxed{35\ \mathrm N\ upward}.
+\]</span></p>
+<p><strong>(ii)</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{initial K.E.}&amp;=\frac12(0.05)(4^2)=0.400\ \mathrm J,\\
+\text{final K.E.}&amp;=\frac12(0.05)(3^2)=0.225\ \mathrm J.
+\end{aligned}
+\]</span></p>
+<p>Hence the loss in kinetic energy is</p>
+<p><span class="math display">\[
+\boxed{0.175\ \mathrm J}.
+\]</span></p>
+<strong>(iii)</strong> The average force in part <strong>(i)</strong> would change, because it depends on the contact time. The kinetic-energy loss in part <strong>(ii)</strong> would not change.
+</details>
+</section>
+<section id="example-7.3---constant-force-and-impulse" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.3---constant-force-and-impulse">Example 7.3 - Constant force and impulse</h3>
+<p>A car of mass <span class="math inline">\(800\ \mathrm{kg}\)</span> is pushed with a constant force of magnitude <span class="math inline">\(200\ \mathrm N\)</span> for <span class="math inline">\(10\ \mathrm s\)</span>. The car starts from rest. Resistance to motion may be ignored.</p>
+<p><strong>(i)</strong> Find its speed at the end of the ten-second interval by using</p>
+<p><strong>(a)</strong> the impulse on the car;</p>
+<p><strong>(b)</strong> Newton’s second law.</p>
+<p><strong>(ii)</strong> Comment on your answers to part <strong>(i)</strong>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)(a)</strong></p>
+<p><span class="math display">\[
+J=Ft=200(10)=2000\ \mathrm{N\ s}=mv.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{v=\frac{2000}{800}=2.5\ \mathrm{m\ s^{-1}}}.
+\]</span></p>
+<p><strong>(i)(b)</strong></p>
+<p><span class="math display">\[
+200=800a\quad\Longrightarrow\quad a=0.25\ \mathrm{m\ s^{-2}}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+v=u+at=0+0.25(10)=\boxed{2.5\ \mathrm{m\ s^{-1}}}.
+\]</span></p>
+<strong>(ii)</strong> Both methods give the same answer. The constant-acceleration method is valid here because the force, and hence the acceleration, is constant.
+</details>
+</section>
+<section id="example-7.4---conservation-of-momentum-and-impulse" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.4---conservation-of-momentum-and-impulse">Example 7.4 - Conservation of momentum and impulse</h3>
+<p>Ball A of mass <span class="math inline">\(0.5\ \mathrm{kg}\)</span> travelling at <span class="math inline">\(3\ \mathrm{m\ s^{-1}}\)</span> hits stationary ball B of mass <span class="math inline">\(0.2\ \mathrm{kg}\)</span>. After the collision, ball A is stationary.</p>
+<p><strong>(i)</strong> Draw diagrams showing the situation before and after the collision.</p>
+<p><strong>(ii)</strong> Find the speed of ball B after the collision.</p>
+<p><strong>(iii)</strong> Find the impulse on each ball.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/momentum/pic/7.4a.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure 7.4</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> The before-and-after velocities are shown in the figure.</p>
+<p><strong>(ii)</strong> Conservation of momentum gives</p>
+<p><span class="math display">\[
+0.5(3)+0.2(0)=0.5(0)+0.2v.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{v=7.5\ \mathrm{m\ s^{-1}}}.
+\]</span></p>
+<p><strong>(iii)</strong></p>
+<p><span class="math display">\[
+\boxed{J_A=0.5(0)-0.5(3)=-1.5\ \mathrm{N\ s}},
+\]</span></p>
+<p>so the impulse on A is <span class="math inline">\(1.5\ \mathrm{N\ s}\)</span> opposite to its initial motion. For B,</p>
+<p><span class="math display">\[
+\boxed{J_B=0.2(7.5)-0.2(0)=1.5\ \mathrm{N\ s}},
+\]</span></p>
+in the original direction of motion.
+</details>
+</section>
+<section id="example-7.5---newtons-experimental-law" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.5---newtons-experimental-law">Example 7.5 - Newton’s experimental law</h3>
+<p>A direct collision takes place between two snooker balls. The white cue ball, travelling at <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>, hits a stationary red ball. After the collision, the red ball moves in the direction in which the cue ball was moving before the collision. The balls have equal mass and the coefficient of restitution between the balls is <span class="math inline">\(0.6\)</span>. Predict the velocities of the two balls after the collision.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/momentum/pic/7.5a.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure 7.5</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let the final velocities of the white and red balls be <span class="math inline">\(v_W\)</span> and <span class="math inline">\(v_R\)</span>.</p>
+<ul>
+<li>Speed of approach <span class="math inline">\(=2\)</span>.</li>
+<li>Newton’s experimental law gives <span class="math inline">\(v_R-v_W=0.6(2)=1.2\)</span>.</li>
+<li>Conservation of momentum gives <span class="math inline">\(v_W+v_R=2\)</span>.</li>
+</ul>
+<p>Solving,</p>
+<p><span class="math display">\[
+\boxed{v_W=0.4\ \mathrm{m\ s^{-1}}},\qquad
+\boxed{v_R=1.6\ \mathrm{m\ s^{-1}}}.
+\]</span></p>
+Both balls move in the original direction of the cue ball.
+</details>
+</section>
+<section id="example-7.6---collision-of-two-unequal-masses" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.6---collision-of-two-unequal-masses">Example 7.6 - Collision of two unequal masses</h3>
+<p>An object A of mass <span class="math inline">\(m\)</span> moving with speed <span class="math inline">\(2u\)</span> hits an object B of mass <span class="math inline">\(2m\)</span> moving with speed <span class="math inline">\(u\)</span> in the opposite direction to A. The coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
+<p><strong>(i)</strong> Show that the ratio of speeds remains unchanged whatever the value of <span class="math inline">\(e\)</span>.</p>
+<p><strong>(ii)</strong> Find the loss of kinetic energy in terms of <span class="math inline">\(m\)</span>, <span class="math inline">\(u\)</span> and <span class="math inline">\(e\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/momentum/pic/7.6a.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure 7.6</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let the final velocities be <span class="math inline">\(v_A\)</span> and <span class="math inline">\(v_B\)</span>, positive in A’s original direction.</p>
+<p><strong>(i)</strong> Newton’s experimental law and conservation of momentum give</p>
+<p><span class="math display">\[
+v_B-v_A=3eu,
+\qquad
+v_A+2v_B=0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+v_B=eu,\qquad v_A=-2eu.
+\]</span></p>
+<p>The initial speed ratio is <span class="math inline">\(2u:u=2:1\)</span> and the final speed ratio is <span class="math inline">\(2eu:eu=2:1\)</span> (for <span class="math inline">\(e\ne0\)</span>).</p>
+<p><strong>(ii)</strong> Initial kinetic energy:</p>
+<p><span class="math display">\[
+\frac12m(2u)^2+\frac12(2m)u^2=3mu^2.
+\]</span></p>
+<p>Final kinetic energy:</p>
+<p><span class="math display">\[
+\frac12m(2eu)^2+\frac12(2m)(eu)^2=3me^2u^2.
+\]</span></p>
+<p>Hence the loss is</p>
+<span class="math display">\[
+\boxed{3mu^2(1-e^2)}.
+\]</span>
+</details>
+</section>
+<section id="example-7.7---oblique-impact-with-a-smooth-plane" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.7---oblique-impact-with-a-smooth-plane">Example 7.7 - Oblique impact with a smooth plane</h3>
+<p>A ball of mass <span class="math inline">\(0.2\ \mathrm{kg}\)</span> moving at <span class="math inline">\(12\ \mathrm{m\ s^{-1}}\)</span> hits a smooth horizontal plane at an angle of <span class="math inline">\(75^\circ\)</span> to the horizontal. The coefficient of restitution is <span class="math inline">\(0.5\)</span>. Find</p>
+<p><strong>(i)</strong> the impulse on the ball;</p>
+<p><strong>(ii)</strong> the impulse on the plane;</p>
+<p><strong>(iii)</strong> the kinetic energy lost by the ball.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/momentum/pic/7.7a.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure 7.7</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Resolve parallel and perpendicular to the plane. The parallel component is unchanged. The perpendicular component after impact is <span class="math inline">\(0.5(12\sin75^\circ)=6\sin75^\circ\)</span>.</p>
+<p><strong>(i)</strong></p>
+<p><span class="math display">\[
+\mathbf J=0.2\begin{pmatrix}12\cos75^\circ\\6\sin75^\circ\end{pmatrix}
+-0.2\begin{pmatrix}12\cos75^\circ\\-12\sin75^\circ\end{pmatrix}
+=\begin{pmatrix}0\\3.6\sin75^\circ\end{pmatrix}.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{\mathbf J=3.48\,\mathbf j\ \mathrm{N\ s}}.
+\]</span></p>
+<p><strong>(ii)</strong> By Newton’s third law, the impulse on the plane is</p>
+<p><span class="math display">\[
+\boxed{-3.48\,\mathbf j\ \mathrm{N\ s}}.
+\]</span></p>
+<p><strong>(iii)</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+\text{initial K.E.}&amp;=\frac12(0.2)(12^2)=14.4\ \mathrm J,\\
+\text{final K.E.}&amp;=\frac12(0.2)\left[(12\cos75^\circ)^2+(6\sin75^\circ)^2\right]=4.32\ \mathrm J.
+\end{aligned}
+\]</span></p>
+Thus the loss is <span class="math inline">\(\boxed{10.1\ \mathrm J}\)</span>.
+</details>
+</section>
+<section id="example-7.8---rebound-from-a-smooth-plane" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.8---rebound-from-a-smooth-plane">Example 7.8 - Rebound from a smooth plane</h3>
+<p>A ball moving with speed <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span> hits a smooth horizontal plane at an angle of <span class="math inline">\(60^\circ\)</span> to the horizontal. The coefficient of restitution between the ball and the surface is <span class="math inline">\(\frac13\)</span>. The ball rebounds with speed <span class="math inline">\(v\)</span> at an angle <span class="math inline">\(\beta\)</span> with the surface.</p>
+<p><strong>(i)</strong> Find <span class="math inline">\(v\)</span>.</p>
+<p><strong>(ii)</strong> Find <span class="math inline">\(\beta\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/momentum/pic/7.8a.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure 7.8</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The horizontal component remains <span class="math inline">\(10\cos60^\circ=5\)</span>. The vertical component after impact is</p>
+<p><span class="math display">\[
+\frac13(10\sin60^\circ)=\frac5{\sqrt3}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+v=\sqrt{5^2+\left(\frac5{\sqrt3}\right)^2}=\boxed{\frac{10}{\sqrt3}=5.77\ \mathrm{m\ s^{-1}}}.
+\]</span></p>
+<p>Also</p>
+<p><span class="math display">\[
+\tan\beta=\frac{5/\sqrt3}{5}=\frac1{\sqrt3},
+\]</span></p>
+so <span class="math inline">\(\boxed{\beta=30^\circ}\)</span>.
+</details>
+</section>
+<section id="example-7.9---oblique-collision-of-equal-spheres" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.9---oblique-collision-of-equal-spheres">Example 7.9 - Oblique collision of equal spheres</h3>
+<p>In a game of snooker the cue ball, moving with speed <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>, strikes a stationary red ball. The cue ball is moving at an angle of <span class="math inline">\(60^\circ\)</span> to the line of centres of the two balls. Both balls are smooth and have the same mass <span class="math inline">\(m\)</span>. The coefficient of restitution between the balls is <span class="math inline">\(\frac12\)</span>. Find the velocities of the two balls after impact.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/momentum/pic/7.9a.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure 7.9</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Perpendicular components are unchanged. Along the line of centres, let the final components be <span class="math inline">\(U\)</span> for the cue ball and <span class="math inline">\(V\)</span> for the red ball.</p>
+<p><span class="math display">\[
+U+V=2\cos60^\circ=1,
+\]</span></p>
+<p>and Newton’s law gives</p>
+<p><span class="math display">\[
+V-U=\frac12(2\cos60^\circ)=\frac12.
+\]</span></p>
+<p>Therefore <span class="math inline">\(U=\frac14\)</span> and <span class="math inline">\(V=\frac34\)</span>.</p>
+<p>Thus the red ball has velocity</p>
+<p><span class="math display">\[
+\boxed{\frac34\mathbf i\ \mathrm{m\ s^{-1}}},
+\]</span></p>
+<p>and the cue ball has velocity</p>
+<p><span class="math display">\[
+\boxed{\left(\frac14\mathbf i+\sqrt3\mathbf j\right)\ \mathrm{m\ s^{-1}}}.
+\]</span></p>
+The cue ball’s speed is <span class="math inline">\(\sqrt{49/16}=\frac74\ \mathrm{m\ s^{-1}}\)</span> and its direction is <span class="math inline">\(\arctan(4\sqrt3)\approx81.8^\circ\)</span> to the line of centres.
+</details>
+</section>
+<section id="example-7.10---oblique-collision-of-unequal-spheres" class="level3">
+<h3 class="anchored" data-anchor-id="example-7.10---oblique-collision-of-unequal-spheres">Example 7.10 - Oblique collision of unequal spheres</h3>
+<p>A smooth sphere A of mass <span class="math inline">\(2m\)</span>, moving with speed <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span>, collides with a smooth sphere B of mass <span class="math inline">\(m\)</span> moving with speed <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>. The velocity of A immediately before impact makes an angle of <span class="math inline">\(45^\circ\)</span> to the line of centres. The velocity of B immediately before impact is at <span class="math inline">\(90^\circ\)</span> to the line of centres. The coefficient of restitution is <span class="math inline">\(0.6\)</span>.</p>
+<p><strong>(i)</strong> Draw a diagram showing the situation before and after the collision.</p>
+<p><strong>(ii)</strong> Calculate the velocities of the two spheres after impact.</p>
+<p><strong>(iii)</strong> Calculate the loss of kinetic energy sustained by the system during the impact.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/momentum/pic/7.10a.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Figure 7.10</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The perpendicular components are unchanged: <span class="math inline">\(2\sqrt2\)</span> for A and <span class="math inline">\(2\)</span> for B. Let <span class="math inline">\(V_A,V_B\)</span> be the final components along the line of centres.</p>
+<p><strong>(i)</strong> The component equations are</p>
+<p><span class="math display">\[
+4\sqrt2=2V_A+V_B,
+\qquad
+2\sqrt2(0.6)=V_B-V_A.
+\]</span></p>
+<p><strong>(ii)</strong> Solving,</p>
+<p><span class="math display">\[
+V_A=\frac23(4-2e)=1.31\ldots,
+\qquad
+V_B=\frac43(1+e)\sqrt2=3.01\ldots.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{\mathbf v_A=1.31\,\mathbf i+2\sqrt2\,\mathbf j\ \mathrm{m\ s^{-1}}},
+\]</span></p>
+<p><span class="math display">\[
+\boxed{\mathbf v_B=3.01\,\mathbf i+2\,\mathbf j\ \mathrm{m\ s^{-1}}}.
+\]</span></p>
+<p>A has speed <span class="math inline">\(3.12\ \mathrm{m\ s^{-1}}\)</span> at <span class="math inline">\(65.0^\circ\)</span> to the line of centres. B has speed <span class="math inline">\(3.62\ \mathrm{m\ s^{-1}}\)</span> at <span class="math inline">\(33.5^\circ\)</span>.</p>
+<p><strong>(iii)</strong> The initial kinetic energy is <span class="math inline">\(18m\)</span> and the final kinetic energy is <span class="math inline">\(16.29m\)</span>. Therefore</p>
+<span class="math display">\[
+\boxed{\text{loss}=1.71m\ \mathrm J}.
+\]</span>
+</details>
+</section>
+</section>
+<section id="教材-chapter-7-exercises" class="level2">
+<h2 class="anchored" data-anchor-id="教材-chapter-7-exercises">3. 教材 Chapter 7 Exercises</h2>
+<p>本节完整保留 Exercise 7A–7E 的题目与小问；答案使用 <code>Show answer</code>，并按教材答案风格分点展开。</p>
+</section>
+<section id="exercise-7a---impulse" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7a---impulse">Exercise 7A - Impulse</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">1</h3>
+<p>Find the momentum of these objects, assuming each of them to be travelling in a straight line.</p>
+<p><strong>(i)</strong> An ice skater of mass <span class="math inline">\(50\ \mathrm{kg}\)</span> travelling with speed <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span>.</p>
+<p><strong>(ii)</strong> An elephant of mass <span class="math inline">\(5\)</span> tonnes moving at <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span>.</p>
+<p><strong>(iii)</strong> A train of mass <span class="math inline">\(7000\)</span> tonnes travelling at <span class="math inline">\(40\ \mathrm{m\ s^{-1}}\)</span>.</p>
+<p><strong>(iv)</strong> A bacterium of mass <span class="math inline">\(2\times10^{-16}\ \mathrm g\)</span> moving with speed <span class="math inline">\(1\ \mathrm{mm\ s^{-1}}\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> <span class="math inline">\(\boxed{500\ \mathrm{N\ s}}\)</span>.</p>
+<p><strong>(ii)</strong> <span class="math inline">\(\boxed{20\,000\ \mathrm{N\ s}}\)</span>.</p>
+<p><strong>(iii)</strong> <span class="math inline">\(\boxed{2.8\times10^8\ \mathrm{N\ s}}\)</span>.</p>
+<strong>(iv)</strong> <span class="math inline">\(\boxed{2\times10^{-22}\ \mathrm{N\ s}}\)</span>.
+</details>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2</h3>
+<p>Calculate the impulse required in each of these situations:</p>
+<p><strong>(i)</strong> to stop a car of mass <span class="math inline">\(1.3\)</span> tonnes travelling at <span class="math inline">\(14\ \mathrm{m\ s^{-1}}\)</span>;</p>
+<p><strong>(ii)</strong> to putt a golf ball of mass <span class="math inline">\(1.5\ \mathrm g\)</span> with speed <span class="math inline">\(1.5\ \mathrm{m\ s^{-1}}\)</span>;</p>
+<p><strong>(iii)</strong> to stop a cricket ball of mass <span class="math inline">\(0.15\ \mathrm{kg}\)</span> travelling at <span class="math inline">\(20\ \mathrm{m\ s^{-1}}\)</span>;</p>
+<p><strong>(iv)</strong> to fire a bullet of mass <span class="math inline">\(25\ \mathrm g\)</span> with speed <span class="math inline">\(400\ \mathrm{m\ s^{-1}}\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The impulse is the change in momentum. The magnitudes are</p>
+<span class="math display">\[
+\boxed{18\,200\ \mathrm{N\ s}},\quad
+\boxed{0.00225\ \mathrm{N\ s}},\quad
+\boxed{3\ \mathrm{N\ s}},\quad
+\boxed{10\ \mathrm{N\ s}}.
+\]</span>
+</details>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">3</h3>
+<p>A stone of mass <span class="math inline">\(1.5\ \mathrm{kg}\)</span> is dropped from rest. After a time interval <span class="math inline">\(t\ \mathrm s\)</span>, it has fallen a distance <span class="math inline">\(s\ \mathrm m\)</span> and has velocity <span class="math inline">\(v\ \mathrm{m\ s^{-1}}\)</span>. Take <span class="math inline">\(g\)</span> to be <span class="math inline">\(10\ \mathrm{m\ s^{-2}}\)</span> and neglect air resistance.</p>
+<p><strong>(i)</strong> Write down the force <span class="math inline">\(F\)</span> in newtons acting on the stone.</p>
+<p><strong>(ii)</strong> Find <span class="math inline">\(s\)</span> when <span class="math inline">\(t=2\ \mathrm s\)</span>.</p>
+<p><strong>(iii)</strong> Find <span class="math inline">\(v\)</span> when <span class="math inline">\(t=2\ \mathrm s\)</span>.</p>
+<p><strong>(iv)</strong> Write down the value, units and meaning of <span class="math inline">\(Fs\)</span> when <span class="math inline">\(t=2\ \mathrm s\)</span> and explain why this has the same value as <span class="math inline">\(\frac12(1.5)v^2\)</span> when <span class="math inline">\(t=2\ \mathrm s\)</span>.</p>
+<p><strong>(v)</strong> Write down the value, units and meaning of <span class="math inline">\(Ft\)</span> when <span class="math inline">\(t=2\ \mathrm s\)</span> and explain why this has the same value as <span class="math inline">\(1.5v\)</span> when <span class="math inline">\(t=2\ \mathrm s\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> <span class="math inline">\(\boxed{F=15\ \mathrm N}\)</span>.</p>
+<p><strong>(ii)</strong> <span class="math inline">\(s=\frac12gt^2=\boxed{20\ \mathrm m}\)</span>.</p>
+<p><strong>(iii)</strong> <span class="math inline">\(v=gt=\boxed{20\ \mathrm{m\ s^{-1}}}\)</span>.</p>
+<p><strong>(iv)</strong> <span class="math inline">\(Fs=15(20)=\boxed{300\ \mathrm J}\)</span>. This is the work done by the force and equals the gain in kinetic energy.</p>
+<strong>(v)</strong> <span class="math inline">\(Ft=15(2)=\boxed{30\ \mathrm{N\ s}}\)</span>. This is the impulse and equals the gain in momentum.
+</details>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">4</h3>
+<p>A ball of mass <span class="math inline">\(200\ \mathrm g\)</span> is moving in a straight line with a speed of <span class="math inline">\(5\ \mathrm{m\ s^{-1}}\)</span> when a force of <span class="math inline">\(20\ \mathrm N\)</span> is applied to it for <span class="math inline">\(0.1\ \mathrm s\)</span> in the direction of motion. Find the final speed of the ball</p>
+<p><strong>(i)(a)</strong> using the impulse-momentum equation;</p>
+<p><strong>(i)(b)</strong> using Newton’s second law and the constant-acceleration formulae.</p>
+<p><strong>(ii)</strong> Compare the methods.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)(a)</strong></p>
+<p><span class="math display">\[
+0.2v-0.2(5)=20(0.1)\quad\Longrightarrow\quad\boxed{v=15\ \mathrm{m\ s^{-1}}}.
+\]</span></p>
+<p><strong>(i)(b)</strong> <span class="math inline">\(a=20/0.2=100\ \mathrm{m\ s^{-2}}\)</span>, so <span class="math inline">\(v=5+100(0.1)=\boxed{15\ \mathrm{m\ s^{-1}}}\)</span>.</p>
+<strong>(ii)</strong> They give the same answer; the impulse method does not require the force to be constant, whereas the constant-acceleration method does.
+</details>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">5</h3>
+<p>A girl throws a ball of mass <span class="math inline">\(0.06\ \mathrm{kg}\)</span> vertically upwards with initial speed <span class="math inline">\(20\ \mathrm{m\ s^{-1}}\)</span>. Take <span class="math inline">\(g=10\ \mathrm{m\ s^{-2}}\)</span> and neglect air resistance. Find</p>
+<p><strong>(i)</strong> the initial momentum;</p>
+<p><strong>(ii)</strong> the time taken to reach the top;</p>
+<p><strong>(iii)</strong> the momentum at the top;</p>
+<p><strong>(iv)</strong> the impulse acting on the ball between being thrown and reaching maximum height.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> <span class="math inline">\(\boxed{1.2\ \mathrm{N\ s\ upward}}\)</span>.</p>
+<p><strong>(ii)</strong> <span class="math inline">\(0=20-10t\)</span>, so <span class="math inline">\(\boxed{t=2\ \mathrm s}\)</span>.</p>
+<p><strong>(iii)</strong> <span class="math inline">\(\boxed{0}\)</span>.</p>
+<strong>(iv)</strong> <span class="math inline">\(\boxed{1.2\ \mathrm{N\ s}}\)</span> downwards.
+</details>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">6</h3>
+<p>A netball of mass <span class="math inline">\(425\ \mathrm g\)</span> is moving horizontally with speed <span class="math inline">\(5\ \mathrm{m\ s^{-1}}\)</span> when it is caught.</p>
+<p><strong>(i)</strong> Find the impulse needed to stop the ball.</p>
+<p><strong>(ii)</strong> Find the average force needed to stop the ball if it takes <strong>(a)</strong> <span class="math inline">\(0.1\ \mathrm s\)</span> and <strong>(b)</strong> <span class="math inline">\(0.05\ \mathrm s\)</span>.</p>
+<p><strong>(iii)</strong> Why does cushioning the ball with your hands make it easier to catch?</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> <span class="math inline">\(\boxed{2.125\ \mathrm{N\ s}}\)</span> opposite to the motion.</p>
+<p><strong>(ii)</strong> <strong>(a)</strong> <span class="math inline">\(\boxed{21.25\ \mathrm N}\)</span>; <strong>(b)</strong> <span class="math inline">\(\boxed{42.5\ \mathrm N}\)</span>.</p>
+<strong>(iii)</strong> Cushioning increases the stopping time, so the same impulse is delivered by a smaller average force.
+</details>
+</section>
+<section id="section-6" class="level3">
+<h3 class="anchored" data-anchor-id="section-6">7</h3>
+<p>A car of mass <span class="math inline">\(0.9\)</span> tonnes is travelling at <span class="math inline">\(13.2\ \mathrm{m\ s^{-1}}\)</span> when it crashes head-on into a wall. The car is brought to rest in a time of <span class="math inline">\(0.12\ \mathrm s\)</span>. Find</p>
+<p><strong>(i)(a)</strong> the impulse acting on the car, <strong>(b)</strong> the average force acting on the car, <strong>(c)</strong> the average deceleration of the car;</p>
+<p><strong>(ii)</strong> explain why many cars are designed with crumple zones rather than completely rigid construction.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong></p>
+<p><span class="math display">\[
+J=0-900(13.2)=\boxed{-11\,880\ \mathrm{N\ s}},
+\]</span></p>
+<p>so the average force has magnitude <span class="math inline">\(\boxed{99\,000\ \mathrm N}\)</span> and the average deceleration is <span class="math inline">\(\boxed{11g\ \mathrm{m\ s^{-2}}}\)</span>.</p>
+<strong>(ii)</strong> A crumple zone increases the collision time and therefore reduces the average force exerted on the occupants.
+</details>
+</section>
+<section id="section-7" class="level3">
+<h3 class="anchored" data-anchor-id="section-7">8</h3>
+<p>Boris is sleeping on a bunk bed at a height of <span class="math inline">\(1.5\ \mathrm m\)</span> when he rolls over and falls out. His mass is <span class="math inline">\(20\ \mathrm{kg}\)</span>. Find</p>
+<p><strong>(i)</strong> the speed with which he hits the floor;</p>
+<p><strong>(ii)</strong> the impulse that the floor has exerted on him when he has come to rest;</p>
+<p><strong>(iii)</strong> the impulse he has exerted on the floor;</p>
+<p><strong>(iv)</strong> the average force acting on him if it takes <span class="math inline">\(0.2\ \mathrm s\)</span> to come to rest.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> <span class="math inline">\(v=\sqrt{2gh}=\boxed{5.48\ \mathrm{m\ s^{-1}}}\)</span>.</p>
+<strong>(ii)</strong> <span class="math inline">\(\boxed{110\ \mathrm{N\ s}\)</span> upwards}$. <strong>(iii)</strong> <span class="math inline">\(\boxed{110\ \mathrm{N\ s}\)</span> downwards on the floor. <strong>(iv)</strong> <span class="math inline">\(\boxed{548\ \mathrm N}\)</span> upwards.
+</details>
+</section>
+<section id="section-8" class="level3">
+<h3 class="anchored" data-anchor-id="section-8">9</h3>
+<p>A railway truck of mass <span class="math inline">\(10\)</span> tonnes is travelling at <span class="math inline">\(3\ \mathrm{m\ s^{-1}}\)</span> along a siding when it hits some buffers. After the impact it is travelling at <span class="math inline">\(1.5\ \mathrm{m\ s^{-1}}\)</span> in the opposite direction. During the impact the force <span class="math inline">\(F\)</span> N that the buffers exert on the truck varies as shown in the graph in the textbook.</p>
+<p>Find <strong>(i)</strong> the initial momentum, <strong>(ii)</strong> the final momentum, <strong>(iii)</strong> the impulse, <strong>(iv)</strong> the information given by the area under the graph, and <strong>(v)</strong> the greatest value of <span class="math inline">\(F\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+The answers are <span class="math inline">\(\boxed{+30\,000\ \mathrm{N\ s}}\)</span>, <span class="math inline">\(\boxed{-15\,000\ \mathrm{N\ s}}\)</span>, <span class="math inline">\(\boxed{-45\,000\ \mathrm{N\ s}}\)</span>, the area gives the impulse, and <span class="math inline">\(\boxed{450\,000\ \mathrm N}\)</span>.
+</details>
+</section>
+<section id="section-9" class="level3">
+<h3 class="anchored" data-anchor-id="section-9">10</h3>
+<p>A van of mass <span class="math inline">\(2500\ \mathrm{kg}\)</span> starts from rest. In the first <span class="math inline">\(4\ \mathrm s\)</span> after starting, the driving force follows <span class="math inline">\(F(t)=2400t-300t^2\)</span>. Find</p>
+<p><strong>(i)</strong> the total impulse over the <span class="math inline">\(4\)</span> seconds;</p>
+<p><strong>(ii)</strong> the speed after <span class="math inline">\(4\)</span> seconds, ignoring air resistance and friction.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong></p>
+<p><span class="math display">\[
+J=\int_0^4(2400t-300t^2)\,dt=\boxed{12\,800\ \mathrm{N\ s}}.
+\]</span></p>
+<strong>(ii)</strong> <span class="math inline">\(2500v=12\,800\)</span>, so <span class="math inline">\(\boxed{v=5.12\ \mathrm{m\ s^{-1}}}\)</span>.
+</details>
+</section>
+</section>
+<section id="exercise-7b---conservation-of-momentum" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7b---conservation-of-momentum">Exercise 7B - Conservation of momentum</h2>
+<section id="section-10" class="level3">
+<h3 class="anchored" data-anchor-id="section-10">1</h3>
+<p>A van of mass <span class="math inline">\(2800\ \mathrm{kg}\)</span> travelling at <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span> collides head-on with a car of mass <span class="math inline">\(800\ \mathrm{kg}\)</span> travelling in the opposite direction at <span class="math inline">\(25\ \mathrm{m\ s^{-1}\)</span>. After the collision, the van comes to rest. Taking the direction of the van’s motion before collision as positive, find <strong>(i)</strong> the velocity of the car and <strong>(ii)</strong> the impulse on each vehicle.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<strong>(i)</strong> <span class="math inline">\(\boxed{10\ \mathrm{m\ s^{-1}}\)</span>} in the original direction of the car. <strong>(ii)</strong> Van: <span class="math inline">\(\boxed{-28\,000\ \mathrm{N\ s}}\)</span>; car: <span class="math inline">\(\boxed{28\,000\ \mathrm{N\ s}}\)</span>.
+</details>
+</section>
+<section id="section-11" class="level3">
+<h3 class="anchored" data-anchor-id="section-11">2</h3>
+<p>A railway truck of mass <span class="math inline">\(25\)</span> tonnes is shunted with speed <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span> towards a stationary truck of mass <span class="math inline">\(20\)</span> tonnes. What is the speed of the <span class="math inline">\(25\)</span> tonne truck after impact <strong>(i)</strong> if the two trucks remain in contact and <strong>(ii)</strong> if the <span class="math inline">\(20\)</span> tonne truck now moves at <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span>?</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<strong>(i)</strong> Common speed <span class="math inline">\(=\boxed{2.22\ \mathrm{m\ s^{-1}}}\)</span>. <strong>(ii)</strong> From momentum, the first truck has speed <span class="math inline">\(\boxed{0.8\ \mathrm{m\ s^{-1}}}\)</span>.
+</details>
+</section>
+<section id="section-12" class="level3">
+<h3 class="anchored" data-anchor-id="section-12">3</h3>
+<p>A spaceship of mass <span class="math inline">\(25\,000\ \mathrm{kg}\)</span> travelling with speed <span class="math inline">\(1500\ \mathrm{m\ s^{-1}}\)</span> docks with a space station of mass <span class="math inline">\(600\,000\ \mathrm{kg}\)</span> travelling at <span class="math inline">\(1475\ \mathrm{m\ s^{-1}}\)</span> in the same direction. What is the speed of the combined spaceship and space station after docking?</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<span class="math display">\[
+v=\frac{25\,000(1500)+600\,000(1475)}{625\,000}=\boxed{1476\ \mathrm{m\ s^{-1}}}.
+\]</span>
+</details>
+</section>
+<section id="section-13" class="level3">
+<h3 class="anchored" data-anchor-id="section-13">4</h3>
+<p>A rifle of mass <span class="math inline">\(5\ \mathrm{kg}\)</span> is used to fire a bullet of mass <span class="math inline">\(50\)</span> grams at a speed of <span class="math inline">\(250\ \mathrm{m\ s^{-1}}\)</span>. Calculate the recoil speed of the gun.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><span class="math display">\[
+5v+0.05(250)=0\quad\Longrightarrow\quad\boxed{v=2.5\ \mathrm{m\ s^{-1}}}
+\]</span></p>
+opposite to the bullet.
+</details>
+</section>
+<section id="section-14" class="level3">
+<h3 class="anchored" data-anchor-id="section-14">5</h3>
+<p>A child of mass <span class="math inline">\(35\ \mathrm{kg}\)</span>, running at <span class="math inline">\(5\ \mathrm{m\ s^{-1}}\)</span>, leaps on to a stationary shopping trolley of mass <span class="math inline">\(12\ \mathrm{kg}\)</span>. Find the speed at which they move off together.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<span class="math display">\[
+35(5)=(35+12)v\quad\Longrightarrow\quad\boxed{v=3.72\ \mathrm{m\ s^{-1}}}.
+\]</span>
+</details>
+</section>
+</section>
+<section id="exercise-7c---newtons-experimental-law" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7c---newtons-experimental-law">Exercise 7C - Newton’s experimental law</h2>
+<section id="section-15" class="level3">
+<h3 class="anchored" data-anchor-id="section-15">1-4</h3>
+<p>Find the unknown quantity in each diagram in Question 1, and then find the coefficient of restitution in Question 2.</p>
+<p><strong>Question 1:</strong> <strong>(i)</strong> before speed <span class="math inline">\(1.8\ \mathrm{m\ s^{-1}}\)</span>, after speed <span class="math inline">\(1.2\ \mathrm{m\ s^{-1}}\)</span>, find <span class="math inline">\(e\)</span>; <strong>(ii)</strong> before speed <span class="math inline">\(2.4\ \mathrm{m\ s^{-1}}\)</span>, <span class="math inline">\(e=0.6\)</span>, find <span class="math inline">\(v\)</span>; <strong>(iii)</strong> before speed <span class="math inline">\(2.4\ \mathrm{m\ s^{-1}}\)</span>, after speed <span class="math inline">\(1.8\ \mathrm{m\ s^{-1}}\)</span>, find <span class="math inline">\(e\)</span>; <strong>(iv)</strong> before speed <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span>, <span class="math inline">\(e=0.8\)</span>, find <span class="math inline">\(v\)</span>.</p>
+<p><strong>Question 2:</strong> <strong>(i)</strong> A football hits the goalpost at <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span> and rebounds at <span class="math inline">\(3\ \mathrm{m\ s^{-1}}\)</span>; <strong>(ii)</strong> a beanbag is thrown against a wall at <span class="math inline">\(5\ \mathrm{m\ s^{-1}}\)</span> and falls straight down; <strong>(iii)</strong> a bouncy ball lands at <span class="math inline">\(8\ \mathrm{m\ s^{-1}}\)</span> and rebounds at <span class="math inline">\(7.6\ \mathrm{m\ s^{-1}}\)</span>; <strong>(iv)</strong> a photon approaches and leaves a mirror normally at <span class="math inline">\(3\times10^8\ \mathrm{m\ s^{-1}}\)</span>.</p>
+<p><strong>Question 3:</strong> A tennis ball of mass <span class="math inline">\(60\)</span> g hits a practice wall at <span class="math inline">\(15\ \mathrm{m\ s^{-1}}\)</span> and leaves at <span class="math inline">\(12\ \mathrm{m\ s^{-1}}\)</span> in the opposite direction. Find <strong>(i)</strong> <span class="math inline">\(e\)</span>, <strong>(ii)</strong> the impulse, and <strong>(iii)</strong> the loss of kinetic energy.</p>
+<p><strong>Question 4:</strong> A ball of mass <span class="math inline">\(80\)</span> g is dropped from a height of <span class="math inline">\(1\)</span> m and bounces to a height of <span class="math inline">\(0.81\)</span> m. Find <strong>(i)</strong> its speed before impact, <strong>(ii)</strong> its speed after impact, <strong>(iii)</strong> <span class="math inline">\(e\)</span>, <strong>(iv)</strong> the change in kinetic energy during impact, <strong>(v)</strong> the change in potential energy from release to the top of the first bounce, and <strong>(vi)</strong> the height of the next bounce.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>Question 1:</strong> <strong>(i)</strong> <span class="math inline">\(\boxed{e=2/3}\)</span>; <strong>(ii)</strong> <span class="math inline">\(\boxed{v=1.44\ \mathrm{m\ s^{-1}}}\)</span>; <strong>(iii)</strong> <span class="math inline">\(\boxed{e=3/4}\)</span>; <strong>(iv)</strong> <span class="math inline">\(\boxed{v=3.2\ \mathrm{m\ s^{-1}}}\)</span>.</p>
+<p><strong>Question 2:</strong> <span class="math inline">\(\boxed{0.3,\ 0,\ 0.95,\ 1}\)</span> respectively.</p>
+<p><strong>Question 3:</strong> <span class="math inline">\(\boxed{e=0.8}\)</span>, impulse <span class="math inline">\(\boxed{1.62\ \mathrm{N\ s}}\)</span>, loss <span class="math inline">\(\boxed{2.43\ \mathrm J}\)</span>.</p>
+<strong>Question 4:</strong> <span class="math inline">\(\boxed{4.47\ \mathrm{m\ s^{-1}}\)</span>, <span class="math inline">\(\boxed{4.02\ \mathrm{m\ s^{-1}}\)</span>, <span class="math inline">\(\boxed{e=0.900}\)</span>, <span class="math inline">\(\boxed{-0.152\ \mathrm J}\)</span>, <span class="math inline">\(\boxed{0.152\ \mathrm J}\)</span>, <span class="math inline">\(\boxed{0.656\ \mathrm m}\)</span>.
+</details>
+</section>
+<section id="section-16" class="level3">
+<h3 class="anchored" data-anchor-id="section-16">5</h3>
+<p>In each of the six situations in the textbook diagrams, masses are in kilograms, speeds are in metres per second. Draw before-and-after diagrams, use conservation of momentum and Newton’s experimental law to find the final velocities, and find the loss of kinetic energy.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The final velocities and losses for <strong>(a)</strong> to <strong>(f)</strong> are:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Case</th>
+<th>Final velocities</th>
+<th>Loss of K.E.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>(a)</td>
+<td><span class="math inline">\(2.5\ \mathrm{m\ s^{-1}},\ 3.5\ \mathrm{m\ s^{-1}}\)</span></td>
+<td><span class="math inline">\(3.75\ \mathrm J\)</span></td>
+</tr>
+<tr class="even">
+<td>(b)</td>
+<td><span class="math inline">\(-0.5\ \mathrm{m\ s^{-1}},\ 2.5\ \mathrm{m\ s^{-1}}\)</span></td>
+<td><span class="math inline">\(33.75\ \mathrm J\)</span></td>
+</tr>
+<tr class="odd">
+<td>(c)</td>
+<td><span class="math inline">\(1.2\ \mathrm{m\ s^{-1}},\ 1.2\ \mathrm{m\ s^{-1}}\)</span></td>
+<td><span class="math inline">\(4.8\ \mathrm J\)</span></td>
+</tr>
+<tr class="even">
+<td>(d)</td>
+<td><span class="math inline">\(-1\ \mathrm{m\ s^{-1}},\ 2\ \mathrm{m\ s^{-1}}\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td>(e)</td>
+<td><span class="math inline">\(-0.5\ \mathrm{m\ s^{-1}},\ 1\ \mathrm{m\ s^{-1}}\)</span></td>
+<td><span class="math inline">\(2.25\ \mathrm J\)</span></td>
+</tr>
+<tr class="even">
+<td>(f)</td>
+<td><span class="math inline">\(2\ \mathrm{m\ s^{-1}},\ 4\ \mathrm{m\ s^{-1}}\)</span></td>
+<td><span class="math inline">\(96\ \mathrm J\)</span></td>
+</tr>
+</tbody>
+</table>
+</details>
+</section>
+<section id="section-17" class="level3">
+<h3 class="anchored" data-anchor-id="section-17">6</h3>
+<p>Two children drive dodgems straight at each other and collide head-on. Both dodgems have mass <span class="math inline">\(150\ \mathrm{kg}\)</span>. Isobel is driving at <span class="math inline">\(3\ \mathrm{m\ s^{-1}}\)</span>, Atul at <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span>. After the collision Reeta is stationary. Find Atul’s velocity, the coefficient of restitution, the impulse on Atul’s car, and the kinetic energy lost.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Taking Isobel’s direction as positive: Atul’s final velocity is <span class="math inline">\(\boxed{1\ \mathrm{m\ s^{-1}}}\)</span>, <span class="math inline">\(\boxed{e=0.2}\)</span>, impulse on Atul is <span class="math inline">\(\boxed{450\ \mathrm{N\ s}}\)</span>, and the loss is <span class="math inline">\(\boxed{900\ \mathrm J}\)</span>.
+</details>
+</section>
+<section id="section-18" class="level3">
+<h3 class="anchored" data-anchor-id="section-18">7</h3>
+<p>A trapeze artist of mass <span class="math inline">\(50\ \mathrm{kg}\)</span> falls from a height of <span class="math inline">\(20\ \mathrm m\)</span> into a safety net. Her speed on leaving the net is <span class="math inline">\(15\ \mathrm{m\ s^{-1}}\)</span>. Find the speed with which she hits the net, the coefficient of restitution, the impulse received, and the mechanical energy absorbed. State whether a high or low coefficient of restitution is preferable.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+The impact speed is <span class="math inline">\(\boxed{20\ \mathrm{m\ s^{-1}}}\)</span>, <span class="math inline">\(\boxed{e=0.75}\)</span>, impulse <span class="math inline">\(\boxed{1750\ \mathrm{N\ s}}\)</span>, and energy absorbed <span class="math inline">\(\boxed{4375\ \mathrm J}\)</span>. A low coefficient is preferable because more kinetic energy is absorbed and the impact force is smaller.
+</details>
+</section>
+<section id="section-19" class="level3">
+<h3 class="anchored" data-anchor-id="section-19">8</h3>
+<p>Two spheres of equal mass <span class="math inline">\(m\)</span> travel towards each other with speed <span class="math inline">\(v\)</span>. The coefficient of restitution is <span class="math inline">\(e\)</span>. Find the final velocities and show that the kinetic energy lost is <span class="math inline">\(mv^2(1-e^2)\)</span>; explain why <span class="math inline">\(e\)</span> cannot exceed <span class="math inline">\(1\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>By symmetry and conservation of momentum, the final velocities are <span class="math inline">\(\boxed{-ev}\)</span> and <span class="math inline">\(\boxed{ev}\)</span>. Thus</p>
+<p><span class="math display">\[
+\text{loss}=mv^2-m e^2v^2=\boxed{mv^2(1-e^2)}.
+\]</span></p>
+Kinetic energy cannot be gained in this model, so <span class="math inline">\(1-e^2\ge0\)</span> and <span class="math inline">\(\boxed{0\le e\le1}\)</span>.
+</details>
+</section>
+<section id="section-20" class="level3">
+<h3 class="anchored" data-anchor-id="section-20">9</h3>
+<p>Three identical spheres lie in a straight line. The coefficient of restitution between any pair is <span class="math inline">\(\frac12\)</span>. Initially the left sphere has velocity <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span> towards the other two, which are stationary. Find the final velocities when no more collisions can occur.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The successive collisions give</p>
+<span class="math display">\[
+\boxed{\frac{13}{32}\ \mathrm{m\ s^{-1}},\quad
+\frac{15}{32}\ \mathrm{m\ s^{-1}},\quad
+\frac98\ \mathrm{m\ s^{-1}}}.
+\]</span>
+</details>
+</section>
+<section id="section-21" class="level3">
+<h3 class="anchored" data-anchor-id="section-21">10</h3>
+<p>Two snooker balls and one edge cushion are shown in the textbook diagram. The coefficient of restitution between the balls and the cushion is <span class="math inline">\(0.5\)</span>, and that between the balls is <span class="math inline">\(0.75\)</span>. Ball A is hit directly towards stationary ball B with speed <span class="math inline">\(8\ \mathrm{m\ s^{-1}}\)</span>. Find the speed and direction of the two balls after their second impact with each other.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+The final velocities are <span class="math inline">\(\boxed{-\frac{47}{16}\ \mathrm{m\ s^{-1}}}\)</span> and <span class="math inline">\(\boxed{\frac7{16}\ \mathrm{m\ s^{-1}}}\)</span> in the chosen positive direction.
+</details>
+</section>
+<section id="section-22" class="level3">
+<h3 class="anchored" data-anchor-id="section-22">11</h3>
+<p>The coefficient of restitution between a ball and the floor is <span class="math inline">\(e\)</span>. The ball is dropped from a height <span class="math inline">\(h\)</span>. Air resistance may be neglected. Find the time to the ground and speed on arrival, the height of the first bounce, the height of the <span class="math inline">\(n\)</span>th bounce, the time when it hits the ground for the second and <span class="math inline">\(n\)</span>th time, show that it comes to rest in finite time after infinitely many bounces, and find the total distance travelled.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The answers are</p>
+<p><span class="math display">\[
+\boxed{t_1=\sqrt{\frac{2h}{g}},\quad v_1=\sqrt{2gh}},
+\]</span></p>
+<p><span class="math display">\[
+\boxed{h_1=e^2h},\qquad \boxed{h_n=e^{2n}h},
+\]</span></p>
+<p><span class="math display">\[
+\boxed{t_2=\sqrt{\frac{2h}{g}}(1+2e)},
+\]</span></p>
+<p><span class="math display">\[
+\boxed{t_n=\sqrt{\frac{2h}{g}}\left(1+2e+\cdots+2e^{n-1}\right)}.
+\]</span></p>
+<p>The geometric series converges when <span class="math inline">\(0\le e&lt;1\)</span>, so the total time is finite although the number of bounces is infinite. The total distance is</p>
+<span class="math display">\[
+\boxed{h\frac{1+e^2}{1-e^2}}.
+\]</span>
+</details>
+</section>
+<section id="section-23" class="level3">
+<h3 class="anchored" data-anchor-id="section-23">12</h3>
+<p>Three identical smooth spheres A, B and C lie at rest on a smooth horizontal table with their centres in a straight line and B between A and C. A is projected towards B with speed <span class="math inline">\(u\)</span>. If the coefficient of restitution at each collision is <span class="math inline">\(e\)</span>, where <span class="math inline">\(0&lt;e&lt;1\)</span>, find the velocity of each sphere just after C is set in motion. Show that A strikes B a second time for every <span class="math inline">\(e\)</span>, and that B strikes C a second time if <span class="math inline">\(e&lt;3-2\sqrt2\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Immediately after C is set in motion,</p>
+<p><span class="math display">\[
+\boxed{v_A=\frac12(1-e)u},\qquad
+\boxed{v_B=\frac14(1-e^2)u},\qquad
+\boxed{v_C=\frac14(1+e)^2u}.
+\]</span></p>
+Since <span class="math inline">\(v_A&gt;v_B\)</span> for <span class="math inline">\(0&lt;e&lt;1\)</span>, A catches B again. Comparing the next two velocities gives a second B-C collision precisely when <span class="math inline">\(\boxed{e&lt;3-2\sqrt2}\)</span>.
+</details>
+</section>
+</section>
+<section id="exercise-7d---oblique-impact-with-a-smooth-plane" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7d---oblique-impact-with-a-smooth-plane">Exercise 7D - Oblique impact with a smooth plane</h2>
+<section id="section-24" class="level3">
+<h3 class="anchored" data-anchor-id="section-24">1-5</h3>
+<p><strong>1</strong> Find the velocity after impact as a vector for: <strong>(i)</strong> speed <span class="math inline">\(4\ \mathrm{m\ s^{-1}}\)</span> at <span class="math inline">\(20^\circ\)</span> to the plane, <span class="math inline">\(e=0.5\)</span>; <strong>(ii)</strong> speed <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span> at <span class="math inline">\(40^\circ\)</span>, <span class="math inline">\(e=0.1\)</span>; <strong>(iii)</strong> speed <span class="math inline">\(u\)</span> at <span class="math inline">\(\alpha^\circ\)</span>, <span class="math inline">\(e=0.8\)</span>.</p>
+<p><strong>2</strong> A ball of mass <span class="math inline">\(0.1\ \mathrm{kg}\)</span> moving at <span class="math inline">\(10\ \mathrm{m\ s^{-1}}\)</span> hits a smooth horizontal plane at <span class="math inline">\(80^\circ\)</span> to the horizontal, with <span class="math inline">\(e=0.6\)</span>. Find the impulses on the ball and plane and the kinetic-energy loss.</p>
+<p><strong>3</strong> A particle of mass <span class="math inline">\(0.05\ \mathrm{kg}\)</span> moving at <span class="math inline">\(8\ \mathrm{m\ s^{-1}}\)</span> hits a smooth horizontal plane at <span class="math inline">\(45^\circ\)</span>, with <span class="math inline">\(e=0.6\)</span>. Find the impulses on the particle and plane and the kinetic-energy loss.</p>
+<p><strong>4</strong> A ball of mass <span class="math inline">\(m\)</span> moving at <span class="math inline">\(u\)</span> hits a smooth plane at angle <span class="math inline">\(\alpha\)</span>, with <span class="math inline">\(e=0\)</span>. Find the impulse and show that the kinetic-energy loss is <span class="math inline">\(\frac12mu^2\sin^2\alpha\)</span>.</p>
+<p><strong>5</strong> Show that the kinetic-energy loss for speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(\alpha\)</span> to the plane is <span class="math inline">\(\frac12mu^2(1-e^2)\sin^2\alpha\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>1</strong> The answers are</p>
+<p><span class="math display">\[
+\boxed{\begin{pmatrix}3.76\\0.684\end{pmatrix}},\quad
+\boxed{\begin{pmatrix}7.66\\0.643\end{pmatrix}},\quad
+\boxed{\begin{pmatrix}u\cos\alpha\\0.8u\sin\alpha\end{pmatrix}}\ \mathrm{m\ s^{-1}}.
+\]</span></p>
+<p><strong>2</strong> Impulse on ball <span class="math inline">\(=\boxed{1.58\mathbf j\ \mathrm{N\ s}}\)</span>, impulse on plane <span class="math inline">\(=\boxed{-1.58\mathbf j\ \mathrm{N\ s}}\)</span>, loss <span class="math inline">\(=\boxed{3.10\ \mathrm J}\)</span>.</p>
+<p><strong>3</strong> Impulse on particle <span class="math inline">\(=\boxed{0.453\mathbf j\ \mathrm{N\ s}}\)</span>, impulse on plane <span class="math inline">\(=\boxed{-0.453\mathbf j\ \mathrm{N\ s}}\)</span>, loss <span class="math inline">\(=\boxed{0.512\ \mathrm J}\)</span>.</p>
+<p><strong>4</strong> <span class="math inline">\(\boxed{J=mu\sin\alpha}\)</span> normal to the plane; loss <span class="math inline">\(=\boxed{\frac12mu^2\sin^2\alpha}\)</span>.</p>
+<p><strong>5</strong> The parallel component is unchanged and the normal component changes from <span class="math inline">\(-u\sin\alpha\)</span> to <span class="math inline">\(eu\sin\alpha\)</span>, so</p>
+<span class="math display">\[
+\boxed{\Delta K=\frac12mu^2(1-e^2)\sin^2\alpha}.
+\]</span>
+</details>
+</section>
+<section id="section-25" class="level3">
+<h3 class="anchored" data-anchor-id="section-25">6-10</h3>
+<p><strong>6</strong> A ball is hit from level ground with initial components <span class="math inline">\(u_x\)</span> horizontally and <span class="math inline">\(u_y\)</span> vertically. Show that <span class="math inline">\(R=2u_xu_y/g\)</span>. It bounces with <span class="math inline">\(e=0.6\)</span>. Find the distance between the first and second bounce, the distance between the <span class="math inline">\(n\)</span>th and <span class="math inline">\((n+1)\)</span>th bounce, and the total horizontal distance up to the sixth bounce.</p>
+<p><strong>7</strong> A ball of mass <span class="math inline">\(0.5\ \mathrm{kg}\)</span> falls from <span class="math inline">\(62.5\)</span> cm onto a plane inclined at <span class="math inline">\(60^\circ\)</span>, with <span class="math inline">\(e=\frac47\)</span>. Find the speed before impact, the magnitude and direction after impact, and the loss of kinetic energy.</p>
+<p><strong>8</strong> A marble is projected horizontally from a table <span class="math inline">\(0.8\ \mathrm m\)</span> high at <span class="math inline">\(2.5\ \mathrm{m\ s^{-1}}\)</span> and bounces from smooth horizontal ground with <span class="math inline">\(e=0.7\)</span>. Find its velocity components before impact, first horizontal distance, distance between the first and second bounces, distance between the <span class="math inline">\(n\)</span>th and <span class="math inline">\((n+1)\)</span>th bounces, and the number of bounces before this distance is less than <span class="math inline">\(20\)</span> cm.</p>
+<p><strong>9</strong> A smooth snooker ball moving at <span class="math inline">\(2\ \mathrm{m\ s^{-1}}\)</span> hits a cushion at <span class="math inline">\(30^\circ\)</span> to the cushion and then a perpendicular cushion. Both coefficients are <span class="math inline">\(0.8\)</span>. Find the directions after each impact and the speed after the second; repeat for speed <span class="math inline">\(u\)</span>, angle <span class="math inline">\(\alpha\)</span> and coefficient <span class="math inline">\(e\)</span>, and show that the direction is reversed and the speed is reduced by factor <span class="math inline">\(e\)</span>.</p>
+<p><strong>10</strong> A ball falls vertically onto a fixed plane inclined at <span class="math inline">\(\theta&lt;45^\circ\)</span>, with <span class="math inline">\(e=\frac{25}{7}\)</span> as printed in the textbook model. It rebounds horizontally. Show that <span class="math inline">\(\tan\theta=\frac17\)</span> and the fraction of kinetic energy lost is <span class="math inline">\(\frac{18}{25}\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>6</strong> The first-to-second distance is <span class="math inline">\(\boxed{0.6R}\)</span>; the <span class="math inline">\(n\)</span>th-to-<span class="math inline">\((n+1)\)</span>th distance is <span class="math inline">\(\boxed{0.6^nR}\)</span>; up to the sixth bounce the total is <span class="math inline">\(\boxed{2.38R}\)</span>.</p>
+<p><strong>7</strong> Speed before impact <span class="math inline">\(\boxed{3.54\ \mathrm{m\ s^{-1}}}\)</span>; after impact <span class="math inline">\(\boxed{3.22\ \mathrm{m\ s^{-1}}}\)</span> at <span class="math inline">\(18.3^\circ\)</span> to the plane; loss <span class="math inline">\(\boxed{0.526\ \mathrm J}\)</span>.</p>
+<p><strong>8</strong> Before impact <span class="math inline">\(\boxed{(2.5\mathbf i-4\mathbf j)\ \mathrm{m\ s^{-1}}}\)</span>; first horizontal distance <span class="math inline">\(\boxed{1\ \mathrm m}\)</span>; first-to-second distance <span class="math inline">\(\boxed{1.4\ \mathrm m}\)</span>; <span class="math inline">\(n\)</span>th-to-<span class="math inline">\((n+1)\)</span>th distance <span class="math inline">\(\boxed{2(0.7)^n\ \mathrm m}\)</span>; the threshold is reached after <span class="math inline">\(\boxed{9}\)</span> bounces.</p>
+<p><strong>9</strong> The directions are <span class="math inline">\(24.8^\circ\)</span> to the first cushion and <span class="math inline">\(60^\circ\)</span> to the second; the speed after the second impact is <span class="math inline">\(\boxed{1.6\ \mathrm{m\ s^{-1}}}\)</span>. In general the direction is reversed and the speed is multiplied by <span class="math inline">\(e\)</span>.</p>
+<strong>10</strong> Resolving parallel and perpendicular to the plane gives <span class="math inline">\(\boxed{\tan\theta=1/7}\)</span> and the fraction lost <span class="math inline">\(\boxed{18/25}\)</span>.
+</details>
+</section>
+</section>
+<section id="exercise-7e---oblique-impact-of-smooth-elastic-spheres" class="level2">
+<h2 class="anchored" data-anchor-id="exercise-7e---oblique-impact-of-smooth-elastic-spheres">Exercise 7E - Oblique impact of smooth elastic spheres</h2>
+<p>In Questions 1-6, a smooth sphere A of mass <span class="math inline">\(m_A\)</span> collides with a smooth sphere B of mass <span class="math inline">\(m_B\)</span>. Immediately before impact, A has speed <span class="math inline">\(u_A\)</span> at angle <span class="math inline">\(\alpha\)</span> and B has speed <span class="math inline">\(u_B\)</span> at angle <span class="math inline">\(\beta\)</span> to the line of centres. Immediately after impact, their speeds and angles are <span class="math inline">\(v_A,\alpha_A\)</span> and <span class="math inline">\(v_B,\beta_B\)</span>.</p>
+<section id="section-26" class="level3">
+<h3 class="anchored" data-anchor-id="section-26">1-6</h3>
+<p><strong>1</strong> <span class="math inline">\(m_A=4\)</span> kg, <span class="math inline">\(m_B=2\)</span> kg, <span class="math inline">\(u_A=2\)</span>, <span class="math inline">\(u_B=4\)</span>, <span class="math inline">\(\alpha=\beta=45^\circ\)</span>, <span class="math inline">\(e=0.5\)</span>. Calculate <span class="math inline">\(v_A,v_B,\alpha_A,\beta_B\)</span>.</p>
+<p><strong>2</strong> <span class="math inline">\(m_A=m_B=m\)</span>, <span class="math inline">\(\alpha=60^\circ\)</span>, <span class="math inline">\(u_A=u\)</span>, <span class="math inline">\(u_B=0\)</span>, <span class="math inline">\(e=0.6\)</span>. Calculate the four final quantities.</p>
+<p><strong>3</strong> <span class="math inline">\(m_A=m_B=m\)</span>, <span class="math inline">\(u_A=u_B=u\)</span>, <span class="math inline">\(\alpha=0^\circ\)</span>, <span class="math inline">\(\beta=90^\circ\)</span>, <span class="math inline">\(e=0.5\)</span>. Calculate the four final quantities.</p>
+<p><strong>4</strong> <span class="math inline">\(m_A=m_B=m\)</span>, <span class="math inline">\(u_A=u_B=u\)</span>, <span class="math inline">\(\alpha=\beta=60^\circ\)</span>, <span class="math inline">\(e=0.5\)</span>. Calculate the four final quantities.</p>
+<p><strong>5</strong> <span class="math inline">\(m_A=m\)</span>, <span class="math inline">\(m_B=5m\)</span>, <span class="math inline">\(u_A=u\)</span>, <span class="math inline">\(u_B=0\)</span>, <span class="math inline">\(\alpha=60^\circ\)</span>, <span class="math inline">\(\alpha_A=90^\circ\)</span>. Calculate <span class="math inline">\(e\)</span>.</p>
+<p><strong>6</strong> <span class="math inline">\(m_A=m_B=m\)</span>, <span class="math inline">\(u_B=0\)</span>, <span class="math inline">\(\alpha=45^\circ\)</span>, <span class="math inline">\(e=\frac23\)</span>. Calculate <span class="math inline">\(\alpha_A\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The answers, in the order <span class="math inline">\(v_A,v_B;\alpha_A,\beta_B\)</span>, are:</p>
+<ol type="1">
+<li><span class="math inline">\(\boxed{1.58\ \mathrm{m\ s^{-1}},\ 3.16\ \mathrm{m\ s^{-1}};\ 116.6^\circ,\ 63.4^\circ}\)</span>.</li>
+<li><span class="math inline">\(\boxed{0.872u,\ 0.4u;\ 83.4^\circ,\ 0^\circ}\)</span>.</li>
+<li><span class="math inline">\(\boxed{\frac14u,\ \frac54u;\ 0^\circ,\ 53.1^\circ}\)</span>.</li>
+<li><span class="math inline">\(\boxed{0.901u,\ 0.901u;\ 106.1^\circ,\ 73.9^\circ}\)</span>.</li>
+<li><span class="math inline">\(\boxed{e=0.2}\)</span>.</li>
+<li><span class="math inline">\(\boxed{\alpha_A=80.5^\circ}\)</span>.</li>
+</ol>
+</details>
+</section>
+<section id="section-27" class="level3">
+<h3 class="anchored" data-anchor-id="section-27">7-10</h3>
+<p><strong>7</strong> Two identical smooth balls of mass <span class="math inline">\(m\)</span> move with equal speed <span class="math inline">\(u\)</span> in opposite directions. The line of centres is at <span class="math inline">\(30^\circ\)</span> to the direction of motion. Show that the loss of kinetic energy is <span class="math inline">\(75\%\)</span> of that for a direct impact.</p>
+<p><strong>8</strong> A smooth sphere A of mass <span class="math inline">\(2m\)</span> moving at <span class="math inline">\(2u\)</span> collides with a smooth sphere B of mass <span class="math inline">\(m\)</span> moving at <span class="math inline">\(u\)</span>. At impact A is at <span class="math inline">\(60^\circ\)</span> and B at <span class="math inline">\(90^\circ\)</span> to the line of centres; <span class="math inline">\(e=0.5\)</span>. Find the components along the line of centres after impact, the speeds and angles, and the loss in kinetic energy.</p>
+<p><strong>9</strong> Two equal-radius discs collide. For equal masses, the outgoing directions are at right angles; prove the collision is perfectly elastic. For masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span>, prove <span class="math inline">\(e=1/k\)</span>, and state a modelling assumption.</p>
+<p><strong>10</strong> Two equal spheres of mass <span class="math inline">\(m\)</span> initially move along parallel lines in opposite directions, each at angle <span class="math inline">\(\alpha\)</span> to the line of centres, with speed <span class="math inline">\(u\)</span> and coefficient of restitution <span class="math inline">\(e\)</span>. Show that the kinetic-energy loss is <span class="math inline">\(mu^2\cos^2\alpha(1-e^2)\)</span>, and show that <span class="math inline">\(\alpha=30^\circ\)</span>, <span class="math inline">\(e=\frac13\)</span> gives directions at right angles to the original directions.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>7</strong> Direct-impact loss <span class="math inline">\(=mu^2(1-e^2)\)</span>; oblique-impact loss <span class="math inline">\(=\frac34mu^2(1-e^2)\)</span>, so the ratio is <span class="math inline">\(\boxed{75\%}\)</span>.</p>
+<p><strong>8</strong> The line-of-centres components are <span class="math inline">\(\boxed{u/2}\)</span> for A and <span class="math inline">\(\boxed{u}\)</span> for B. A has speed <span class="math inline">\(\boxed{1.80u}\)</span> at <span class="math inline">\(73.9^\circ\)</span>; B has speed <span class="math inline">\(\boxed{u\sqrt2}\)</span> at <span class="math inline">\(45^\circ\)</span>; loss <span class="math inline">\(\boxed{\frac14mu^2}\)</span>.</p>
+<p><strong>9</strong> The contact is smooth, so the impulse acts along the line of centres and the tangential velocity components are unchanged.</p>
+<p><strong>10</strong> Only the line-of-centres components change, giving</p>
+<p><span class="math display">\[
+\boxed{\Delta K=mu^2\cos^2\alpha(1-e^2)}.
+\]</span></p>
+For <span class="math inline">\(\alpha=30^\circ\)</span> and <span class="math inline">\(e=1/3\)</span>, the post-impact velocity is perpendicular to each original velocity.
+</details>
+</section>
+</section>
+<section id="paper-3-真题题库" class="level2">
+<h2 class="anchored" data-anchor-id="paper-3-真题题库">4. Paper 3 真题题库</h2>
+<p>本节收录 2021–2025 Paper 3 中直接涉及 impulse、momentum、coefficient of restitution、impact、barrier、smooth plane 和 oblique collision 的相关真题。题目保留英文原题和完整 (a)、(b)、(c) 小问，答案按 Mark Scheme 分点写清楚。</p>
+</section>
+<section id="paper-3-questions" class="level2">
+<h2 class="anchored" data-anchor-id="paper-3-questions">Paper 3 questions</h2>
+<p>The following are the Paper 3 questions from 2021-2025 whose main ideas are impulse, conservation of momentum, Newton’s experimental law, impact with a smooth plane or barrier, or oblique impact of smooth spheres. The original English wording and every sub-question are retained. Each answer is expanded into mark-scheme points.</p>
+<section id="mayjune-923131-and-923132-question-6" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-6">2021 May/June · 9231/31 and 9231/32 · Question 6</h3>
+<p>Two uniform smooth spheres A and B of equal radii each have mass <span class="math inline">\(m\)</span>. The two spheres are each moving with speed <span class="math inline">\(u\)</span> on a horizontal surface when they collide. Immediately before the collision, A’s direction of motion makes an angle <span class="math inline">\(\alpha\)</span> with the line of centres, and B’s direction of motion makes an angle <span class="math inline">\(\beta\)</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\(\frac13\)</span> and <span class="math inline">\(2\cos\beta=\cos\alpha\)</span>.</p>
+<p><strong>(a)</strong> Show that the direction of motion of A after the collision is perpendicular to the line of centres.</p>
+<p>The total kinetic energy of the spheres after the collision is <span class="math inline">\(\frac34mu^2\)</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\alpha\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Let <span class="math inline">\(v_1,v_2\)</span> be the components after impact along the line of centres.</p>
+<ul>
+<li>Conservation of momentum: <span class="math display">\[mv_1+mv_2=mu\cos\alpha-mu\cos\beta.\]</span></li>
+<li>Newton’s experimental law: <span class="math display">\[v_2-v_1=\frac13u(\cos\beta+\cos\alpha).\]</span></li>
+<li>Using <span class="math inline">\(2\cos\beta=\cos\alpha\)</span> gives <span class="math inline">\(v_1=0\)</span>.</li>
+</ul>
+<p>Therefore A has no component along the line of centres and moves perpendicular to it.</p>
+<p><strong>(b)</strong> Since <span class="math inline">\(v_1=0\)</span>, <span class="math inline">\(v_2=u\cos\alpha=u\cos\beta\)</span>. Use the unchanged perpendicular components:</p>
+<p><span class="math display">\[
+\frac12m(u\sin\alpha)^2+\frac12m\left[v_2^2+(u\sin\beta)^2\right]=\frac34mu^2.
+\]</span></p>
+<p>Substitution of <span class="math inline">\(\cos\alpha=2\cos\beta\)</span> gives <span class="math inline">\(\sin\alpha=\frac1{\sqrt2}\)</span> and hence</p>
+<span class="math display">\[
+\boxed{\alpha=45^\circ}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Question 6; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="mayjune-923133-question-6" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-6">2021 May/June · 9231/33 · Question 6</h3>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively. Sphere A is moving with speed <span class="math inline">\(u\)</span> on a smooth horizontal surface when it collides with sphere B which is at rest. Immediately before the collision, A’s direction of motion makes an angle <span class="math inline">\(i\)</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\(\frac13\)</span>.</p>
+<p><strong>(a)</strong> Show that the speed of B after the collision is <span class="math inline">\(\dfrac{4u\cos i}{3(1+k)}\)</span>.</p>
+<p>70% of the total kinetic energy of the spheres is lost as a result of the collision.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">\(\tan i=\frac13\)</span>, find the value of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Let <span class="math inline">\(v_1,v_2\)</span> be the components after impact along the line of centres.</p>
+<ul>
+<li>Momentum: <span class="math inline">\(mv_1+kmv_2=mu\cos i\)</span>.</li>
+<li>Restitution: <span class="math inline">\(v_2-v_1=\frac13u\cos i\)</span>.</li>
+<li>Solving gives <span class="math display">\[\boxed{v_2=\frac{4u\cos i}{3(1+k)}}.\]</span></li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li>The other component of A is unchanged, <span class="math inline">\(u\sin i\)</span>.</li>
+<li>The remaining 30% of the initial kinetic energy gives <span class="math display">\[kmv_2^2+m\left(v_1^2+u^2\sin^2i\right)=0.3mu^2.\]</span></li>
+<li>Substitute <span class="math inline">\(v_1=\dfrac{(3-k)u\cos i}{3(1+k)}\)</span>, <span class="math inline">\(\tan i=\frac13\)</span>, and simplify: <span class="math display">\[k^2-6k-7=0.\]</span></li>
+<li>Since <span class="math inline">\(k&gt;0\)</span>, <span class="math inline">\(\boxed{k=7}\)</span>.</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2021, Question 6; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="octobernovember-923131-question-7" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-question-7">2021 October/November · 9231/31 · Question 7</h3>
+<p>The smooth vertical walls <span class="math inline">\(AB\)</span> and <span class="math inline">\(CB\)</span> are at right angles to each other. A particle P is moving with speed <span class="math inline">\(u\)</span> on a smooth horizontal floor and strikes wall <span class="math inline">\(CB\)</span> at an angle <span class="math inline">\(\alpha\)</span>. It rebounds at an angle <span class="math inline">\(\beta\)</span> to wall <span class="math inline">\(CB\)</span>. The particle then strikes wall <span class="math inline">\(AB\)</span> and rebounds at an angle <span class="math inline">\(\gamma\)</span> to that wall. The coefficient of restitution between each wall and P is <span class="math inline">\(e\)</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(\tan\beta=e\tan\alpha\)</span>.</p>
+<p><strong>(b)</strong> Express <span class="math inline">\(\gamma\)</span> in terms of <span class="math inline">\(\alpha\)</span> and explain what this result means about the final direction of motion of P.</p>
+<p>As a result of the two impacts the particle loses <span class="math inline">\(\frac89\)</span> of its initial kinetic energy.</p>
+<p><strong>(c)</strong> Given that <span class="math inline">\(\alpha+\beta=90^\circ\)</span>, find <span class="math inline">\(e\)</span> and <span class="math inline">\(\tan\alpha\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Resolve parallel and perpendicular to <span class="math inline">\(CB\)</span>:</p>
+<ul>
+<li><span class="math inline">\(u\cos\alpha=v\cos\beta\)</span>;</li>
+<li><span class="math inline">\(eu\sin\alpha=v\sin\beta\)</span>.</li>
+</ul>
+<p>Dividing gives <span class="math inline">\(\boxed{\tan\beta=e\tan\alpha}\)</span>.</p>
+<p><strong>(b)</strong> At the second wall the corresponding equations give <span class="math inline">\(\tan\gamma=1/\tan\alpha\)</span>, so</p>
+<p><span class="math display">\[
+\boxed{\gamma=90^\circ-\alpha}.
+\]</span></p>
+<p>The two components of velocity have both been reversed, so the final direction is parallel to, but opposite to, the initial direction.</p>
+<p><strong>(c)</strong> The final kinetic energy is <span class="math inline">\(e^2\)</span> times the initial kinetic energy. Hence <span class="math inline">\(e^2=1/9\)</span> and <span class="math inline">\(\boxed{e=1/3}\)</span>. Since <span class="math inline">\(\tan\beta=\cot\alpha\)</span>,</p>
+<span class="math display">\[
+e\tan^2\alpha=1\quad\Longrightarrow\quad\boxed{\tan\alpha=\sqrt3}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Question 7; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="octobernovember-923132-question-5" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-5">2021 October/November · 9231/32 · Question 5</h3>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(\frac32m\)</span> respectively. The two spheres are each moving with speed <span class="math inline">\(u\)</span> on a horizontal surface when they collide. Immediately before the collision A’s direction of motion is along the line of centres, and B’s direction of motion makes an angle of <span class="math inline">\(60^\circ\)</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\(\frac23\)</span>.</p>
+<p><strong>(a)</strong> Find the angle through which the direction of motion of B is deflected by the collision.</p>
+<p><strong>(b)</strong> Find the loss in the total kinetic energy of the system as a result of the collision.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Let <span class="math inline">\(v_1,v_2\)</span> be the final line-of-centres components.</p>
+<ul>
+<li>Momentum: <span class="math display">\[mv_1+\frac32mv_2=-\frac32mu\cos60^\circ+mu.\]</span></li>
+<li>Restitution: <span class="math display">\[v_2-v_1=\frac23\left(u+u\cos60^\circ\right)=u.\]</span></li>
+<li>Thus <span class="math inline">\(v_1=-\frac12u\)</span> and <span class="math inline">\(v_2=\frac12u\)</span>.</li>
+<li>The unchanged component of B is <span class="math inline">\(u\sin60^\circ=\frac{\sqrt3}{2}u\)</span>.</li>
+</ul>
+<p>B therefore moves at <span class="math inline">\(60^\circ\)</span> above the line of centres, so the deflection is <span class="math inline">\(\boxed{60^\circ}\)</span>.</p>
+<p><strong>(b)</strong></p>
+<p><span class="math display">\[
+K_{\rm before}=\frac12mu^2+\frac12\left(\frac32m\right)u^2=\frac54mu^2,
+\]</span></p>
+<p><span class="math display">\[
+K_{\rm after}=\frac12m\left(\frac u2\right)^2+\frac12\left(\frac32m\right)\left[\left(\frac u2\right)^2+\left(\frac{\sqrt3u}{2}\right)^2\right]=\frac78mu^2.
+\]</span></p>
+Hence the loss is <span class="math inline">\(\boxed{\frac38mu^2}\)</span>.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2021, Question 5; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-6-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-6-1">2022 May/June · 9231/31 and 9231/32 · Question 6</h3>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively. Sphere A is travelling with speed <span class="math inline">\(u\)</span> towards sphere B which is at rest. Immediately before the collision, the direction of motion of A makes an angle <span class="math inline">\(\alpha\)</span> with the line of centres. The coefficient of restitution between the spheres is <span class="math inline">\(\frac12\)</span>.</p>
+<p><strong>(a)</strong> Show that the speed of B after the collision is <span class="math inline">\(\dfrac{3u\cos\alpha}{2(1+k)}\)</span> and find the expression for the speed of A along the line of centres after the collision.</p>
+<p>After the collision, the kinetic energy of A is equal to the kinetic energy of B.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">\(\tan\alpha=\frac23\)</span>, find the possible values of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The perpendicular component of A is unchanged. Along the line of centres:</p>
+<p><span class="math display">\[
+mu\cos\alpha=mU+kmV,
+\qquad V-U=\frac12u\cos\alpha.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{V=\frac{3u\cos\alpha}{2(1+k)}},
+\qquad
+\boxed{U=\frac{(2-k)u\cos\alpha}{2(1+k)}}.
+\]</span></p>
+<p><strong>(b)</strong> Equate <span class="math inline">\(\frac12m(U^2+u^2\sin^2\alpha)\)</span> to <span class="math inline">\(\frac12kmV^2\)</span>. With <span class="math inline">\(\tan\alpha=2/3\)</span>, this simplifies to</p>
+<p><span class="math display">\[
+25k^2-85k+52=0.
+\]</span></p>
+<p>Hence</p>
+<span class="math display">\[
+\boxed{k=\frac45\quad\text{or}\quad k=\frac{13}{5}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2022, Question 6; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="mayjune-923133-question-6-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-6-1">2022 May/June · 9231/33 · Question 6</h3>
+<p><span class="math inline">\(AB\)</span> and <span class="math inline">\(BC\)</span> are two fixed smooth vertical barriers on a smooth horizontal surface, with angle <span class="math inline">\(ABC=60^\circ\)</span>. A particle of mass <span class="math inline">\(m\)</span> is moving with speed <span class="math inline">\(u\)</span> on the surface. The particle strikes <span class="math inline">\(AB\)</span> at an angle <span class="math inline">\(i\)</span> with <span class="math inline">\(AB\)</span>. It then strikes <span class="math inline">\(BC\)</span> and rebounds at an angle <span class="math inline">\(b\)</span> with <span class="math inline">\(BC\)</span>. The coefficient of restitution between the particle and each barrier is <span class="math inline">\(e\)</span> and <span class="math inline">\(\tan i=2\)</span>. The kinetic energy after the first collision is 40% of its kinetic energy before the first collision.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(e\)</span>.</p>
+<p><strong>(b)</strong> Find the size of angle <span class="math inline">\(b\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The loss in kinetic energy at the first barrier is due only to the normal component. Thus</p>
+<p><span class="math display">\[
+v^2=u^2\cos^2i+e^2u^2\sin^2i=0.4u^2.
+\]</span></p>
+<p>Using <span class="math inline">\(\tan i=2\)</span> gives <span class="math inline">\(\boxed{e=\frac12}\)</span>.</p>
+<p><strong>(b)</strong> For the first rebound, <span class="math inline">\(\tan\alpha=e\tan i=1\)</span>, so <span class="math inline">\(\alpha=45^\circ\)</span>. At the second barrier, the angle between the incoming direction and <span class="math inline">\(BC\)</span> is <span class="math inline">\(120^\circ-\alpha=75^\circ\)</span>.</p>
+<p><span class="math display">\[
+\tan b=e\tan75^\circ,
+\]</span></p>
+so <span class="math inline">\(\boxed{b=61.8^\circ}\)</span>.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2022, Question 6; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-6" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-6">2022 October/November · 9231/31 and 9231/33 · Question 6</h3>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively. The two spheres are moving on a horizontal surface with speeds <span class="math inline">\(u\)</span> and <span class="math inline">\(\frac58u\)</span> respectively. Immediately before the spheres collide, A is travelling along the line of centres, and B’s direction of motion makes an angle <span class="math inline">\(\alpha\)</span> with the line of centres. The coefficient of restitution is <span class="math inline">\(\frac23\)</span> and <span class="math inline">\(\tan\alpha=\frac34\)</span>. After the collision, the direction of motion of B is perpendicular to the line of centres.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(k\)</span>.</p>
+<p><strong>(b)</strong> Find the loss in the total kinetic energy.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Let <span class="math inline">\(v_A\)</span> be A’s final line component. Since B’s final line component is zero,</p>
+<p><span class="math display">\[
+mu-km\left(\frac58u\right)\cos\alpha=mv_A,
+\]</span></p>
+<p>and restitution gives</p>
+<p><span class="math display">\[
+0-v_A=\frac23\left(u\cos\alpha+\frac58u\right).
+\]</span></p>
+<p>Using <span class="math inline">\(\cos\alpha=4/5\)</span> gives <span class="math inline">\(\boxed{k=4}\)</span>.</p>
+<p><strong>(b)</strong> B’s final speed is its unchanged perpendicular component:</p>
+<p><span class="math display">\[
+v_B=\frac58u\sin\alpha=\frac38u,
+\]</span></p>
+<p>and <span class="math inline">\(v_A=-u\)</span>. Hence</p>
+<p><span class="math display">\[
+K_{\rm before}=\frac{41}{32}mu^2,
+\qquad K_{\rm after}=\frac{25}{32}mu^2.
+\]</span></p>
+The loss is <span class="math inline">\(\boxed{\frac12mu^2}\)</span>.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2022, Question 6.
+</div>
+</section>
+<section id="octobernovember-923132-question-7" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-7">2022 October/November · 9231/32 · Question 7</h3>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(\frac12m\)</span> respectively. The two spheres are moving on a horizontal surface when they collide. Immediately before the collision, A is travelling with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(\alpha\)</span> to the line of centres and B is travelling with speed <span class="math inline">\(2u\)</span> at angle <span class="math inline">\(\beta\)</span> to the line of centres. The coefficient of restitution is <span class="math inline">\(\frac58\)</span> and <span class="math inline">\(\alpha+\beta=90^\circ\)</span>.</p>
+<p><strong>(a)</strong> Find the component of the velocity of B parallel to the line of centres after the collision, in terms of <span class="math inline">\(u\)</span> and <span class="math inline">\(\alpha\)</span>.</p>
+<p>The direction of motion of B after the collision is parallel to the direction of motion of A before the collision.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(\tan\alpha\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Put <span class="math inline">\(w\)</span> and <span class="math inline">\(v\)</span> for the final line components of B and A. Momentum and restitution, with <span class="math inline">\(\cos\beta=\sin\alpha\)</span>, give</p>
+<p><span class="math display">\[
+\boxed{w=\frac23u\left(\frac14\sin\alpha+\frac{13}{8}\cos\alpha\right)}.
+\]</span></p>
+<p><strong>(b)</strong> B’s unchanged perpendicular component is <span class="math inline">\(2u\sin\beta=2u\cos\alpha\)</span>. The condition on its final direction gives</p>
+<p><span class="math display">\[
+\tan\alpha=\frac{2u\cos\alpha}{w}.
+\]</span></p>
+<p>Substitution reduces to <span class="math inline">\((2\tan\alpha-3)(\tan\alpha+8)=0\)</span>. The physical solution is</p>
+<span class="math display">\[
+\boxed{\tan\alpha=\frac32}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2022, Question 7.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-1">2023 May/June · 9231/31 and 9231/32 · Question 1</h3>
+<p>A particle P of mass <span class="math inline">\(m\)</span> is moving with speed <span class="math inline">\(u\)</span> on a fixed smooth horizontal surface. It collides at an angle <span class="math inline">\(a\)</span> with a fixed smooth vertical barrier. After the collision, P moves at an angle <span class="math inline">\(i\)</span> with the barrier, where <span class="math inline">\(\tan i=\frac12\)</span>. The coefficient of restitution between P and the barrier is <span class="math inline">\(e\)</span>. P loses 20% of its kinetic energy as a result of the collision.</p>
+<p>Find <span class="math inline">\(e\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<ul>
+<li>Parallel component is unchanged and <span class="math inline">\(\tan i=e\tan a\)</span>.</li>
+<li>The fractional loss is <span class="math inline">\(\sin^2a(1-e^2)=0.2\)</span>.</li>
+<li>Put <span class="math inline">\(\tan a=t\)</span>, so <span class="math inline">\(e=1/(2t)\)</span>: <span class="math display">\[\frac{t^2-1/4}{1+t^2}=\frac15.\]</span></li>
+<li>Hence <span class="math inline">\(t=3/4\)</span> and <span class="math display">\[\boxed{e=\frac23}.\]</span></li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Question 1.
+</div>
+</section>
+<section id="mayjune-923133-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-4">2023 May/June · 9231/33 · Question 4</h3>
+<p>Two identical smooth uniform spheres A and B each have mass <span class="math inline">\(m\)</span>. The spheres are moving on a smooth horizontal surface when they collide with speeds <span class="math inline">\(u\)</span> and <span class="math inline">\(2u\)</span> respectively. Immediately before the collision, A’s direction of motion makes an angle of <span class="math inline">\(30^\circ\)</span> with the line of centres, and B’s direction of motion is perpendicular to the line of centres. After the collision, A and B are moving in the same direction. The coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(e\)</span>.</p>
+<p><strong>(b)</strong> Find the loss in total kinetic energy.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The perpendicular components are unchanged: <span class="math inline">\(u/2\)</span> for A and <span class="math inline">\(2u\)</span> for B. Let <span class="math inline">\(U,V\)</span> be the final line components.</p>
+<ul>
+<li>Since the final velocity vectors have the same direction, <span class="math inline">\(V=4U\)</span>.</li>
+<li>Momentum along the line gives <span class="math inline">\(U+V=u\cos30^\circ\)</span>.</li>
+<li>Therefore <span class="math inline">\(U=\frac{\sqrt3}{10}u\)</span> and <span class="math inline">\(V=\frac{2\sqrt3}{5}u\)</span>.</li>
+<li>Restitution gives <span class="math display">\[e=\frac{V-U}{u\cos30^\circ}=\boxed{\frac35}.\]</span></li>
+</ul>
+<p>The initial kinetic energy is <span class="math inline">\(\frac52mu^2\)</span> and the final kinetic energy is <span class="math inline">\(\frac{119}{50}mu^2\)</span>, so</p>
+<span class="math display">\[
+\boxed{\text{loss}=\frac3{25}mu^2}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2023, Question 4.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-1">2023 October/November · 9231/31 and 9231/33 · Question 1</h3>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span> respectively. The spheres move with equal speeds <span class="math inline">\(u\)</span> on a smooth horizontal surface. Immediately before the collision, A’s direction makes an angle of <span class="math inline">\(60^\circ\)</span> with the line of centres and B’s direction makes an angle <span class="math inline">\(i\)</span> with the line of centres. The coefficient of restitution is <span class="math inline">\(e\)</span>. After the collision, the component of the velocity of A along the line of centres is <span class="math inline">\(v\)</span> and B moves perpendicular to the line of centres. Sphere A has twice as much kinetic energy as sphere B.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(v=\frac12u(4\cos i-1)\)</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(\cos i\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Use unchanged perpendicular components and momentum along the line of centres. Since B’s final line component is zero,</p>
+<p><span class="math display">\[
+v=u\cos60^\circ+2u\cos i=\boxed{\frac12u(4\cos i-1)}.
+\]</span></p>
+<p><strong>(b)</strong> The kinetic-energy condition is</p>
+<p><span class="math display">\[
+v^2+u^2\sin^260^\circ=4u^2\sin^2i.
+\]</span></p>
+<p>Substituting the expression for <span class="math inline">\(v\)</span> gives <span class="math inline">\(8\cos^2i-2\cos i-3=0\)</span>. The physical solution is</p>
+<span class="math display">\[
+\boxed{\cos i=\frac34}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Question 1.
+</div>
+</section>
+<section id="octobernovember-923132-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-4">2023 October/November · 9231/32 · Question 4</h3>
+<p>Two smooth vertical walls meet at right angles. The smooth sphere A, with mass <span class="math inline">\(m\)</span>, is at rest on a smooth horizontal surface and is at a distance <span class="math inline">\(d\)</span> from each wall. An identical smooth sphere B is moving on the horizontal surface with speed <span class="math inline">\(u\)</span> at an angle <span class="math inline">\(i\)</span> with the line of centres when the spheres collide. After the collision, the spheres take the same time to reach a wall. The coefficient of restitution between the spheres is <span class="math inline">\(\frac12\)</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\tan i\)</span>.</p>
+<p><strong>(b)</strong> Find the percentage loss in total kinetic energy.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Equal travel times and equal distances give the final component of A towards its wall as <span class="math inline">\(u\sin i\)</span>. Momentum and restitution along the line of centres then give</p>
+<p><span class="math display">\[
+2\sin i=(1+e)\cos i.
+\]</span></p>
+<p>With <span class="math inline">\(e=1/2\)</span>,</p>
+<p><span class="math display">\[
+\boxed{\tan i=\frac34}.
+\]</span></p>
+<p><strong>(b)</strong> Substituting the final components into the kinetic-energy expression gives</p>
+<span class="math display">\[
+\boxed{24\%}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2023, Question 4.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-1-1">2024 May/June · 9231/31 and 9231/32 · Question 1</h3>
+<p>Two smooth uniform spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(5m\)</span> respectively. Sphere A is moving with speed <span class="math inline">\(u\)</span> when it collides with stationary B. Immediately before the collision, A’s direction makes an angle <span class="math inline">\(i\)</span> with the line of centres. After the collision, the kinetic energies of A and B are equal. The coefficient of restitution is <span class="math inline">\(\frac12\)</span>.</p>
+<p>Find <span class="math inline">\(\tan i\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Along the line of centres, for B initially at rest,</p>
+<p><span class="math display">\[
+V=\frac{3}{2(1+5)}u\cos i=\frac14u\cos i,
+\qquad U=-\frac14u\cos i.
+\]</span></p>
+<p>A’s perpendicular component remains <span class="math inline">\(u\sin i\)</span>. Equating the two kinetic energies gives</p>
+<p><span class="math display">\[
+U^2+u^2\sin^2i=5V^2
+\quad\Longrightarrow\quad
+\sin^2i=\frac14\cos^2i.
+\]</span></p>
+Therefore <span class="math inline">\(\boxed{\tan i=\frac12}\)</span>.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2024, Question 1.
+</div>
+</section>
+<section id="mayjune-923133-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-1">2024 May/June · 9231/33 · Question 1</h3>
+<p>Two smooth uniform spheres A and B of equal radii have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(2m\)</span> respectively. They move with speeds <span class="math inline">\(u\)</span> and <span class="math inline">\(\frac12u\)</span>. Immediately before the collision, A’s direction is along the line of centres and B’s direction makes an angle <span class="math inline">\(i\)</span> with the line of centres. After the collision, A’s direction is reversed and its speed is reduced to <span class="math inline">\(\frac14u\)</span>. B’s direction again makes an angle <span class="math inline">\(i\)</span> with the line of centres, on the opposite side, and its speed is unchanged.</p>
+<p>Find the coefficient of restitution.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Using conservation of momentum along the line of centres, with the directions shown in the original question, gives <span class="math inline">\(\cos i=5/8\)</span>. Newton’s experimental law then gives</p>
+<span class="math display">\[
+e=\frac{\frac12u\cos i+\frac14u}{u+\frac12u\cos i}
+=\boxed{\frac37}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2024, Question 1.
+</div>
+</section>
+<section id="octobernovember-923132-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-3">2024 October/November · 9231/32 · Question 3</h3>
+<p>Two identical smooth uniform spheres A and B, each of mass <span class="math inline">\(m\)</span>, move with speeds <span class="math inline">\(2u\)</span> and <span class="math inline">\(3u\)</span> respectively. Immediately before collision, A’s direction makes an angle <span class="math inline">\(i\)</span> with the line of centres and B’s direction is perpendicular to that of A. After the collision, B moves perpendicular to the line of centres. The coefficient of restitution is <span class="math inline">\(\frac13\)</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\tan i\)</span>.</p>
+<p><strong>(b)</strong> Find the total loss of kinetic energy.</p>
+<p><strong>(c)</strong> Find, in degrees, the angle through which A’s direction is deflected.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Taking components along and perpendicular to the line of centres:</p>
+<ul>
+<li>The initial components give <span class="math inline">\(2u\cos i\)</span> and <span class="math inline">\(3u\sin i\)</span> in the line direction, with the appropriate signs from the original diagram.</li>
+<li>Since B’s final line component is zero, momentum and restitution give <span class="math display">\[\boxed{\tan i=\frac43}.\]</span></li>
+<li>The final components are <span class="math inline">\(\mathbf v_A=-\frac65u\mathbf i+\frac85u\mathbf j\)</span> and <span class="math inline">\(\mathbf v_B=\frac95u\mathbf j\)</span>.</li>
+<li>Hence <span class="math display">\[K_{\rm before}=\frac{13}{2}mu^2,\qquad K_{\rm after}=\frac{181}{50}mu^2,\]</span> so the loss is <span class="math inline">\(\boxed{\frac{72}{25}mu^2}\)</span>.</li>
+<li>The angle between A’s initial vector <span class="math inline">\((\frac65,\frac85)\)</span> and final vector <span class="math inline">\((-\frac65,\frac85)\)</span> is <span class="math display">\[\boxed{73.7^\circ\text{ (approximately)}}.\]</span></li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Question 3.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-6-2" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-6-2">2025 May/June · 9231/31 and 9231/32 · Question 6</h3>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(2m\)</span> and <span class="math inline">\(m\)</span> respectively. Sphere A is moving in a straight horizontal line with speed <span class="math inline">\(u\)</span>, and sphere B is stationary. Sphere A collides directly with B, and they then move in the same direction with speeds <span class="math inline">\(v_A\)</span> and <span class="math inline">\(v_B\)</span>. After the collision, the kinetic energy of B is <span class="math inline">\(\frac92\)</span> times the kinetic energy of A.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(v_B=\frac65u\)</span>.</p>
+<p>Sphere B then collides with a fixed vertical barrier. Immediately before the collision, B’s direction makes an angle <span class="math inline">\(a\)</span> with the barrier. Immediately after, it makes an angle <span class="math inline">\(b\)</span> with the barrier. The coefficient of restitution between B and the barrier is <span class="math inline">\(\frac45\)</span>. As a result of the collision, the speed of B is reduced to <span class="math inline">\(\frac{12\sqrt5}{25}u\)</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(\sin(a+b)\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> From the kinetic-energy ratio,</p>
+<p><span class="math display">\[
+\frac{\frac12mv_B^2}{\frac12(2m)v_A^2}=\frac92
+\quad\Longrightarrow\quad v_B=3v_A.
+\]</span></p>
+<p>Momentum gives <span class="math inline">\(2u=2v_A+v_B\)</span>, so <span class="math inline">\(\boxed{v_B=\frac65u}\)</span>.</p>
+<p><strong>(b)</strong> Resolve parallel and perpendicular to the barrier:</p>
+<p><span class="math display">\[
+\frac65u\cos a=\frac{12\sqrt5}{25}u\cos b,
+\qquad
+\frac45\frac65u\sin a=\frac{12\sqrt5}{25}u\sin b.
+\]</span></p>
+<p>The speed equation gives <span class="math inline">\(\sin^2a=5/9\)</span> and <span class="math inline">\(\cos^2a=4/9\)</span>. Therefore</p>
+<span class="math display">\[
+\sin(a+b)=\boxed{\frac1{\sqrt5}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Question 6.
+</div>
+</section>
+<section id="mayjune-923133-question-6-2" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-6-2">2025 May/June · 9231/33 · Question 6</h3>
+<p>Two identical uniform smooth spheres A and B, each with mass <span class="math inline">\(m\)</span>, are moving on a horizontal surface with speeds <span class="math inline">\(2u\)</span> and <span class="math inline">\(u\)</span> respectively when they collide. Immediately before the collision, the spheres are moving parallel to each other in opposite directions such that their directions of motion each make an angle <span class="math inline">\(\theta\)</span> with the line of centres. As a result of the collision, B moves in a direction perpendicular to its initial direction. The coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
+<p><strong>(a)</strong> Find an expression for <span class="math inline">\(\tan\theta\)</span> in terms of <span class="math inline">\(e\)</span>.</p>
+<p>As a result of the collision, A moves in a direction perpendicular to the line of centres.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\theta\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let <span class="math inline">\(U,V\)</span> be the final components along the line of centres. The perpendicular components are unchanged.</p>
+<p><strong>(a)</strong></p>
+<ul>
+<li>Momentum along the line of centres: <span class="math display">\[2u\cos\theta-u\cos\theta=U+V.\]</span></li>
+<li>Newton’s experimental law: <span class="math display">\[V-U=3eu\cos\theta.\]</span></li>
+<li>The condition that B’s final velocity is perpendicular to its initial velocity gives <span class="math inline">\(V=u\sin^2\theta/\cos\theta\)</span>.</li>
+<li>Combining these equations gives <span class="math display">\[\boxed{\tan^2\theta=\frac{1+3e}{2}}.
+\]</span></li>
+</ul>
+<p><strong>(b)</strong> If A’s final line component is zero, restitution gives <span class="math inline">\(V=3eu\cos\theta\)</span>, while momentum gives <span class="math inline">\(V=u\cos\theta\)</span>. Thus <span class="math inline">\(e=1/3\)</span>. Substitution into part <strong>(a)</strong> gives</p>
+<span class="math display">\[
+\boxed{\theta=45^\circ}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2025, Question 6.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-1-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-1-1">2025 October/November · 9231/31 and 9231/33 · Question 1</h3>
+<p>Two uniform smooth spheres A and B of equal radii have masses <span class="math inline">\(4m\)</span> and <span class="math inline">\(m\)</span> respectively. Sphere B is at rest on a smooth horizontal surface. Sphere A is moving with speed <span class="math inline">\(u\)</span> and collides directly with B. After the collision, the momentum of A is three times the momentum of B.</p>
+<p>Find the coefficient of restitution <span class="math inline">\(e\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let the final speeds be <span class="math inline">\(v_A,v_B\)</span>. Then <span class="math inline">\(4mv_A=3mv_B\)</span>, so <span class="math inline">\(v_B=\frac43v_A\)</span>. Momentum gives <span class="math inline">\(4u=4v_A+v_B\)</span>, hence <span class="math inline">\(v_A=\frac34u\)</span> and <span class="math inline">\(v_B=u\)</span>. Therefore</p>
+<span class="math display">\[
+e=\frac{v_B-v_A}{u}=\boxed{\frac14}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 1.
+</div>
+</section>
+<section id="octobernovember-923132-question-5-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-5-1">2025 October/November · 9231/32 · Question 5</h3>
+<p>Two uniform smooth spheres A and B of equal radii are on a horizontal surface. They have masses <span class="math inline">\(m\)</span> and <span class="math inline">\(km\)</span> respectively. Sphere A is moving with speed <span class="math inline">\(u\)</span> at an angle <span class="math inline">\(\alpha\)</span> with the line of centres when it collides with stationary sphere B. Immediately after the collision, sphere A moves with speed <span class="math inline">\(v\)</span> at an angle <span class="math inline">\(2\alpha\)</span> with the line of centres. It is given that <span class="math inline">\(\tan\alpha=\frac34\)</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(v\)</span> in terms of <span class="math inline">\(u\)</span>.</p>
+<p><strong>(b)</strong> Find the coefficient of restitution between the spheres in terms of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The component perpendicular to the line of centres is unchanged:</p>
+<p><span class="math display">\[
+u\sin\alpha=v\sin2\alpha=2v\sin\alpha\cos\alpha.
+\]</span></p>
+<p>Therefore <span class="math inline">\(v=u/(2\cos\alpha)=\boxed{\frac58u}\)</span>.</p>
+<p><strong>(b)</strong> Along the line of centres, momentum gives the component of B after impact as <span class="math inline">\(\frac{5}{8k}u\)</span>. Hence</p>
+<p><span class="math display">\[
+e=\frac{\frac{5}{8k}u-\frac58u\cos2\alpha}{u\cos\alpha}.
+\]</span></p>
+<p>Using <span class="math inline">\(\cos\alpha=4/5\)</span> and <span class="math inline">\(\cos2\alpha=7/25\)</span> gives</p>
+<span class="math display">\[
+\boxed{e=\frac{25/k-7}{32}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Question 5.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-7" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-7">2024 October/November · 9231/31 and 9231/33 · Question 7</h3>
+<p>A particle P is projected with speed <span class="math inline">\(u\)</span> at an angle <span class="math inline">\(\tan^{-1}(4/3)\)</span> above the horizontal from a point O on a horizontal plane and moves freely under gravity. When P is moving horizontally, it strikes a smooth inclined plane at A. The plane is inclined to the horizontal at angle <span class="math inline">\(a\)</span>. As a result of the impact, P moves vertically upwards. The coefficient of restitution between P and the inclined plane is <span class="math inline">\(e\)</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(e\tan^2a=1\)</span>.</p>
+<p>In its subsequent motion, the greatest height reached by P above A is <span class="math inline">\(\frac3{16}\)</span> of the vertical height of A above the horizontal plane.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(e\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Resolve parallel and perpendicular to the plane. If the speed immediately after impact is <span class="math inline">\(w\)</span>,</p>
+<p><span class="math display">\[
+u\cos a=w\sin a,\qquad e\,u\sin a=w\cos a.
+\]</span></p>
+<p>Eliminating <span class="math inline">\(w\)</span> gives <span class="math inline">\(\boxed{e\tan^2a=1}\)</span>.</p>
+<p><strong>(b)</strong> The vertical speed after impact is <span class="math inline">\(w=u\cot a\)</span>. The given launch angle and the height condition give</p>
+<p><span class="math display">\[
+\frac{w^2}{2g}=\frac3{16}\frac{(u\sin(\tan^{-1}(4/3)))^2}{2g},
+\]</span></p>
+<p>so <span class="math inline">\(w/u=\sqrt3/5\)</span>. Therefore <span class="math inline">\(\cot^2a=3/25\)</span> and</p>
+<span class="math display">\[
+\boxed{e=\frac3{25}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Question 7.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-6-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-6-1">2025 October/November · 9231/31 and 9231/33 · Question 6</h3>
+<p>A particle P of mass <span class="math inline">\(m\)</span> is attached to one end of a light inextensible string of length <span class="math inline">\(a\)</span>, the other end being fixed at O. Initially P is held with the string taut at an angle of <span class="math inline">\(60^\circ\)</span> to the upward vertical and is projected perpendicular to the string downwards with speed <span class="math inline">\(\sqrt{17ag}\)</span>. It moves in a vertical circle. At the lowest point P collides with a stationary particle Q.</p>
+<p><strong>(a)</strong> Find the speed of P immediately before the collision.</p>
+<p>As a result of the collision, P rebounds and moves back along a circular path. The string becomes slack when P reaches the point vertically above O.</p>
+<p><strong>(b)</strong> Find the speed of P immediately after the collision.</p>
+<p>The mass of Q is <span class="math inline">\(km\)</span> and the collision is perfectly elastic.</p>
+<p><strong>(c)</strong> Find <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Conservation of energy from the initial position to the lowest point gives</p>
+<p><span class="math display">\[
+\frac12m(\sqrt{17ag})^2+\frac32mag=\frac12mv^2,
+\]</span></p>
+<p>so <span class="math inline">\(\boxed{v=\sqrt{20ag}}\)</span>.</p>
+<p><strong>(b)</strong> At the top of the rebound circle, <span class="math inline">\(T=0\)</span>, so <span class="math inline">\(V^2=ag\)</span>. Energy from the bottom to the top gives</p>
+<p><span class="math display">\[
+\frac12mw_P^2=\frac12m(ag)+2mga,
+\]</span></p>
+<p>and hence <span class="math inline">\(\boxed{w_P=\sqrt{5ag}}\)</span>.</p>
+<p><strong>(c)</strong> Let Q’s speed after impact be <span class="math inline">\(w_Q\)</span>. Momentum and restitution give</p>
+<p><span class="math display">\[
+mv=kmw_Q-mw_P,
+\qquad
+w_P+w_Q=v.
+\]</span></p>
+Using <span class="math inline">\(v=\sqrt{20ag}\)</span> and <span class="math inline">\(w_P=\sqrt{5ag}\)</span> gives <span class="math inline">\(\boxed{k=3}\)</span>.
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 6; answer checked against the official Mark Scheme.
+</div>
+</section>
+</section>
+<section id="本章检查清单" class="level2">
+<h2 class="anchored" data-anchor-id="本章检查清单">5. 本章检查清单</h2>
+<ol type="1">
+<li>碰撞题先选定 positive direction，并持续使用 signed velocities；</li>
+<li>不能把 speed of approach 写成两个速度的无符号相减；</li>
+<li>smooth plane 或 smooth sphere 的 impulse 方向沿 contact normal；</li>
+<li>line-of-centres component 才使用 restitution；</li>
+<li>perpendicular component 在 smooth impact 中保持不变；</li>
+<li><span class="math inline">\(e=0\)</span> 表示最大能量损失，<span class="math inline">\(e=1\)</span> 表示 perfectly elastic；</li>
+<li>最后检查答案是否符合 <span class="math inline">\(0\le e\le1\)</span> 以及题目给定的运动方向。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-3/linear-motion.html" class="pagination-link" aria-label="3.6 Linear motion under a variable force">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3.6 Linear motion under a variable force</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
