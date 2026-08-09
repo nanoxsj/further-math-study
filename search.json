@@ -198,6 +198,17 @@
     ]
   },
   {
+    "objectID": "paper-4/non-parametric-tests.html#octobernovember-923141-and-923143-question-2",
+    "href": "paper-4/non-parametric-tests.html#octobernovember-923141-and-923143-question-2",
+    "title": "4.4 Non-parametric tests",
+    "section": "2024 October/November · 9231/41 and 9231/43 · Question 2",
+    "text": "2024 October/November · 9231/41 and 9231/43 · Question 2\nA school with a large number of students is updating its logo. Each student has designed a new logo and two teachers have each awarded a mark out of 50 for each logo. The marks awarded to a random sample of 12 students are shown in the following table.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nStudent\nA\nB\nC\nD\nE\nF\nG\nH\nI\nJ\nK\nL\n\n\n\n\nTeacher 1\n36\n38\n40\n36\n22\n34\n45\n44\n48\n35\n28\n30\n\n\nTeacher 2\n38\n42\n32\n41\n32\n41\n42\n50\n36\n44\n42\n41\n\n\n\nOne of the students claims that Teacher 2 is awarding higher marks than Teacher 1.\n(a) Carry out a Wilcoxon matched-pairs signed-rank test, at the 5% significance level, to test whether the data supports the claim. [7]\nIt was later discovered that Teacher 1 had entered her mark for student C incorrectly. Her intended mark was 24 not 40. This was corrected.\n(b) Determine whether this correction affects the conclusion of the test carried out in part (a). [2]\n\n\nShow answer\n\n(a) The signed differences (Teacher 2 - Teacher 1) and ranks are [ 2,4,-8,5,10,7,-3,6,-12,9,14,11, ] [ 1,3,-7,4,9,6,-2,5,-11,8,12,10. ]\nThe sum of positive ranks is 58, so the test statistic is 20.\n[ H_0:=, ] [ H_1:&gt;. ]\nThe critical value is 17. Since (20&gt;17), accept (H_0). There is insufficient evidence to support the claim.\n(b) The new test statistic is 13. Since (13&lt;17), reject (H_0); the conclusion changes, giving sufficient evidence to support the claim.",
+    "crumbs": [
+      "Paper 4 · Further Probability & Statistics",
+      "4.4 Non-parametric tests"
+    ]
+  },
+  {
     "objectID": "paper-4/inference-normal-t-distributions.html",
     "href": "paper-4/inference-normal-t-distributions.html",
     "title": "4.2 Inference using normal and t-distributions",

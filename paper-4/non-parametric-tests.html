@@ -375,6 +375,7 @@ window.Quarto = {
   <li><a href="#octobernovember-923141-and-923143-question-6" id="toc-octobernovember-923141-and-923143-question-6" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-6">2023 October/November · 9231/41 and 9231/43 · Question 6</a></li>
   <li><a href="#octobernovember-923142-question-5a" id="toc-octobernovember-923142-question-5a" class="nav-link" data-scroll-target="#octobernovember-923142-question-5a">2023 October/November · 9231/42 · Question 5(a)</a></li>
   <li><a href="#octobernovember-923142-question-6" id="toc-octobernovember-923142-question-6" class="nav-link" data-scroll-target="#octobernovember-923142-question-6">2024 October/November · 9231/42 · Question 6</a></li>
+  <li><a href="#octobernovember-923141-and-923143-question-2" id="toc-octobernovember-923141-and-923143-question-2" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-2">2024 October/November · 9231/41 and 9231/43 · Question 2</a></li>
   </ul>
 </nav>
     </div>
@@ -1658,6 +1659,90 @@ Show answer
 <p>[ H_0:=51.0,H_1:&lt;51.0. ]</p>
 <p>With the normal approximation, [ ,=948.75, ] [ z==-0.779. ]</p>
 Since (-0.779&gt;-1.645), accept (H_0). There is insufficient evidence to suggest that the population median is less than 51.0 seconds.
+</details>
+</section>
+<section id="octobernovember-923141-and-923143-question-2" class="level2">
+<h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-2">2024 October/November · 9231/41 and 9231/43 · Question 2</h2>
+<p>A school with a large number of students is updating its logo. Each student has designed a new logo and two teachers have each awarded a mark out of 50 for each logo. The marks awarded to a random sample of 12 students are shown in the following table.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Student</th>
+<th style="text-align: right;">A</th>
+<th style="text-align: right;">B</th>
+<th style="text-align: right;">C</th>
+<th style="text-align: right;">D</th>
+<th style="text-align: right;">E</th>
+<th style="text-align: right;">F</th>
+<th style="text-align: right;">G</th>
+<th style="text-align: right;">H</th>
+<th style="text-align: right;">I</th>
+<th style="text-align: right;">J</th>
+<th style="text-align: right;">K</th>
+<th style="text-align: right;">L</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Teacher 1</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">28</td>
+<td style="text-align: right;">30</td>
+</tr>
+<tr class="even">
+<td>Teacher 2</td>
+<td style="text-align: right;">38</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">32</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">41</td>
+</tr>
+</tbody>
+</table>
+<p>One of the students claims that Teacher 2 is awarding higher marks than Teacher 1.</p>
+<p><strong>(a)</strong> Carry out a Wilcoxon matched-pairs signed-rank test, at the 5% significance level, to test whether the data supports the claim. [7]</p>
+<p>It was later discovered that Teacher 1 had entered her mark for student C incorrectly. Her intended mark was 24 not 40. This was corrected.</p>
+<p><strong>(b)</strong> Determine whether this correction affects the conclusion of the test carried out in part (a). [2]</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The signed differences (Teacher 2 - Teacher 1) and ranks are [ 2,4,-8,5,10,7,-3,6,-12,9,14,11, ] [ 1,3,-7,4,9,6,-2,5,-11,8,12,10. ]</p>
+<p>The sum of positive ranks is 58, so the test statistic is 20.</p>
+<p>[ H_0:=, ] [ H_1:&gt;. ]</p>
+<p>The critical value is 17. Since (20&gt;17), accept (H_0). There is insufficient evidence to support the claim.</p>
+<strong>(b)</strong> The new test statistic is 13. Since (13&lt;17), reject (H_0); the conclusion changes, giving sufficient evidence to support the claim.
 </details>
 
 
