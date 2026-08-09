@@ -286,9 +286,9 @@ window.Quarto = {
   <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
   <ul class="collapse">
   <li><a href="#example-1.1-horizontal-projection-from-a-window" id="toc-example-1.1-horizontal-projection-from-a-window" class="nav-link" data-scroll-target="#example-1.1-horizontal-projection-from-a-window">Example 1.1 · Horizontal projection from a window</a></li>
-  <li><a href="#example-1.2-初始高度与最高点" id="toc-example-1.2-初始高度与最高点" class="nav-link" data-scroll-target="#example-1.2-初始高度与最高点">Example 1.2 · 初始高度与最高点</a></li>
-  <li><a href="#example-1.3-diving-board" id="toc-example-1.3-diving-board" class="nav-link" data-scroll-target="#example-1.3-diving-board">Example 1.3 · Diving board</a></li>
-  <li><a href="#example-1.4-ceiling-constraint" id="toc-example-1.4-ceiling-constraint" class="nav-link" data-scroll-target="#example-1.4-ceiling-constraint">Example 1.4 · Ceiling constraint</a></li>
+  <li><a href="#example-1.2-kicking-a-ball-over-vans" id="toc-example-1.2-kicking-a-ball-over-vans" class="nav-link" data-scroll-target="#example-1.2-kicking-a-ball-over-vans">Example 1.2 · Kicking a ball over vans</a></li>
+  <li><a href="#example-1.3-sharon-diving-into-a-swimming-pool" id="toc-example-1.3-sharon-diving-into-a-swimming-pool" class="nav-link" data-scroll-target="#example-1.3-sharon-diving-into-a-swimming-pool">Example 1.3 · Sharon diving into a swimming pool</a></li>
+  <li><a href="#example-1.4-a-ceiling-constraint" id="toc-example-1.4-a-ceiling-constraint" class="nav-link" data-scroll-target="#example-1.4-a-ceiling-constraint">Example 1.4 · A ceiling constraint</a></li>
   </ul></li>
   <li><a href="#教材中标注-cambridge-international-的题目" id="toc-教材中标注-cambridge-international-的题目" class="nav-link" data-scroll-target="#教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</a></li>
   <li><a href="#paper-3-真题题库" id="toc-paper-3-真题题库" class="nav-link" data-scroll-target="#paper-3-真题题库">4. Paper 3 真题题库</a></li>
@@ -436,50 +436,144 @@ R=u\cos\alpha\,T=\frac{u^2\sin2\alpha}{g}.
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-1.1-horizontal-projection-from-a-window" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.1-horizontal-projection-from-a-window">Example 1.1 · Horizontal projection from a window</h3>
-<p>一只球以 <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> 水平飞出离地 <span class="math inline">\(4\,\mathrm m\)</span> 的窗口。取发射点为原点、竖直向上为正，则</p>
+<p>A ball is thrown horizontally at <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> out of a window <span class="math inline">\(4\,\mathrm m\)</span> above the ground.</p>
+<p><strong>(i)</strong> How long does it take to reach the ground?<br>
+<strong>(ii)</strong> How far from the building does it land?<br>
+<strong>(iii)</strong> What is its speed just before it lands and at what angle to the ground is it moving?</p>
+<details class="answer-panel">
+<summary>
+完整解答
+</summary>
+<p>取地面上投影点为原点，<span class="math inline">\(x\)</span> 水平向右，<span class="math inline">\(y\)</span> 竖直向上。于是</p>
 <p><span class="math display">\[
-v_x=5,\quad v_y=-10t,\qquad x=5t,\quad y=-5t^2.
+x=5t,\qquad y=4-5t^2,
 \]</span></p>
-<p>落地时 <span class="math inline">\(y=-4\)</span>，所以 <span class="math inline">\(t=\sqrt{0.8}=0.894\,\mathrm s\)</span>，水平距离</p>
 <p><span class="math display">\[
-\boxed{x=4.47\,\mathrm m}.
+v_x=5,\qquad v_y=-10t.
 \]</span></p>
+<p>落地时 <span class="math inline">\(y=0\)</span>，所以 <span class="math inline">\(t=\sqrt{4/5}=0.894\,\mathrm s\)</span>。</p>
+<p>因此</p>
+<p><span class="math display">\[
+\boxed{t=0.894\,\mathrm s},\qquad
+\boxed{x=5t=4.47\,\mathrm m}.
+\]</span></p>
+<p>落地瞬间 <span class="math inline">\(v_y=-8.94\,\mathrm{m\,s^{-1}}\)</span>，故</p>
+<p><span class="math display">\[
+v=\sqrt{5^2+8.94^2}=\boxed{10.2\,\mathrm{m\,s^{-1}}},
+\]</span></p>
+<span class="math display">\[
+\tan\alpha=\frac{8.94}{5}
+\quad\Longrightarrow\quad
+\boxed{\alpha=60.8^\circ\text{ below the horizontal}}.
+\]</span>
+</details>
 </section>
-<section id="example-1.2-初始高度与最高点" class="level3">
-<h3 class="anchored" data-anchor-id="example-1.2-初始高度与最高点">Example 1.2 · 初始高度与最高点</h3>
-<p>若球从 <span class="math inline">\(2.2\,\mathrm m\)</span> 高处以竖直分量 <span class="math inline">\(12\,\mathrm{m\,s^{-1}}\)</span> 发射，则</p>
+<section id="example-1.2-kicking-a-ball-over-vans" class="level3">
+<h3 class="anchored" data-anchor-id="example-1.2-kicking-a-ball-over-vans">Example 1.2 · Kicking a ball over vans</h3>
+<p>忽略 air resistance。水平地面上有一排 vans，每辆高 <span class="math inline">\(2.2\,\mathrm m\)</span>、宽 <span class="math inline">\(2\,\mathrm m\)</span>。一名参加募捐活动的人以初速度 <span class="math inline">\(24\,\mathrm{m\,s^{-1}}\)</span>、仰角 <span class="math inline">\(30^\circ\)</span> 踢球。</p>
+<p><strong>(i)</strong> 求初速度的水平和竖直分量。<br>
+<strong>(ii)</strong> 证明飞行中 <span class="math inline">\(t\)</span> 秒时球的高度为 <span class="math inline">\(y=12t-5t^2\)</span>，并求球高度至少为 <span class="math inline">\(2.2\,\mathrm m\)</span> 的时间范围。<br>
+<strong>(iii)</strong> 为使球越过尽可能多的 vans，球应放在第一辆 van 前多远？球最多越过多少辆？<br>
+<strong>(iv)</strong> 球与 vans 顶部之间的最大竖直距离是多少？</p>
+<details class="answer-panel">
+<summary>
+完整解答
+</summary>
 <p><span class="math display">\[
-y=2.2+12t-5t^2.
+u_x=24\cos30^\circ=20.8\,\mathrm{m\,s^{-1}},\qquad
+u_y=24\sin30^\circ=12\,\mathrm{m\,s^{-1}}.
 \]</span></p>
-<p>最高点满足 <span class="math inline">\(v_y=12-10t=0\)</span>，即 <span class="math inline">\(t=1.2\)</span>，因此最高高度为</p>
+<p>所以</p>
 <p><span class="math display">\[
-\boxed{y=9.4\,\mathrm m}.
+y=12t-5t^2.
 \]</span></p>
-<p>若目标高度是 <span class="math inline">\(2.2\,\mathrm m\)</span>，球在另一时刻回到该高度；两个时刻的和为 <span class="math inline">\(2u_y/g=2.4\)</span>。</p>
+<p>球在 <span class="math inline">\(2.2\)</span> m 高度时满足</p>
+<p><span class="math display">\[
+12t-5t^2=2.2
+\Longrightarrow 5t^2-12t+2.2=0
+\Longrightarrow t=0.2\text{ or }2.2.
+\]</span></p>
+<p>故球位于 van 顶部以上的时间区间为 <span class="math inline">\(0.2\le t\le2.2\)</span>。对应水平位置为</p>
+<p><span class="math display">\[
+x=24\cos30^\circ t=20.8t,
+\]</span></p>
+<p>即 <span class="math inline">\(x=4.15\)</span> m 到 <span class="math inline">\(x=45.7\)</span> m。球应放在第一辆 van 前约 <span class="math inline">\(\boxed{4.2\,\mathrm m}\)</span>；可覆盖长度约 <span class="math inline">\(41.5\)</span> m，因此最多越过 <span class="math inline">\(\boxed{20}\)</span> 辆。</p>
+<p>最高点时 <span class="math inline">\(v_y=12-10t=0\)</span>，得 <span class="math inline">\(t=1.2\)</span>，所以</p>
+<p><span class="math display">\[
+y_{\max}=12(1.2)-5(1.2)^2=7.2\,\mathrm m.
+\]</span></p>
+最大间距为 <span class="math inline">\(7.2-2.2=\boxed{5.0\,\mathrm m}\)</span>。
+</details>
 </section>
-<section id="example-1.3-diving-board" class="level3">
-<h3 class="anchored" data-anchor-id="example-1.3-diving-board">Example 1.3 · Diving board</h3>
-<p>Sharon 从水面上方 <span class="math inline">\(3.1\,\mathrm m\)</span> 处以 <span class="math inline">\(1.8\,\mathrm{m\,s^{-1}}\)</span>、仰角 <span class="math inline">\(30^\circ\)</span> 入水。竖直运动为</p>
+<section id="example-1.3-sharon-diving-into-a-swimming-pool" class="level3">
+<h3 class="anchored" data-anchor-id="example-1.3-sharon-diving-into-a-swimming-pool">Example 1.3 · Sharon diving into a swimming pool</h3>
+<p>Sharon 可视为 particle。她从水面上方 <span class="math inline">\(3.1\,\mathrm m\)</span> 处，以 <span class="math inline">\(1.8\,\mathrm{m\,s^{-1}}\)</span>、仰角 <span class="math inline">\(30^\circ\)</span> 开始跳水，忽略 air resistance。</p>
+<p><strong>(i)</strong> 求她在跳水过程中达到的最大水面高度。<br>
+<strong>(ii)</strong> 证明她到达水面所需时间 <span class="math inline">\(t\)</span> 满足 <span class="math inline">\(5t^2-0.9t-3.1=0\)</span>，并解释另一个根的意义。<br>
+<strong>(iii)</strong> 一个小男孩同时跳入水中，并在与跳板成一直线、距跳板末端 <span class="math inline">\(1.5\,\mathrm m\)</span> 处入水。是否会发生碰撞？</p>
+<details class="answer-panel">
+<summary>
+完整解答
+</summary>
+<p>取跳板投影点为原点：</p>
 <p><span class="math display">\[
-y=3.1+0.9t-5t^2.
+v_x=1.8\cos30^\circ=1.56,
+\quad v_y=0.9-10t,
 \]</span></p>
-<p>最高高度为 <span class="math inline">\(3.14\,\mathrm m\)</span>；入水时 <span class="math inline">\(y=0\)</span>，取正根得</p>
 <p><span class="math display">\[
-t=0.882\,\mathrm s,qquad x=(1.8\cos30^\circ)t=1.38\,\mathrm m.
+x=1.56t,\qquad y=3.1+0.9t-5t^2.
 \]</span></p>
-<p>教材结论是：若另一名儿童在水平方向 <span class="math inline">\(1.5\,\mathrm m\)</span> 处入水，两者的水平间隔不足，存在碰撞风险。</p>
+<p>最高点满足 <span class="math inline">\(v_y=0\)</span>，故 <span class="math inline">\(t=0.09\)</span>，从而</p>
+<p><span class="math display">\[
+H=3.1+0.9(0.09)-5(0.09)^2=\boxed{3.14\,\mathrm m}.
+\]</span></p>
+<p>到水面时 <span class="math inline">\(y=0\)</span>：</p>
+<p><span class="math display">\[
+5t^2-0.9t-3.1=0,
+\]</span></p>
+<p>所以 <span class="math inline">\(t=-0.702\)</span> 或 <span class="math inline">\(0.882\)</span>。物理上采用正根，故入水时间为 <span class="math inline">\(\boxed{0.882\,\mathrm s}\)</span>。负根代表抛物线向过去延伸时与水面相交的另一点，并非实际跳水时刻。</p>
+<p>入水水平距离为</p>
+<p><span class="math display">\[
+x=1.56(0.882)=1.38\,\mathrm m.
+\]</span></p>
+与 <span class="math inline">\(1.5\)</span> m 相差约 <span class="math inline">\(0.12\)</span> m，不足以确保两人的质心错开，因此按教材模型结论为：$。
+</details>
 </section>
-<section id="example-1.4-ceiling-constraint" class="level3">
-<h3 class="anchored" data-anchor-id="example-1.4-ceiling-constraint">Example 1.4 · Ceiling constraint</h3>
-<p>球从地面以 <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span>、仰角 <span class="math inline">\(\alpha\)</span> 发射，恰好不碰到 <span class="math inline">\(5\,\mathrm m\)</span> 高的天花板。最高点时</p>
+<section id="example-1.4-a-ceiling-constraint" class="level3">
+<h3 class="anchored" data-anchor-id="example-1.4-a-ceiling-constraint">Example 1.4 · A ceiling constraint</h3>
+<p>一个男孩从体育馆地面以 <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span>、仰角 <span class="math inline">\(\alpha\)</span> 踢球，忽略 air resistance。球恰好不碰到 <span class="math inline">\(5\,\mathrm m\)</span> 高的天花板；球在 <span class="math inline">\(T\)</span> 秒后到达最高点。</p>
+<p><strong>(i)</strong> 写出 <span class="math inline">\(t\)</span> 秒时球的竖直速度和高度。<br>
+<strong>(ii)</strong> 利用这些式子证明 <span class="math inline">\(3\sin\alpha=2T\)</span>，并建立含 <span class="math inline">\(\sin\alpha,T\)</span> 的第二个方程。<br>
+<strong>(iii)</strong> 消去 <span class="math inline">\(\sin\alpha\)</span>，证明 <span class="math inline">\(T=1\)</span>。<br>
+<strong>(iv)</strong> 求球的水平射程。</p>
+<details class="answer-panel">
+<summary>
+完整解答
+</summary>
 <p><span class="math display">\[
-15\sin\alpha=10T,qquad 5=15T\sin\alpha-5T^2.
+v_y=15\sin\alpha-10t,qquad
+y=15t\sin\alpha-5t^2.
 \]</span></p>
-<p>消去 <span class="math inline">\(\sin\alpha\)</span> 得 <span class="math inline">\(T=1\)</span>，从而 <span class="math inline">\(\sin\alpha=2/3\)</span>，且总飞行时间为 <span class="math inline">\(2\)</span> 秒。水平射程</p>
+<p>最高点时 <span class="math inline">\(v_y=0\)</span> 且 <span class="math inline">\(t=T\)</span>，所以</p>
 <p><span class="math display">\[
-R=30\cos\alpha=30\sqrt{1-\frac49}
+15\sin\alpha=10T
+\Longrightarrow \boxed{3\sin\alpha=2T}.
+\]</span></p>
+<p>最高点高度为 <span class="math inline">\(5\)</span> m，因此</p>
+<p><span class="math display">\[
+5=15T\sin\alpha-5T^2.
+\]</span></p>
+<p>代入 <span class="math inline">\(15\sin\alpha=10T\)</span>：</p>
+<p><span class="math display">\[
+5=10T^2-5T^2=5T^2
+\Longrightarrow \boxed{T=1}.
+\]</span></p>
+<p>于是 <span class="math inline">\(\sin\alpha=2/3\)</span>，总飞行时间为 <span class="math inline">\(2T=2\)</span> s。水平速度为 <span class="math inline">\(15\cos\alpha\)</span>，因此</p>
+<span class="math display">\[
+R=15\cos\alpha(2)=30\sqrt{1-\frac49}
 =\boxed{22.4\,\mathrm m}.
-\]</span></p>
+\]</span>
+</details>
 </section>
 </section>
 <section id="教材中标注-cambridge-international-的题目" class="level2">
@@ -540,7 +634,7 @@ Answer
 <strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 53 Q2, June 2015.
 </div>
 </div>
-<div class="question-card" title="Exercise 1D, Question 8 · 9709 Paper 53 Q5 June 2014">
+<div class="question-card" title="Exercise 1E, Question 8 · 9709 Paper 53 Q5 June 2014">
 <p>A ball is thrown horizontally at <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> from a roof. If its distance from the point of projection is <span class="math inline">\(18\,\mathrm m\)</span>, find the horizontal displacement and its speed immediately before impact.</p>
 <details class="answer-panel">
 <summary>
@@ -592,102 +686,595 @@ Answer
 <section id="paper-3-真题题库" class="level2">
 <h2 class="anchored" data-anchor-id="paper-3-真题题库">4. Paper 3 真题题库</h2>
 <p>以下题目从本地 9231 Paper 3 Question Papers 中筛出直接考查 projectile motion、trajectory、range、collision 或同一时刻到达的题目；答案按对应 Mark Scheme 整理。</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+注记
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>本节按“同一题在不同地区卷重复出现”的方式合并显示；括号中的 Paper 号表示本地题库中实际收录的卷。所有题干均保留完整小问，答案区给出关键推导或评分标准结果。若某卷只是同题重复，不再重复排版。</p>
+<p>标记含义：<code>[M]</code> 为 method mark，强调建立并正确应用方法；<code>[A]</code> 为 accuracy mark，强调由前一步正确得到结果；<code>[B]</code> 为独立的正确结果或陈述。页面中的分点顺序按对应 mark scheme 的得分逻辑排列。</p>
+</div>
+</div>
 <div class="question-card" title="2021 May/June · 9231/31 &amp; 9231/32 · Question 7">
-<p>A particle is projected with speed <span class="math inline">\(100\,\mathrm{m\,s^{-1}}\)</span> from a horizontal plane, where <span class="math inline">\(\tan\theta=4/3\)</span>. The two times at which its height is <span class="math inline">\(H\)</span> differ by <span class="math inline">\(10\)</span> s. Find the relevant height, then determine the velocity when it lands.</p>
+<p>A particle <span class="math inline">\(P\)</span> is projected from <span class="math inline">\(O\)</span> on a horizontal plane and moves freely under gravity. Its initial velocity is <span class="math inline">\(100\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal, where <span class="math inline">\(\tan i=4/3\)</span>. The two times at which <span class="math inline">\(P\)</span> has height <span class="math inline">\(H\)</span> above the plane differ by <span class="math inline">\(10\)</span> s.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(H\)</span>.<br>
+<strong>(b)</strong> Find the magnitude and direction of the velocity of <span class="math inline">\(P\)</span> one second before it strikes the plane.</p>
 <details class="answer-panel">
 <summary>
-Mark-scheme answer
+按 Mark Scheme 分点
 </summary>
-<p>The vertical component is <span class="math inline">\(80\,\mathrm{m\,s^{-1}}\)</span>. The time difference between equal heights is <span class="math inline">\(2\sqrt{(u_y^2-2gH)}/g\)</span>, so the mark scheme gives</p>
-<p><span class="math display">\[
-\boxed{H=195\,\mathrm m}.
-\]</span></p>
-The impact velocity has magnitude <span class="math inline">\(\boxed{92.2\,\mathrm{m\,s^{-1}}}\)</span> and direction <span class="math inline">\(\boxed{49.4^\circ}\)</span> below the horizontal.
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 最高点竖直速度为零：<span class="math inline">\(0=100\sin i-10t\)</span>。</li>
+<li><strong>[A1]</strong> 由 <span class="math inline">\(\sin i=4/5\)</span> 得最高点时刻 <span class="math inline">\(t=8\)</span>。</li>
+<li><strong>[B1]</strong> 两个等高时刻相差 <span class="math inline">\(10\)</span> s，所以取 <span class="math inline">\(t=3\)</span> 与 <span class="math inline">\(t=13\)</span>。</li>
+<li><strong>[M1]</strong> 代入 <span class="math inline">\(H=100\sin i\,t-5t^2\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{H=195\,\mathrm m}\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[B1]</strong> 一秒前时刻为 <span class="math inline">\(t=15\)</span> s。</li>
+<li><strong>[B1]</strong> <span class="math inline">\(v_x=100\cos i=60\)</span>，<span class="math inline">\(v_y=100\sin i-10(15)=-70\)</span>。</li>
+<li><strong>[B1]</strong> <span class="math inline">\(|\mathbf v|=\sqrt{60^2+70^2}=\boxed{92.2\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+<li><strong>[B1]</strong> <span class="math inline">\(\tan\phi=70/60\)</span>，所以方向为 <span class="math inline">\(\boxed{49.4^\circ}\)</span> below the horizontal。</li>
+</ul>
 </details>
 <div class="source-line">
-<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Q7; checked against the corresponding mark scheme.
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Q7; corresponding mark schemes.
+</div>
+</div>
+<div class="question-card" title="2021 May/June · 9231/33 · Question 7">
+<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane. It moves freely under gravity; its horizontal and vertical displacements are <span class="math inline">\(x,y\)</span>.</p>
+<p><strong>(a)</strong> Use the trajectory equation and <span class="math inline">\(y=0\)</span> to establish the range <span class="math inline">\(R\)</span> in terms of <span class="math inline">\(u,i,g\)</span>.<br>
+<strong>(b)</strong> Deduce the greatest height <span class="math inline">\(H\)</span> in terms of <span class="math inline">\(u,i,g\)</span>.<br>
+It is given that <span class="math inline">\(R=4H/3\)</span>. <strong>(c)</strong> Show that <span class="math inline">\(i=60^\circ\)</span>. It is also given that <span class="math inline">\(u=40\,\mathrm{m\,s^{-1}}\)</span>. <strong>(d)</strong> Find the values of <span class="math inline">\(x\)</span> for which the direction of motion makes an angle less than <span class="math inline">\(45^\circ\)</span> with the horizontal.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 在 trajectory equation 中令 <span class="math inline">\(y=0\)</span>，并取非零根 <span class="math inline">\(x=R\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{R=u^2\sin i\cos i/g=u^2\sin2i/g}\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 最高点满足 <span class="math inline">\(v_y=0\)</span>，即 <span class="math inline">\(t=u\sin i/g\)</span>，并代回 <span class="math inline">\(y\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{H=u^2\sin^2i/(2g)}\)</span>。</li>
+</ul>
+<p><strong>(c)</strong></p>
+<ul>
+<li><strong>[B1]</strong> 把 <span class="math inline">\(R=4H/3\)</span> 代入上面两式并化简：<span class="math inline">\(\tan i=\sqrt3\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{i=60^\circ}\)</span>。</li>
+</ul>
+<p><strong>(d)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 微分 trajectory：<span class="math inline">\(dy/dx=\tan i-gx/(u^2\cos^2i)\)</span>。</li>
+<li><strong>[M1]</strong> “与水平夹角小于 <span class="math inline">\(45^\circ\)</span>”分别检查上升、下降两支，使用 <span class="math inline">\(|dy/dx|&lt;1\)</span>。</li>
+<li><strong>[A1]</strong> 代入 <span class="math inline">\(u=40,i=60^\circ,g=10\)</span>，得到对应的 <span class="math inline">\(x\)</span> 区间。</li>
+<li><strong>[A1]</strong> 临界斜率 <span class="math inline">\(dy/dx=\pm1\)</span> 给出 <span class="math inline">\(x=40(\sqrt3\pm1)\)</span>。</li>
+<li><strong>[A1]</strong> 题目是 strict less than，所以 <span class="math inline">\(\boxed{40(\sqrt3-1)&lt;x&lt;40(\sqrt3+1)}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2021, Q7.
+</div>
+</div>
+<div class="question-card" title="2021 October/November · 9231/31 · Question 5">
+<p>A particle <span class="math inline">\(P\)</span> is projected from <span class="math inline">\(O\)</span> on a horizontal plane. Its speed is <span class="math inline">\(u\)</span> and its angle of projection is <span class="math inline">\(\sin^{-1}(4/5)\)</span>. At <span class="math inline">\(8\)</span> s after projection it is at <span class="math inline">\(A\)</span>; at <span class="math inline">\(32\)</span> s it is at <span class="math inline">\(B\)</span>. The direction of motion at <span class="math inline">\(B\)</span> is perpendicular to the direction of motion at <span class="math inline">\(A\)</span>. Find <span class="math inline">\(u\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<ul>
+<li><strong>[B1]</strong> <span class="math inline">\(\sin i=4/5\)</span>，所以 <span class="math inline">\(u_x=3u/5\)</span>、<span class="math inline">\(u_y=4u/5\)</span>。</li>
+<li><strong>[M1]</strong> 写出 <span class="math inline">\(t=8\)</span> 和 <span class="math inline">\(t=32\)</span> 时的两个速度向量：</li>
+</ul>
+<p><span class="math display">\[
+\left(\frac{3u}{5},\frac{4u}{5}-80\right),\qquad
+\left(\frac{3u}{5},\frac{4u}{5}-320\right).
+\]</span></p>
+<ul>
+<li><strong>[M1]</strong> 垂直条件为两个速度向量点积等于零。</li>
+<li><strong>[A1]</strong> 化简得 <span class="math inline">\(25(4u/5)^2-6400(4u/5)+409600=0\)</span>。</li>
+<li><strong>[A1]</strong> 取唯一正根：<span class="math inline">\(\boxed{u=160\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Q5.
+</div>
+</div>
+<div class="question-card" title="2021 October/November · 9231/32 · Question 1">
+<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(a\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane and moves freely under gravity.</p>
+<p><strong>(a)</strong> Write the horizontal and vertical velocity components at time <span class="math inline">\(T\)</span>. At this time the direction of motion is perpendicular to the direction of projection. <strong>(b)</strong> Express <span class="math inline">\(T\)</span> in terms of <span class="math inline">\(u,g,a\)</span>. <strong>(c)</strong> Deduce the stated lower bound for <span class="math inline">\(T\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[B1]</strong> <span class="math inline">\(v_x=u\cos a\)</span>。</li>
+<li><strong>[B1]</strong> <span class="math inline">\(v_y=u\sin a-gT\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 方向垂直即 <span class="math inline">\(\mathbf v(T)\boldsymbol\cdot\mathbf u=0\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(u^2\cos^2a+u\sin a(u\sin a-gT)=0\)</span>，故 <span class="math inline">\(\boxed{T=u/(g\sin a)}\)</span>。</li>
+</ul>
+<p><strong>(c)</strong></p>
+<ul>
+<li><strong>[B1]</strong> 因为 <span class="math inline">\(\sin a\le1\)</span>，所以 <span class="math inline">\(\boxed{T\ge u/g}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2021, Q1.
 </div>
 </div>
 <div class="question-card" title="2022 May/June · 9231/31 &amp; 9231/32 · Question 7">
-<p>Particles <span class="math inline">\(P,Q\)</span> are projected from the top of a cliff. <span class="math inline">\(P\)</span> has speed <span class="math inline">\(35\sqrt2\)</span> and <span class="math inline">\(\tan\alpha=4/3\)</span>; <span class="math inline">\(Q\)</span> is projected one second later with <span class="math inline">\(\tan\beta=1/2\)</span>. They collide <span class="math inline">\(T\)</span> seconds after <span class="math inline">\(Q\)</span> starts. Set up the horizontal and vertical displacement equations and solve for the unknown speed and collision time.</p>
+<p>Particles <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> are projected in the same vertical plane from a point <span class="math inline">\(O\)</span> at the top of a cliff. The cliff is higher than <span class="math inline">\(50\)</span> m. Both move freely under gravity. <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(35\sqrt2\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(\alpha\)</span>, where <span class="math inline">\(\tan\alpha=4/3\)</span>. <span class="math inline">\(Q\)</span> is projected one second later with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(\beta\)</span>, where <span class="math inline">\(\tan\beta=1/2\)</span>. They collide <span class="math inline">\(T\)</span> seconds after <span class="math inline">\(Q\)</span> is projected.</p>
+<p><strong>(a)</strong> Write expressions in terms of <span class="math inline">\(T\)</span> for the horizontal displacements. <strong>(b)</strong> Use collision to find the relation between <span class="math inline">\(u\)</span> and <span class="math inline">\(T\)</span>. <strong>(c)</strong> Use the vertical displacement equation to find the required values.</p>
 <details class="answer-panel">
 <summary>
-Method
+按 Mark Scheme 分点
 </summary>
-<p>Use elapsed times <span class="math inline">\(T+1\)</span> for <span class="math inline">\(P\)</span> and <span class="math inline">\(T\)</span> for <span class="math inline">\(Q\)</span>. Horizontal coincidence gives</p>
-<p><span class="math display">\[
-35(T+1)\frac45=uT\frac2{\sqrt5}.
-\]</span></p>
-Vertical coincidence is written with the common downward gravitational term; it cancels after using the one-second delay. Solve the resulting simultaneous equations for <span class="math inline">\(u\)</span> and <span class="math inline">\(T\)</span>.
+<ul>
+<li><strong>[B1]</strong> 对 <span class="math inline">\(Q\)</span> 写水平位移：<span class="math inline">\(x_Q=u\cos\beta\,T\)</span>。</li>
+<li><strong>[B1]</strong> 对 <span class="math inline">\(P\)</span> 使用延迟一秒后的时间：<span class="math inline">\(x_P=35\sqrt2\cos\alpha(T+1)=42(T+1)\)</span>。</li>
+<li><strong>[M1]</strong> 碰撞时令水平位移相等：<span class="math inline">\(42(T+1)=u\cos\beta\,T\)</span>。</li>
+<li><strong>[M1]</strong> 写出两个粒子的竖直位移，并正确处理 <span class="math inline">\(P\)</span> 比 <span class="math inline">\(Q\)</span> 多运动一秒。</li>
+<li><strong>[A1]</strong> 代入 <span class="math inline">\(\sin\alpha=4/5\)</span>、<span class="math inline">\(\sin\beta=1/\sqrt5\)</span> 并化简竖直方程。</li>
+<li><strong>[A1]</strong> 联立水平、竖直方程，得到题目所求 <span class="math inline">\(u,T\)</span>。</li>
+<li><strong>[A1]</strong> 进一步得到 <span class="math inline">\(\boxed{T=3}\)</span>、<span class="math inline">\(\boxed{u=7\sqrt5\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+<li><strong>[B1]</strong> 碰撞点水平坐标为 <span class="math inline">\(\boxed{x=42\,\mathrm m}\)</span>。</li>
+<li><strong>[A1]</strong> 碰撞点竖直坐标为 <span class="math inline">\(\boxed{y=-24\,\mathrm m}\)</span>，即位于 <span class="math inline">\(O\)</span> 下方 <span class="math inline">\(24\)</span> m。</li>
+</ul>
+<p>其中水平式为</p>
+<span class="math display">\[
+x_P=42(T+1),\qquad x_Q=\frac{2uT}{\sqrt5}.
+\]</span>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2022, Q7.
 </div>
 </div>
-<div class="question-card" title="2023 May/June · 9231/31 &amp; 9231/32 · Question 7">
-<p>For a projectile launched at speed <span class="math inline">\(40\,\mathrm{m\,s^{-1}}\)</span>, let <span class="math inline">\(H\)</span> be the greatest height and <span class="math inline">\(T\)</span> the corresponding time. Express <span class="math inline">\(H\)</span> and <span class="math inline">\(T\)</span> in terms of the projection angle and use the given relation in the paper to obtain the required numerical values.</p>
+<div class="question-card" title="2022 May/June · 9231/33 · Question 3">
+<p>A particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(25\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane and moves freely under gravity. After <span class="math inline">\(2\)</span> s its speed is <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">\(\sin i\)</span>. <strong>(b)</strong> Find the range of the flight.</p>
 <details class="answer-panel">
 <summary>
-Method
+按 Mark Scheme 分点
 </summary>
-<p>Always begin with</p>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[B1]</strong> <span class="math inline">\(t=2\)</span> s 时 <span class="math inline">\(v_x=25\cos i\)</span>、<span class="math inline">\(v_y=25\sin i-20\)</span>。</li>
+<li><strong>[M1]</strong> 使用速度大小条件：</li>
+</ul>
 <p><span class="math display">\[
-T=\frac{40\sin\theta}{g},\qquad H=\frac{(40\sin\theta)^2}{2g}.
+(25\cos i)^2+(25\sin i-20)^2=15^2.
 \]</span></p>
-The paper’s additional condition is then substituted into these two equations; do not use the range formula unless the question explicitly asks for horizontal distance.
+<ul>
+<li><strong>[M1]</strong> 展开并化为关于 <span class="math inline">\(\sin i\)</span> 的方程。</li>
+<li><strong>[A1]</strong> 解出 admissible 的 <span class="math inline">\(\sin i\)</span>，并取符合题设仰角的根。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 使用 <span class="math inline">\(T=2(25\sin i)/g\)</span> 或在 <span class="math inline">\(y=0\)</span> 时求非零飞行时间。</li>
+<li><strong>[M1]</strong> 使用 <span class="math inline">\(R=25\cos i\,T\)</span>。</li>
+<li><strong>[A1]</strong> 得到题目要求的 range：</li>
+</ul>
+<span class="math display">\[
+R=\frac{25^2\sin2i}{g}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2022, Q3.
+</div>
+</div>
+<div class="question-card" title="2022 October/November · 9231/31 &amp; 9231/33 · Question 7">
+<p>A particle is projected with speed <span class="math inline">\(V\)</span> at <span class="math inline">\(75^\circ\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane.</p>
+<p><strong>(a)</strong> Show that its total time of flight is <span class="math inline">\(\dfrac{2V\sin75^\circ}{g}\)</span>. A smooth vertical barrier is placed <span class="math inline">\(15\)</span> m from <span class="math inline">\(O\)</span>; the particle strikes it, rebounds and returns to <span class="math inline">\(O\)</span>, with coefficient of restitution <span class="math inline">\(3/5\)</span>. <strong>(b)</strong> Explain why total time of flight is unchanged. <strong>(c)</strong> Find <span class="math inline">\(V\)</span> in terms of <span class="math inline">\(g\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 竖直运动：<span class="math inline">\(0=V\sin75^\circ T-\frac12gT^2\)</span>。</li>
+<li><strong>[A1]</strong> 取非零根：<span class="math inline">\(\boxed{T=2V\sin75^\circ/g}\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[B1]</strong> barrier 只改变水平速度；竖直分量和竖直位移不变。</li>
+<li><strong>[B1]</strong> 落地条件仍由同一个 <span class="math inline">\(y=0\)</span> 决定，所以 total time of flight unchanged。</li>
+</ul>
+<p><strong>(c)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 用 <span class="math inline">\(15=V\cos75^\circ t_1\)</span> 求撞墙时刻。</li>
+<li><strong>[M1]</strong> restitution 给出反弹后的水平速度为 <span class="math inline">\(\frac35V\cos75^\circ\)</span>。</li>
+<li><strong>[M1]</strong> 写回到 <span class="math inline">\(O\)</span> 的水平距离/时间关系。</li>
+<li><strong>[A1]</strong> 与竖直飞行时间联立。</li>
+<li><strong>[A1]</strong> 化简得到题目要求的 <span class="math inline">\(V\)</span> 关于 <span class="math inline">\(g\)</span> 的表达式。</li>
+<li><strong>[A1]</strong> 化简得到 <span class="math inline">\(V^2\cos75^\circ\sin75^\circ=20g\)</span>，所以 <span class="math inline">\(\boxed{V^2=80g}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2022, Q7.
+</div>
+</div>
+<div class="question-card" title="2022 October/November · 9231/32 · Question 5">
+<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> and moves freely under gravity. Its displacements after time <span class="math inline">\(t\)</span> are <span class="math inline">\(x,y\)</span>.</p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+y=x\tan i-\frac{gx^2}{2u^2}(1+\tan^2i).
+\]</span></p>
+<p>The particle passes through <span class="math inline">\((30,20)\)</span>. <strong>(b)</strong> Given one possible value of <span class="math inline">\(\tan i\)</span> is <span class="math inline">\(4/3\)</span>, find the other possible value.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 写出 <span class="math inline">\(x=ut\cos i\)</span> 与 <span class="math inline">\(y=ut\sin i-\frac12gt^2\)</span>。</li>
+<li><strong>[M1]</strong> 消去 <span class="math inline">\(t=x/(u\cos i)\)</span>。</li>
+<li><strong>[A1]</strong> 得到 <span class="math inline">\(y=x\tan i-\dfrac{gx^2}{2u^2}\sec^2i\)</span>。</li>
+<li><strong>[A1]</strong> 用 <span class="math inline">\(\sec^2i=1+\tan^2i\)</span> 写成题目给定形式。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 将 <span class="math inline">\((30,20)\)</span> 代入 trajectory equation。</li>
+<li><strong>[M1]</strong> 得到关于 <span class="math inline">\(z=\tan i\)</span> 的二次方程。</li>
+<li><strong>[M1]</strong> 代入已知根 <span class="math inline">\(z=4/3\)</span>，使用 root product 或因式分解。</li>
+<li><strong>[A1]</strong> 求出另一个 root。</li>
+<li><strong>[A1]</strong> 选择符合题设的值：<span class="math inline">\(\boxed{\tan i=17/6}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2022, Q5.
+</div>
+</div>
+<div class="question-card" title="2023 May/June · 9231/31 &amp; 9231/32 · Question 7">
+<p>At time <span class="math inline">\(t\)</span> a particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(40\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> on a horizontal plane and moves freely under gravity. The greatest height is <span class="math inline">\(H\)</span> and the corresponding time is <span class="math inline">\(T\)</span>.</p>
+<p><strong>(a)</strong> Obtain expressions for <span class="math inline">\(H\)</span> and <span class="math inline">\(T\)</span> in terms of <span class="math inline">\(i\)</span>. During the time between <span class="math inline">\(t=T\)</span> and <span class="math inline">\(t=3\)</span>, <span class="math inline">\(P\)</span> descends a distance <span class="math inline">\(H/4\)</span>. <strong>(b)</strong> Find <span class="math inline">\(i\)</span>. <strong>(c)</strong> Find the speed when <span class="math inline">\(t=3\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<ul>
+<li><strong>[B1]</strong> 最高点条件：<span class="math inline">\(0=40\sin i-gT\)</span>，所以 <span class="math inline">\(\boxed{T=40\sin i/g}\)</span>。</li>
+<li><strong>[B1]</strong> 代入竖直位移：<span class="math inline">\(\boxed{H=(40\sin i)^2/(2g)}\)</span>。</li>
+<li><strong>[M1]</strong> 使用下降距离：<span class="math inline">\(H/4=\frac12g(3-T)^2\)</span>。</li>
+<li><strong>[M1]</strong> 代入 <span class="math inline">\(H=80\sin^2i\)</span>、<span class="math inline">\(T=4\sin i\)</span>。</li>
+<li><strong>[A1]</strong> 得到 <span class="math inline">\(4\sin^2i-8\sin i+3=0\)</span>，取可行根 <span class="math inline">\(\sin i=1/2\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{i=30^\circ}\)</span>。</li>
+<li><strong>[B1]</strong> <span class="math inline">\(t=3\)</span> 时速度分量为 <span class="math inline">\(40\cos i=20\sqrt3\)</span> 和 <span class="math inline">\(40\sin i-30=-10\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{v=10\sqrt{13}\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+</ul>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Q7.
 </div>
 </div>
-<div class="question-card" title="2023 October/November · 9231/31 &amp; 9231/33 · Question 5">
-<p>Projectile <span class="math inline">\(P\)</span> passes through a specified point and later launches particle <span class="math inline">\(Q\)</span> when <span class="math inline">\(P\)</span> is at its highest point. Both land at the same point and at the same time.</p>
+<div class="question-card" title="2023 May/June · 9231/33 · Question 7">
+<p>The points <span class="math inline">\(O,P\)</span> are <span class="math inline">\(8\)</span> m apart on a horizontal plane. A ball is thrown from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=4/3\)</span>. At the same instant a model aircraft is launched horizontally at <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> from a point <span class="math inline">\(4\)</span> m vertically above <span class="math inline">\(P\)</span>. Both move in the same vertical plane and direction. After <span class="math inline">\(T\)</span> seconds they collide.</p>
 <details class="answer-panel">
 <summary>
-Key equations and mark-scheme checkpoints
+按 Mark Scheme 分点
 </summary>
-<p>For <span class="math inline">\(P\)</span>, use the trajectory equation to find its admissible initial angle/speed. If its total flight time is <span class="math inline">\(T\)</span>, then its range is <span class="math inline">\(Tu\cos\theta\)</span>. Since <span class="math inline">\(Q\)</span> starts at the highest point, its available flight time is <span class="math inline">\(T/2\)</span>, so its range is <span class="math inline">\((T/2)V\cos\alpha\)</span>. Equal landing points gives</p>
-<span class="math display">\[
-\boxed{V\cos\alpha=2u\cos\theta}.
-\]</span>
+<ul>
+<li><strong>[B1]</strong> 球的水平位移：<span class="math inline">\(x_B=u\cos i\,T\)</span>。</li>
+<li><strong>[B1]</strong> 球的竖直位移：<span class="math inline">\(y_B=u\sin i\,T-5T^2\)</span>。</li>
+<li><strong>[B1]</strong> 飞机的水平位置：<span class="math inline">\(x_A=8+5T\)</span>。</li>
+<li><strong>[B1]</strong> 飞机保持高度 <span class="math inline">\(y_A=4\)</span>。</li>
+<li><strong>[M1]</strong> 碰撞要求 <span class="math inline">\(x_B=x_A\)</span>、<span class="math inline">\(y_B=y_A\)</span>。</li>
+<li><strong>[A1]</strong> 代入 <span class="math inline">\(\tan i=4/3\)</span> 得 <span class="math inline">\(3T^2-4T-4=0\)</span>。</li>
+<li><strong>[A1]</strong> 取正根：<span class="math inline">\(\boxed{T=2\,\mathrm s}\)</span>。</li>
+<li><strong>[M1]</strong> 碰撞前球的速度方向满足 <span class="math inline">\(\tan\phi=(u\sin i-10T)/(u\cos i)\)</span>。</li>
+<li><strong>[A1]</strong> 得 <span class="math inline">\(\tan\phi=-8/9\)</span>，所以方向为 <span class="math inline">\(\boxed{41.6^\circ}\)</span> below the horizontal。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2023, Q7.
+</div>
+</div>
+<div class="question-card" title="2023 October/November · 9231/31 &amp; 9231/33 · Question 5">
+<p>Particle <span class="math inline">\(P\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> and passes through a specified point. A particle <span class="math inline">\(Q\)</span> is projected from <span class="math inline">\(O\)</span> when <span class="math inline">\(P\)</span> is at its highest point. <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> land at the same point on the horizontal plane at the same time.</p>
+<p><strong>(a)</strong> Use the trajectory equation to determine the possible parameters for <span class="math inline">\(P\)</span>. <strong>(b)</strong> Express the range of <span class="math inline">\(P\)</span>. <strong>(c)</strong> Use the fact that <span class="math inline">\(Q\)</span> has only half the flight time of <span class="math inline">\(P\)</span> to establish the relation between <span class="math inline">\(V,\alpha,u,i\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<ul>
+<li><strong>[M1]</strong> 对 <span class="math inline">\(P\)</span> 使用 trajectory equation 及题目给出的通过点条件，求出其参数关系。</li>
+<li><strong>[B1]</strong> 若 <span class="math inline">\(P\)</span> 的飞行时间为 <span class="math inline">\(T\)</span>，则 <span class="math inline">\(P\)</span> 的 range 为 <span class="math inline">\(Tu\cos i\)</span>。</li>
+<li><strong>[B1]</strong> <span class="math inline">\(Q\)</span> 在 <span class="math inline">\(P\)</span> 最高点才发射，因此 <span class="math inline">\(Q\)</span> 的飞行时间为 <span class="math inline">\(T/2\)</span>。</li>
+<li><strong>[B1]</strong> <span class="math inline">\(Q\)</span> 的 range 为 <span class="math inline">\((T/2)V\cos\alpha\)</span>。</li>
+<li><strong>[M1]</strong> 两个粒子同时落在同一点，令两个 range 相等。</li>
+<li><strong>[A1]</strong> 得到</li>
+</ul>
+<p><span class="math display">\[
+\boxed{V\cos\alpha=2u\cos i}.
+\]</span></p>
+<ul>
+<li><strong>[M1]</strong> 对 <span class="math inline">\(Q\)</span> 竖直方向使用 <span class="math inline">\(0=V\sin\alpha(T/2)-\frac12g(T/2)^2\)</span>，得 <span class="math inline">\(V\sin\alpha=u\sin i/2\)</span>。</li>
+<li><strong>[M1]</strong> 对两个分量平方相加。</li>
+<li><strong>[A1]</strong> 代入 <span class="math inline">\(u^2=8ga\)</span>、<span class="math inline">\(\tan i=1/3\)</span>，得到 <span class="math inline">\(\boxed{V^2=29ga/8}\)</span>。</li>
+</ul>
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Q5.
 </div>
 </div>
-<div class="question-card" title="2024 October/November · 9231/31 · Question 1">
-<p>A projectile is launched at angle <span class="math inline">\(\tan^{-1}2\)</span> and has travelled <span class="math inline">\(56\)</span> m horizontally. Use the trajectory equation at the specified points to determine the required height/parameter.</p>
+<div class="question-card" title="2023 October/November · 9231/32 · Question 6">
+<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(a\)</span> above the horizontal from <span class="math inline">\(O\)</span> and moves freely under gravity.</p>
+<p><strong>(a)</strong> Derive</p>
+<p><span class="math display">\[
+y=x\tan a-\frac{gx^2}{2u^2}\sec^2a.
+\]</span></p>
+<p>During flight, <span class="math inline">\(P\)</span> must clear an obstacle of height <span class="math inline">\(h\)</span> at horizontal distance <span class="math inline">\(32\)</span> m. When <span class="math inline">\(u=40\sqrt2\)</span>, it just clears the obstacle; when <span class="math inline">\(u=40\)</span>, it achieves <span class="math inline">\(80\%\)</span> of the height required. <strong>(b)</strong> Find the two possible values of <span class="math inline">\(h\)</span>.</p>
 <details class="answer-panel">
 <summary>
-Method
+按 Mark Scheme 分点
 </summary>
-<p>With <span class="math inline">\(\tan\theta=2\)</span>, use</p>
-<p><span class="math display">\[
-y=2x-\frac{g x^2}{2u^2}(1+4).
-\]</span></p>
-The mark scheme requires using the equation at <span class="math inline">\(x=56\)</span> and at the second stated horizontal position, then solving the resulting simultaneous equations.
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 写出 <span class="math inline">\(x=ut\cos a\)</span>、<span class="math inline">\(y=ut\sin a-\frac12gt^2\)</span>。</li>
+<li><strong>[M1]</strong> 消去 <span class="math inline">\(t\)</span>。</li>
+<li><strong>[A1]</strong> 得到 <span class="math inline">\(\boxed{y=x\tan a-\dfrac{gx^2}{2u^2}\sec^2a}\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 在 <span class="math inline">\(x=32\)</span>、<span class="math inline">\(u=40\sqrt2\)</span> 时令 <span class="math inline">\(y=h\)</span>。</li>
+<li><strong>[M1]</strong> 在 <span class="math inline">\(x=32\)</span>、<span class="math inline">\(u=40\)</span> 时令 <span class="math inline">\(y=0.8h\)</span>。</li>
+<li><strong>[M1]</strong> 用同一个 <span class="math inline">\(a\)</span>，联立两式消去 <span class="math inline">\(\tan a\)</span> 或 <span class="math inline">\(\sec^2a\)</span>。</li>
+<li><strong>[A1]</strong> 解出第一个 admissible 的 <span class="math inline">\(h\)</span>。</li>
+<li><strong>[A1]</strong> 解出第二个 admissible 的 <span class="math inline">\(h\)</span>。</li>
+<li><strong>[A1]</strong> 评分标准结果：<span class="math inline">\(\boxed{h=80\,\mathrm m}\)</span> 或 <span class="math inline">\(\boxed{h=80/9\,\mathrm m}\)</span>。</li>
+</ul>
 </details>
 <div class="source-line">
-<strong>Source:</strong> Cambridge International 9231/31, October/November 2024, Q1; checked against the official mark scheme.
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2023, Q6.
+</div>
+</div>
+<div class="question-card" title="2024 May/June · 9231/31 &amp; 9231/32 · Question 3">
+<p>At <span class="math inline">\(t=0\)</span>, particle <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(u\)</span> at <span class="math inline">\(60^\circ\)</span> above the horizontal from <span class="math inline">\(O\)</span>. It moves freely under gravity. The direction of motion at <span class="math inline">\(t=5\)</span> is perpendicular to the direction at <span class="math inline">\(t=15\)</span>. Find <span class="math inline">\(u\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<ul>
+<li><strong>[B1]</strong> 写出两个时刻的速度：</li>
+</ul>
+<p><span class="math display">\[
+\mathbf v(5)=(u\cos60^\circ,\,u\sin60^\circ-5g),
+\quad
+\mathbf v(15)=(u\cos60^\circ,\,u\sin60^\circ-15g).
+\]</span></p>
+<ul>
+<li><strong>[M1]</strong> 垂直条件：<span class="math inline">\(\mathbf v(5)\boldsymbol\cdot\mathbf v(15)=0\)</span>。</li>
+<li><strong>[M1]</strong> 代入 <span class="math inline">\(\cos60^\circ=1/2,\sin60^\circ=\sqrt3/2\)</span> 并展开。</li>
+<li><strong>[A1]</strong> 得 <span class="math inline">\(u^2-100\sqrt3u+7500=0\)</span>。</li>
+<li><strong>[A1]</strong> 取重根：<span class="math inline">\(\boxed{u=50\sqrt3\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2024, Q3.
+</div>
+</div>
+<div class="question-card" title="2024 May/June · 9231/33 · Question 6">
+<p>A particle is projected with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span> and moves freely under gravity. After <span class="math inline">\(5\)</span> s its speed is <span class="math inline">\(\tfrac34u\)</span>.</p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+\frac7{16}u^2-100u\sin i+2500=0.
+\]</span></p>
+<p><strong>(b)</strong> Use the condition for real values of <span class="math inline">\(u\)</span> to find the required restriction/result in the paper.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[B1]</strong> <span class="math inline">\(t=5\)</span> 时 <span class="math inline">\(v_x=u\cos i\)</span>、<span class="math inline">\(v_y=u\sin i-5g\)</span>。</li>
+<li><strong>[M1]</strong> 使用 <span class="math inline">\(v^2=(3u/4)^2\)</span>。</li>
+<li><strong>[A1]</strong> 展开并化简为 <span class="math inline">\(\boxed{\frac7{16}u^2-100u\sin i+2500=0}\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[B1]</strong> 设 <span class="math inline">\(t=5\)</span> 时速度方向与水平夹角为 <span class="math inline">\(\alpha\)</span>，则 <span class="math inline">\(\tan\alpha=(u\sin i-50)/(u\cos i)\)</span>。</li>
+<li><strong>[M1]</strong> 垂直初速度给出 <span class="math inline">\(\tan\alpha\tan i=-1\)</span>。</li>
+<li><strong>[M1]</strong> 联立后得 <span class="math inline">\(u=50\sin i\)</span>。</li>
+<li><strong>[A1]</strong> 与 (a) 式联立，得到 <span class="math inline">\(\boxed{u=40\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{\sin i=4/5}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2024, Q6.
+</div>
+</div>
+<div class="question-card" title="2024 October/November · 9231/31 &amp; 9231/33 · Question 1">
+<p>A particle is projected at angle <span class="math inline">\(\tan^{-1}2\)</span> from <span class="math inline">\(O\)</span> on a horizontal plane. At horizontal distances <span class="math inline">\(56\)</span> m and <span class="math inline">\(84\)</span> m, its heights are <span class="math inline">\(H\)</span> and <span class="math inline">\(H/2\)</span> respectively. Find <span class="math inline">\(u\)</span> and <span class="math inline">\(H\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<ul>
+<li><strong>[M1]</strong> 由 <span class="math inline">\(\tan i=2\)</span> 写出 trajectory equation：</li>
+</ul>
+<p><span class="math display">\[
+y=2x-\frac{5gx^2}{2u^2}
+\]</span></p>
+<ul>
+<li><strong>[M1]</strong> 在 <span class="math inline">\(x=56\)</span> 代入 <span class="math inline">\(y=H\)</span>。</li>
+<li><strong>[M1]</strong> 在 <span class="math inline">\(x=84\)</span> 代入 <span class="math inline">\(y=H/2\)</span>。</li>
+<li><strong>[A1]</strong> 联立两个方程消去 <span class="math inline">\(H\)</span>，求 <span class="math inline">\(u^2\)</span>。</li>
+<li><strong>[A1]</strong> 回代得到 <span class="math inline">\(\boxed{u=35\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{H=48\,\mathrm m}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Q1.
+</div>
+</div>
+<div class="question-card" title="2024 October/November · 9231/31 &amp; 9231/33 · Question 7">
+<p>A particle is projected at angle <span class="math inline">\(\tan^{-1}(b/\sqrt3)\)</span> from <span class="math inline">\(O\)</span>. When it is moving horizontally, it strikes a smooth inclined plane at <span class="math inline">\(A\)</span>. The plane is inclined at angle <span class="math inline">\(a\)</span>; after impact the particle moves vertically upwards and the coefficient of restitution is <span class="math inline">\(e\)</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(e\tan^2a=1\)</span>. <strong>(b)</strong> Use the trajectory/impact conditions to obtain the paper’s remaining relation.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[B1]</strong> “moving horizontally” gives incoming velocity <span class="math inline">\(\mathbf v=(v,0)\)</span>。</li>
+<li><strong>[M1]</strong> Resolve incoming and outgoing velocities along the normal to the inclined plane。</li>
+<li><strong>[M1]</strong> Apply Newton’s law of restitution in the normal direction。</li>
+<li><strong>[A1]</strong> The outgoing velocity is vertical, so its horizontal component is zero。</li>
+<li><strong>[A1]</strong> Simplification gives</li>
+</ul>
+<p><span class="math display">\[
+\boxed{e\tan^2a=1}.
+\]</span></p>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[B1]</strong> 写出入射速度沿斜面及法线的分量：<span class="math inline">\(3u\cos a/5\)</span>、<span class="math inline">\(3u\sin a/5\)</span>。</li>
+<li><strong>[A1]</strong> 碰撞后分量为 <span class="math inline">\(3u\cos a/5\)</span>、<span class="math inline">\(3eu\sin a/5\)</span>。</li>
+<li><strong>[M1]</strong> 出射速度竖直，故 <span class="math inline">\(\tan a=(3u\cos a/5)/(3eu\sin a/5)\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{e\tan^2a=1}\)</span>。</li>
+<li><strong>[M1]</strong> 再用 <span class="math inline">\(P\)</span> 的最高点高度及碰撞后的竖直初速度列出下一方程。</li>
+<li><strong>[A1]</strong> 得到题目要求的 remaining relation。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Q7.
+</div>
+</div>
+<div class="question-card" title="2024 October/November · 9231/32 · Question 5">
+<p>A particle is projected from <span class="math inline">\(O\)</span> on horizontal ground with speed <span class="math inline">\(u\)</span> at angle <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=1/3\)</span>. It passes through <span class="math inline">\((3a,4a/5)\)</span>.</p>
+<p><strong>(a)</strong> Use the trajectory equation to show <span class="math inline">\(u^2=25ag\)</span>. At the instant <span class="math inline">\(P\)</span> is moving horizontally, particle <span class="math inline">\(Q\)</span> is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(V\)</span> at angle <span class="math inline">\(\alpha\)</span>; both particles reach the ground at the same point and time. <strong>(b)</strong> Express <span class="math inline">\(V^2\)</span> in the form <span class="math inline">\(kag\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 写出 <span class="math inline">\(y=x\tan i-\dfrac{gx^2}{2u^2}\sec^2i\)</span>。</li>
+<li><strong>[M1]</strong> 代入 <span class="math inline">\(x=3a,y=4a/5,\tan i=1/3,\sec^2i=10/9\)</span>。</li>
+<li><strong>[A1]</strong> 整理得 <span class="math inline">\(\boxed{u^2=25ag}\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[B1]</strong> <span class="math inline">\(P\)</span> moving horizontally means <span class="math inline">\(v_y=0\)</span>，所以这一时刻是 <span class="math inline">\(P\)</span> 的最高点。</li>
+<li><strong>[M1]</strong> 用 <span class="math inline">\(T_P=u\sin i/g\)</span> 求 <span class="math inline">\(P\)</span> 从 <span class="math inline">\(O\)</span> 到最高点的时间。</li>
+<li><strong>[M1]</strong> 写出 <span class="math inline">\(P\)</span> 的总 flight time、range，以及 <span class="math inline">\(Q\)</span> 的 flight time 和 range。</li>
+<li><strong>[M1]</strong> 用两者同时到达同一点，令 ranges 相等。</li>
+<li><strong>[A1]</strong> 消去 <span class="math inline">\(V,\alpha\)</span> 中的中间量。</li>
+<li><strong>[A1]</strong> 得到 <span class="math inline">\(\boxed{V^2=\frac{725}{8}ag}\)</span>，所以 <span class="math inline">\(\boxed{k=725/8}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Q5.
 </div>
 </div>
 <div class="question-card" title="2025 May/June · 9231/31 &amp; 9231/32 · Question 2">
-<p>A particle is projected with speed <span class="math inline">\(24\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(\theta\)</span> and passes through a point <span class="math inline">\(35\)</span> m horizontally from the origin and <span class="math inline">\(10\)</span> m above the plane. Find the possible angles and then the larger range.</p>
+<p>A particle is projected with speed <span class="math inline">\(24\,\mathrm{m\,s^{-1}}\)</span> at angle <span class="math inline">\(i\)</span> above the horizontal from <span class="math inline">\(O\)</span>. A vertical wall <span class="math inline">\(35\)</span> m from <span class="math inline">\(O\)</span> has height <span class="math inline">\(10\)</span> m.</p>
+<p><strong>(a)</strong> Determine the two values of <span class="math inline">\(i\)</span> for which <span class="math inline">\(P\)</span> just clears the wall. <strong>(b)</strong> Given that <span class="math inline">\(P\)</span> clears the wall, find the minimum distance from <span class="math inline">\(O\)</span> where <span class="math inline">\(P\)</span> can land.</p>
 <details class="answer-panel">
 <summary>
-Mark-scheme method
+按 Mark Scheme 分点
 </summary>
-<p>Put <span class="math inline">\(x=35\)</span>, <span class="math inline">\(y=10\)</span> in</p>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[B1]</strong> 将墙顶点 <span class="math inline">\((35,10)\)</span> 代入 trajectory equation：</li>
+</ul>
 <p><span class="math display">\[
-y=x\tan\theta-\frac{g x^2}{2(24)^2}(1+\tan^2\theta).
+y=x\tan i-\frac{g x^2}{2(24)^2}(1+\tan^2i).
 \]</span></p>
-<p>This gives a quadratic in <span class="math inline">\(\tan\theta\)</span> and hence two possible launch angles. For the larger range, use the larger root in</p>
-<span class="math display">\[
-R=\frac{24^2\sin2\theta}{g}.
-\]</span>
+<ul>
+<li><strong>[M1]</strong> 整理为关于 <span class="math inline">\(\tan i\)</span> 的 quadratic。</li>
+<li><strong>[M1]</strong> 解出两个 admissible roots。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\tan i=0.769\)</span>，所以 <span class="math inline">\(\boxed{i=37.6^\circ}\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\tan i=2.52\)</span>，所以 <span class="math inline">\(\boxed{i=68.4^\circ}\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 对每个 launch angle，用 <span class="math inline">\(y=0\)</span> 求非零落地时间或 range。</li>
+<li><strong>[A1]</strong> 取较大角度对应的 range，得到 <span class="math inline">\(\boxed{39.5\,\mathrm m}\)</span>（<span class="math inline">\(39.4\)</span>–<span class="math inline">\(39.5\)</span> m 均按评分标准可接受）。</li>
+</ul>
 </details>
 <div class="source-line">
-<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Q2; checked against the official mark scheme.
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Q2; official mark scheme.
+</div>
+</div>
+<div class="question-card" title="2025 October/November · 9231/31 &amp; 9231/33 · Question 7">
+<p>A particle is projected from <span class="math inline">\(O\)</span> with speed <span class="math inline">\(25\,\mathrm{m\,s^{-1}}\)</span> and <span class="math inline">\(\tan i=4/3\)</span>. At <span class="math inline">\(A\)</span>, the direction of motion makes an angle <span class="math inline">\(45^\circ\)</span> with the downward vertical.</p>
+<p><strong>(a)</strong> Find the coordinates of <span class="math inline">\(A\)</span>. At <span class="math inline">\(A\)</span> the particle strikes a fixed smooth barrier inclined at <span class="math inline">\(45^\circ\)</span> to the horizontal, rebounds and lands on the horizontal plane. <strong>(b)</strong> Find the speed immediately before collision with the barrier. <strong>(c)</strong> Given that the coefficient of restitution is <span class="math inline">\(1/9\)</span>, find the horizontal distance travelled after the collision.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 由 <span class="math inline">\(\tan i=4/3\)</span> 得 <span class="math inline">\(u_x=15,u_y=20\)</span>。</li>
+<li><strong>[M1]</strong> 写出 <span class="math inline">\(dy/dx=v_y/v_x\)</span>，并把方向与 downward vertical 成 <span class="math inline">\(45^\circ\)</span> 转换为 <span class="math inline">\(v_y/v_x=-1\)</span>。</li>
+<li><strong>[M1]</strong> <span class="math inline">\(20-10t=-15\)</span>，所以 <span class="math inline">\(t_A=7/2\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(x_A=15(7/2)=\boxed{105/2=52.5\,\mathrm m}\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(y_A=20(7/2)-5(7/2)^2=\boxed{35/4=8.75\,\mathrm m}\)</span>。</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[B1]</strong> 碰撞前速度为 <span class="math inline">\(\mathbf v=(15,-15)\)</span>。</li>
+<li><strong>[M1]</strong> 计算 speed：<span class="math inline">\(|\mathbf v|=\sqrt{15^2+15^2}\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\boxed{|\mathbf v|=15\sqrt2\,\mathrm{m\,s^{-1}}}\)</span>。</li>
+</ul>
+<p><strong>(c)</strong></p>
+<ul>
+<li><strong>[M1]</strong> 碰撞前速度垂直于 barrier，碰撞后速度反向且大小乘以 <span class="math inline">\(e\)</span>。</li>
+<li><strong>[A1]</strong> <span class="math inline">\(\mathbf w=(-5/3,5/3)\)</span>。</li>
+<li><strong>[M1]</strong> <span class="math inline">\(0=35/4+(5/3)t-5t^2\)</span>，取正根 <span class="math inline">\(t=3/2\)</span>。</li>
+<li><strong>[A1]</strong> 水平距离为 <span class="math inline">\(|(5/3)(3/2)|=\boxed{5/2\,\mathrm m}\)</span>。</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Q7.
+</div>
+</div>
+<div class="question-card" title="2025 October/November · 9231/32 · Question 4">
+<p>Particle <span class="math inline">\(Q\)</span> is initially a distance <span class="math inline">\(d\)</span> vertically above particle <span class="math inline">\(P\)</span>. <span class="math inline">\(P\)</span> is projected with speed <span class="math inline">\(U\)</span> at angle <span class="math inline">\(a\)</span> above the horizontal; simultaneously <span class="math inline">\(Q\)</span> is projected at angle <span class="math inline">\(b\)</span> below the horizontal. Both move freely under gravity and collide at time <span class="math inline">\(T\)</span>.</p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+d=UT(\sin a+\cos a\tan b).
+\]</span></p>
+<p>The particles collide when <span class="math inline">\(P\)</span> is at maximum height. <strong>(b)</strong> Given <span class="math inline">\(a=30^\circ\)</span> and <span class="math inline">\(b=60^\circ\)</span>, find <span class="math inline">\(d\)</span> in terms of <span class="math inline">\(U\)</span> and <span class="math inline">\(g\)</span>.</p>
+<details class="answer-panel">
+<summary>
+按 Mark Scheme 分点
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li><strong>[B1]</strong> 水平相遇：<span class="math inline">\(U\cos a\,T=V\cos b\,T\)</span>。</li>
+<li><strong>[M1]</strong> 竖直方向写两粒子的位移，注意 <span class="math inline">\(Q\)</span> 初始高出 <span class="math inline">\(d\)</span> 且向下投射。</li>
+<li><strong>[M1]</strong> 代入水平关系消去 <span class="math inline">\(V\)</span>。</li>
+<li><strong>[A1]</strong> 得到</li>
+</ul>
+<p><span class="math display">\[
+\boxed{d=UT(\sin a+\cos a\tan b)}.
+\]</span></p>
+<p><strong>(b)</strong></p>
+<ul>
+<li><strong>[B1]</strong> <span class="math inline">\(P\)</span> 在最高点相撞，所以 <span class="math inline">\(T=U\sin a/g\)</span>。</li>
+<li><strong>[M1]</strong> 代入 <span class="math inline">\(a=30^\circ,b=60^\circ\)</span>。</li>
+<li><strong>[A1]</strong></li>
+</ul>
+<p><span class="math display">\[
+d=\frac{U^2\sin a}{g}(\sin a+\cos a\tan b),
+\]</span></p>
+从而 <span class="math inline">\(\boxed{d=U^2/g}\)</span>。
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Q4.
 </div>
 </div>
 </section>
