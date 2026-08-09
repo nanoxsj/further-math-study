@@ -337,6 +337,7 @@ window.Quarto = {
   <li><a href="#教材-examples" id="toc-教材-examples" class="nav-link" data-scroll-target="#教材-examples">2. 教材 Examples</a>
   <ul class="collapse">
   <li><a href="#example-2.1-confidence-interval-for-one-mean" id="toc-example-2.1-confidence-interval-for-one-mean" class="nav-link" data-scroll-target="#example-2.1-confidence-interval-for-one-mean">Example 2.1 · Confidence interval for one mean</a></li>
+  <li><a href="#example-2.4-two-sample-t-test" id="toc-example-2.4-two-sample-t-test" class="nav-link" data-scroll-target="#example-2.4-two-sample-t-test">Example 2.4 · Two-sample t-test</a></li>
   <li><a href="#example-2.2-paired-sample-confidence-interval" id="toc-example-2.2-paired-sample-confidence-interval" class="nav-link" data-scroll-target="#example-2.2-paired-sample-confidence-interval">Example 2.2 · Paired-sample confidence interval</a></li>
   <li><a href="#example-2.3-one-sample-t-test" id="toc-example-2.3-one-sample-t-test" class="nav-link" data-scroll-target="#example-2.3-one-sample-t-test">Example 2.3 · One-sample t-test</a></li>
   </ul></li>
@@ -424,6 +425,26 @@ Show answer
 </summary>
 <p><strong>(i)</strong> <span class="math inline">\(n=9\)</span>, <span class="math inline">\(v=8\)</span>, <span class="math inline">\(\bar x=91.56\)</span> and <span class="math inline">\(s=2.297\)</span>. Using <span class="math inline">\(t_{0.975,8}=2.306\)</span>, <span class="math display">\[91.56\pm2.306\frac{2.297}{\sqrt9}=\boxed{[89.79,93.33]}.\]</span></p>
 <strong>(ii)</strong> <span class="math inline">\(95\)</span> is outside the interval. Therefore there is sufficient evidence that the mean bus journey time differs from <span class="math inline">\(95\)</span> minutes; the evidence indicates that it is less.
+</details>
+</section>
+<section id="example-2.4-two-sample-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.4-two-sample-t-test">Example 2.4 · Two-sample t-test</h3>
+<p>The manufacturers of a dieting compound claim that the use of their product as part of a calorie-counting diet leads to an average extra weight loss of at least five kilograms in a period of months. An experiment is carried out by a consumers’ group that doubts this claim.</p>
+<p>The hypotheses are:</p>
+<p><span class="math display">\[H_0:\text{the mean extra weight loss is }5\text{ kg},\]</span> <span class="math display">\[H_1:\text{the mean extra weight loss is less than }5\text{ kg}.\]</span></p>
+<p>The assumptions are that the weight loss in a period of months from a calorie-counting diet, with or without the dieting compound, is normally distributed and that the addition of the dieting compound to the diet does not affect the variance of this random variable.</p>
+<p>Thirty-six dieters used the dieting compound with their diets; their weight losses <span class="math inline">\(x_i\)</span> <span class="math inline">\((i=1,\ldots,36)\)</span> in kilograms are summarised by <span class="math display">\[\sum_{i=1}^{36}x_i=409.32,\qquad \sum_{i=1}^{36}x_i^2=6102.39.\]</span></p>
+<p>Sixty-two dieters followed the same calorie-counting procedure, but did not use the dieting compound; their weight losses <span class="math inline">\(y_j\)</span> <span class="math inline">\((j=1,\ldots,62)\)</span> in kilograms are summarised by <span class="math display">\[\sum_{j=1}^{62}y_j=571.64,\qquad \sum_{j=1}^{62}y_j^2=5618.40.\]</span></p>
+<p>Carry out the test at the 5% significance level.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The sample statistics are <span class="math display">\[\bar x=11.37,\quad s_x=6.433,\qquad \bar y=9.22,\quad s_y=2.388.\]</span></p>
+<p><strong>(a)</strong> The pooled estimate of the common variance is <span class="math display">\[s^2=\frac{35(6.433)^2+61(2.388)^2}{36+62-2}=18.71,\]</span> so <span class="math inline">\(s=4.326\)</span>.</p>
+<p><strong>(b)</strong> The test statistic is <span class="math display">\[t=\frac{(11.37-9.22)-5}{4.326\sqrt{1/36+1/62}}=-3.144.\]</span></p>
+<p>The degrees of freedom are <span class="math inline">\((36+62-2)=96\)</span>. At the 5% one-tailed level, the critical value is <span class="math inline">\(-t_{0.95,96}=-1.661\)</span>.</p>
+<strong>(c)</strong> Since <span class="math inline">\(-3.144&lt;-1.661\)</span>, reject <span class="math inline">\(H_0\)</span>. There is sufficient evidence that the average extra weight loss is less than five kilograms.
 </details>
 </section>
 <section id="example-2.2-paired-sample-confidence-interval" class="level3">
