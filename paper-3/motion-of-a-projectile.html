@@ -444,9 +444,15 @@ R=u\cos\alpha\,T=\frac{u^2\sin2\alpha}{g}.
 <section id="example-1.1-horizontal-projection-from-a-window" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.1-horizontal-projection-from-a-window">Example 1.1 · Horizontal projection from a window</h3>
 <p>A ball is thrown horizontally at <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> out of a window <span class="math inline">\(4\,\mathrm m\)</span> above the ground.</p>
-<p><strong>(a)</strong> How long does it take to reach the ground?<br>
-<strong>(b)</strong> How far from the building does it land?<br>
-<strong>(c)</strong> What is its speed just before it lands and at what angle to the ground is it moving?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/motion/pic/1.1.png" class="img-fluid figure-img" style="width:48.0%"></p>
+<figcaption>Figure 1.7</figcaption>
+</figure>
+</div>
+<p><strong>(i)</strong> How long does it take to reach the ground?<br>
+<strong>(ii)</strong> How far from the building does it land?<br>
+<strong>(iii)</strong> What is its speed just before it lands and at what angle to the ground is it moving?</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -458,16 +464,16 @@ x=5t,\qquad y=4-5t^2,
 <p><span class="math display">\[
 v_x=5,\qquad v_y=-10t.
 \]</span></p>
-<p><strong>(a)</strong> 落地时 <span class="math inline">\(y=0\)</span>，所以</p>
+<p><strong>(i)</strong> 落地时 <span class="math inline">\(y=0\)</span>，所以</p>
 <p><span class="math display">\[
 t=\sqrt{4/5}=\boxed{0.894\,\mathrm s}.
 \]</span></p>
-<p><strong>(b)</strong> 因此</p>
+<p><strong>(ii)</strong> 因此</p>
 <p><span class="math display">\[
 \boxed{t=0.894\,\mathrm s},\qquad
 \boxed{x=5t=4.47\,\mathrm m}.
 \]</span></p>
-<p><strong>(c)</strong> 落地瞬间 <span class="math inline">\(v_y=-8.94\,\mathrm{m\,s^{-1}}\)</span>，故</p>
+<p><strong>(iii)</strong> 落地瞬间 <span class="math inline">\(v_y=-8.94\,\mathrm{m\,s^{-1}}\)</span>，故</p>
 <p><span class="math display">\[
 v=\sqrt{5^2+8.94^2}=\boxed{10.2\,\mathrm{m\,s^{-1}}},
 \]</span></p>
@@ -480,21 +486,29 @@ v=\sqrt{5^2+8.94^2}=\boxed{10.2\,\mathrm{m\,s^{-1}}},
 </section>
 <section id="example-1.2-kicking-a-ball-over-vans" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.2-kicking-a-ball-over-vans">Example 1.2 · Kicking a ball over vans</h3>
-<p>Ignoring air resistance, there is a row of vans on horizontal ground. Each van is <span class="math inline">\(2.2\,\mathrm m\)</span> high and <span class="math inline">\(2\,\mathrm m\)</span> wide. A fundraiser kicks a ball with initial speed <span class="math inline">\(24\,\mathrm{m\,s^{-1}}\)</span> at an angle of elevation of <span class="math inline">\(30^\circ\)</span>.</p>
-<p><strong>(a)</strong> Find the horizontal and vertical components of the initial velocity.<br>
-<strong>(b)</strong> Show that the height of the ball after <span class="math inline">\(t\)</span> seconds is <span class="math inline">\(y=12t-5t^2\)</span>, and find the interval of time for which the ball is at least <span class="math inline">\(2.2\,\mathrm m\)</span> above the ground.<br>
-<strong>(c)</strong> How far in front of the first van should the ball be kicked so that it clears as many vans as possible? Find the maximum number of vans cleared.<br>
-<strong>(d)</strong> Find the maximum vertical distance between the ball and the tops of the vans.</p>
+<p>In this question, neglect air resistance.</p>
+<p>In an attempt to raise money for a charity, participants are sponsored to kick a ball over some vans. The vans are each <span class="math inline">\(2.2\,\mathrm m\)</span> high and <span class="math inline">\(2\,\mathrm m\)</span> wide and stand on horizontal ground. One participant kicks the ball at an initial speed of <span class="math inline">\(24\,\mathrm{m\,s^{-1}}\)</span> inclined at <span class="math inline">\(30^\circ\)</span> to the horizontal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/motion/pic/1.2.png" class="img-fluid figure-img" style="width:96.0%"></p>
+<figcaption>Figure 1.9</figcaption>
+</figure>
+</div>
+<p><strong>(i)</strong> What are the initial values of the vertical and horizontal components of velocity?<br>
+<strong>(ii)</strong> Show that while in flight the vertical height <span class="math inline">\(y\)</span> metres at time <span class="math inline">\(t\)</span> seconds satisfies the equation <span class="math inline">\(y=12t-5t^2\)</span>. Calculate at what times the ball is at least <span class="math inline">\(2.2\,\mathrm m\)</span> above the ground.</p>
+<p>The ball should pass over as many vans as possible.</p>
+<p><strong>(iii)</strong> Deduce that the ball should be placed about <span class="math inline">\(4.2\)</span> m from the first van and find how many vans the ball will clear.<br>
+<strong>(iv)</strong> What is the greatest vertical distance between the ball and the top of the vans?</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong></p>
+<p><strong>(i)</strong></p>
 <p><span class="math display">\[
 u_x=24\cos30^\circ=20.8\,\mathrm{m\,s^{-1}},\qquad
 u_y=24\sin30^\circ=12\,\mathrm{m\,s^{-1}}.
 \]</span></p>
-<p><strong>(b)</strong> 所以</p>
+<p><strong>(ii)</strong> 所以</p>
 <p><span class="math display">\[
 y=12t-5t^2.
 \]</span></p>
@@ -505,12 +519,12 @@ y=12t-5t^2.
 \Longrightarrow t=0.2\text{ or }2.2.
 \]</span></p>
 <p>故球位于 van 顶部以上的时间区间为 <span class="math inline">\(0.2\le t\le2.2\)</span>。</p>
-<p><strong>(c)</strong> 对应水平位置为</p>
+<p><strong>(iii)</strong> 对应水平位置为</p>
 <p><span class="math display">\[
 x=24\cos30^\circ t=20.8t,
 \]</span></p>
 <p>即 <span class="math inline">\(x=4.15\)</span> m 到 <span class="math inline">\(x=45.7\)</span> m。球应放在第一辆 van 前约 <span class="math inline">\(\boxed{4.2\,\mathrm m}\)</span>；可覆盖长度约 <span class="math inline">\(41.5\)</span> m，因此最多越过 <span class="math inline">\(\boxed{20}\)</span> 辆。</p>
-<p><strong>(d)</strong> 最高点时 <span class="math inline">\(v_y=12-10t=0\)</span>，得 <span class="math inline">\(t=1.2\)</span>，所以</p>
+<p><strong>(iv)</strong> 最高点时 <span class="math inline">\(v_y=12-10t=0\)</span>，得 <span class="math inline">\(t=1.2\)</span>，所以</p>
 <p><span class="math display">\[
 y_{\max}=12(1.2)-5(1.2)^2=7.2\,\mathrm m.
 \]</span></p>
@@ -519,10 +533,17 @@ y_{\max}=12(1.2)-5(1.2)^2=7.2\,\mathrm m.
 </section>
 <section id="example-1.3-sharon-diving-into-a-swimming-pool" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.3-sharon-diving-into-a-swimming-pool">Example 1.3 · Sharon diving into a swimming pool</h3>
-<p>Sharon is modelled as a particle. She begins a dive from a point <span class="math inline">\(3.1\,\mathrm m\)</span> above the surface of the water, with speed <span class="math inline">\(1.8\,\mathrm{m\,s^{-1}}\)</span> at an angle of elevation of <span class="math inline">\(30^\circ\)</span>. Air resistance is ignored.</p>
-<p><strong>(a)</strong> Find the maximum height above the surface of the water reached during the dive.<br>
-<strong>(b)</strong> Show that the time <span class="math inline">\(t\)</span> taken to reach the water satisfies <span class="math inline">\(5t^2-0.9t-3.1=0\)</span>, and explain the significance of the other root.<br>
-<strong>(c)</strong> A boy dives into the water at the same time and enters the water <span class="math inline">\(1.5\,\mathrm m\)</span> from the end of the diving board, on the same straight line as the board. Determine whether a collision will occur.</p>
+<p>Sharon is diving into a swimming pool. During her flight she may be modelled as a particle. Her initial velocity is <span class="math inline">\(1.8\,\mathrm{m\,s^{-1}}\)</span> at an angle of <span class="math inline">\(30^\circ\)</span> above the horizontal and initial position <span class="math inline">\(3.1\)</span> m above the water. Air resistance may be neglected.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/motion/pic/1.3.png" class="img-fluid figure-img" style="width:96.0%"></p>
+<figcaption>Figure 1.13</figcaption>
+</figure>
+</div>
+<p><strong>(i)</strong> Find the greatest height above the water that Sharon reaches during her dive.<br>
+<strong>(ii)</strong> Show that the time <span class="math inline">\(t\)</span>, in seconds, that it takes Sharon to reach the water is given by <span class="math inline">\(5t^2-0.9t-3.1=0\)</span> and solve the equation to find <span class="math inline">\(t\)</span>. Explain the significance of the other root.</p>
+<p>Just as Sharon is diving a small boy jumps into the swimming pool. He hits the water at a point in line with the diving board and <span class="math inline">\(1.5\)</span> m from its end.</p>
+<p><strong>(iii)</strong> Is there an accident?</p>
 <details class="answer-panel">
 <summary>
 Show answer
@@ -535,16 +556,16 @@ v_x=1.8\cos30^\circ=1.56,
 <p><span class="math display">\[
 x=1.56t,\qquad y=3.1+0.9t-5t^2.
 \]</span></p>
-<p><strong>(a)</strong> 最高点满足 <span class="math inline">\(v_y=0\)</span>，故 <span class="math inline">\(t=0.09\)</span>，从而</p>
+<p><strong>(i)</strong> 最高点满足 <span class="math inline">\(v_y=0\)</span>，故 <span class="math inline">\(t=0.09\)</span>，从而</p>
 <p><span class="math display">\[
 H=3.1+0.9(0.09)-5(0.09)^2=\boxed{3.14\,\mathrm m}.
 \]</span></p>
-<p><strong>(b)</strong> 到水面时 <span class="math inline">\(y=0\)</span>：</p>
+<p><strong>(ii)</strong> 到水面时 <span class="math inline">\(y=0\)</span>：</p>
 <p><span class="math display">\[
 5t^2-0.9t-3.1=0,
 \]</span></p>
 <p>所以 <span class="math inline">\(t=-0.702\)</span> 或 <span class="math inline">\(0.882\)</span>。物理上采用正根，故入水时间为 <span class="math inline">\(\boxed{0.882\,\mathrm s}\)</span>。负根代表抛物线向过去延伸时与水面相交的另一点，并非实际跳水时刻。</p>
-<p><strong>(c)</strong> 入水水平距离为</p>
+<p><strong>(iii)</strong> 入水水平距离为</p>
 <p><span class="math display">\[
 x=1.56(0.882)=1.38\,\mathrm m.
 \]</span></p>
@@ -553,21 +574,28 @@ x=1.56(0.882)=1.38\,\mathrm m.
 </section>
 <section id="example-1.4-a-ceiling-constraint" class="level3">
 <h3 class="anchored" data-anchor-id="example-1.4-a-ceiling-constraint">Example 1.4 · A ceiling constraint</h3>
-<p>A boy kicks a ball from the floor of a sports hall with speed <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span> at an angle of elevation <span class="math inline">\(\alpha\)</span>. Air resistance is ignored. The ball just avoids a ceiling <span class="math inline">\(5\,\mathrm m\)</span> above the floor, reaching its maximum height after <span class="math inline">\(T\)</span> seconds.</p>
-<p><strong>(a)</strong> Find the vertical velocity and height of the ball after <span class="math inline">\(t\)</span> seconds.<br>
-<strong>(b)</strong> Use these equations to show that <span class="math inline">\(3\sin\alpha=2T\)</span>, and form a second equation involving <span class="math inline">\(\sin\alpha\)</span> and <span class="math inline">\(T\)</span>.<br>
-<strong>(c)</strong> Eliminate <span class="math inline">\(\sin\alpha\)</span> and show that <span class="math inline">\(T=1\)</span>.<br>
-<strong>(d)</strong> Find the horizontal range of the ball.</p>
+<p>A boy kicks a small ball from the floor of a gymnasium with an initial velocity of <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span> inclined at an angle <span class="math inline">\(\alpha\)</span> to the horizontal. Air resistance may be neglected.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/motion/pic/1.4.png" class="img-fluid figure-img" style="width:96.0%"></p>
+<figcaption>Figure 1.14</figcaption>
+</figure>
+</div>
+<p><strong>(i)</strong> Write down expressions in terms of <span class="math inline">\(\alpha\)</span> for the vertical speed of the ball and vertical height of the ball after <span class="math inline">\(t\)</span> seconds.</p>
+<p>The ball just fails to touch the ceiling, which is <span class="math inline">\(5\)</span> m high. The highest point of the motion of the ball is reached after <span class="math inline">\(T\)</span> seconds.</p>
+<p><strong>(ii)</strong> Use one of your expressions to show that <span class="math inline">\(3\sin\alpha=2T\)</span> and the other to form a second equation involving <span class="math inline">\(\sin\alpha\)</span> and <span class="math inline">\(T\)</span>.<br>
+<strong>(iii)</strong> Eliminate <span class="math inline">\(\sin\alpha\)</span> from your two equations to show that <span class="math inline">\(T\)</span> has a value of <span class="math inline">\(1\)</span>.<br>
+<strong>(iv)</strong> Find the horizontal range of the ball when it is kicked at <span class="math inline">\(15\,\mathrm{m\,s^{-1}}\)</span> from the floor of the gymnasium so that it just misses the ceiling.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong></p>
+<p><strong>(i)</strong></p>
 <p><span class="math display">\[
 v_y=15\sin\alpha-10t,qquad
 y=15t\sin\alpha-5t^2.
 \]</span></p>
-<p><strong>(b)</strong> 最高点时 <span class="math inline">\(v_y=0\)</span> 且 <span class="math inline">\(t=T\)</span>，所以</p>
+<p><strong>(ii)</strong> 最高点时 <span class="math inline">\(v_y=0\)</span> 且 <span class="math inline">\(t=T\)</span>，所以</p>
 <p><span class="math display">\[
 15\sin\alpha=10T
 \Longrightarrow \boxed{3\sin\alpha=2T}.
@@ -576,12 +604,12 @@ y=15t\sin\alpha-5t^2.
 <p><span class="math display">\[
 5=15T\sin\alpha-5T^2.
 \]</span></p>
-<p><strong>(c)</strong> 代入 <span class="math inline">\(15\sin\alpha=10T\)</span>：</p>
+<p><strong>(iii)</strong> 代入 <span class="math inline">\(15\sin\alpha=10T\)</span>：</p>
 <p><span class="math display">\[
 5=10T^2-5T^2=5T^2
 \Longrightarrow \boxed{T=1}.
 \]</span></p>
-<p><strong>(d)</strong> 于是 <span class="math inline">\(\sin\alpha=2/3\)</span>，总飞行时间为 <span class="math inline">\(2T=2\)</span> s。水平速度为 <span class="math inline">\(15\cos\alpha\)</span>，因此</p>
+<p><strong>(iv)</strong> 于是 <span class="math inline">\(\sin\alpha=2/3\)</span>，总飞行时间为 <span class="math inline">\(2T=2\)</span> s。水平速度为 <span class="math inline">\(15\cos\alpha\)</span>，因此</p>
 <span class="math display">\[
 R=15\cos\alpha(2)=30\sqrt{1-\frac49}
 =\boxed{22.4\,\mathrm m}.
@@ -768,6 +796,12 @@ y=x-\frac{x^2}{62.5}=\boxed{x-0.016x^2}.
 </div>
 <div class="question-card" title="Exercise 1E, Question 8 · 9709 Paper 53 Q5 June 2014">
 <p>A small ball is thrown horizontally with speed <span class="math inline">\(5\,\mathrm{m\,s^{-1}}\)</span> from a point <span class="math inline">\(O\)</span> on the roof of a building. At time <span class="math inline">\(t\)</span> s after projection, the horizontal and vertically downwards displacements from <span class="math inline">\(O\)</span> are <span class="math inline">\(x\)</span> m and <span class="math inline">\(y\)</span> m. The ball strikes the horizontal ground at <span class="math inline">\(A\)</span>, and <span class="math inline">\(OA=18\)</span> m.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/motion/pic/1.EB_8.png" class="img-fluid figure-img" style="width:72.0%"></p>
+<figcaption>Exercise 1C, Question 8</figcaption>
+</figure>
+</div>
 <p><strong>(a)</strong> Express <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in terms of <span class="math inline">\(t\)</span>, and hence show that the trajectory is <span class="math inline">\(y=0.2x^2\)</span>.<br>
 <strong>(b)</strong> Calculate <span class="math inline">\(x\)</span> at <span class="math inline">\(A\)</span> and the speed immediately before impact.</p>
 <details class="answer-panel">
@@ -1484,6 +1518,82 @@ y=x\tan i-\frac{g x^2}{2(24)^2}(1+\tan^2i).
 </details>
 <div class="source-line">
 <strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Q2; official mark scheme.
+</div>
+</div>
+<div class="question-card" title="2025 May/June · 9231/33 · Question 7">
+<p>A particle <span class="math inline">\(P\)</span> is projected from a point <span class="math inline">\(O\)</span> with speed <span class="math inline">\(U\)</span> at an angle <span class="math inline">\(45^\circ\)</span> above the horizontal and moves freely under gravity.</p>
+<p><strong>(a)</strong> State the vertical and horizontal components of velocity at time <span class="math inline">\(t\)</span>.</p>
+<p>At time <span class="math inline">\(T\)</span>, particle <span class="math inline">\(P\)</span> is moving at an angle of <span class="math inline">\(60^\circ\)</span> below the horizontal.</p>
+<p><strong>(b)</strong> Show that</p>
+<p><span class="math display">\[
+T=\frac{U}{2g}(\sqrt2+\sqrt6).
+\]</span></p>
+<p>At time <span class="math inline">\(T\)</span>, the particle strikes a smooth horizontal plane at a point which is a horizontal distance <span class="math inline">\(D\)</span> from <span class="math inline">\(O\)</span> and a vertical distance <span class="math inline">\(H\)</span> below <span class="math inline">\(O\)</span>.</p>
+<p><strong>(c)</strong> Find the ratio <span class="math inline">\(H:D\)</span>.</p>
+<p>After striking the horizontal plane, <span class="math inline">\(P\)</span> rebounds with speed <span class="math inline">\(w\)</span>. The coefficient of restitution between <span class="math inline">\(P\)</span> and the plane is <span class="math inline">\(\frac23\)</span>.</p>
+<p><strong>(d)</strong> Find <span class="math inline">\(w\)</span> in terms of <span class="math inline">\(U\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong></p>
+<p><span class="math display">\[
+\boxed{v_x=U\cos45^\circ=\frac{U}{\sqrt2}},
+\qquad
+\boxed{v_y=U\sin45^\circ-gt=\frac{U}{\sqrt2}-gt}.
+\]</span></p>
+<p><strong>(b)</strong> At time <span class="math inline">\(T\)</span>,</p>
+<p><span class="math display">\[
+\frac{v_y}{v_x}=-\tan60^\circ=-\sqrt3.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{\frac{U}{\sqrt2}-gT}{\frac{U}{\sqrt2}}=-\sqrt3,
+\]</span></p>
+<p><span class="math display">\[
+\frac{U}{\sqrt2}-gT=-\frac{\sqrt3U}{\sqrt2}.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{T=\frac{U}{2g}(\sqrt2+\sqrt6)}.
+\]</span></p>
+<p><strong>(c)</strong> The horizontal distance is</p>
+<p><span class="math display">\[
+D=U\cos45^\circ T=\frac{U}{\sqrt2}T.
+\]</span></p>
+<p>The vertical displacement at time <span class="math inline">\(T\)</span> is</p>
+<p><span class="math display">\[
+\frac{U}{\sqrt2}T-\frac12gT^2.
+\]</span></p>
+<p>Since the particle is below <span class="math inline">\(O\)</span> at impact,</p>
+<p><span class="math display">\[
+H=\frac12gT^2-\frac{U}{\sqrt2}T.
+\]</span></p>
+<p>Substitution of <span class="math inline">\(T\)</span> gives</p>
+<p><span class="math display">\[
+\boxed{H:D=(\sqrt3-1):2}.
+\]</span></p>
+<p><strong>(d)</strong> Just before impact, the downward vertical component has magnitude</p>
+<p><span class="math display">\[
+\frac{\sqrt3}{2}U.
+\]</span></p>
+<p>Using the coefficient of restitution,</p>
+<p><span class="math display">\[
+w_y=\frac23\left(\frac{\sqrt3}{2}U\right)=\frac{\sqrt3}{3}U.
+\]</span></p>
+<p>The horizontal component is unchanged, with magnitude <span class="math inline">\(U/\sqrt2\)</span>. Therefore</p>
+<p><span class="math display">\[
+w^2=\left(\frac{U}{\sqrt2}\right)^2
++\left(\frac{\sqrt3}{3}U\right)^2
+=\frac{7}{12}U^2,
+\]</span></p>
+<p>so</p>
+<span class="math display">\[
+\boxed{w=U\sqrt{\frac7{12}}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2025, Question 7; checked against the official mark scheme.
 </div>
 </div>
 <div class="question-card" title="2025 October/November · 9231/31 &amp; 9231/33 · Question 7">
