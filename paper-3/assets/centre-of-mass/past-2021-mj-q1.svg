@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 300" role="img" aria-labelledby="title desc">
+  <title id="title">2021 May/June 9231/33 Question 1 diagram</title>
+  <desc id="desc">Two isosceles triangles ABD and BCD share the base BD. Their diagonals meet at O, with AO equal to 3a, OC equal to 6a and BD equal to 16a.</desc>
+  <g fill="none" stroke="#111" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M300 34 L300 266"/>
+    <path d="M118 150 L500 150"/>
+    <path d="M118 150 L300 34 L300 266 Z"/>
+    <path d="M500 150 L300 34 L300 266 Z"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#111">
+    <text x="290" y="25">D</text>
+    <text x="290" y="292">B</text>
+    <text x="510" y="158">C</text>
+    <text x="289" y="143">O</text>
+    <text x="88" y="158">A</text>
+    <text x="195" y="142">3a</text>
+    <text x="393" y="142">6a</text>
+    <text x="315" y="170">16a</text>
+  </g>
+</svg>
