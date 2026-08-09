@@ -1,0 +1,2085 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 3 Further Mechanics，Equilibrium of a rigid body，依据 Jean-Paul Muscat 与 Sophie Goldie 的 Further Mechanics 教材。">
+
+<title>3.2 Equilibrium of a rigid body – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-3/centre-of-mass.html" rel="next">
+<link href="../paper-3/motion-of-a-projectile.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">Paper 3 · Further Mechanics</a></li><li class="breadcrumb-item"><a href="../paper-3/equilibrium-of-a-rigid-body.html">3.2 Equilibrium of a rigid body</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Hyperbolic functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/complex-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Complex numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differential-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Differential equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 3 · Further Mechanics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/motion-of-a-projectile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Motion of a projectile</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/equilibrium-of-a-rigid-body.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3.2 Equilibrium of a rigid body</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/centre-of-mass.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Centre of mass</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/circular-motion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4 Circular motion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/hookes-law.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5 Hooke’s law</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/linear-motion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6 Linear motion under a variable force</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/momentum.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7 Momentum</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#rigid-body-model" id="toc-rigid-body-model" class="nav-link" data-scroll-target="#rigid-body-model">1.1 Rigid body model</a></li>
+  <li><a href="#moment-of-a-force" id="toc-moment-of-a-force" class="nav-link" data-scroll-target="#moment-of-a-force">1.2 Moment of a force</a></li>
+  <li><a href="#equilibrium-conditions" id="toc-equilibrium-conditions" class="nav-link" data-scroll-target="#equilibrium-conditions">1.3 Equilibrium conditions</a></li>
+  <li><a href="#couples" id="toc-couples" class="nav-link" data-scroll-target="#couples">1.4 Couples</a></li>
+  <li><a href="#contact-forces-and-limiting-equilibrium" id="toc-contact-forces-and-limiting-equilibrium" class="nav-link" data-scroll-target="#contact-forces-and-limiting-equilibrium">1.5 Contact forces and limiting equilibrium</a></li>
+  <li><a href="#centre-of-mass-and-tipping" id="toc-centre-of-mass-and-tipping" class="nav-link" data-scroll-target="#centre-of-mass-and-tipping">1.6 Centre of mass and tipping</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-2.1" id="toc-example-2.1" class="nav-link" data-scroll-target="#example-2.1">Example 2.1</a></li>
+  <li><a href="#example-2.2" id="toc-example-2.2" class="nav-link" data-scroll-target="#example-2.2">Example 2.2</a></li>
+  <li><a href="#example-2.3" id="toc-example-2.3" class="nav-link" data-scroll-target="#example-2.3">Example 2.3</a></li>
+  <li><a href="#example-2.4" id="toc-example-2.4" class="nav-link" data-scroll-target="#example-2.4">Example 2.4</a></li>
+  <li><a href="#example-2.5" id="toc-example-2.5" class="nav-link" data-scroll-target="#example-2.5">Example 2.5</a></li>
+  <li><a href="#example-2.6" id="toc-example-2.6" class="nav-link" data-scroll-target="#example-2.6">Example 2.6</a></li>
+  </ul></li>
+  <li><a href="#教材中标注-cambridge-international-的题目" id="toc-教材中标注-cambridge-international-的题目" class="nav-link" data-scroll-target="#教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</a>
+  <ul class="collapse">
+  <li><a href="#exercise-2b-question-12" id="toc-exercise-2b-question-12" class="nav-link" data-scroll-target="#exercise-2b-question-12">Exercise 2B Question 12</a></li>
+  </ul></li>
+  <li><a href="#paper-3-真题题库" id="toc-paper-3-真题题库" class="nav-link" data-scroll-target="#paper-3-真题题库">4. Paper 3 真题题库</a>
+  <ul class="collapse">
+  <li><a href="#mayjune-923131-and-923132-question-4" id="toc-mayjune-923131-and-923132-question-4" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-4">2021 May/June · 9231/31 and 9231/32 · Question 4</a></li>
+  <li><a href="#octobernovember-923131-question-4" id="toc-octobernovember-923131-question-4" class="nav-link" data-scroll-target="#octobernovember-923131-question-4">2021 October/November · 9231/31 · Question 4</a></li>
+  <li><a href="#octobernovember-923132-question-4" id="toc-octobernovember-923132-question-4" class="nav-link" data-scroll-target="#octobernovember-923132-question-4">2021 October/November · 9231/32 · Question 4</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-4-1" id="toc-mayjune-923131-and-923132-question-4-1" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-4-1">2022 May/June · 9231/31 and 9231/32 · Question 4</a></li>
+  <li><a href="#mayjune-923133-question-7" id="toc-mayjune-923133-question-7" class="nav-link" data-scroll-target="#mayjune-923133-question-7">2022 May/June · 9231/33 · Question 7</a></li>
+  <li><a href="#octobernovember-923132-question-2" id="toc-octobernovember-923132-question-2" class="nav-link" data-scroll-target="#octobernovember-923132-question-2">2022 October/November · 9231/32 · Question 2</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-3" id="toc-octobernovember-923131-and-923133-question-3" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-3">2022 October/November · 9231/31 and 9231/33 · Question 3</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-4-2" id="toc-mayjune-923131-and-923132-question-4-2" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-4-2">2023 May/June · 9231/31 and 9231/32 · Question 4</a></li>
+  <li><a href="#mayjune-923133-question-3" id="toc-mayjune-923133-question-3" class="nav-link" data-scroll-target="#mayjune-923133-question-3">2023 May/June · 9231/33 · Question 3</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-3-1" id="toc-octobernovember-923131-and-923133-question-3-1" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-3-1">2023 October/November · 9231/31 and 9231/33 · Question 3</a></li>
+  <li><a href="#octobernovember-923132-question-3" id="toc-octobernovember-923132-question-3" class="nav-link" data-scroll-target="#octobernovember-923132-question-3">2023 October/November · 9231/32 · Question 3</a></li>
+  <li><a href="#mayjune-923133-question-5" id="toc-mayjune-923133-question-5" class="nav-link" data-scroll-target="#mayjune-923133-question-5">2024 May/June · 9231/33 · Question 5</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-4" id="toc-octobernovember-923131-and-923133-question-4" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-4">2024 October/November · 9231/31 and 9231/33 · Question 4</a></li>
+  <li><a href="#octobernovember-923132-question-4-1" id="toc-octobernovember-923132-question-4-1" class="nav-link" data-scroll-target="#octobernovember-923132-question-4-1">2024 October/November · 9231/32 · Question 4</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-4-3" id="toc-mayjune-923131-and-923132-question-4-3" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-4-3">2025 May/June · 9231/31 and 9231/32 · Question 4</a></li>
+  <li><a href="#mayjune-923133-question-4" id="toc-mayjune-923133-question-4" class="nav-link" data-scroll-target="#mayjune-923133-question-4">2025 May/June · 9231/33 · Question 4</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-5" id="toc-octobernovember-923131-and-923133-question-5" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-5">2025 October/November · 9231/31 and 9231/33 · Question 5</a></li>
+  <li><a href="#octobernovember-923132-question-3-1" id="toc-octobernovember-923132-question-3-1" class="nav-link" data-scroll-target="#octobernovember-923132-question-3-1">2025 October/November · 9231/32 · Question 3</a></li>
+  </ul></li>
+  <li><a href="#本章检查清单" id="toc-本章检查清单" class="nav-link" data-scroll-target="#本章检查清单">5. 本章检查清单</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">Paper 3 · Further Mechanics</a></li><li class="breadcrumb-item"><a href="../paper-3/equilibrium-of-a-rigid-body.html">3.2 Equilibrium of a rigid body</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">3.2 Equilibrium of a rigid body</h1>
+<p class="subtitle lead">Further Mechanics · moments · couples · rigid bodies · equilibrium</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 3 Further Mechanics，Equilibrium of a rigid body，依据 Jean-Paul Muscat 与 Sophie Goldie 的 Further Mechanics 教材。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本章考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>使用 rigid body model，理解刚体有大小和形状但不发生形变；</li>
+<li>求力关于一点的 moment，并正确使用 perpendicular distance；</li>
+<li>判断 clockwise 与 anticlockwise moment 的正负号；</li>
+<li>使用 resultant force 和 resultant moment 同时为零的 equilibrium 条件；</li>
+<li>处理 couples、平行力、hinge、support、string、smooth contact 和 rough contact；</li>
+<li>对 rod、ladder、beam、sign、lamina 等刚体列出水平、竖直和力矩方程；</li>
+<li>处理 centre of mass 的投影、tipping 和 limiting equilibrium。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">能区分 particle model 与 rigid body model</label></li>
+<li><label><input type="checkbox">能写出 <span class="math inline">\(M=Fd\)</span>，其中 <span class="math inline">\(d\)</span> 是到 force line of action 的 perpendicular distance</label></li>
+<li><label><input type="checkbox">能规定 anticlockwise 为正、clockwise 为负</label></li>
+<li><label><input type="checkbox">能分别列出水平力、竖直力和 moment equations</label></li>
+<li><label><input type="checkbox">能对 uniform body 把 weight 放在 centre of mass</label></li>
+<li><label><input type="checkbox">能处理 smooth contact、rough contact 和 <span class="math inline">\(F=\mu R\)</span></label></li>
+<li><label><input type="checkbox">能判断 centre of mass 的竖直投影是否落在 supporting edge 内</label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="rigid-body-model" class="level3">
+<h3 class="anchored" data-anchor-id="rigid-body-model">1.1 Rigid body model</h3>
+<p>在 particle model 中，物体的大小、形状和力的作用点通常不重要；但当力会使物体转动时，必须使用 rigid body model。刚体有大小和形状，并假设在力的作用下不发生形变。</p>
+</section>
+<section id="moment-of-a-force" class="level3">
+<h3 class="anchored" data-anchor-id="moment-of-a-force">1.2 Moment of a force</h3>
+<p>力 <span class="math inline">\(F\)</span> 关于点 <span class="math inline">\(O\)</span> 的 moment 定义为</p>
+<p><span class="math display">\[
+\boxed{M=Fd},
+\]</span></p>
+<p>其中 <span class="math inline">\(d\)</span> 是点 <span class="math inline">\(O\)</span> 到 force line of action 的 perpendicular distance。单位是 <span class="math inline">\(\mathrm{N\,m}\)</span>。</p>
+<p>本页面采用：</p>
+<ul>
+<li>anticlockwise moment 为正；</li>
+<li>clockwise moment 为负；</li>
+<li>force 的作用线通过取矩点时，moment 为零。</li>
+</ul>
+<p>若力 <span class="math inline">\(F\)</span> 作用在距离 <span class="math inline">\(a\)</span> 的点上，且 force 与 rod 的夹角为 <span class="math inline">\(\alpha\)</span>，则</p>
+<p><span class="math display">\[
+\boxed{M=Fa\sin\alpha}.
+\]</span></p>
+</section>
+<section id="equilibrium-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="equilibrium-conditions">1.3 Equilibrium conditions</h3>
+<p>刚体处于 equilibrium 时，必须同时满足：</p>
+<p><span class="math display">\[
+\boxed{\sum F_x=0},
+\qquad
+\boxed{\sum F_y=0},
+\qquad
+\boxed{\sum M_O=0}.
+\]</span></p>
+<p>Moment 可以关于任意一点取；只要刚体平衡，关于任何一点的 total moment 都为零。实际计算时，优先选择未知力作用线通过的点，这样该力的 moment 可以直接消失。</p>
+</section>
+<section id="couples" class="level3">
+<h3 class="anchored" data-anchor-id="couples">1.4 Couples</h3>
+<p>一对大小相等、方向相反、作用线不同的平行力，其 resultant force 为零，但 total moment 不为零。这种系统称为 couple。</p>
+<p>若两条作用线之间的 perpendicular distance 为 <span class="math inline">\(d\)</span>，每个力的 magnitude 为 <span class="math inline">\(F\)</span>，则 couple 的 moment magnitude 为</p>
+<p><span class="math display">\[
+\boxed{M=Fd}.
+\]</span></p>
+<p>Couple 的 moment 关于任意取矩点都相同。</p>
+</section>
+<section id="contact-forces-and-limiting-equilibrium" class="level3">
+<h3 class="anchored" data-anchor-id="contact-forces-and-limiting-equilibrium">1.5 Contact forces and limiting equilibrium</h3>
+<ul>
+<li>smooth contact 只能提供 normal reaction；</li>
+<li>rough contact 可以提供 normal reaction 和 friction；</li>
+<li>若 friction 达到极限，则</li>
+</ul>
+<p><span class="math display">\[
+\boxed{F=\mu R},
+\]</span></p>
+<p>其中 <span class="math inline">\(R\)</span> 是 normal reaction，<span class="math inline">\(\mu\)</span> 是 coefficient of friction。</p>
+<p>“about to slip” 或 “limiting equilibrium” 表示已经使用 <span class="math inline">\(F=\mu R\)</span>，不能只写 <span class="math inline">\(F\le\mu R\)</span>。</p>
+</section>
+<section id="centre-of-mass-and-tipping" class="level3">
+<h3 class="anchored" data-anchor-id="centre-of-mass-and-tipping">1.6 Centre of mass and tipping</h3>
+<p>均匀物体的 weight 作用在其 geometric centre。若物体放在 supporting edge 上，保持 equilibrium 的条件是 centre of mass 的竖直投影落在支撑区域内。</p>
+<p>在 point of tipping 时，centre of mass 的竖直投影通过支撑边缘；这时可以关于该边缘取 moments，normal reaction 的 moment 为零。</p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-2.1" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.1">Example 2.1</h3>
+<p>Two children are playing with a door. Kerry tries to open it by pulling on the handle with a force of <span class="math inline">\(50\,\mathrm N\)</span> at right angles to the plane of the door, at a distance <span class="math inline">\(0.8\,\mathrm m\)</span> from the hinges. Peter pushes at a point <span class="math inline">\(0.6\,\mathrm m\)</span> from the hinges, also at right angles to the door and with sufficient force just to stop Kerry opening it.</p>
+<p><strong>(i)</strong> What is the moment of Kerry’s force about the hinges?<br>
+<strong>(ii)</strong> With what force does Peter push?<br>
+<strong>(iii)</strong> Describe the resultant force on the hinges.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/pic/2.1.png" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Figure 2.11</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Take anticlockwise moments as positive. Kerry’s force produces a clockwise moment:</p>
+<p><span class="math display">\[
+M_K=-50(0.8)=-40\,\mathrm{N\,m}.
+\]</span></p>
+<p><strong>(i)</strong> Therefore the moment of Kerry’s force about the hinges is</p>
+<p><span class="math display">\[
+\boxed{-40\,\mathrm{N\,m}}.
+\]</span></p>
+<p><strong>(ii)</strong> For rotational equilibrium,</p>
+<p><span class="math display">\[
+0.6F-40=0
+\quad\Longrightarrow\quad
+F=\frac{40}{0.6}=\boxed{66.7\,\mathrm N}.
+\]</span></p>
+<p><strong>(iii)</strong> The resultant force must also be zero. If <span class="math inline">\(R\)</span> is the hinge force,</p>
+<p><span class="math display">\[
+R+50-66.7=0
+\quad\Longrightarrow\quad
+R=\boxed{16.7\,\mathrm N}.
+\]</span></p>
+It acts in the same direction as Kerry’s pull.
+</details>
+</section>
+<section id="example-2.2" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.2">Example 2.2</h3>
+<p>The diagram shows a man of weight <span class="math inline">\(600\,\mathrm N\)</span> standing on a footbridge that consists of a uniform wooden plank just over <span class="math inline">\(2\,\mathrm m\)</span> long, of weight <span class="math inline">\(200\,\mathrm N\)</span>. Find the reaction forces exerted on each end of the plank.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/pic/2.2.png" class="img-fluid figure-img" style="width:55.0%"></p>
+<figcaption>Figure 2.16</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let the upward reactions at <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be <span class="math inline">\(R\)</span> and <span class="math inline">\(S\)</span> respectively. The weight of the uniform plank acts at its centre.</p>
+<p>Vertical equilibrium gives</p>
+<p><span class="math display">\[
+R+S-600-200=0.
+\]</span></p>
+<p>Taking moments about <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+2S-600(0.5)-200(1)=0.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+S=250\,\mathrm N,
+\qquad
+R=800-250=\boxed{550\,\mathrm N}.
+\]</span></p>
+The reaction forces are <span class="math inline">\(\boxed{250\,\mathrm N}\)</span> at <span class="math inline">\(A\)</span> and <span class="math inline">\(\boxed{550\,\mathrm N}\)</span> at <span class="math inline">\(B\)</span>.
+</details>
+</section>
+<section id="example-2.3" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.3">Example 2.3</h3>
+<p>Describe the single force equivalent to <span class="math inline">\(P\)</span> and <span class="math inline">\(Q\)</span> in each of these cases. In each case state its magnitude and line of action.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/pic/2.3.png" class="img-fluid figure-img" style="width:78.0%"></p>
+<figcaption>Figure 2.20</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> The resultant magnitude is <span class="math inline">\(P+Q\)</span>. If its line of action is distance <span class="math inline">\(x\)</span> from <span class="math inline">\(O\)</span>, then</p>
+<p><span class="math display">\[
+x(P+Q)=Pa+Q(a+b).
+\]</span></p>
+<p>Therefore the equivalent force is upward, with magnitude</p>
+<p><span class="math display">\[
+\boxed{P+Q}
+\]</span></p>
+<p>and line of action</p>
+<p><span class="math display">\[
+\boxed{x=\frac{Pa+Q(a+b)}{P+Q}}.
+\]</span></p>
+<p><strong>(ii)</strong> The resultant magnitude is <span class="math inline">\(P-Q\)</span>, upwards. Taking moments about <span class="math inline">\(O\)</span> gives</p>
+<p><span class="math display">\[
+y(P-Q)=Pa-Q(a+b).
+\]</span></p>
+<p>Hence the equivalent force is upward, with line of action</p>
+<p><span class="math display">\[
+\boxed{y=\frac{Pa-Q(a+b)}{P-Q}}.
+\]</span></p>
+If <span class="math inline">\(y&lt;0\)</span>, the line of action lies on the opposite side of <span class="math inline">\(O\)</span> from the positive direction used for <span class="math inline">\(y\)</span>.
+</details>
+</section>
+<section id="example-2.4" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.4">Example 2.4</h3>
+<p>A force of <span class="math inline">\(40\,\mathrm N\)</span> is exerted on a rod as shown. Find the moment of the force about the point marked <span class="math inline">\(O\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/pic/2.4.png" class="img-fluid figure-img" style="width:48.0%"></p>
+<figcaption>Figure 2.30</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The perpendicular distance from <span class="math inline">\(O\)</span> to the line of action is</p>
+<p><span class="math display">\[
+d=1.5\sin50^\circ.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+M=Fd=40(1.5\sin50^\circ)
+=\boxed{46.0\,\mathrm{N\,m}}.
+\]</span></p>
+<p>Equivalently, resolve the force perpendicular to the rod:</p>
+<span class="math display">\[
+M=(40\sin50^\circ)(1.5)=46.0\,\mathrm{N\,m}.
+\]</span>
+</details>
+</section>
+<section id="example-2.5" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.5">Example 2.5</h3>
+<p>A sign is attached to a light rod of length <span class="math inline">\(1\,\mathrm m\)</span> which is freely hinged to the wall and supported in a vertical plane by a light string, as in Figure 2.33. The sign is assumed to be a uniform rectangle of mass <span class="math inline">\(10\,\mathrm{kg}\)</span>. The angle of the string to the horizontal is <span class="math inline">\(25^\circ\)</span>.</p>
+<p><strong>(i)</strong> Find the tension in the string.<br>
+<strong>(ii)</strong> Find the magnitude and direction of the reaction force of the hinge on the sign.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/pic/2.5.png" class="img-fluid figure-img" style="width:35.0%"></p>
+<figcaption>Figure 2.33</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let the horizontal and vertical components of the hinge reaction be <span class="math inline">\(R_H\)</span> and <span class="math inline">\(R_V\)</span>. The sign’s weight <span class="math inline">\(10g\)</span> acts at the midpoint of the rod.</p>
+<p><strong>(i)</strong> Taking moments about <span class="math inline">\(O\)</span>:</p>
+<p><span class="math display">\[
+T\sin25^\circ(1)-10g(0.5)=0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+T=\frac{5g}{\sin25^\circ}=\boxed{118\,\mathrm N}.
+\]</span></p>
+<p><strong>(ii)</strong> Horizontal equilibrium gives</p>
+<p><span class="math display">\[
+R_H=T\cos25^\circ=107\,\mathrm N.
+\]</span></p>
+<p>Vertical equilibrium gives</p>
+<p><span class="math display">\[
+R_V+T\sin25^\circ-10g=0
+\quad\Longrightarrow\quad
+R_V=50\,\mathrm N.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+R=\sqrt{107^2+50^2}=\boxed{118\,\mathrm N},
+\]</span></p>
+<span class="math display">\[
+\tan\theta=\frac{50}{107}
+\quad\Longrightarrow\quad
+\boxed{\theta=25.0^\circ\text{ above the horizontal}}.
+\]</span>
+</details>
+</section>
+<section id="example-2.6" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.6">Example 2.6</h3>
+<p>A uniform ladder is standing on rough ground and leaning against a smooth wall at an angle of <span class="math inline">\(60^\circ\)</span> to the ground. The ladder has length <span class="math inline">\(4\,\mathrm m\)</span> and mass <span class="math inline">\(15\,\mathrm{kg}\)</span>. Find the normal reaction forces at the wall and ground and the friction force at the ground.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/pic/2.6.png" class="img-fluid figure-img" style="width:55.0%"></p>
+<figcaption>Figure 2.36</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let <span class="math inline">\(S\)</span> be the reaction at the smooth wall, <span class="math inline">\(R\)</span> the vertical reaction at the ground and <span class="math inline">\(F\)</span> the frictional force.</p>
+<p>Horizontal equilibrium:</p>
+<p><span class="math display">\[
+S-F=0.
+\]</span></p>
+<p>Vertical equilibrium:</p>
+<p><span class="math display">\[
+R-15g=0
+\quad\Longrightarrow\quad
+R=\boxed{150\,\mathrm N}.
+\]</span></p>
+<p>Taking moments about the foot of the ladder, the ladder’s weight acts <span class="math inline">\(2\cos60^\circ\)</span> from the foot and the wall reaction has moment arm <span class="math inline">\(4\sin60^\circ\)</span>:</p>
+<p><span class="math display">\[
+15g(2\cos60^\circ)-S(4\sin60^\circ)=0.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+S=\frac{150}{4\sin60^\circ}=\boxed{43.3\,\mathrm N}.
+\]</span></p>
+<p>From horizontal equilibrium,</p>
+<span class="math display">\[
+F=S=\boxed{43.3\,\mathrm N}.
+\]</span>
+</details>
+</section>
+</section>
+<section id="教材中标注-cambridge-international-的题目" class="level2">
+<h2 class="anchored" data-anchor-id="教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</h2>
+<p>本节收录 Further Mechanics Chapter 2 Exercise 2B 中明确标注 Cambridge International 来源的题目。题目保留英文，答案按教材 Example 风格展开。</p>
+<section id="exercise-2b-question-12" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-2b-question-12">Exercise 2B Question 12</h3>
+<p>A uniform rod <span class="math inline">\(AB\)</span> of weight <span class="math inline">\(16\,\mathrm N\)</span> is freely hinged at <span class="math inline">\(A\)</span> to a fixed point. A force of magnitude <span class="math inline">\(4\,\mathrm N\)</span> acting perpendicular to the rod is applied at <span class="math inline">\(B\)</span> (see diagram).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/exercise-2b-12.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Exercise 2B Question 12 diagram</figcaption>
+</figure>
+</div>
+<p>Given that the rod is in equilibrium</p>
+<p><strong>(i)</strong> calculate the angle the rod makes with the horizontal<br>
+<strong>(ii)</strong> find the magnitude and direction of the force exerted on the rod at <span class="math inline">\(A\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(i)</strong> Let the angle between the rod and the horizontal be <span class="math inline">\(\theta\)</span>. Taking moments about <span class="math inline">\(A\)</span>, the <span class="math inline">\(4\,\mathrm N\)</span> force has moment <span class="math inline">\(4AB\)</span>, while the weight has moment <span class="math inline">\(16(AB/2)\cos\theta\)</span> in the opposite direction.</p>
+<p><span class="math display">\[
+4AB-16\left(\frac{AB}{2}\right)\cos\theta=0.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+4=8\cos\theta
+\quad\Longrightarrow\quad
+\cos\theta=\frac12
+\quad\Longrightarrow\quad
+\boxed{\theta=60^\circ}.
+\]</span></p>
+<p><strong>(ii)</strong> Resolve the <span class="math inline">\(4\,\mathrm N\)</span> force into horizontal and vertical components using <span class="math inline">\(\theta=60^\circ\)</span>:</p>
+<p><span class="math display">\[
+4\sin60^\circ=2\sqrt3\,\mathrm N,
+\qquad
+4\cos60^\circ=2\,\mathrm N.
+\]</span></p>
+<p>Equilibrium of forces gives the hinge reaction components</p>
+<p><span class="math display">\[
+R_H=2\sqrt3\,\mathrm N,
+\qquad
+R_V=16-2=14\,\mathrm N.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+R=\sqrt{(2\sqrt3)^2+14^2}=\boxed{14.4\,\mathrm N},
+\]</span></p>
+<p>and</p>
+<span class="math display">\[
+\tan\phi=\frac{14}{2\sqrt3}
+\quad\Longrightarrow\quad
+\boxed{\phi=76.1^\circ\text{ above the horizontal}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 52, June 2011, Question 1; Further Mechanics Exercise 2B Question 12.
+</div>
+</section>
+</section>
+<section id="paper-3-真题题库" class="level2">
+<h2 class="anchored" data-anchor-id="paper-3-真题题库">4. Paper 3 真题题库</h2>
+<p>以下题目从本地 9231 Paper 3 Question Papers 中筛选，覆盖 moments、rigid rods、laminae、friction、limiting equilibrium 和 tipping。答案按 Mark Scheme 的得分逻辑分步写出。</p>
+<section id="mayjune-923131-and-923132-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4">2021 May/June · 9231/31 and 9231/32 · Question 4</h3>
+<p>A uniform solid circular cone has vertical height <span class="math inline">\(kh\)</span> and radius <span class="math inline">\(r\)</span>. A uniform solid cylinder has height <span class="math inline">\(h\)</span> and radius <span class="math inline">\(r\)</span>. The base of the cone is joined to one of the circular faces of the cylinder so that the axes of symmetry of the two solids coincide (see diagram). The cone and the cylinder are made of the same material.</p>
+<p><strong>(a)</strong> Show that the distance of the centre of mass of the combined solid from the base of the cylinder is</p>
+<p><span class="math display">\[
+\frac{h(k^2+4k+6)}{4(3+k)}.
+\]</span></p>
+<p>The solid is placed on a plane that is inclined to the horizontal at an angle <span class="math inline">\(i\)</span>. The base of the cylinder is in contact with the plane. The plane is sufficiently rough to prevent sliding. It is given that <span class="math inline">\(3h=2r\)</span> and that the solid is on the point of toppling when <span class="math inline">\(\tan i=4/3\)</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2021-mj-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The cone has volume <span class="math inline">\(\frac13\pi r^2kh\)</span> and centre of mass <span class="math inline">\(h+kh/4\)</span> above the cylinder base. The cylinder has volume <span class="math inline">\(\pi r^2h\)</span> and centre of mass <span class="math inline">\(h/2\)</span> above the base. Therefore</p>
+<p><span class="math display">\[
+\pi r^2h\left(\frac{k}{3}+1\right)x
+=\frac13\pi r^2kh\left(h+\frac{kh}{4}\right)
++\pi r^2h\left(\frac h2\right).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{x=\frac{h(k^2+4k+6)}{4(3+k)}}.
+\]</span></p>
+<p><strong>(b)</strong> At the point of toppling,</p>
+<p><span class="math display">\[
+\tan i=\frac r x.
+\]</span></p>
+<p>Using <span class="math inline">\(r=3h/2\)</span> and <span class="math inline">\(\tan i=4/3\)</span>:</p>
+<p><span class="math display">\[
+\frac43=\frac{3h/2}{h(k^2+4k+6)/(4(3+k))}.
+\]</span></p>
+<p>After simplification,</p>
+<p><span class="math display">\[
+2k^2-k-15=0
+\quad\Longrightarrow\quad
+(2k+5)(k-3)=0.
+\]</span></p>
+<p>Since <span class="math inline">\(k&gt;0\)</span>,</p>
+<span class="math display">\[
+\boxed{k=3}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Question 4.
+</div>
+</section>
+<section id="octobernovember-923131-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-question-4">2021 October/November · 9231/31 · Question 4</h3>
+<p>A uniform lamina <span class="math inline">\(AECF\)</span> is formed by removing two identical triangles <span class="math inline">\(BCE\)</span> and <span class="math inline">\(CDF\)</span> from a square lamina <span class="math inline">\(ABCD\)</span>. The square has side <span class="math inline">\(3a\)</span> and <span class="math inline">\(EB=DF=h\)</span> (see diagram).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2021-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<p>The lamina <span class="math inline">\(AECF\)</span> is placed vertically on its edge <span class="math inline">\(AE\)</span> on a horizontal plane.</p>
+<p><strong>(a)</strong> Find the distances of the centre of mass of the lamina from <span class="math inline">\(AD\)</span> and from <span class="math inline">\(AB\)</span>, giving your answers in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(h\)</span>.<br>
+<strong>(b)</strong> Find, in terms of <span class="math inline">\(a\)</span>, the set of values of <span class="math inline">\(h\)</span> for which the lamina remains in equilibrium.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The square has area <span class="math inline">\(9a^2\)</span> and centre of mass at distance <span class="math inline">\(3a/2\)</span> from <span class="math inline">\(AD\)</span>. Each removed triangle has area <span class="math inline">\(3ah/2\)</span>.</p>
+<p>Let <span class="math inline">\(x\)</span> be the distance of the remaining centre of mass from <span class="math inline">\(AD\)</span>. Taking moments about <span class="math inline">\(AD\)</span>:</p>
+<p><span class="math display">\[
+(9a^2-3ah)x
+=9a^2\left(\frac{3a}{2}\right)
+-\frac{3ah}{2}\,a
+-\frac{3ah}{2}\left(3a-\frac h3\right).
+\]</span></p>
+<p>After simplification,</p>
+<p><span class="math display">\[
+x=\frac{27a^2-12ah+h^2}{6(3a-h)}
+=\boxed{\frac{9a-h}{6}}.
+\]</span></p>
+<p>By symmetry, the distance from <span class="math inline">\(AB\)</span> is also</p>
+<p><span class="math display">\[
+\boxed{\frac{9a-h}{6}}.
+\]</span></p>
+<p><strong>(b)</strong> The vertical projection of the centre of mass must lie within the supporting edge <span class="math inline">\(AE\)</span>. Its distance from <span class="math inline">\(AD\)</span> therefore satisfies</p>
+<p><span class="math display">\[
+x\le AE=3a-h.
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\frac{9a-h}{6}\le3a-h
+\Longrightarrow 9a-h\le18a-6h
+\Longrightarrow 5h\le9a.
+\]</span></p>
+<p>Therefore</p>
+<span class="math display">\[
+\boxed{0\le h\le\frac95a}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Question 4.
+</div>
+</section>
+<section id="octobernovember-923132-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-4">2021 October/November · 9231/32 · Question 4</h3>
+<p>An object is formed by removing a solid cylinder, of height <span class="math inline">\(ka\)</span> and radius <span class="math inline">\(\frac12a\)</span>, from a uniform solid hemisphere of radius <span class="math inline">\(a\)</span>. The axes of symmetry of the hemisphere and the cylinder coincide and one circular face of the cylinder coincides with the plane face of the hemisphere. <span class="math inline">\(AB\)</span> is a diameter of the circular face of the hemisphere (see diagram).</p>
+<p><strong>(a)</strong> Show that the distance of the centre of mass of the object from <span class="math inline">\(AB\)</span> is</p>
+<p><span class="math display">\[
+\frac{3a(2-k^2)}{2(8-3k)}.
+\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2021-on-q4b.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<p>When the object is freely suspended from the point <span class="math inline">\(A\)</span>, the line <span class="math inline">\(AB\)</span> makes an angle <span class="math inline">\(i\)</span> with the downward vertical, where <span class="math inline">\(\tan i=\frac7{18}\)</span>.</p>
+<p><strong>(b)</strong> Find the possible values of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The hemisphere has volume <span class="math inline">\(\frac23\pi a^3\)</span> and centre of mass <span class="math inline">\(\frac{3a}{8}\)</span> from <span class="math inline">\(AB\)</span>. The removed cylinder has volume <span class="math inline">\(\frac14\pi ka^3\)</span> and centre of mass <span class="math inline">\(\frac12ka\)</span> from <span class="math inline">\(AB\)</span>.</p>
+<p>Therefore, if <span class="math inline">\(X\)</span> is the required distance,</p>
+<p><span class="math display">\[
+X\left(\frac23\pi a^3-\frac14\pi ka^3\right)
+=\frac23\pi a^3\left(\frac{3a}{8}\right)
+-\frac14\pi ka^3\left(\frac{ka}{2}\right).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{X=\frac{3a(2-k^2)}{2(8-3k)}}.
+\]</span></p>
+<p><strong>(b)</strong> On suspension, the line through <span class="math inline">\(A\)</span> and the centre of mass gives</p>
+<p><span class="math display">\[
+\tan i=\frac{X}{a}.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\frac{3(2-k^2)}{2(8-3k)}=\frac7{18},
+\]</span></p>
+<p><span class="math display">\[
+27k^2-21k+2=0
+\quad\Longrightarrow\quad
+(3k-2)(9k-1)=0.
+\]</span></p>
+<p>Therefore</p>
+<span class="math display">\[
+\boxed{k=\frac23\ \text{or}\ k=\frac19}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2021, Question 4.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4-1">2022 May/June · 9231/31 and 9231/32 · Question 4</h3>
+<p>An object is composed of a hemispherical shell of radius <span class="math inline">\(2a\)</span> attached to a closed hollow circular cylinder of height <span class="math inline">\(h\)</span> and base radius <span class="math inline">\(a\)</span>. The hemispherical shell and the hollow cylinder are made of the same uniform material. The axes of symmetry of the shell and the cylinder coincide. <span class="math inline">\(AB\)</span> is a diameter of the lower end of the cylinder (see diagram).</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(h\)</span>, an expression for the distance of the centre of mass of the object from <span class="math inline">\(AB\)</span>.</p>
+<p>The object is placed on a rough plane which is inclined to the horizontal at an angle <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=2/3\)</span>. The object is in equilibrium with <span class="math inline">\(AB\)</span> in contact with the plane and lying along a line of greatest slope of the plane.</p>
+<p><strong>(b)</strong> Find the set of possible values of <span class="math inline">\(h\)</span>, in terms of <span class="math inline">\(a\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2022-mj-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The volume of the hollow cylinder is <span class="math inline">\(2\pi ah+2\pi a^2\)</span>, and its centre of mass is <span class="math inline">\(h/2\)</span> from <span class="math inline">\(AB\)</span>. The hemispherical shell has volume <span class="math inline">\(2\pi(2a)^2\)</span> and its centre of mass is <span class="math inline">\(h+a\)</span> from <span class="math inline">\(AB\)</span>.</p>
+<p>Taking moments about <span class="math inline">\(AB\)</span>:</p>
+<p><span class="math display">\[
+x(2\pi ah+2\pi a^2+8\pi a^2)
+=8\pi a^2(h+a)+(2\pi ah+2\pi a^2)\frac h2.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+\boxed{x=\frac{h^2+9ah+8a^2}{2(h+5a)}}.
+\]</span></p>
+<p><strong>(b)</strong> At equilibrium, the vertical projection of the centre of mass lies over the contact diameter. Hence</p>
+<p><span class="math display">\[
+x\le\frac{a}{\tan i}=\frac32a.
+\]</span></p>
+<p>Substituting the expression for <span class="math inline">\(x\)</span>:</p>
+<p><span class="math display">\[
+\frac{h^2+9ah+8a^2}{2(h+5a)}\le\frac32a.
+\]</span></p>
+<p>This gives</p>
+<p><span class="math display">\[
+(h-a)(h+7a)\le0.
+\]</span></p>
+<p>Since <span class="math inline">\(h\ge0\)</span>,</p>
+<span class="math display">\[
+\boxed{0\le h\le a}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2022, Question 4.
+</div>
+</section>
+<section id="mayjune-923133-question-7" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-7">2022 May/June · 9231/33 · Question 7</h3>
+<p>A uniform cylinder with a rough surface and of radius <span class="math inline">\(a\)</span> is fixed with its axis horizontal. Two identical uniform rods <span class="math inline">\(AB\)</span> and <span class="math inline">\(BC\)</span>, each of weight <span class="math inline">\(W\)</span> and length <span class="math inline">\(2a\)</span>, are rigidly joined at <span class="math inline">\(B\)</span> with <span class="math inline">\(AB\)</span> perpendicular to <span class="math inline">\(BC\)</span>. The rods rest on the cylinder in a vertical plane perpendicular to the axis of the cylinder with <span class="math inline">\(AB\)</span> at an angle <span class="math inline">\(\theta\)</span> to the horizontal. <span class="math inline">\(D\)</span> and <span class="math inline">\(E\)</span> are the midpoints of <span class="math inline">\(AB\)</span> and <span class="math inline">\(BC\)</span> respectively and also the points of contact of the rods with the cylinder (see diagram). The rods are about to slip in a clockwise direction. The coefficient of friction between each rod and the cylinder is <span class="math inline">\(\mu\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2022-mj-q7.svg" class="img-fluid figure-img" style="width:62.0%"></p>
+<figcaption>Question 7 diagram</figcaption>
+</figure>
+</div>
+<p>The rods are about to slip clockwise. The coefficient of friction between each rod and the cylinder is <span class="math inline">\(\mu\)</span>. The normal reactions between <span class="math inline">\(AB\)</span> and the cylinder and between <span class="math inline">\(BC\)</span> and the cylinder are <span class="math inline">\(R\)</span> and <span class="math inline">\(N\)</span> respectively.</p>
+<p><strong>(a)</strong> Find the ratio <span class="math inline">\(R:N\)</span> in terms of <span class="math inline">\(\mu\)</span>.<br>
+<strong>(b)</strong> Given that <span class="math inline">\(\mu=1/3\)</span>, find <span class="math inline">\(\tan i\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let the frictional forces at <span class="math inline">\(D\)</span> and <span class="math inline">\(E\)</span> be <span class="math inline">\(\mu R\)</span> and <span class="math inline">\(\mu N\)</span> respectively. Resolving the forces and taking moments about suitable points gives the mark-scheme relations</p>
+<p><span class="math display">\[
+N-R=\frac12\bigl((1-\mu)N-(1+\mu)R\bigr).
+\]</span></p>
+<p>Rearranging:</p>
+<p><span class="math display">\[
+N\left(\frac12+\frac\mu2\right)
+=R\left(\frac12-\frac\mu2\right).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{R:N=1+\mu:1-\mu}.
+\]</span></p>
+<p><strong>(b)</strong> Resolving in directions parallel and perpendicular to <span class="math inline">\(AB\)</span>, then dividing the equations, gives</p>
+<p><span class="math display">\[
+\tan i=\frac{N-\mu R}{\mu N+R}.
+\]</span></p>
+<p>For <span class="math inline">\(\mu=1/3\)</span>,</p>
+<p><span class="math display">\[
+R:N=\frac43:\frac23=2:1
+\quad\Longrightarrow\quad R=2N.
+\]</span></p>
+<p>Hence</p>
+<span class="math display">\[
+\tan i=\frac{N-\frac13(2N)}{\frac13N+2N}
+=\frac{N/3}{7N/3}
+=\boxed{\frac17}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2022, Question 7.
+</div>
+</section>
+<section id="octobernovember-923132-question-2" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-2">2022 October/November · 9231/32 · Question 2</h3>
+<p>A uniform lamina is in the form of a triangle <span class="math inline">\(ABC\)</span> in which angle <span class="math inline">\(B\)</span> is a right angle, <span class="math inline">\(AB=9a\)</span> and <span class="math inline">\(BC=6a\)</span>. The point <span class="math inline">\(D\)</span> is on <span class="math inline">\(BC\)</span> such that <span class="math inline">\(BD=x\)</span> (see diagram). The region <span class="math inline">\(ABD\)</span> is removed from the lamina. The resulting shape <span class="math inline">\(ADC\)</span> is placed with the edge <span class="math inline">\(DC\)</span> on a horizontal surface and the plane <span class="math inline">\(ADC\)</span> is vertical.</p>
+<p>Find the set of values of <span class="math inline">\(x\)</span>, in terms of <span class="math inline">\(a\)</span>, for which the shape is in equilibrium.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2022-on-q2.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 2 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The area of <span class="math inline">\(ABC\)</span> is <span class="math inline">\(27a^2\)</span>, and its centre of mass is <span class="math inline">\(2a\)</span> from <span class="math inline">\(AB\)</span>. The removed triangle <span class="math inline">\(ABD\)</span> has area <span class="math inline">\(9ax/2\)</span>, and its centre of mass is <span class="math inline">\(x/3\)</span> from <span class="math inline">\(AB\)</span>.</p>
+<p>Let <span class="math inline">\(X\)</span> be the distance of the centre of mass of <span class="math inline">\(ADC\)</span> from <span class="math inline">\(AB\)</span>. Taking moments about <span class="math inline">\(AB\)</span>:</p>
+<p><span class="math display">\[
+X\left(27a^2-\frac92ax\right)
+=27a^2(2a)-\frac92ax\left(\frac x3\right).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+X=\frac{54a^3-\frac32ax^2}{27a^2-\frac92ax}.
+\]</span></p>
+<p>For equilibrium, the vertical projection of the centre of mass must lie on the supporting edge <span class="math inline">\(DC\)</span>, so <span class="math inline">\(X\ge x\)</span>. Therefore</p>
+<p><span class="math display">\[
+54a^3-\frac32ax^2
+\ge x\left(27a^2-\frac92ax\right),
+\]</span></p>
+<p><span class="math display">\[
+(x-3a)(x-6a)\ge0.
+\]</span></p>
+<p>With <span class="math inline">\(0\le x\le6a\)</span>,</p>
+<span class="math display">\[
+\boxed{0\le x\le3a}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2022, Question 2.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-3">2022 October/November · 9231/31 and 9231/33 · Question 3</h3>
+<p>A smooth cylinder is fixed to a rough horizontal surface with its axis of symmetry horizontal. A uniform rod <span class="math inline">\(AB\)</span>, of length <span class="math inline">\(4a\)</span> and weight <span class="math inline">\(W\)</span>, rests against the surface of the cylinder. The end <span class="math inline">\(A\)</span> of the rod is in contact with the horizontal surface. The vertical plane containing the rod <span class="math inline">\(AB\)</span> is perpendicular to the axis of the cylinder. The point of contact between the rod and the cylinder is <span class="math inline">\(C\)</span>, where <span class="math inline">\(AC=3a\)</span>. The angle between the rod and the horizontal surface is <span class="math inline">\(\theta\)</span> where <span class="math inline">\(\tan\theta=3/4\)</span> (see diagram). The coefficient of friction between the rod and the horizontal surface is <span class="math inline">\(6/7\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2022-on-q3.svg" class="img-fluid figure-img" style="width:58.0%"></p>
+<figcaption>Question 3 diagram</figcaption>
+</figure>
+</div>
+<p>A particle of weight <span class="math inline">\(kW\)</span> is attached to the rod at <span class="math inline">\(B\)</span>. The rod is about to slip, and the normal reaction between the rod and cylinder is <span class="math inline">\(N\)</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(N=\dfrac{8}{15}W(1+2k)\)</span>.<br>
+<strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let <span class="math inline">\(F\)</span> be the friction at <span class="math inline">\(A\)</span> and <span class="math inline">\(R\)</span> the normal reaction at <span class="math inline">\(A\)</span>. Since <span class="math inline">\(\tan i=3/4\)</span>,</p>
+<p><span class="math display">\[
+\sin i=\frac35,qquad \cos i=\frac45.
+\]</span></p>
+<p><strong>(a)</strong> Taking moments about <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+N(3a)=W(2a\cos i)+kW(4a\cos i).
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+3N=(2+4k)W\frac45
+\quad\Longrightarrow\quad
+\boxed{N=\frac{8}{15}W(1+2k)}.
+\]</span></p>
+<p><strong>(b)</strong> At limiting equilibrium,</p>
+<p><span class="math display">\[
+F=\frac67R.
+\]</span></p>
+<p>Resolving horizontally and vertically:</p>
+<p><span class="math display">\[
+F=N\sin i=\frac35N,
+\]</span></p>
+<p><span class="math display">\[
+N\cos i+R=(1+k)W
+\quad\Longrightarrow\quad
+R=(1+k)W-\frac45N.
+\]</span></p>
+<p>Using the result from part (a),</p>
+<p><span class="math display">\[
+R=\frac{43+11k}{75}W,
+\qquad
+F=\frac{8}{25}(1+2k)W.
+\]</span></p>
+<p>Now use <span class="math inline">\(F=6R/7\)</span>:</p>
+<p><span class="math display">\[
+\frac{8}{25}(1+2k)
+=\frac67\left(\frac{43+11k}{75}\right).
+\]</span></p>
+<p>This gives</p>
+<span class="math display">\[
+56(1+2k)=2(43+11k)
+\Longrightarrow 90k=30
+\Longrightarrow
+\boxed{k=\frac13}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2022, Question 3.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-4-2" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4-2">2023 May/June · 9231/31 and 9231/32 · Question 4</h3>
+<p>An object is formed from a solid hemisphere, of radius <span class="math inline">\(2a\)</span>, and a solid cylinder, of radius <span class="math inline">\(a\)</span> and height <span class="math inline">\(d\)</span>. The hemisphere and the cylinder are made of the same material. The cylinder is attached to the plane face of the hemisphere. The line <span class="math inline">\(OC\)</span> forms a diameter of the base of the cylinder, where <span class="math inline">\(C\)</span> is the centre of the plane face of the hemisphere and <span class="math inline">\(O\)</span> is common to both circumferences (see diagram). Relative to axes through <span class="math inline">\(O\)</span>, parallel and perpendicular to <span class="math inline">\(OC\)</span> as shown, the centre of mass of the object is <span class="math inline">\((x,y)\)</span>.</p>
+<p><strong>(a)</strong> Show that</p>
+<p><span class="math display">\[
+x=\frac{32a^2+3ad}{16a+3d}
+\]</span></p>
+<p>and find an expression, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(d\)</span>, for <span class="math inline">\(y\)</span>.</p>
+<p>The object is placed on a rough plane which is inclined to the horizontal at an angle <span class="math inline">\(i\)</span> where <span class="math inline">\(\sin i=1/6\)</span>. The object is in equilibrium with <span class="math inline">\(CO\)</span> horizontal, where <span class="math inline">\(CO\)</span> lies in a vertical plane through a line of greatest slope.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(d\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2023-mj-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Using volume as the mass measure, the hemisphere and cylinder give</p>
+<p><span class="math display">\[
+\boxed{x=\frac{32a^2+3ad}{16a+3d}},
+\qquad
+\boxed{y=\frac{3d^2-8a^2}{2(16a+3d)}}.
+\]</span></p>
+<p><strong>(b)</strong> For equilibrium,</p>
+<p><span class="math display">\[
+\sin i=\frac{2a-x}{2a}.
+\]</span></p>
+<p>Substitute <span class="math inline">\(\sin i=1/6\)</span>:</p>
+<p><span class="math display">\[
+\frac16=\frac{2a-\dfrac{32a^2+3ad}{16a+3d}}{2a}.
+\]</span></p>
+<p>After clearing denominators,</p>
+<span class="math display">\[
+5(16a+3d)=3(32a+3d)
+\quad\Longrightarrow\quad
+\boxed{d=\frac83a}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Question 4.
+</div>
+</section>
+<section id="mayjune-923133-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-3">2023 May/June · 9231/33 · Question 3</h3>
+<p>A uniform lamina is in the form of a triangle <span class="math inline">\(ABC\)</span>, with <span class="math inline">\(AC=8a\)</span>, <span class="math inline">\(BC=6a\)</span> and angle <span class="math inline">\(ACB=90^\circ\)</span>. The point <span class="math inline">\(D\)</span> on <span class="math inline">\(AC\)</span> is such that <span class="math inline">\(AD=3a\)</span>. The point <span class="math inline">\(E\)</span> on <span class="math inline">\(CB\)</span> is such that <span class="math inline">\(CE=x\)</span> (see diagram). The triangle <span class="math inline">\(CDE\)</span> is removed from the lamina.</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(x\)</span>, the distance of the centre of mass of the remaining object <span class="math inline">\(ADEB\)</span> from <span class="math inline">\(AC\)</span>.</p>
+<p>The object <span class="math inline">\(ADEB\)</span> is on the point of toppling about the point <span class="math inline">\(E\)</span> when the object is in the vertical plane with its edge <span class="math inline">\(EB\)</span> on a smooth horizontal surface.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2023-mj-q3.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 3 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The area of <span class="math inline">\(ABC\)</span> is <span class="math inline">\(24a^2\)</span>, and the area of <span class="math inline">\(DEC\)</span> is <span class="math inline">\(5ax/2\)</span>. Taking moments about <span class="math inline">\(AC\)</span>:</p>
+<p><span class="math display">\[
+X\left(24a^2-\frac52ax\right)
+=24a^2(2a)-\frac52ax\left(\frac x3\right).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\boxed{X=\frac{288a^2-5x^2}{3(48a-5x)}}.
+\]</span></p>
+<p><strong>(b)</strong> At the point of toppling about <span class="math inline">\(E\)</span>, <span class="math inline">\(X=x\)</span>:</p>
+<p><span class="math display">\[
+\frac{288a^2-5x^2}{3(48a-5x)}=x.
+\]</span></p>
+<p>Thus</p>
+<p><span class="math display">\[
+10x^2-144ax+288a^2=0
+\Longrightarrow
+2(5x-12a)(x-12a)=0.
+\]</span></p>
+<p>The admissible value is</p>
+<span class="math display">\[
+\boxed{x=\frac{12}{5}a}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2023, Question 3.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-3-1">2023 October/November · 9231/31 and 9231/33 · Question 3</h3>
+<p>A uniform square lamina of side <span class="math inline">\(2a\)</span> and weight <span class="math inline">\(W\)</span> is suspended from a light inextensible string attached to the midpoint <span class="math inline">\(E\)</span> of the side <span class="math inline">\(AB\)</span>. The other end of the string is attached to a fixed point <span class="math inline">\(P\)</span> on a rough vertical wall. The vertex <span class="math inline">\(B\)</span> of the lamina is in contact with the wall. The string <span class="math inline">\(EP\)</span> is perpendicular to the side <span class="math inline">\(AB\)</span> and makes an angle <span class="math inline">\(i\)</span> with the wall (see diagram). The string and the lamina are in a vertical plane perpendicular to the wall. The coefficient of friction between the wall and the lamina is <span class="math inline">\(1/2\)</span>.</p>
+<p>Given that the vertex <span class="math inline">\(B\)</span> is about to slip up the wall, find the value of <span class="math inline">\(\tan i\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2023-on-q3.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 3 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let <span class="math inline">\(T\)</span> be the tension, <span class="math inline">\(N\)</span> the normal reaction at <span class="math inline">\(B\)</span>, and <span class="math inline">\(F\)</span> the frictional force acting downwards. Resolving vertically and horizontally:</p>
+<p><span class="math display">\[
+T\cos i=F+W,
+\qquad
+T\sin i=N.
+\]</span></p>
+<p>Taking moments about <span class="math inline">\(B\)</span>:</p>
+<p><span class="math display">\[
+Ta=W a\sin i+W a\cos i.
+\]</span></p>
+<p>Since the lamina is about to slip and <span class="math inline">\(\mu=1/2\)</span>,</p>
+<p><span class="math display">\[
+F=\frac12N.
+\]</span></p>
+<p>Eliminating <span class="math inline">\(T\)</span>, <span class="math inline">\(F\)</span> and <span class="math inline">\(N\)</span> gives</p>
+<p><span class="math display">\[
+(\cos i+\sin i)\left(\cos i-\frac12\sin i\right)=1,
+\]</span></p>
+<p>which simplifies to</p>
+<p><span class="math display">\[
+\sin i(\cos i-3\sin i)=0.
+\]</span></p>
+<p>The non-zero solution is</p>
+<span class="math display">\[
+\boxed{\tan i=\frac13}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2023, Question 3.
+</div>
+</section>
+<section id="octobernovember-923132-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-3">2023 October/November · 9231/32 · Question 3</h3>
+<p>A uniform lamina is in the form of an isosceles triangle <span class="math inline">\(ABC\)</span> in which <span class="math inline">\(AC=2a\)</span> and angle <span class="math inline">\(ABC=90^\circ\)</span>. The point <span class="math inline">\(D\)</span> on <span class="math inline">\(AB\)</span> is such that the ratio <span class="math inline">\(DB:AB=1:k\)</span>. The point <span class="math inline">\(E\)</span> on <span class="math inline">\(CB\)</span> is such that <span class="math inline">\(DE\)</span> is parallel to <span class="math inline">\(AC\)</span>. The triangle <span class="math inline">\(DBE\)</span> is removed from the lamina (see diagram).</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(k\)</span>, the distance of the centre of mass of the remaining lamina <span class="math inline">\(ADEC\)</span> from the midpoint of <span class="math inline">\(AC\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2023-on-q3b.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 3 diagram</figcaption>
+</figure>
+</div>
+<p>When the lamina <span class="math inline">\(ADEC\)</span> is freely suspended from the vertex <span class="math inline">\(A\)</span>, the edge <span class="math inline">\(AC\)</span> makes an angle <span class="math inline">\(i\)</span> with the downward vertical, where <span class="math inline">\(\tan i=\frac5{18}\)</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Let <span class="math inline">\(X\)</span> be the distance of the centre of mass of <span class="math inline">\(ADEC\)</span> from the midpoint of <span class="math inline">\(AC\)</span>. Using areas as mass measures,</p>
+<p><span class="math display">\[
+\text{area}(ABC)=a^2,
+\qquad
+\text{area}(DBE)=\frac{a^2}{k^2}.
+\]</span></p>
+<p>The distances of their centres of mass from <span class="math inline">\(AC\)</span> are <span class="math inline">\(\frac a3\)</span> and <span class="math inline">\(a-\frac{2a}{3k}\)</span> respectively. Hence</p>
+<p><span class="math display">\[
+X\left(a^2-\frac{a^2}{k^2}\right)
+=a^2\left(\frac a3\right)
+-\frac{a^2}{k^2}\left(a-\frac{2a}{3k}\right).
+\]</span></p>
+<p>After simplifying,</p>
+<p><span class="math display">\[
+\boxed{X=\frac{a(k^2+k-2)}{3k(k+1)}}.
+\]</span></p>
+<p><strong>(b)</strong> On suspension,</p>
+<p><span class="math display">\[
+\tan i=\frac Xa.
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{k^2+k-2}{3k(k+1)}=\frac5{18},
+\]</span></p>
+<p><span class="math display">\[
+k^2+k-12=0
+\quad\Longrightarrow\quad
+(k+4)(k-3)=0.
+\]</span></p>
+<p>Since <span class="math inline">\(k&gt;1\)</span>,</p>
+<span class="math display">\[
+\boxed{k=3}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2023, Question 3.
+</div>
+</section>
+<section id="mayjune-923133-question-5" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-5">2024 May/June · 9231/33 · Question 5</h3>
+<p>A uniform lamina is in the form of a triangle <span class="math inline">\(OBC\)</span>, with <span class="math inline">\(OC=18a\)</span>, <span class="math inline">\(OB=24a\)</span> and angle <span class="math inline">\(COB=90^\circ\)</span>. The point <span class="math inline">\(A\)</span> on <span class="math inline">\(OB\)</span> is such that <span class="math inline">\(OA=x\)</span> (see diagram). The triangle <span class="math inline">\(OAC\)</span> is removed from the lamina.</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(x\)</span>, the distance of the centre of mass of the remaining object <span class="math inline">\(ABC\)</span> from <span class="math inline">\(OC\)</span>.</p>
+<p>The object <span class="math inline">\(ABC\)</span> is suspended from <span class="math inline">\(C\)</span>. In its equilibrium position, the side <span class="math inline">\(AB\)</span> makes an angle <span class="math inline">\(i\)</span> with the vertical, where <span class="math inline">\(\tan i=6/5\)</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">\(x\)</span> in terms of <span class="math inline">\(a\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2024-mj-q5.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 5 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Taking moments about <span class="math inline">\(OC\)</span>:</p>
+<p><span class="math display">\[
+(216a^2-9ax)X=216a^2(8a)-9ax\left(\frac x3\right).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{X=\frac{576a^2-x^2}{72a-3x}}.
+\]</span></p>
+<p><strong>(b)</strong> In equilibrium, the vertical through the centre of mass passes through <span class="math inline">\(C\)</span>. Using the given angle,</p>
+<p><span class="math display">\[
+\tan i=\frac{18a-6a}{X}.
+\]</span></p>
+<p>Substituting the expression for <span class="math inline">\(X\)</span> and simplifying gives</p>
+<p><span class="math display">\[
+x^2-30ax+144a^2=0
+\quad\Longrightarrow\quad
+(x-6a)(x-24a)=0.
+\]</span></p>
+<p>Since <span class="math inline">\(0&lt;x&lt;24a\)</span>,</p>
+<span class="math display">\[
+\boxed{x=6a}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2024, Question 5.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-4">2024 October/November · 9231/31 and 9231/33 · Question 4</h3>
+<p>An object is formed by removing a cylinder of radius <span class="math inline">\(\frac23a\)</span> and height <span class="math inline">\(kh\)</span> <span class="math inline">\((k&lt;1)\)</span> from a uniform solid cylinder of radius <span class="math inline">\(a\)</span> and height <span class="math inline">\(h\)</span>. The vertical axes of symmetry of the two cylinders coincide. The upper faces of the two cylinders are in the same plane as each other. The points <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are the opposite ends of a diameter of the upper face of the object (see diagram).</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(h\)</span> and <span class="math inline">\(k\)</span>, the distance of the centre of mass of the object from <span class="math inline">\(AB\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2024-on-q4b.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<p>When the object is suspended from <span class="math inline">\(A\)</span>, the angle between <span class="math inline">\(AB\)</span> and the vertical is <span class="math inline">\(i\)</span>, where <span class="math inline">\(\tan i=\frac23\)</span>.</p>
+<p><strong>(b)</strong> Given that <span class="math inline">\(h=\frac83a\)</span>, find the possible values of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The remaining volume is</p>
+<p><span class="math display">\[
+\pi a^2h-\pi\left(\frac23a\right)^2kh
+=\pi a^2h\left(1-\frac49k\right).
+\]</span></p>
+<p>Taking moments about <span class="math inline">\(AB\)</span>,</p>
+<p><span class="math display">\[
+\pi a^2h\left(1-\frac49k\right)X
+=\pi a^2h\left(\frac h2\right)
+-\pi\left(\frac23a\right)^2kh\left(\frac{kh}{2}\right).
+\]</span></p>
+<p>Hence</p>
+<p><span class="math display">\[
+\boxed{X=\frac{(9-4k^2)h}{2(9-4k)}}.
+\]</span></p>
+<p><strong>(b)</strong> On suspension, <span class="math inline">\(\tan i=X/a\)</span>. Substituting <span class="math inline">\(h=\frac83a\)</span> and <span class="math inline">\(\tan i=\frac23\)</span> gives</p>
+<p><span class="math display">\[
+\frac{(9-4k^2)\frac83}{2(9-4k)}=\frac23,
+\]</span></p>
+<p><span class="math display">\[
+32k^2-36k+9=0
+\quad\Longrightarrow\quad
+(8k-3)(4k-3)=0.
+\]</span></p>
+<p>Therefore</p>
+<span class="math display">\[
+\boxed{k=\frac38\ \text{or}\ k=\frac34}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Question 4.
+</div>
+</section>
+<section id="octobernovember-923132-question-4-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-4-1">2024 October/November · 9231/32 · Question 4</h3>
+<p>The end <span class="math inline">\(A\)</span> of a uniform rod <span class="math inline">\(AB\)</span> of length <span class="math inline">\(6a\)</span> and weight <span class="math inline">\(W\)</span> is in contact with a rough vertical wall. One end of a light inextensible string of length <span class="math inline">\(3a\)</span> is attached to the midpoint <span class="math inline">\(C\)</span> of the rod. The other end of the string is attached to a point <span class="math inline">\(D\)</span> on the wall, vertically above <span class="math inline">\(A\)</span>. The rod is in equilibrium when the angle between the rod and the wall is <span class="math inline">\(\theta\)</span>, where <span class="math inline">\(\tan\theta=2/3\)</span>. A particle of weight <span class="math inline">\(W\)</span> is attached to the point <span class="math inline">\(E\)</span> on the rod, where the distance <span class="math inline">\(AE\)</span> is equal to <span class="math inline">\(ka\)</span> <span class="math inline">\((3&lt;k&lt;6)\)</span> (see diagram). The rod and the string are in a vertical plane perpendicular to the wall. The coefficient of friction between the rod and the wall is <span class="math inline">\(1/3\)</span>. The rod is about to slip down the wall.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2024-on-q4.svg" class="img-fluid figure-img" style="width:58.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<p><strong>(a)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let <span class="math inline">\(T\)</span> be the tension in the string, <span class="math inline">\(F\)</span> the friction at <span class="math inline">\(A\)</span>, and <span class="math inline">\(R\)</span> the normal reaction at <span class="math inline">\(A\)</span>. Since <span class="math inline">\(\tan i=2/3\)</span>,</p>
+<p><span class="math display">\[
+\sin i=\frac{2}{\sqrt{13}},
+\qquad
+\cos i=\frac{3}{\sqrt{13}}.
+\]</span></p>
+<p>Resolving vertically and horizontally:</p>
+<p><span class="math display">\[
+T\cos i+F=2W,
+\]</span></p>
+<p><span class="math display">\[
+T\sin i=R.
+\]</span></p>
+<p>Taking moments about <span class="math inline">\(A\)</span>:</p>
+<p><span class="math display">\[
+T\cos i(3a\sin i)+T\sin i(3a\cos i)
+=W(3a\sin i)+W(ka\sin i).
+\]</span></p>
+<p>The rod is about to slip down, so</p>
+<p><span class="math display">\[
+F=\frac13R=\frac13T\sin i.
+\]</span></p>
+<p>The moment equation simplifies to</p>
+<p><span class="math display">\[
+6T\sin i\cos i=(3+k)W\sin i.
+\]</span></p>
+<p>Using the two force equations and eliminating <span class="math inline">\(T\)</span> and <span class="math inline">\(W\)</span> gives</p>
+<p><span class="math display">\[
+12\cos i=(3+k)(\cos i+\sin i).
+\]</span></p>
+<p>Substitute <span class="math inline">\(\cos i=3/\sqrt{13}\)</span> and <span class="math inline">\(\sin i=2/\sqrt{13}\)</span>:</p>
+<span class="math display">\[
+36=5(3+k)
+\quad\Longrightarrow\quad
+\boxed{k=\frac{21}{5}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2024, Question 4.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-4-3" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4-3">2025 May/June · 9231/31 and 9231/32 · Question 4</h3>
+<p>An object is formed by removing a solid hemisphere, radius <span class="math inline">\(2r\)</span>, from a uniform solid cone, radius <span class="math inline">\(3r\)</span> and semi-vertical angle <span class="math inline">\(\theta\)</span>, where <span class="math inline">\(\tan\theta=1/2\)</span>. The axes of symmetry of the cone and the hemisphere coincide. The base of the cone and the base of the hemisphere are in the same plane as each other (see diagram).</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(r\)</span>, the distance of the centre of mass of the object from its base.</p>
+<p>The object is placed such that its circular base makes contact with a rough plane which is inclined to the horizontal at an angle <span class="math inline">\(\alpha\)</span>. The object is on the point of toppling. The plane is sufficiently rough to prevent sliding.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(\alpha\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2025-mj-q4.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Using volume as the mass measure and subtracting the hemisphere from the cone:</p>
+<p><span class="math display">\[
+y=\frac{\left(18\pi r^3\right)\left(\frac32r\right)-\left(\frac{16}{3}\pi r^3\right)\left(\frac34r\right)}{18\pi r^3-\frac{16}{3}\pi r^3}
+=\boxed{\frac{69}{38}r}.
+\]</span></p>
+<p><strong>(b)</strong> At the point of toppling,</p>
+<p><span class="math display">\[
+\tan\alpha=\frac{3r}{y}
+=\frac{3r}{69r/38}=\frac{38}{23}.
+\]</span></p>
+<p>Therefore</p>
+<span class="math display">\[
+\boxed{\alpha=58.8^\circ}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2025, Question 4.
+</div>
+</section>
+<section id="mayjune-923133-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-4">2025 May/June · 9231/33 · Question 4</h3>
+<p>An object consists of a uniform lamina with a particle attached. The uniform lamina <span class="math inline">\(ABCEFD\)</span> of mass <span class="math inline">\(m\)</span> is formed from a rectangle <span class="math inline">\(ABCD\)</span> and an isosceles triangle <span class="math inline">\(CEF\)</span>, where <span class="math inline">\(F\)</span> is the midpoint of <span class="math inline">\(CD\)</span>. The rectangle has sides <span class="math inline">\(AB=2a\)</span> and <span class="math inline">\(AD=a\)</span>. The triangle <span class="math inline">\(CEF\)</span> has base <span class="math inline">\(a\)</span> and height <span class="math inline">\(2a\)</span>. The particle of mass <span class="math inline">\(km\)</span> is attached to the lamina at <span class="math inline">\(E\)</span>. The object rests in a vertical plane with its edge <span class="math inline">\(AD\)</span> on horizontal ground (see diagram).</p>
+<p>Given that the object is on the point of toppling in its vertical plane about the vertex <span class="math inline">\(D\)</span>, find the value of <span class="math inline">\(k\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2025-mj-q4b.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 4 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The mass ratios of the rectangle, triangle and particle are <span class="math inline">\(2:1:3k\)</span>. Taking moments about <span class="math inline">\(D\)</span>:</p>
+<p><span class="math display">\[
+2\left(\frac a2\right)=1\left(\frac{2a}{3}\right)+3k(2a).
+\]</span></p>
+<p>Therefore</p>
+<span class="math display">\[
+1=\frac23+6k
+\quad\Longrightarrow\quad
+\boxed{k=\frac1{18}}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2025, Question 4.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-5" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-5">2025 October/November · 9231/31 and 9231/33 · Question 5</h3>
+<p>A uniform lamina <span class="math inline">\(OABCD\)</span> consists of a rectangle <span class="math inline">\(OACD\)</span> and a triangle <span class="math inline">\(ABC\)</span>. The length of <span class="math inline">\(OA\)</span> is <span class="math inline">\(ka\)</span>, the length of <span class="math inline">\(OD\)</span> is <span class="math inline">\(2a\)</span>, the height of triangle <span class="math inline">\(ABC\)</span> is <span class="math inline">\(h\)</span> and angle <span class="math inline">\(CAB=45^\circ\)</span> (see diagram). Relative to axes through <span class="math inline">\(O\)</span>, parallel and perpendicular to <span class="math inline">\(OA\)</span> as shown, the centre of mass of triangle <span class="math inline">\(ABC\)</span> is <span class="math inline">\((x,y)\)</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">\(x=\dfrac13(3ka+h)\)</span>, and find an expression for <span class="math inline">\(y\)</span>.</p>
+<p>The lamina <span class="math inline">\(OABCD\)</span> is placed vertically on its edge <span class="math inline">\(OA\)</span> on a horizontal plane.</p>
+<p><strong>(b)</strong> Find, in terms of <span class="math inline">\(a\)</span> and <span class="math inline">\(k\)</span>, the set of values of <span class="math inline">\(h\)</span> for which the lamina is in equilibrium.</p>
+<p>It is now given that <span class="math inline">\(k=3\)</span> and that the lamina is on the point of toppling.</p>
+<p><strong>(c)</strong> Find, in terms of <span class="math inline">\(a\)</span>, the coordinates of the centre of mass of the triangle <span class="math inline">\(ABC\)</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2025-on-q5.svg" class="img-fluid figure-img" style="width:42.0%"></p>
+<figcaption>Question 5 diagram</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> Using the three vertices of the triangle,</p>
+<p><span class="math display">\[
+x=\frac13(ka+(ka+h)+ka)=\boxed{\frac13(3ka+h)},
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+y=\frac13(0+h+2a)=\boxed{\frac13(2a+h)}.
+\]</span></p>
+<p><strong>(b)</strong> Taking moments about the horizontal axis through <span class="math inline">\(O\)</span> gives</p>
+<p><span class="math display">\[
+\left(2ka^2+ah\right)x
+=2ka^2\left(\frac{ka}{2}\right)+ah\left(ka+\frac h3\right).
+\]</span></p>
+<p>For equilibrium, <span class="math inline">\(x\le ka\)</span>. Substitution and simplification give</p>
+<p><span class="math display">\[
+0\le h\le\boxed{3ka}.
+\]</span></p>
+<p><strong>(c)</strong> With <span class="math inline">\(k=3\)</span> and at toppling, <span class="math inline">\(h=3ka=a\)</span>. Hence</p>
+<span class="math display">\[
+\boxed{(x,y)=\left(\frac{4a}{3},a\right)}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 5.
+</div>
+</section>
+<section id="octobernovember-923132-question-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-3-1">2025 October/November · 9231/32 · Question 3</h3>
+<p>A uniform lamina <span class="math inline">\(OABCD\)</span> is in the form of a rectangle, <span class="math inline">\(OBCD\)</span>, joined along the edge <span class="math inline">\(OB\)</span> to a quarter circle <span class="math inline">\(OAB\)</span>. The length of <span class="math inline">\(DO\)</span> is <span class="math inline">\(ka\)</span> and the length of <span class="math inline">\(OB\)</span> is <span class="math inline">\(a\)</span>. The lamina rests in a vertical plane with its edge <span class="math inline">\(CB\)</span> on a horizontal surface (see diagram).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/equilibrium/past-2025-on-q3.svg" class="img-fluid figure-img" style="width:58.0%"></p>
+<figcaption>Question 3 diagram</figcaption>
+</figure>
+</div>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">\(k\)</span>, <span class="math inline">\(a\)</span> and <span class="math inline">\(\pi\)</span>, an expression for the distance of the centre of mass above the horizontal surface.</p>
+<p>[You may use without proof the result for the centre of mass of a circular sector in the list of formulae (MF19).]</p>
+<p>The lamina is then on the point of toppling about <span class="math inline">\(B\)</span>.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">\(k\)</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The rectangle has area <span class="math inline">\(ka^2\)</span> and its centre is at height <span class="math inline">\(ka/2\)</span>. The quarter-circle sector has area <span class="math inline">\(\pi a^2/4\)</span>.</p>
+<p>The centre of mass of the quarter-circle sector is at vertical distance</p>
+<p><span class="math display">\[
+\left(\frac{2a\cos(\pi/4)}{3(\pi/4)}\right)\sin\frac\pi4
+=\frac{4a}{3\pi}
+\]</span></p>
+<p>above <span class="math inline">\(OA\)</span>. Hence its height above <span class="math inline">\(CB\)</span> is <span class="math inline">\(a-4a/(3\pi)\)</span>.</p>
+<p><strong>(a)</strong> If the centre of mass is at height <span class="math inline">\(y\)</span> above <span class="math inline">\(CB\)</span>, taking moments about <span class="math inline">\(OB\)</span> gives</p>
+<p><span class="math display">\[
+ka^2\left(\frac{ka}{2}\right)
++\frac{\pi a^2}{4}\left(a-\frac{4a}{3\pi}\right)
+=\left(ka^2+\frac{\pi a^2}{4}\right)y.
+\]</span></p>
+<p>After simplification,</p>
+<p><span class="math display">\[
+\boxed{y=\frac{6k+3\pi-4}{3(4k+\pi)}a}.
+\]</span></p>
+<p><strong>(b)</strong> At the point of toppling about <span class="math inline">\(B\)</span>, the vertical line through the centre of mass passes through <span class="math inline">\(B\)</span>. Taking moments about <span class="math inline">\(OB\)</span> gives</p>
+<p><span class="math display">\[
+ka^2\left(\frac{ka}{2}\right)
+=\frac{\pi a^2}{4}\left(\frac{4a}{3\pi}\right).
+\]</span></p>
+<p>Therefore</p>
+<p><span class="math display">\[
+\frac{k^2a^3}{2}=\frac{a^3}{3}
+\quad\Longrightarrow\quad
+k^2=\frac23.
+\]</span></p>
+<p>Since <span class="math inline">\(k&gt;0\)</span>,</p>
+<span class="math display">\[
+\boxed{k=\sqrt{\frac23}=0.816}.
+\]</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2025, Question 3.
+</div>
+</section>
+</section>
+<section id="本章检查清单" class="level2">
+<h2 class="anchored" data-anchor-id="本章检查清单">5. 本章检查清单</h2>
+<ol type="1">
+<li>Moment 的 distance 必须是 perpendicular distance，不是任意几何距离；</li>
+<li>取 moments 前先明确正方向，并保持 clockwise、anticlockwise 符号一致；</li>
+<li>对刚体平衡，只有 <span class="math inline">\(\sum F=0\)</span> 还不够，还必须有 <span class="math inline">\(\sum M=0\)</span>；</li>
+<li>uniform rod、uniform plank 和 uniform lamina 的 weight 作用在 centre of mass；</li>
+<li>smooth contact 没有 friction，rough contact 才能使用 <span class="math inline">\(F=\mu R\)</span>；</li>
+<li>about to slip 时使用等号 <span class="math inline">\(F=\mu R\)</span>；</li>
+<li>point of tipping 时，centre of mass 的竖直投影通过支撑边缘；</li>
+<li>选取矩点时，优先选择能消去一个或多个未知 reaction 的点。</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-3/motion-of-a-projectile.html" class="pagination-link" aria-label="3.1 Motion of a projectile">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3.1 Motion of a projectile</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../paper-3/centre-of-mass.html" class="pagination-link" aria-label="3.3 Centre of mass">
+        <span class="nav-page-text">3.3 Centre of mass</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
