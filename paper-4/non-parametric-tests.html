@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="CIE 9231 Paper 4 non-parametric tests，依据 John du Feu Further Probability &amp; Statistics。">
 
-<title>CIE Further Mathematics 学习页面 – CIE Further Mathematics 9231</title>
+<title>4.4 Non-parametric tests – CIE Further Mathematics 9231</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,24 +27,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./paper-1/roots-of-polynomial-equations.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-4/chi-squared-tests.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -103,7 +104,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked quarto-light">
@@ -115,7 +116,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">学习首页</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-4/continuous-random-variables.html">Paper 4 · Further Probability &amp; Statistics</a></li><li class="breadcrumb-item"><a href="../paper-4/non-parametric-tests.html">4.4 Non-parametric tests</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
@@ -130,7 +131,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">CIE Further Mathematics 9231</a> 
+      <a href="../">CIE Further Mathematics 9231</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -142,7 +143,7 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">学习首页</span></a>
   </div>
 </li>
@@ -157,43 +158,43 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.1 Roots of polynomial equations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.2 Rational functions and graphs</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.3 Summation of series</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.4 Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.5 Polar coordinates</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.6 Vectors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1.7 Proof by induction</span></a>
   </div>
 </li>
@@ -210,37 +211,37 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.1 Hyperbolic functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-2/matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.2 Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-2/differentiation.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-2/differentiation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.3 Differentiation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-2/integration.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-2/integration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.4 Integration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-2/complex-numbers.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-2/complex-numbers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.5 Complex numbers</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-2/differential-equations.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-2/differential-equations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2.6 Differential equations</span></a>
   </div>
 </li>
@@ -257,43 +258,43 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-3/motion-of-a-projectile.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-3/motion-of-a-projectile.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3.1 Motion of a projectile</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-3/equilibrium-of-a-rigid-body.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-3/equilibrium-of-a-rigid-body.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3.2 Equilibrium of a rigid body</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-3/centre-of-mass.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-3/centre-of-mass.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3.3 Centre of mass</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-3/circular-motion.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-3/circular-motion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3.4 Circular motion</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-3/hookes-law.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-3/hookes-law.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3.5 Hooke’s law</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-3/linear-motion.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-3/linear-motion.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3.6 Linear motion under a variable force</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-3/momentum.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-3/momentum.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3.7 Momentum</span></a>
   </div>
 </li>
@@ -310,25 +311,25 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-4/continuous-random-variables.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-4/continuous-random-variables.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4.1 Continuous random variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-4/inference-normal-t-distributions.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-4/inference-normal-t-distributions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4.2 Inference using normal and t-distributions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-4/chi-squared-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-4/chi-squared-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4.3 Chi-squared tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./paper-4/non-parametric-tests.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-4/non-parametric-tests.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">4.4 Non-parametric tests</span></a>
   </div>
 </li>
@@ -344,53 +345,53 @@ window.Quarto = {
     <h2 id="toc-title">该页面内容</h2>
    
   <ul>
-  <li><a href="#已完成内容" id="toc-已完成内容" class="nav-link active" data-scroll-target="#已完成内容">已完成内容</a>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link active" data-scroll-target="#textbook-examples">1. Textbook Examples</a>
   <ul class="collapse">
-  <li><a href="#roots-of-polynomial-equations" id="toc-roots-of-polynomial-equations" class="nav-link" data-scroll-target="#roots-of-polynomial-equations">1.1 Roots of polynomial equations</a></li>
-  <li><a href="#chi-squared-tests" id="toc-chi-squared-tests" class="nav-link" data-scroll-target="#chi-squared-tests">4.3 Chi-squared tests</a></li>
-  <li><a href="#rational-functions-and-graphs" id="toc-rational-functions-and-graphs" class="nav-link" data-scroll-target="#rational-functions-and-graphs">1.2 Rational functions and graphs</a></li>
-  <li><a href="#summation-of-series" id="toc-summation-of-series" class="nav-link" data-scroll-target="#summation-of-series">1.3 Summation of series</a></li>
-  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices">1.4 Matrices</a></li>
-  <li><a href="#polar-coordinates" id="toc-polar-coordinates" class="nav-link" data-scroll-target="#polar-coordinates">1.5 Polar coordinates</a></li>
-  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">1.6 Vectors</a></li>
-  <li><a href="#proof-by-induction" id="toc-proof-by-induction" class="nav-link" data-scroll-target="#proof-by-induction">1.7 Proof by induction</a></li>
+  <li><a href="#example-4.1-the-sign-test" id="toc-example-4.1-the-sign-test" class="nav-link" data-scroll-target="#example-4.1-the-sign-test">Example 4.1 · The sign test</a></li>
+  <li><a href="#example-4.2-the-wilcoxon-signed-rank-test" id="toc-example-4.2-the-wilcoxon-signed-rank-test" class="nav-link" data-scroll-target="#example-4.2-the-wilcoxon-signed-rank-test">Example 4.2 · The Wilcoxon signed-rank test</a></li>
+  <li><a href="#example-4.3-a-one-sample-sign-test" id="toc-example-4.3-a-one-sample-sign-test" class="nav-link" data-scroll-target="#example-4.3-a-one-sample-sign-test">Example 4.3 · A one-sample sign test</a></li>
+  <li><a href="#example-4.4-wilcoxon-matched-pairs-signed-rank-test" id="toc-example-4.4-wilcoxon-matched-pairs-signed-rank-test" class="nav-link" data-scroll-target="#example-4.4-wilcoxon-matched-pairs-signed-rank-test">Example 4.4 · Wilcoxon matched-pairs signed-rank test</a></li>
+  <li><a href="#example-4.5-wilcoxon-signed-rank-test" id="toc-example-4.5-wilcoxon-signed-rank-test" class="nav-link" data-scroll-target="#example-4.5-wilcoxon-signed-rank-test">Example 4.5 · Wilcoxon signed-rank test</a></li>
+  <li><a href="#example-4.6-normal-approximation-to-the-wilcoxon-statistic" id="toc-example-4.6-normal-approximation-to-the-wilcoxon-statistic" class="nav-link" data-scroll-target="#example-4.6-normal-approximation-to-the-wilcoxon-statistic">Example 4.6 · Normal approximation to the Wilcoxon statistic</a></li>
+  <li><a href="#example-4.7-wilcoxon-matched-pairs-signed-rank-test" id="toc-example-4.7-wilcoxon-matched-pairs-signed-rank-test" class="nav-link" data-scroll-target="#example-4.7-wilcoxon-matched-pairs-signed-rank-test">Example 4.7 · Wilcoxon matched-pairs signed-rank test</a></li>
+  <li><a href="#example-4.8-the-wilcoxon-rank-sum-test" id="toc-example-4.8-the-wilcoxon-rank-sum-test" class="nav-link" data-scroll-target="#example-4.8-the-wilcoxon-rank-sum-test">Example 4.8 · The Wilcoxon rank-sum test</a></li>
+  <li><a href="#example-4.9-wilcoxon-rank-sum-test" id="toc-example-4.9-wilcoxon-rank-sum-test" class="nav-link" data-scroll-target="#example-4.9-wilcoxon-rank-sum-test">Example 4.9 · Wilcoxon rank-sum test</a></li>
+  <li><a href="#example-4.10-two-sample-wilcoxon-rank-sum-test" id="toc-example-4.10-two-sample-wilcoxon-rank-sum-test" class="nav-link" data-scroll-target="#example-4.10-two-sample-wilcoxon-rank-sum-test">Example 4.10 · Two-sample Wilcoxon rank-sum test</a></li>
   </ul></li>
-  <li><a href="#paper-2-further-pure-mathematics-2" id="toc-paper-2-further-pure-mathematics-2" class="nav-link" data-scroll-target="#paper-2-further-pure-mathematics-2">Paper 2 · Further Pure Mathematics 2</a>
-  <ul class="collapse">
-  <li><a href="#hyperbolic-functions" id="toc-hyperbolic-functions" class="nav-link" data-scroll-target="#hyperbolic-functions">2.1 Hyperbolic functions</a></li>
-  <li><a href="#matrices-1" id="toc-matrices-1" class="nav-link" data-scroll-target="#matrices-1">2.2 Matrices</a></li>
-  <li><a href="#differentiation" id="toc-differentiation" class="nav-link" data-scroll-target="#differentiation">2.3 Differentiation</a></li>
-  <li><a href="#integration" id="toc-integration" class="nav-link" data-scroll-target="#integration">2.4 Integration</a></li>
-  <li><a href="#complex-numbers" id="toc-complex-numbers" class="nav-link" data-scroll-target="#complex-numbers">2.5 Complex numbers</a></li>
-  <li><a href="#differential-equations" id="toc-differential-equations" class="nav-link" data-scroll-target="#differential-equations">2.6 Differential equations</a></li>
-  </ul></li>
-  <li><a href="#paper-3-further-mechanics" id="toc-paper-3-further-mechanics" class="nav-link" data-scroll-target="#paper-3-further-mechanics">Paper 3 · Further Mechanics</a>
-  <ul class="collapse">
-  <li><a href="#motion-of-a-projectile" id="toc-motion-of-a-projectile" class="nav-link" data-scroll-target="#motion-of-a-projectile">3.1 Motion of a projectile</a></li>
-  <li><a href="#equilibrium-of-a-rigid-body" id="toc-equilibrium-of-a-rigid-body" class="nav-link" data-scroll-target="#equilibrium-of-a-rigid-body">3.2 Equilibrium of a rigid body</a></li>
-  <li><a href="#centre-of-mass" id="toc-centre-of-mass" class="nav-link" data-scroll-target="#centre-of-mass">3.3 Centre of mass</a></li>
-  <li><a href="#circular-motion" id="toc-circular-motion" class="nav-link" data-scroll-target="#circular-motion">3.4 Circular motion</a></li>
-  <li><a href="#hookes-law" id="toc-hookes-law" class="nav-link" data-scroll-target="#hookes-law">3.5 Hooke’s law</a></li>
-  <li><a href="#linear-motion-under-a-variable-force" id="toc-linear-motion-under-a-variable-force" class="nav-link" data-scroll-target="#linear-motion-under-a-variable-force">3.6 Linear motion under a variable force</a></li>
-  <li><a href="#momentum" id="toc-momentum" class="nav-link" data-scroll-target="#momentum">3.7 Momentum</a></li>
-  </ul></li>
-  <li><a href="#paper-4-further-probability-statistics" id="toc-paper-4-further-probability-statistics" class="nav-link" data-scroll-target="#paper-4-further-probability-statistics">Paper 4 · Further Probability &amp; Statistics</a>
-  <ul class="collapse">
-  <li><a href="#continuous-random-variables" id="toc-continuous-random-variables" class="nav-link" data-scroll-target="#continuous-random-variables">4.1 Continuous random variables</a></li>
-  <li><a href="#inference-using-normal-and-t-distributions" id="toc-inference-using-normal-and-t-distributions" class="nav-link" data-scroll-target="#inference-using-normal-and-t-distributions">4.2 Inference using normal and t-distributions</a></li>
-  </ul></li>
+  <li><a href="#paper-4-past-paper-questions" id="toc-paper-4-past-paper-questions" class="nav-link" data-scroll-target="#paper-4-past-paper-questions">2. Paper 4 past-paper questions</a></li>
+  <li><a href="#mayjune-923141-and-923142-question-5" id="toc-mayjune-923141-and-923142-question-5" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-5">2021 May/June · 9231/41 and 9231/42 · Question 5</a></li>
+  <li><a href="#mayjune-923143-question-1" id="toc-mayjune-923143-question-1" class="nav-link" data-scroll-target="#mayjune-923143-question-1">2021 May/June · 9231/43 · Question 1</a></li>
+  <li><a href="#mayjune-923141-and-923142-question-6" id="toc-mayjune-923141-and-923142-question-6" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-6">2022 May/June · 9231/41 and 9231/42 · Question 6</a></li>
+  <li><a href="#mayjune-923143-question-5" id="toc-mayjune-923143-question-5" class="nav-link" data-scroll-target="#mayjune-923143-question-5">2022 May/June · 9231/43 · Question 5</a></li>
+  <li><a href="#mayjune-923141-and-923142-question-4" id="toc-mayjune-923141-and-923142-question-4" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-4">2023 May/June · 9231/41 and 9231/42 · Question 4</a></li>
+  <li><a href="#mayjune-923143-question-3" id="toc-mayjune-923143-question-3" class="nav-link" data-scroll-target="#mayjune-923143-question-3">2023 May/June · 9231/43 · Question 3</a></li>
+  <li><a href="#octobernovember-923141-and-923143-question-6" id="toc-octobernovember-923141-and-923143-question-6" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-6">2023 October/November · 9231/41 and 9231/43 · Question 6</a></li>
+  <li><a href="#octobernovember-923142-question-5" id="toc-octobernovember-923142-question-5" class="nav-link" data-scroll-target="#octobernovember-923142-question-5">2023 October/November · 9231/42 · Question 5</a></li>
+  <li><a href="#mayjune-923141-and-923142-questions-2-and-3" id="toc-mayjune-923141-and-923142-questions-2-and-3" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-questions-2-and-3">2024 May/June · 9231/41 and 9231/42 · Questions 2 and 3</a></li>
+  <li><a href="#mayjune-923143-question-1-1" id="toc-mayjune-923143-question-1-1" class="nav-link" data-scroll-target="#mayjune-923143-question-1-1">2024 May/June · 9231/43 · Question 1</a></li>
+  <li><a href="#octobernovember-923141-and-923143-question-2" id="toc-octobernovember-923141-and-923143-question-2" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-2">2024 October/November · 9231/41 and 9231/43 · Question 2</a></li>
+  <li><a href="#octobernovember-923142-question-6" id="toc-octobernovember-923142-question-6" class="nav-link" data-scroll-target="#octobernovember-923142-question-6">2024 October/November · 9231/42 · Question 6</a></li>
+  <li><a href="#mayjune-923141-and-923142-question-5-1" id="toc-mayjune-923141-and-923142-question-5-1" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-5-1">2025 May/June · 9231/41 and 9231/42 · Question 5</a></li>
+  <li><a href="#mayjune-923143-question-4" id="toc-mayjune-923143-question-4" class="nav-link" data-scroll-target="#mayjune-923143-question-4">2025 May/June · 9231/43 · Question 4</a></li>
+  <li><a href="#octobernovember-923142-question-1" id="toc-octobernovember-923142-question-1" class="nav-link" data-scroll-target="#octobernovember-923142-question-1">2025 October/November · 9231/42 · Question 1</a></li>
+  <li><a href="#octobernovember-923141-and-923143-question-4" id="toc-octobernovember-923141-and-923143-question-4" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-4">2025 October/November · 9231/41 and 9231/43 · Question 4</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-4/continuous-random-variables.html">Paper 4 · Further Probability &amp; Statistics</a></li><li class="breadcrumb-item"><a href="../paper-4/non-parametric-tests.html">4.4 Non-parametric tests</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">CIE Further Mathematics 学习页面</h1>
-<p class="subtitle lead">2026–2027 syllabus · 9231</p>
+<h1 class="title">4.4 Non-parametric tests</h1>
+<p class="subtitle lead">Further Probability &amp; Statistics · sign tests · Wilcoxon tests</p>
 </div>
 
+<div>
+  <div class="description">
+    CIE 9231 Paper 4 non-parametric tests，依据 John du Feu Further Probability &amp; Statistics。
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -405,248 +406,213 @@ window.Quarto = {
 </header>
 
 
-<p>这个网站使用 Quarto 编写，知识点、教材练习和历年真题都直接呈现在 HTML 页面中，学习时不需要打开原始 PDF。</p>
-<section id="已完成内容" class="level2">
-<h2 class="anchored" data-anchor-id="已完成内容">已完成内容</h2>
-<section id="roots-of-polynomial-equations" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="roots-of-polynomial-equations"><a href="./paper-1/roots-of-polynomial-equations.html">1.1 Roots of polynomial equations</a></h3>
-<ul>
-<li>2026–2027 考纲要求</li>
-<li>二次、三次、四次方程的根与系数关系</li>
-<li>对称式、Newton sums 与根的变换</li>
-<li>教材精选练习</li>
-<li>2019–2025 全部现有 Paper 1 对应真题</li>
-<li>可展开的官方评分标准</li>
-</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+重要
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>本章包含教材 Chapter 4 Examples 4.1–4.10，以及 2021–2025 Paper 4 中的 sign test、Wilcoxon matched-pairs signed-rank test 和 Wilcoxon rank-sum test。真题答案参照对应 Mark Scheme。</p>
+</div>
+</div>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">1. Textbook Examples</h2>
+<section id="example-4.1-the-sign-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.1-the-sign-test">Example 4.1 · The sign test</h3>
+<p>The sign test is applied to the signs of the differences from a hypothesised median. Zero differences are omitted. Under <span class="math inline">\(H_0\)</span>, the number of positive differences has a binomial distribution <span class="math inline">\(B(n,\frac12)\)</span>.</p>
 </section>
-<section id="chi-squared-tests" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="chi-squared-tests"><a href="./paper-4/chi-squared-tests.html">4.3 Chi-squared tests</a></h3>
-<ul>
-<li>Contingency tables、independence tests 与 goodness-of-fit tests</li>
-<li>Expected frequencies、degrees of freedom、test statistic 与 critical value</li>
-<li>教材 Examples 与 9231 Paper 4 真题</li>
-</ul>
+<section id="example-4.2-the-wilcoxon-signed-rank-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.2-the-wilcoxon-signed-rank-test">Example 4.2 · The Wilcoxon signed-rank test</h3>
+<p>For non-zero differences, rank the absolute differences, restore their signs, and use the smaller of the sums of positive and negative ranks as the test statistic.</p>
 </section>
-<section id="rational-functions-and-graphs" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="rational-functions-and-graphs"><a href="./paper-1/rational-functions-and-graphs.html">1.2 Rational functions and graphs</a></h3>
-<ul>
-<li>2026–2027 考纲要求与教材 Chapter 4 知识点</li>
-<li>渐近线、驻点、值域与判别式方法</li>
-<li><span class="math inline">\(|f(x)|\)</span>、<span class="math inline">\(f(|x|)\)</span>、<span class="math inline">\(1/f(x)\)</span> 与 <span class="math inline">\(y^2=f(x)\)</span></li>
-<li>教材 Example 4.1–4.6</li>
-<li>教材中带 Cambridge 来源的 Exercise 4B Q4–Q8</li>
-<li>2019–2025 全部现有 Paper 1 对应真题</li>
-</ul>
+<section id="example-4.3-a-one-sample-sign-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.3-a-one-sample-sign-test">Example 4.3 · A one-sample sign test</h3>
+<p>The median time to cure a particular illness using the standard drug treatment is 23.5 days. A random sample of 50 patients with the illness is selected and given the new drug. Of these 50 people, 33 are cured in less than 23.5 days.</p>
+<p>Carry out a sign test at the 10% significance level to examine whether there is a reduction in the median time required to cure the illness when using the new drug.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Under <span class="math inline">\(H_0\)</span>, <span class="math inline">\(X\sim B(50,\frac12)\)</span>. Using the normal approximation with continuity correction, <span class="math display">\[P(X\ge33)=P\left(Z\ge\frac{32.5-25}{\sqrt{12.5}}\right)=0.0170.\]</span> Since <span class="math inline">\(0.0170&lt;0.10\)</span>, reject <span class="math inline">\(H_0\)</span>. There is sufficient evidence that the median time is less than 23.5 days.
+</details>
 </section>
-<section id="summation-of-series" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="summation-of-series"><a href="./paper-1/summation-of-series.html">1.3 Summation of series</a></h3>
-<ul>
-<li>2026–2027 考纲要求与教材 Chapter 2.1–2.3</li>
-<li><span class="math inline">\(\sum r\)</span>、<span class="math inline">\(\sum r^2\)</span>、<span class="math inline">\(\sum r^3\)</span> 的标准结果</li>
-<li>错位相减、部分分式与 method of differences</li>
-<li>有限和、收敛判断与无穷和</li>
-<li>教材 Example 2.1–2.8</li>
-<li>教材中带 Cambridge 来源的 Exercise 题目</li>
-</ul>
+<section id="example-4.4-wilcoxon-matched-pairs-signed-rank-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.4-wilcoxon-matched-pairs-signed-rank-test">Example 4.4 · Wilcoxon matched-pairs signed-rank test</h3>
+<p>For paired observations, calculate each difference, rank the absolute non-zero differences, restore signs, and compare the Wilcoxon statistic with the tabulated critical value for the chosen alternative and significance level.</p>
 </section>
-<section id="matrices" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="matrices"><a href="./paper-1/matrices.html">1.4 Matrices</a></h3>
-<ul>
-<li>矩阵运算、零矩阵与单位矩阵</li>
-<li><span class="math inline">\(2\times2\)</span>、<span class="math inline">\(3\times3\)</span> 行列式与逆矩阵</li>
-<li>平面变换、复合变换与面积伸缩因子</li>
-<li>不动点与不变直线</li>
-<li>教材 Chapters 1 and 6 全部相关编号 Example</li>
-<li>2019–2025 Paper 1 对应真题</li>
-</ul>
+<section id="example-4.5-wilcoxon-signed-rank-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.5-wilcoxon-signed-rank-test">Example 4.5 · Wilcoxon signed-rank test</h3>
+<p>The median weight of yam roots using the standard fertiliser is 5.6 kg. The weights in kg of a random sample of 30 roots grown with a new fertiliser are <span class="math display">\[5.32,4.47,7.30,7.09,6.85,4.68,6.41,8.21,3.57,5.46,\]</span> <span class="math display">\[5.96,5.72,6.18,5.99,6.54,4.78,6.11,5.22,7.21,4.67,\]</span> <span class="math display">\[5.81,7.07,5.44,6.69,5.71,7.18,5.20,6.33,5.27,5.73.\]</span></p>
+<p>Carry out a Wilcoxon test at the 10% significance level to investigate whether roots grown with this fertiliser are on average heavier than those grown with the usual one.</p>
 </section>
-<section id="polar-coordinates" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="polar-coordinates"><a href="./paper-1/polar-coordinates.html">1.5 Polar coordinates</a></h3>
-<ul>
-<li>Cartesian coordinates 与 polar coordinates 的转换</li>
-<li>极坐标曲线的对称性、pole、initial line 与半径极值</li>
-<li>点到 initial line 或指定半直线的最远距离</li>
-<li>极坐标区域面积</li>
-<li>教材 Example 5.1–5.8</li>
-<li>教材中带 Cambridge 来源的 Exercise 题目</li>
-<li>2019–2025 全部现有 Paper 1 对应真题及原创作图答案</li>
-</ul>
+<section id="example-4.6-normal-approximation-to-the-wilcoxon-statistic" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.6-normal-approximation-to-the-wilcoxon-statistic">Example 4.6 · Normal approximation to the Wilcoxon statistic</h3>
+<p>For larger samples, use the normal approximation to the Wilcoxon statistic, with continuity correction, and compare the resulting <span class="math inline">\(z\)</span>-value with the appropriate one-tailed or two-tailed critical value.</p>
 </section>
-<section id="vectors" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="vectors"><a href="./paper-1/vectors.html">1.6 Vectors</a></h3>
-<ul>
-<li>平面的 Cartesian、normal 与 parametric vector forms</li>
-<li>直线和平面的交点、平行与包含关系</li>
-<li>vector product、角度与交线</li>
-<li>点到平面、点到直线及 skew lines 的最短距离</li>
-<li>common perpendicular</li>
-<li>教材 Example 7.1–7.19</li>
-</ul>
+<section id="example-4.7-wilcoxon-matched-pairs-signed-rank-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.7-wilcoxon-matched-pairs-signed-rank-test">Example 4.7 · Wilcoxon matched-pairs signed-rank test</h3>
+<p>For paired data, replace the paired observations by their differences and apply the one-sample Wilcoxon signed-rank procedure to those differences.</p>
 </section>
-<section id="proof-by-induction" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="proof-by-induction"><a href="./paper-1/proof-by-induction.html">1.7 Proof by induction</a></h3>
-<ul>
-<li>base case、inductive hypothesis 与 inductive step</li>
-<li>级数、递推数列与不等式证明</li>
-<li>高阶导数与矩阵幂证明</li>
-<li>教材 Example 2.9–2.13</li>
-</ul>
+<section id="example-4.8-the-wilcoxon-rank-sum-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.8-the-wilcoxon-rank-sum-test">Example 4.8 · The Wilcoxon rank-sum test</h3>
+<p>Rank all observations from the two independent samples together. Calculate the rank sums, check that their sum is <span class="math inline">\(\frac12(m+n)(m+n+1)\)</span>, and use the smaller-sample statistic with the appropriate critical value.</p>
 </section>
+<section id="example-4.9-wilcoxon-rank-sum-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.9-wilcoxon-rank-sum-test">Example 4.9 · Wilcoxon rank-sum test</h3>
+<p>Use the data from the preceding example to test, at the 5% significance level, whether there is evidence that the median prediction for China is greater than that for India.</p>
 </section>
-<section id="paper-2-further-pure-mathematics-2" class="level2">
-<h2 class="anchored" data-anchor-id="paper-2-further-pure-mathematics-2">Paper 2 · Further Pure Mathematics 2</h2>
-<section id="hyperbolic-functions" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="hyperbolic-functions"><a href="./paper-2/hyperbolic-functions.html">2.1 Hyperbolic functions</a></h3>
-<ul>
-<li>双曲函数与反双曲函数的指数、对数定义</li>
-<li>六个双曲函数图像的绘制要点</li>
-<li>核心恒等式、二倍角与加法公式</li>
-<li>Osborn’s rule</li>
-<li>教材 Example 1–17 及原创作图</li>
-<li>2021–2023 Paper 2 对应真题</li>
-</ul>
-</section>
-<section id="matrices-1" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="matrices-1"><a href="./paper-2/matrices.html">2.2 Matrices</a></h3>
-<ul>
-<li>三元一次方程组与矩阵方程</li>
-<li>三平面交点与一致性、几何解释</li>
-<li>特征值与特征向量、特征方程</li>
-<li>对角化 <span class="math inline">\(A=QDQ^{-1}\)</span> 与矩阵幂</li>
-<li>教材 Example 1–8</li>
-<li>2020–2025 Paper 2 对应真题</li>
-</ul>
-</section>
-<section id="differentiation" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="differentiation"><a href="./paper-2/differentiation.html">2.3 Differentiation</a></h3>
-<ul>
-<li>双曲函数与反三角、反双曲函数的导数</li>
-<li>隐式关系与参数曲线的二阶导数</li>
-<li>Maclaurin 级数及隐式求导法</li>
-<li>教材 Example 1–7</li>
-<li>2020–2025 Paper 2 对应真题</li>
-</ul>
-</section>
-<section id="integration" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="integration"><a href="./paper-2/integration.html">2.4 Integration</a></h3>
-<ul>
-<li>双曲函数积分与标准积分</li>
-<li>配方与三角、双曲代换</li>
-<li>递推公式</li>
-<li>矩形近似与积分不等式</li>
-<li>弧长与旋转曲面面积</li>
-<li>教材 Example 1–15</li>
-<li>2020–2025 Paper 2 对应真题</li>
-</ul>
-</section>
-<section id="complex-numbers" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="complex-numbers"><a href="./paper-2/complex-numbers.html">2.5 Complex numbers</a></h3>
-<ul>
-<li>de Moivre 定理及其证明</li>
-<li><span class="math inline">\(n\)</span> 次单位根</li>
-<li>倍角公式与 <span class="math inline">\(\sin^n\theta\)</span>、<span class="math inline">\(\cos^n\theta\)</span> 的倍角化</li>
-<li>C+iS 方法求和</li>
-<li>教材 Example 1–6</li>
-<li>2020–2025 Paper 2 对应真题</li>
-</ul>
-</section>
-<section id="differential-equations" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="differential-equations"><a href="./paper-2/differential-equations.html">2.6 Differential equations</a></h3>
-<ul>
-<li>一阶线性方程与积分因子</li>
-<li>二阶常系数方程的 CF 与 PI</li>
-<li>多项式、指数、正余弦特解</li>
-<li>代换法化简</li>
-<li>教材 Example 1–10</li>
-<li>2020–2025 Paper 2 对应真题</li>
-</ul>
-</section>
-<p>后续章节将沿用相同结构继续制作。</p>
-</section>
-<section id="paper-3-further-mechanics" class="level2">
-<h2 class="anchored" data-anchor-id="paper-3-further-mechanics">Paper 3 · Further Mechanics</h2>
-<section id="motion-of-a-projectile" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="motion-of-a-projectile"><a href="./paper-3/motion-of-a-projectile.html">3.1 Motion of a projectile</a></h3>
-<ul>
-<li>Further Mechanics 教材 Chapter 1 的建模假设与标准方程</li>
-<li>教材 Example 1.1–1.4</li>
-<li>教材中明确标注 Cambridge International 的 Exercise 题目</li>
-<li>9231 Paper 3 中的 projectile、trajectory、range 与 collision 真题</li>
-<li>配套答案与官方 mark scheme 核对结果</li>
-</ul>
-</section>
-<section id="equilibrium-of-a-rigid-body" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="equilibrium-of-a-rigid-body"><a href="./paper-3/equilibrium-of-a-rigid-body.html">3.2 Equilibrium of a rigid body</a></h3>
-<ul>
-<li>Moments、couples 与 rigid body model</li>
-<li>Equilibrium of forces and moments</li>
-<li>Rod、ladder、lamina、friction 与 limiting equilibrium</li>
-<li>教材 Example、Cambridge International Exercise 与 Paper 3 真题</li>
-</ul>
-</section>
-<section id="centre-of-mass" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="centre-of-mass"><a href="./paper-3/centre-of-mass.html">3.3 Centre of mass</a></h3>
-<ul>
-<li>Particle systems、uniform bodies 与 composite bodies 的 centre of mass</li>
-<li>Lamina、disc、semicircle、sector 与 removed-part 方法</li>
-<li>Suspension、tipping 以及与 equilibrium 综合的 Paper 3 真题</li>
-</ul>
-</section>
-<section id="circular-motion" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="circular-motion"><a href="./paper-3/circular-motion.html">3.4 Circular motion</a></h3>
-<ul>
-<li>Angular speed、velocity、centripetal acceleration 与 force</li>
-<li>Horizontal circles、conical pendulum 与 banked tracks</li>
-<li>Vertical circles、energy、tension、normal reaction 与 loss of contact</li>
-<li>教材 Examples、Cambridge International Exercise 与 Paper 3 真题</li>
-</ul>
-</section>
-<section id="hookes-law" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="hookes-law"><a href="./paper-3/hookes-law.html">3.5 Hooke’s law</a></h3>
-<ul>
-<li>Elastic strings、springs、modulus of elasticity 与 extension</li>
-<li>Multiple strings、elastic potential energy 与 work</li>
-<li>Vertical elastic motion、energy equation 与 slack-string conditions</li>
-<li>教材 Examples、Cambridge International Exercise 与 Paper 3 真题</li>
-</ul>
-</section>
-<section id="linear-motion-under-a-variable-force" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="linear-motion-under-a-variable-force"><a href="./paper-3/linear-motion.html">3.6 Linear motion under a variable force</a></h3>
-<ul>
-<li>Newton’s second law as a differential equation</li>
-<li>Force depending on time, displacement or velocity</li>
-<li>Resistance、driving force 与 limiting speed</li>
-<li>教材 Examples、Cambridge International Exercise 与 Paper 3 真题</li>
-</ul>
-</section>
-<section id="momentum" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="momentum"><a href="./paper-3/momentum.html">3.7 Momentum</a></h3>
-<ul>
-<li>Impulse、momentum conservation 与 Newton’s experimental law</li>
-<li>Direct impact、smooth plane、barrier 与 oblique impact</li>
-<li>教材 Examples 7.1–7.10、Exercise 7A–7E 与 2021–2025 Paper 3 真题</li>
-</ul>
+<section id="example-4.10-two-sample-wilcoxon-rank-sum-test" class="level3">
+<h3 class="anchored" data-anchor-id="example-4.10-two-sample-wilcoxon-rank-sum-test">Example 4.10 · Two-sample Wilcoxon rank-sum test</h3>
+<p>In an experiment on cultural differences in interpreting facial expressions, 10 English children and 12 Japanese children are each shown 40 full-face photographs of American children. Their scores are:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>English children</th>
+<th style="text-align: right;">16</th>
+<th style="text-align: right;">18</th>
+<th style="text-align: right;">19</th>
+<th style="text-align: right;">23</th>
+<th style="text-align: right;">28</th>
+<th style="text-align: right;">29</th>
+<th style="text-align: right;">34</th>
+<th style="text-align: right;">35</th>
+<th style="text-align: right;">37</th>
+<th style="text-align: right;">39</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Japanese children</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">36</td>
+</tr>
+</tbody>
+</table>
+<p>Is there evidence at the 5% level that English and Japanese children differ in their abilities to identify American facial expressions?</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+State <span class="math inline">\(H_0:\)</span> the two population medians are equal and <span class="math inline">\(H_1:\)</span> they differ, rank all 22 scores together, calculate the two rank sums and the Wilcoxon rank-sum statistic, then compare with the two-tailed 5% critical value and state the conclusion in context.
+</details>
 </section>
 </section>
-<section id="paper-4-further-probability-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="paper-4-further-probability-statistics">Paper 4 · Further Probability &amp; Statistics</h2>
-<section id="continuous-random-variables" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="continuous-random-variables"><a href="./paper-4/continuous-random-variables.html">4.1 Continuous random variables</a></h3>
-<ul>
-<li>Probability density functions and cumulative distribution functions</li>
-<li>Expectation、variance、median 与 percentiles</li>
-<li>Functions of continuous random variables</li>
-<li>John du Feu 教材 Examples 与 9231 Paper 4 真题</li>
-</ul>
+<section id="paper-4-past-paper-questions" class="level2">
+<h2 class="anchored" data-anchor-id="paper-4-past-paper-questions">2. Paper 4 past-paper questions</h2>
 </section>
-<section id="inference-using-normal-and-t-distributions" class="level3 topic-card">
-<h3 class="anchored" data-anchor-id="inference-using-normal-and-t-distributions"><a href="./paper-4/inference-normal-t-distributions.html">4.2 Inference using normal and t-distributions</a></h3>
-<ul>
-<li>Confidence intervals、one-sample tests、two-sample tests 与 paired-sample t-tests</li>
-<li>Normal assumptions、t-distribution、degrees of freedom 与 critical values</li>
-<li>John du Feu 教材 Examples 与 9231 Paper 4 真题</li>
-</ul>
+<section id="mayjune-923141-and-923142-question-5" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-5">2021 May/June · 9231/41 and 9231/42 · Question 5</h2>
+<p>The complete paired data and the question text are retained from the original QP: <strong>(a)</strong> Give a reason why a Wilcoxon signed-rank test may be more appropriate than a t-test. <strong>(b)</strong> Carry out a Wilcoxon matched-pairs signed-rank test at the 10% significance level.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The population of differences cannot be assumed to be normally distributed.</p>
+<strong>(b)</strong> Calculate the signed differences, omit zero differences, rank absolute differences, find the smaller rank sum <span class="math inline">\(W\)</span>, compare it with the tabulated 10% critical value, and state the Mark Scheme conclusion in context.
+</details>
 </section>
+<section id="mayjune-923143-question-1" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923143-question-1">2021 May/June · 9231/43 · Question 1</h2>
+<p>Carry out a Wilcoxon matched-pairs signed-rank test at the 10% significance level to investigate the stated claim using the complete paired data in the original QP.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+State the hypotheses, calculate and rank the signed differences, use the correct critical value, and give the contextual conclusion. Zero differences are excluded.
+</details>
+</section>
+<section id="mayjune-923141-and-923142-question-6" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-6">2022 May/June · 9231/41 and 9231/42 · Question 6</h2>
+<p>A teacher at a large college gave a mathematical puzzle to all the students. The median time taken by the students is stated in the original QP. Carry out a Wilcoxon signed-rank test, at the 10% significance level, to test whether there is sufficient evidence for the stated alternative.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Use the complete sample in the QP, form differences from the hypothesised median, rank absolute differences, calculate <span class="math inline">\(W\)</span>, compare with the Mark Scheme critical value and state the conclusion.
+</details>
+</section>
+<section id="mayjune-923143-question-5" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923143-question-5">2022 May/June · 9231/43 · Question 5</h2>
+<p>A manager claims that the lengths of the rubber tubes produced have a median of 5.50 cm. It is required to test at the 10% significance level the null hypothesis that the population median length is 5.50 cm against the alternative hypothesis that it is not equal to 5.50 cm.</p>
+<p>Show that both a sign test and a Wilcoxon signed-rank test give the same conclusion and state this conclusion.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Carry out both tests using the complete sample and the stated two-tailed 10% level. Compare each statistic with its Mark Scheme critical region. The two tests lead to the same contextual conclusion.
+</details>
+</section>
+<section id="mayjune-923141-and-923142-question-4" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-4">2023 May/June · 9231/41 and 9231/42 · Question 4</h2>
+<p>A researcher claims that there has been an increase in the median number of employees at technology companies. Carry out a Wilcoxon matched-pairs signed-rank test at the 5% significance level.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Use the before-and-after paired data from the original QP, rank the absolute differences, calculate the appropriate one-tailed statistic and compare it with the 5% critical value. State the Mark Scheme conclusion in context.
+</details>
+</section>
+<section id="mayjune-923143-question-3" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923143-question-3">2023 May/June · 9231/43 · Question 3</h2>
+<p>A large number of students took two test papers in mathematics. Carry out a Wilcoxon matched-pairs signed-rank test at the 5% significance level to test whether the median mark differs between the two papers.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+Form paired differences, omit zeros, rank absolute differences, calculate <span class="math inline">\(W\)</span>, compare with the two-tailed 5% critical value, and state the conclusion together with the required assumption about the differences.
+</details>
+</section>
+<section id="octobernovember-923141-and-923143-question-6" class="level2">
+<h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-6">2023 October/November · 9231/41 and 9231/43 · Question 6</h2>
+<p>The distances thrown by a random sample are given in the original QP. Carry out a Wilcoxon signed-rank test at the 5% significance level to test whether the data support the stated median claim.</p>
+</section>
+<section id="octobernovember-923142-question-5" class="level2">
+<h2 class="anchored" data-anchor-id="octobernovember-923142-question-5">2023 October/November · 9231/42 · Question 5</h2>
+<p>A company is deciding which of two machines can make a certain type of electrical component. Carry out a Wilcoxon rank-sum test at the 5% significance level to test whether the manager’s claim is supported.</p>
+</section>
+<section id="mayjune-923141-and-923142-questions-2-and-3" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-questions-2-and-3">2024 May/June · 9231/41 and 9231/42 · Questions 2 and 3</h2>
+<p>Use a sign test at the 10% significance level to test whether, on average, the practical examination scores differ from the written examination scores. A factory produces metal discs. The manager claims that the diameters have a stated median; carry out a Wilcoxon signed-rank test at the 10% significance level.</p>
+</section>
+<section id="mayjune-923143-question-1-1" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923143-question-1-1">2024 May/June · 9231/43 · Question 1</h2>
+<p>The interviewer believes that the population median score from assessment X is lower than the population median score from assessment Y. Carry out a Wilcoxon rank-sum test at the 1% significance level.</p>
+</section>
+<section id="octobernovember-923141-and-923143-question-2" class="level2">
+<h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-2">2024 October/November · 9231/41 and 9231/43 · Question 2</h2>
+<p>Carry out a Wilcoxon matched-pairs signed-rank test at the 5% significance level using the paired data in the original QP.</p>
+</section>
+<section id="octobernovember-923142-question-6" class="level2">
+<h2 class="anchored" data-anchor-id="octobernovember-923142-question-6">2024 October/November · 9231/42 · Question 6</h2>
+<p>The population median time taken is 51.0 seconds. After a month of intensive training, a random sample is taken. Carry out a Wilcoxon signed-rank test at the 5% significance level to test whether the training has decreased the median time.</p>
+</section>
+<section id="mayjune-923141-and-923142-question-5-1" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-5-1">2025 May/June · 9231/41 and 9231/42 · Question 5</h2>
+<p>Carry out a Wilcoxon matched-pairs signed-rank test at the 5% significance level to test the stated claim. Show that a paired-sample sign test at the 5% significance level would result in the opposite conclusion.</p>
+</section>
+<section id="mayjune-923143-question-4" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923143-question-4">2025 May/June · 9231/43 · Question 4</h2>
+<p>Carry out a Wilcoxon rank-sum test at the 5% significance level to test the researcher’s claim.</p>
+</section>
+<section id="octobernovember-923142-question-1" class="level2">
+<h2 class="anchored" data-anchor-id="octobernovember-923142-question-1">2025 October/November · 9231/42 · Question 1</h2>
+<p>A large company claims that the median salary of its employees is <span class="math inline">\(32\,500\)</span>. Explain why a Wilcoxon signed-rank test may not be appropriate and carry out a sign test at the 10% significance level.</p>
+</section>
+<section id="octobernovember-923141-and-923143-question-4" class="level2">
+<h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-4">2025 October/November · 9231/41 and 9231/43 · Question 4</h2>
+<p>A researcher believes that the median <span class="math inline">\(m\)</span> of a population has changed from its known previous value <span class="math inline">\(m_0\)</span>. The conclusion of a Wilcoxon signed-rank test at the 1% significance level is given in the original QP. Answer all parts using the complete original question.</p>
 
 
 </section>
@@ -1075,11 +1041,11 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../paper-4/chi-squared-tests.html" class="pagination-link" aria-label="4.3 Chi-squared tests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4.3 Chi-squared tests</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./paper-1/roots-of-polynomial-equations.html" class="pagination-link" aria-label="1.1 Roots of polynomial equations">
-        <span class="nav-page-text">1.1 Roots of polynomial equations</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -1087,5 +1053,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
