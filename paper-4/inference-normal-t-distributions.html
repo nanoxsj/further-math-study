@@ -366,7 +366,14 @@ window.Quarto = {
     <h2 id="toc-title">该页面内容</h2>
    
   <ul>
-  <li><a href="#核心公式" id="toc-核心公式" class="nav-link active" data-scroll-target="#核心公式">1. 核心公式</a></li>
+  <li><a href="#核心知识点" id="toc-核心知识点" class="nav-link active" data-scroll-target="#核心知识点">1. 核心知识点</a>
+  <ul class="collapse">
+  <li><a href="#先选择正确的检验" id="toc-先选择正确的检验" class="nav-link" data-scroll-target="#先选择正确的检验">先选择正确的检验</a></li>
+  <li><a href="#样本统计量与标准误" id="toc-样本统计量与标准误" class="nav-link" data-scroll-target="#样本统计量与标准误">样本统计量与标准误</a></li>
+  <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals">Confidence intervals</a></li>
+  <li><a href="#hypothesis-test-method" id="toc-hypothesis-test-method" class="nav-link" data-scroll-target="#hypothesis-test-method">Hypothesis-test method</a></li>
+  <li><a href="#常见失分点" id="toc-常见失分点" class="nav-link" data-scroll-target="#常见失分点">常见失分点</a></li>
+  </ul></li>
   <li><a href="#教材-examples" id="toc-教材-examples" class="nav-link" data-scroll-target="#教材-examples">2. 教材 Examples</a>
   <ul class="collapse">
   <li><a href="#example-2.1" id="toc-example-2.1" class="nav-link" data-scroll-target="#example-2.1">Example 2.1</a></li>
@@ -436,11 +443,84 @@ window.Quarto = {
 <p>本章使用样本资料对总体均值作估计和检验，包括 confidence intervals、one-sample t-tests、two-sample tests 和 paired-sample t-tests。答案中的每个小问均按 <code>Show answer</code> 展开，并按 Mark Scheme 分点书写。</p>
 </div>
 </div>
-<section id="核心公式" class="level2">
-<h2 class="anchored" data-anchor-id="核心公式">1. 核心公式</h2>
-<p>For a normal population with unknown variance, <span class="math display">t=\frac{\bar X-\mu_0}{s/\sqrt n},\qquad v=n-1.</span></p>
-<p>A two-sided <span class="math inline">100(1-\alpha)\%</span> confidence interval is <span class="math display">\bar x\pm t_{1-\alpha/2,v}\frac{s}{\sqrt n}.</span></p>
-<p>For paired data, form <span class="math inline">d_i=x_i-y_i</span> and apply the one-sample procedure to the differences. For two independent large samples, <span class="math display">z=\frac{\bar x-\bar y-(\mu_X-\mu_Y)_0}{\sqrt{s_X^2/n_X+s_Y^2/n_Y}}.</span></p>
+<section id="核心知识点" class="level2">
+<h2 class="anchored" data-anchor-id="核心知识点">1. 核心知识点</h2>
+<section id="先选择正确的检验" class="level3">
+<h3 class="anchored" data-anchor-id="先选择正确的检验">先选择正确的检验</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>情境</th>
+<th>使用方法</th>
+<th>条件与自由度</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>一个小样本、总体正态、总体方差未知</td>
+<td>one-sample <span class="math inline">t</span>-test / <span class="math inline">t</span> confidence interval</td>
+<td><span class="math inline">v=n-1</span></td>
+</tr>
+<tr class="even">
+<td>同一对象的 before/after 或自然配对资料</td>
+<td>paired <span class="math inline">t</span>-test：先对差值 <span class="math inline">d_i</span> 做单样本 <span class="math inline">t</span>-test</td>
+<td>差值总体正态，<span class="math inline">v=n-1</span></td>
+</tr>
+<tr class="odd">
+<td>两个独立小样本</td>
+<td>two-sample pooled <span class="math inline">t</span>-test</td>
+<td>两总体正态、独立、总体方差相同，<span class="math inline">v=n_1+n_2-2</span></td>
+</tr>
+<tr class="even">
+<td>两个独立大样本</td>
+<td>normal (<span class="math inline">z</span>) procedure</td>
+<td>独立随机样本；用样本方差估计标准误</td>
+</tr>
+</tbody>
+</table>
+<p>不要把 paired data 当成两组独立资料：配对设计必须先计算每一对的差值。也不要在题目没有给出“equal variances”或相同总体方差条件时，擅自使用 pooled <span class="math inline">t</span>-test。</p>
+</section>
+<section id="样本统计量与标准误" class="level3">
+<h3 class="anchored" data-anchor-id="样本统计量与标准误">样本统计量与标准误</h3>
+<p><span class="math display">ar x=\frac{\sum x}{n},\qquad s^2=\frac{\sum x^2-(\sum x)^2/n}{n-1}.</span></p>
+<p>单样本或配对差值的标准误为 <span class="math display">\operatorname{se}(\bar x)=\frac{s}{\sqrt n}.</span></p>
+<p>两个独立小样本且方差相同，先计算 pooled variance： <span class="math display">s_p^2=\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2},</span> 再使用 <span class="math display">\operatorname{se}(\bar x_1-\bar x_2)=s_p\sqrt{\frac1{n_1}+\frac1{n_2}}.</span></p>
+</section>
+<section id="confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-intervals">Confidence intervals</h3>
+<p>A two-sided <span class="math inline">100(1-\alpha)\%</span> confidence interval is <span class="math display">\text{estimate}\pm(\text{critical value})\times(\text{standard error}).</span></p>
+<p>For a normal population with unknown variance, <span class="math display">\bar x\pm t_{1-\alpha/2,v}\frac{s}{\sqrt n},\qquad v=n-1.</span></p>
+<p>For the difference of two independent large-sample means, <span class="math display"> (\bar x-\bar y)\pm z_{1-\alpha/2}\sqrt{\frac{s_x^2}{n_x}+\frac{s_y^2}{n_y}}.</span></p>
+<p>Interpret the interval in context. A two-sided confidence interval that excludes <span class="math inline">0</span> gives evidence, at the corresponding two-sided significance level, that two population means differ. A confidence interval for a single mean that excludes the hypothesised value gives the corresponding two-sided test conclusion.</p>
+</section>
+<section id="hypothesis-test-method" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-test-method">Hypothesis-test method</h3>
+<ol type="1">
+<li>Define the population parameter and write <span class="math inline">H_0</span> and <span class="math inline">H_1</span> in symbols. Use <span class="math inline">\ne</span> for a two-tailed question; use <span class="math inline">&gt;</span> or <span class="math inline">&lt;</span> only when the wording specifies a direction.</li>
+<li>State the test statistic, substitute the sample statistics, and give its numerical value.</li>
+<li>State degrees of freedom and the critical value, or state a <span class="math inline">p</span>-value if required.</li>
+<li>Compare in the correct direction. Reject <span class="math inline">H_0</span> only when the statistic lies in the critical region.</li>
+<li>Give a contextual conclusion using “sufficient / insufficient evidence”, at the stated significance level.</li>
+</ol>
+<p>For one sample, <span class="math display">t=\frac{\bar x-\mu_0}{s/\sqrt n},\qquad v=n-1.</span></p>
+<p>For paired data, choose and state a consistent direction, for example <span class="math inline">d=\text{before}-\text{after}</span>, then test <span class="math display">t=\frac{\bar d-\mu_{d,0}}{s_d/\sqrt n},\qquad v=n-1.</span></p>
+<p>For two independent small samples, <span class="math display">t=\frac{(\bar x-\bar y)-\delta_0}{s_p\sqrt{1/n_1+1/n_2}},\qquad v=n_1+n_2-2.</span></p>
+<p>For two independent large samples, <span class="math display">z=\frac{\bar x-\bar y-(\mu_X-\mu_Y)_0}{\sqrt{s_X^2/n_X+s_Y^2/n_Y}}.</span></p>
+</section>
+<section id="常见失分点" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点">常见失分点</h3>
+<ul>
+<li>“Accept <span class="math inline">H_0</span>” does not prove <span class="math inline">H_0</span>; write that there is <strong>insufficient evidence</strong> against it.</li>
+<li>A 95% confidence interval uses the two-tailed critical value <span class="math inline">t_{0.975,v}</span>, not <span class="math inline">t_{0.95,v}</span>.</li>
+<li>The normality assumption for a paired test applies to the <strong>differences</strong>, not necessarily to each original set of measurements.</li>
+<li>Keep the definition of <span class="math inline">d</span> consistent: changing from <span class="math inline">x-y</span> to <span class="math inline">y-x</span> reverses the sign and the alternative hypothesis.</li>
+</ul>
+</section>
 </section>
 <section id="教材-examples" class="level2">
 <h2 class="anchored" data-anchor-id="教材-examples">2. 教材 Examples</h2>

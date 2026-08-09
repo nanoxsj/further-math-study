@@ -366,7 +366,14 @@ window.Quarto = {
     <h2 id="toc-title">该页面内容</h2>
    
   <ul>
-  <li><a href="#core-formulae" id="toc-core-formulae" class="nav-link active" data-scroll-target="#core-formulae">1. Core formulae</a></li>
+  <li><a href="#core-knowledge" id="toc-core-knowledge" class="nav-link active" data-scroll-target="#core-knowledge">1. Core knowledge</a>
+  <ul class="collapse">
+  <li><a href="#两类卡方检验" id="toc-两类卡方检验" class="nav-link" data-scroll-target="#两类卡方检验">两类卡方检验</a></li>
+  <li><a href="#计算-expected-frequencies" id="toc-计算-expected-frequencies" class="nav-link" data-scroll-target="#计算-expected-frequencies">计算 expected frequencies</a></li>
+  <li><a href="#degrees-of-freedom-and-combining-classes" id="toc-degrees-of-freedom-and-combining-classes" class="nav-link" data-scroll-target="#degrees-of-freedom-and-combining-classes">Degrees of freedom and combining classes</a></li>
+  <li><a href="#full-method-and-conclusion" id="toc-full-method-and-conclusion" class="nav-link" data-scroll-target="#full-method-and-conclusion">Full method and conclusion</a></li>
+  <li><a href="#常见失分点" id="toc-常见失分点" class="nav-link" data-scroll-target="#常见失分点">常见失分点</a></li>
+  </ul></li>
   <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
   <ul class="collapse">
   <li><a href="#example-3.1" id="toc-example-3.1" class="nav-link" data-scroll-target="#example-3.1">Example 3.1</a></li>
@@ -428,10 +435,71 @@ window.Quarto = {
 <p>本章保留教材 Examples 和 Paper 4 真题的原始英文题干；答案按对应 Mark Scheme 分点列出。</p>
 </div>
 </div>
-<section id="core-formulae" class="level2">
-<h2 class="anchored" data-anchor-id="core-formulae">1. Core formulae</h2>
+<section id="core-knowledge" class="level2">
+<h2 class="anchored" data-anchor-id="core-knowledge">1. Core knowledge</h2>
+<section id="两类卡方检验" class="level3">
+<h3 class="anchored" data-anchor-id="两类卡方检验">两类卡方检验</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>检验</th>
+<th>目的</th>
+<th><span class="math inline">H_0</span> 的典型写法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Contingency-table test</td>
+<td>两个分类变量是否独立 / 是否有关联</td>
+<td>“<span class="math inline">A</span> is independent of <span class="math inline">B</span>”</td>
+</tr>
+<tr class="even">
+<td>Goodness-of-fit test</td>
+<td>观察频数是否符合给定的概率模型</td>
+<td>“The data fit the stated distribution / model”</td>
+</tr>
+</tbody>
+</table>
+<p>两类检验的备择假设均为 “not independent” 或 “do not fit”。卡方检验只能说明是否有 association 或模型是否合适，不能说明因果关系。</p>
+</section>
+<section id="计算-expected-frequencies" class="level3">
+<h3 class="anchored" data-anchor-id="计算-expected-frequencies">计算 expected frequencies</h3>
 <p>For a contingency table, <span class="math display">f_e=\frac{(\text{row total})(\text{column total})}{\text{grand total}},\qquad \chi^2=\sum\frac{(f_o-f_e)^2}{f_e}.</span></p>
-<p>For an <span class="math inline">m\times n</span> contingency table, <span class="math inline">v=(m-1)(n-1)</span>. For a goodness-of-fit test, subtract one degree of freedom for each estimated parameter, and combine adjacent classes when an expected frequency is below 5.</p>
+<p>For a goodness-of-fit test, calculate <span class="math display">f_e=N\operatorname{P}(X=x).</span> For an open final class, use the full tail probability, e.g. <span class="math display">f_e(\ge6)=N\operatorname{P}(X\ge6)=N[1-\operatorname{P}(X\le5)],</span> not just <span class="math inline">N\operatorname{P}(X=6)</span>.</p>
+<p>Do not round expected frequencies before calculating contributions. The observed frequencies are integers; expected frequencies normally are not.</p>
+</section>
+<section id="degrees-of-freedom-and-combining-classes" class="level3">
+<h3 class="anchored" data-anchor-id="degrees-of-freedom-and-combining-classes">Degrees of freedom and combining classes</h3>
+<p>For an <span class="math inline">m\times n</span> contingency table, <span class="math display">v=(m-1)(n-1).</span></p>
+<p>For a goodness-of-fit test, <span class="math display">v=(\text{number of classes after combining})-(\text{number of estimated parameters})-1.</span></p>
+<p>Every expected frequency used in the test should be at least 5. Combine adjacent categories before calculating <span class="math inline">\chi^2</span>; combine their observed and expected frequencies first, then calculate one contribution for the combined class. Estimating <span class="math inline">\lambda</span> for a Poisson model or <span class="math inline">p</span> for a binomial model costs one degree of freedom. A parameter supplied by the question does not.</p>
+</section>
+<section id="full-method-and-conclusion" class="level3">
+<h3 class="anchored" data-anchor-id="full-method-and-conclusion">Full method and conclusion</h3>
+<ol type="1">
+<li>State <span class="math inline">H_0</span> and <span class="math inline">H_1</span> in context.</li>
+<li>Calculate expected frequencies and show enough working to identify the model or marginal totals used.</li>
+<li>Combine classes where necessary.</li>
+<li>Calculate and sum <span class="math inline">\dfrac{(f_o-f_e)^2}{f_e}</span>.</li>
+<li>State the degrees of freedom, critical value and significance level.</li>
+<li>Compare and give a contextual conclusion: “There is sufficient evidence …” or “There is insufficient evidence …”.</li>
+</ol>
+<p>The critical region is always in the right tail: reject <span class="math inline">H_0</span> only when the calculated <span class="math inline">\chi^2</span> is <strong>greater</strong> than the critical value.</p>
+</section>
+<section id="常见失分点" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点">常见失分点</h3>
+<ul>
+<li>Do not use observed frequencies in place of expected frequencies.</li>
+<li>Do not calculate degrees of freedom from the original number of classes after categories have been combined.</li>
+<li>A very small contribution is valid; it means observed and expected frequencies are close.</li>
+<li>“Accept <span class="math inline">H_0</span>” should be followed by an evidence-based conclusion, not “the variables are definitely independent”.</li>
+</ul>
+</section>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>

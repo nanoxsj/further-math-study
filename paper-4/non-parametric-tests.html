@@ -366,7 +366,15 @@ window.Quarto = {
     <h2 id="toc-title">该页面内容</h2>
    
   <ul>
-  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link active" data-scroll-target="#textbook-examples">1. Textbook Examples</a>
+  <li><a href="#核心知识点" id="toc-核心知识点" class="nav-link active" data-scroll-target="#核心知识点">1. 核心知识点</a>
+  <ul class="collapse">
+  <li><a href="#何时使用-non-parametric-test" id="toc-何时使用-non-parametric-test" class="nav-link" data-scroll-target="#何时使用-non-parametric-test">何时使用 non-parametric test</a></li>
+  <li><a href="#sign-test" id="toc-sign-test" class="nav-link" data-scroll-target="#sign-test">Sign test</a></li>
+  <li><a href="#wilcoxon-matched-pairs-signed-rank-test" id="toc-wilcoxon-matched-pairs-signed-rank-test" class="nav-link" data-scroll-target="#wilcoxon-matched-pairs-signed-rank-test">Wilcoxon matched-pairs signed-rank test</a></li>
+  <li><a href="#wilcoxon-rank-sum-test" id="toc-wilcoxon-rank-sum-test" class="nav-link" data-scroll-target="#wilcoxon-rank-sum-test">Wilcoxon rank-sum test</a></li>
+  <li><a href="#写结论与易错点" id="toc-写结论与易错点" class="nav-link" data-scroll-target="#写结论与易错点">写结论与易错点</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
   <ul class="collapse">
   <li><a href="#example-4.1" id="toc-example-4.1" class="nav-link" data-scroll-target="#example-4.1">Example 4.1</a></li>
   <li><a href="#example-4.2" id="toc-example-4.2" class="nav-link" data-scroll-target="#example-4.2">Example 4.2</a></li>
@@ -380,7 +388,7 @@ window.Quarto = {
   <li><a href="#example-4.10" id="toc-example-4.10" class="nav-link" data-scroll-target="#example-4.10">Example 4.10</a></li>
   <li><a href="#example-4.11" id="toc-example-4.11" class="nav-link" data-scroll-target="#example-4.11">Example 4.11</a></li>
   </ul></li>
-  <li><a href="#paper-4-past-paper-questions" id="toc-paper-4-past-paper-questions" class="nav-link" data-scroll-target="#paper-4-past-paper-questions">2. Paper 4 past-paper questions</a></li>
+  <li><a href="#paper-4-past-paper-questions" id="toc-paper-4-past-paper-questions" class="nav-link" data-scroll-target="#paper-4-past-paper-questions">3. Paper 4 past-paper questions</a></li>
   <li><a href="#mayjune-923141-and-923142-question-5" id="toc-mayjune-923141-and-923142-question-5" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-5">2021 May/June · 9231/41 and 9231/42 · Question 5</a></li>
   <li><a href="#mayjune-923143-question-2" id="toc-mayjune-923143-question-2" class="nav-link" data-scroll-target="#mayjune-923143-question-2">2021 May/June · 9231/43 · Question 2</a></li>
   <li><a href="#mayjune-923141-and-923142-question-6" id="toc-mayjune-923141-and-923142-question-6" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-6">2022 May/June · 9231/41 and 9231/42 · Question 6</a></li>
@@ -442,8 +450,86 @@ window.Quarto = {
 <p>本章包含教材 Chapter 4 Examples 4.1–4.10，以及 2021–2025 Paper 4 中的 sign test、Wilcoxon matched-pairs signed-rank test 和 Wilcoxon rank-sum test。真题答案参照对应 Mark Scheme。</p>
 </div>
 </div>
+<section id="核心知识点" class="level2">
+<h2 class="anchored" data-anchor-id="核心知识点">1. 核心知识点</h2>
+<section id="何时使用-non-parametric-test" class="level3">
+<h3 class="anchored" data-anchor-id="何时使用-non-parametric-test">何时使用 non-parametric test</h3>
+<p>Non-parametric tests use signs or ranks rather than the actual numerical values. They are useful when normality is doubtful, the sample is small, the data are ordinal, or one or more outliers make a <span class="math inline">t</span>-test unsuitable. They test statements about the population median or the relative positions of two populations; do not describe the conclusion as one about the mean.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Situation</th>
+<th>Test</th>
+<th>Null hypothesis</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>One sample compared with a stated median</td>
+<td>One-sample sign test</td>
+<td>population median equals the stated value</td>
+</tr>
+<tr class="even">
+<td>Matched / before-and-after pairs</td>
+<td>Paired sign test or Wilcoxon matched-pairs signed-rank test</td>
+<td>median difference is zero</td>
+</tr>
+<tr class="odd">
+<td>Two independent samples</td>
+<td>Wilcoxon rank-sum test</td>
+<td>the two populations have the same median / distribution location</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sign-test" class="level3">
+<h3 class="anchored" data-anchor-id="sign-test">Sign test</h3>
+<ol type="1">
+<li>Subtract the hypothesised median, or form paired differences in one stated direction.</li>
+<li>Discard zero differences; the effective sample size is the number of non-zero differences.</li>
+<li>Under <span class="math inline">H_0</span>, the number of positive signs has distribution <span class="math inline">B(n,0.5)</span>.</li>
+<li>For a two-tailed test, use the appropriate two-tail critical region; for a one-tailed test, count signs in the direction of <span class="math inline">H_1</span>.</li>
+</ol>
+<p>Do not rank the differences in a sign test. Tied values equal to the proposed median are omitted, not counted as either sign.</p>
+</section>
+<section id="wilcoxon-matched-pairs-signed-rank-test" class="level3">
+<h3 class="anchored" data-anchor-id="wilcoxon-matched-pairs-signed-rank-test">Wilcoxon matched-pairs signed-rank test</h3>
+<ol type="1">
+<li>Form the paired differences and discard zeros.</li>
+<li>Rank the <strong>absolute values</strong> of the non-zero differences, giving tied absolute differences their mean rank.</li>
+<li>Restore each difference’s sign to its rank.</li>
+<li>Find <span class="math inline">T_+</span> and <span class="math inline">T_-</span>; use the smaller rank sum for a two-tailed test.</li>
+<li>Compare with the tabulated critical value for the effective number of non-zero pairs.</li>
+</ol>
+<p>The signed-rank test uses more information than the sign test because it includes the sizes of the differences. Its assumptions concern a symmetric distribution of paired differences; the pairs must be random and independent of other pairs.</p>
+</section>
+<section id="wilcoxon-rank-sum-test" class="level3">
+<h3 class="anchored" data-anchor-id="wilcoxon-rank-sum-test">Wilcoxon rank-sum test</h3>
+<ol type="1">
+<li>Combine both independent samples and rank all observations from smallest to largest.</li>
+<li>For tied observations, assign the average of the ranks they occupy.</li>
+<li>Add the ranks for one sample to obtain <span class="math inline">W</span>; identify the correct critical values for the two sample sizes.</li>
+<li>Use the stated one- or two-tailed alternative and draw the conclusion about population medians / locations.</li>
+</ol>
+<p>The samples must be independent. Do not use a rank-sum test for before-and-after data from the same people.</p>
+</section>
+<section id="写结论与易错点" class="level3">
+<h3 class="anchored" data-anchor-id="写结论与易错点">写结论与易错点</h3>
+<ul>
+<li>State hypotheses in terms of the <strong>population median</strong>, not <span class="math inline">\mu</span>, unless the question explicitly asks about another parameter.</li>
+<li>Keep the direction of differences consistent throughout, especially for “reduced”, “improved” and “greater than”.</li>
+<li>State the effective sample size after zero differences have been removed.</li>
+<li>A non-parametric test does not require normality, but random sampling and independence (between pairs or samples as appropriate) still matter.</li>
+</ul>
+</section>
+</section>
 <section id="textbook-examples" class="level2">
-<h2 class="anchored" data-anchor-id="textbook-examples">1. Textbook Examples</h2>
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
 <section id="example-4.1" class="level3">
 <h3 class="anchored" data-anchor-id="example-4.1">Example 4.1</h3>
 <p>An ornithologist records the numbers of house martins (a bird species) per day flying over a headland. Her observations cover a sample of 15 days during the migration season of this year.</p>
@@ -1074,7 +1160,7 @@ Values of <span class="math inline">T</span> less than or equal to 1235 are in t
 </section>
 </section>
 <section id="paper-4-past-paper-questions" class="level2">
-<h2 class="anchored" data-anchor-id="paper-4-past-paper-questions">2. Paper 4 past-paper questions</h2>
+<h2 class="anchored" data-anchor-id="paper-4-past-paper-questions">3. Paper 4 past-paper questions</h2>
 <!-- Source-verified Paper 4 questions. Each block is transcribed from its QP and checked against its matching MS. -->
 </section>
 <section id="mayjune-923141-and-923142-question-5" class="level2">
