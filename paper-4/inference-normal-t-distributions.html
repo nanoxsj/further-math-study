@@ -334,6 +334,12 @@ window.Quarto = {
  <span class="menu-text">4.4 Non-parametric tests</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/probability-generating-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5 Probability generating functions</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -349,10 +355,10 @@ window.Quarto = {
   <li><a href="#核心公式" id="toc-核心公式" class="nav-link active" data-scroll-target="#核心公式">1. 核心公式</a></li>
   <li><a href="#教材-examples" id="toc-教材-examples" class="nav-link" data-scroll-target="#教材-examples">2. 教材 Examples</a>
   <ul class="collapse">
-  <li><a href="#example-2.1-confidence-interval-for-one-mean" id="toc-example-2.1-confidence-interval-for-one-mean" class="nav-link" data-scroll-target="#example-2.1-confidence-interval-for-one-mean">Example 2.1 · Confidence interval for one mean</a></li>
-  <li><a href="#example-2.4-two-sample-t-test" id="toc-example-2.4-two-sample-t-test" class="nav-link" data-scroll-target="#example-2.4-two-sample-t-test">Example 2.4 · Two-sample t-test</a></li>
-  <li><a href="#example-2.2-paired-sample-confidence-interval" id="toc-example-2.2-paired-sample-confidence-interval" class="nav-link" data-scroll-target="#example-2.2-paired-sample-confidence-interval">Example 2.2 · Paired-sample confidence interval</a></li>
-  <li><a href="#example-2.3-one-sample-t-test" id="toc-example-2.3-one-sample-t-test" class="nav-link" data-scroll-target="#example-2.3-one-sample-t-test">Example 2.3 · One-sample t-test</a></li>
+  <li><a href="#example-2.1" id="toc-example-2.1" class="nav-link" data-scroll-target="#example-2.1">Example 2.1</a></li>
+  <li><a href="#example-2.4" id="toc-example-2.4" class="nav-link" data-scroll-target="#example-2.4">Example 2.4</a></li>
+  <li><a href="#example-2.2" id="toc-example-2.2" class="nav-link" data-scroll-target="#example-2.2">Example 2.2</a></li>
+  <li><a href="#example-2.3" id="toc-example-2.3" class="nav-link" data-scroll-target="#example-2.3">Example 2.3</a></li>
   </ul></li>
   <li><a href="#paper-4-真题" id="toc-paper-4-真题" class="nav-link" data-scroll-target="#paper-4-真题">3. Paper 4 真题</a></li>
   <li><a href="#mayjune-923141-and-923142-question-1" id="toc-mayjune-923141-and-923142-question-1" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-1">2021 May/June · 9231/41 and 9231/42 · Question 1</a></li>
@@ -425,12 +431,12 @@ window.Quarto = {
 <section id="教材-examples" class="level2">
 <h2 class="anchored" data-anchor-id="教材-examples">2. 教材 Examples</h2>
 <p>以下题目来自 John du Feu, <em>Further Probability &amp; Statistics</em>, Chapter 2，题目保持英文。</p>
-<section id="example-2.1-confidence-interval-for-one-mean" class="level3">
-<h3 class="anchored" data-anchor-id="example-2.1-confidence-interval-for-one-mean">Example 2.1 · Confidence interval for one mean</h3>
-<p>A bus company makes nine trial runs. The journey times, in minutes, are</p>
+<section id="example-2.1" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.1">Example 2.1</h3>
+<p>A bus company is about to start a scheduled service between two towns some distance apart. Before deciding on an appropriate timetable, they do nine trial runs to see how long the journey takes. The times, in minutes, are</p>
 <p><span class="math display">\[89,\ 92,\ 95,\ 94,\ 88,\ 90,\ 92,\ 93,\ 91.\]</span></p>
 <p><strong>(i)</strong> Use these data to set up a 95% confidence interval for the mean journey time. You should assume that the journey times are normally distributed.</p>
-<p>The railway service takes 95 minutes.</p>
+<p>The company regards its main competition as the railway service, which takes 95 minutes.</p>
 <p><strong>(ii)</strong> Does your confidence interval provide evidence that the journey time by bus is different from that by train?</p>
 <details class="answer-panel">
 <summary>
@@ -440,8 +446,8 @@ Show answer
 <strong>(ii)</strong> <span class="math inline">\(95\)</span> is outside the interval. Therefore there is sufficient evidence that the mean bus journey time differs from <span class="math inline">\(95\)</span> minutes; the evidence indicates that it is less.
 </details>
 </section>
-<section id="example-2.4-two-sample-t-test" class="level3">
-<h3 class="anchored" data-anchor-id="example-2.4-two-sample-t-test">Example 2.4 · Two-sample t-test</h3>
+<section id="example-2.4" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.4">Example 2.4</h3>
 <p>The manufacturers of a dieting compound claim that the use of their product as part of a calorie-counting diet leads to an average extra weight loss of at least five kilograms in a period of months. An experiment is carried out by a consumers’ group that doubts this claim.</p>
 <p>The hypotheses are:</p>
 <p><span class="math display">\[H_0:\text{the mean extra weight loss is }5\text{ kg},\]</span> <span class="math display">\[H_1:\text{the mean extra weight loss is less than }5\text{ kg}.\]</span></p>
@@ -460,9 +466,14 @@ Show answer
 <strong>(c)</strong> Since <span class="math inline">\(-3.144&lt;-1.661\)</span>, reject <span class="math inline">\(H_0\)</span>. There is sufficient evidence that the average extra weight loss is less than five kilograms.
 </details>
 </section>
-<section id="example-2.2-paired-sample-confidence-interval" class="level3">
-<h3 class="anchored" data-anchor-id="example-2.2-paired-sample-confidence-interval">Example 2.2 · Paired-sample confidence interval</h3>
-<p>Twelve subjects support a 2 kg weight under two conditions. Their times, in seconds, are:</p>
+<section id="example-2.2" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.2">Example 2.2</h3>
+<p>In an experiment on group behaviour, 12 subjects were each asked to hold one arm out horizontally while supporting a 2 kg weight, under two conditions:</p>
+<ul>
+<li>while together in a group</li>
+<li>while alone with the experimenter.</li>
+</ul>
+<p>The times, in seconds, for which they were able to support the weight under the two conditions were recorded as follows.</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -514,21 +525,22 @@ Show answer
 </tr>
 </tbody>
 </table>
-<p>Find a 90% confidence interval for the true difference between group times and alone times. You may assume that the differences are normally distributed. Does the result provide evidence that there is any difference in the population?</p>
+<p>Find a 90% confidence interval for the true difference between ‘group’ times and ‘alone’ times. You may assume that the differences are normally distributed. Does your result provide evidence that there is any difference in the times in the population as a whole?</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p>The differences have <span class="math inline">\(\bar d=10.67\)</span>, <span class="math inline">\(s_d=15.24\)</span>, <span class="math inline">\(n=12\)</span>, <span class="math inline">\(v=11\)</span>. With <span class="math inline">\(t_{0.95,11}=1.796\)</span>, <span class="math display">\[10.67\pm1.796\frac{15.24}{\sqrt{12}}=\boxed{[2.17,13.57]}.\]</span></p>
+<p>The sample comprises the 12 differences. It has <span class="math inline">\(\bar d=10.67\)</span>, <span class="math inline">\(s=15.24\)</span>, and <span class="math inline">\(v=12-1=11\)</span>. With <span class="math inline">\(t_{0.95,11}=1.796\)</span>, <span class="math display">\[10.67\pm1.796\frac{15.24}{\sqrt{12}}=\boxed{[2.77,18.57]}.\]</span></p>
 The interval excludes <span class="math inline">\(0\)</span>, so there is evidence of a difference in the population means.
 </details>
 </section>
-<section id="example-2.3-one-sample-t-test" class="level3">
-<h3 class="anchored" data-anchor-id="example-2.3-one-sample-t-test">Example 2.3 · One-sample t-test</h3>
-<p>A new drug is given to 16 people with colds. Their hours of sleep are</p>
+<section id="example-2.3" class="level3">
+<h3 class="anchored" data-anchor-id="example-2.3">Example 2.3</h3>
+<p>Tests are being carried out on a new drug designed to relieve the symptoms of the common cold. One of the tests is to investigate whether the drug has any effect on the number of hours that people sleep.</p>
+<p>The drug is given in tablet form one evening to a random sample of 16 people who have colds. The number of hours they sleep may be assumed to be normally distributed and is recorded as follows.</p>
 <p><span class="math display">\[8.1,6.7,3.3,7.2,8.1,9.2,6.0,7.4,6.4,6.9,7.0,7.8,6.7,7.2,7.6,7.9.\]</span></p>
-<p>The control-group mean is 6.6 hours.</p>
-<p><strong>(i)</strong> Use the data to set up a 95% confidence interval for the mean sleep time after taking the tablet.</p>
+<p>There is also a large control group of people who have colds but are not given the drug. The mean number of hours they sleep is 6.6.</p>
+<p><strong>(i)</strong> Use these data to set up a 95% confidence interval for the mean length of time somebody with a cold sleeps after taking the tablet.</p>
 <p><strong>(ii)</strong> At the 1% significance level, test whether the drug has an effect on mean sleep time.</p>
 <details class="answer-panel">
 <summary>

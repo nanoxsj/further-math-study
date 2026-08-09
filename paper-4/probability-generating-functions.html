@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="CIE 9231 Paper 4 chi-squared tests，依据 John du Feu Further Probability &amp; Statistics。">
+<meta name="description" content="CIE 9231 Paper 4 probability generating functions, based on John du Feu Further Probability &amp; Statistics.">
 
-<title>4.3 Chi-squared tests – CIE Further Mathematics 9231</title>
+<title>4.5 Probability generating functions – CIE Further Mathematics 9231</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -34,8 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../paper-4/non-parametric-tests.html" rel="next">
-<link href="../paper-4/inference-normal-t-distributions.html" rel="prev">
+<link href="../paper-4/non-parametric-tests.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -75,35 +74,6 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -117,7 +87,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-4/continuous-random-variables.html">Paper 4 · Further Probability &amp; Statistics</a></li><li class="breadcrumb-item"><a href="../paper-4/chi-squared-tests.html">4.3 Chi-squared tests</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-4/continuous-random-variables.html">Paper 4 · Further Probability &amp; Statistics</a></li><li class="breadcrumb-item"><a href="../paper-4/probability-generating-functions.html">4.5 Probability generating functions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
@@ -324,7 +294,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../paper-4/chi-squared-tests.html" class="sidebar-item-text sidebar-link active">
+  <a href="../paper-4/chi-squared-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4.3 Chi-squared tests</span></a>
   </div>
 </li>
@@ -336,7 +306,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../paper-4/probability-generating-functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-4/probability-generating-functions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">4.5 Probability generating functions</span></a>
   </div>
 </li>
@@ -352,37 +322,30 @@ window.Quarto = {
     <h2 id="toc-title">该页面内容</h2>
    
   <ul>
-  <li><a href="#core-formulae" id="toc-core-formulae" class="nav-link active" data-scroll-target="#core-formulae">1. Core formulae</a></li>
+  <li><a href="#core-results" id="toc-core-results" class="nav-link active" data-scroll-target="#core-results">1. Core results</a></li>
   <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
   <ul class="collapse">
-  <li><a href="#example-3.1-the-chi-squared-test-for-a-contingency-table" id="toc-example-3.1-the-chi-squared-test-for-a-contingency-table" class="nav-link" data-scroll-target="#example-3.1-the-chi-squared-test-for-a-contingency-table">Example 3.1 · The chi-squared test for a contingency table</a></li>
-  <li><a href="#example-3.2-goodness-of-fit-test-for-the-poisson-distribution" id="toc-example-3.2-goodness-of-fit-test-for-the-poisson-distribution" class="nav-link" data-scroll-target="#example-3.2-goodness-of-fit-test-for-the-poisson-distribution">Example 3.2 · Goodness of fit test for the Poisson distribution</a></li>
-  <li><a href="#example-3.3-goodness-of-fit-test-for-the-binomial-distribution" id="toc-example-3.3-goodness-of-fit-test-for-the-binomial-distribution" class="nav-link" data-scroll-target="#example-3.3-goodness-of-fit-test-for-the-binomial-distribution">Example 3.3 · Goodness of fit test for the binomial distribution</a></li>
+  <li><a href="#example-5.1" id="toc-example-5.1" class="nav-link" data-scroll-target="#example-5.1">Example 5.1</a></li>
+  <li><a href="#example-5.2" id="toc-example-5.2" class="nav-link" data-scroll-target="#example-5.2">Example 5.2</a></li>
+  <li><a href="#example-5.3" id="toc-example-5.3" class="nav-link" data-scroll-target="#example-5.3">Example 5.3</a></li>
   </ul></li>
   <li><a href="#paper-4-past-paper-questions" id="toc-paper-4-past-paper-questions" class="nav-link" data-scroll-target="#paper-4-past-paper-questions">3. Paper 4 past-paper questions</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-2" id="toc-mayjune-923141-and-923142-question-2" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-2">2021 May/June · 9231/41 and 9231/42 · Question 2</a></li>
-  <li><a href="#mayjune-923143-question-5" id="toc-mayjune-923143-question-5" class="nav-link" data-scroll-target="#mayjune-923143-question-5">2021 May/June · 9231/43 · Question 5</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-4" id="toc-mayjune-923141-and-923142-question-4" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-4">2022 May/June · 9231/41 and 9231/42 · Question 4</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-3" id="toc-mayjune-923141-and-923142-question-3" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-3">2023 May/June · 9231/41 and 9231/42 · Question 3</a></li>
-  <li><a href="#octobernovember-923142-question-2" id="toc-octobernovember-923142-question-2" class="nav-link" data-scroll-target="#octobernovember-923142-question-2">2023 October/November · 9231/42 · Question 2</a></li>
-  <li><a href="#octobernovember-923141-923142-and-923143-question-3" id="toc-octobernovember-923141-923142-and-923143-question-3" class="nav-link" data-scroll-target="#octobernovember-923141-923142-and-923143-question-3">2024 October/November · 9231/41, 9231/42 and 9231/43 · Question 3</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-3-1" id="toc-mayjune-923141-and-923142-question-3-1" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-3-1">2025 May/June · 9231/41 and 9231/42 · Question 3</a></li>
-  <li><a href="#octobernovember-923141-and-923143-question-2" id="toc-octobernovember-923141-and-923143-question-2" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-2">2025 October/November · 9231/41 and 9231/43 · Question 2</a></li>
+  <li><a href="#mayjune-923141-and-923142-question-6" id="toc-mayjune-923141-and-923142-question-6" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-6">2021 May/June · 9231/41 and 9231/42 · Question 6</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-4/continuous-random-variables.html">Paper 4 · Further Probability &amp; Statistics</a></li><li class="breadcrumb-item"><a href="../paper-4/chi-squared-tests.html">4.3 Chi-squared tests</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-4/continuous-random-variables.html">Paper 4 · Further Probability &amp; Statistics</a></li><li class="breadcrumb-item"><a href="../paper-4/probability-generating-functions.html">4.5 Probability generating functions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">4.3 Chi-squared tests</h1>
-<p class="subtitle lead">Further Probability &amp; Statistics · contingency tables · goodness of fit</p>
+<h1 class="title">4.5 Probability generating functions</h1>
+<p class="subtitle lead">Further Probability &amp; Statistics · PGFs · expectation · variance</p>
 </div>
 
 <div>
   <div class="description">
-    CIE 9231 Paper 4 chi-squared tests，依据 John du Feu Further Probability &amp; Statistics。
+    CIE 9231 Paper 4 probability generating functions, based on John du Feu Further Probability &amp; Statistics.
   </div>
 </div>
 
@@ -409,272 +372,68 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>本章保留教材 Examples 和 Paper 4 真题的原始英文题干；答案按对应 Mark Scheme 分点列出。</p>
+<p>This page uses the original English wording of the textbook examples and Paper 4 questions. Open <code>Show answer</code> for the textbook solution or the matching Mark Scheme working.</p>
 </div>
 </div>
-<section id="core-formulae" class="level2">
-<h2 class="anchored" data-anchor-id="core-formulae">1. Core formulae</h2>
-<p>For a contingency table, <span class="math display">\[f_e=\frac{(\text{row total})(\text{column total})}{\text{grand total}},\qquad \chi^2=\sum\frac{(f_o-f_e)^2}{f_e}.\]</span></p>
-<p>For an <span class="math inline">\(m\times n\)</span> contingency table, <span class="math inline">\(v=(m-1)(n-1)\)</span>. For a goodness-of-fit test, subtract one degree of freedom for each estimated parameter, and combine adjacent classes when an expected frequency is below 5.</p>
+<section id="core-results" class="level2">
+<h2 class="anchored" data-anchor-id="core-results">1. Core results</h2>
+<p>For a discrete random variable (X), [ G_X(t)=(t^X)=_x t^x(X=x),G_X(1)=1. ]</p>
+<p>[ (X)=G_X’(1), (X)=G_X’‘(1)+G_X’(1)-[G_X’(1)]^2. ]</p>
+<p>For independent (X) and (Y), (G_{X+Y}(t)=G_X(t)G_Y(t)).</p>
 </section>
 <section id="textbook-examples" class="level2">
 <h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
-<section id="example-3.1-the-chi-squared-test-for-a-contingency-table" class="level3">
-<h3 class="anchored" data-anchor-id="example-3.1-the-chi-squared-test-for-a-contingency-table">Example 3.1 · The chi-squared test for a contingency table</h3>
-<p>The management of a cinema takes 150 randomly selected questionnaires and records whether those patrons enjoyed or did not enjoy horror films and action movies.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 27%">
-<col style="width: 36%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Observed frequency <span class="math inline">\(f_o\)</span></th>
-<th style="text-align: right;">Enjoyed horror films</th>
-<th style="text-align: right;">Did not enjoy horror films</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Enjoyed action movies</td>
-<td style="text-align: right;">51</td>
-<td style="text-align: right;">41</td>
-</tr>
-<tr class="even">
-<td>Did not enjoy action movies</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">43</td>
-</tr>
-</tbody>
-</table>
-<p>Test whether enjoyment of the two types of film is independent at the 10% significance level.</p>
+<section id="example-5.1" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.1">Example 5.1</h3>
+<p>Let (X) be the discrete random variable that denotes the score when a fair die is thrown. Find the probability generating function (PGF) for (X).</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-The expected frequencies are <span class="math inline">\(40.48,51.52,25.52,32.48\)</span>. <span class="math display">\[\chi^2=\frac{(51-40.48)^2}{40.48}+\frac{(41-51.52)^2}{51.52}+\frac{(15-25.52)^2}{25.52}+\frac{(43-32.48)^2}{32.48}=12.626.\]</span> Here <span class="math inline">\(v=1\)</span> and the 10% critical value is <span class="math inline">\(2.706\)</span>. Since <span class="math inline">\(12.626&gt;2.706\)</span>, reject <span class="math inline">\(H_0\)</span>. Enjoyment of the two types of film is not independent; they are associated.
+[ (X=x)=(x=1,2,3,4,5,6). ] Therefore [ G(t)=(t<sup>X)=16t+16t</sup>2+16t<sup>3+16t</sup>4+16t<sup>5+16t</sup>6 =. ]
 </details>
 </section>
-<section id="example-3.2-goodness-of-fit-test-for-the-poisson-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="example-3.2-goodness-of-fit-test-for-the-poisson-distribution">Example 3.2 · Goodness of fit test for the Poisson distribution</h3>
-<p>The number of telephone calls made to a counselling service is thought to be modelled by the Poisson distribution. Data are collected on the number of calls received during one-hour periods:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Number of calls per hour</th>
-<th style="text-align: right;">0</th>
-<th style="text-align: right;">1</th>
-<th style="text-align: right;">2</th>
-<th style="text-align: right;">3</th>
-<th style="text-align: right;">4</th>
-<th style="text-align: right;">5</th>
-<th style="text-align: right;">6</th>
-<th style="text-align: right;">Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Frequency</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">70</td>
-</tr>
-</tbody>
-</table>
-<p>Use these data to test at the 5% significance level whether a Poisson model is appropriate.</p>
+<section id="example-5.2" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.2">Example 5.2</h3>
+<p>Wei is a keen archer. He has taken part in many competitions. When aiming for the centre of the target, called the gold, he finds that he hits the gold 70% of the time. Find the PGF for (X), the number of gold hits in four consecutive shots at the target.</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-The estimate is <span class="math inline">\(\lambda=155/70=2.214\)</span>. Combine the last two classes because expected frequencies must be at least 5. The expected frequencies are <span class="math inline">\(7.65,16.93,18.74,13.84,7.66,5.18\)</span>. Use <span class="math display">\[H_0:\text{the number of calls is Poisson},\qquad H_1:\text{it is not Poisson}.\]</span> Compute <span class="math inline">\(\chi^2=\sum (f_o-f_e)^2/f_e\)</span> with <span class="math inline">\(v=6-1-1=4\)</span>, compare with <span class="math inline">\(\chi^2_{0.95,4}=9.488\)</span>, and state the conclusion in context.
+(XB(4,0.7)), so [ G(t)=_{x=0}<sup>{4}4x(0.7)</sup>x(0.3)<sup>{4-x}t</sup>x =0.3<sup>4+4(0.3)</sup>3(0.7)t+6(0.3)<sup>2(0.7)</sup>2t<sup>2+4(0.3)(0.7)</sup>3t<sup>3+(0.7)</sup>4t^4. ] Hence [ G(t)=(0.3+0.7t)^4. ]
 </details>
 </section>
-<section id="example-3.3-goodness-of-fit-test-for-the-binomial-distribution" class="level3">
-<h3 class="anchored" data-anchor-id="example-3.3-goodness-of-fit-test-for-the-binomial-distribution">Example 3.3 · Goodness of fit test for the binomial distribution</h3>
-<p>An egg packaging firm has introduced a new box for its eggs. Each box holds six eggs. Data on the number of eggs marked in 100 boxes are:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Number of marked eggs</th>
-<th style="text-align: right;">0</th>
-<th style="text-align: right;">1</th>
-<th style="text-align: right;">2</th>
-<th style="text-align: right;">3</th>
-<th style="text-align: right;">4</th>
-<th style="text-align: right;">5</th>
-<th style="text-align: right;">6</th>
-<th style="text-align: right;">Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Number of boxes <span class="math inline">\(f_o\)</span></td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">100</td>
-</tr>
-</tbody>
-</table>
-<p>It is thought that the distribution may be modelled by the binomial distribution. Carry out a test at the 0.5% significance level.</p>
+<section id="example-5.3" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.3">Example 5.3</h3>
+<p>A pack of playing cards contains 52 cards, with 13 cards of each of four suits (hearts, spades, diamonds and clubs). A card is selected at random from a normal pack of cards. If it is a heart, the experiment ends, otherwise it is replaced, the pack is shuffled and another card is selected. Let (X) represent the number of cards selected up to and including the first heart. Find the PGF for (X).</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-The mean is <span class="math inline">\(3.45\)</span>, so <span class="math inline">\(6p=3.45\)</span> and <span class="math inline">\(p=0.575\)</span>. Combine the classes <span class="math inline">\(0,1\)</span> and <span class="math inline">\(5,6\)</span> because their expected frequencies are below 5. The test statistic is <span class="math inline">\(\chi^2=39.74\)</span> with <span class="math inline">\(v=5\)</span>. Since <span class="math inline">\(39.74&gt;\chi^2_{0.995,5}=16.75\)</span> (or the table value used in the text), reject <span class="math inline">\(H_0\)</span>. The binomial model is not appropriate.
+(X()), so [ (X=x)=()^{x-1}(x=1,2,). ] Thus [ G(t)=_{x=1}<sup>{}()</sup>{x-1}t^x =14t=. ]
 </details>
 </section>
 </section>
 <section id="paper-4-past-paper-questions" class="level2">
 <h2 class="anchored" data-anchor-id="paper-4-past-paper-questions">3. Paper 4 past-paper questions</h2>
 </section>
-<section id="mayjune-923141-and-923142-question-2" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-2">2021 May/June · 9231/41 and 9231/42 · Question 2</h2>
-<p>A driving school employs four instructors. The numbers passing and failing are:</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th></th>
-<th style="text-align: right;">Instructor A</th>
-<th style="text-align: right;">Instructor B</th>
-<th style="text-align: right;">Instructor C</th>
-<th style="text-align: right;">Instructor D</th>
-<th style="text-align: right;">Total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Pass</td>
-<td style="text-align: right;">72</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">52</td>
-<td style="text-align: right;">68</td>
-<td style="text-align: right;">234</td>
-</tr>
-<tr class="even">
-<td>Fail</td>
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">41</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">166</td>
-</tr>
-<tr class="odd">
-<td>Total</td>
-<td style="text-align: right;">105</td>
-<td style="text-align: right;">76</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">126</td>
-<td style="text-align: right;">400</td>
-</tr>
-</tbody>
-</table>
-<p>Test at the 10% significance level whether success in the driving test is independent of the instructor.</p>
+<section id="mayjune-923141-and-923142-question-6" class="level2">
+<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-6">2021 May/June · 9231/41 and 9231/42 · Question 6</h2>
+<p>Tanji has a bag containing 4 red balls and 2 blue balls. He selects 3 balls at random from the bag, without replacement. The number of red balls selected by Tanji is denoted by (X).</p>
+<p><strong>(a)</strong> Find the probability generating function (G_X(t)) of (X). [2]</p>
+<p>Tanji also has two coins, each biased so that the probability of obtaining a head when it is thrown is (). He throws the two coins at the same time. The number of heads obtained is denoted by (Y).</p>
+<p><strong>(b)</strong> Find the probability generating function (G_Y(t)) of (Y). [2]</p>
+<p>The random variable (Z) is the sum of the number of red balls selected by Tanji and the number of heads obtained.</p>
+<p><strong>(c)</strong> Find the probability generating function of (Z), expressing your answer as a polynomial. [3]</p>
+<p><strong>(d)</strong> Use the probability generating function of (Z) to find ((Z)) and ((Z)). [5]</p>
 <details class="answer-panel">
 <summary>
 Show answer
 </summary>
-<p><strong>(a)</strong> <span class="math inline">\(H_0:\)</span> success is independent of instructor; <span class="math inline">\(H_1:\)</span> success is not independent.</p>
-<p><strong>(b)</strong> Calculate each expected frequency by <span class="math inline">\(f_e=(\text{row total})(\text{column total})/400\)</span>.</p>
-<p><strong>(c)</strong> Calculate <span class="math inline">\(\chi^2=\sum(f_o-f_e)^2/f_e\)</span>, with <span class="math inline">\(v=(2-1)(4-1)=3\)</span>.</p>
-<strong>(d)</strong> Compare with <span class="math inline">\(\chi^2_{0.90,3}=6.251\)</span> and state the conclusion at 10% in context.
-</details>
-</section>
-<section id="mayjune-923143-question-5" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923143-question-5">2021 May/June · 9231/43 · Question 5</h2>
-<p>Chai packs china mugs into cardboard boxes. Chai’s manager suspects that breakages occur at random. The number of breakages in a one-hour period has a mean of 2.4. A sample of observations is given in the original question.</p>
-<p><strong>(a)</strong> Explain how the information supports the manager’s suspicion.</p>
-<p><strong>(b)</strong> Use the larger sample to carry out a goodness-of-fit test at the 10% significance level.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-Estimate the Poisson parameter from the sample mean, calculate expected frequencies, combine classes with expected frequency below 5, then calculate <span class="math inline">\(\chi^2\)</span>. Use <span class="math inline">\(H_0:\)</span> the data follow <span class="math inline">\(\operatorname{Po}(2.4)\)</span> and <span class="math inline">\(H_1:\)</span> they do not. Compare with the Mark Scheme critical value using the correct degrees of freedom and give the contextual conclusion.
-</details>
-</section>
-<section id="mayjune-923141-and-923142-question-4" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-4">2022 May/June · 9231/41 and 9231/42 · Question 4</h2>
-<p>The number of butterflies per square metre is investigated. The observed frequencies and the claim that the number follows <span class="math inline">\(\operatorname{Po}(2.5)\)</span> are given in the original question.</p>
-<p><strong>(a)</strong> Find the expected frequencies.</p>
-<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to test the scientist’s claim.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-Use <span class="math inline">\(H_0:\)</span> the data fit <span class="math inline">\(\operatorname{Po}(2.5)\)</span> and <span class="math inline">\(H_1:\)</span> the data do not fit. Calculate <span class="math inline">\(f_e= nP(X=x)\)</span>, combine the final classes as required, obtain <span class="math inline">\(\chi^2=8.12\)</span>, and compare with <span class="math inline">\(\chi^2_{0.90,4}=7.779\)</span> after using the correct degrees of freedom from the Mark Scheme. State the conclusion in context.
-</details>
-</section>
-<section id="mayjune-923141-and-923142-question-3" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-3">2023 May/June · 9231/41 and 9231/42 · Question 3</h2>
-<p>A random sample of 50 values of the continuous random variable <span class="math inline">\(X\)</span> was taken. The observed frequencies and the proposed PDF <span class="math inline">\(f\)</span> are given in the original question.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\(a=4.6007\)</span> and find <span class="math inline">\(b\)</span>.</p>
-<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to test whether <span class="math inline">\(f\)</span> is a satisfactory model.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> Use the sample data and the stated PDF to obtain <span class="math inline">\(\boxed{a=4.6007}\)</span> and the corresponding <span class="math inline">\(b\)</span>.</p>
-<strong>(b)</strong> Calculate the interval probabilities from the proposed PDF, obtain the expected frequencies, combine classes where necessary, then use <span class="math inline">\(\chi^2=\sum(f_o-f_e)^2/f_e\)</span>. Subtract one degree of freedom for each fitted parameter, compare with the 10% critical value, and state the contextual conclusion.
-</details>
-</section>
-<section id="octobernovember-923142-question-2" class="level2">
-<h2 class="anchored" data-anchor-id="octobernovember-923142-question-2">2023 October/November · 9231/42 · Question 2</h2>
-<p>The number of breakdowns on a particular section of road is recorded each day over 90 days. It is suggested that the number of breakdowns follows a Poisson distribution with mean 3.5.</p>
-<p><strong>(a)</strong> Complete the table.</p>
-<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to determine whether or not <span class="math inline">\(\operatorname{Po}(3.5)\)</span> is an appropriate model.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-Calculate the expected frequencies from <span class="math inline">\(P(X=x)=e^{-3.5}3.5^x/x!\)</span>, combine the final classes if required, calculate <span class="math inline">\(\chi^2\)</span>, use the appropriate degrees of freedom, and compare with the 10% critical value. State whether the data support the Poisson model.
-</details>
-</section>
-<section id="octobernovember-923141-923142-and-923143-question-3" class="level2">
-<h2 class="anchored" data-anchor-id="octobernovember-923141-923142-and-923143-question-3">2024 October/November · 9231/41, 9231/42 and 9231/43 · Question 3</h2>
-<p>A statistician believes that the number of telephone calls received by an advice centre in a 10-minute period follows a Poisson distribution. The observed data and the fitted mean are given in the original question.</p>
-<p><strong>(a)</strong> Complete the table.</p>
-<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 10% significance level to determine whether the statistician’s model is satisfactory.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-Use the sample mean to estimate <span class="math inline">\(\lambda\)</span>, calculate expected frequencies without premature rounding, combine classes with expected frequency below 5, calculate <span class="math inline">\(\chi^2\)</span> and compare with the Mark Scheme critical value using the correct degrees of freedom.
-</details>
-</section>
-<section id="mayjune-923141-and-923142-question-3-1" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-3-1">2025 May/June · 9231/41 and 9231/42 · Question 3</h2>
-<p>The observed number of broken eggs in boxes is given in the original table. A manager’s model is tested by a goodness-of-fit test.</p>
-<p><strong>(a)</strong> Complete the expected-frequency table.</p>
-<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 0.5% significance level.</p>
-<p><strong>(c)</strong> Carry out the test to determine whether a binomial model is appropriate.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-Estimate the binomial parameter from the sample mean, combine low expected frequencies, calculate <span class="math inline">\(\chi^2\)</span>, use the correct degrees of freedom after estimating the parameter, compare with the 0.5% critical value, and state the conclusion in context.
-</details>
-</section>
-<section id="octobernovember-923141-and-923143-question-2" class="level2">
-<h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-2">2025 October/November · 9231/41 and 9231/43 · Question 2</h2>
-<p>The manager of a car park claims that the number of cars entering the car park follows a Poisson distribution with mean 2.8. The numbers of cars entering are recorded on a working day.</p>
-<p><strong>(a)</strong> Find the values of <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span>.</p>
-<p><strong>(b)</strong> Carry out a goodness-of-fit test at the 5% significance level to investigate the manager’s claim.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> Use <span class="math inline">\(p=P(X=0)=e^{-2.8}\)</span> and the corresponding probability for the final class.</p>
-<strong>(b)</strong> Use <span class="math inline">\(H_0:\)</span> the data fit <span class="math inline">\(\operatorname{Po}(2.8)\)</span>, calculate expected frequencies and <span class="math inline">\(\chi^2\)</span>, combine classes where necessary, compare with the 5% critical value, and state the conclusion in context.
+<p><strong>(a)</strong> [ (X=1)=,(X=2)=,(X=3)=, ] so [ G_X(t)=15t+35t<sup>2+15t</sup>3. ]</p>
+<p><strong>(b)</strong> [ (Y=0)=,(Y=1)=,(Y=2)=, ] so [ G_Y(t)=+t+t^2. ]</p>
+<p><strong>(c)</strong> [ G_Z(t)=G_X(t)G_Y(t)=t+t<sup>2+t</sup>3+t<sup>4+t</sup>5. ]</p>
+<strong>(d)</strong> [ G_Z’(1)=(9+66+84+36+5)=2.5, ] [ G_Z’‘(1)=(66+168+108+20)=4.525. ] Therefore [ (Z)=2.5, ] [ (Z)=G_Z’‘(1)+G_Z’(1)-[G_Z’(1)]^2 =4.525+2.5-2.5^2=0.775=. ]
 </details>
 
 
@@ -1104,14 +863,11 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../paper-4/inference-normal-t-distributions.html" class="pagination-link" aria-label="4.2 Inference using normal and t-distributions">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4.2 Inference using normal and t-distributions</span>
+      <a href="../paper-4/non-parametric-tests.html" class="pagination-link" aria-label="4.4 Non-parametric tests">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4.4 Non-parametric tests</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../paper-4/non-parametric-tests.html" class="pagination-link" aria-label="4.4 Non-parametric tests">
-        <span class="nav-page-text">4.4 Non-parametric tests</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
