@@ -416,6 +416,20 @@ window.Quarto = {
   <li><a href="#octobernovember-923124-question-7b-5-marks" id="toc-octobernovember-923124-question-7b-5-marks" class="nav-link" data-scroll-target="#octobernovember-923124-question-7b-5-marks">2025 October/November · 9231/24 · Question 7(b) · 5 marks</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">5. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先识别求导类型" id="toc-先识别求导类型" class="nav-link" data-scroll-target="#先识别求导类型">5.1 先识别求导类型</a></li>
+  <li><a href="#双曲函数导数的符号" id="toc-双曲函数导数的符号" class="nav-link" data-scroll-target="#双曲函数导数的符号">5.2 双曲函数导数的符号</a></li>
+  <li><a href="#反函数求导的统一方法" id="toc-反函数求导的统一方法" class="nav-link" data-scroll-target="#反函数求导的统一方法">5.3 反函数求导的统一方法</a></li>
+  <li><a href="#反函数导数的定义域检查" id="toc-反函数导数的定义域检查" class="nav-link" data-scroll-target="#反函数导数的定义域检查">5.4 反函数导数的定义域检查</a></li>
+  <li><a href="#隐式一阶导数" id="toc-隐式一阶导数" class="nav-link" data-scroll-target="#隐式一阶导数">5.5 隐式一阶导数</a></li>
+  <li><a href="#隐式二阶导数" id="toc-隐式二阶导数" class="nav-link" data-scroll-target="#隐式二阶导数">5.6 隐式二阶导数</a></li>
+  <li><a href="#参数方程的一阶与二阶导数" id="toc-参数方程的一阶与二阶导数" class="nav-link" data-scroll-target="#参数方程的一阶与二阶导数">5.7 参数方程的一阶与二阶导数</a></li>
+  <li><a href="#maclaurin-级数的系数流程" id="toc-maclaurin-级数的系数流程" class="nav-link" data-scroll-target="#maclaurin-级数的系数流程">5.8 Maclaurin 级数的系数流程</a></li>
+  <li><a href="#常用级数的记忆方式" id="toc-常用级数的记忆方式" class="nav-link" data-scroll-target="#常用级数的记忆方式">5.9 常用级数的记忆方式</a></li>
+  <li><a href="#用隐式求导展开-tan-x" id="toc-用隐式求导展开-tan-x" class="nav-link" data-scroll-target="#用隐式求导展开-tan-x">5.10 用隐式求导展开 <span class="math inline">\tan x</span></a></li>
+  <li><a href="#收敛范围与常见失分点" id="toc-收敛范围与常见失分点" class="nav-link" data-scroll-target="#收敛范围与常见失分点">5.11 收敛范围与常见失分点</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1640,8 +1654,183 @@ Show answer and mark scheme
 <li>能求常见函数的 Maclaurin 级数前几项，并知道收敛范围（如 <span class="math inline">|x|&lt;1</span> 等）；</li>
 <li>能用隐式求导方法处理 <span class="math inline">y=\tan x</span> 这类函数的 Maclaurin 展开。 本节保留教材 Chapter 3 的全部编号 Example（Example 1–7）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">5. 常用解题技巧</h2>
+<section id="先识别求导类型" class="level3">
+<h3 class="anchored" data-anchor-id="先识别求导类型">5.1 先识别求导类型</h3>
+<p>看到题目后先判断是：</p>
+<ul>
+<li>直接求导或 chain rule；</li>
+<li>反函数求导；</li>
+<li>隐式求导；</li>
+<li>参数方程求导；</li>
+<li>Maclaurin 级数。</li>
+</ul>
+<p>不同类型的关键步骤不同。尤其要区分 <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}</span> 与 <span class="math inline">\dfrac{\mathrm dx}{\mathrm dy}</span>，以及对参数 <span class="math inline">t</span> 求导和对变量 <span class="math inline">x</span> 求导。</p>
+</section>
+<section id="双曲函数导数的符号" class="level3">
+<h3 class="anchored" data-anchor-id="双曲函数导数的符号">5.2 双曲函数导数的符号</h3>
+<p>建议把以下四个公式成对记忆：</p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}\tanh x=\operatorname{sech}^2x,
+\qquad
+\frac{\mathrm d}{\mathrm dx}\coth x=-\operatorname{cosech}^2x,
+</span></p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}\operatorname{sech}x
+=-\operatorname{sech}x\tanh x,
+\qquad
+\frac{\mathrm d}{\mathrm dx}\operatorname{cosech}x
+=-\operatorname{cosech}x\coth x.
+</span></p>
+<p>若函数含有 <span class="math inline">ax+b</span>，别忘记乘 chain rule 中的 <span class="math inline">a</span>。对于负号最容易出错的通常是 <span class="math inline">\coth x</span>、<span class="math inline">\operatorname{sech}x</span> 和 <span class="math inline">\operatorname{cosech}x</span>，可以用指数定义快速复核。</p>
+</section>
+<section id="反函数求导的统一方法" class="level3">
+<h3 class="anchored" data-anchor-id="反函数求导的统一方法">5.3 反函数求导的统一方法</h3>
+<p>若 <span class="math inline">y=f^{-1}(x)</span>，不要只依赖记忆，先写</p>
+<p><span class="math display">
+f(y)=x.
+</span></p>
+<p>两边对 <span class="math inline">x</span> 求导：</p>
+<p><span class="math display">
+f'(y)\frac{\mathrm dy}{\mathrm dx}=1,
+\qquad
+\frac{\mathrm dy}{\mathrm dx}=\frac1{f'(y)}.
+</span></p>
+<p>如果需要，利用原关系把 <span class="math inline">y</span> 消去。例如反双曲函数中使用</p>
+<p><span class="math display">
+\cosh^2y-\sinh^2y=1
+</span></p>
+<p>确定根号，并根据反函数的取值范围选择正负号。</p>
+</section>
+<section id="反函数导数的定义域检查" class="level3">
+<h3 class="anchored" data-anchor-id="反函数导数的定义域检查">5.4 反函数导数的定义域检查</h3>
+<p>常用结果为</p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}\sin^{-1}x=\frac1{\sqrt{1-x^2}},
+\qquad
+\frac{\mathrm d}{\mathrm dx}\cos^{-1}x=-\frac1{\sqrt{1-x^2}},
+</span></p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}\sinh^{-1}x=\frac1{\sqrt{x^2+1}},
+\qquad
+\frac{\mathrm d}{\mathrm dx}\cosh^{-1}x=\frac1{\sqrt{x^2-1}},
+</span></p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}\tanh^{-1}x=\frac1{1-x^2}.
+</span></p>
+<p>题目若出现复合函数 <span class="math inline">f^{-1}(g(x))</span>，先对外层反函数求导，再乘 <span class="math inline">g'(x)</span>。同时检查 <span class="math inline">\cosh^{-1}x</span> 的输入范围 <span class="math inline">x\geqslant1</span>，以及 <span class="math inline">\tanh^{-1}x</span> 的范围 <span class="math inline">|x|&lt;1</span>。</p>
+</section>
+<section id="隐式一阶导数" class="level3">
+<h3 class="anchored" data-anchor-id="隐式一阶导数">5.5 隐式一阶导数</h3>
+<p>对含 <span class="math inline">y</span> 的项求导时，要把 <span class="math inline">y</span> 看成 <span class="math inline">x</span> 的函数。例如</p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}(y^m)=my^{m-1}\frac{\mathrm dy}{\mathrm dx},
+</span></p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}f(y)=f'(y)\frac{\mathrm dy}{\mathrm dx}.
+</span></p>
+<p>求出 <span class="math inline">y'</span> 后，尽量把所有含 <span class="math inline">y'</span> 的项移到一边并提取公因子，再解出 <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}</span>。最后代入指定点时，先确认该点确实满足原方程。</p>
+</section>
+<section id="隐式二阶导数" class="level3">
+<h3 class="anchored" data-anchor-id="隐式二阶导数">5.6 隐式二阶导数</h3>
+<p>正确流程是：</p>
+<ol type="1">
+<li>对原方程关于 <span class="math inline">x</span> 求导，得到 <span class="math inline">y'</span>；</li>
+<li>将 <span class="math inline">y'</span> 整理成便于再次求导的形式；</li>
+<li>再对该式关于 <span class="math inline">x</span> 求导，得到 <span class="math inline">y''</span>；</li>
+<li>最后才代入点的坐标和 <span class="math inline">y'</span> 的数值。</li>
+</ol>
+<p>再次求导时仍要使用 chain rule，例如</p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}\left(y'\right)^2
+=2y'y''.
+</span></p>
+<p>不要把 <span class="math inline">y'</span> 当成常数，也不要在第一次求导后立刻代入某一点，否则可能失去继续求导所需的 <span class="math inline">x</span>、<span class="math inline">y</span> 关系。</p>
+</section>
+<section id="参数方程的一阶与二阶导数" class="level3">
+<h3 class="anchored" data-anchor-id="参数方程的一阶与二阶导数">5.7 参数方程的一阶与二阶导数</h3>
+<p>若 <span class="math inline">x=x(t)</span>、<span class="math inline">y=y(t)</span>，则</p>
+<p><span class="math display">
+\frac{\mathrm dy}{\mathrm dx}
+=\frac{\mathrm dy/\mathrm dt}{\mathrm dx/\mathrm dt}.
+</span></p>
+<p>二阶导数必须写成</p>
+<p><span class="math display">
+\frac{\mathrm d^2y}{\mathrm dx^2}
+=\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right)
+\cdot\frac{\mathrm dt}{\mathrm dx}
+=\frac{1}{\mathrm dx/\mathrm dt}
+\frac{\mathrm d}{\mathrm dt}\left(\frac{\mathrm dy}{\mathrm dx}\right).
+</span></p>
+<p>最常见错误是只对商式使用一次商法则，却忘记最后还要乘 <span class="math inline">\dfrac{\mathrm dt}{\mathrm dx}</span>。计算前先检查 <span class="math inline">\dfrac{\mathrm dx}{\mathrm dt}\ne0</span>，否则该点的 <span class="math inline">\dfrac{\mathrm dy}{\mathrm dx}</span> 可能不存在。</p>
+</section>
+<section id="maclaurin-级数的系数流程" class="level3">
+<h3 class="anchored" data-anchor-id="maclaurin-级数的系数流程">5.8 Maclaurin 级数的系数流程</h3>
+<p>Maclaurin 公式为</p>
+<p><span class="math display">
+f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2
++\frac{f'''(0)}{3!}x^3+\cdots.
+</span></p>
+<p>求前几项时按以下顺序：</p>
+<ol type="1">
+<li>写出 <span class="math inline">f(0)</span>；</li>
+<li>求所需阶数的导数；</li>
+<li>计算每个导数在 <span class="math inline">x=0</span> 的值；</li>
+<li>除以对应的阶乘；</li>
+<li>检查偶次项或奇次项是否应全部消失。</li>
+</ol>
+<p>例如偶函数的 Maclaurin 展开只含偶次幂，奇函数只含奇次幂，可用来快速检查结果。</p>
+</section>
+<section id="常用级数的记忆方式" class="level3">
+<h3 class="anchored" data-anchor-id="常用级数的记忆方式">5.9 常用级数的记忆方式</h3>
+<p>常用展开式的符号规律为：</p>
+<p><span class="math display">
+e^x=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots,
+</span></p>
+<p><span class="math display">
+\sin x=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots,
+\qquad
+\cos x=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots.
+</span></p>
+<p>双曲函数与三角函数的区别是：</p>
+<p><span class="math display">
+\sinh x=x+\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots,
+\qquad
+\cosh x=1+\frac{x^2}{2!}+\frac{x^4}{4!}+\cdots.
+</span></p>
+<p>也就是说，<span class="math inline">\sinh</span> 和 <span class="math inline">\cosh</span> 的非零项不交替变号。写完后用奇偶性和低阶导数检查系数。</p>
+</section>
+<section id="用隐式求导展开-tan-x" class="level3">
+<h3 class="anchored" data-anchor-id="用隐式求导展开-tan-x">5.10 用隐式求导展开 <span class="math inline">\tan x</span></h3>
+<p>若 <span class="math inline">y=\tan x</span>，先写成</p>
+<p><span class="math display">
+y'=1+y^2.
+</span></p>
+<p>再逐次对 <span class="math inline">x</span> 求导：</p>
+<p><span class="math display">
+y''=2yy',
+</span></p>
+<p>并在 <span class="math inline">x=0</span> 时使用 <span class="math inline">y(0)=0</span>、<span class="math inline">y'(0)=1</span> 等值，得到 Maclaurin 系数。不要直接把 <span class="math inline">y</span> 当作常数；每次对含 <span class="math inline">y</span> 的式子求导都要乘 <span class="math inline">y'</span>。</p>
+</section>
+<section id="收敛范围与常见失分点" class="level3">
+<h3 class="anchored" data-anchor-id="收敛范围与常见失分点">5.11 收敛范围与常见失分点</h3>
+<p>写出级数时要同时关注题目要求的 validity interval。例如 <span class="math inline">\ln(1+x)</span> 和 <span class="math inline">\tan^{-1}x</span> 的常用展开有各自的端点限制，不能把所有 Maclaurin 级数都默认写成对所有 <span class="math inline">x</span> 成立。</p>
+<p>常见失分点：</p>
+<ul>
+<li>反函数求导忘记 chain rule 或根号符号；</li>
+<li>隐式求导漏写 <span class="math inline">y'</span>；</li>
+<li>求 <span class="math inline">y''</span> 时把 <span class="math inline">y'</span> 当成常数；</li>
+<li>参数二阶导数漏乘 <span class="math inline">\mathrm dt/\mathrm dx</span>；</li>
+<li>Maclaurin 系数忘记除以阶乘；</li>
+<li>双曲函数级数错误地照搬三角函数的交替符号；</li>
+<li>只写级数，不写题目要求的收敛范围。</li>
+</ul>
+<p>推荐按“识别类型 → 写基本公式 → 保留必要变量 → 求导或展开 → 代入指定点 → 检查符号、阶乘和定义域”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
