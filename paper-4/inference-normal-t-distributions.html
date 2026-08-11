@@ -399,6 +399,21 @@ window.Quarto = {
   <li><a href="#octobernovember-923141-and-923143-question-6" id="toc-octobernovember-923141-and-923143-question-6" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-6">2025 October/November · 9231/41 and 9231/43 · Question 6</a></li>
   <li><a href="#octobernovember-923142-questions-2-and-5" id="toc-octobernovember-923142-questions-2-and-5" class="nav-link" data-scroll-target="#octobernovember-923142-questions-2-and-5">2025 October/November · 9231/42 · Questions 2 and 5</a></li>
   <li><a href="#检查清单" id="toc-检查清单" class="nav-link" data-scroll-target="#检查清单">4. 检查清单</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">5. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先判断资料结构" id="toc-先判断资料结构" class="nav-link" data-scroll-target="#先判断资料结构">5.1 先判断资料结构</a></li>
+  <li><a href="#样本均值和样本方差" id="toc-样本均值和样本方差" class="nav-link" data-scroll-target="#样本均值和样本方差">5.2 样本均值和样本方差</a></li>
+  <li><a href="#写假设时先定义参数" id="toc-写假设时先定义参数" class="nav-link" data-scroll-target="#写假设时先定义参数">5.3 写假设时先定义参数</a></li>
+  <li><a href="#one-sample-t-test" id="toc-one-sample-t-test" class="nav-link" data-scroll-target="#one-sample-t-test">5.4 One-sample <span class="math inline">t</span>-test</a></li>
+  <li><a href="#paired-t-test" id="toc-paired-t-test" class="nav-link" data-scroll-target="#paired-t-test">5.5 Paired <span class="math inline">t</span>-test</a></li>
+  <li><a href="#pooled-two-sample-t-test" id="toc-pooled-two-sample-t-test" class="nav-link" data-scroll-target="#pooled-two-sample-t-test">5.6 Pooled two-sample <span class="math inline">t</span>-test</a></li>
+  <li><a href="#两个大样本的-normal-procedure" id="toc-两个大样本的-normal-procedure" class="nav-link" data-scroll-target="#两个大样本的-normal-procedure">5.7 两个大样本的 normal procedure</a></li>
+  <li><a href="#临界值与尾部" id="toc-临界值与尾部" class="nav-link" data-scroll-target="#临界值与尾部">5.8 临界值与尾部</a></li>
+  <li><a href="#p-value-的结论写法" id="toc-p-value-的结论写法" class="nav-link" data-scroll-target="#p-value-的结论写法">5.9 p-value 的结论写法</a></li>
+  <li><a href="#confidence-interval" id="toc-confidence-interval" class="nav-link" data-scroll-target="#confidence-interval">5.10 Confidence interval</a></li>
+  <li><a href="#用-confidence-interval-做检验判断" id="toc-用-confidence-interval-做检验判断" class="nav-link" data-scroll-target="#用-confidence-interval-做检验判断">5.11 用 confidence interval 做检验判断</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">5.12 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -967,8 +982,168 @@ Show answer
 <li><label><input type="checkbox">paired data 先计算每一对的 difference；</label></li>
 <li><label><input type="checkbox">confidence interval 的结论与 hypothesis test 的结论保持一致。</label></li>
 </ul>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">5. 常用解题技巧</h2>
+<section id="先判断资料结构" class="level3">
+<h3 class="anchored" data-anchor-id="先判断资料结构">5.1 先判断资料结构</h3>
+<p>开始检验前先回答三个问题：</p>
+<ol type="1">
+<li>是一个样本、两个独立样本，还是 paired data？</li>
+<li>总体方差是否已知，样本是否较小？</li>
+<li>题目要求单尾还是双尾结论？</li>
+</ol>
+<p>常见选择：</p>
+<ul>
+<li>一个小样本、总体方差未知：one-sample <span class="math inline">t</span> procedure；</li>
+<li>同一对象 before/after：先求差值，再做 paired <span class="math inline">t</span>-test；</li>
+<li>两个独立小样本且题目给出 equal variances：pooled two-sample <span class="math inline">t</span>-test；</li>
+<li>两个独立大样本：normal (<span class="math inline">z</span>) procedure。</li>
+</ul>
+<p>不要把 paired data 当成两组独立样本，也不要在没有等方差条件时擅自使用 pooled test。</p>
+</section>
+<section id="样本均值和样本方差" class="level3">
+<h3 class="anchored" data-anchor-id="样本均值和样本方差">5.2 样本均值和样本方差</h3>
+<p>先计算</p>
+<p><span class="math display">
+\bar x=\frac{\sum x}{n},
+</span></p>
+<p><span class="math display">
+s^2=\frac{\sum x^2-(\sum x)^2/n}{n-1}.
+</span></p>
+<p>标准误为</p>
+<p><span class="math display">
+\operatorname{se}(\bar x)=\frac{s}{\sqrt n}.
+</span></p>
+<p>若题目给出 <span class="math inline">\sum x</span> 和 <span class="math inline">\sum x^2</span>，直接使用第二个公式，避免先恢复全部原始数据。方差计算完成后检查 <span class="math inline">s^2\geqslant0</span>，并保留足够精度。</p>
+</section>
+<section id="写假设时先定义参数" class="level3">
+<h3 class="anchored" data-anchor-id="写假设时先定义参数">5.3 写假设时先定义参数</h3>
+<p>先用文字定义总体参数，例如 <span class="math inline">\mu</span> 表示总体平均值，再写</p>
+<p><span class="math display">
+H_0:\mu=\mu_0.
+</span></p>
+<p>根据题目措辞选择备择假设：</p>
+<ul>
+<li>“different” 或 “changed”：<span class="math inline">H_1:\mu\ne\mu_0</span>；</li>
+<li>“greater” 或 “increased”：<span class="math inline">H_1:\mu&gt;\mu_0</span>；</li>
+<li>“less” 或 “decreased”：<span class="math inline">H_1:\mu&lt;\mu_0</span>。</li>
+</ul>
+<p>不要因为样本均值大于假设值，就自动写成右尾检验；尾部由题目研究问题决定。</p>
+</section>
+<section id="one-sample-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="one-sample-t-test">5.4 One-sample <span class="math inline">t</span>-test</h3>
+<p>总体均值假设为 <span class="math inline">\mu_0</span> 时，使用</p>
+<p><span class="math display">
+t=\frac{\bar x-\mu_0}{s/\sqrt n},
+\qquad
+v=n-1.
+</span></p>
+<p>标准答题顺序是：</p>
+<ol type="1">
+<li>写 <span class="math inline">H_0</span> 和 <span class="math inline">H_1</span>；</li>
+<li>写检验统计量和代入值；</li>
+<li>写 degrees of freedom；</li>
+<li>查 critical value 或计算 p-value；</li>
+<li>比较统计量与临界区域；</li>
+<li>在题目语境下写 sufficient 或 insufficient evidence。</li>
+</ol>
+<p>不能只写“accept <span class="math inline">H_0</span>”；没有拒绝 <span class="math inline">H_0</span> 只表示证据不足，不等于证明 <span class="math inline">H_0</span> 为真。</p>
+</section>
+<section id="paired-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="paired-t-test">5.5 Paired <span class="math inline">t</span>-test</h3>
+<p>对于同一对象的两次测量，先定义方向，例如</p>
+<p><span class="math display">
+d_i=\text{before}_i-\text{after}_i.
+</span></p>
+<p>然后把 <span class="math inline">d_i</span> 当作一个单样本，计算 <span class="math inline">\bar d</span>、<span class="math inline">s_d</span>，再使用</p>
+<p><span class="math display">
+t=\frac{\bar d-\mu_{d,0}}{s_d/\sqrt n},
+\qquad
+v=n-1.
+</span></p>
+<p>如果改变差值定义，统计量符号和 <span class="math inline">H_1</span> 的方向也必须同时改变。正态性假设作用于 differences，而不是分别作用于 before 和 after 的两组数据。</p>
+</section>
+<section id="pooled-two-sample-t-test" class="level3">
+<h3 class="anchored" data-anchor-id="pooled-two-sample-t-test">5.6 Pooled two-sample <span class="math inline">t</span>-test</h3>
+<p>两个独立小样本且总体方差相同时，先计算 pooled variance：</p>
+<p><span class="math display">
+s_p^2=\frac{(n_1-1)s_1^2+(n_2-1)s_2^2}{n_1+n_2-2}.
+</span></p>
+<p>然后使用</p>
+<p><span class="math display">
+t=\frac{(\bar x-\bar y)-\delta_0}
+{s_p\sqrt{1/n_1+1/n_2}},
+\qquad
+v=n_1+n_2-2.
+</span></p>
+<p>其中 <span class="math inline">\delta_0</span> 是原假设中的总体均值差。分子顺序必须与备择假设及差值定义一致；如果定义研究 <span class="math inline">\mu_X-\mu_Y</span>，就始终使用 <span class="math inline">\bar x-\bar y</span>。</p>
+</section>
+<section id="两个大样本的-normal-procedure" class="level3">
+<h3 class="anchored" data-anchor-id="两个大样本的-normal-procedure">5.7 两个大样本的 normal procedure</h3>
+<p>两个独立大样本的均值差可使用</p>
+<p><span class="math display">
+z=\frac{\bar x-\bar y-(\mu_X-\mu_Y)_0}
+{\sqrt{s_X^2/n_X+s_Y^2/n_Y}}.
+</span></p>
+<p>注意这里的标准误直接使用两组样本方差，不需要计算 pooled variance。大样本条件、独立性和差值方向都应在答案中保持清楚。</p>
+</section>
+<section id="临界值与尾部" class="level3">
+<h3 class="anchored" data-anchor-id="临界值与尾部">5.8 临界值与尾部</h3>
+<p>双尾检验的总显著性水平为 <span class="math inline">\alpha</span>，两侧各为 <span class="math inline">\alpha/2</span>。例如 5% 双尾 <span class="math inline">t</span>-test 使用</p>
+<p><span class="math display">
+t_{0.975,v},
+</span></p>
+<p>而不是 <span class="math inline">t_{0.95,v}</span>。拒绝区域为</p>
+<p><span class="math display">
+|t|&gt;t_{0.975,v}.
+</span></p>
+<p>右尾检验比较 <span class="math inline">t</span> 是否大于右侧临界值；左尾检验比较 <span class="math inline">t</span> 是否小于负的相应临界值。先确定尾部，再查表，避免临界值方向错误。</p>
+</section>
+<section id="p-value-的结论写法" class="level3">
+<h3 class="anchored" data-anchor-id="p-value-的结论写法">5.9 p-value 的结论写法</h3>
+<p>若使用 p-value：</p>
+<ul>
+<li><span class="math inline">p\leqslant\alpha</span>：reject <span class="math inline">H_0</span>；</li>
+<li><span class="math inline">p&gt;\alpha</span>：do not reject <span class="math inline">H_0</span>，或说明 insufficient evidence against <span class="math inline">H_0</span>。</li>
+</ul>
+<p>结论必须包含 significance level 和题目语境，例如“在 5% 显著性水平下，有足够证据表明总体均值增加”。不要只写“显著”而不说明比较对象。</p>
+</section>
+<section id="confidence-interval" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-interval">5.10 Confidence interval</h3>
+<p>统一结构为</p>
+<p><span class="math display">
+\text{estimate}
+\pm(\text{critical value})\times(\text{standard error}).
+</span></p>
+<p>总体方差未知的单总体均值区间为</p>
+<p><span class="math display">
+\bar x\pm t_{1-\alpha/2,n-1}\frac{s}{\sqrt n}.
+</span></p>
+<p>双尾 confidence interval 使用双尾临界值。95% interval 对应 <span class="math inline">t_{0.975,v}</span>，不是 <span class="math inline">t_{0.95,v}</span>。</p>
+</section>
+<section id="用-confidence-interval-做检验判断" class="level3">
+<h3 class="anchored" data-anchor-id="用-confidence-interval-做检验判断">5.11 用 confidence interval 做检验判断</h3>
+<p>若置信区间针对均值差，并且区间不包含 <span class="math inline">0</span>，则在相应双尾显著性水平下有证据表明两总体均值不同。若单个总体均值的区间不包含假设值 <span class="math inline">\mu_0</span>，则对应双尾检验会拒绝 <span class="math inline">H_0</span>。</p>
+<p>这是双尾检验与双侧区间的对应关系；单尾检验不能直接套用“不包含 <span class="math inline">0</span>”的双尾判断，必须结合方向和单侧临界值。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">5.12 常见失分点与答题结构</h3>
+<ul>
+<li>paired data 没有先求每一对的 difference；</li>
+<li>差值方向改变后没有同步改变 <span class="math inline">H_1</span>；</li>
+<li>小样本总体方差未知时误用 normal procedure；</li>
+<li>没有写 degrees of freedom；</li>
+<li>pooled test 没有确认 equal variances；</li>
+<li>双尾 95% interval 错用 <span class="math inline">t_{0.95,v}</span>；</li>
+<li>把“do not reject”写成“证明 <span class="math inline">H_0</span>”；</li>
+<li>结论没有写 significance level 和题目语境；</li>
+<li>标准误、统计量或方差计算过早四舍五入。</li>
+</ul>
+<p>推荐按“定义参数 → 写 <span class="math inline">H_0,H_1</span> → 选择检验 → 计算统计量和自由度 → 查临界值或 p-value → 作决定 → 写语境结论”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
