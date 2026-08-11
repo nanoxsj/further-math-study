@@ -968,6 +968,17 @@
     ]
   },
   {
+    "objectID": "paper-1/polar-coordinates.html#常用解题技巧",
+    "href": "paper-1/polar-coordinates.html#常用解题技巧",
+    "title": "1.5 Polar coordinates",
+    "section": "6. 常用解题技巧",
+    "text": "6. 常用解题技巧\n\n6.1 坐标转换先判断象限\n点的基本关系为\n\nx=r\\cos\\theta,\\qquad y=r\\sin\\theta,\\qquad\nr^2=x^2+y^2.\n\n由 x,y 求角度时，不要只计算 \\arctan(y/x)。先根据 x、y 的正负判断象限，再选择 principal value；若题目指定了 \\theta 的区间，还要把角度调整到该区间内。\n同一点可写成 (r,\\theta+2k\\pi)，但本章通常使用 r&gt;0、-\\pi&lt;\\theta\\leqslant\\pi 的 principal polar coordinates。pole 对应 r=0，此时角度不唯一。\n\n\n6.2 极坐标方程转换为 Cartesian 方程\n转换时优先使用\n\nr\\cos\\theta=x,\\qquad r\\sin\\theta=y,\\qquad r^2=x^2+y^2.\n\n例如，含有 r\\sin\\theta 的式子可以直接替换为 y，含有 r^2 的式子可以替换为 x^2+y^2。若仍有 \\sin\\theta 或 \\cos\\theta，可乘以适当的 r 的幂后再替换。\n平方或约去因子时，要保留原题给出的 r\\geqslant0 和 \\theta 范围，否则可能引入额外的曲线分支。\n\n\n6.3 作图的固定顺序\n不要一开始就凭少量点连曲线。建议按以下顺序：\n\n写出题目给定的 \\theta 区间，并按本课程约定只保留 r\\geqslant0 的部分；\n解 r=0，找出曲线经过 pole 的角度；\n检查 \\theta=0 及其他 initial-line 方向；\n检查对称性和周期；\n求 r 的最大值、最小值或 stationary values；\n选取几个关键角，标出点并按 \\theta 增大的方向连接。\n\n每个关键点旁边最好标明角度或半径，这样可检查曲线是否画在正确象限。\n\n\n6.4 处理 r&lt;0 的陷阱\n本课程只绘制 r\\geqslant0 的部分。因此，若\n\nr=f(\\theta)\n\n在某段区间内 f(\\theta)&lt;0，应先找出 f(\\theta)\\geqslant0 的子区间，再作图。不要把负半径自动画到相反方向，也不要把不在题目区间内的分支补上。\n若题目采用其他教材中允许负半径的画法，应以题目明确给出的 convention 为准；本页面的图形和答案统一采用 r\\geqslant0。\n\n\n6.5 快速判断对称性\n可尝试以下代换：\n\n\\begin{array}{c|c}\n\\text{代换}&\\text{可能的对称性}\\\\ \\hline\n\\theta\\mapsto-\\theta&\\text{initial line}\\\\\n\\theta\\mapsto\\pi-\\theta&\\theta=\\frac\\pi2\\\\\n\\theta\\mapsto\\theta+\\pi&\\text{pole}\n\\end{array}\n\n若代换后方程保持不变，则可利用对应对称性减少作图或积分工作。但必须同时检查题目给定的角度范围：完整方程有对称性，不代表所选区间一定包含完整的对称图形。\n\n\n6.6 求距离时先转成几何距离\n点 (r,\\theta) 到 initial line 的距离为\n\n|r\\sin\\theta|.\n\n点到过 pole、方向角为 \\alpha 的直线的距离为\n\n|r\\sin(\\theta-\\alpha)|.\n\n若题目给出第一象限或明确的角度范围，可以去掉绝对值；否则必须保留绝对值，或者先分区间判断符号。求最大距离时，要同时检查 stationary points、区间端点和 r=0 的位置。\n\n\n6.7 求两条极坐标曲线的交点\n在共同的 \\theta 区间内令\n\nr_1(\\theta)=r_2(\\theta)\n\n并解出 \\theta，再代回求 r。如果两条曲线都可能经过 pole，还要单独检查 r=0，因为不同的角度可以表示同一个 pole。\n如果一条曲线可以写成 r\\sin\\theta=c，可直接改写为 y=c，再结合另一条曲线的范围判断交点数量，避免漏解。\n\n\n6.8 极坐标面积的上下限\n单条曲线与两条半直线围成的面积为\n\nA=\\frac12\\int_\\alpha^\\beta r^2\\,\\mathrm d\\theta.\n\n积分上下限必须来自实际边界，常见来源包括：\n\n曲线经过 pole 的角度，即 r=0；\n两条曲线相交的角度；\n题目直接给出的两条半直线；\n对称性确定的半区间。\n\n不能因为图形看起来像一瓣，就直接使用 0 到 2\\pi；要先确认该区间是否恰好描绘目标区域一次。\n\n\n6.9 两条曲线之间的面积\n若外曲线为 r_{\\text{outer}}，内曲线为 r_{\\text{inner}}，则\n\nA=\\frac12\\int_\\alpha^\\beta\n\\left(r_{\\text{outer}}^2-r_{\\text{inner}}^2\\right)\\,\\mathrm d\\theta.\n\n判断内外关系时，不要只比较 r_{\\text{outer}} 与 r_{\\text{inner}} 的符号；在相同的 \\theta 下比较它们的非负半径，并先确定两条曲线的交点。若内外关系在区间中发生改变，必须拆成多个积分。\n\n\n6.10 利用对称性简化积分\n若区域关于某条直线对称，可以计算一半再乘以 2。但要在答案中说明：\n\n对称轴或对称关系是什么；\n所选积分区间对应哪一半区域；\n乘以 2 后没有重复计算 pole 或边界。\n\n被积函数出现 \\sin^2\\theta、\\cos^2\\theta 或 \\sin\\theta\\cos\\theta 时，先用恒等式化简，例如\n\n\\sin^2\\theta=\\frac{1-\\cos2\\theta}{2},\\qquad\n\\cos^2\\theta=\\frac{1+\\cos2\\theta}{2}.\n\n\n\n6.11 常见失分点与答题结构\n\n用 \\arctan(y/x) 后没有检查象限；\n转换方程时漏写 r^2=x^2+y^2 或错误约去因子；\n作图时忽略 r\\geqslant0 的约定；\n漏掉 pole 或两条曲线的交点；\n面积上下限没有对应实际边界；\n两曲线面积题没有先判断内外关系；\n使用对称性却没有说明积分区间和乘法因子；\n距离函数的绝对值或端点检查被遗漏。\n\n推荐按“确定范围 → 找关键点和对称性 → 判断半径符号 → 作图或确定内外关系 → 写面积/距离公式 → 代入上下限 → 检查结果”的顺序作答。",
+    "crumbs": [
+      "Paper 1 · Further Pure Mathematics 1",
+      "1.5 Polar coordinates"
+    ]
+  },
+  {
     "objectID": "paper-1/summation-of-series.html",
     "href": "paper-1/summation-of-series.html",
     "title": "1.3 Summation of series",

@@ -430,6 +430,20 @@ window.Quarto = {
   <li><a href="#octobernovember-923114-question-6-12-marks" id="toc-octobernovember-923114-question-6-12-marks" class="nav-link" data-scroll-target="#octobernovember-923114-question-6-12-marks">2025 October/November · 9231/14 · Question 6 · 12 marks</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">5. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">6. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#坐标转换先判断象限" id="toc-坐标转换先判断象限" class="nav-link" data-scroll-target="#坐标转换先判断象限">6.1 坐标转换先判断象限</a></li>
+  <li><a href="#极坐标方程转换为-cartesian-方程" id="toc-极坐标方程转换为-cartesian-方程" class="nav-link" data-scroll-target="#极坐标方程转换为-cartesian-方程">6.2 极坐标方程转换为 Cartesian 方程</a></li>
+  <li><a href="#作图的固定顺序" id="toc-作图的固定顺序" class="nav-link" data-scroll-target="#作图的固定顺序">6.3 作图的固定顺序</a></li>
+  <li><a href="#处理-r0-的陷阱" id="toc-处理-r0-的陷阱" class="nav-link" data-scroll-target="#处理-r0-的陷阱">6.4 处理 <span class="math inline">r&lt;0</span> 的陷阱</a></li>
+  <li><a href="#快速判断对称性" id="toc-快速判断对称性" class="nav-link" data-scroll-target="#快速判断对称性">6.5 快速判断对称性</a></li>
+  <li><a href="#求距离时先转成几何距离" id="toc-求距离时先转成几何距离" class="nav-link" data-scroll-target="#求距离时先转成几何距离">6.6 求距离时先转成几何距离</a></li>
+  <li><a href="#求两条极坐标曲线的交点" id="toc-求两条极坐标曲线的交点" class="nav-link" data-scroll-target="#求两条极坐标曲线的交点">6.7 求两条极坐标曲线的交点</a></li>
+  <li><a href="#极坐标面积的上下限" id="toc-极坐标面积的上下限" class="nav-link" data-scroll-target="#极坐标面积的上下限">6.8 极坐标面积的上下限</a></li>
+  <li><a href="#两条曲线之间的面积" id="toc-两条曲线之间的面积" class="nav-link" data-scroll-target="#两条曲线之间的面积">6.9 两条曲线之间的面积</a></li>
+  <li><a href="#利用对称性简化积分" id="toc-利用对称性简化积分" class="nav-link" data-scroll-target="#利用对称性简化积分">6.10 利用对称性简化积分</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">6.11 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2103,8 +2117,138 @@ A single arc from (1, 0) to the pole through the upper half-plane.
 <li>求最远距离时能写出正确的 Cartesian 距离函数并检查端点；</li>
 <li>面积题能从图形确定积分上下限，并完整写出代入、积分和精确值。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">6. 常用解题技巧</h2>
+<section id="坐标转换先判断象限" class="level3">
+<h3 class="anchored" data-anchor-id="坐标转换先判断象限">6.1 坐标转换先判断象限</h3>
+<p>点的基本关系为</p>
+<p><span class="math display">
+x=r\cos\theta,\qquad y=r\sin\theta,\qquad
+r^2=x^2+y^2.
+</span></p>
+<p>由 <span class="math inline">x,y</span> 求角度时，不要只计算 <span class="math inline">\arctan(y/x)</span>。先根据 <span class="math inline">x</span>、<span class="math inline">y</span> 的正负判断象限，再选择 principal value；若题目指定了 <span class="math inline">\theta</span> 的区间，还要把角度调整到该区间内。</p>
+<p>同一点可写成 <span class="math inline">(r,\theta+2k\pi)</span>，但本章通常使用 <span class="math inline">r&gt;0</span>、<span class="math inline">-\pi&lt;\theta\leqslant\pi</span> 的 principal polar coordinates。pole 对应 <span class="math inline">r=0</span>，此时角度不唯一。</p>
+</section>
+<section id="极坐标方程转换为-cartesian-方程" class="level3">
+<h3 class="anchored" data-anchor-id="极坐标方程转换为-cartesian-方程">6.2 极坐标方程转换为 Cartesian 方程</h3>
+<p>转换时优先使用</p>
+<p><span class="math display">
+r\cos\theta=x,\qquad r\sin\theta=y,\qquad r^2=x^2+y^2.
+</span></p>
+<p>例如，含有 <span class="math inline">r\sin\theta</span> 的式子可以直接替换为 <span class="math inline">y</span>，含有 <span class="math inline">r^2</span> 的式子可以替换为 <span class="math inline">x^2+y^2</span>。若仍有 <span class="math inline">\sin\theta</span> 或 <span class="math inline">\cos\theta</span>，可乘以适当的 <span class="math inline">r</span> 的幂后再替换。</p>
+<p>平方或约去因子时，要保留原题给出的 <span class="math inline">r\geqslant0</span> 和 <span class="math inline">\theta</span> 范围，否则可能引入额外的曲线分支。</p>
+</section>
+<section id="作图的固定顺序" class="level3">
+<h3 class="anchored" data-anchor-id="作图的固定顺序">6.3 作图的固定顺序</h3>
+<p>不要一开始就凭少量点连曲线。建议按以下顺序：</p>
+<ol type="1">
+<li>写出题目给定的 <span class="math inline">\theta</span> 区间，并按本课程约定只保留 <span class="math inline">r\geqslant0</span> 的部分；</li>
+<li>解 <span class="math inline">r=0</span>，找出曲线经过 pole 的角度；</li>
+<li>检查 <span class="math inline">\theta=0</span> 及其他 initial-line 方向；</li>
+<li>检查对称性和周期；</li>
+<li>求 <span class="math inline">r</span> 的最大值、最小值或 stationary values；</li>
+<li>选取几个关键角，标出点并按 <span class="math inline">\theta</span> 增大的方向连接。</li>
+</ol>
+<p>每个关键点旁边最好标明角度或半径，这样可检查曲线是否画在正确象限。</p>
+</section>
+<section id="处理-r0-的陷阱" class="level3">
+<h3 class="anchored" data-anchor-id="处理-r0-的陷阱">6.4 处理 <span class="math inline">r&lt;0</span> 的陷阱</h3>
+<p>本课程只绘制 <span class="math inline">r\geqslant0</span> 的部分。因此，若</p>
+<p><span class="math display">
+r=f(\theta)
+</span></p>
+<p>在某段区间内 <span class="math inline">f(\theta)&lt;0</span>，应先找出 <span class="math inline">f(\theta)\geqslant0</span> 的子区间，再作图。不要把负半径自动画到相反方向，也不要把不在题目区间内的分支补上。</p>
+<p>若题目采用其他教材中允许负半径的画法，应以题目明确给出的 convention 为准；本页面的图形和答案统一采用 <span class="math inline">r\geqslant0</span>。</p>
+</section>
+<section id="快速判断对称性" class="level3">
+<h3 class="anchored" data-anchor-id="快速判断对称性">6.5 快速判断对称性</h3>
+<p>可尝试以下代换：</p>
+<p><span class="math display">
+\begin{array}{c|c}
+\text{代换}&amp;\text{可能的对称性}\\ \hline
+\theta\mapsto-\theta&amp;\text{initial line}\\
+\theta\mapsto\pi-\theta&amp;\theta=\frac\pi2\\
+\theta\mapsto\theta+\pi&amp;\text{pole}
+\end{array}
+</span></p>
+<p>若代换后方程保持不变，则可利用对应对称性减少作图或积分工作。但必须同时检查题目给定的角度范围：完整方程有对称性，不代表所选区间一定包含完整的对称图形。</p>
+</section>
+<section id="求距离时先转成几何距离" class="level3">
+<h3 class="anchored" data-anchor-id="求距离时先转成几何距离">6.6 求距离时先转成几何距离</h3>
+<p>点 <span class="math inline">(r,\theta)</span> 到 initial line 的距离为</p>
+<p><span class="math display">
+|r\sin\theta|.
+</span></p>
+<p>点到过 pole、方向角为 <span class="math inline">\alpha</span> 的直线的距离为</p>
+<p><span class="math display">
+|r\sin(\theta-\alpha)|.
+</span></p>
+<p>若题目给出第一象限或明确的角度范围，可以去掉绝对值；否则必须保留绝对值，或者先分区间判断符号。求最大距离时，要同时检查 stationary points、区间端点和 <span class="math inline">r=0</span> 的位置。</p>
+</section>
+<section id="求两条极坐标曲线的交点" class="level3">
+<h3 class="anchored" data-anchor-id="求两条极坐标曲线的交点">6.7 求两条极坐标曲线的交点</h3>
+<p>在共同的 <span class="math inline">\theta</span> 区间内令</p>
+<p><span class="math display">
+r_1(\theta)=r_2(\theta)
+</span></p>
+<p>并解出 <span class="math inline">\theta</span>，再代回求 <span class="math inline">r</span>。如果两条曲线都可能经过 pole，还要单独检查 <span class="math inline">r=0</span>，因为不同的角度可以表示同一个 pole。</p>
+<p>如果一条曲线可以写成 <span class="math inline">r\sin\theta=c</span>，可直接改写为 <span class="math inline">y=c</span>，再结合另一条曲线的范围判断交点数量，避免漏解。</p>
+</section>
+<section id="极坐标面积的上下限" class="level3">
+<h3 class="anchored" data-anchor-id="极坐标面积的上下限">6.8 极坐标面积的上下限</h3>
+<p>单条曲线与两条半直线围成的面积为</p>
+<p><span class="math display">
+A=\frac12\int_\alpha^\beta r^2\,\mathrm d\theta.
+</span></p>
+<p>积分上下限必须来自实际边界，常见来源包括：</p>
+<ul>
+<li>曲线经过 pole 的角度，即 <span class="math inline">r=0</span>；</li>
+<li>两条曲线相交的角度；</li>
+<li>题目直接给出的两条半直线；</li>
+<li>对称性确定的半区间。</li>
+</ul>
+<p>不能因为图形看起来像一瓣，就直接使用 <span class="math inline">0</span> 到 <span class="math inline">2\pi</span>；要先确认该区间是否恰好描绘目标区域一次。</p>
+</section>
+<section id="两条曲线之间的面积" class="level3">
+<h3 class="anchored" data-anchor-id="两条曲线之间的面积">6.9 两条曲线之间的面积</h3>
+<p>若外曲线为 <span class="math inline">r_{\text{outer}}</span>，内曲线为 <span class="math inline">r_{\text{inner}}</span>，则</p>
+<p><span class="math display">
+A=\frac12\int_\alpha^\beta
+\left(r_{\text{outer}}^2-r_{\text{inner}}^2\right)\,\mathrm d\theta.
+</span></p>
+<p>判断内外关系时，不要只比较 <span class="math inline">r_{\text{outer}}</span> 与 <span class="math inline">r_{\text{inner}}</span> 的符号；在相同的 <span class="math inline">\theta</span> 下比较它们的非负半径，并先确定两条曲线的交点。若内外关系在区间中发生改变，必须拆成多个积分。</p>
+</section>
+<section id="利用对称性简化积分" class="level3">
+<h3 class="anchored" data-anchor-id="利用对称性简化积分">6.10 利用对称性简化积分</h3>
+<p>若区域关于某条直线对称，可以计算一半再乘以 <span class="math inline">2</span>。但要在答案中说明：</p>
+<ol type="1">
+<li>对称轴或对称关系是什么；</li>
+<li>所选积分区间对应哪一半区域；</li>
+<li>乘以 <span class="math inline">2</span> 后没有重复计算 pole 或边界。</li>
+</ol>
+<p>被积函数出现 <span class="math inline">\sin^2\theta</span>、<span class="math inline">\cos^2\theta</span> 或 <span class="math inline">\sin\theta\cos\theta</span> 时，先用恒等式化简，例如</p>
+<p><span class="math display">
+\sin^2\theta=\frac{1-\cos2\theta}{2},\qquad
+\cos^2\theta=\frac{1+\cos2\theta}{2}.
+</span></p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">6.11 常见失分点与答题结构</h3>
+<ul>
+<li>用 <span class="math inline">\arctan(y/x)</span> 后没有检查象限；</li>
+<li>转换方程时漏写 <span class="math inline">r^2=x^2+y^2</span> 或错误约去因子；</li>
+<li>作图时忽略 <span class="math inline">r\geqslant0</span> 的约定；</li>
+<li>漏掉 pole 或两条曲线的交点；</li>
+<li>面积上下限没有对应实际边界；</li>
+<li>两曲线面积题没有先判断内外关系；</li>
+<li>使用对称性却没有说明积分区间和乘法因子；</li>
+<li>距离函数的绝对值或端点检查被遗漏。</li>
+</ul>
+<p>推荐按“确定范围 → 找关键点和对称性 → 判断半径符号 → 作图或确定内外关系 → 写面积/距离公式 → 代入上下限 → 检查结果”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
