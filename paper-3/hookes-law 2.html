@@ -1,0 +1,1837 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 3 Further Mechanics，Hooke’s law，依据 Jean-Paul Muscat 与 Sophie Goldie 的 Further Mechanics 教材。">
+
+<title>3.5 Hooke’s law – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-3/linear-motion.html" rel="next">
+<link href="../paper-3/circular-motion.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">Paper 3 · Further Mechanics</a></li><li class="breadcrumb-item"><a href="../paper-3/hookes-law.html">3.5 Hooke’s law</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Hyperbolic functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/complex-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Complex numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differential-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Differential equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 3 · Further Mechanics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/motion-of-a-projectile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Motion of a projectile</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/equilibrium-of-a-rigid-body.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Equilibrium of a rigid body</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/centre-of-mass.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Centre of mass</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/circular-motion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4 Circular motion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/hookes-law.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">3.5 Hooke’s law</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/linear-motion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6 Linear motion under a variable force</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/momentum.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7 Momentum</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 4 · Further Probability &amp; Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/continuous-random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 Continuous random variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/inference-normal-t-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2 Inference using normal and t-distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/chi-squared-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3 Chi-squared tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/non-parametric-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4 Non-parametric tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/probability-generating-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5 Probability generating functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link active" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#hookes-law" id="toc-hookes-law" class="nav-link" data-scroll-target="#hookes-law">1.1 Hooke’s law</a></li>
+  <li><a href="#elastic-potential-energy" id="toc-elastic-potential-energy" class="nav-link" data-scroll-target="#elastic-potential-energy">1.2 Elastic potential energy</a></li>
+  <li><a href="#more-than-one-string-or-spring" id="toc-more-than-one-string-or-spring" class="nav-link" data-scroll-target="#more-than-one-string-or-spring">1.3 More than one string or spring</a></li>
+  <li><a href="#vertical-motion" id="toc-vertical-motion" class="nav-link" data-scroll-target="#vertical-motion">1.4 Vertical motion</a></li>
+  <li><a href="#slack-string" id="toc-slack-string" class="nav-link" data-scroll-target="#slack-string">1.5 Slack string</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <ul class="collapse">
+  <li><a href="#example-5.1-a-particle-suspended-by-an-elastic-string" id="toc-example-5.1-a-particle-suspended-by-an-elastic-string" class="nav-link" data-scroll-target="#example-5.1-a-particle-suspended-by-an-elastic-string">Example 5.1 · A particle suspended by an elastic string</a></li>
+  <li><a href="#example-5.2-kitchen-scales" id="toc-example-5.2-kitchen-scales" class="nav-link" data-scroll-target="#example-5.2-kitchen-scales">Example 5.2 · Kitchen scales</a></li>
+  <li><a href="#example-5.3-two-parts-of-one-elastic-string" id="toc-example-5.3-two-parts-of-one-elastic-string" class="nav-link" data-scroll-target="#example-5.3-two-parts-of-one-elastic-string">Example 5.3 · Two parts of one elastic string</a></li>
+  <li><a href="#example-5.4-elastic-potential-energy" id="toc-example-5.4-elastic-potential-energy" class="nav-link" data-scroll-target="#example-5.4-elastic-potential-energy">Example 5.4 · Elastic potential energy</a></li>
+  <li><a href="#example-5.5-a-marble-and-a-catapult" id="toc-example-5.5-a-marble-and-a-catapult" class="nav-link" data-scroll-target="#example-5.5-a-marble-and-a-catapult">Example 5.5 · A marble and a catapult</a></li>
+  <li><a href="#example-5.6-a-particle-falling-onto-an-elastic-string" id="toc-example-5.6-a-particle-falling-onto-an-elastic-string" class="nav-link" data-scroll-target="#example-5.6-a-particle-falling-onto-an-elastic-string">Example 5.6 · A particle falling onto an elastic string</a></li>
+  <li><a href="#example-5.7-using-calculus-for-vertical-elastic-motion" id="toc-example-5.7-using-calculus-for-vertical-elastic-motion" class="nav-link" data-scroll-target="#example-5.7-using-calculus-for-vertical-elastic-motion">Example 5.7 · Using calculus for vertical elastic motion</a></li>
+  </ul></li>
+  <li><a href="#教材中标注-cambridge-international-的题目" id="toc-教材中标注-cambridge-international-的题目" class="nav-link" data-scroll-target="#教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</a></li>
+  <li><a href="#paper-3-真题题库" id="toc-paper-3-真题题库" class="nav-link" data-scroll-target="#paper-3-真题题库">4. Paper 3 真题题库</a></li>
+  <li><a href="#paper-3-questions" id="toc-paper-3-questions" class="nav-link" data-scroll-target="#paper-3-questions">Paper 3 questions</a>
+  <ul class="collapse">
+  <li><a href="#mayjune-923131-and-923132-question-3" id="toc-mayjune-923131-and-923132-question-3" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-3">2021 May/June · 9231/31 and 9231/32 · Question 3</a></li>
+  <li><a href="#octobernovember-923131-question-1" id="toc-octobernovember-923131-question-1" class="nav-link" data-scroll-target="#octobernovember-923131-question-1">2021 October/November · 9231/31 · Question 1</a></li>
+  <li><a href="#octobernovember-923131-question-3" id="toc-octobernovember-923131-question-3" class="nav-link" data-scroll-target="#octobernovember-923131-question-3">2021 October/November · 9231/31 · Question 3</a></li>
+  <li><a href="#octobernovember-923132-question-2" id="toc-octobernovember-923132-question-2" class="nav-link" data-scroll-target="#octobernovember-923132-question-2">2021 October/November · 9231/32 · Question 2</a></li>
+  <li><a href="#mayjune-923131-923132-and-923133-question-2" id="toc-mayjune-923131-923132-and-923133-question-2" class="nav-link" data-scroll-target="#mayjune-923131-923132-and-923133-question-2">2022 May/June · 9231/31, 9231/32 and 9231/33 · Question 2</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-4" id="toc-mayjune-923131-and-923132-question-4" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-4">2022 May/June · 9231/31 and 9231/32 · Question 4</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-2" id="toc-octobernovember-923131-and-923133-question-2" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-2">2022 October/November · 9231/31 and 9231/33 · Question 2</a></li>
+  <li><a href="#octobernovember-923132-question-3" id="toc-octobernovember-923132-question-3" class="nav-link" data-scroll-target="#octobernovember-923132-question-3">2022 October/November · 9231/32 · Question 3</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-1" id="toc-mayjune-923131-and-923132-question-1" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-1">2023 May/June · 9231/31 and 9231/32 · Question 1</a></li>
+  <li><a href="#mayjune-923131-and-923132-question-5" id="toc-mayjune-923131-and-923132-question-5" class="nav-link" data-scroll-target="#mayjune-923131-and-923132-question-5">2023 May/June · 9231/31 and 9231/32 · Question 5</a></li>
+  <li><a href="#mayjune-923133-question-2" id="toc-mayjune-923133-question-2" class="nav-link" data-scroll-target="#mayjune-923133-question-2">2023 May/June · 9231/33 · Question 2</a></li>
+  <li><a href="#mayjune-923133-question-5" id="toc-mayjune-923133-question-5" class="nav-link" data-scroll-target="#mayjune-923133-question-5">2023 May/June · 9231/33 · Question 5</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-3" id="toc-octobernovember-923131-and-923133-question-3" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-3">2024 October/November · 9231/31 and 9231/33 · Question 3</a></li>
+  <li><a href="#octobernovember-923131-and-923133-question-4" id="toc-octobernovember-923131-and-923133-question-4" class="nav-link" data-scroll-target="#octobernovember-923131-and-923133-question-4">2025 October/November · 9231/31 and 9231/33 · Question 4</a></li>
+  </ul></li>
+  <li><a href="#本章检查清单" id="toc-本章检查清单" class="nav-link" data-scroll-target="#本章检查清单">5. 本章检查清单</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">6. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先区分-natural-lengthactual-length-和-extension" id="toc-先区分-natural-lengthactual-length-和-extension" class="nav-link" data-scroll-target="#先区分-natural-lengthactual-length-和-extension">6.1 先区分 natural length、actual length 和 extension</a></li>
+  <li><a href="#hookes-law-与单位" id="toc-hookes-law-与单位" class="nav-link" data-scroll-target="#hookes-law-与单位">6.2 Hooke’s law 与单位</a></li>
+  <li><a href="#先画力图再列平衡方程" id="toc-先画力图再列平衡方程" class="nav-link" data-scroll-target="#先画力图再列平衡方程">6.3 先画力图再列平衡方程</a></li>
+  <li><a href="#多条-string-或-spring-要逐段处理" id="toc-多条-string-或-spring-要逐段处理" class="nav-link" data-scroll-target="#多条-string-或-spring-要逐段处理">6.4 多条 string 或 spring 要逐段处理</a></li>
+  <li><a href="#弹性势能" id="toc-弹性势能" class="nav-link" data-scroll-target="#弹性势能">6.5 弹性势能</a></li>
+  <li><a href="#能量方程的符号" id="toc-能量方程的符号" class="nav-link" data-scroll-target="#能量方程的符号">6.6 能量方程的符号</a></li>
+  <li><a href="#竖直-elastic-motion-的分阶段模型" id="toc-竖直-elastic-motion-的分阶段模型" class="nav-link" data-scroll-target="#竖直-elastic-motion-的分阶段模型">6.7 竖直 elastic motion 的分阶段模型</a></li>
+  <li><a href="#竖直运动进入-taut-阶段后的能量式" id="toc-竖直运动进入-taut-阶段后的能量式" class="nav-link" data-scroll-target="#竖直运动进入-taut-阶段后的能量式">6.8 竖直运动进入 taut 阶段后的能量式</a></li>
+  <li><a href="#slack-string-的判断" id="toc-slack-string-的判断" class="nav-link" data-scroll-target="#slack-string-的判断">6.9 Slack string 的判断</a></li>
+  <li><a href="#最大伸长与转折点" id="toc-最大伸长与转折点" class="nav-link" data-scroll-target="#最大伸长与转折点">6.10 最大伸长与转折点</a></li>
+  <li><a href="#受力方程与能量方程的分工" id="toc-受力方程与能量方程的分工" class="nav-link" data-scroll-target="#受力方程与能量方程的分工">6.11 受力方程与能量方程的分工</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">6.12 常见失分点与答题结构</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-3/motion-of-a-projectile.html">Paper 3 · Further Mechanics</a></li><li class="breadcrumb-item"><a href="../paper-3/hookes-law.html">3.5 Hooke’s law</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">3.5 Hooke’s law</h1>
+<p class="subtitle lead">Further Mechanics · elastic strings · springs · energy · vertical motion</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 3 Further Mechanics，Hooke’s law，依据 Jean-Paul Muscat 与 Sophie Goldie 的 Further Mechanics 教材。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本章考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>使用 modulus of elasticity 表示 elastic string 或 spring 的 tension/thrust；</li>
+<li>计算 extension、compression 和 equilibrium position；</li>
+<li>处理 two or more strings/springs；</li>
+<li>使用 elastic potential energy；</li>
+<li>对 vertical elastic motion 使用 energy equation；</li>
+<li>判断 string 何时 slack、何时 taut，并正确选择模型的有效范围。</li>
+</ol>
+</div>
+</div>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="hookes-law" class="level3">
+<h3 class="anchored" data-anchor-id="hookes-law">1.1 Hooke’s law</h3>
+<p>若 elastic string 的 natural length 为 <span class="math inline">l_0</span>、modulus of elasticity 为 <span class="math inline">\lambda</span>、extension 为 <span class="math inline">x</span>，则 tension 为</p>
+<p><span class="math display">
+\boxed{T=\frac{\lambda}{l_0}x}.
+</span></p>
+<p>若 spring 被压缩，thrust 的 magnitude 同样为</p>
+<p><span class="math display">
+\boxed{T=\frac{\lambda}{l_0}x},
+</span></p>
+<p>其中 <span class="math inline">x</span> 是 decrease in length。</p>
+</section>
+<section id="elastic-potential-energy" class="level3">
+<h3 class="anchored" data-anchor-id="elastic-potential-energy">1.2 Elastic potential energy</h3>
+<p>从 natural length 开始伸长或压缩 <span class="math inline">x</span> 时，储存的 elastic potential energy 为</p>
+<p><span class="math display">
+\boxed{E=\frac12Tx=\frac12\frac{\lambda}{l_0}x^2}.
+</span></p>
+<p>不能把进一步伸长量直接代入总能量公式；应使用 final energy 减 initial energy。</p>
+</section>
+<section id="more-than-one-string-or-spring" class="level3">
+<h3 class="anchored" data-anchor-id="more-than-one-string-or-spring">1.3 More than one string or spring</h3>
+<p>每一段 string 必须单独使用自己的 natural length 和 extension。先写 equilibrium 的 force equation，再对每一段使用 Hooke’s law。</p>
+</section>
+<section id="vertical-motion" class="level3">
+<h3 class="anchored" data-anchor-id="vertical-motion">1.4 Vertical motion</h3>
+<p>当 particle 从 natural length 位置释放，常用 conservation of energy：</p>
+<p><span class="math display">
+\text{loss of GPE}=
+\text{gain of EPE}+\text{gain of KE}.
+</span></p>
+<p>若 string initially slack，particle 先自由下落 <span class="math inline">l_0</span>，到达 string taut 的位置时</p>
+<p><span class="math display">
+\frac12mu^2=mgl_0.
+</span></p>
+<p>之后若 extension 为 <span class="math inline">x</span>、速度为 <span class="math inline">v</span>：</p>
+<p><span class="math display">
+\boxed{\frac12mv^2-\frac12mu^2+\frac12\frac{\lambda}{l_0}x^2=mgx}.
+</span></p>
+</section>
+<section id="slack-string" class="level3">
+<h3 class="anchored" data-anchor-id="slack-string">1.5 Slack string</h3>
+<p>Light elastic string 只能提供 tension，不能提供 thrust。若计算得到 <span class="math inline">T&lt;0</span>，说明 string 已经 slack，原 circular/vertical model 不再适用；临界点使用</p>
+<p><span class="math display">
+\boxed{T=0}.
+</span></p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<section id="example-5.1-a-particle-suspended-by-an-elastic-string" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.1-a-particle-suspended-by-an-elastic-string">Example 5.1 · A particle suspended by an elastic string</h3>
+<p>A light elastic string of natural length <span class="math inline">0.7</span> m and modulus of elasticity <span class="math inline">50</span> N has one end fixed and a particle of mass <span class="math inline">1.4</span> kg attached to the other. The system hangs vertically in equilibrium. Find the extension of the string.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.1a1.png" class="img-fluid figure-img" style="width:55.0%"></p>
+<figcaption>Forces on the suspended particle</figcaption>
+</figure>
+</div>
+<p>In equilibrium, <span class="math inline">T=1.4g</span>. Hooke’s law gives</p>
+<p><span class="math display">
+T=\frac{\lambda}{l_0}x
+\quad\Longrightarrow\quad
+1.4g=\frac{50}{0.7}x.
+</span></p>
+<p>Therefore</p>
+<span class="math display">
+\boxed{x=0.196\ \mathrm m}.
+</span>
+</details>
+</section>
+<section id="example-5.2-kitchen-scales" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.2-kitchen-scales">Example 5.2 · Kitchen scales</h3>
+<p>The mechanism of a set of kitchen scales consists of a light scale pan supported on a spring of natural length <span class="math inline">20</span> mm. When measuring <span class="math inline">1.5</span> kg of flour, the spring is compressed by <span class="math inline">7.5</span> mm. Find</p>
+<p><strong>(i)</strong> the modulus of elasticity of the spring;</p>
+<p><strong>(ii)</strong> the mass of the heaviest object that can be measured if it is impossible to compress the spring by more than <span class="math inline">16</span> mm.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.2a1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>Spring and scale pan</figcaption>
+</figure>
+</div>
+<p><strong>(i)</strong> The thrust equals the weight of the flour:</p>
+<p><span class="math display">
+1.5g=\frac{\lambda}{0.02}(0.0075)=0.375\lambda.
+</span></p>
+<p>Thus</p>
+<p><span class="math display">
+\boxed{\lambda=40\ \mathrm N}.
+</span></p>
+<p><strong>(ii)</strong> If the maximum mass is <span class="math inline">M</span> kg,</p>
+<p><span class="math display">
+Mg=\frac{40}{0.02}(0.016)=32g.
+</span></p>
+<p>Hence</p>
+<span class="math display">
+\boxed{M=3.2\ \mathrm{kg}}.
+</span>
+</details>
+</section>
+<section id="example-5.3-two-parts-of-one-elastic-string" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.3-two-parts-of-one-elastic-string">Example 5.3 · Two parts of one elastic string</h3>
+<p>A particle of mass <span class="math inline">0.4</span> kg is attached to the midpoint of a light elastic string of natural length <span class="math inline">1</span> m and modulus of elasticity <span class="math inline">\lambda</span> N. The string is stretched between a point <span class="math inline">A</span> at the top of a doorway and a point <span class="math inline">B</span> on the floor, <span class="math inline">2</span> m vertically below <span class="math inline">A</span>.</p>
+<p><strong>(i)</strong> Find, in terms of <span class="math inline">\lambda</span>, the extensions of the two parts of the string.</p>
+<p><strong>(ii)</strong> Calculate their values when <span class="math inline">\lambda=10</span>.</p>
+<p><strong>(iii)</strong> Find the minimum value of <span class="math inline">\lambda</span> that will ensure that the lower half of the string is not slack.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.3a1.png" class="img-fluid figure-img" style="width:92.0%"></p>
+<figcaption>Lengths and forces</figcaption>
+</figure>
+</div>
+<p>Let the extensions of <span class="math inline">AP</span> and <span class="math inline">PB</span> be <span class="math inline">x_1</span> and <span class="math inline">x_2</span>.</p>
+<p>Vertical equilibrium and Hooke’s law give</p>
+<p><span class="math display">
+T_1=T_2+0.4g,
+\qquad
+T_1=\frac{\lambda}{0.5}x_1,
+\qquad
+T_2=\frac{\lambda}{0.5}x_2.
+</span></p>
+<p>Therefore</p>
+<p><span class="math display">
+\lambda(x_1-x_2)=0.2g.
+</span></p>
+<p>The total extension is <span class="math inline">1</span> m, so <span class="math inline">x_1+x_2=1</span>. Hence</p>
+<p><span class="math display">
+\boxed{x_1=0.5+\frac{0.1g}{\lambda}},
+\qquad
+\boxed{x_2=0.5-\frac{0.1g}{\lambda}}.
+</span></p>
+<p><strong>(ii)</strong> When <span class="math inline">\lambda=10</span> N, <span class="math inline">x_1=0.6</span> m and <span class="math inline">x_2=0.4</span> m.</p>
+<p><strong>(iii)</strong> For the lower part not to be slack, <span class="math inline">x_2\ge0</span>:</p>
+<span class="math display">
+0.5-\frac{0.1g}{\lambda}\ge0
+\quad\Longrightarrow\quad
+\boxed{\lambda\ge2\ \mathrm N}.
+</span>
+</details>
+</section>
+<section id="example-5.4-elastic-potential-energy" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.4-elastic-potential-energy">Example 5.4 · Elastic potential energy</h3>
+<p>An elastic rope of natural length <span class="math inline">0.6</span> m is extended to a length of <span class="math inline">0.8</span> m. The modulus of elasticity is <span class="math inline">25</span> N. Find</p>
+<p><strong>(i)</strong> the elastic potential energy in the rope;</p>
+<p><strong>(ii)</strong> the further energy required to stretch it to a length of <span class="math inline">1.65</span> m.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The elastic potential energy for extension <span class="math inline">x</span> is</p>
+<p><span class="math display">
+E=\frac12\frac{\lambda}{l_0}x^2.
+</span></p>
+<p><strong>(i)</strong> For <span class="math inline">x=0.2</span> m,</p>
+<p><span class="math display">
+E_1=\frac12\frac{25}{0.6}(0.2)^2
+=\boxed{0.833\ \mathrm J}.
+</span></p>
+<p><strong>(ii)</strong> For final extension <span class="math inline">x=1.05</span> m,</p>
+<p><span class="math display">
+E_2=\frac12\frac{25}{0.6}(1.05)^2=22.9\ \mathrm J.
+</span></p>
+<p>The further energy required is</p>
+<span class="math display">
+\boxed{E_2-E_1=22.1\ \mathrm J}.
+</span>
+</details>
+</section>
+<section id="example-5.5-a-marble-and-a-catapult" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.5-a-marble-and-a-catapult">Example 5.5 · A marble and a catapult</h3>
+<p>A marble of mass <span class="math inline">70</span> g is placed at the centre of an elastic string and pulled back so that the string is just taut. The marble is then pulled back a further <span class="math inline">9</span> cm and the force required to keep it in this position is <span class="math inline">60</span> N. Find</p>
+<p><strong>(i)</strong> the stretched length of the string;</p>
+<p><strong>(ii)</strong> the tension in the string and its modulus of elasticity;</p>
+<p><strong>(iii)</strong> the elastic potential energy stored in the string and the speed of the marble when the string regains its natural length.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.5a1.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Geometry of the stretched string</figcaption>
+</figure>
+</div>
+<p>The half-distance between the prongs is <span class="math inline">8</span> cm. Initially the perpendicular distance is</p>
+<p><span class="math display">
+DM_1=\sqrt{10^2-8^2}=6\ \mathrm{cm}.
+</span></p>
+<p>After pulling back <span class="math inline">9</span> cm, <span class="math inline">DM_2=15</span> cm, so</p>
+<p><span class="math display">
+BM_2=\sqrt{15^2+8^2}=17\ \mathrm{cm}.
+</span></p>
+<p><strong>(i)</strong> The stretched length is</p>
+<p><span class="math display">
+\boxed{34\ \mathrm{cm}}.
+</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.5a2.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>Tensions in the string</figcaption>
+</figure>
+</div>
+<p><strong>(ii)</strong> Resolving along the symmetry line,</p>
+<p><span class="math display">
+2T\left(\frac{15}{17}\right)=60
+\quad\Longrightarrow\quad T=34\ \mathrm N.
+</span></p>
+<p>The extension is <span class="math inline">0.34-0.20=0.14</span> m. Hence</p>
+<p><span class="math display">
+34=\frac{\lambda}{0.20}(0.14)
+\quad\Longrightarrow\quad
+\boxed{\lambda=48.6\ \mathrm N}.
+</span></p>
+<p><strong>(iii)</strong></p>
+<p><span class="math display">
+E=\frac12\frac{48.6}{0.20}(0.14)^2=2.38\ \mathrm J.
+</span></p>
+<p>When the string returns to its natural length, this becomes kinetic energy:</p>
+<span class="math display">
+\frac12(0.07)v^2=2.38
+\quad\Longrightarrow\quad
+\boxed{v=8.25\ \mathrm{m\ s^{-1}}}.
+</span>
+</details>
+</section>
+<section id="example-5.6-a-particle-falling-onto-an-elastic-string" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.6-a-particle-falling-onto-an-elastic-string">Example 5.6 · A particle falling onto an elastic string</h3>
+<p>A particle of mass <span class="math inline">m</span> is attached to one end, <span class="math inline">A</span>, of a light elastic string with natural length <span class="math inline">l_0</span> and modulus of elasticity <span class="math inline">\lambda</span>. The other end is attached to a fixed point <span class="math inline">O</span>. The particle is released from <span class="math inline">O</span>. Initially it falls freely with the string slack; after reaching <span class="math inline">P</span>, the string becomes taut. At <span class="math inline">P</span>, the particle has velocity <span class="math inline">u</span> downwards. Find the energy equation when the extension is <span class="math inline">x</span> and the downward velocity is <span class="math inline">v</span>, and obtain the equation for <span class="math inline">x</span> at the lowest point.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.6a1.png" class="img-fluid figure-img" style="width:74.0%"></p>
+<figcaption>Slack and taut parts of the string</figcaption>
+</figure>
+</div>
+<p>Before the string becomes taut, the particle falls through <span class="math inline">l_0</span>:</p>
+<p><span class="math display">
+\frac12mu^2=mgl_0
+\quad\Longrightarrow\quad
+u=\sqrt{2gl_0}.
+</span></p>
+<p>After a further distance <span class="math inline">x</span>, conservation of energy gives</p>
+<p><span class="math display">
+\boxed{\frac12mv^2-\frac12mu^2+\frac12\frac{\lambda}{l_0}x^2=mgx}.
+</span></p>
+<p>At the lowest point <span class="math inline">v=0</span>, so</p>
+<span class="math display">
+\boxed{\frac12\frac{\lambda}{l_0}x^2-mgx-mgl_0=0}.
+</span>
+</details>
+</section>
+<section id="example-5.7-using-calculus-for-vertical-elastic-motion" class="level3">
+<h3 class="anchored" data-anchor-id="example-5.7-using-calculus-for-vertical-elastic-motion">Example 5.7 · Using calculus for vertical elastic motion</h3>
+<p>Use calculus to analyse the same particle and string model as Example 5.6.</p>
+<p><strong>(i)</strong> Write down the equation of motion when the string is taut, using <span class="math inline">v\,dv/dx</span> for acceleration.</p>
+<p><strong>(ii)</strong> Solve this differential equation to find <span class="math inline">v</span> in terms of <span class="math inline">x</span> and interpret the solution.</p>
+<p><strong>(iii)</strong> Write the equation using <span class="math inline">dv/dt</span> and comment on whether it is useful.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.7a1.png" class="img-fluid figure-img" style="width:58.0%"></p>
+<figcaption>Forces and positive direction</figcaption>
+</figure>
+</div>
+<p><strong>(i)</strong> Taking downward as positive,</p>
+<p><span class="math display">
+mg-\frac{\lambda}{l_0}x=ma,
+\qquad
+v\frac{dv}{dx}=g-\frac{\lambda}{ml_0}x.
+</span></p>
+<p><strong>(ii)</strong> Integrating,</p>
+<p><span class="math display">
+\frac12v^2=gx-\frac{\lambda}{2ml_0}x^2+C.
+</span></p>
+<p>At <span class="math inline">x=0</span>, <span class="math inline">v=u</span>, so <span class="math inline">C=\frac12u^2</span>. Hence</p>
+<p><span class="math display">
+\boxed{v^2=u^2+2gx-\frac{\lambda}{ml_0}x^2}.
+</span></p>
+<p>This is the energy equation in another form. The two algebraic signs of <span class="math inline">v</span> represent downward and upward motion.</p>
+<p><strong>(iii)</strong> Using <span class="math inline">a=dv/dt</span> gives</p>
+<p><span class="math display">
+\frac{dv}{dt}=g-\frac{\lambda}{ml_0}x.
+</span></p>
+This form contains <span class="math inline">v</span>, <span class="math inline">t</span> and <span class="math inline">x</span> and is therefore not useful by itself for solving the motion directly.
+</details>
+</section>
+</section>
+<section id="教材中标注-cambridge-international-的题目" class="level2">
+<h2 class="anchored" data-anchor-id="教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</h2>
+<p>本节收录 Further Mechanics Chapter 5 Exercise 5B 与 Exercise 5C 中明确标注 Cambridge International 来源的题目。题目保留英文，图像使用 <code>Pic</code> 文件夹中的独立图片，答案使用 <code>Show answer</code>。</p>
+<div class="question-card" title="Exercise 5B, Question 8 · Cambridge International 9709 Paper 5 Q1 June 2008">
+<p>A particle <span class="math inline">A</span> and a block <span class="math inline">B</span> are attached to opposite ends of a light elastic string of natural length <span class="math inline">2</span> m and modulus of elasticity <span class="math inline">6</span> N. <span class="math inline">B</span> is at rest on a rough horizontal table. The string passes over a small smooth pulley <span class="math inline">P</span> at the edge of the table, with the part <span class="math inline">BP</span> of the string horizontal and of length <span class="math inline">1.2</span> m. The frictional force acting on <span class="math inline">B</span> is <span class="math inline">1.5</span> N and the system is in equilibrium. Find the distance <span class="math inline">PA</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.EB_8.png" class="img-fluid figure-img" style="width:72.0%"></p>
+<figcaption>Exercise 5B Question 8</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Since <span class="math inline">B</span> is in equilibrium, the tension is <span class="math inline">T=1.5</span> N. Hooke’s law gives</p>
+<p><span class="math display">
+1.5=\frac{6}{2}x
+\quad\Longrightarrow\quad
+x=0.5\ \mathrm m.
+</span></p>
+<p>The total length of the string is therefore <span class="math inline">2+0.5=2.5</span> m. Hence</p>
+<span class="math display">
+PA=2.5-1.2=\boxed{1.3\ \mathrm m}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 5 Q1, June 2008; textbook answer checked.
+</div>
+</div>
+<div class="question-card" title="Exercise 5B, Question 10 · Cambridge International 9709 Paper 5 Q1 June 2006">
+<p>A light elastic string has natural length <span class="math inline">0.6</span> m and modulus of elasticity <span class="math inline">\lambda</span> N. The ends of the string are attached to fixed points <span class="math inline">A</span> and <span class="math inline">B</span>, which are at the same horizontal level and <span class="math inline">0.63</span> m apart. A particle <span class="math inline">P</span> of mass <span class="math inline">0.064</span> kg is attached to the midpoint of the string and hangs in equilibrium at a point <span class="math inline">0.08</span> m below <span class="math inline">AB</span>.</p>
+<p>Find</p>
+<p><strong>(i)</strong> the tension in the string;</p>
+<p><strong>(ii)</strong> the value of <span class="math inline">\lambda</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.EB_10.png" class="img-fluid figure-img" style="width:88.0%"></p>
+<figcaption>Exercise 5B Question 10</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Each half of the string has length</p>
+<p><span class="math display">
+\sqrt{0.315^2+0.08^2}=0.325\ \mathrm m.
+</span></p>
+<p>Thus the total length is <span class="math inline">0.65</span> m and the extension is <span class="math inline">0.05</span> m.</p>
+<p><strong>(i)</strong> Resolving vertically,</p>
+<p><span class="math display">
+2T\frac{0.08}{0.325}=0.064g
+\quad\Longrightarrow\quad
+\boxed{T=1.3\ \mathrm N}.
+</span></p>
+<p><strong>(ii)</strong> Hooke’s law gives</p>
+<p><span class="math display">
+1.3=\frac{\lambda}{0.6}(0.05),
+</span></p>
+<p>so</p>
+<span class="math display">
+\boxed{\lambda=15.6\ \mathrm N}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 5 Q1, June 2006; textbook answer checked.
+</div>
+</div>
+<div class="question-card" title="Exercise 5C, Question 8 · Cambridge International 9709 Paper 5 Q6 June 2007">
+<p><span class="math inline">A</span> and <span class="math inline">B</span> are fixed points on a smooth horizontal table. The distance <span class="math inline">AB</span> is <span class="math inline">2.5</span> m. An elastic string of natural length <span class="math inline">0.6</span> m and modulus of elasticity <span class="math inline">24</span> N has one end attached at <span class="math inline">A</span> and the other end attached to a particle <span class="math inline">P</span> of mass <span class="math inline">0.95</span> kg. Another elastic string of natural length <span class="math inline">0.9</span> m and modulus of elasticity <span class="math inline">18</span> N has one end attached at <span class="math inline">B</span> and the other end attached to <span class="math inline">P</span>. The particle <span class="math inline">P</span> is held at rest at the midpoint of <span class="math inline">AB</span>.</p>
+<p>The particle is released from rest.</p>
+<p><strong>(i)</strong> Find the tensions in the strings.</p>
+<p><strong>(ii)</strong> Find the acceleration of <span class="math inline">P</span> immediately after its release.</p>
+<p><strong>(iii)</strong> <span class="math inline">P</span> reaches its maximum speed at the point <span class="math inline">C</span>. Find the distance <span class="math inline">AC</span>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/pic/5.EC_9.png" class="img-fluid figure-img" style="width:76.0%"></p>
+<figcaption>Exercise 5C Question 8</figcaption>
+</figure>
+</div>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Initially <span class="math inline">AP=BP=1.25</span> m. Hence the extensions are <span class="math inline">0.65</span> m and <span class="math inline">0.35</span> m.</p>
+<p><strong>(i)</strong></p>
+<p><span class="math display">
+T_A=\frac{24}{0.6}(0.65)=\boxed{26\ \mathrm N},
+\qquad
+T_B=\frac{18}{0.9}(0.35)=\boxed{7\ \mathrm N}.
+</span></p>
+<p><strong>(ii)</strong> The resultant force is <span class="math inline">26-7=19</span> N towards <span class="math inline">A</span>, so</p>
+<p><span class="math display">
+\boxed{a=\frac{19}{0.95}=20\ \mathrm{m\ s^{-2}}\text{ towards }A}.
+</span></p>
+<p><strong>(iii)</strong> At maximum speed the resultant force is zero. Let <span class="math inline">AC=x</span>; then <span class="math inline">BC=2.5-x</span>. Resolving along <span class="math inline">AB</span>:</p>
+<p><span class="math display">
+\frac{24}{0.6}(x-0.6)=\frac{18}{0.9}(2.5-x-0.9).
+</span></p>
+<p>Solving gives</p>
+<span class="math display">
+\boxed{AC=0.933\ \mathrm m}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International AS &amp; A Level Mathematics 9709 Paper 5 Q6, June 2007; textbook answer checked.
+</div>
+</div>
+</section>
+<section id="paper-3-真题题库" class="level2">
+<h2 class="anchored" data-anchor-id="paper-3-真题题库">4. Paper 3 真题题库</h2>
+<p>本节收录 Paper 3 中涉及 elastic strings、springs、elastic energy、horizontal/vertical motion 和 slack-string conditions 的真题，答案按 Mark Scheme 分点展开。</p>
+</section>
+<section id="paper-3-questions" class="level2">
+<h2 class="anchored" data-anchor-id="paper-3-questions">Paper 3 questions</h2>
+<p>Questions are arranged by examination session and question number. The wording is kept in English, including every sub-question. Each solution is presented as a sequence of mark-scheme points.</p>
+<section id="mayjune-923131-and-923132-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-3">2021 May/June · 9231/31 and 9231/32 · Question 3</h3>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">kmg</span>, is attached to a fixed point <span class="math inline">A</span>. The other end of the string is attached to a particle <span class="math inline">P</span> of mass <span class="math inline">4m</span>. The particle <span class="math inline">P</span> hangs in equilibrium a distance <span class="math inline">x</span> vertically below <span class="math inline">A</span>.</p>
+<p><strong>(a)</strong> Show that <span class="math inline">k=\dfrac{4a}{x-a}</span>.</p>
+<p>An additional particle, of mass <span class="math inline">2m</span>, is now attached to <span class="math inline">P</span> and the combined particle is released from rest at the original equilibrium position of <span class="math inline">P</span>. When the combined particle has descended a distance <span class="math inline">\frac13a</span>, its speed is <span class="math inline">\frac13\sqrt{ag}</span>.</p>
+<p><strong>(b)</strong> Find <span class="math inline">x</span> in terms of <span class="math inline">a</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong> The original particle is in equilibrium, so</p>
+<p><span class="math display">
+4mg=\frac{kmg}{a}(x-a).
+</span></p>
+<p>Therefore</p>
+<p><span class="math display">
+\boxed{k=\frac{4a}{x-a}}.
+</span></p>
+<p><strong>(b)</strong> After descending <span class="math inline">a/3</span>, the extension is <span class="math inline">x-2a/3</span>. Conservation of energy for the combined mass <span class="math inline">6m</span> gives</p>
+<p><span class="math display">
+2mga=\frac12\frac{kmg}{a}\left[\left(x-\frac23a\right)^2-(x-a)^2\right]
++\frac12(6m)\left(\frac13\sqrt{ag}\right)^2.
+</span></p>
+<p>Using part <strong>(a)</strong> and simplifying:</p>
+<p><span class="math display">
+\frac53a=\frac{2}{x-a}\left[\left(x-\frac23a\right)^2-(x-a)^2\right].
+</span></p>
+<p>Solving gives</p>
+<span class="math display">
+\boxed{x=\frac53a}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2021, Question 3; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="octobernovember-923131-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-question-1">2021 October/November · 9231/31 · Question 1</h3>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">3mg</span>, is attached to a fixed point <span class="math inline">O</span> on a smooth horizontal plane. A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to the other end of the string and moves in a horizontal circle with centre <span class="math inline">O</span>. The speed of <span class="math inline">P</span> is <span class="math inline">\sqrt{\frac43ga}</span>. Find the extension of the string.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Let the extension be <span class="math inline">x</span>. The tension supplies the centripetal force:</p>
+<p><span class="math display">
+\frac{3mg}{a}x=\frac{m(\sqrt{\frac43ga})^2}{a+x}.
+</span></p>
+<p>Therefore</p>
+<p><span class="math display">
+9x^2+9ax-4a^2=0,
+</span></p>
+<p>and the physically valid root is</p>
+<span class="math display">
+\boxed{x=\frac13a}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Question 1.
+</div>
+</section>
+<section id="octobernovember-923131-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-question-3">2021 October/November · 9231/31 · Question 3</h3>
+<p>A light elastic string has natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">12mg</span>. One end is attached to a fixed point <span class="math inline">O</span> and the other to a particle of mass <span class="math inline">m</span>. The particle hangs in equilibrium vertically below <span class="math inline">O</span>. It is pulled vertically down and released from rest with extension <span class="math inline">e</span>, where <span class="math inline">e&gt;\frac13a</span>. In the subsequent motion the particle has speed <span class="math inline">\sqrt{2ga}</span> when it has ascended a distance <span class="math inline">\frac13a</span>. Find <span class="math inline">e</span> in terms of <span class="math inline">a</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Use conservation of energy between release and the stated position. The extension changes from <span class="math inline">e</span> to <span class="math inline">e-\frac13a</span>, so</p>
+<p><span class="math display">
+\frac12m(2ga)+mg\left(-\frac13a\right)
+=\frac12\frac{12mg}{a}\left[e^2-\left(e-\frac13a\right)^2\right].
+</span></p>
+<p>Solving the resulting quadratic and retaining the root <span class="math inline">e&gt;\frac13a</span> gives</p>
+<span class="math display">
+\boxed{e=\frac12a}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31, October/November 2021, Question 3.
+</div>
+</section>
+<section id="octobernovember-923132-question-2" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-2">2021 October/November · 9231/32 · Question 2</h3>
+<p>A light spring <span class="math inline">AB</span> has natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">5mg</span>. End <span class="math inline">A</span> is fixed on a smooth horizontal surface and a particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to end <span class="math inline">B</span>. Another particle <span class="math inline">Q</span> of mass <span class="math inline">km</span> moves towards <span class="math inline">P</span> with speed <span class="math inline">4\sqrt{ga}</span>. The particles collide directly and coalesce. The greatest compression of the spring is <span class="math inline">\frac15a</span>. Find <span class="math inline">k</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>Immediately after impact, conservation of momentum gives</p>
+<p><span class="math display">
+km(4\sqrt{ga})=(k+1)mV.
+</span></p>
+<p>At maximum compression, the combined particle is instantaneously at rest. Applying conservation of energy from just after impact to maximum compression,</p>
+<p><span class="math display">
+\frac12(k+1)mV^2
+=\frac12\frac{5mg}{a}\left(\frac15a\right)^2.
+</span></p>
+<p>Substituting <span class="math inline">V=4k\sqrt{ga}/(k+1)</span> and solving gives</p>
+<span class="math display">
+\boxed{k=\frac14}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2021, Question 2.
+</div>
+</section>
+<section id="mayjune-923131-923132-and-923133-question-2" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-923132-and-923133-question-2">2022 May/June · 9231/31, 9231/32 and 9231/33 · Question 2</h3>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to one end of a light elastic string of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">\frac43mg</span>. The other end is attached to a fixed point <span class="math inline">O</span> on a rough horizontal surface. The particle is at rest with the string at its natural length and is projected along <span class="math inline">OP</span> with speed <span class="math inline">\frac12\sqrt{ga}</span>.</p>
+<p>Find the greatest extension of the string during the subsequent motion.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>If the greatest extension is <span class="math inline">x</span>, the initial kinetic energy is converted into elastic potential energy and work done against friction. Using the coefficient of friction <span class="math inline">\frac13</span>:</p>
+<p><span class="math display">
+\frac12m\left(\frac12\sqrt{ga}\right)^2
+=\frac12\frac{(4/3)mg}{a}x^2+\frac13mgx.
+</span></p>
+<p>Simplifying and taking the positive root gives</p>
+<span class="math display">
+\boxed{x=\frac14a}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31, 9231/32 and 9231/33, May/June 2022, Question 2; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-4">2022 May/June · 9231/31 and 9231/32 · Question 4</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/hookes-law/past-paper/2022-mj-9231-31-q4.svg" class="img-fluid figure-img"></p>
+<figcaption>Original diagram for 2022 May/June Question 4</figcaption>
+</figure>
+</div>
+<p>A particle of weight <span class="math inline">10</span> N is attached to one end of a light elastic string. The other end of the string is attached to a fixed point <span class="math inline">A</span> on a horizontal ceiling. A horizontal force of <span class="math inline">7.5</span> N acts on the particle. In the equilibrium position, the string makes an angle <span class="math inline">\theta</span> with the ceiling (see diagram). The string has natural length <span class="math inline">0.8</span> m and modulus of elasticity <span class="math inline">50</span> N.</p>
+<p><strong>(a)</strong> Find the tension in the string.</p>
+<p><strong>(b)</strong> Find the vertical distance between the particle and the ceiling.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li>Resolving horizontally and vertically gives <span class="math inline">T\cos\theta=7.5</span> and <span class="math inline">T\sin\theta=10</span>.</li>
+<li>Hence <span class="math inline">T=\sqrt{7.5^2+10^2}=\boxed{12.5\text{ N}}</span>.</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li>Hooke’s law gives <span class="math inline">12.5=\dfrac{50}{0.8}e</span>, so <span class="math inline">e=0.2</span> m.</li>
+<li>The stretched length is <span class="math inline">1.0</span> m.</li>
+<li>Therefore the vertical distance is <span class="math inline">1.0\sin\theta=1.0\cdot\frac45=\boxed{0.8\text{ m}}</span>.</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2022, Question 4; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-2" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-2">2022 October/November · 9231/31 and 9231/33 · Question 2</h3>
+<p>A light elastic string has natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">4mg</span>. One end is fixed at <span class="math inline">O</span> on a smooth horizontal surface and the other is attached to a particle <span class="math inline">P</span> of mass <span class="math inline">m</span>. The particle is projected along the surface in the direction <span class="math inline">OP</span>. When the length of the string is <span class="math inline">\frac54a</span>, the speed is <span class="math inline">v</span>; when the length is <span class="math inline">\frac32a</span>, the speed is <span class="math inline">\frac12v</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">v</span> in terms of <span class="math inline">a</span> and <span class="math inline">g</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>The change in elastic potential energy is</p>
+<p><span class="math display">
+\frac12\frac{4mg}{a}\left[\left(\frac12a\right)^2-\left(\frac14a\right)^2\right]
+=\frac38mga.
+</span></p>
+<p>The change in kinetic energy is</p>
+<p><span class="math display">
+\frac12m\left(\frac14v^2-v^2\right)=-\frac38mv^2.
+</span></p>
+<p>Equating the loss of kinetic energy to the gain in elastic energy gives</p>
+<span class="math display">
+\boxed{v=\sqrt{ga}}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2022, Question 2.
+</div>
+</section>
+<section id="octobernovember-923132-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923132-question-3">2022 October/November · 9231/32 · Question 3</h3>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">\frac{16}{3}Mg</span>, is attached to a fixed point <span class="math inline">O</span>. A particle <span class="math inline">P</span> of mass <span class="math inline">4M</span> is attached to the other end of the string and hangs vertically in equilibrium. Another particle of mass <span class="math inline">2M</span> is attached to <span class="math inline">P</span> and the combined particle is then released from rest. The speed of the combined particle when it has descended a distance <span class="math inline">\frac14a</span> is <span class="math inline">v</span>.</p>
+<p>Find an expression for <span class="math inline">v</span> in terms of <span class="math inline">g</span> and <span class="math inline">a</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<ul>
+<li>In the original equilibrium, <span class="math inline">4Mg=\frac{(16/3)Mg}{a}e</span>, so <span class="math inline">e=\frac34a</span>.</li>
+<li>After descending <span class="math inline">\frac14a</span>, the extension is <span class="math inline">a</span>.</li>
+<li>Loss in gravitational potential energy is <span class="math inline">\frac32Mga</span>.</li>
+<li>Gain in elastic potential energy is <span class="math inline">\frac76Mga</span>.</li>
+<li>Thus <span class="math inline">\frac32Mga-\frac76Mga=\frac12(6M)v^2</span>.</li>
+<li>Therefore <span class="math inline">\boxed{v=\frac13\sqrt{ga}}</span>.</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/32, October/November 2022, Question 3; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-1" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-1">2023 May/June · 9231/31 and 9231/32 · Question 1</h3>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">3mg</span>, is attached to a fixed point <span class="math inline">O</span>. The other end is attached to a particle <span class="math inline">P</span> of mass <span class="math inline">m</span>. The string hangs with <span class="math inline">P</span> vertically below <span class="math inline">O</span>. The particle is pulled vertically downwards so that the extension is <span class="math inline">2a</span> and is released from rest.</p>
+<p><strong>(a)</strong> Find the speed when the particle is <span class="math inline">\frac34a</span> below <span class="math inline">O</span>.</p>
+<p><strong>(b)</strong> Find the initial acceleration when it is released.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>At release the extension is <span class="math inline">2a</span>; at the stated position the extension is <span class="math inline">-\frac14a</span> relative to the natural-length reference. Applying the energy equation with the correct gravitational-height change gives</p>
+<p><span class="math display">
+\boxed{v=\sqrt{\frac{15}{2}ga}}.
+</span></p>
+<p>At release,</p>
+<p><span class="math display">
+T=\frac{3mg}{a}(2a)=6mg,
+</span></p>
+<p>so the resultant downward force is <span class="math inline">5mg</span> and</p>
+<span class="math display">
+\boxed{a_0=5g\text{ downwards}}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Question 1.
+</div>
+</section>
+<section id="mayjune-923131-and-923132-question-5" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923131-and-923132-question-5">2023 May/June · 9231/31 and 9231/32 · Question 5</h3>
+<p>A light elastic string of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">\mu mg</span> has one end attached to a fixed point <span class="math inline">O</span> on a smooth horizontal surface. With a particle of mass <span class="math inline">m</span> attached, it moves with speed <span class="math inline">v</span> in a horizontal circle of radius <span class="math inline">x</span>. With a particle of mass <span class="math inline">2m</span> attached, it moves with speed <span class="math inline">\frac12v</span> in a horizontal circle of radius <span class="math inline">\frac34x</span>.</p>
+<p><strong>(a)</strong> Find <span class="math inline">x</span> in terms of <span class="math inline">a</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p>For each case, tension equals the centripetal force and Hooke’s law gives</p>
+<p><span class="math display">
+\frac{\mu mg}{a}(x-a)=\frac{mv^2}{x},
+</span></p>
+<p><span class="math display">
+\frac{\mu mg}{a}\left(\frac34x-a\right)=2m\frac{(v/2)^2}{3x/4}.
+</span></p>
+<p>Eliminating <span class="math inline">v</span> and <span class="math inline">\mu</span> gives</p>
+<span class="math display">
+\boxed{x=4a}.
+</span>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/32, May/June 2023, Question 5.
+</div>
+</section>
+<section id="mayjune-923133-question-2" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-2">2023 May/June · 9231/33 · Question 2</h3>
+<p>One end of a light elastic string, of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">\lambda mg</span>, is attached to a fixed point <span class="math inline">O</span>. The string lies on a smooth horizontal surface. A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> is attached to the other end of the string. The particle <span class="math inline">P</span> is projected in the direction <span class="math inline">OP</span>. When the length of the string is <span class="math inline">\frac43a</span>, the speed of <span class="math inline">P</span> is <span class="math inline">\sqrt{2ag}</span>. When the length of the string is <span class="math inline">\frac53a</span>, the speed of <span class="math inline">P</span> is <span class="math inline">\frac12\sqrt{2ag}</span>.</p>
+<p>Find the value of <span class="math inline">\lambda</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<ul>
+<li>The extensions are <span class="math inline">\frac13a</span> and <span class="math inline">\frac23a</span>.</li>
+<li>The loss in kinetic energy is <span class="math inline">\frac12m\left[(\sqrt{2ag})^2-\left(\frac12\sqrt{2ag}\right)^2\right]</span>.</li>
+<li>The gain in elastic potential energy is <span class="math inline">\frac12\frac{\lambda mg}{a}\left[\left(\frac23a\right)^2-\left(\frac13a\right)^2\right]</span>.</li>
+<li>Equating the two gives <span class="math inline">\boxed{\lambda=\frac92}</span>.</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2023, Question 2; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="mayjune-923133-question-5" class="level3">
+<h3 class="anchored" data-anchor-id="mayjune-923133-question-5">2023 May/June · 9231/33 · Question 5</h3>
+<p>One end of a light elastic string, of natural length <span class="math inline">12a</span> and modulus of elasticity <span class="math inline">kmg</span>, is attached to a fixed point <span class="math inline">O</span>. The other end of the string is attached to a particle of mass <span class="math inline">m</span>. The particle moves with constant speed <span class="math inline">\frac32\sqrt{3ag}</span> in a horizontal circle with centre at a distance <span class="math inline">12a</span> below <span class="math inline">O</span>. The string is inclined at an angle <span class="math inline">\theta</span> to the downward vertical through <span class="math inline">O</span>.</p>
+<p><strong>(a)</strong> Find, in terms of <span class="math inline">a</span>, the extension of the string.</p>
+<p><strong>(b)</strong> Find the value of <span class="math inline">k</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<p><strong>(a)</strong></p>
+<ul>
+<li>Let <span class="math inline">L</span> be the stretched length and <span class="math inline">r=12a\tan\theta</span>.</li>
+<li>Resolving vertically gives <span class="math inline">T\cos\theta=mg</span>.</li>
+<li>Resolving towards the centre gives <span class="math inline">T\sin\theta=\frac{mv^2}{r}=\frac{27}{4}\frac{mag}{r}</span>.</li>
+<li>Dividing and using <span class="math inline">r=12a\tan\theta</span> gives <span class="math inline">\tan\theta=\frac34</span>.</li>
+<li>Hence <span class="math inline">L=\dfrac{12a}{\cos\theta}=15a</span>, so the extension is <span class="math inline">\boxed{3a}</span>.</li>
+</ul>
+<p><strong>(b)</strong></p>
+<ul>
+<li>Hooke’s law gives <span class="math inline">T=\frac{kmg}{12a}(3a)=\frac14kmg</span>.</li>
+<li>Since <span class="math inline">\cos\theta=\frac45</span>, vertical equilibrium gives <span class="math inline">T=\frac54mg</span>.</li>
+<li>Hence <span class="math inline">\boxed{k=5}</span>.</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/33, May/June 2023, Question 5; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-3" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-3">2024 October/November · 9231/31 and 9231/33 · Question 3</h3>
+<p>A particle <span class="math inline">P</span> of mass <span class="math inline">m</span> kg is attached to one end of a light elastic string of natural length <span class="math inline">2</span> m and modulus of elasticity <span class="math inline">2mg</span> N. The other end of the string is attached to a fixed point <span class="math inline">O</span>. The particle <span class="math inline">P</span> hangs in equilibrium vertically below <span class="math inline">O</span>. The particle <span class="math inline">P</span> is pulled down vertically a distance <span class="math inline">d</span> m below its equilibrium position and released from rest.</p>
+<p><strong>(a)</strong> Given that the particle just reaches <span class="math inline">O</span> in the subsequent motion, find the value of <span class="math inline">d</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<ul>
+<li>In equilibrium, <span class="math inline">mg=\frac{2mg}{2}e</span>, so the equilibrium extension is <span class="math inline">e=1</span> m.</li>
+<li>The extension at release is <span class="math inline">1+d</span>.</li>
+<li>At <span class="math inline">O</span> the string is at natural length and the particle is instantaneously at rest, so <span class="math inline">\frac12mg(1+d)^2=mg(3+d)</span>.</li>
+<li>Hence <span class="math inline">d^2=5</span> and <span class="math inline">\boxed{d=\sqrt5\text{ m}}</span>.</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2024, Question 3; answer checked against the official Mark Scheme.
+</div>
+</section>
+<section id="octobernovember-923131-and-923133-question-4" class="level3">
+<h3 class="anchored" data-anchor-id="octobernovember-923131-and-923133-question-4">2025 October/November · 9231/31 and 9231/33 · Question 4</h3>
+<p>One end of a light elastic string of natural length <span class="math inline">a</span> and modulus of elasticity <span class="math inline">5mg</span> is attached to a fixed point <span class="math inline">O</span>. Two particles, <span class="math inline">P</span> and <span class="math inline">Q</span>, of masses <span class="math inline">m</span> and <span class="math inline">4m</span> respectively, are attached to the other end of the string and they hang vertically in equilibrium. Particle <span class="math inline">Q</span> is then detached from the string, hence releasing particle <span class="math inline">P</span> from rest.</p>
+<p>Find, in terms of <span class="math inline">a</span>, the length of the string when the speed of particle <span class="math inline">P</span> is first equal to <span class="math inline">\sqrt{\frac75ag}</span>.</p>
+<details class="answer-panel">
+<summary>
+Show answer
+</summary>
+<ul>
+<li>Before detachment, equilibrium gives <span class="math inline">\frac{5mg}{a}e=5mg</span>, so <span class="math inline">e=a</span>.</li>
+<li>Let <span class="math inline">x</span> be the length of the string when the speed is <span class="math inline">\sqrt{\frac75ag}</span>; its extension is <span class="math inline">x-a</span>.</li>
+<li>Conservation of energy gives <span class="math inline">\frac{5mga^2}{2a}-\frac{5mg(x-a)^2}{2a}=mg(e+a-x)+\frac12m\left(\sqrt{\frac75ag}\right)^2</span>.</li>
+<li>Simplifying gives <span class="math inline">25x^2-60ax+27a^2=0</span>.</li>
+<li>The physical root is <span class="math inline">\boxed{x=\frac95a}</span>.</li>
+</ul>
+</details>
+<div class="source-line">
+<strong>Source:</strong> Cambridge International 9231/31 and 9231/33, October/November 2025, Question 4; answer checked against the official Mark Scheme.
+</div>
+</section>
+</section>
+<section id="本章检查清单" class="level2">
+<h2 class="anchored" data-anchor-id="本章检查清单">5. 本章检查清单</h2>
+<ol type="1">
+<li>extension 必须是 actual length 减 natural length；</li>
+<li>compression 也使用 decrease in length；</li>
+<li>modulus of elasticity 的单位是 N；</li>
+<li>每段 string 要用自己的 natural length；</li>
+<li>elastic energy 使用 <span class="math inline">\frac12\lambda x^2/l_0</span>；</li>
+<li>slack string 不能提供负 tension；</li>
+<li>vertical motion 要同时检查 GPE、EPE 和 KE；</li>
+<li>发现 <span class="math inline">T&lt;0</span> 时必须重新判断运动模型。</li>
+</ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">6. 常用解题技巧</h2>
+<section id="先区分-natural-lengthactual-length-和-extension" class="level3">
+<h3 class="anchored" data-anchor-id="先区分-natural-lengthactual-length-和-extension">6.1 先区分 natural length、actual length 和 extension</h3>
+<p>设 elastic string 或 spring 的 natural length 为 <span class="math inline">l_0</span>，当前长度为 <span class="math inline">l</span>：</p>
+<p><span class="math display">
+x=l-l_0
+</span></p>
+<p>是 extension；若 <span class="math inline">l&lt;l_0</span>，则是 compression，compression amount 为 <span class="math inline">l_0-l</span>。Hooke’s law 中的 <span class="math inline">x</span> 必须是相对于 natural length 的长度变化，不是物体移动的距离。</p>
+<p>每段 string 或 spring 都要单独计算自己的 extension，不能把整个系统的位移直接当成每段的 extension。</p>
+</section>
+<section id="hookes-law-与单位" class="level3">
+<h3 class="anchored" data-anchor-id="hookes-law-与单位">6.2 Hooke’s law 与单位</h3>
+<p>若 modulus of elasticity 为 <span class="math inline">\lambda</span>，natural length 为 <span class="math inline">l_0</span>，则</p>
+<p><span class="math display">
+T=\frac{\lambda}{l_0}x.
+</span></p>
+<p><span class="math inline">\lambda</span> 的单位是 newtons，<span class="math inline">l_0</span> 和 <span class="math inline">x</span> 必须使用相同的长度单位。常见错误是把 <span class="math inline">\lambda</span> 当成 spring constant 而忘记除以 <span class="math inline">l_0</span>；等效 spring constant 是</p>
+<p><span class="math display">
+k=\frac{\lambda}{l_0}.
+</span></p>
+<p>这样可以写成 <span class="math inline">T=kx</span>，但答案中仍应明确 <span class="math inline">k</span> 的来源。</p>
+</section>
+<section id="先画力图再列平衡方程" class="level3">
+<h3 class="anchored" data-anchor-id="先画力图再列平衡方程">6.3 先画力图再列平衡方程</h3>
+<p>对每个 particle 或物体单独画受力图，标出 weight、tension、thrust、reaction 和外力。然后沿运动方向列 Newton’s second law 或 equilibrium equation。</p>
+<p>若物体静止，使用</p>
+<p><span class="math display">
+\sum F=0.
+</span></p>
+<p>若沿竖直方向，先规定向上或向下为正，再统一使用符号。不要把 tension 的大小和方向混在同一个符号中；先写力的方向，再代入正负号。</p>
+</section>
+<section id="多条-string-或-spring-要逐段处理" class="level3">
+<h3 class="anchored" data-anchor-id="多条-string-或-spring-要逐段处理">6.4 多条 string 或 spring 要逐段处理</h3>
+<p>每段都写自己的关系：</p>
+<p><span class="math display">
+T_i=\frac{\lambda_i}{l_i}x_i.
+</span></p>
+<p>若几何约束给出总长度变化，再另行写出 <span class="math inline">x_1,x_2,\ldots</span> 之间的关系。对于串联结构，通常力的大小相同但 extension 不一定相同；对于连接同一物体的并联结构，extension 可能相同但 tension 不一定相同。</p>
+<p>正确流程是：</p>
+<ol type="1">
+<li>画每个物体的受力图；</li>
+<li>写各段的 natural length 和 modulus；</li>
+<li>写长度约束；</li>
+<li>列每个物体的平衡或运动方程；</li>
+<li>联立求 extension、tension 或位置。</li>
+</ol>
+</section>
+<section id="弹性势能" class="level3">
+<h3 class="anchored" data-anchor-id="弹性势能">6.5 弹性势能</h3>
+<p>由 natural length 伸长或压缩 <span class="math inline">x</span> 时，elastic potential energy 为</p>
+<p><span class="math display">
+E=\frac12Tx
+=\frac12\frac{\lambda}{l_0}x^2.
+</span></p>
+<p>如果系统从初始 extension <span class="math inline">x_1</span> 变到最终 extension <span class="math inline">x_2</span>，弹性势能的增加量是</p>
+<p><span class="math display">
+\Delta E=\frac12\frac{\lambda}{l_0}(x_2^2-x_1^2),
+</span></p>
+<p>不是直接使用最终状态的 <span class="math inline">\frac12\lambda x_2^2/l_0</span>。若初始状态不是 natural length，必须保留初始 EPE。</p>
+</section>
+<section id="能量方程的符号" class="level3">
+<h3 class="anchored" data-anchor-id="能量方程的符号">6.6 能量方程的符号</h3>
+<p>使用 conservation of energy 时，建议统一写成</p>
+<p><span class="math display">
+\text{initial KE} + \text{initial GPE} + \text{initial EPE}
+=\text{final KE} + \text{final GPE} + \text{final EPE}.
+</span></p>
+<p>或者使用“loss = gain”结构，但必须明确高度变化和 extension 变化。弹簧伸长时 EPE 增加；粒子下降时 GPE 减少，不能只凭“下降所以写正号”而不说明参考高度。</p>
+</section>
+<section id="竖直-elastic-motion-的分阶段模型" class="level3">
+<h3 class="anchored" data-anchor-id="竖直-elastic-motion-的分阶段模型">6.7 竖直 elastic motion 的分阶段模型</h3>
+<p>若 elastic string initially slack，粒子开始时不是立即受 tension：</p>
+<ol type="1">
+<li>string slack 阶段：粒子自由运动，只受重力；</li>
+<li>string taut 阶段：开始使用 Hooke’s law 和 elastic energy；</li>
+<li>若之后 tension 又降为零：再次检查是否失去约束。</li>
+</ol>
+<p>从 natural position 释放且下落 natural length <span class="math inline">l_0</span> 到 string taut 时，若初速为零，</p>
+<p><span class="math display">
+\frac12mu^2=mgl_0.
+</span></p>
+<p>不能在 string 仍 slack 时把 elastic potential energy 加入能量方程。</p>
+</section>
+<section id="竖直运动进入-taut-阶段后的能量式" class="level3">
+<h3 class="anchored" data-anchor-id="竖直运动进入-taut-阶段后的能量式">6.8 竖直运动进入 taut 阶段后的能量式</h3>
+<p>若 string taut 后 extension 为 <span class="math inline">x</span>、速度为 <span class="math inline">v</span>，并以 taut position 为参考，常用方程为</p>
+<p><span class="math display">
+\frac12mv^2-\frac12mu^2
++\frac12\frac{\lambda}{l_0}x^2=mgx.
+</span></p>
+<p>求 maximum extension 时令 <span class="math inline">v=0</span>；求某位置速度时保留 kinetic energy；求 tension 时使用</p>
+<p><span class="math display">
+T=\frac{\lambda}{l_0}x
+</span></p>
+<p>并另列 Newton’s second law。能量方程不能直接给出 tension，除非再使用 Hooke’s law。</p>
+</section>
+<section id="slack-string-的判断" class="level3">
+<h3 class="anchored" data-anchor-id="slack-string-的判断">6.9 Slack string 的判断</h3>
+<p>light elastic string 只能提供 tension，不能提供 thrust。因此：</p>
+<ul>
+<li>taut 状态要求 <span class="math inline">T\geqslant0</span>；</li>
+<li>临界 slack 状态使用 <span class="math inline">T=0</span>；</li>
+<li>若计算得到 <span class="math inline">T&lt;0</span>，说明假设的 taut model 不成立，string 已经 slack。</li>
+</ul>
+<p>发现 <span class="math inline">T&lt;0</span> 后，要回到失去 tension 的时刻重新分析；不能简单保留负 tension 作为答案。若题目同时涉及 circular 或 vertical motion，必须重新检查后续轨迹是否仍为圆周运动。</p>
+</section>
+<section id="最大伸长与转折点" class="level3">
+<h3 class="anchored" data-anchor-id="最大伸长与转折点">6.10 最大伸长与转折点</h3>
+<p>若粒子到达 maximum extension，瞬时速度为零：</p>
+<p><span class="math display">
+v=0.
+</span></p>
+<p>这不是 tension 为零；通常 maximum extension 时 tension 最大。求 maximum compression 或 extension 时，应把速度设为零，并在能量方程中保留初始 EPE、最终 EPE 和重力势能变化。</p>
+</section>
+<section id="受力方程与能量方程的分工" class="level3">
+<h3 class="anchored" data-anchor-id="受力方程与能量方程的分工">6.11 受力方程与能量方程的分工</h3>
+<p>两种方法负责不同的未知量：</p>
+<ul>
+<li>Newton’s second law：求瞬时 acceleration、tension 或 reaction；</li>
+<li>conservation of energy：求不同位置的 speed、maximum extension 或高度关系；</li>
+<li>Hooke’s law：把 tension 与 extension 联系起来。</li>
+</ul>
+<p>高质量的解答通常先用能量得到 <span class="math inline">v^2</span>，再用径向或竖直方向的运动方程求 tension。不要把 Hooke’s law 单独当作运动方程。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">6.12 常见失分点与答题结构</h3>
+<ul>
+<li>把实际长度、natural length 和 extension 混淆；</li>
+<li>不同 string 错用同一个 natural length 或 modulus；</li>
+<li>elastic energy 忘记使用初末能量之差；</li>
+<li>string slack 阶段错误加入 EPE；</li>
+<li>maximum extension 时错误令 <span class="math inline">T=0</span> 而不是 <span class="math inline">v=0</span>；</li>
+<li>计算出负 tension 后仍继续使用 taut model；</li>
+<li>只列能量方程，却没有用 Hooke’s law 求 tension；</li>
+<li><span class="math inline">\lambda</span>、<span class="math inline">l_0</span> 和 <span class="math inline">x</span> 的单位不一致。</li>
+</ul>
+<p>推荐按“画受力图 → 确定每段长度变化 → 写 Hooke’s law → 判断 taut/slack → 列 Newton 或能量方程 → 使用初始条件 → 检查 tension、speed 和模型范围”的顺序作答。</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-3/circular-motion.html" class="pagination-link" aria-label="3.4 Circular motion">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3.4 Circular motion</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../paper-3/linear-motion.html" class="pagination-link" aria-label="3.6 Linear motion under a variable force">
+        <span class="nav-page-text">3.6 Linear motion under a variable force</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

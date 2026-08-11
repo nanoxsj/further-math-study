@@ -1,0 +1,3700 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-Hans" xml:lang="zh-Hans"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 7。">
+
+<title>1.6 Vectors – CIE Further Mathematics 9231</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../paper-1/proof-by-induction.html" rel="next">
+<link href="../paper-1/polar-coordinates.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a2a938b4dd5711f7a799c87bd16ba44c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "没有结果",
+    "search-matching-documents-text": "匹配的文档",
+    "search-copy-link-title": "复制搜索链接",
+    "search-hide-matches-text": "隐藏其它匹配结果",
+    "search-more-match-text": "更多匹配结果",
+    "search-more-matches-text": "更多匹配结果",
+    "search-clear-button-title": "清除",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "取消",
+    "search-submit-button-title": "提交",
+    "search-label": "搜索"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/vectors.html">1.6 Vectors</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">CIE Further Mathematics 9231</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="搜索"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">学习首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 1 · Further Pure Mathematics 1</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1 Roots of polynomial equations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/rational-functions-and-graphs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2 Rational functions and graphs</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/summation-of-series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3 Summation of series</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.4 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/polar-coordinates.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.5 Polar coordinates</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/vectors.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">1.6 Vectors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-1/proof-by-induction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.7 Proof by induction</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 2 · Further Pure Mathematics 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/hyperbolic-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1 Hyperbolic functions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/matrices.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2 Matrices</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differentiation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3 Differentiation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.4 Integration</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/complex-numbers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.5 Complex numbers</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-2/differential-equations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.6 Differential equations</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 3 · Further Mechanics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/motion-of-a-projectile.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1 Motion of a projectile</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/equilibrium-of-a-rigid-body.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2 Equilibrium of a rigid body</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/centre-of-mass.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3 Centre of mass</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/circular-motion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4 Circular motion</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/hookes-law.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5 Hooke’s law</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/linear-motion.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6 Linear motion under a variable force</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-3/momentum.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7 Momentum</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">Paper 4 · Further Probability &amp; Statistics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="展开或折叠此栏">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/continuous-random-variables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1 Continuous random variables</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/inference-normal-t-distributions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2 Inference using normal and t-distributions</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/chi-squared-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.3 Chi-squared tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/non-parametric-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.4 Non-parametric tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../paper-4/probability-generating-functions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.5 Probability generating functions</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">该页面内容</h2>
+   
+  <ul>
+  <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
+  <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
+  <ul class="collapse">
+  <li><a href="#equations-of-a-plane" id="toc-equations-of-a-plane" class="nav-link" data-scroll-target="#equations-of-a-plane">1.1 Equations of a plane</a></li>
+  <li><a href="#a-line-and-a-plane" id="toc-a-line-and-a-plane" class="nav-link" data-scroll-target="#a-line-and-a-plane">1.2 A line and a plane</a></li>
+  <li><a href="#foot-of-a-perpendicular-and-distance-to-a-plane" id="toc-foot-of-a-perpendicular-and-distance-to-a-plane" class="nav-link" data-scroll-target="#foot-of-a-perpendicular-and-distance-to-a-plane">1.3 Foot of a perpendicular and distance to a plane</a></li>
+  <li><a href="#angle-between-a-line-and-a-plane" id="toc-angle-between-a-line-and-a-plane" class="nav-link" data-scroll-target="#angle-between-a-line-and-a-plane">1.4 Angle between a line and a plane</a></li>
+  <li><a href="#intersection-and-angle-of-two-planes" id="toc-intersection-and-angle-of-two-planes" class="nav-link" data-scroll-target="#intersection-and-angle-of-two-planes">1.5 Intersection and angle of two planes</a></li>
+  <li><a href="#vector-product" id="toc-vector-product" class="nav-link" data-scroll-target="#vector-product">1.6 Vector product</a></li>
+  <li><a href="#distances-involving-lines" id="toc-distances-involving-lines" class="nav-link" data-scroll-target="#distances-involving-lines">1.7 Distances involving lines</a></li>
+  </ul></li>
+  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a></li>
+  <li><a href="#cambridge-examination-questions-in-the-textbook" id="toc-cambridge-examination-questions-in-the-textbook" class="nav-link" data-scroll-target="#cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</a></li>
+  <li><a href="#past-paper-question-bank" id="toc-past-paper-question-bank" class="nav-link" data-scroll-target="#past-paper-question-bank">4. Past-paper question bank</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2019</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2020</a></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2021</a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2022</a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2023</a></li>
+  <li><a href="#section-5" id="toc-section-5" class="nav-link" data-scroll-target="#section-5">2024</a></li>
+  <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">2025</a></li>
+  </ul></li>
+  <li><a href="#geometric-summary-diagrams" id="toc-geometric-summary-diagrams" class="nav-link" data-scroll-target="#geometric-summary-diagrams">5. Geometric summary diagrams</a></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">6. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">7. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先区分三类向量" id="toc-先区分三类向量" class="nav-link" data-scroll-target="#先区分三类向量">7.1 先区分三类向量</a></li>
+  <li><a href="#平面的三种写法" id="toc-平面的三种写法" class="nav-link" data-scroll-target="#平面的三种写法">7.2 平面的三种写法</a></li>
+  <li><a href="#向量积的计算与检查" id="toc-向量积的计算与检查" class="nav-link" data-scroll-target="#向量积的计算与检查">7.3 向量积的计算与检查</a></li>
+  <li><a href="#直线与平面的位置关系" id="toc-直线与平面的位置关系" class="nav-link" data-scroll-target="#直线与平面的位置关系">7.4 直线与平面的位置关系</a></li>
+  <li><a href="#点到平面的垂足和距离" id="toc-点到平面的垂足和距离" class="nav-link" data-scroll-target="#点到平面的垂足和距离">7.5 点到平面的垂足和距离</a></li>
+  <li><a href="#三类角度不要混用" id="toc-三类角度不要混用" class="nav-link" data-scroll-target="#三类角度不要混用">7.6 三类角度不要混用</a></li>
+  <li><a href="#两平面的交线" id="toc-两平面的交线" class="nav-link" data-scroll-target="#两平面的交线">7.7 两平面的交线</a></li>
+  <li><a href="#平面束问题" id="toc-平面束问题" class="nav-link" data-scroll-target="#平面束问题">7.8 平面束问题</a></li>
+  <li><a href="#点到直线的距离" id="toc-点到直线的距离" class="nav-link" data-scroll-target="#点到直线的距离">7.9 点到直线的距离</a></li>
+  <li><a href="#两条-skew-lines-的最短距离" id="toc-两条-skew-lines-的最短距离" class="nav-link" data-scroll-target="#两条-skew-lines-的最短距离">7.10 两条 skew lines 的最短距离</a></li>
+  <li><a href="#求-common-perpendicular" id="toc-求-common-perpendicular" class="nav-link" data-scroll-target="#求-common-perpendicular">7.11 求 common perpendicular</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">7.12 常见失分点与答题结构</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/vectors.html">1.6 Vectors</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">1.6 Vectors</h1>
+<p class="subtitle lead">平面与直线 · 向量积 · 角度、交点与距离</p>
+</div>
+
+<div>
+  <div class="description">
+    CIE 9231 Paper 1，依据 2026–2027 syllabus 与 Further Pure Mathematics 1 Chapter 7。
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>本节考纲要求
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>考生需要能够：</p>
+<ol type="1">
+<li>使用并互相转换平面的 Cartesian、normal 与 parametric vector forms；</li>
+<li>计算 vector product，并理解其方向和大小；</li>
+<li>判断直线与平面相交、平行或直线位于平面内，并求交点；</li>
+<li>求点到平面的垂足及距离；</li>
+<li>求直线与平面、两个平面之间的角；</li>
+<li>求两个平面的交线；</li>
+<li>求两条 skew lines 的最短距离及 common perpendicular 的方程。</li>
+</ol>
+</div>
+</div>
+<section id="学习路线" class="level2">
+<h2 class="anchored" data-anchor-id="学习路线">学习路线</h2>
+<div class="study-card">
+<ul class="task-list">
+<li><label><input type="checkbox">能从平面方程立即读出 normal vector</label></li>
+<li><label><input type="checkbox">能在点、方向向量与 normal vector 之间选择合适的平面形式</label></li>
+<li><label><input type="checkbox">能用 scalar product 判断平行、垂直和计算角度</label></li>
+<li><label><input type="checkbox">能用 vector product 求共同垂直方向、平面 normal 和面积</label></li>
+<li><label><input type="checkbox">能通过参数代入求 line-plane intersection</label></li>
+<li><label><input type="checkbox">能建立 perpendicular line 求 foot of perpendicular</label></li>
+<li><label><input type="checkbox">能求 two-plane intersection、skew-line distance 和 common perpendicular</label></li>
+</ul>
+</div>
+</section>
+<section id="教材知识点" class="level2">
+<h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<section id="equations-of-a-plane" class="level3">
+<h3 class="anchored" data-anchor-id="equations-of-a-plane">1.1 Equations of a plane</h3>
+<p>过点 <span class="math inline">A</span>，位置向量为 <span class="math inline">\mathbf a</span>，并包含两个不平行方向 <span class="math inline">\mathbf b,\mathbf c</span> 的平面可写成</p>
+<p><span class="math display">
+\boxed{\mathbf r=\mathbf a+\lambda\mathbf b+\mu\mathbf c}.
+</span></p>
+<p>若 <span class="math inline">\mathbf n</span> 是平面的 normal vector，则</p>
+<p><span class="math display">
+(\mathbf r-\mathbf a)\boldsymbol\cdot\mathbf n=0,
+</span></p>
+<p>即</p>
+<p><span class="math display">
+\boxed{\mathbf r\boldsymbol\cdot\mathbf n=p},\;
+p=\mathbf a\boldsymbol\cdot\mathbf n.
+</span></p>
+<p>若 <span class="math inline">\mathbf n=(a,b,c)</span>，Cartesian form 为</p>
+<p><span class="math display">
+\boxed{ax+by+cz=d}.
+</span></p>
+<p>从 parametric form 转换时，可用 <span class="math inline">\mathbf b\times\mathbf c</span> 求 normal；也可消去 <span class="math inline">\lambda,\mu</span>。</p>
+</section>
+<section id="a-line-and-a-plane" class="level3">
+<h3 class="anchored" data-anchor-id="a-line-and-a-plane">1.2 A line and a plane</h3>
+<p>设直线</p>
+<p><span class="math display">
+\mathbf r=\mathbf a+\lambda\mathbf d
+</span></p>
+<p>和平面 <span class="math inline">\mathbf r\boldsymbol\cdot\mathbf n=p</span>。</p>
+<ul>
+<li>若 <span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n\ne0</span>，直线与平面有唯一交点；</li>
+<li>若 <span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n=0</span>，直线平行于平面；</li>
+<li>在平行情形下，若 <span class="math inline">\mathbf a\boldsymbol\cdot\mathbf n=p</span>，则整条直线位于平面内。</li>
+</ul>
+<p>求交点时，把直线的 <span class="math inline">x,y,z</span> 参数式代入平面方程，先求参数，再代回直线。</p>
+</section>
+<section id="foot-of-a-perpendicular-and-distance-to-a-plane" class="level3">
+<h3 class="anchored" data-anchor-id="foot-of-a-perpendicular-and-distance-to-a-plane">1.3 Foot of a perpendicular and distance to a plane</h3>
+<p>从点 <span class="math inline">P</span> 到平面 <span class="math inline">\mathbf r\boldsymbol\cdot\mathbf n=p</span> 的垂线方向为 <span class="math inline">\mathbf n</span>。先写</p>
+<p><span class="math display">
+\mathbf r=\mathbf p_0+t\mathbf n,
+</span></p>
+<p>再与平面联立，所得交点 <span class="math inline">M</span> 是 foot of the perpendicular，距离为 <span class="math inline">|PM|</span>。</p>
+<p>对于平面 <span class="math inline">ax+by+cz=d</span> 和点 <span class="math inline">(x_0,y_0,z_0)</span>，距离公式为</p>
+<p><span class="math display">
+\boxed{
+D=\frac{|ax_0+by_0+cz_0-d|}{\sqrt{a^2+b^2+c^2}}
+}.
+</span></p>
+</section>
+<section id="angle-between-a-line-and-a-plane" class="level3">
+<h3 class="anchored" data-anchor-id="angle-between-a-line-and-a-plane">1.4 Angle between a line and a plane</h3>
+<p>若直线方向为 <span class="math inline">\mathbf d</span>，平面 normal 为 <span class="math inline">\mathbf n</span>，直线与平面的锐角为 <span class="math inline">\alpha</span>，则</p>
+<p><span class="math display">
+\boxed{
+\sin\alpha=\frac{|\mathbf d\boldsymbol\cdot\mathbf n|}{|\mathbf d|\,|\mathbf n|}
+}.
+</span></p>
+<p>这里使用 <span class="math inline">\sin\alpha</span>，因为直线与平面的角与 <span class="math inline">\mathbf d</span>、<span class="math inline">\mathbf n</span> 之间的角互余。</p>
+</section>
+<section id="intersection-and-angle-of-two-planes" class="level3">
+<h3 class="anchored" data-anchor-id="intersection-and-angle-of-two-planes">1.5 Intersection and angle of two planes</h3>
+<p>两个不平行平面的交集是一条直线。可用两种方法求交线：</p>
+<ol type="1">
+<li>令一个坐标为参数，联立两个 Cartesian equations；</li>
+<li>取两平面的 normals <span class="math inline">\mathbf n_1,\mathbf n_2</span>，则交线方向平行于 <span class="math display">\mathbf n_1\times\mathbf n_2,</span> 再求交线上的一个点。</li>
+</ol>
+<p>两平面的锐角等于其 normals 的锐角：</p>
+<p><span class="math display">
+\boxed{
+\cos\theta=\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}
+{|\mathbf n_1|\,|\mathbf n_2|}
+}.
+</span></p>
+<p>所有包含平面 <span class="math inline">\pi_1:f_1=0</span> 与 <span class="math inline">\pi_2:f_2=0</span> 的公共交线的平面可写成</p>
+<p><span class="math display">
+pf_1+qf_2=0,
+</span></p>
+<p>其中 <span class="math inline">p,q</span> 不同时为零。</p>
+</section>
+<section id="vector-product" class="level3">
+<h3 class="anchored" data-anchor-id="vector-product">1.6 Vector product</h3>
+<p>对于</p>
+<p><span class="math display">
+\mathbf a=(a_1,a_2,a_3),\;
+\mathbf b=(b_1,b_2,b_3),
+</span></p>
+<p><span class="math display">
+\boxed{
+\mathbf a\times\mathbf b=
+\begin{pmatrix}
+a_2b_3-a_3b_2\\
+a_3b_1-a_1b_3\\
+a_1b_2-a_2b_1
+\end{pmatrix}
+}.
+</span></p>
+<p><span class="math inline">\mathbf a\times\mathbf b</span> 同时垂直于 <span class="math inline">\mathbf a</span> 和 <span class="math inline">\mathbf b</span>，方向由 right-hand rule 决定，且</p>
+<p><span class="math display">
+|\mathbf a\times\mathbf b|=|\mathbf a|\,|\mathbf b|\sin\theta.
+</span></p>
+<p>因此平行四边形面积为 <span class="math inline">|\mathbf a\times\mathbf b|</span>，三角形面积为其一半。向量积满足</p>
+<p><span class="math display">
+\mathbf a\times\mathbf b=-(\mathbf b\times\mathbf a).
+</span></p>
+</section>
+<section id="distances-involving-lines" class="level3">
+<h3 class="anchored" data-anchor-id="distances-involving-lines">1.7 Distances involving lines</h3>
+<p>点 <span class="math inline">P</span> 到直线 <span class="math inline">\mathbf r=\mathbf a+\lambda\mathbf d</span> 的距离可写成</p>
+<p><span class="math display">
+\boxed{
+D=\frac{|(\mathbf p-\mathbf a)\times\mathbf d|}{|\mathbf d|}
+}.
+</span></p>
+<p>两条 skew lines</p>
+<p><span class="math display">
+\mathbf r=\mathbf a+\lambda\mathbf b,\;
+\mathbf r=\mathbf c+\mu\mathbf d
+</span></p>
+<p>的共同垂直方向为 <span class="math inline">\mathbf b\times\mathbf d</span>。最短距离为</p>
+<p><span class="math display">
+\boxed{
+D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
+{|\mathbf b\times\mathbf d|}
+}.
+</span></p>
+<p>若要求 common perpendicular 的方程，可分别取两线上一般点 <span class="math inline">P,Q</span>，令 <span class="math inline">\overrightarrow{PQ}</span> 同时垂直于 <span class="math inline">\mathbf b</span> 和 <span class="math inline">\mathbf d</span>，解出两个参数后用 <span class="math inline">P</span> 或 <span class="math inline">Q</span> 与方向 <span class="math inline">\mathbf b\times\mathbf d</span> 写直线。</p>
+</section>
+</section>
+<section id="textbook-examples" class="level2">
+<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
+<p>本节保留教材 Chapter 7 的全部编号 Example。题意与符号按教材重写，步骤展开到可直接复习的方法层级。</p>
+<div class="callout-example" title="Example 7.1 — Plane through three points">
+<p>Find the equation of the plane through <span class="math inline">A(4,2,0)</span>, <span class="math inline">B(3,1,1)</span> and <span class="math inline">C(4,-1,1)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Two independent directions in the plane are</p>
+<p><span class="math display">
+\overrightarrow{AB}=\begin{pmatrix}-1\\-1\\1\end{pmatrix},\;
+\overrightarrow{AC}=\begin{pmatrix}0\\-3\\1\end{pmatrix}.
+</span></p>
+<p>Hence a parametric equation is</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}4\\2\\0\end{pmatrix}
++\lambda\begin{pmatrix}-1\\-1\\1\end{pmatrix}
++\mu\begin{pmatrix}0\\-3\\1\end{pmatrix}}.
+</span></p>
+<p>Thus <span class="math inline">x=4-\lambda</span>, <span class="math inline">y=2-\lambda-3\mu</span> and <span class="math inline">z=\lambda+\mu</span>. Eliminating <span class="math inline">\lambda</span> and <span class="math inline">\mu</span> gives</p>
+<p><span class="math display">
+\boxed{2x+y+3z=10}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.2 — Plane from a point and a normal">
+<p>Write down the equation of the plane through <span class="math inline">(2,1,3)</span> whose normal is <span class="math inline">4\mathbf i+5\mathbf j+6\mathbf k</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>With <span class="math inline">\mathbf a=(2,1,3)</span> and <span class="math inline">\mathbf n=(4,5,6)</span>,</p>
+<p><span class="math display">
+(\mathbf r-\mathbf a)\boldsymbol\cdot\mathbf n=0.
+</span></p>
+<p>Therefore <span class="math inline">4(x-2)+5(y-1)+6(z-3)=0</span>, so</p>
+<p><span class="math display">
+\boxed{4x+5y+6z=31}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.3 — Intersection of a line and a plane">
+<p>Find the point where</p>
+<p><span class="math display">
+\mathbf r=\begin{pmatrix}2\\3\\4\end{pmatrix}
++\lambda\begin{pmatrix}1\\2\\-1\end{pmatrix}
+</span></p>
+<p>meets the plane <span class="math inline">5x+y-z=1</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A point of the line has coordinates <span class="math inline">(2+\lambda,3+2\lambda,4-\lambda)</span>. Substitution gives</p>
+<p><span class="math display">
+5(2+\lambda)+(3+2\lambda)-(4-\lambda)=1,
+</span></p>
+<p>so <span class="math inline">9+8\lambda=1</span> and <span class="math inline">\lambda=-1</span>. The point of intersection is</p>
+<p><span class="math display">
+\boxed{(1,1,5)}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.4 — A line parallel to a plane">
+<p>Show that the line</p>
+<p><span class="math display">
+\mathbf r=\begin{pmatrix}2\\1\\0\end{pmatrix}
++t\begin{pmatrix}3\\1\\-2\end{pmatrix}
+</span></p>
+<p>is parallel to the plane <span class="math inline">2x+4y+5z=8</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The direction of the line is <span class="math inline">\mathbf d=(3,1,-2)</span> and a normal to the plane is <span class="math inline">\mathbf n=(2,4,5)</span>. Since</p>
+<p><span class="math display">
+\mathbf d\boldsymbol\cdot\mathbf n=3(2)+1(4)-2(5)=0,
+</span></p>
+<p>the line direction is perpendicular to the normal. Hence the line is parallel to the plane.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.5 — A line lying in a plane">
+<p>Determine whether the line in Example 7.4 lies in the plane <span class="math inline">2x+4y+5z=8</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Example 7.4 shows that the line is parallel to the plane. For <span class="math inline">t=1</span>, the point on the line is <span class="math inline">(5,2,-2)</span>, and</p>
+<p><span class="math display">
+2(5)+4(2)+5(-2)=8.
+</span></p>
+<p>This point belongs to the plane. Therefore the whole line lies in the plane.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.6 — Perpendicular from a point to a plane">
+<p><span class="math inline">A</span> is <span class="math inline">(7,5,3)</span> and <span class="math inline">\pi</span> is <span class="math inline">3x+2y+z=6</span>.</p>
+<ol type="i">
+<li><p>Find the line through <span class="math inline">A</span> perpendicular to <span class="math inline">\pi</span>.</p></li>
+<li><p>Find its intersection <span class="math inline">P</span> with <span class="math inline">\pi</span>.</p></li>
+<li><p>Find <span class="math inline">AP</span>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li>A normal to <span class="math inline">\pi</span> is <span class="math inline">(3,2,1)</span>, so</li>
+</ol>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}7\\5\\3\end{pmatrix}
++\lambda\begin{pmatrix}3\\2\\1\end{pmatrix}}.
+</span></p>
+<ol start="2" type="i">
+<li>Substitution of <span class="math inline">(7+3\lambda,5+2\lambda,3+\lambda)</span> into the plane gives</li>
+</ol>
+<p><span class="math display">
+3(7+3\lambda)+2(5+2\lambda)+(3+\lambda)=6.
+</span></p>
+<p>Thus <span class="math inline">14\lambda=-28</span>, so <span class="math inline">\lambda=-2</span> and</p>
+<p><span class="math display">
+\boxed{P=(1,1,1)}.
+</span></p>
+<ol start="3" type="i">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AP}=\begin{pmatrix}-6\\-4\\-2\end{pmatrix},
+\;
+AP=\sqrt{36+16+4}=\boxed{\sqrt{56}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.7 — Angle between a line and a plane">
+<p>Find the angle between</p>
+<p><span class="math display">
+\mathbf r=\begin{pmatrix}-1\\2\\-3\end{pmatrix}
++t\begin{pmatrix}-1\\2\\5\end{pmatrix}
+</span></p>
+<p>and the plane <span class="math inline">2x+3y+z=4</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Take <span class="math inline">\mathbf n=(2,3,1)</span> and <span class="math inline">\mathbf d=(-1,2,5)</span>. If <span class="math inline">A</span> is the angle between <span class="math inline">\mathbf n</span> and <span class="math inline">\mathbf d</span>, then</p>
+<p><span class="math display">
+\cos A=\frac{\mathbf n\boldsymbol\cdot\mathbf d}{|\mathbf n||\mathbf d|}
+=\frac{-2+6+5}{\sqrt{14}\sqrt{30}}.
+</span></p>
+<p>Hence <span class="math inline">A=63.95^\circ</span>. The angle between the line and the plane is</p>
+<p><span class="math display">
+90^\circ-A=26.05^\circ,
+</span></p>
+<p>or <span class="math inline">\boxed{26^\circ}</span> to the nearest degree.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.8 — Line of intersection of two planes">
+<p>Find the line of intersection of</p>
+<p><span class="math display">
+3x+2y-3z=-18
+\;\text{and}\;
+x-2y+z=12.
+</span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Putting <span class="math inline">y=0</span> gives <span class="math inline">x=3</span>, <span class="math inline">z=9</span>, so <span class="math inline">P=(3,0,9)</span>. Putting <span class="math inline">z=1</span> gives <span class="math inline">x=-1</span>, <span class="math inline">y=-6</span>, so <span class="math inline">Q=(-1,-6,1)</span>. Then</p>
+<p><span class="math display">
+\overrightarrow{PQ}=\begin{pmatrix}-4\\-6\\-8\end{pmatrix}
+=-2\begin{pmatrix}2\\3\\4\end{pmatrix}.
+</span></p>
+<p>Therefore one equation of the common line is</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}-1\\-6\\1\end{pmatrix}
++t\begin{pmatrix}2\\3\\4\end{pmatrix}}.
+</span></p>
+<p>Equivalent base points and non-zero scalar multiples of the direction vector give the same line.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.9 — Angle between two planes">
+<p>Find the acute angle between <span class="math inline">\pi_1:2x+3y+5z=8</span> and <span class="math inline">\pi_2:5x+y-4z=12</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The normals are <span class="math inline">\mathbf n_1=(2,3,5)</span> and <span class="math inline">\mathbf n_2=(5,1,-4)</span>. Hence</p>
+<p><span class="math display">
+\cos\theta=\frac{\mathbf n_1\boldsymbol\cdot\mathbf n_2}{|\mathbf n_1||\mathbf n_2|}
+=\frac{-7}{\sqrt{38}\sqrt{42}}.
+</span></p>
+<p>This gives <span class="math inline">\theta=100.1^\circ</span> between the chosen normals. The acute angle between the planes is therefore</p>
+<p><span class="math display">
+\boxed{180^\circ-100.1^\circ=79.9^\circ}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.10 — A plane through a common line">
+<p>Find the plane through <span class="math inline">(1,2,3)</span> that contains the common line of</p>
+<p><span class="math display">
+\pi_1:2x+2y+z+3=0,
+\;
+\pi_2:2x+3y+z+13=0.
+</span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Every plane in the sheaf through the common line has equation</p>
+<p><span class="math display">
+p(2x+2y+z+3)+q(2x+3y+z+13)=0,
+</span></p>
+<p>where <span class="math inline">p</span> and <span class="math inline">q</span> are not both zero. Substitution of <span class="math inline">(1,2,3)</span> gives</p>
+<p><span class="math display">
+12p+24q=0,
+</span></p>
+<p>so <span class="math inline">p=-2q</span>. Therefore</p>
+<p><span class="math display">
+-2(2x+2y+z+3)+(2x+3y+z+13)=0,
+</span></p>
+<p>and the required plane is</p>
+<p><span class="math display">
+\boxed{2x+y+z=7}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.11 — Common perpendicular of two lines">
+<p>Find the equation of the common perpendicular to</p>
+<p><span class="math display">
+\mathbf r=\begin{pmatrix}1\\0\\-1\end{pmatrix}
++\alpha\begin{pmatrix}1\\1\\0\end{pmatrix},
+\;
+\mathbf r=\begin{pmatrix}-2\\1\\4\end{pmatrix}
++\beta\begin{pmatrix}-3\\0\\1\end{pmatrix}.
+</span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let</p>
+<p><span class="math display">
+P=(1+\alpha,\alpha,-1),
+\;
+Q=(-2-3\beta,1,4+\beta).
+</span></p>
+<p>Then</p>
+<p><span class="math display">
+\overrightarrow{PQ}=(-3-\alpha-3\beta,1-\alpha,5+\beta).
+</span></p>
+<p>For <span class="math inline">PQ</span> to be perpendicular to both given lines,</p>
+<p><span class="math display">
+\overrightarrow{PQ}\boldsymbol\cdot(1,1,0)=0,
+\;
+\overrightarrow{PQ}\boldsymbol\cdot(-3,0,1)=0.
+</span></p>
+<p>Thus</p>
+<p><span class="math display">
+-2\alpha-3\beta-2=0,
+\;
+3\alpha+10\beta+14=0.
+</span></p>
+<p>Solving gives <span class="math inline">\alpha=2</span>, <span class="math inline">\beta=-2</span>. Hence <span class="math inline">P=(3,2,-1)</span>, <span class="math inline">Q=(4,1,2)</span> and <span class="math inline">\overrightarrow{PQ}=(1,-1,3)</span>. The common perpendicular is</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}3\\2\\-1\end{pmatrix}
++\lambda\begin{pmatrix}1\\-1\\3\end{pmatrix}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.12 — Vector product and a unit normal">
+<p>Let <span class="math inline">\mathbf a=3\mathbf i+2\mathbf j+5\mathbf k</span> and <span class="math inline">\mathbf b=\mathbf i-4\mathbf j+2\mathbf k</span>.</p>
+<ol type="i">
+<li><p>Calculate <span class="math inline">\mathbf a\times\mathbf b</span>.</p></li>
+<li><p>Hence find a unit vector perpendicular to both <span class="math inline">\mathbf a</span> and <span class="math inline">\mathbf b</span>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li></li>
+</ol>
+<p><span class="math display">
+\mathbf a\times\mathbf b=
+\begin{vmatrix}
+\mathbf i&amp;\mathbf j&amp;\mathbf k\\
+3&amp;2&amp;5\\
+1&amp;-4&amp;2
+\end{vmatrix}
+=24\mathbf i-\mathbf j-14\mathbf k.
+</span></p>
+<ol start="2" type="i">
+<li>Since <span class="math inline">|\mathbf a\times\mathbf b|=\sqrt{24^2+(-1)^2+(-14)^2}=\sqrt{773}</span>, one required unit vector is</li>
+</ol>
+<p><span class="math display">
+\boxed{\widehat{\mathbf n}=\frac1{\sqrt{773}}
+\begin{pmatrix}24\\-1\\-14\end{pmatrix}}.
+</span></p>
+<p>Its negative is also perpendicular to both vectors.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.13 — Plane through three points using a vector product">
+<p>Find the Cartesian equation of the plane through <span class="math inline">A(3,4,2)</span>, <span class="math inline">B(2,0,5)</span> and <span class="math inline">C(6,7,8)</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+\overrightarrow{AB}=(-1,-4,3),
+\;
+\overrightarrow{BC}=(4,7,3).
+</span></p>
+<p>A normal is</p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{BC}
+=(-33,15,9)=-3(11,-5,-3).
+</span></p>
+<p>Use <span class="math inline">\mathbf n=(11,-5,-3)</span>. The equation is <span class="math inline">11x-5y-3z=d</span>. Substitution of <span class="math inline">A</span> gives <span class="math inline">d=33-20-6=7</span>. Hence</p>
+<p><span class="math display">
+\boxed{11x-5y-3z=7}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.14 — Parametric plane to Cartesian form">
+<p>A plane is</p>
+<p><span class="math display">
+\mathbf r=3\mathbf i-\mathbf j+5\mathbf k
++\lambda(5\mathbf i-2\mathbf j+\mathbf k)
++\mu(2\mathbf i+\mathbf j-3\mathbf k).
+</span></p>
+<p>Find its Cartesian equation.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A normal is the vector product of the two directions:</p>
+<p><span class="math display">
+\begin{pmatrix}5\\-2\\1\end{pmatrix}
+\times
+\begin{pmatrix}2\\1\\-3\end{pmatrix}
+=\begin{pmatrix}5\\17\\9\end{pmatrix}.
+</span></p>
+<p>Therefore</p>
+<p><span class="math display">
+\mathbf r\boldsymbol\cdot(5,17,9)
+=(3,-1,5)\boldsymbol\cdot(5,17,9)=43,
+</span></p>
+<p>so</p>
+<p><span class="math display">
+\boxed{5x+17y+9z=43}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.15 — Closest point on a line">
+<p>The line <span class="math inline">l</span> is</p>
+<p><span class="math display">
+\mathbf r=\begin{pmatrix}-10\\20\\2\end{pmatrix}
++\lambda\begin{pmatrix}5\\4\\3\end{pmatrix}
+</span></p>
+<p>and <span class="math inline">P=(70,30,22)</span>. The point <span class="math inline">M</span> on <span class="math inline">l</span> is closest to <span class="math inline">P</span>.</p>
+<ol type="i">
+<li><p>Express <span class="math inline">\mathbf m</span> and <span class="math inline">\overrightarrow{PM}</span> in terms of <span class="math inline">\lambda</span>.</p></li>
+<li><p>Show that <span class="math inline">\lambda=10</span> and find <span class="math inline">M</span>.</p></li>
+<li><p>Verify the value of <span class="math inline">PM</span>.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li></li>
+</ol>
+<p><span class="math display">
+\mathbf m=\begin{pmatrix}-10+5\lambda\\20+4\lambda\\2+3\lambda\end{pmatrix},
+\;
+\overrightarrow{PM}=\begin{pmatrix}-80+5\lambda\\-10+4\lambda\\-20+3\lambda\end{pmatrix}.
+</span></p>
+<ol start="2" type="i">
+<li>At the nearest point, <span class="math inline">PM</span> is perpendicular to the line direction <span class="math inline">\mathbf d=(5,4,3)</span>:</li>
+</ol>
+<p><span class="math display">
+5(-80+5\lambda)+4(-10+4\lambda)+3(-20+3\lambda)=0.
+</span></p>
+<p>Thus <span class="math inline">50\lambda=500</span>, so <span class="math inline">\lambda=10</span> and</p>
+<p><span class="math display">
+\boxed{M=(40,60,32)}.
+</span></p>
+<ol start="3" type="i">
+<li><span class="math inline">\overrightarrow{PM}=(-30,30,10)</span>, hence</li>
+</ol>
+<p><span class="math display">
+PM=\sqrt{900+900+100}=\boxed{10\sqrt{19}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.16 — Distance from a point to a line in two dimensions">
+<p>Find the shortest distance from <span class="math inline">P(3,5)</span> to <span class="math inline">5x-3y+4=0</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Using the two-dimensional distance formula,</p>
+<p><span class="math display">
+D=\frac{|5(3)-3(5)+4|}{\sqrt{5^2+(-3)^2}}
+=\boxed{\frac4{\sqrt{34}}}.
+</span></p>
+<p>This example is retained because it is a numbered textbook example; the main Further Mathematics vector work uses the corresponding three-dimensional methods.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.17 — Distance from a point to a plane">
+<p>Find the shortest distance from <span class="math inline">(2,4,-2)</span> to <span class="math inline">6x-y-3z+1=0</span>.</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+D=\frac{|6(2)-4-3(-2)+1|}{\sqrt{6^2+(-1)^2+(-3)^2}}
+=\frac{15}{\sqrt{46}}.
+</span></p>
+<p>Therefore</p>
+<p><span class="math display">
+\boxed{D=\frac{15}{\sqrt{46}}\approx2.21}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.18 — Distance between parallel lines">
+<p>The lines are</p>
+<p><span class="math display">
+l_1:\mathbf r=\begin{pmatrix}2\\-3\\0\end{pmatrix}
++\lambda\begin{pmatrix}1\\-3\\2\end{pmatrix},
+\;
+l_2:\mathbf r=\begin{pmatrix}4\\2\\1\end{pmatrix}
++\mu\begin{pmatrix}-2\\6\\-4\end{pmatrix}.
+</span></p>
+<ol type="i">
+<li><p>Show that they are parallel.</p></li>
+<li><p>Find the shortest distance between them.</p></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li><p>The second direction is <span class="math inline">-2</span> times the first, so the lines are parallel.</p></li>
+<li><p>Take <span class="math inline">A=(2,-3,0)</span> on <span class="math inline">l_1</span> and <span class="math inline">P=(4,2,1)</span> on <span class="math inline">l_2</span>. Then</p></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AP}=(2,5,1),
+\;
+\overrightarrow{AP}\times(1,-3,2)=(13,-3,-11).
+</span></p>
+<p>Therefore</p>
+<p><span class="math display">
+D=\frac{\sqrt{13^2+(-3)^2+(-11)^2}}{\sqrt{1^2+(-3)^2+2^2}}
+=\boxed{\sqrt{\frac{299}{14}}\approx4.62}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-example" title="Example 7.19 — Distance between skew lines">
+<p>Find the shortest distance between</p>
+<p><span class="math display">
+l_1:\mathbf r=\begin{pmatrix}8\\9\\-2\end{pmatrix}
++\lambda\begin{pmatrix}1\\2\\-3\end{pmatrix},
+\;
+l_2:\mathbf r=\begin{pmatrix}6\\0\\-2\end{pmatrix}
++\mu\begin{pmatrix}1\\-1\\-2\end{pmatrix}.
+</span></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Solution">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let <span class="math inline">\mathbf a_1=(8,9,-2)</span>, <span class="math inline">\mathbf a_2=(6,0,-2)</span>, <span class="math inline">\mathbf d_1=(1,2,-3)</span> and <span class="math inline">\mathbf d_2=(1,-1,-2)</span>. Then</p>
+<p><span class="math display">
+\mathbf a_1-\mathbf a_2=(2,9,0),
+\;
+\mathbf d_1\times\mathbf d_2=(-7,-1,-3).
+</span></p>
+<p>Also</p>
+<p><span class="math display">
+(\mathbf d_1\times\mathbf d_2)\boldsymbol\cdot(\mathbf a_1-\mathbf a_2)=-23,
+\;
+|\mathbf d_1\times\mathbf d_2|=\sqrt{59}.
+</span></p>
+<p>Hence</p>
+<p><span class="math display">
+\boxed{D=\frac{23}{\sqrt{59}}\approx2.99}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cambridge-examination-questions-in-the-textbook" class="level2">
+<h2 class="anchored" data-anchor-id="cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</h2>
+<p>这里只收录教材 Exercise 中明确标注 <strong>Cambridge International AS &amp; A Level Further Mathematics 9231</strong> 来源的题目；标注为 Mathematics 9709 的题目不在本节重复收录。</p>
+<div class="question-card" title="Exercise 7B, Question 13">
+<p>The lines <span class="math inline">l_1</span> and <span class="math inline">l_2</span> have equations</p>
+<p><span class="math display">
+l_1:\mathbf r=8\mathbf i+2\mathbf j+3\mathbf k
++\lambda(\mathbf i-2\mathbf j)
+</span></p>
+<p>and</p>
+<p><span class="math display">
+l_2:\mathbf r=5\mathbf i+3\mathbf j-14\mathbf k
++\mu(-2\mathbf j+3\mathbf k).
+</span></p>
+<p>The point <span class="math inline">P</span> on <span class="math inline">l_1</span> and the point <span class="math inline">Q</span> on <span class="math inline">l_2</span> are such that <span class="math inline">PQ</span> is perpendicular to both lines. Find the position vectors of <span class="math inline">P</span> and <span class="math inline">Q</span>.</p>
+<p><em>Source: 9231 Paper 11 Question 11 (part question), May/June 2015. The sign of the <span class="math inline">\mathbf k</span> term is given here in the form consistent with the original mark scheme and the textbook answer.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Write</p>
+<p><span class="math display">
+P=(8+\lambda,2-2\lambda,3),
+\;
+Q=(5,3-2\mu,-14+3\mu).
+</span></p>
+<p>Then</p>
+<p><span class="math display">
+\overrightarrow{PQ}=(-3-\lambda,1-2\mu+2\lambda,-17+3\mu).
+</span></p>
+<p>The two perpendicularity conditions give</p>
+<p><span class="math display">
+\overrightarrow{PQ}\boldsymbol\cdot(1,-2,0)=0
+\Longrightarrow -5-5\lambda+4\mu=0,
+</span></p>
+<p><span class="math display">
+\overrightarrow{PQ}\boldsymbol\cdot(0,-2,3)=0
+\Longrightarrow -53-4\lambda+13\mu=0.
+</span></p>
+<p>Solving gives <span class="math inline">\lambda=3</span> and <span class="math inline">\mu=5</span>. Therefore</p>
+<p><span class="math display">
+\boxed{\overrightarrow{OP}=11\mathbf i-4\mathbf j+3\mathbf k},
+\;
+\boxed{\overrightarrow{OQ}=5\mathbf i-7\mathbf j+\mathbf k}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="Exercise 7C, Question 10">
+<p>The plane <span class="math inline">\Pi_1</span> has equation</p>
+<p><span class="math display">
+\mathbf r=\begin{pmatrix}2\\3\\-1\end{pmatrix}
++s\begin{pmatrix}1\\0\\1\end{pmatrix}
++t\begin{pmatrix}1\\-1\\-2\end{pmatrix}.
+</span></p>
+<ol type="i">
+<li>Find a Cartesian equation of <span class="math inline">\Pi_1</span>.</li>
+</ol>
+<p>The plane <span class="math inline">\Pi_2</span> has equation <span class="math inline">2x-y+z=10</span>.</p>
+<ol start="2" type="i">
+<li><p>Find the acute angle between <span class="math inline">\Pi_1</span> and <span class="math inline">\Pi_2</span>.</p></li>
+<li><p>Find an equation of their line of intersection in the form <span class="math inline">\mathbf r=\mathbf a+\lambda\mathbf b</span>.</p></li>
+</ol>
+<p><em>Source: 9231 Paper 11 Question 8, October/November 2013.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li>A normal to <span class="math inline">\Pi_1</span> is</li>
+</ol>
+<p><span class="math display">
+\begin{pmatrix}1\\0\\1\end{pmatrix}
+\times
+\begin{pmatrix}1\\-1\\-2\end{pmatrix}
+=\begin{pmatrix}1\\3\\-1\end{pmatrix}.
+</span></p>
+<p>Hence</p>
+<p><span class="math display">
+x+3y-z=(2)+3(3)-(-1)=12,
+</span></p>
+<p>so <span class="math inline">\boxed{\Pi_1:x+3y-z=12}</span>.</p>
+<ol start="2" type="i">
+<li>Use normals <span class="math inline">\mathbf n_1=(1,3,-1)</span> and <span class="math inline">\mathbf n_2=(2,-1,1)</span>:</li>
+</ol>
+<p><span class="math display">
+\cos\theta=\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}{|\mathbf n_1||\mathbf n_2|}
+=\frac{|2-3-1|}{\sqrt{11}\sqrt6}
+=\frac2{\sqrt{66}}.
+</span></p>
+<p>Thus <span class="math inline">\boxed{\theta=75.7^\circ}</span>.</p>
+<ol start="3" type="i">
+<li>A direction of the common line is</li>
+</ol>
+<p><span class="math display">
+\mathbf n_1\times\mathbf n_2
+=\begin{pmatrix}2\\-3\\-7\end{pmatrix}.
+</span></p>
+<p>The point <span class="math inline">(6,2,0)</span> satisfies both plane equations. Therefore</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}6\\2\\0\end{pmatrix}
++\lambda\begin{pmatrix}2\\-3\\-7\end{pmatrix}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="Exercise 7D, Question 11">
+<p>The line <span class="math inline">l_1</span> passes through <span class="math inline">A(2,3,-5)</span> and <span class="math inline">B(8,7,-13)</span>. The line <span class="math inline">l_2</span> passes through <span class="math inline">C(-2,1,8)</span> and <span class="math inline">D(3,-1,4)</span>.</p>
+<ol type="i">
+<li><p>Find the shortest distance between <span class="math inline">l_1</span> and <span class="math inline">l_2</span>.</p></li>
+<li><p>The plane <span class="math inline">\Pi_1</span> passes through <span class="math inline">A,B,D</span>, and <span class="math inline">\Pi_2</span> passes through <span class="math inline">A,C,D</span>. Find the acute angle between <span class="math inline">\Pi_1</span> and <span class="math inline">\Pi_2</span>.</p></li>
+</ol>
+<p><em>Source: 9231 Paper 11 Question 11, May/June 2014.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li>Direction vectors are</li>
+</ol>
+<p><span class="math display">
+\mathbf d_1=\overrightarrow{AB}=(6,4,-8),
+\;
+\mathbf d_2=\overrightarrow{CD}=(5,-2,-4).
+</span></p>
+<p>Also</p>
+<p><span class="math display">
+\mathbf d_1\times\mathbf d_2=(-32,-16,-32),
+\;
+\overrightarrow{AC}=(-4,-2,13).
+</span></p>
+<p>Therefore</p>
+<p><span class="math display">
+D=\frac{|\overrightarrow{AC}\boldsymbol\cdot(\mathbf d_1\times\mathbf d_2)|}
+{|\mathbf d_1\times\mathbf d_2|}
+=\frac{256}{48}
+=\boxed{\frac{16}{3}}.
+</span></p>
+<ol start="2" type="i">
+<li>Suitable normals are</li>
+</ol>
+<p><span class="math display">
+\mathbf n_1=\overrightarrow{AB}\times\overrightarrow{AD}
+=(4,-62,-28)=2(2,-31,-14),
+</span></p>
+<p><span class="math display">
+\mathbf n_2=\overrightarrow{AC}\times\overrightarrow{AD}
+=(34,49,18).
+</span></p>
+<p>Thus</p>
+<p><span class="math display">
+\cos\theta=\frac{|(2,-31,-14)\boldsymbol\cdot(34,49,18)|}
+{\sqrt{1161}\sqrt{3881}}
+=\frac{1703}{\sqrt{1161\cdot3881}}.
+</span></p>
+<p>Hence the acute angle is <span class="math inline">\boxed{36.7^\circ}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="Exercise 7D, Question 12">
+<p>The position vectors of <span class="math inline">A,B,C,D</span> are</p>
+<p><span class="math display">
+2\mathbf i+4\mathbf j-3\mathbf k,
+\;
+-2\mathbf i+5\mathbf j-4\mathbf k,
+\;
+\mathbf i+4\mathbf j+\mathbf k,
+\;
+\mathbf i+5\mathbf j+m\mathbf k,
+</span></p>
+<p>respectively, where <span class="math inline">m</span> is an integer. The shortest distance between <span class="math inline">AB</span> and <span class="math inline">CD</span> is <span class="math inline">3</span>.</p>
+<ol type="i">
+<li><p>Show that the only possible value of <span class="math inline">m</span> is <span class="math inline">2</span>.</p></li>
+<li><p>Find the shortest distance of <span class="math inline">D</span> from <span class="math inline">AC</span>.</p></li>
+<li><p>Show that the acute angle between planes <span class="math inline">ACD</span> and <span class="math inline">BCD</span> is <span class="math inline">\cos^{-1}(1/3)</span>.</p></li>
+</ol>
+<p><em>Source: 9231 Paper 11 Question 11, May/June 2012.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}=(-4,1,-1),
+\;
+\overrightarrow{CD}=(0,1,m-1),
+\;
+\overrightarrow{AC}=(-1,0,4).
+</span></p>
+<p>Now</p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{CD}
+=(m,4m-4,-4).
+</span></p>
+<p>Using the skew-line distance formula,</p>
+<p><span class="math display">
+\frac{|\overrightarrow{AC}\boldsymbol\cdot
+(\overrightarrow{AB}\times\overrightarrow{CD})|}
+{|\overrightarrow{AB}\times\overrightarrow{CD}|}=3.
+</span></p>
+<p>After squaring,</p>
+<p><span class="math display">
+(m+16)^2=9\{m^2+16(m-1)^2+16\},
+</span></p>
+<p>which reduces to</p>
+<p><span class="math display">
+19m^2-40m+4=0.
+</span></p>
+<p>Hence <span class="math inline">m=2</span> or <span class="math inline">m=2/19</span>. Since <span class="math inline">m</span> is an integer,</p>
+<p><span class="math display">
+\boxed{m=2}.
+</span></p>
+<ol start="2" type="i">
+<li>With <span class="math inline">m=2</span>, <span class="math inline">D=(1,5,2)</span> and</li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AD}=(-1,1,5),
+\;
+\overrightarrow{AC}=(-1,0,4).
+</span></p>
+<p>Therefore</p>
+<p><span class="math display">
+D_{D,AC}=\frac{|\overrightarrow{AD}\times\overrightarrow{AC}|}{|\overrightarrow{AC}|}
+=\frac{\sqrt{18}}{\sqrt{17}}
+=\boxed{\sqrt{\frac{18}{17}}}.
+</span></p>
+<ol start="3" type="i">
+<li>Normals to <span class="math inline">ACD</span> and <span class="math inline">BCD</span> may be taken as</li>
+</ol>
+<p><span class="math display">
+\mathbf n_1=\overrightarrow{AC}\times\overrightarrow{AD}=(-4,1,-1),
+</span></p>
+<p><span class="math display">
+\mathbf n_2=\overrightarrow{BC}\times\overrightarrow{BD}=(-6,-3,3).
+</span></p>
+<p>Then</p>
+<p><span class="math display">
+\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}{|\mathbf n_1||\mathbf n_2|}
+=\frac{18}{\sqrt{18}\sqrt{54}}=\frac13.
+</span></p>
+<p>Thus the acute angle is</p>
+<p><span class="math display">
+\boxed{\cos^{-1}\!\left(\frac13\right)}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="past-paper-question-bank" class="level2">
+<h2 class="anchored" data-anchor-id="past-paper-question-bank">4. Past-paper question bank</h2>
+<p>完全相同的地区版本合并为一题，并在题目下列出全部来源。答案按 published mark scheme 的得分点展开。</p>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">2019</h3>
+<div class="question-card" title="May/June 2019, Paper 11/12, Question 3">
+<p>The lines are</p>
+<p><span class="math display">
+l_1:\mathbf r=6\mathbf i+2\mathbf j+7\mathbf k+\lambda(\mathbf i+\mathbf j),
+</span></p>
+<p><span class="math display">
+l_2:\mathbf r=4\mathbf i+4\mathbf j+\mu(-6\mathbf j+\mathbf k).
+</span></p>
+<p>Points <span class="math inline">P</span> on <span class="math inline">l_1</span> and <span class="math inline">Q</span> on <span class="math inline">l_2</span> are such that <span class="math inline">PQ</span> is perpendicular to both lines. Find their position vectors. [8]</p>
+<p><em>Sources: 9231/11/M/J/19 Q3; 9231/12/M/J/19 Q3.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">
+P=(6+\lambda,2+\lambda,7),
+\;Q=(4,4-6\mu,\mu),
+</span></p>
+<p>so</p>
+<p><span class="math display">
+\overrightarrow{PQ}=(-2-\lambda,2-\lambda-6\mu,-7+\mu).
+</span></p>
+<p>The perpendicularity conditions give</p>
+<p><span class="math display">
+\overrightarrow{PQ}\boldsymbol\cdot(1,1,0)=0
+\Longrightarrow -2\lambda-6\mu=0,
+</span></p>
+<p><span class="math display">
+\overrightarrow{PQ}\boldsymbol\cdot(0,-6,1)=0
+\Longrightarrow 6\lambda+37\mu=19.
+</span></p>
+<p>Thus <span class="math inline">\lambda=-3</span>, <span class="math inline">\mu=1</span>, and</p>
+<p><span class="math display">
+\boxed{\overrightarrow{OP}=3\mathbf i-\mathbf j+7\mathbf k},
+\;\boxed{\overrightarrow{OQ}=4\mathbf i-2\mathbf j+\mathbf k}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="May/June 2019, Paper 13, Question 7">
+<p>Line <span class="math inline">l_1</span> passes through <span class="math inline">A(-3,1,4)</span> and <span class="math inline">B(-1,5,9)</span>. Line <span class="math inline">l_2</span> passes through <span class="math inline">C(-2,6,5)</span> and <span class="math inline">D(-1,7,5)</span>.</p>
+<ol type="i">
+<li><p>Find the shortest distance between <span class="math inline">l_1</span> and <span class="math inline">l_2</span>. [5]</p></li>
+<li><p>Find the acute angle between <span class="math inline">l_2</span> and plane <span class="math inline">ABD</span>. [5]</p></li>
+</ol>
+<p><em>Source: 9231/13/M/J/19 Q7.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}=(2,4,5),
+\;\overrightarrow{CD}=(1,1,0),
+</span></p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{CD}=(-5,5,-2).
+</span></p>
+<p>Using <span class="math inline">\overrightarrow{AC}=(1,5,1)</span>,</p>
+<p><span class="math display">
+D=\frac{|(1,5,1)\boldsymbol\cdot(-5,5,-2)|}{\sqrt{54}}
+=\boxed{\frac{18}{\sqrt{54}}=\sqrt6}.
+</span></p>
+<ol start="2" type="i">
+<li>Since <span class="math inline">\overrightarrow{AD}=(2,6,1)</span>, a normal to <span class="math inline">ABD</span> is</li>
+</ol>
+<p><span class="math display">
+(2,4,5)\times(2,6,1)=(-26,8,4)=2(-13,4,2).
+</span></p>
+<p>For the line direction <span class="math inline">(1,1,0)</span>,</p>
+<p><span class="math display">
+\sin\alpha=\frac{|(1,1,0)\boldsymbol\cdot(-13,4,2)|}{\sqrt2\sqrt{189}}
+=\frac9{\sqrt{378}}.
+</span></p>
+<p>Hence <span class="math inline">\boxed{\alpha=27.6^\circ}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2019, Paper 11/12/13, Question 6">
+<p>With <span class="math inline">O</span> as origin, <span class="math inline">A,B,C</span> have position vectors <span class="math inline">\mathbf i-\mathbf j</span>, <span class="math inline">2\mathbf i+\mathbf j+7\mathbf k</span> and <span class="math inline">\mathbf i-\mathbf j+\mathbf k</span>.</p>
+<ol type="i">
+<li><p>Find the shortest distance between lines <span class="math inline">OC</span> and <span class="math inline">AB</span>. [5]</p></li>
+<li><p>Find the Cartesian equation of the plane containing <span class="math inline">OC</span> and the common perpendicular of <span class="math inline">OC</span> and <span class="math inline">AB</span>. [4]</p></li>
+</ol>
+<p><em>Sources: 9231/11/O/N/19 Q6; 9231/12/O/N/19 Q6; 9231/13/O/N/19 Q6.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="i">
+<li>Directions are <span class="math inline">\overrightarrow{OC}=(1,-1,1)</span> and <span class="math inline">\overrightarrow{AB}=(1,2,7)</span>. Thus</li>
+</ol>
+<p><span class="math display">
+\overrightarrow{OC}\times\overrightarrow{AB}=(-9,-6,3)=-3(3,2,-1).
+</span></p>
+<p>Using <span class="math inline">\overrightarrow{OA}=(1,-1,0)</span>,</p>
+<p><span class="math display">
+D=\frac{|(1,-1,0)\boldsymbol\cdot(3,2,-1)|}{\sqrt{14}}
+=\boxed{\frac1{\sqrt{14}}}.
+</span></p>
+<ol start="2" type="i">
+<li>The required plane contains directions <span class="math inline">(1,-1,1)</span> and <span class="math inline">(3,2,-1)</span>. Its normal is</li>
+</ol>
+<p><span class="math display">
+(1,-1,1)\times(3,2,-1)=(-1,4,5).
+</span></p>
+<p>It passes through <span class="math inline">O</span>, so</p>
+<p><span class="math display">
+\boxed{-x+4y+5z=0}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">2020</h3>
+<div class="question-card" title="May/June 2020, Paper 11/12, Question 5">
+<p><span class="math inline">l_1:\mathbf r=(3,0,3)+m(1,4,4)</span> and <span class="math inline">l_2:\mathbf r=(3,-5,-6)+n(0,5,6)</span>.</p>
+<ol type="a">
+<li><p>Find their shortest distance. [5]</p></li>
+<li><p>A plane <span class="math inline">\Pi</span> contains <span class="math inline">l_1</span> and is parallel to <span class="math inline">(1,0,1)</span>. Find its Cartesian equation. [4]</p></li>
+</ol>
+<p><em>Sources: 9231/11/M/J/20 Q5; 9231/12/M/J/20 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+(1,4,4)\times(0,5,6)=(4,-6,5),
+</span></p>
+<p><span class="math display">
+D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
+=\boxed{\frac{15}{\sqrt{77}}}.
+</span></p>
+<ol start="2" type="a">
+<li>A normal is <span class="math inline">(1,4,4)\times(1,0,1)=(4,3,-4)</span>. Hence</li>
+</ol>
+<p><span class="math display">
+\boxed{4x+3y-4z=0}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="May/June 2020, Paper 13, Question 7">
+<p><span class="math inline">l_1:\mathbf r=-5\mathbf j+m(5\mathbf i+2\mathbf k)</span> and <span class="math inline">l_2:\mathbf r=4\mathbf i+2\mathbf j-2\mathbf k+n(\mathbf j+\mathbf k)</span>. A plane <span class="math inline">\Pi</span> contains <span class="math inline">l_1</span> and is parallel to <span class="math inline">l_2</span>.</p>
+<ol type="a">
+<li><p>Find the Cartesian equation of <span class="math inline">\Pi</span>. [4]</p></li>
+<li><p>Find the distance between <span class="math inline">l_2</span> and <span class="math inline">\Pi</span>. [3]</p></li>
+<li><p>Points <span class="math inline">P</span> on <span class="math inline">l_1</span> and <span class="math inline">Q</span> on <span class="math inline">l_2</span> make <span class="math inline">PQ</span> perpendicular to both lines. Show that <span class="math inline">\overrightarrow{OP}=\frac{55}{27}\mathbf i-5\mathbf j+\frac{22}{27}\mathbf k</span> and state an equation of <span class="math inline">PQ</span>. [8]</p></li>
+</ol>
+<p><em>Source: 9231/13/M/J/20 Q7.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>A normal is <span class="math inline">(5,0,2)\times(0,1,1)=(-2,-5,5)</span>. Thus</li>
+</ol>
+<p><span class="math display">
+\boxed{-2x-5y+5z=25}.
+</span></p>
+<ol start="2" type="a">
+<li>Using <span class="math inline">(4,2,-2)</span> on <span class="math inline">l_2</span>,</li>
+</ol>
+<p><span class="math display">
+\boxed{D=\frac{53}{\sqrt{54}}}.
+</span></p>
+<ol start="3" type="a">
+<li>Let <span class="math inline">P=(5m,-5,2m)</span> and <span class="math inline">Q=(4,2+n,-2+n)</span>. From <span class="math inline">PQ\boldsymbol\cdot(5,0,2)=0</span> and <span class="math inline">PQ\boldsymbol\cdot(0,1,1)=0</span>, solving gives <span class="math inline">m=11/27</span>. Hence the stated <span class="math inline">P</span> follows. Since the common perpendicular direction is <span class="math inline">(-2,-5,5)</span>,</li>
+</ol>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}55/27\\-5\\22/27\end{pmatrix}
++t\begin{pmatrix}-2\\-5\\5\end{pmatrix}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2020, Paper 11/13, Question 4">
+<p><span class="math inline">A,B,C</span> have position vectors <span class="math inline">(-1,1,2)</span>, <span class="math inline">(-2,-1,0)</span> and <span class="math inline">(2,0,2)</span>.</p>
+<ol type="a">
+<li>Find plane <span class="math inline">ABC</span>. [5] (b) Find its distance from <span class="math inline">O</span>. [2] (c) Find the acute angle between planes <span class="math inline">OAB</span> and <span class="math inline">ABC</span>. [4]</li>
+</ol>
+<p><em>Sources: 9231/11/O/N/20 Q4; 9231/13/O/N/20 Q4.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><span class="math inline">\overrightarrow{AB}\times\overrightarrow{AC}=(-2,-6,7)</span>, so</li>
+</ol>
+<p><span class="math display">
+\boxed{-2x-6y+7z=10}.
+</span></p>
+<ol start="2" type="a">
+<li><p><span class="math inline">\boxed{10/\sqrt{89}}</span>.</p></li>
+<li><p>A normal to <span class="math inline">OAB</span> is <span class="math inline">(2,-4,3)</span>. Thus</p></li>
+</ol>
+<p><span class="math display">
+\cos\theta=\frac{41}{\sqrt{29}\sqrt{89}},
+</span></p>
+<p>so <span class="math inline">\boxed{\theta=36.2^\circ}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2020, Paper 12, Question 7">
+<p><span class="math inline">A,B,C</span> have position vectors <span class="math inline">(-2,2,-1)</span>, <span class="math inline">(-2,1,2)</span> and <span class="math inline">(0,-2,1)</span>.</p>
+<ol type="a">
+<li>Find plane <span class="math inline">ABC</span>. [5] (b) Find the acute angle between planes <span class="math inline">OBC</span> and <span class="math inline">ABC</span>. [4]</li>
+</ol>
+<p>The point <span class="math inline">D</span> has position vector <span class="math inline">t\mathbf i-\mathbf j</span>. (c) Given that the shortest distance between <span class="math inline">AB</span> and <span class="math inline">CD</span> is <span class="math inline">\sqrt{10}</span>, find <span class="math inline">t</span>. [6]</p>
+<p><em>Source: 9231/12/O/N/20 Q7.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li><span class="math inline">\overrightarrow{AB}\times\overrightarrow{AC}=2(5,3,1)</span>, hence</li>
+</ol>
+<p><span class="math display">
+\boxed{5x+3y+z=-5}.
+</span></p>
+<ol start="2" type="a">
+<li>A normal to <span class="math inline">OBC</span> is <span class="math inline">(5,2,4)</span>. Therefore</li>
+</ol>
+<p><span class="math display">
+\cos\theta=\frac{35}{\sqrt{35}\sqrt{45}},
+</span></p>
+<p>giving <span class="math inline">\boxed{\theta=28.1^\circ}</span>.</p>
+<ol start="3" type="a">
+<li><span class="math inline">\overrightarrow{AB}=(0,-1,3)</span>, <span class="math inline">\overrightarrow{CD}=(t,1,-1)</span> and their vector product is <span class="math inline">(-2,3t,t)</span>. Thus</li>
+</ol>
+<p><span class="math display">
+\frac{|(2,-4,2)\boldsymbol\cdot(-2,3t,t)|}{\sqrt{4+10t^2}}=\sqrt{10}.
+</span></p>
+<p>Squaring reduces to <span class="math inline">80t=24</span>, so <span class="math inline">\boxed{t=3/10}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2021</h3>
+<div class="question-card" title="May/June 2021, Paper 11/12, Question 6">
+<p>Let <span class="math inline">t&gt;0</span>. The line <span class="math inline">l_1</span> passes through <span class="math inline">t\mathbf i+\mathbf j</span> and is parallel to <span class="math inline">-2\mathbf i-\mathbf j</span>. The line <span class="math inline">l_2</span> passes through <span class="math inline">\mathbf j+t\mathbf k</span> and is parallel to <span class="math inline">-2\mathbf j+\mathbf k</span>. The shortest distance between the lines is <span class="math inline">\sqrt{21}</span>.</p>
+<ol type="a">
+<li><p>Find <span class="math inline">t</span>. [5]</p></li>
+<li><p>The plane <span class="math inline">\Pi_1</span> contains <span class="math inline">l_1</span> and is parallel to <span class="math inline">l_2</span>. Write a parametric equation of <span class="math inline">\Pi_1</span>. [1]</p></li>
+<li><p>The plane <span class="math inline">\Pi_2</span> is <span class="math inline">5x-6y+7z=0</span>. Find the acute angle between <span class="math inline">l_2</span> and <span class="math inline">\Pi_2</span>. [3]</p></li>
+<li><p>Find the acute angle between <span class="math inline">\Pi_1</span> and <span class="math inline">\Pi_2</span>. [3]</p></li>
+</ol>
+<p><em>Sources: 9231/11/M/J/21 Q6; 9231/12/M/J/21 Q6.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>A vector joining the base points is <span class="math inline">t(-1,0,1)</span>, while</li>
+</ol>
+<p><span class="math display">
+(-2,-1,0)\times(0,-2,1)=(-1,2,4).
+</span></p>
+<p>Hence</p>
+<p><span class="math display">
+\frac{|t(-1,0,1)\boldsymbol\cdot(-1,2,4)|}{\sqrt{21}}
+=\frac{5t}{\sqrt{21}}=\sqrt{21},
+</span></p>
+<p>so <span class="math inline">\boxed{t=\dfrac{21}{5}}</span>.</p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\boxed{\mathbf r=\frac{21}{5}\mathbf i+\mathbf j
++\lambda(-2\mathbf i-\mathbf j)
++\mu(-2\mathbf j+\mathbf k)}.
+</span></p>
+<ol start="3" type="a">
+<li>If <span class="math inline">\alpha</span> is the angle between <span class="math inline">l_2</span> and <span class="math inline">\Pi_2</span>, then</li>
+</ol>
+<p><span class="math display">
+\sin\alpha=\frac{|(0,-2,1)\boldsymbol\cdot(5,-6,7)|}{\sqrt5\sqrt{110}}
+=\frac{19}{\sqrt{550}}.
+</span></p>
+<p>Thus <span class="math inline">\boxed{\alpha=54.1^\circ}</span>.</p>
+<ol start="4" type="a">
+<li>A normal to <span class="math inline">\Pi_1</span> is <span class="math inline">(-1,2,4)</span>. Therefore</li>
+</ol>
+<p><span class="math display">
+\cos\theta=\frac{|(-1,2,4)\boldsymbol\cdot(5,-6,7)|}{\sqrt{21}\sqrt{110}}
+=\frac{11}{\sqrt{2310}},
+</span></p>
+<p>giving <span class="math inline">\boxed{\theta=76.8^\circ}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="May/June 2021, Paper 13, Question 6">
+<p>The lines are</p>
+<p><span class="math display">
+l_1:\mathbf r=-\mathbf i-2\mathbf j+\mathbf k+s(2\mathbf i-3\mathbf j),
+</span></p>
+<p><span class="math display">
+l_2:\mathbf r=3\mathbf i-2\mathbf k+t(3\mathbf i-\mathbf j+3\mathbf k).
+</span></p>
+<p>Plane <span class="math inline">\Pi_1</span> contains <span class="math inline">l_1</span> and <span class="math inline">P(-2,-2,4)</span>. Plane <span class="math inline">\Pi_2</span> contains <span class="math inline">l_2</span> and is parallel to <span class="math inline">l_1</span>.</p>
+<ol type="a">
+<li><p>Give a parametric equation of <span class="math inline">\Pi_1</span>. [2]</p></li>
+<li><p>Find a Cartesian equation of <span class="math inline">\Pi_2</span>. [4]</p></li>
+<li><p>Find the acute angle between the planes. [5]</p></li>
+</ol>
+<p><em>Source: 9231/13/M/J/21 Q6.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>From <span class="math inline">P</span> to <span class="math inline">(-1,-2,1)</span> on <span class="math inline">l_1</span> is <span class="math inline">(1,0,-3)</span>, hence</li>
+</ol>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}-2\\-2\\4\end{pmatrix}
++\lambda\begin{pmatrix}2\\-3\\0\end{pmatrix}
++\mu\begin{pmatrix}1\\0\\-3\end{pmatrix}}.
+</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+(2,-3,0)\times(3,-1,3)=(-9,-6,7).
+</span></p>
+<p>Using <span class="math inline">(3,0,-2)</span> gives</p>
+<p><span class="math display">
+\boxed{9x+6y-7z=41}.
+</span></p>
+<ol start="3" type="a">
+<li>A normal to <span class="math inline">\Pi_1</span> is <span class="math inline">(3,2,1)</span>. Thus</li>
+</ol>
+<p><span class="math display">
+\cos\theta=\frac{|(3,2,1)\boldsymbol\cdot(9,6,-7)|}{\sqrt{14}\sqrt{166}}
+=\frac{32}{\sqrt{2324}},
+</span></p>
+<p>so <span class="math inline">\boxed{\theta=48.4^\circ}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2021, Paper 11/13, Question 5">
+<p>The plane <span class="math inline">\Pi</span> is</p>
+<p><span class="math display">
+\mathbf r=-2\mathbf i+3\mathbf j+3\mathbf k
++m(\mathbf i+\mathbf k)+n(2\mathbf i+3\mathbf j).
+</span></p>
+<ol type="a">
+<li>Find its Cartesian equation. [4]</li>
+</ol>
+<p>The line <span class="math inline">l</span> passes through <span class="math inline">P(2,-3,5)</span> and is parallel to <span class="math inline">\mathbf k</span>.</p>
+<ol start="2" type="a">
+<li><p>Find where <span class="math inline">l</span> meets <span class="math inline">\Pi</span>. [3]</p></li>
+<li><p>Find the acute angle between <span class="math inline">l</span> and <span class="math inline">\Pi</span>. [3]</p></li>
+<li><p>Find the perpendicular distance from <span class="math inline">P</span> to <span class="math inline">\Pi</span>. [3]</p></li>
+</ol>
+<p><em>Sources: 9231/11/O/N/21 Q5; 9231/13/O/N/21 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+(1,0,1)\times(2,3,0)=(-3,2,3),
+</span></p>
+<p>and substitution of <span class="math inline">(-2,3,3)</span> gives</p>
+<p><span class="math display">
+\boxed{-3x+2y+3z=21}.
+</span></p>
+<ol start="2" type="a">
+<li>A general point of <span class="math inline">l</span> is <span class="math inline">(2,-3,5+t)</span>. Substitution gives <span class="math inline">t=6</span>, so the intersection is</li>
+</ol>
+<p><span class="math display">
+\boxed{(2,-3,11)}.
+</span></p>
+<ol start="3" type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\sin\alpha=\frac{|(0,0,1)\boldsymbol\cdot(-3,2,3)|}{\sqrt{22}}
+=\frac3{\sqrt{22}},
+</span></p>
+<p>so <span class="math inline">\boxed{\alpha=39.8^\circ}</span>.</p>
+<ol start="4" type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+D=\frac{|-3(2)+2(-3)+3(5)-21|}{\sqrt{22}}
+=\boxed{\frac{18}{\sqrt{22}}\approx3.84}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2021, Paper 12, Question 7">
+<p>The points <span class="math inline">A,B,C</span> have position vectors <span class="math inline">2\mathbf i+2\mathbf j</span>, <span class="math inline">-\mathbf j+\mathbf k</span> and <span class="math inline">2\mathbf i+\mathbf j-7\mathbf k</span>.</p>
+<ol type="a">
+<li>Find the equation of plane <span class="math inline">OAB</span> in the form <span class="math inline">\mathbf r\boldsymbol\cdot\mathbf n=p</span>. [3]</li>
+</ol>
+<p>The plane <span class="math inline">\Pi</span> is <span class="math inline">x-3y-2z=1</span>.</p>
+<ol start="2" type="a">
+<li><p>Find its perpendicular distance from <span class="math inline">O</span>. [1]</p></li>
+<li><p>Find the acute angle between <span class="math inline">OAB</span> and <span class="math inline">\Pi</span>. [3]</p></li>
+<li><p>Find an equation of the common perpendicular to lines <span class="math inline">OC</span> and <span class="math inline">AB</span>. [10]</p></li>
+</ol>
+<p><em>Source: 9231/12/O/N/21 Q7.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+(2,2,0)\times(0,-1,1)=(2,-2,-2),
+</span></p>
+<p>so <span class="math inline">\boxed{\mathbf r\boldsymbol\cdot(1,-1,-1)=0}</span>.</p>
+<ol start="2" type="a">
+<li><p><span class="math inline">\boxed{1/\sqrt{14}}</span>.</p></li>
+<li></li>
+</ol>
+<p><span class="math display">
+\cos\theta=\frac{|(1,-1,-1)\boldsymbol\cdot(1,-3,-2)|}{\sqrt3\sqrt{14}}
+=\frac6{\sqrt{42}},
+</span></p>
+<p>so <span class="math inline">\boxed{\theta=22.2^\circ}</span>.</p>
+<ol start="4" type="a">
+<li>Directions of <span class="math inline">OC</span> and <span class="math inline">AB</span> are <span class="math inline">(2,1,-7)</span> and <span class="math inline">(-2,-3,1)</span>. Their vector product is parallel to <span class="math inline">(5,-3,1)</span>. Let <span class="math inline">P=\lambda(2,1,-7)</span> and <span class="math inline">Q=(2,2,0)+\mu(-2,-3,1)</span>. Solving</li>
+</ol>
+<p><span class="math display">
+\overrightarrow{PQ}\boldsymbol\cdot(2,1,-7)=0,
+\;
+\overrightarrow{PQ}\boldsymbol\cdot(-2,-3,1)=0
+</span></p>
+<p>gives a point <span class="math inline">(-1/5,-1/10,7/10)</span> on the common perpendicular. Hence</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}-1/5\\-1/10\\7/10\end{pmatrix}
++t\begin{pmatrix}5\\-3\\1\end{pmatrix}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2022</h3>
+<div class="question-card" title="May/June 2022, Paper 11/12, Question 2">
+<p>The points <span class="math inline">A,B,C</span> have position vectors</p>
+<p><span class="math display">
+4\mathbf i-4\mathbf j+\mathbf k,
+\;-4\mathbf i+3\mathbf j-4\mathbf k,
+\;4\mathbf i-\mathbf j-2\mathbf k.
+</span></p>
+<ol type="a">
+<li><p>Find the equation of plane <span class="math inline">ABC</span>. [5]</p></li>
+<li><p>Find the perpendicular distance from <span class="math inline">O</span> to plane <span class="math inline">ABC</span>. [2]</p></li>
+</ol>
+<p>The point <span class="math inline">D</span> has position vector <span class="math inline">2\mathbf i+3\mathbf j-3\mathbf k</span>.</p>
+<ol start="3" type="a">
+<li>Find the intersection of line <span class="math inline">OD</span> with plane <span class="math inline">ABC</span>. [3]</li>
+</ol>
+<p><em>Sources: 9231/11/M/J/22 Q2; 9231/12/M/J/22 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}=(-8,7,-5),
+\;\overrightarrow{AC}=(0,3,-3),
+</span></p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{AC}=(-6,-24,-24),
+</span></p>
+<p>so take the normal <span class="math inline">(1,4,4)</span>. Substitution of <span class="math inline">A</span> gives</p>
+<p><span class="math display">
+\boxed{x+4y+4z=-8}.
+</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\boxed{D=\frac8{\sqrt{33}}\approx1.39}.
+</span></p>
+<ol start="3" type="a">
+<li>Line <span class="math inline">OD</span> is</li>
+</ol>
+<p><span class="math display">
+\mathbf r=t\begin{pmatrix}2\\3\\-3\end{pmatrix}.
+</span></p>
+<p>Substitution gives <span class="math inline">2t+12t-12t=-8</span>, so <span class="math inline">t=-4</span>. The intersection is</p>
+<p><span class="math display">
+\boxed{(-8,-12,12)}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="May/June 2022, Paper 13, Question 7">
+<p>The position vectors of <span class="math inline">A,B,C,D</span> are</p>
+<p><span class="math display">
+7\mathbf i+4\mathbf j-\mathbf k,
+\;11\mathbf i+3\mathbf j,
+\;2\mathbf i+6\mathbf j+3\mathbf k,
+\;2\mathbf i+7\mathbf j+m\mathbf k.
+</span></p>
+<ol type="a">
+<li>Given that the shortest distance between lines <span class="math inline">AB</span> and <span class="math inline">CD</span> is <span class="math inline">3</span>, show that <span class="math inline">m^2-5m+4=0</span>. [7]</li>
+</ol>
+<p>Let <span class="math inline">\Pi_1</span> be plane <span class="math inline">ABD</span> when <span class="math inline">m=1</span>, and <span class="math inline">\Pi_2</span> be plane <span class="math inline">ABD</span> when <span class="math inline">m=4</span>.</p>
+<p>(b)(i) Write a parametric equation of <span class="math inline">\Pi_1</span>. [2]</p>
+<p>(b)(ii) Find a Cartesian equation of <span class="math inline">\Pi_2</span>. [4]</p>
+<ol start="3" type="a">
+<li>Find the acute angle between <span class="math inline">\Pi_1</span> and <span class="math inline">\Pi_2</span>. [5]</li>
+</ol>
+<p><em>Source: 9231/13/M/J/22 Q7.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}=(4,-1,1),
+\;\overrightarrow{CD}=(0,1,m-3),
+</span></p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{CD}
+=(2-m,12-4m,4).
+</span></p>
+<p>Using <span class="math inline">\overrightarrow{AC}=(-5,2,4)</span>, the distance condition is</p>
+<p><span class="math display">
+\frac{|(-5,2,4)\boldsymbol\cdot(2-m,12-4m,4)|}
+{\sqrt{(m-2)^2+(4m-12)^2+16}}=3.
+</span></p>
+<p>Thus</p>
+<p><span class="math display">
+\frac{|30-3m|}{\sqrt{17m^2-100m+164}}=3.
+</span></p>
+<p>Squaring and simplifying gives</p>
+<p><span class="math display">
+16m^2-80m+64=0,
+</span></p>
+<p>and hence</p>
+<p><span class="math display">
+\boxed{m^2-5m+4=0}.
+</span></p>
+<p>(b)(i) When <span class="math inline">m=1</span>, <span class="math inline">\overrightarrow{AD}=(-5,3,2)</span>. Therefore</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}7\\4\\-1\end{pmatrix}
++s\begin{pmatrix}4\\-1\\1\end{pmatrix}
++t\begin{pmatrix}-5\\3\\2\end{pmatrix}}.
+</span></p>
+<p>(b)(ii) When <span class="math inline">m=4</span>, <span class="math inline">\overrightarrow{AD}=(-5,3,5)</span> and</p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{AD}=(-8,-25,7).
+</span></p>
+<p>Substitution of <span class="math inline">A</span> gives</p>
+<p><span class="math display">
+\boxed{-8x-25y+7z=-163}.
+</span></p>
+<ol start="3" type="a">
+<li>A normal to <span class="math inline">\Pi_1</span> is</li>
+</ol>
+<p><span class="math display">
+(4,-1,1)\times(-5,3,2)=(-5,-13,7).
+</span></p>
+<p>Using <span class="math inline">\mathbf n_2=(-8,-25,7)</span>,</p>
+<p><span class="math display">
+\cos\theta=\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}
+{|\mathbf n_1||\mathbf n_2|}
+=\frac{414}{\sqrt{243}\sqrt{738}}.
+</span></p>
+<p>Hence <span class="math inline">\boxed{\theta=12.1^\circ}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2023</h3>
+<div class="question-card" title="October/November 2023, Paper 11/13, Question 4">
+<p>The lines are</p>
+<p><span class="math display">
+l_1:\mathbf r=-2\mathbf i-3\mathbf j-5\mathbf k
++m(-4\mathbf i+3\mathbf j+5\mathbf k),
+</span></p>
+<p><span class="math display">
+l_2:\mathbf r=2\mathbf i-2\mathbf j+3\mathbf k
++n(2\mathbf i-3\mathbf j+\mathbf k).
+</span></p>
+<ol type="a">
+<li>Find the shortest distance between <span class="math inline">l_1</span> and <span class="math inline">l_2</span>. [5]</li>
+</ol>
+<p>The plane <span class="math inline">\Pi</span> contains <span class="math inline">l_1</span> and the point with position vector <span class="math inline">-\mathbf i-3\mathbf j-4\mathbf k</span>.</p>
+<ol start="2" type="a">
+<li>Find a Cartesian equation of <span class="math inline">\Pi</span>. [4]</li>
+</ol>
+<p><em>Sources: 9231/11/O/N/23 Q4; 9231/13/O/N/23 Q4.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>The vector from the base point of <span class="math inline">l_1</span> to that of <span class="math inline">l_2</span> is <span class="math inline">(4,1,8)</span>. A common perpendicular direction is</li>
+</ol>
+<p><span class="math display">
+(-4,3,5)\times(2,-3,1)=(18,14,6)=2(9,7,3).
+</span></p>
+<p>Hence</p>
+<p><span class="math display">
+D=\frac{|(4,1,8)\boldsymbol\cdot(9,7,3)|}{\sqrt{139}}
+=\boxed{\frac{67}{\sqrt{139}}\approx5.68}.
+</span></p>
+<ol start="2" type="a">
+<li>From <span class="math inline">(-2,-3,-5)</span> to the extra point <span class="math inline">(-1,-3,-4)</span> the direction is <span class="math inline">(1,0,1)</span>. Therefore a normal to <span class="math inline">\Pi</span> is</li>
+</ol>
+<p><span class="math display">
+(1,0,1)\times(-4,3,5)=(-3,-9,3),
+</span></p>
+<p>which is parallel to <span class="math inline">(1,3,-1)</span>. Using <span class="math inline">(-1,-3,-4)</span> gives</p>
+<p><span class="math display">
+\boxed{x+3y-z=-6}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2023, Paper 12, Question 5">
+<p>The plane <span class="math inline">\Pi_1</span> has equation</p>
+<p><span class="math display">
+\mathbf r=\mathbf i-\mathbf j-2\mathbf k
++m(\mathbf i-2\mathbf j-3\mathbf k)
++n(3\mathbf i-\mathbf k).
+</span></p>
+<ol type="a">
+<li>Find a Cartesian equation of <span class="math inline">\Pi_1</span>. [4]</li>
+</ol>
+<p>The line <span class="math inline">l</span>, which does not lie in <span class="math inline">\Pi_1</span>, is</p>
+<p><span class="math display">
+\mathbf r=-3\mathbf i+\mathbf k+t(\mathbf i+\mathbf j+\mathbf k).
+</span></p>
+<ol start="2" type="a">
+<li><p>Show that <span class="math inline">l</span> is parallel to <span class="math inline">\Pi_1</span>. [2]</p></li>
+<li><p>Find the distance between <span class="math inline">l</span> and <span class="math inline">\Pi_1</span>. [3]</p></li>
+</ol>
+<p>The plane <span class="math inline">\Pi_2</span> is <span class="math inline">3x+3y+2z=1</span>.</p>
+<ol start="4" type="a">
+<li>Find a vector equation of the line of intersection of <span class="math inline">\Pi_1</span> and <span class="math inline">\Pi_2</span>. [4]</li>
+</ol>
+<p><em>Source: 9231/12/O/N/23 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+(1,-2,-3)\times(3,0,-1)=(2,-8,6)=2(1,-4,3).
+</span></p>
+<p>Using <span class="math inline">(1,-1,-2)</span> gives</p>
+<p><span class="math display">
+\boxed{x-4y+3z=-1}.
+</span></p>
+<ol start="2" type="a">
+<li>The line direction is <span class="math inline">(1,1,1)</span> and</li>
+</ol>
+<p><span class="math display">
+(1,1,1)\boldsymbol\cdot(1,-4,3)=0.
+</span></p>
+<p>Thus <span class="math inline">l</span> is parallel to <span class="math inline">\Pi_1</span>; the stated condition confirms that it is not contained in the plane.</p>
+<ol start="3" type="a">
+<li>Use the point <span class="math inline">(-3,0,1)</span> on <span class="math inline">l</span>:</li>
+</ol>
+<p><span class="math display">
+D=\frac{|-3-4(0)+3(1)+1|}{\sqrt{26}}
+=\boxed{\frac1{\sqrt{26}}\approx0.196}.
+</span></p>
+<ol start="4" type="a">
+<li>The direction of the common line is</li>
+</ol>
+<p><span class="math display">
+(1,-4,3)\times(3,3,2)=(-17,7,15).
+</span></p>
+<p>One common point is <span class="math inline">(5/7,0,-4/7)</span>. Therefore</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}5/7\\0\\-4/7\end{pmatrix}
++\lambda\begin{pmatrix}-17\\7\\15\end{pmatrix}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-5" class="level3">
+<h3 class="anchored" data-anchor-id="section-5">2024</h3>
+<div class="question-card" title="May/June 2024, Paper 11/12, Question 5">
+<p>The points <span class="math inline">A,B,C</span> have position vectors</p>
+<p><span class="math display">
+2\mathbf i+2\mathbf j+4\mathbf k,
+\;2\mathbf i+4\mathbf j-\mathbf k,
+\;-3\mathbf i-3\mathbf j+4\mathbf k.
+</span></p>
+<ol type="a">
+<li>Find the equation of plane <span class="math inline">ABC</span>. [5]</li>
+</ol>
+<p>The point <span class="math inline">D</span> has position vector <span class="math inline">2\mathbf i+\mathbf j+3\mathbf k</span>.</p>
+<ol start="2" type="a">
+<li><p>Find the perpendicular distance from <span class="math inline">D</span> to plane <span class="math inline">ABC</span>. [2]</p></li>
+<li><p>Find the shortest distance between lines <span class="math inline">AB</span> and <span class="math inline">CD</span>. [5]</p></li>
+</ol>
+<p><em>Sources: 9231/11/M/J/24 Q5; 9231/12/M/J/24 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}=(0,2,-5),
+\;\overrightarrow{AC}=(-5,-5,0),
+</span></p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{AC}=(-25,25,10)=5(-5,5,2).
+</span></p>
+<p>Using <span class="math inline">A=(2,2,4)</span> gives <span class="math inline">d=8</span>, hence</p>
+<p><span class="math display">
+\boxed{-5x+5y+2z=8}.
+</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+D=\frac{|-5(2)+5(1)+2(3)-8|}{\sqrt{54}}
+=\boxed{\frac7{\sqrt{54}}\approx0.953}.
+</span></p>
+<ol start="3" type="a">
+<li><span class="math inline">\overrightarrow{CD}=(5,4,-1)</span> and</li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{CD}=(18,-25,-10).
+</span></p>
+<p>Using <span class="math inline">\overrightarrow{CA}=(5,5,0)</span>,</p>
+<p><span class="math display">
+D=\frac{|(5,5,0)\boldsymbol\cdot(18,-25,-10)|}{\sqrt{1049}}
+=\boxed{\frac{35}{\sqrt{1049}}\approx1.08}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="May/June 2024, Paper 13, Question 5">
+<p>The lines are</p>
+<p><span class="math display">
+l_1:\mathbf r=\mathbf i+4\mathbf j-\mathbf k+m(\mathbf j-2\mathbf k),
+</span></p>
+<p><span class="math display">
+l_2:\mathbf r=-3\mathbf i+4\mathbf j+n(\mathbf i+2\mathbf j+\mathbf k).
+</span></p>
+<ol type="a">
+<li>Find the shortest distance between <span class="math inline">l_1</span> and <span class="math inline">l_2</span>. [5]</li>
+</ol>
+<p>The plane <span class="math inline">\Pi_1</span> contains <span class="math inline">l_1</span> and is parallel to <span class="math inline">l_2</span>.</p>
+<ol start="2" type="a">
+<li>Obtain a Cartesian equation of <span class="math inline">\Pi_1</span>. [2]</li>
+</ol>
+<p>The point <span class="math inline">(1,1,1)</span> lies on plane <span class="math inline">\Pi_2</span>. The line of intersection of <span class="math inline">\Pi_1</span> and <span class="math inline">\Pi_2</span> passes through <span class="math inline">(0,0,2)</span> and is parallel to <span class="math inline">\mathbf i+4\mathbf j-3\mathbf k</span>.</p>
+<ol start="3" type="a">
+<li>Obtain a Cartesian equation of <span class="math inline">\Pi_2</span>. [3]</li>
+</ol>
+<p><em>Source: 9231/13/M/J/24 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>The directions are <span class="math inline">\mathbf d_1=(0,1,-2)</span> and <span class="math inline">\mathbf d_2=(1,2,1)</span>, so</li>
+</ol>
+<p><span class="math display">
+\mathbf d_1\times\mathbf d_2=(5,-2,-1).
+</span></p>
+<p>For points <span class="math inline">(1,4,-1)</span> and <span class="math inline">(-3,4,0)</span>, the joining vector is <span class="math inline">(-4,0,1)</span>. Thus</p>
+<p><span class="math display">
+D=\frac{|(-4,0,1)\boldsymbol\cdot(5,-2,-1)|}{\sqrt{30}}
+=\boxed{\frac{21}{\sqrt{30}}\approx3.83}.
+</span></p>
+<ol start="2" type="a">
+<li>The vector <span class="math inline">(5,-2,-1)</span> is normal to <span class="math inline">\Pi_1</span>. Substitution of <span class="math inline">(1,4,-1)</span> gives</li>
+</ol>
+<p><span class="math display">
+\boxed{5x-2y-z=-2}.
+</span></p>
+<ol start="3" type="a">
+<li>The plane contains the directions <span class="math inline">(1,4,-3)</span> and <span class="math inline">(1,1,-1)</span>, the latter joining <span class="math inline">(0,0,2)</span> to <span class="math inline">(1,1,1)</span>. A normal is</li>
+</ol>
+<p><span class="math display">
+(1,1,-1)\times(1,4,-3)=(1,2,3).
+</span></p>
+<p>Using <span class="math inline">(0,0,2)</span> gives</p>
+<p><span class="math display">
+\boxed{x+2y+3z=6}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2024, Paper 11/13, Question 7">
+<p>The lines are</p>
+<p><span class="math display">
+l_1:\mathbf r=\mathbf i+3\mathbf j-2\mathbf k+m(2\mathbf i+\mathbf j+\mathbf k),
+</span></p>
+<p><span class="math display">
+l_2:\mathbf r=\mathbf i-2\mathbf j+9\mathbf k+n(\mathbf i-4\mathbf j+2\mathbf k).
+</span></p>
+<p>The plane <span class="math inline">\Pi_1</span> contains <span class="math inline">l_1</span> and is parallel to <span class="math inline">l_2</span>.</p>
+<ol type="a">
+<li>Find the Cartesian equation of <span class="math inline">\Pi_1</span>. [4]</li>
+</ol>
+<p>The plane <span class="math inline">\Pi_2</span> contains <span class="math inline">l_2</span> and <span class="math inline">(2,-1,7)</span>.</p>
+<ol start="2" type="a">
+<li>Find the acute angle between <span class="math inline">\Pi_1</span> and <span class="math inline">\Pi_2</span>. [4]</li>
+</ol>
+<p>Points <span class="math inline">P</span> on <span class="math inline">l_1</span> and <span class="math inline">Q</span> on <span class="math inline">l_2</span> are such that <span class="math inline">PQ</span> is perpendicular to both lines.</p>
+<ol start="3" type="a">
+<li>Find a vector equation for <span class="math inline">PQ</span>. [7]</li>
+</ol>
+<p><em>Sources: 9231/11/O/N/24 Q7; 9231/13/O/N/24 Q7.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+(2,1,1)\times(1,-4,2)=(6,-3,-9)=3(2,-1,-3).
+</span></p>
+<p>Using <span class="math inline">(1,3,-2)</span> gives <span class="math inline">2-3+6=5</span>, hence</p>
+<p><span class="math display">
+\boxed{2x-y-3z=5}.
+</span></p>
+<ol start="2" type="a">
+<li>The directions in <span class="math inline">\Pi_2</span> may be taken as <span class="math inline">(1,-4,2)</span> and <span class="math inline">(1,1,-2)</span>, giving normal <span class="math inline">(6,4,5)</span>. Therefore</li>
+</ol>
+<p><span class="math display">
+\cos\theta=\frac{|(2,-1,-3)\boldsymbol\cdot(6,4,5)|}{\sqrt{14}\sqrt{77}}
+=\frac7{\sqrt{1078}}.
+</span></p>
+<p>Thus <span class="math inline">\boxed{\theta=77.7^\circ}</span>.</p>
+<ol start="3" type="a">
+<li>Let</li>
+</ol>
+<p><span class="math display">
+P=(1+2\lambda,3+\lambda,-2+\lambda),
+</span></p>
+<p><span class="math display">
+Q=(1+\mu,-2-4\mu,9+2\mu).
+</span></p>
+<p>Then</p>
+<p><span class="math display">
+\overrightarrow{PQ}=(\mu-2\lambda,-5-4\mu-\lambda,11+2\mu-\lambda).
+</span></p>
+<p>The conditions <span class="math inline">PQ\boldsymbol\cdot(2,1,1)=0</span> and <span class="math inline">PQ\boldsymbol\cdot(1,-4,2)=0</span> reduce to</p>
+<p><span class="math display">
+-6\lambda+6=0,
+\;
+21\mu+42=0.
+</span></p>
+<p>Hence <span class="math inline">\lambda=1</span>, <span class="math inline">\mu=-2</span>, so <span class="math inline">P=(3,4,-1)</span> and <span class="math inline">Q=(-1,6,5)</span>. Since <span class="math inline">\overrightarrow{QP}=(4,-2,-6)</span> is parallel to <span class="math inline">(6,-3,-9)</span>, one equation is</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}-1\\6\\5\end{pmatrix}
++t\begin{pmatrix}6\\-3\\-9\end{pmatrix}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2024, Paper 12, Question 2">
+<p>The line</p>
+<p><span class="math display">
+l_1:\mathbf r=\mathbf i+3\mathbf j-\mathbf k+m(\mathbf i-\mathbf j-4\mathbf k)
+</span></p>
+<p>lies in a plane <span class="math inline">\Pi</span> which is parallel to <span class="math inline">2\mathbf i+5\mathbf j-4\mathbf k</span>.</p>
+<ol type="a">
+<li>Find the Cartesian equation of <span class="math inline">\Pi</span>. [4]</li>
+</ol>
+<p>The line <span class="math inline">l_2</span> is parallel to <span class="math inline">5\mathbf i-5\mathbf j-2\mathbf k</span>.</p>
+<ol start="2" type="a">
+<li>Find the acute angle between <span class="math inline">l_2</span> and <span class="math inline">\Pi</span>. [3]</li>
+</ol>
+<p><em>Source: 9231/12/O/N/24 Q2.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li>A normal is</li>
+</ol>
+<p><span class="math display">
+(1,-1,-4)\times(2,5,-4)=(24,-4,7).
+</span></p>
+<p>Using <span class="math inline">(1,3,-1)</span> gives</p>
+<p><span class="math display">
+\boxed{24x-4y+7z=5}.
+</span></p>
+<ol start="2" type="a">
+<li>If <span class="math inline">\alpha</span> is the angle between the line direction and the plane normal, then</li>
+</ol>
+<p><span class="math display">
+\cos\alpha=\frac{|(5,-5,-2)\boldsymbol\cdot(24,-4,7)|}{\sqrt{54}\sqrt{641}}
+=\frac{126}{\sqrt{34614}}.
+</span></p>
+<p>The required angle is <span class="math inline">90^\circ-\alpha</span>, hence</p>
+<p><span class="math display">
+\boxed{42.6^\circ}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-6" class="level3">
+<h3 class="anchored" data-anchor-id="section-6">2025</h3>
+<div class="question-card" title="May/June 2025, Paper 11/12, Question 6">
+<p>The points <span class="math inline">A,B,C</span> have position vectors</p>
+<p><span class="math display">
+\mathbf i-2\mathbf k,
+\;\mathbf i+2\mathbf j+2\mathbf k,
+\;2\mathbf i-\mathbf j-\mathbf k,
+</span></p>
+<p>respectively.</p>
+<ol type="a">
+<li>Find the equation of plane <span class="math inline">ABC</span> in the form <span class="math inline">ax+by+cz=d</span>. [5]</li>
+</ol>
+<p>A point <span class="math inline">D</span> has position vector <span class="math inline">\mathbf i+t\mathbf k</span>, where <span class="math inline">t\ne-2</span>.</p>
+<ol start="2" type="a">
+<li><p>Find the acute angle between planes <span class="math inline">ABC</span> and <span class="math inline">ABD</span>. [4]</p></li>
+<li><p>Find the values of <span class="math inline">t</span> such that the shortest distance between lines <span class="math inline">AB</span> and <span class="math inline">CD</span> is <span class="math inline">\sqrt2</span>. [7]</p></li>
+</ol>
+<p><em>Sources: 9231/11/M/J/25 Q6; 9231/12/M/J/25 Q6.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}=(0,2,4),
+\;
+\overrightarrow{AC}=(1,-1,1).
+</span></p>
+<p>Their vector product is <span class="math inline">(6,4,-2)=2(3,2,-1)</span>, so a normal is <span class="math inline">(3,2,-1)</span>. Using <span class="math inline">A=(1,0,-2)</span>,</p>
+<p><span class="math display">
+3(1)+2(0)-(-2)=5.
+</span></p>
+<p>Hence</p>
+<p><span class="math display">
+\boxed{3x+2y-z=5}.
+</span></p>
+<ol start="2" type="a">
+<li>Since <span class="math inline">\overrightarrow{AD}=(0,0,t+2)</span> and <span class="math inline">t\ne-2</span>, the plane <span class="math inline">ABD</span> has normal parallel to <span class="math inline">(1,0,0)</span>. Therefore</li>
+</ol>
+<p><span class="math display">
+\cos\theta=\frac{|(3,2,-1)\boldsymbol\cdot(1,0,0)|}{\sqrt{14}}
+=\frac3{\sqrt{14}},
+</span></p>
+<p>so <span class="math inline">\boxed{\theta=36.7^\circ}</span>.</p>
+<ol start="3" type="a">
+<li>Directions of <span class="math inline">AB</span> and <span class="math inline">CD</span> may be taken as <span class="math inline">(0,1,2)</span> and <span class="math inline">(-1,1,t+1)</span>. A common perpendicular direction is</li>
+</ol>
+<p><span class="math display">
+(0,1,2)\times(-1,1,t+1)=(t-1,-2,1).
+</span></p>
+<p>Since <span class="math inline">\overrightarrow{AC}=(1,-1,1)</span>,</p>
+<p><span class="math display">
+D=\frac{|(1,-1,1)\boldsymbol\cdot(t-1,-2,1)|}
+{\sqrt{(t-1)^2+4+1}}
+=\frac{|t+2|}{\sqrt{t^2-2t+6}}.
+</span></p>
+<p>Set this equal to <span class="math inline">\sqrt2</span> and square:</p>
+<p><span class="math display">
+(t+2)^2=2(t^2-2t+6),
+</span></p>
+<p>so <span class="math inline">t^2-8t+8=0</span>. Thus</p>
+<p><span class="math display">
+\boxed{t=4+2\sqrt2\ \text{or}\ t=4-2\sqrt2}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="May/June 2025, Paper 13, Question 5">
+<p>The plane <span class="math inline">\Pi</span> has equation</p>
+<p><span class="math display">
+\mathbf r=2\mathbf i+3\mathbf j-2\mathbf k
++m(\mathbf i-2\mathbf j-\mathbf k)
++n(3\mathbf i+2\mathbf j-2\mathbf k).
+</span></p>
+<ol type="a">
+<li>Find a Cartesian equation of <span class="math inline">\Pi</span>. [4]</li>
+</ol>
+<p>The point <span class="math inline">P</span> has position vector <span class="math inline">4\mathbf i+2\mathbf j+9\mathbf k</span>.</p>
+<ol start="2" type="a">
+<li>Find the position vector of the foot of the perpendicular from <span class="math inline">P</span> to <span class="math inline">\Pi</span>. [4]</li>
+</ol>
+<p><em>Source: 9231/13/M/J/25 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\begin{pmatrix}1\\-2\\-1\end{pmatrix}
+\times
+\begin{pmatrix}3\\2\\-2\end{pmatrix}
+=\begin{pmatrix}6\\-1\\8\end{pmatrix}.
+</span></p>
+<p>Using <span class="math inline">(2,3,-2)</span> gives <span class="math inline">d=12-3-16=-7</span>. Hence</p>
+<p><span class="math display">
+\boxed{6x-y+8z=-7}.
+</span></p>
+<ol start="2" type="a">
+<li>The perpendicular through <span class="math inline">P</span> is</li>
+</ol>
+<p><span class="math display">
+\mathbf r=\begin{pmatrix}4\\2\\9\end{pmatrix}
++\lambda\begin{pmatrix}6\\-1\\8\end{pmatrix}.
+</span></p>
+<p>Substitution in the plane gives</p>
+<p><span class="math display">
+94+101\lambda=-7,
+</span></p>
+<p>so <span class="math inline">\lambda=-1</span>. The foot has position vector</p>
+<p><span class="math display">
+\boxed{-2\mathbf i+3\mathbf j+\mathbf k}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="May/June 2025, Paper 14, Question 3">
+<p>The points <span class="math inline">A,B,C</span> have position vectors</p>
+<p><span class="math display">
+2\mathbf j+3\mathbf k,
+\;-5\mathbf i+3\mathbf j+\mathbf k,
+\;\mathbf i+2\mathbf j+5\mathbf k.
+</span></p>
+<ol type="a">
+<li><p>Find the equation of plane <span class="math inline">ABC</span>. [5]</p></li>
+<li><p>Find the perpendicular distance from <span class="math inline">O</span> to plane <span class="math inline">ABC</span>. [2]</p></li>
+<li><p>Find the acute angle between line <span class="math inline">OA</span> and plane <span class="math inline">ABC</span>. [3]</p></li>
+</ol>
+<p><em>Source: 9231/14/M/J/25 Q3.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}=(-5,1,-2),
+\;
+\overrightarrow{AC}=(1,0,2),
+</span></p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{AC}=(2,8,-1).
+</span></p>
+<p>Using <span class="math inline">A=(0,2,3)</span> gives <span class="math inline">d=13</span>, so</p>
+<p><span class="math display">
+\boxed{2x+8y-z=13}.
+</span></p>
+<ol start="2" type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+D=\frac{13}{\sqrt{2^2+8^2+(-1)^2}}
+=\boxed{\frac{13}{\sqrt{69}}\approx1.57}.
+</span></p>
+<ol start="3" type="a">
+<li>A direction of <span class="math inline">OA</span> is <span class="math inline">(0,2,3)</span>. If <span class="math inline">\alpha</span> is the angle between the line and the plane, then</li>
+</ol>
+<p><span class="math display">
+\sin\alpha=\frac{|(0,2,3)\boldsymbol\cdot(2,8,-1)|}
+{\sqrt{13}\sqrt{69}}
+=\frac{13}{\sqrt{897}}.
+</span></p>
+<p>Thus <span class="math inline">\boxed{\alpha=25.7^\circ}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2025, Paper 11/13, Question 5">
+<p>The plane <span class="math inline">\Pi_1</span> has equation</p>
+<p><span class="math display">
+\mathbf r=-3\mathbf i-\mathbf j-\mathbf k
++m(\mathbf j+2\mathbf k)
++n(\mathbf i+3\mathbf j+\mathbf k).
+</span></p>
+<ol type="a">
+<li><p>Find an equation of <span class="math inline">\Pi_1</span> in Cartesian form. [4]</p></li>
+<li><p>Find the perpendicular distance from the point with position vector <span class="math inline">-\mathbf i-2\mathbf k</span> to <span class="math inline">\Pi_1</span>. [3]</p></li>
+</ol>
+<p>The plane <span class="math inline">\Pi_2</span> has equation <span class="math inline">3x+2y-z=14</span>.</p>
+<ol start="3" type="a">
+<li>Find a vector equation of the line of intersection of <span class="math inline">\Pi_1</span> and <span class="math inline">\Pi_2</span>. [4]</li>
+</ol>
+<p><em>Sources: 9231/11/O/N/25 Q5; 9231/13/O/N/25 Q5.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+(0,1,2)\times(1,3,1)=(-5,2,-1),
+</span></p>
+<p>so take the normal <span class="math inline">(5,-2,1)</span>. Using <span class="math inline">(-3,-1,-1)</span> gives</p>
+<p><span class="math display">
+\boxed{5x-2y+z=-14}.
+</span></p>
+<ol start="2" type="a">
+<li>For <span class="math inline">(-1,0,-2)</span>,</li>
+</ol>
+<p><span class="math display">
+D=\frac{|5(-1)-2(0)-2+14|}{\sqrt{30}}
+=\boxed{\frac7{\sqrt{30}}\approx1.28}.
+</span></p>
+<ol start="3" type="a">
+<li>A direction of the common line is</li>
+</ol>
+<p><span class="math display">
+(5,-2,1)\times(3,2,-1)=(0,8,16)=8(0,1,2).
+</span></p>
+<p>The point <span class="math inline">(0,7,0)</span> lies on both planes. Hence</p>
+<p><span class="math display">
+\boxed{\mathbf r=\begin{pmatrix}0\\7\\0\end{pmatrix}
++\lambda\begin{pmatrix}0\\1\\2\end{pmatrix}}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2025, Paper 12, Question 6">
+<p>The plane <span class="math inline">\Pi</span> is <span class="math inline">x+3y+2z=1</span>.</p>
+<ol type="a">
+<li>Find the perpendicular distance from <span class="math inline">O</span> to <span class="math inline">\Pi</span>. [2]</li>
+</ol>
+<p>Relative to <span class="math inline">O</span>, the points <span class="math inline">A,B,C</span> have position vectors</p>
+<p><span class="math display">
+-\mathbf j+2\mathbf k,
+\;2\mathbf i-\mathbf k,
+\;2\mathbf i-\mathbf j-\mathbf k.
+</span></p>
+<ol start="2" type="a">
+<li>Find the acute angle between planes <span class="math inline">OAB</span> and <span class="math inline">\Pi</span>. [4]</li>
+</ol>
+<p><em>Source: 9231/12/O/N/25 Q6.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\boxed{D=\frac1{\sqrt{1^2+3^2+2^2}}=\frac1{\sqrt{14}}}.
+</span></p>
+<ol start="2" type="a">
+<li>A normal to <span class="math inline">OAB</span> is</li>
+</ol>
+<p><span class="math display">
+\overrightarrow{OA}\times\overrightarrow{OB}
+=(0,-1,2)\times(2,0,-1)=(1,4,2).
+</span></p>
+<p>The normal to <span class="math inline">\Pi</span> is <span class="math inline">(1,3,2)</span>. Therefore</p>
+<p><span class="math display">
+\cos\theta=\frac{|(1,4,2)\boldsymbol\cdot(1,3,2)|}{\sqrt{21}\sqrt{14}}
+=\frac{17}{\sqrt{294}}.
+</span></p>
+<p>Hence <span class="math inline">\boxed{\theta=7.49^\circ}</span>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="question-card" title="October/November 2025, Paper 14, Question 4">
+<p>The points <span class="math inline">A,B,C</span> have position vectors</p>
+<p><span class="math display">
+3\mathbf i+5\mathbf j+5\mathbf k,
+\;2\mathbf i+2\mathbf j+2\mathbf k,
+\;2\mathbf i+\mathbf j-\mathbf k.
+</span></p>
+<ol type="a">
+<li>Find the equation of plane <span class="math inline">ABC</span>. [5]</li>
+</ol>
+<p>The point <span class="math inline">D</span> has position vector <span class="math inline">\mathbf i-\mathbf j+3\mathbf k</span>.</p>
+<ol start="2" type="a">
+<li>Find the shortest distance between lines <span class="math inline">AB</span> and <span class="math inline">CD</span>. [5]</li>
+</ol>
+<p><em>Source: 9231/14/O/N/25 Q4.</em></p>
+<div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>Mark-scheme-style answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="a">
+<li></li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}=(-1,-3,-3),
+\;
+\overrightarrow{AC}=(-1,-4,-6),
+</span></p>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{AC}=(6,-3,1).
+</span></p>
+<p>Using <span class="math inline">A=(3,5,5)</span> gives</p>
+<p><span class="math display">
+\boxed{6x-3y+z=8}.
+</span></p>
+<ol start="2" type="a">
+<li><span class="math inline">\overrightarrow{CD}=(-1,-2,4)</span> and</li>
+</ol>
+<p><span class="math display">
+\overrightarrow{AB}\times\overrightarrow{CD}=(-18,7,-1).
+</span></p>
+<p>Also <span class="math inline">\overrightarrow{AC}=(-1,-4,-6)</span>. Thus</p>
+<p><span class="math display">
+D=\frac{|(-1,-4,-6)\boldsymbol\cdot(-18,7,-1)|}{\sqrt{(-18)^2+7^2+(-1)^2}}
+=\boxed{\frac4{\sqrt{374}}\approx0.207}.
+</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="geometric-summary-diagrams" class="level2">
+<h2 class="anchored" data-anchor-id="geometric-summary-diagrams">5. Geometric summary diagrams</h2>
+<p>以下图形均根据向量关系重新绘制，并以 SVG 直接嵌入页面；虚线表示被遮挡部分或辅助线。</p>
+<div class="vector-svg-grid">
+<figure class="vector-svg-card figure">
+<svg viewbox="0 0 420 270" role="img" aria-labelledby="vp-title vp-desc">
+<title id="vp-title">
+Perpendicular from a point to a plane
+</title>
+<desc id="vp-desc">Point P, perpendicular foot F and the normal to a plane.</desc> <defs><marker id="arr-vp" viewbox="0 0 10 10" refx="8" refy="5" markerwidth="7" markerheight="7" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"></path></marker></defs> <polygon points="55,188 260,112 370,174 164,250" fill="#dbeafe" stroke="#315b7d" stroke-width="2"></polygon><line x1="210" y1="40" x2="210" y2="177" stroke="#dc2626" stroke-width="3" marker-end="url(#arr-vp)"></line><line x1="210" y1="177" x2="210" y2="223" stroke="#64748b" stroke-width="2" stroke-dasharray="7 6"></line><circle cx="210" cy="40" r="5" fill="#dc2626"></circle><circle cx="210" cy="177" r="5"></circle><path d="M210 177l17-6v-17" fill="none" stroke="#111827" stroke-width="2"></path><text x="220" y="37">P</text><text x="220" y="198">F</text><text x="229" y="102" fill="#dc2626">n</text><text x="327" y="188">π</text>
+</svg>
+<figcaption>
+Point-to-plane distance: <span class="math inline">F</span> lies on the normal through <span class="math inline">P</span>.
+</figcaption>
+</figure>
+<figure class="vector-svg-card figure">
+<svg viewbox="0 0 420 270" role="img" aria-labelledby="pp-title pp-desc">
+<title id="pp-title">
+Intersection of two planes
+</title>
+<desc id="pp-desc">Two planes meeting in a line, with both normal vectors.</desc> <polygon points="42,200 217,56 374,112 200,256" fill="#ede9fe" fill-opacity=".82" stroke="#7c3aed" stroke-width="2"></polygon><polygon points="48,96 358,226 366,151 56,22" fill="#d1fae5" fill-opacity=".72" stroke="#059669" stroke-width="2"></polygon><line x1="53" y1="61" x2="362" y2="190" stroke="#e11d48" stroke-width="4"></line><line x1="200" y1="155" x2="137" y2="88" stroke="#7c3aed" stroke-width="3"></line><line x1="200" y1="155" x2="252" y2="77" stroke="#059669" stroke-width="3"></line><text x="330" y="102" fill="#7c3aed">π₁</text><text x="335" y="238" fill="#047857">π₂</text><text x="91" y="72" fill="#7c3aed">n₁</text><text x="260" y="69" fill="#047857">n₂</text><text x="329" y="184" fill="#be123c">l</text>
+</svg>
+<figcaption>
+The intersection direction is parallel to <span class="math inline">\mathbf n_1\times\mathbf n_2</span>.
+</figcaption>
+</figure>
+<figure class="vector-svg-card figure">
+<svg viewbox="0 0 420 270" role="img" aria-labelledby="sk-title sk-desc">
+<title id="sk-title">
+Common perpendicular between skew lines
+</title>
+<desc id="sk-desc">Two skew lines joined by their shortest segment PQ.</desc> <line x1="48" y1="70" x2="360" y2="131" stroke="#2563eb" stroke-width="4"></line><line x1="66" y1="226" x2="352" y2="162" stroke="#ea580c" stroke-width="4"></line><line x1="211" y1="102" x2="230" y2="189" stroke="#111827" stroke-width="3"></line><line x1="211" y1="102" x2="230" y2="189" stroke="#111827" stroke-width="9" stroke-opacity=".08"></line><circle cx="211" cy="102" r="5"></circle><circle cx="230" cy="189" r="5"></circle><path d="M211 102l16 3 3 15M230 189l-4-16-16 3" fill="none" stroke="#111827" stroke-width="2"></path><text x="214" y="91">P</text><text x="239" y="205">Q</text><text x="338" y="119" fill="#1d4ed8">l₁</text><text x="332" y="184" fill="#c2410c">l₂</text><text x="248" y="147">shortest distance</text>
+</svg>
+<figcaption>
+For skew lines, <span class="math inline">PQ</span> is parallel to <span class="math inline">\mathbf d_1\times\mathbf d_2</span>.
+</figcaption>
+</figure>
+</div>
+<style>
+.vector-svg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,310px),1fr));gap:1rem;margin:1rem 0 1.5rem}.vector-svg-card{margin:0;padding:.75rem;border:1px solid #d7e0e8;border-radius:12px;background:#fff;box-shadow:0 3px 12px rgba(15,23,42,.06)}.vector-svg-card svg{display:block;width:100%;height:auto}.vector-svg-card svg text{font:17px system-ui,sans-serif}.vector-svg-card figcaption{margin-top:.4rem;color:#475569;font-size:.92rem}@media(max-width:540px){.vector-svg-card{padding:.4rem}.vector-svg-card svg text{font-size:15px}}
+</style>
+</section>
+<section id="完成本节的判断标准" class="level2">
+<h2 class="anchored" data-anchor-id="完成本节的判断标准">6. 完成本节的判断标准</h2>
+<ol type="1">
+<li>每次先明确 point vector、direction vector 与 normal vector；</li>
+<li>判断平行或垂直时能写出对应的 scalar product 条件；</li>
+<li>角度题能分清 line-line、line-plane 与 plane-plane 使用的三角函数；</li>
+<li>距离题能说明 perpendicular direction 或使用的面积/投影关系；</li>
+<li>common perpendicular 和 skew-line distance 能正确使用两个方向向量的 vector product。</li>
+</ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">7. 常用解题技巧</h2>
+<section id="先区分三类向量" class="level3">
+<h3 class="anchored" data-anchor-id="先区分三类向量">7.1 先区分三类向量</h3>
+<ul>
+<li><strong>point vector</strong>：从原点指向一个点的位置向量；</li>
+<li><strong>direction vector</strong>：直线或平面内的方向；</li>
+<li><strong>normal vector</strong>：垂直于平面的向量。</li>
+</ul>
+<p>若直线写成</p>
+<p><span class="math display">
+\mathbf r=\mathbf a+\lambda\mathbf d,
+</span></p>
+<p>则 <span class="math inline">\mathbf a</span> 是直线上一点，<span class="math inline">\mathbf d</span> 是方向向量。不要把平面的 normal vector 当成平面内的方向向量。</p>
+</section>
+<section id="平面的三种写法" class="level3">
+<h3 class="anchored" data-anchor-id="平面的三种写法">7.2 平面的三种写法</h3>
+<p>过点 <span class="math inline">A</span>、方向为 <span class="math inline">\mathbf b</span> 和 <span class="math inline">\mathbf c</span> 的平面可写成</p>
+<p><span class="math display">
+\mathbf r=\mathbf a+\lambda\mathbf b+\mu\mathbf c.
+</span></p>
+<p>若已知 normal vector <span class="math inline">\mathbf n</span>，则优先写成</p>
+<p><span class="math display">
+(\mathbf r-\mathbf a)\boldsymbol\cdot\mathbf n=0,
+\qquad \mathbf r\boldsymbol\cdot\mathbf n=p.
+</span></p>
+<p>若只有两个平面内方向，先计算</p>
+<p><span class="math display">
+\mathbf n=\mathbf b\times\mathbf c.
+</span></p>
+<p>最后用已知点代回确定常数，避免只写出方向而没有确定平面位置。</p>
+</section>
+<section id="向量积的计算与检查" class="level3">
+<h3 class="anchored" data-anchor-id="向量积的计算与检查">7.3 向量积的计算与检查</h3>
+<p>对于 <span class="math inline">\mathbf a=(a_1,a_2,a_3)</span>、<span class="math inline">\mathbf b=(b_1,b_2,b_3)</span>，</p>
+<p><span class="math display">
+\mathbf a\times\mathbf b=
+\begin{pmatrix}
+a_2b_3-a_3b_2\\
+a_3b_1-a_1b_3\\
+a_1b_2-a_2b_1
+\end{pmatrix}.
+</span></p>
+<p>算完后检查</p>
+<p><span class="math display">
+(\mathbf a\times\mathbf b)\boldsymbol\cdot\mathbf a=0,
+\qquad
+(\mathbf a\times\mathbf b)\boldsymbol\cdot\mathbf b=0.
+</span></p>
+<p>交换顺序会改变方向：</p>
+<p><span class="math display">
+\mathbf a\times\mathbf b=-(\mathbf b\times\mathbf a).
+</span></p>
+</section>
+<section id="直线与平面的位置关系" class="level3">
+<h3 class="anchored" data-anchor-id="直线与平面的位置关系">7.4 直线与平面的位置关系</h3>
+<p>对直线 <span class="math inline">\mathbf r=\mathbf a+\lambda\mathbf d</span> 和平面 <span class="math inline">\mathbf r\boldsymbol\cdot\mathbf n=p</span>，先计算</p>
+<p><span class="math display">
+\mathbf d\boldsymbol\cdot\mathbf n.
+</span></p>
+<ul>
+<li>若 <span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n\ne0</span>，有唯一交点；</li>
+<li>若 <span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n=0</span>，直线与平面平行或整条直线在平面内；</li>
+<li>平行情形下，再检查 <span class="math inline">\mathbf a\boldsymbol\cdot\mathbf n=p</span>，成立则整条直线在平面内。</li>
+</ul>
+<p>求交点时，把直线参数式逐坐标代入平面方程，先解参数，再代回直线。</p>
+</section>
+<section id="点到平面的垂足和距离" class="level3">
+<h3 class="anchored" data-anchor-id="点到平面的垂足和距离">7.5 点到平面的垂足和距离</h3>
+<p>若点 <span class="math inline">P</span> 的位置向量为 <span class="math inline">\mathbf p</span>，平面 normal 为 <span class="math inline">\mathbf n</span>，从 <span class="math inline">P</span> 出发的垂线为</p>
+<p><span class="math display">
+\mathbf r=\mathbf p+t\mathbf n.
+</span></p>
+<p>将它代入平面方程得到 <span class="math inline">t</span>，再代回求 foot of perpendicular。若只要求距离，可使用</p>
+<p><span class="math display">
+D=\frac{|ax_0+by_0+cz_0-d|}{\sqrt{a^2+b^2+c^2}}
+</span></p>
+<p>其中平面为 <span class="math inline">ax+by+cz=d</span>，点为 <span class="math inline">(x_0,y_0,z_0)</span>。若题目要求垂足，不能只写距离公式。</p>
+</section>
+<section id="三类角度不要混用" class="level3">
+<h3 class="anchored" data-anchor-id="三类角度不要混用">7.6 三类角度不要混用</h3>
+<p>两条直线的夹角使用方向向量：</p>
+<p><span class="math display">
+\cos\theta=\frac{|\mathbf d_1\boldsymbol\cdot\mathbf d_2|}
+{|\mathbf d_1||\mathbf d_2|}.
+</span></p>
+<p>两平面的夹角使用两个 normal vectors：</p>
+<p><span class="math display">
+\cos\theta=\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}
+{|\mathbf n_1||\mathbf n_2|}.
+</span></p>
+<p>直线与平面的夹角使用正弦：</p>
+<p><span class="math display">
+\sin\theta=\frac{|\mathbf d\boldsymbol\cdot\mathbf n|}
+{|\mathbf d||\mathbf n|}.
+</span></p>
+<p>取绝对值是为了得到锐角。直线与平面角不能直接套用直线方向和 normal 之间夹角的余弦公式。</p>
+</section>
+<section id="两平面的交线" class="level3">
+<h3 class="anchored" data-anchor-id="两平面的交线">7.7 两平面的交线</h3>
+<p>两个不平行平面的交线方向同时垂直于两个 normals，因此可取</p>
+<p><span class="math display">
+\mathbf d=\mathbf n_1\times\mathbf n_2.
+</span></p>
+<p>再联立两个平面方程求交线上的一个点 <span class="math inline">A</span>，最后写成</p>
+<p><span class="math display">
+\mathbf r=\mathbf a+t\mathbf d.
+</span></p>
+<p>求出方向后检查 <span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n_1=0</span>、<span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n_2=0</span>，并把点 <span class="math inline">A</span> 代回两个平面。</p>
+</section>
+<section id="平面束问题" class="level3">
+<h3 class="anchored" data-anchor-id="平面束问题">7.8 平面束问题</h3>
+<p>包含两个平面 <span class="math inline">f_1=0</span> 和 <span class="math inline">f_2=0</span> 的所有平面可写成</p>
+<p><span class="math display">
+pf_1+qf_2=0,
+</span></p>
+<p>其中 <span class="math inline">p,q</span> 不同时为零。题目给出额外条件时，将条件代入确定 <span class="math inline">p:q</span>，最后检查所得平面确实包含两个平面的公共交线。</p>
+</section>
+<section id="点到直线的距离" class="level3">
+<h3 class="anchored" data-anchor-id="点到直线的距离">7.9 点到直线的距离</h3>
+<p>点 <span class="math inline">P</span> 的位置向量为 <span class="math inline">\mathbf p</span>，直线为 <span class="math inline">\mathbf r=\mathbf a+\lambda\mathbf d</span> 时，</p>
+<p><span class="math display">
+D=\frac{|(\mathbf p-\mathbf a)\times\mathbf d|}{|\mathbf d|}.
+</span></p>
+<p>这里 <span class="math inline">\mathbf p-\mathbf a</span> 必须从直线上一点指向给定点。向量积的大小给出平行四边形面积，除以底边 <span class="math inline">|\mathbf d|</span> 后得到距离。</p>
+</section>
+<section id="两条-skew-lines-的最短距离" class="level3">
+<h3 class="anchored" data-anchor-id="两条-skew-lines-的最短距离">7.10 两条 skew lines 的最短距离</h3>
+<p>若两条 skew lines 的方向向量为 <span class="math inline">\mathbf b</span>、<span class="math inline">\mathbf d</span>，先求共同垂直方向</p>
+<p><span class="math display">
+\mathbf n=\mathbf b\times\mathbf d.
+</span></p>
+<p>设两线上已知点的位置向量分别为 <span class="math inline">\mathbf a</span>、<span class="math inline">\mathbf c</span>，最短距离为</p>
+<p><span class="math display">
+D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
+{|\mathbf b\times\mathbf d|}.
+</span></p>
+<p>若 <span class="math inline">\mathbf b\times\mathbf d=\mathbf0</span>，两条直线方向平行，不能使用 skew-line 公式，应另行处理平行线距离。</p>
+</section>
+<section id="求-common-perpendicular" class="level3">
+<h3 class="anchored" data-anchor-id="求-common-perpendicular">7.11 求 common perpendicular</h3>
+<p>若题目要求 common perpendicular，而不仅是最短距离：</p>
+<ol type="1">
+<li>写两条直线上的一般点 <span class="math display">
+P=\mathbf a+\lambda\mathbf b,\qquad Q=\mathbf c+\mu\mathbf d;
+</span></li>
+<li>令 <span class="math inline">\overrightarrow{PQ}=Q-P</span> 同时垂直于两条直线方向： <span class="math display">
+(Q-P)\boldsymbol\cdot\mathbf b=0,\qquad
+(Q-P)\boldsymbol\cdot\mathbf d=0;
+</span></li>
+<li>解出 <span class="math inline">\lambda</span> 和 <span class="math inline">\mu</span>，再用 <span class="math inline">P</span> 或 <span class="math inline">Q</span> 作为起点、<span class="math inline">\mathbf b\times\mathbf d</span> 作为方向写直线；</li>
+<li>代回检查该直线同时与两条原直线相交且垂直。</li>
+</ol>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">7.12 常见失分点与答题结构</h3>
+<ul>
+<li>把 point vector、direction vector 和 normal vector 混用；</li>
+<li>向量积交换顺序后忘记改变符号；</li>
+<li>判断直线与平面平行时没有检查直线是否在平面内；</li>
+<li>直线与平面角误用余弦；</li>
+<li>点到平面的距离漏掉绝对值；</li>
+<li>两平面交线只求出方向，没有求出交线上的点；</li>
+<li>skew lines 题没有先检查两个方向是否平行；</li>
+<li>common perpendicular 没有代回检查垂直和相交条件。</li>
+</ul>
+<p>推荐按“确定向量角色 → 选择点积或向量积 → 写出方程 → 解参数 → 代回验证 → 写几何结论”的顺序作答。</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("template[data-answer-target]").forEach((template) => {
+    const card = document.getElementById(template.dataset.answerTarget);
+    const answer = card?.querySelector("details.answer-panel");
+    if (answer) answer.append(template.content.cloneNode(true));
+    template.remove();
+  });
+
+  document.querySelectorAll("input[data-progress]").forEach((box) => {
+    const key = `fm9231:${box.dataset.progress}`;
+    box.checked = localStorage.getItem(key) === "1";
+    const card = box.closest(".question-card, .study-card");
+    if (box.checked && card) card.classList.add("is-complete");
+    box.addEventListener("change", () => {
+      localStorage.setItem(key, box.checked ? "1" : "0");
+      if (card) card.classList.toggle("is-complete", box.checked);
+    });
+  });
+});
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "已复制");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "已复制");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nanoxsj\.github\.io\/further-math-study\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../paper-1/polar-coordinates.html" class="pagination-link" aria-label="1.5 Polar coordinates">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1.5 Polar coordinates</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../paper-1/proof-by-induction.html" class="pagination-link" aria-label="1.7 Proof by induction">
+        <span class="nav-page-text">1.7 Proof by induction</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

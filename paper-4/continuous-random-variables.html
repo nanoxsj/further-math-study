@@ -399,6 +399,21 @@ window.Quarto = {
   <li><a href="#mayjune-923141-923142-and-923143-question-3" id="toc-mayjune-923141-923142-and-923143-question-3" class="nav-link" data-scroll-target="#mayjune-923141-923142-and-923143-question-3">2025 May/June · 9231/41, 9231/42 and 9231/43 · Question 3</a></li>
   </ul></li>
   <li><a href="#本节检查清单" id="toc-本节检查清单" class="nav-link" data-scroll-target="#本节检查清单">4. 本节检查清单</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">5. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先确定-support" id="toc-先确定-support" class="nav-link" data-scroll-target="#先确定-support">5.1 先确定 support</a></li>
+  <li><a href="#用总面积为-1-求常数" id="toc-用总面积为-1-求常数" class="nav-link" data-scroll-target="#用总面积为-1-求常数">5.2 用总面积为 <span class="math inline">1</span> 求常数</a></li>
+  <li><a href="#计算区间概率" id="toc-计算区间概率" class="nav-link" data-scroll-target="#计算区间概率">5.3 计算区间概率</a></li>
+  <li><a href="#期望二阶矩和方差" id="toc-期望二阶矩和方差" class="nav-link" data-scroll-target="#期望二阶矩和方差">5.4 期望、二阶矩和方差</a></li>
+  <li><a href="#用-cdf-计算概率和分位数" id="toc-用-cdf-计算概率和分位数" class="nav-link" data-scroll-target="#用-cdf-计算概率和分位数">5.5 用 CDF 计算概率和分位数</a></li>
+  <li><a href="#由-cdf-反求-pdf" id="toc-由-cdf-反求-pdf" class="nav-link" data-scroll-target="#由-cdf-反求-pdf">5.6 由 CDF 反求 PDF</a></li>
+  <li><a href="#median-和-percentiles" id="toc-median-和-percentiles" class="nav-link" data-scroll-target="#median-和-percentiles">5.7 Median 和 percentiles</a></li>
+  <li><a href="#变换-ygx-的第一步确定范围" id="toc-变换-ygx-的第一步确定范围" class="nav-link" data-scroll-target="#变换-ygx-的第一步确定范围">5.8 变换 <span class="math inline">Y=g(X)</span> 的第一步：确定范围</a></li>
+  <li><a href="#用-cdf-方法处理函数变换" id="toc-用-cdf-方法处理函数变换" class="nav-link" data-scroll-target="#用-cdf-方法处理函数变换">5.9 用 CDF 方法处理函数变换</a></li>
+  <li><a href="#单调变换的-pdf-公式" id="toc-单调变换的-pdf-公式" class="nav-link" data-scroll-target="#单调变换的-pdf-公式">5.10 单调变换的 PDF 公式</a></li>
+  <li><a href="#结果的快速检查" id="toc-结果的快速检查" class="nav-link" data-scroll-target="#结果的快速检查">5.11 结果的快速检查</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">5.12 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1191,8 +1206,155 @@ F_Y(y)=
 <li><label><input type="checkbox">做变换时先确定新变量的取值范围；</label></li>
 <li><label><input type="checkbox">计算 variance 时使用 <span class="math inline">E(X^2)-[E(X)]^2</span>。</label></li>
 </ul>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">5. 常用解题技巧</h2>
+<section id="先确定-support" class="level3">
+<h3 class="anchored" data-anchor-id="先确定-support">5.1 先确定 support</h3>
+<p>开始计算前先写清楚 <span class="math inline">X</span> 的取值范围，即 support。PDF 在 support 外为 <span class="math inline">0</span>，所以所有积分上下限都必须与 support 一致。</p>
+<p>若题目给出</p>
+<p><span class="math display">
+f(x)=\begin{cases}
+g(x),&amp;a&lt;x&lt;b,\\
+0,&amp;\text{otherwise},
+\end{cases}
+</span></p>
+<p>先检查 <span class="math inline">g(x)</span> 在 <span class="math inline">(a,b)</span> 上是否非负，再使用总概率条件求未知常数。不要把 PDF 的函数表达式误当成概率；连续变量在单点的概率为 <span class="math inline">0</span>。</p>
+</section>
+<section id="用总面积为-1-求常数" class="level3">
+<h3 class="anchored" data-anchor-id="用总面积为-1-求常数">5.2 用总面积为 <span class="math inline">1</span> 求常数</h3>
+<p>PDF 必须满足</p>
+<p><span class="math display">
+\int_a^b f(x)\,\mathrm dx=1.
+</span></p>
+<p>若 <span class="math inline">f(x)=k g(x)</span>，先写</p>
+<p><span class="math display">
+k\int_a^b g(x)\,\mathrm dx=1,
+</span></p>
+<p>再解 <span class="math inline">k</span>。解出后检查 <span class="math inline">k&gt;0</span> 以及 <span class="math inline">f(x)\geqslant0</span>。如果 PDF 分段，必须把每一段的面积相加，而不是只对其中一段积分。</p>
+</section>
+<section id="计算区间概率" class="level3">
+<h3 class="anchored" data-anchor-id="计算区间概率">5.3 计算区间概率</h3>
+<p>连续随机变量满足</p>
+<p><span class="math display">
+P(c\leqslant X\leqslant d)=\int_c^d f(x)\,\mathrm dx.
+</span></p>
+<p>端点是否使用小于或小于等于不影响连续变量的概率，但积分区间仍必须落在 support 内。若区间超出 support，应先截断到有效范围；若区间分跨多个 PDF 分段，则拆成多个积分。</p>
+</section>
+<section id="期望二阶矩和方差" class="level3">
+<h3 class="anchored" data-anchor-id="期望二阶矩和方差">5.4 期望、二阶矩和方差</h3>
+<p>依次计算</p>
+<p><span class="math display">
+E(X)=\int_a^b x f(x)\,\mathrm dx,
+</span></p>
+<p><span class="math display">
+E(X^2)=\int_a^b x^2 f(x)\,\mathrm dx,
+</span></p>
+<p>再使用</p>
+<p><span class="math display">
+\operatorname{Var}(X)=E(X^2)-[E(X)]^2.
+</span></p>
+<p>最后才求 standard deviation：</p>
+<p><span class="math display">
+\operatorname{sd}(X)=\sqrt{\operatorname{Var}(X)}.
+</span></p>
+<p>不要把 <span class="math inline">E(X^2)</span> 写成 <span class="math inline">[E(X)]^2</span>；也不要在方差还没有化为非负数前过早四舍五入。</p>
+</section>
+<section id="用-cdf-计算概率和分位数" class="level3">
+<h3 class="anchored" data-anchor-id="用-cdf-计算概率和分位数">5.5 用 CDF 计算概率和分位数</h3>
+<p>CDF 定义为</p>
+<p><span class="math display">
+F(x)=P(X\leqslant x).
+</span></p>
+<p>在 support 内由 PDF 积分得到</p>
+<p><span class="math display">
+F(x)=\int_a^x f(t)\,\mathrm dt.
+</span></p>
+<p>然后使用</p>
+<p><span class="math display">
+P(c&lt;X\leqslant d)=F(d)-F(c).
+</span></p>
+<p>写完整 CDF 时必须包括：support 左侧 <span class="math inline">F(x)=0</span>，support 内的积分结果，以及 support 右侧 <span class="math inline">F(x)=1</span>。</p>
+</section>
+<section id="由-cdf-反求-pdf" class="level3">
+<h3 class="anchored" data-anchor-id="由-cdf-反求-pdf">5.6 由 CDF 反求 PDF</h3>
+<p>若已知 CDF，在连续区间内直接微分：</p>
+<p><span class="math display">
+f(x)=F'(x).
+</span></p>
+<p>若 <span class="math inline">F(x)</span> 是分段函数，要分别对每一段求导，并检查连接点处的连续性和 PDF 的非负性。CDF 必须不减，且满足 <span class="math inline">0\leqslant F(x)\leqslant1</span>；这些都是很好的自检条件。</p>
+</section>
+<section id="median-和-percentiles" class="level3">
+<h3 class="anchored" data-anchor-id="median-和-percentiles">5.7 Median 和 percentiles</h3>
+<p>median <span class="math inline">m</span> 满足</p>
+<p><span class="math display">
+F(m)=0.5.
+</span></p>
+<p>第 <span class="math inline">p</span> 分位点 <span class="math inline">q_p</span> 满足</p>
+<p><span class="math display">
+F(q_p)=p.
+</span></p>
+<p>先确认目标概率对应的是“左侧累计概率”，再解方程。若 CDF 分段，先判断 <span class="math inline">p</span> 落在哪一段，再使用该段公式；最后检查 <span class="math inline">m</span> 或 <span class="math inline">q_p</span> 是否位于对应区间。</p>
+</section>
+<section id="变换-ygx-的第一步确定范围" class="level3">
+<h3 class="anchored" data-anchor-id="变换-ygx-的第一步确定范围">5.8 变换 <span class="math inline">Y=g(X)</span> 的第一步：确定范围</h3>
+<p>求 <span class="math inline">Y=g(X)</span> 的分布时，先由 <span class="math inline">X</span> 的 support 确定 <span class="math inline">Y</span> 的 range。若 <span class="math inline">g</span> 在 support 上单调，可以直接反解 <span class="math inline">x=g^{-1}(y)</span>；若不单调，必须把不同的 <span class="math inline">x</span> 区间分别处理。</p>
+<p>例如若 <span class="math inline">Y=X^2</span>，不能只写 <span class="math inline">x=\sqrt y</span>，还要考虑 <span class="math inline">x=-\sqrt y</span> 是否也在原 support 内。</p>
+</section>
+<section id="用-cdf-方法处理函数变换" class="level3">
+<h3 class="anchored" data-anchor-id="用-cdf-方法处理函数变换">5.9 用 CDF 方法处理函数变换</h3>
+<p>对于任意变换，最安全的方法是从</p>
+<p><span class="math display">
+F_Y(y)=P(Y\leqslant y)
+</span></p>
+<p>开始，把事件 <span class="math inline">g(X)\leqslant y</span> 转化为关于 <span class="math inline">X</span> 的区间，再使用 <span class="math inline">F_X</span> 或 PDF 积分。得到 <span class="math inline">F_Y(y)</span> 后对 <span class="math inline">y</span> 微分：</p>
+<p><span class="math display">
+f_Y(y)=\frac{\mathrm d}{\mathrm dy}F_Y(y).
+</span></p>
+<p>这对非单调变换尤其稳妥，也能自动处理新变量的取值范围。</p>
+</section>
+<section id="单调变换的-pdf-公式" class="level3">
+<h3 class="anchored" data-anchor-id="单调变换的-pdf-公式">5.10 单调变换的 PDF 公式</h3>
+<p>若 <span class="math inline">Y=g(X)</span> 在 support 上严格单调且可逆，令 <span class="math inline">x=h(y)=g^{-1}(y)</span>，则</p>
+<p><span class="math display">
+f_Y(y)=f_X(h(y))\left|\frac{\mathrm dh}{\mathrm dy}\right|.
+</span></p>
+<p>绝对值不能漏掉；若 <span class="math inline">g</span> 递减，<span class="math inline">\mathrm dh/\mathrm dy</span> 可能为负，但 PDF 必须非负。最后还要检查</p>
+<p><span class="math display">
+\int f_Y(y)\,\mathrm dy=1.
+</span></p>
+</section>
+<section id="结果的快速检查" class="level3">
+<h3 class="anchored" data-anchor-id="结果的快速检查">5.11 结果的快速检查</h3>
+<p>完成计算后检查：</p>
+<ul>
+<li>PDF 是否处处非负；</li>
+<li>PDF 的总面积是否为 <span class="math inline">1</span>；</li>
+<li>CDF 是否从 <span class="math inline">0</span> 增加到 <span class="math inline">1</span>；</li>
+<li><span class="math inline">E(X)</span> 是否位于 support 内；</li>
+<li>variance 是否非负；</li>
+<li>变换后的 support 是否正确；</li>
+<li>分位点是否满足目标累计概率。</li>
+</ul>
+<p>若得到的概率大于 <span class="math inline">1</span>、方差为负或 CDF 下降，优先检查积分范围、归一化常数和分段连接点。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">5.12 常见失分点与答题结构</h3>
+<ul>
+<li>没有先写 support；</li>
+<li>用 PDF 的函数值代替区间概率；</li>
+<li>分段 PDF 漏掉某一段面积；</li>
+<li>求方差时忘记减去 <span class="math inline">[E(X)]^2</span>；</li>
+<li>写 CDF 时漏掉 support 外的 <span class="math inline">0</span> 或 <span class="math inline">1</span>；</li>
+<li>求 median 时没有检查解所在区间；</li>
+<li>变量变换时漏掉反函数导数的绝对值；</li>
+<li>非单调变换只保留一个 inverse branch；</li>
+<li>过早四舍五入导致最终概率或分位点不准确。</li>
+</ul>
+<p>推荐按“确定 support → 归一化 PDF → 建立 CDF → 计算概率/矩 → 处理分位数或变换 → 检查范围和总概率”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

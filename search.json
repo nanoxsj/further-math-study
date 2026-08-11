@@ -374,6 +374,17 @@
     ]
   },
   {
+    "objectID": "paper-4/continuous-random-variables.html#常用解题技巧",
+    "href": "paper-4/continuous-random-variables.html#常用解题技巧",
+    "title": "4.1 Continuous random variables",
+    "section": "5. 常用解题技巧",
+    "text": "5. 常用解题技巧\n\n5.1 先确定 support\n开始计算前先写清楚 X 的取值范围，即 support。PDF 在 support 外为 0，所以所有积分上下限都必须与 support 一致。\n若题目给出\n\nf(x)=\\begin{cases}\ng(x),&a&lt;x&lt;b,\\\\\n0,&\\text{otherwise},\n\\end{cases}\n\n先检查 g(x) 在 (a,b) 上是否非负，再使用总概率条件求未知常数。不要把 PDF 的函数表达式误当成概率；连续变量在单点的概率为 0。\n\n\n5.2 用总面积为 1 求常数\nPDF 必须满足\n\n\\int_a^b f(x)\\,\\mathrm dx=1.\n\n若 f(x)=k g(x)，先写\n\nk\\int_a^b g(x)\\,\\mathrm dx=1,\n\n再解 k。解出后检查 k&gt;0 以及 f(x)\\geqslant0。如果 PDF 分段，必须把每一段的面积相加，而不是只对其中一段积分。\n\n\n5.3 计算区间概率\n连续随机变量满足\n\nP(c\\leqslant X\\leqslant d)=\\int_c^d f(x)\\,\\mathrm dx.\n\n端点是否使用小于或小于等于不影响连续变量的概率，但积分区间仍必须落在 support 内。若区间超出 support，应先截断到有效范围；若区间分跨多个 PDF 分段，则拆成多个积分。\n\n\n5.4 期望、二阶矩和方差\n依次计算\n\nE(X)=\\int_a^b x f(x)\\,\\mathrm dx,\n\n\nE(X^2)=\\int_a^b x^2 f(x)\\,\\mathrm dx,\n\n再使用\n\n\\operatorname{Var}(X)=E(X^2)-[E(X)]^2.\n\n最后才求 standard deviation：\n\n\\operatorname{sd}(X)=\\sqrt{\\operatorname{Var}(X)}.\n\n不要把 E(X^2) 写成 [E(X)]^2；也不要在方差还没有化为非负数前过早四舍五入。\n\n\n5.5 用 CDF 计算概率和分位数\nCDF 定义为\n\nF(x)=P(X\\leqslant x).\n\n在 support 内由 PDF 积分得到\n\nF(x)=\\int_a^x f(t)\\,\\mathrm dt.\n\n然后使用\n\nP(c&lt;X\\leqslant d)=F(d)-F(c).\n\n写完整 CDF 时必须包括：support 左侧 F(x)=0，support 内的积分结果，以及 support 右侧 F(x)=1。\n\n\n5.6 由 CDF 反求 PDF\n若已知 CDF，在连续区间内直接微分：\n\nf(x)=F'(x).\n\n若 F(x) 是分段函数，要分别对每一段求导，并检查连接点处的连续性和 PDF 的非负性。CDF 必须不减，且满足 0\\leqslant F(x)\\leqslant1；这些都是很好的自检条件。\n\n\n5.7 Median 和 percentiles\nmedian m 满足\n\nF(m)=0.5.\n\n第 p 分位点 q_p 满足\n\nF(q_p)=p.\n\n先确认目标概率对应的是“左侧累计概率”，再解方程。若 CDF 分段，先判断 p 落在哪一段，再使用该段公式；最后检查 m 或 q_p 是否位于对应区间。\n\n\n5.8 变换 Y=g(X) 的第一步：确定范围\n求 Y=g(X) 的分布时，先由 X 的 support 确定 Y 的 range。若 g 在 support 上单调，可以直接反解 x=g^{-1}(y)；若不单调，必须把不同的 x 区间分别处理。\n例如若 Y=X^2，不能只写 x=\\sqrt y，还要考虑 x=-\\sqrt y 是否也在原 support 内。\n\n\n5.9 用 CDF 方法处理函数变换\n对于任意变换，最安全的方法是从\n\nF_Y(y)=P(Y\\leqslant y)\n\n开始，把事件 g(X)\\leqslant y 转化为关于 X 的区间，再使用 F_X 或 PDF 积分。得到 F_Y(y) 后对 y 微分：\n\nf_Y(y)=\\frac{\\mathrm d}{\\mathrm dy}F_Y(y).\n\n这对非单调变换尤其稳妥，也能自动处理新变量的取值范围。\n\n\n5.10 单调变换的 PDF 公式\n若 Y=g(X) 在 support 上严格单调且可逆，令 x=h(y)=g^{-1}(y)，则\n\nf_Y(y)=f_X(h(y))\\left|\\frac{\\mathrm dh}{\\mathrm dy}\\right|.\n\n绝对值不能漏掉；若 g 递减，\\mathrm dh/\\mathrm dy 可能为负，但 PDF 必须非负。最后还要检查\n\n\\int f_Y(y)\\,\\mathrm dy=1.\n\n\n\n5.11 结果的快速检查\n完成计算后检查：\n\nPDF 是否处处非负；\nPDF 的总面积是否为 1；\nCDF 是否从 0 增加到 1；\nE(X) 是否位于 support 内；\nvariance 是否非负；\n变换后的 support 是否正确；\n分位点是否满足目标累计概率。\n\n若得到的概率大于 1、方差为负或 CDF 下降，优先检查积分范围、归一化常数和分段连接点。\n\n\n5.12 常见失分点与答题结构\n\n没有先写 support；\n用 PDF 的函数值代替区间概率；\n分段 PDF 漏掉某一段面积；\n求方差时忘记减去 [E(X)]^2；\n写 CDF 时漏掉 support 外的 0 或 1；\n求 median 时没有检查解所在区间；\n变量变换时漏掉反函数导数的绝对值；\n非单调变换只保留一个 inverse branch；\n过早四舍五入导致最终概率或分位点不准确。\n\n推荐按“确定 support → 归一化 PDF → 建立 CDF → 计算概率/矩 → 处理分位数或变换 → 检查范围和总概率”的顺序作答。",
+    "crumbs": [
+      "Paper 4 · Further Probability & Statistics",
+      "4.1 Continuous random variables"
+    ]
+  },
+  {
     "objectID": "paper-3/linear-motion.html",
     "href": "paper-3/linear-motion.html",
     "title": "3.6 Linear motion under a variable force",
