@@ -426,6 +426,19 @@ window.Quarto = {
   <li><a href="#octobernovember-923114-question-3-9-marks" id="toc-octobernovember-923114-question-3-9-marks" class="nav-link" data-scroll-target="#octobernovember-923114-question-3-9-marks">2025 October/November · 9231/14 · Question 3 · 9 marks</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">5. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">6. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先确定通项和求和范围" id="toc-先确定通项和求和范围" class="nav-link" data-scroll-target="#先确定通项和求和范围">6.1 先确定通项和求和范围</a></li>
+  <li><a href="#标准公式与线性拆分" id="toc-标准公式与线性拆分" class="nav-link" data-scroll-target="#标准公式与线性拆分">6.2 标准公式与线性拆分</a></li>
+  <li><a href="#改变求和上下限" id="toc-改变求和上下限" class="nav-link" data-scroll-target="#改变求和上下限">6.3 改变求和上下限</a></li>
+  <li><a href="#等差型与等比型有限和" id="toc-等差型与等比型有限和" class="nav-link" data-scroll-target="#等差型与等比型有限和">6.4 等差型与等比型有限和</a></li>
+  <li><a href="#部分分式与消项法" id="toc-部分分式与消项法" class="nav-link" data-scroll-target="#部分分式与消项法">6.5 部分分式与消项法</a></li>
+  <li><a href="#用恒等式制造消项结构" id="toc-用恒等式制造消项结构" class="nav-link" data-scroll-target="#用恒等式制造消项结构">6.6 用恒等式制造消项结构</a></li>
+  <li><a href="#含多个分式的通项" id="toc-含多个分式的通项" class="nav-link" data-scroll-target="#含多个分式的通项">6.7 含多个分式的通项</a></li>
+  <li><a href="#无穷和与收敛性" id="toc-无穷和与收敛性" class="nav-link" data-scroll-target="#无穷和与收敛性">6.8 无穷和与收敛性</a></li>
+  <li><a href="#前-n-项超过某值" id="toc-前-n-项超过某值" class="nav-link" data-scroll-target="#前-n-项超过某值">6.9 “前 (n) 项超过某值”</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">6.10 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2155,8 +2168,72 @@ Show answer and mark scheme
 <li>能完整保留未消去的首项与尾项；</li>
 <li>能从 <span class="math inline">S_n</span> 的极限判断收敛并求无穷和。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">6. 常用解题技巧</h2>
+<section id="先确定通项和求和范围" class="level3">
+<h3 class="anchored" data-anchor-id="先确定通项和求和范围">6.1 先确定通项和求和范围</h3>
+<ol type="1">
+<li>先写出前两三项，确认每一项对应的下标，避免把“第 (n) 项”和“下标为 (n) 的项”混淆。</li>
+<li>若写成 (_{r=a}^{b}u_r)，项数是 (b-a+1)，不是 (b-a)。</li>
+<li>若给出最后一项而没有直接给出上限，先用通项 (u_r) 解出对应下标，再写出完整求和式。</li>
+<li>化简前检查括号、负号和下标，尤其区分 (u_{r+1})、(u_r+1) 与 (u_{r+1}+1)。</li>
+</ol>
+</section>
+<section id="标准公式与线性拆分" class="level3">
+<h3 class="anchored" data-anchor-id="标准公式与线性拆分">6.2 标准公式与线性拆分</h3>
+<p>本节最常用的公式是 [ <em>{r=1}^{n}r=2, </em>{r=1}<sup>{n}r</sup>2=6, <em>{r=1}<sup>{n}r</sup>3=4, ] 以及 (</em>{r=1}^{n}1=n)。</p>
+<p>遇到多项式通项先拆开： [ _{r=1}<sup>{n}(Ar</sup>3+Br^2+Cr+D) =Ar^3+Br^2+Cr+D. ]</p>
+<ul>
+<li>常数因子可以移到求和号外；</li>
+<li>不要把 (r^2) 写成 ((r)^2)；</li>
+<li>最后尽量因式分解，便于后续比较、求极限或解不等式。</li>
+</ul>
+</section>
+<section id="改变求和上下限" class="level3">
+<h3 class="anchored" data-anchor-id="改变求和上下限">6.3 改变求和上下限</h3>
+<p>若 (S_n=<em>{r=1}^{n}u_r)，则 [ </em>{r=a}^{b}u_r=S_b-S_{a-1}. ] 例如 (<em>{r=n+1}^{2n}u_r=S</em>{2n}-S_n)。端点包含在内，写完后可用小数值检查项数是否正确。</p>
+</section>
+<section id="等差型与等比型有限和" class="level3">
+<h3 class="anchored" data-anchor-id="等差型与等比型有限和">6.4 等差型与等比型有限和</h3>
+<p>等差数列求和可将式子倒写相加： [ 2S_n=n(a+l),S_n=n2(a+l). ]</p>
+<p>等比数列首项为 (a)、公比为 (q) 时， [ S_n=a(q). ] 也可使用“原式乘以 (q)，再相减”的方法；相减时要逐项对齐，并检查最后留下的是首项还是末项。</p>
+</section>
+<section id="部分分式与消项法" class="level3">
+<h3 class="anchored" data-anchor-id="部分分式与消项法">6.5 部分分式与消项法</h3>
+<p>看到相邻因子时，优先尝试 [ =1r-, ] 更一般地， [ =(-). ]</p>
+<p>若 (u_r=F(r)-F(r+1))，则 [ _{r=1}^{n}u_r=F(1)-F(n+1). ] 答题时不要只写“消项”，应展开前两项和末两项，明确展示中间项如何消去。若两个因子相差不止 1，要保留没有配对的多项首项和尾项。</p>
+</section>
+<section id="用恒等式制造消项结构" class="level3">
+<h3 class="anchored" data-anchor-id="用恒等式制造消项结构">6.6 用恒等式制造消项结构</h3>
+<p>有些题目需要先发现恒等式，例如 [ (2r+1)<sup>2-(2r-1)</sup>2=8r。 ] 一般步骤是：观察相邻项变化；寻找 (F(r)-F(r+1)) 或 (F(r)-F(r-1))；写出展开后的前后几项；只消去确实能够配对的项。</p>
+</section>
+<section id="含多个分式的通项" class="level3">
+<h3 class="anchored" data-anchor-id="含多个分式的通项">6.7 含多个分式的通项</h3>
+<p>若通项形如 [ u_r=2r-+, ] 先拆成三个求和，再通过改变下标对齐。最后把每组的首项和尾项写出，检查中间项的系数，不要凭直觉删项。</p>
+</section>
+<section id="无穷和与收敛性" class="level3">
+<h3 class="anchored" data-anchor-id="无穷和与收敛性">6.8 无穷和与收敛性</h3>
+<p>先求有限和 (S_n=<em>{r=1}^{n}u_r)，再求 [ </em>{r=1}^{}u_r=<em>{n}S_n. ] 若 (</em>{r}u_r)，级数必发散；但 (u_r) 只是必要条件，不能单独证明收敛。消项题要保留尾端直到最后一步，不能提前删去含 (n) 的项。</p>
+</section>
+<section id="前-n-项超过某值" class="level3">
+<h3 class="anchored" data-anchor-id="前-n-项超过某值">6.9 “前 (n) 项超过某值”</h3>
+<p>先求精确的 (S_n)，再解 (S_n&gt;K)。因为 (n) 是正整数，要检查边界附近的整数；若问“最少多少项”，还要验证前一个整数不满足条件。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">6.10 常见失分点与答题结构</h3>
+<ul>
+<li>求和下限、上限或最后一项写错；</li>
+<li>把项数 (b-a+1) 写成 (b-a)；</li>
+<li>部分分式符号或常数因子错误；</li>
+<li>消项时漏掉首项、尾项；</li>
+<li>未先写有限和就直接取无穷极限；</li>
+<li>最终答案没有检查整数范围或精确形式。</li>
+</ul>
+<p>推荐按“写通项与范围 → 写公式或恒等式 → 展开/拆分/移位 → 展示消项 → 化简 → 求极限或验证边界”的顺序作答。这样可以完整呈现本节题目的主要得分点。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
