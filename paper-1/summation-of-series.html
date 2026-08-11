@@ -386,7 +386,7 @@ window.Quarto = {
   <li><a href="#example-2.7-page-52" id="toc-example-2.7-page-52" class="nav-link" data-scroll-target="#example-2.7-page-52">Example 2.7 · Page 52</a></li>
   <li><a href="#example-2.8-pages-5253" id="toc-example-2.8-pages-5253" class="nav-link" data-scroll-target="#example-2.8-pages-5253">Example 2.8 · Pages 52–53</a></li>
   </ul></li>
-  <li><a href="#cambridge-examination-questions-in-the-textbook" id="toc-cambridge-examination-questions-in-the-textbook" class="nav-link" data-scroll-target="#cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</a>
+  <li><a href="#cambridge-international-examination-questions-in-the-textbook" id="toc-cambridge-international-examination-questions-in-the-textbook" class="nav-link" data-scroll-target="#cambridge-international-examination-questions-in-the-textbook">3. Cambridge International examination questions in the textbook</a>
   <ul class="collapse">
   <li><a href="#exercise-2b-question-11" id="toc-exercise-2b-question-11" class="nav-link" data-scroll-target="#exercise-2b-question-11">Exercise 2B, Question 11</a></li>
   <li><a href="#exercise-2c-question-11" id="toc-exercise-2c-question-11" class="nav-link" data-scroll-target="#exercise-2c-question-11">Exercise 2C, Question 11</a></li>
@@ -436,7 +436,7 @@ window.Quarto = {
   <li><a href="#用恒等式制造消项结构" id="toc-用恒等式制造消项结构" class="nav-link" data-scroll-target="#用恒等式制造消项结构">6.6 用恒等式制造消项结构</a></li>
   <li><a href="#含多个分式的通项" id="toc-含多个分式的通项" class="nav-link" data-scroll-target="#含多个分式的通项">6.7 含多个分式的通项</a></li>
   <li><a href="#无穷和与收敛性" id="toc-无穷和与收敛性" class="nav-link" data-scroll-target="#无穷和与收敛性">6.8 无穷和与收敛性</a></li>
-  <li><a href="#前-n-项超过某值" id="toc-前-n-项超过某值" class="nav-link" data-scroll-target="#前-n-项超过某值">6.9 “前 (n) 项超过某值”</a></li>
+  <li><a href="#前-n-项超过某值" id="toc-前-n-项超过某值" class="nav-link" data-scroll-target="#前-n-项超过某值">6.9 “前 <span class="math inline">n</span> 项超过某值”</a></li>
   <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">6.10 常见失分点与答题结构</a></li>
   </ul></li>
   </ul>
@@ -774,8 +774,8 @@ S_n=\frac32-\frac2{n+1}+\frac1{n+2}
 <p><label class="done-toggle"><input type="checkbox" data-progress="series-example-2-8"> Completed</label></p>
 </section>
 </section>
-<section id="cambridge-examination-questions-in-the-textbook" class="level2">
-<h2 class="anchored" data-anchor-id="cambridge-examination-questions-in-the-textbook">3. Cambridge examination questions in the textbook</h2>
+<section id="cambridge-international-examination-questions-in-the-textbook" class="level2">
+<h2 class="anchored" data-anchor-id="cambridge-international-examination-questions-in-the-textbook">3. Cambridge International examination questions in the textbook</h2>
 <section id="exercise-2b-question-11" class="level3 question-card">
 <h3 class="anchored" data-anchor-id="exercise-2b-question-11">Exercise 2B, Question 11</h3>
 <p>It is given that</p>
@@ -2174,57 +2174,108 @@ Show answer and mark scheme
 <section id="先确定通项和求和范围" class="level3">
 <h3 class="anchored" data-anchor-id="先确定通项和求和范围">6.1 先确定通项和求和范围</h3>
 <ol type="1">
-<li>先写出前两三项，确认每一项对应的下标，避免把“第 (n) 项”和“下标为 (n) 的项”混淆。</li>
-<li>若写成 (_{r=a}^{b}u_r)，项数是 (b-a+1)，不是 (b-a)。</li>
-<li>若给出最后一项而没有直接给出上限，先用通项 (u_r) 解出对应下标，再写出完整求和式。</li>
-<li>化简前检查括号、负号和下标，尤其区分 (u_{r+1})、(u_r+1) 与 (u_{r+1}+1)。</li>
+<li>先写出前两三项，确认每一项对应的下标，避免把“第 <span class="math inline">n</span> 项”和“下标为 <span class="math inline">n</span> 的项”混淆。</li>
+<li>若写成 <span class="math display">
+\sum_{r=a}^{b}u_r,
+</span> 项数是 <span class="math inline">b-a+1</span>，不是 <span class="math inline">b-a</span>。</li>
+<li>若给出最后一项而没有直接给出上限，先用通项 <span class="math inline">u_r</span> 解出对应下标，再写出完整求和式。</li>
+<li>化简前检查括号、负号和下标，尤其区分 <span class="math inline">u_{r+1}</span>、<span class="math inline">u_r+1</span> 与 <span class="math inline">u_{r+1}+1</span>。</li>
 </ol>
 </section>
 <section id="标准公式与线性拆分" class="level3">
 <h3 class="anchored" data-anchor-id="标准公式与线性拆分">6.2 标准公式与线性拆分</h3>
-<p>本节最常用的公式是 [ <em>{r=1}^{n}r=2, </em>{r=1}<sup>{n}r</sup>2=6, <em>{r=1}<sup>{n}r</sup>3=4, ] 以及 (</em>{r=1}^{n}1=n)。</p>
-<p>遇到多项式通项先拆开： [ _{r=1}<sup>{n}(Ar</sup>3+Br^2+Cr+D) =Ar^3+Br^2+Cr+D. ]</p>
+<p>本节最常用的公式是</p>
+<p><span class="math display">
+\sum_{r=1}^{n}r=\frac{n(n+1)}2,\qquad
+\sum_{r=1}^{n}r^2=\frac{n(n+1)(2n+1)}6,\qquad
+\sum_{r=1}^{n}r^3=\frac{n^2(n+1)^2}4,
+</span></p>
+<p>以及 <span class="math inline">\sum_{r=1}^{n}1=n</span>。遇到多项式通项先拆开：</p>
+<p><span class="math display">
+\sum_{r=1}^{n}(Ar^3+Br^2+Cr+D)
+=A\sum_{r=1}^{n}r^3+B\sum_{r=1}^{n}r^2
++C\sum_{r=1}^{n}r+D\sum_{r=1}^{n}1.
+</span></p>
 <ul>
 <li>常数因子可以移到求和号外；</li>
-<li>不要把 (r^2) 写成 ((r)^2)；</li>
+<li>不要把 <span class="math inline">\sum r^2</span> 写成 <span class="math inline">(\sum r)^2</span>；</li>
 <li>最后尽量因式分解，便于后续比较、求极限或解不等式。</li>
 </ul>
 </section>
 <section id="改变求和上下限" class="level3">
 <h3 class="anchored" data-anchor-id="改变求和上下限">6.3 改变求和上下限</h3>
-<p>若 (S_n=<em>{r=1}^{n}u_r)，则 [ </em>{r=a}^{b}u_r=S_b-S_{a-1}. ] 例如 (<em>{r=n+1}^{2n}u_r=S</em>{2n}-S_n)。端点包含在内，写完后可用小数值检查项数是否正确。</p>
+<p>若 <span class="math inline">S_n=\sum_{r=1}^{n}u_r</span>，则</p>
+<p><span class="math display">
+\sum_{r=a}^{b}u_r=S_b-S_{a-1}.
+</span></p>
+<p>例如</p>
+<p><span class="math display">
+\sum_{r=n+1}^{2n}u_r=S_{2n}-S_n.
+</span></p>
+<p>端点包含在内，写完后可用小数值检查项数是否正确。</p>
 </section>
 <section id="等差型与等比型有限和" class="level3">
 <h3 class="anchored" data-anchor-id="等差型与等比型有限和">6.4 等差型与等比型有限和</h3>
-<p>等差数列求和可将式子倒写相加： [ 2S_n=n(a+l),S_n=n2(a+l). ]</p>
-<p>等比数列首项为 (a)、公比为 (q) 时， [ S_n=a(q). ] 也可使用“原式乘以 (q)，再相减”的方法；相减时要逐项对齐，并检查最后留下的是首项还是末项。</p>
+<p>等差数列求和可将式子倒写相加：</p>
+<p><span class="math display">
+2S_n=n(a+l),\qquad S_n=\frac n2(a+l).
+</span></p>
+<p>等比数列首项为 <span class="math inline">a</span>、公比为 <span class="math inline">q</span> 时，</p>
+<p><span class="math display">
+S_n=a\frac{1-q^n}{1-q}\quad(q\ne1).
+</span></p>
+<p>也可使用“原式乘以 <span class="math inline">q</span>，再相减”的方法；相减时要逐项对齐，并检查最后留下的是首项还是末项。</p>
 </section>
 <section id="部分分式与消项法" class="level3">
 <h3 class="anchored" data-anchor-id="部分分式与消项法">6.5 部分分式与消项法</h3>
-<p>看到相邻因子时，优先尝试 [ =1r-, ] 更一般地， [ =(-). ]</p>
-<p>若 (u_r=F(r)-F(r+1))，则 [ _{r=1}^{n}u_r=F(1)-F(n+1). ] 答题时不要只写“消项”，应展开前两项和末两项，明确展示中间项如何消去。若两个因子相差不止 1，要保留没有配对的多项首项和尾项。</p>
+<p>看到相邻因子时，优先尝试</p>
+<p><span class="math display">
+\frac1{r(r+1)}=\frac1r-\frac1{r+1},
+</span></p>
+<p>更一般地，</p>
+<p><span class="math display">
+\frac1{(r+a)(r+b)}
+=\frac1{b-a}\left(\frac1{r+a}-\frac1{r+b}\right).
+</span></p>
+<p>若 <span class="math inline">u_r=F(r)-F(r+1)</span>，则</p>
+<p><span class="math display">
+\sum_{r=1}^{n}u_r=F(1)-F(n+1).
+</span></p>
+<p>答题时不要只写“消项”，应展开前两项和末两项，明确展示中间项如何消去。若两个因子相差不止 1，要保留没有配对的首项和尾项。</p>
 </section>
 <section id="用恒等式制造消项结构" class="level3">
 <h3 class="anchored" data-anchor-id="用恒等式制造消项结构">6.6 用恒等式制造消项结构</h3>
-<p>有些题目需要先发现恒等式，例如 [ (2r+1)<sup>2-(2r-1)</sup>2=8r。 ] 一般步骤是：观察相邻项变化；寻找 (F(r)-F(r+1)) 或 (F(r)-F(r-1))；写出展开后的前后几项；只消去确实能够配对的项。</p>
+<p>有些题目需要先发现恒等式，例如</p>
+<p><span class="math display">
+(2r+1)^2-(2r-1)^2=8r.
+</span></p>
+<p>一般步骤是：观察相邻项变化；寻找 <span class="math inline">F(r)-F(r+1)</span> 或 <span class="math inline">F(r)-F(r-1)</span>；写出展开后的前后几项；只消去确实能够配对的项。</p>
 </section>
 <section id="含多个分式的通项" class="level3">
 <h3 class="anchored" data-anchor-id="含多个分式的通项">6.7 含多个分式的通项</h3>
-<p>若通项形如 [ u_r=2r-+, ] 先拆成三个求和，再通过改变下标对齐。最后把每组的首项和尾项写出，检查中间项的系数，不要凭直觉删项。</p>
+<p>若通项形如</p>
+<p><span class="math display">
+u_r=\frac2r-\frac3{r+1}+\frac1{r+2},
+</span></p>
+<p>先拆成三个求和，再通过改变下标对齐。最后把每组的首项和尾项写出，检查中间项的系数，不要凭直觉删项。</p>
 </section>
 <section id="无穷和与收敛性" class="level3">
 <h3 class="anchored" data-anchor-id="无穷和与收敛性">6.8 无穷和与收敛性</h3>
-<p>先求有限和 (S_n=<em>{r=1}^{n}u_r)，再求 [ </em>{r=1}^{}u_r=<em>{n}S_n. ] 若 (</em>{r}u_r)，级数必发散；但 (u_r) 只是必要条件，不能单独证明收敛。消项题要保留尾端直到最后一步，不能提前删去含 (n) 的项。</p>
+<p>先求有限和 <span class="math inline">S_n=\sum_{r=1}^{n}u_r</span>，再求</p>
+<p><span class="math display">
+\sum_{r=1}^{\infty}u_r=\lim_{n\to\infty}S_n.
+</span></p>
+<p>若 <span class="math inline">\lim_{r\to\infty}u_r\ne0</span>，级数必发散；但 <span class="math inline">u_r\to0</span> 只是必要条件，不能单独证明收敛。消项题要保留尾端直到最后一步，不能提前删去含 <span class="math inline">n</span> 的项。</p>
 </section>
 <section id="前-n-项超过某值" class="level3">
-<h3 class="anchored" data-anchor-id="前-n-项超过某值">6.9 “前 (n) 项超过某值”</h3>
-<p>先求精确的 (S_n)，再解 (S_n&gt;K)。因为 (n) 是正整数，要检查边界附近的整数；若问“最少多少项”，还要验证前一个整数不满足条件。</p>
+<h3 class="anchored" data-anchor-id="前-n-项超过某值">6.9 “前 <span class="math inline">n</span> 项超过某值”</h3>
+<p>先求精确的 <span class="math inline">S_n</span>，再解 <span class="math inline">S_n&gt;K</span>。因为 <span class="math inline">n</span> 是正整数，要检查边界附近的整数；若问“最少多少项”，还要验证前一个整数不满足条件。</p>
 </section>
 <section id="常见失分点与答题结构" class="level3">
 <h3 class="anchored" data-anchor-id="常见失分点与答题结构">6.10 常见失分点与答题结构</h3>
 <ul>
 <li>求和下限、上限或最后一项写错；</li>
-<li>把项数 (b-a+1) 写成 (b-a)；</li>
+<li>把项数 <span class="math inline">b-a+1</span> 写成 <span class="math inline">b-a</span>；</li>
 <li>部分分式符号或常数因子错误；</li>
 <li>消项时漏掉首项、尾项；</li>
 <li>未先写有限和就直接取无穷极限；</li>
