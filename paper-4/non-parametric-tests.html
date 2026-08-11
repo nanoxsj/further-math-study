@@ -406,6 +406,20 @@ window.Quarto = {
   <li><a href="#octobernovember-923142-question-6" id="toc-octobernovember-923142-question-6" class="nav-link" data-scroll-target="#octobernovember-923142-question-6">2024 October/November · 9231/42 · Question 6</a></li>
   <li><a href="#octobernovember-923141-and-923143-question-2" id="toc-octobernovember-923141-and-923143-question-2" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-2">2024 October/November · 9231/41 and 9231/43 · Question 2</a></li>
   <li><a href="#octobernovember-923141-and-923143-question-4" id="toc-octobernovember-923141-and-923143-question-4" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-4">2025 October/November · 9231/41 and 9231/43 · Question 4</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">4. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先选择正确的-non-parametric-test" id="toc-先选择正确的-non-parametric-test" class="nav-link" data-scroll-target="#先选择正确的-non-parametric-test">4.1 先选择正确的 non-parametric test</a></li>
+  <li><a href="#先定义差值方向和假设" id="toc-先定义差值方向和假设" class="nav-link" data-scroll-target="#先定义差值方向和假设">4.2 先定义差值方向和假设</a></li>
+  <li><a href="#sign-test-的步骤" id="toc-sign-test-的步骤" class="nav-link" data-scroll-target="#sign-test-的步骤">4.3 Sign test 的步骤</a></li>
+  <li><a href="#sign-test-的尾部判断" id="toc-sign-test-的尾部判断" class="nav-link" data-scroll-target="#sign-test-的尾部判断">4.4 Sign test 的尾部判断</a></li>
+  <li><a href="#wilcoxon-matched-pairs-signed-rank-test-1" id="toc-wilcoxon-matched-pairs-signed-rank-test-1" class="nav-link" data-scroll-target="#wilcoxon-matched-pairs-signed-rank-test-1">4.5 Wilcoxon matched-pairs signed-rank test</a></li>
+  <li><a href="#wilcoxon-signed-rank-的假设" id="toc-wilcoxon-signed-rank-的假设" class="nav-link" data-scroll-target="#wilcoxon-signed-rank-的假设">4.6 Wilcoxon signed-rank 的假设</a></li>
+  <li><a href="#wilcoxon-rank-sum-test-1" id="toc-wilcoxon-rank-sum-test-1" class="nav-link" data-scroll-target="#wilcoxon-rank-sum-test-1">4.7 Wilcoxon rank-sum test</a></li>
+  <li><a href="#ties-的处理" id="toc-ties-的处理" class="nav-link" data-scroll-target="#ties-的处理">4.8 Ties 的处理</a></li>
+  <li><a href="#临界值比较" id="toc-临界值比较" class="nav-link" data-scroll-target="#临界值比较">4.9 临界值比较</a></li>
+  <li><a href="#结论写法" id="toc-结论写法" class="nav-link" data-scroll-target="#结论写法">4.10 结论写法</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">4.11 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2141,8 +2155,132 @@ T&gt;89.4.
 </span></p>
 The least possible value of <span class="math inline">T</span> is <span class="math inline">90</span>.
 </details>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">4. 常用解题技巧</h2>
+<section id="先选择正确的-non-parametric-test" class="level3">
+<h3 class="anchored" data-anchor-id="先选择正确的-non-parametric-test">4.1 先选择正确的 non-parametric test</h3>
+<p>根据资料结构选择：</p>
+<ul>
+<li>一个样本与指定 median 比较：one-sample sign test；</li>
+<li>同一对象的 before/after 或 matched pairs：paired sign test 或 Wilcoxon matched-pairs signed-rank test；</li>
+<li>两个独立样本：Wilcoxon rank-sum test。</li>
+</ul>
+<p>paired data 不能当成两个 independent samples；同一对象的两次观测必须保留配对关系。结论通常针对 population median 或 distribution location，不要未经说明写成关于 mean 的结论。</p>
+</section>
+<section id="先定义差值方向和假设" class="level3">
+<h3 class="anchored" data-anchor-id="先定义差值方向和假设">4.2 先定义差值方向和假设</h3>
+<p>对于 paired data，先明确</p>
+<p><span class="math display">
+d_i=\text{before}_i-\text{after}_i
+</span></p>
+<p>或相反方向，但全题必须保持一致。若研究“after reduced from before”，选择 <span class="math inline">d_i=\text{before}_i-\text{after}_i</span> 会使减少对应正差值，便于进行右尾判断。</p>
+<p>假设应写成 median 的陈述，例如</p>
+<p><span class="math display">
+H_0:\text{population median difference}=0,
+</span></p>
+<p><span class="math display">
+H_1:\text{population median difference}&gt;0.
+</span></p>
+<p>不要把 non-parametric test 的原假设写成 <span class="math inline">\mu=\mu_0</span>，除非题目明确要求检验另一个参数。</p>
+</section>
+<section id="sign-test-的步骤" class="level3">
+<h3 class="anchored" data-anchor-id="sign-test-的步骤">4.3 Sign test 的步骤</h3>
+<p>对一个样本检验指定 median <span class="math inline">m_0</span> 时，计算 <span class="math inline">x_i-m_0</span>；对 paired data 则计算 <span class="math inline">d_i</span>。然后：</p>
+<ol type="1">
+<li>删除等于 <span class="math inline">0</span> 的差值；</li>
+<li>只记录正号和负号，不对差值排序；</li>
+<li>有效样本量是删除零值后的 <span class="math inline">n</span>；</li>
+<li>令 <span class="math inline">X</span> 表示正号个数，在 <span class="math inline">H_0</span> 下 <span class="math display">
+X\sim B(n,0.5);
+</span></li>
+<li>根据 <span class="math inline">H_1</span> 的方向使用左尾、右尾或双尾概率。</li>
+</ol>
+<p>等于假设 median 的观测值要删除，不能随意归入正号或负号，也不能在删除后继续使用原始样本量。</p>
+</section>
+<section id="sign-test-的尾部判断" class="level3">
+<h3 class="anchored" data-anchor-id="sign-test-的尾部判断">4.4 Sign test 的尾部判断</h3>
+<p>若 <span class="math inline">H_1</span> 表示 median greater，正号越多越支持 <span class="math inline">H_1</span>，使用右尾；若 <span class="math inline">H_1</span> 表示 median less，负号越多越支持 <span class="math inline">H_1</span>，使用左尾；若 <span class="math inline">H_1</span> 表示 different，使用双尾。</p>
+<p>双尾检验要把异常方向的两侧概率合并或使用题目/表格规定的双尾临界区域。不能看到正号数较大就自动使用右尾，必须先看备择假设。</p>
+</section>
+<section id="wilcoxon-matched-pairs-signed-rank-test-1" class="level3">
+<h3 class="anchored" data-anchor-id="wilcoxon-matched-pairs-signed-rank-test-1">4.5 Wilcoxon matched-pairs signed-rank test</h3>
+<p>对 paired differences 使用以下流程：</p>
+<ol type="1">
+<li>按同一方向计算每个 <span class="math inline">d_i</span>；</li>
+<li>删除 <span class="math inline">d_i=0</span> 的 pairs；</li>
+<li>对 <span class="math inline">|d_i|</span> 从小到大排名；</li>
+<li>相同的 absolute differences 使用它们所占名次的平均 rank；</li>
+<li>把原差值的正负号恢复到对应 rank；</li>
+<li>求 <span class="math inline">T_+</span> 和 <span class="math inline">T_-</span>；</li>
+<li>双尾检验通常取 <span class="math display">
+T=\min(T_+,T_-);
+</span></li>
+<li>使用删除零值后的有效样本量查表并比较临界值。</li>
+</ol>
+<p>签名秩检验排名的是 <span class="math inline">|d_i|</span>，不是带符号的 <span class="math inline">d_i</span>；零差值删除后不参与排名。</p>
+</section>
+<section id="wilcoxon-signed-rank-的假设" class="level3">
+<h3 class="anchored" data-anchor-id="wilcoxon-signed-rank-的假设">4.6 Wilcoxon signed-rank 的假设</h3>
+<p>该检验利用差值的大小和符号，因此比 sign test 使用更多信息。使用前要注意：</p>
+<ul>
+<li>pairs 应具有随机性；</li>
+<li>不同 pairs 之间应相互独立；</li>
+<li>differences 的分布通常需要具有对称性；</li>
+<li>方向定义、零差值处理和 ties 处理必须保持一致。</li>
+</ul>
+<p>如果题目只提供 ordinal signs 或对称性假设不合适，sign test 可能更合适。</p>
+</section>
+<section id="wilcoxon-rank-sum-test-1" class="level3">
+<h3 class="anchored" data-anchor-id="wilcoxon-rank-sum-test-1">4.7 Wilcoxon rank-sum test</h3>
+<p>对两个 independent samples：</p>
+<ol type="1">
+<li>合并两组全部观测值；</li>
+<li>从小到大对全部观测值排名；</li>
+<li>ties 使用所占名次的平均值；</li>
+<li>计算其中一组的 rank sum <span class="math inline">W</span>；</li>
+<li>使用正确的两个 sample sizes 查 critical value；</li>
+<li>根据 alternative 的方向作单尾或双尾判断。</li>
+</ol>
+<p>不要分别在两组内部排名，也不要把 before/after 配对数据用 rank-sum test 处理。</p>
+</section>
+<section id="ties-的处理" class="level3">
+<h3 class="anchored" data-anchor-id="ties-的处理">4.8 Ties 的处理</h3>
+<p>若多个观测值相同，应给它们平均 rank。例如占据第 4、5、6 名的三个相同值，每个 rank 都为 <span class="math inline">5</span>。平均 rank 可能是小数，保留该小数计算 rank sum。</p>
+<p>在 sign test 中，等于 hypothesised median 的值是 zero difference，直接删除；在 Wilcoxon 检验中，绝对差值相同才需要 average rank。两种“相等”的处理不要混淆。</p>
+</section>
+<section id="临界值比较" class="level3">
+<h3 class="anchored" data-anchor-id="临界值比较">4.9 临界值比较</h3>
+<p>Wilcoxon 表格的判断方向取决于题目和表格定义。使用较小 rank sum <span class="math inline">T</span> 的双尾检验通常是：</p>
+<p><span class="math display">
+T\leqslant T_{\text{critical}}
+\quad\Longrightarrow\quad
+\text{reject }H_0.
+</span></p>
+<p>若使用 rank sum <span class="math inline">W</span>，临界区域可能写成 <span class="math inline">W\leqslant W_L</span> 或 <span class="math inline">W\geqslant W_U</span>。不要把表中 critical value 直接当作“统计量大于它就拒绝”；先确认统计量的定义和表格的拒绝方向。</p>
+</section>
+<section id="结论写法" class="level3">
+<h3 class="anchored" data-anchor-id="结论写法">4.10 结论写法</h3>
+<p>拒绝 <span class="math inline">H_0</span> 时，说明在给定 significance level 下，有足够证据支持 population median 的方向改变、两个 population locations 不同或数据存在相应差异。</p>
+<p>不拒绝 <span class="math inline">H_0</span> 时，写“insufficient evidence against <span class="math inline">H_0</span>”，不要写“证明两个 median 相等”。如果是 paired test，结论要回到 before/after 的语境；如果是 rank-sum test，结论要说明是两个 independent populations 的 median/location。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">4.11 常见失分点与答题结构</h3>
+<ul>
+<li>paired data 错用 rank-sum test；</li>
+<li>sign test 对差值进行了排名；</li>
+<li>Wilcoxon 检验对带符号差值而非绝对值排名；</li>
+<li>删除 zero differences 后仍使用原始样本量；</li>
+<li>ties 没有使用 average rank；</li>
+<li>差值方向中途改变，导致 alternative 和统计量符号不一致；</li>
+<li>用关于 mean 的结论描述 median test；</li>
+<li>临界值比较方向错误；</li>
+<li>不拒绝 <span class="math inline">H_0</span> 被写成证明 <span class="math inline">H_0</span>。</li>
+</ul>
+<p>推荐按“确定 test → 定义参数和差值方向 → 删除零值 → 排名/计数 → 确定有效样本量 → 查临界值 → 判断拒绝区域 → 写语境结论”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
