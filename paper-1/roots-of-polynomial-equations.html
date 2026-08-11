@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../paper-1/roots-of-polynomial-equations-techniques.html" rel="next">
+<link href="../paper-1/rational-functions-and-graphs.html" rel="next">
 <link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -175,12 +175,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../paper-1/roots-of-polynomial-equations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">1.1 Roots of polynomial equations</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../paper-1/roots-of-polynomial-equations-techniques.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">1.1 Common problem-solving techniques</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -437,7 +431,17 @@ window.Quarto = {
   <li><a href="#octobernovember-923112-question-2-8-marks" id="toc-octobernovember-923112-question-2-8-marks" class="nav-link" data-scroll-target="#octobernovember-923112-question-2-8-marks">2025 October/November · 9231/12 · Question 2 · 8 marks</a></li>
   <li><a href="#octobernovember-923114-question-2-9-marks" id="toc-octobernovember-923114-question-2-9-marks" class="nav-link" data-scroll-target="#octobernovember-923114-question-2-9-marks">2025 October/November · 9231/14 · Question 2 · 9 marks</a></li>
   </ul></li>
-  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a>
+  <ul class="collapse">
+  <li><a href="#先统一记号" id="toc-先统一记号" class="nav-link" data-scroll-target="#先统一记号">5.1 先统一记号</a></li>
+  <li><a href="#先化简目标对称式再代入" id="toc-先化简目标对称式再代入" class="nav-link" data-scroll-target="#先化简目标对称式再代入">5.2 先化简目标对称式，再代入</a></li>
+  <li><a href="#用原方程降次并递推幂和" id="toc-用原方程降次并递推幂和" class="nav-link" data-scroll-target="#用原方程降次并递推幂和">5.3 用原方程降次并递推幂和</a></li>
+  <li><a href="#用倒数根处理负次幂" id="toc-用倒数根处理负次幂" class="nav-link" data-scroll-target="#用倒数根处理负次幂">5.4 用倒数根处理负次幂</a></li>
+  <li><a href="#建立变换后根的新方程" id="toc-建立变换后根的新方程" class="nav-link" data-scroll-target="#建立变换后根的新方程">5.5 建立变换后根的新方程</a></li>
+  <li><a href="#高效求未知系数" id="toc-高效求未知系数" class="nav-link" data-scroll-target="#高效求未知系数">5.6 高效求未知系数</a></li>
+  <li><a href="#常见错误检查" id="toc-常见错误检查" class="nav-link" data-scroll-target="#常见错误检查">5.7 常见错误检查</a></li>
+  <li><a href="#考试答题结构" id="toc-考试答题结构" class="nav-link" data-scroll-target="#考试答题结构">5.8 考试答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -497,19 +501,6 @@ window.Quarto = {
 <li><label><input type="checkbox">能用根与系数关系或代换法建立新方程</label></li>
 <li><label><input type="checkbox">能根据给定的根之间的关系求未知系数并解方程</label></li>
 </ul>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">提示</span>Common problem-solving techniques
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>See the dedicated guide: <a href="../paper-1/roots-of-polynomial-equations-techniques.html">1.1 Common problem-solving techniques</a>.</p>
-</div>
 </div>
 </section>
 <section id="教材知识点" class="level2">
@@ -2413,8 +2404,139 @@ Show answer and mark scheme
 <li>使用根与系数关系或代换法建立指定新根的方程；</li>
 <li>根据根之间的关系求未知系数并解方程。</li>
 </ol>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>5. 常用解题技巧
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>下面的技巧与本章教材例题、练习题和真题题型对应，可在完成前面的知识点后直接作为解题检查表。</p>
+</div>
+</div>
+<section id="先统一记号" class="level3">
+<h3 class="anchored" data-anchor-id="先统一记号">5.1 先统一记号</h3>
+<p>开始计算前，先把多项式写成标准形式，并确认根的个数。</p>
+<p>For <span class="math display">az^n+bz^{n-1}+\cdots=0,</span> check the leading coefficient first. Vieta’s formulae use <strong>signed coefficients divided by the leading coefficient</strong>. If convenient, divide through by <span class="math inline">a</span> and use the monic form.</p>
+<p>对于三次方程，定义 <span class="math display">e_1=\alpha+\beta+\gamma,\qquad e_2=\alpha\beta+\beta\gamma+\gamma\alpha,\qquad e_3=\alpha\beta\gamma.</span> Then read these values directly from the equation: <span class="math display">e_1=-\frac ba,\qquad e_2=\frac ca,\qquad e_3=-\frac da.</span></p>
+<p>对于四次方程，使用 <span class="math display">e_1=\alpha+\beta+\gamma+\delta=-\frac ba,</span> <span class="math display">e_2=\sum\alpha\beta=\frac ca,\qquad e_3=\sum\alpha\beta\gamma=-\frac da,qquad e_4=\alpha\beta\gamma\delta=\frac ea.</span></p>
+</section>
+<section id="先化简目标对称式再代入" class="level3">
+<h3 class="anchored" data-anchor-id="先化简目标对称式再代入">5.2 先化简目标对称式，再代入</h3>
+<p>大多数对称函数题，都应先把目标式改写成 <span class="math inline">e_1,e_2,e_3,e_4</span>，再代入数值。</p>
+<section id="平方和" class="level4">
+<h4 class="anchored" data-anchor-id="平方和">平方和</h4>
+<p>For any set of roots, <span class="math display">\sum\alpha^2=\left(\sum\alpha\right)^2-2\sum\alpha\beta.</span></p>
+<p>For a cubic this becomes <span class="math display">\alpha^2+\beta^2+\gamma^2=e_1^2-2e_2.</span></p>
+</section>
+<section id="立方和" class="level4">
+<h4 class="anchored" data-anchor-id="立方和">立方和</h4>
+<p>Use the identity <span class="math display">\sum\alpha^3=e_1^3-3e_1e_2+3e_3.</span></p>
+<p>The safest derivation is to expand <span class="math display">e_1^3=(\alpha+\beta+\gamma)^3</span> and collect the terms <span class="math inline">\alpha^3+\beta^3+\gamma^3</span>.</p>
+</section>
+<section id="两两乘积的平方和" class="level4">
+<h4 class="anchored" data-anchor-id="两两乘积的平方和">两两乘积的平方和</h4>
+<p>For a cubic, <span class="math display">\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2=e_2^2-2e_1e_3.</span></p>
+<p>This is usually faster than expanding each term separately.</p>
+</section>
+<section id="稳定的解题流程" class="level4">
+<h4 class="anchored" data-anchor-id="稳定的解题流程">稳定的解题流程</h4>
+<ol type="1">
+<li>Write the basic symmetric values from the polynomial.</li>
+<li>Rewrite the requested expression using <span class="math inline">e_1,e_2,e_3,e_4</span>.</li>
+<li>Substitute only at the last line.</li>
+<li>Check that the final expression is unchanged if the roots are relabelled.</li>
+</ol>
+<p>If the expression contains an individual root, such as <span class="math inline">\alpha^2+\beta</span>, it is not symmetric. Do not force a symmetric-function formula onto it; use the extra information in the question.</p>
+</section>
+</section>
+<section id="用原方程降次并递推幂和" class="level3">
+<h3 class="anchored" data-anchor-id="用原方程降次并递推幂和">5.3 用原方程降次并递推幂和</h3>
+<p>If <span class="math inline">\alpha</span> is a root of <span class="math display">z^3+pz^2+qz+r=0,</span> then <span class="math display">\alpha^3=-p\alpha^2-q\alpha-r.</span></p>
+<p>The same relation holds for <span class="math inline">\beta</span> and <span class="math inline">\gamma</span>. Adding the three equations gives <span class="math display">S_3+pS_2+qS_1+3r=0,</span> where <span class="math display">S_k=\alpha^k+\beta^k+\gamma^k.</span></p>
+<p>For <span class="math inline">n\geqslant3</span>, <span class="math display">S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}=0.</span></p>
+<p>The term <span class="math inline">3r</span> appears when <span class="math inline">n=3</span> because <span class="math inline">S_0=3</span>. This is a common place to lose a mark.</p>
+<section id="高效的计算顺序" class="level4">
+<h4 class="anchored" data-anchor-id="高效的计算顺序">高效的计算顺序</h4>
+<p>对于三次方程：</p>
+<p><span class="math display">S_0=3,\qquad S_1=-p,\qquad S_2=p^2-2q.</span></p>
+<p>Then use the recurrence successively. Do not expand <span class="math inline">\alpha^4</span>, <span class="math inline">\alpha^5</span> and so on separately; that repeats the same work three times.</p>
+<p>对于四次方程 <span class="math display">z^4+pz^3+qz^2+rz+s=0,</span> use <span class="math display">S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}+sS_{n-4}=0\qquad(n\geqslant4),</span> with <span class="math inline">S_0=4</span>.</p>
+</section>
+</section>
+<section id="用倒数根处理负次幂" class="level3">
+<h3 class="anchored" data-anchor-id="用倒数根处理负次幂">5.4 用倒数根处理负次幂</h3>
+<p>If the constant term is non-zero, no root is zero. Set <span class="math display">w=\frac1z.</span></p>
+<p>For <span class="math display">az^3+bz^2+cz+d=0,</span> substitute <span class="math inline">z=1/w</span> and multiply by <span class="math inline">w^3</span>: <span class="math display">d w^3+c w^2+bw+a=0.</span></p>
+<p>The coefficients are reversed. The roots of this new equation are <span class="math display">\frac1\alpha,\quad\frac1\beta,\quad\frac1\gamma.</span></p>
+<p>This converts <span class="math display">\alpha^{-1}+\beta^{-1}+\gamma^{-1}</span> into an ordinary sum of roots of the reciprocal equation. It also converts negative power sums into the positive power sums of the reciprocal roots.</p>
+<section id="低次负幂的直接公式" class="level4">
+<h4 class="anchored" data-anchor-id="低次负幂的直接公式">低次负幂的直接公式</h4>
+<p>For a cubic, <span class="math display">\sum\frac1\alpha=\frac{e_2}{e_3},\qquad
+\sum\frac1{\alpha\beta}=\frac{e_1}{e_3},\qquad
+\frac1{\alpha\beta\gamma}=\frac1{e_3}.</span></p>
+<p>Use the reciprocal equation when the question asks for several negative powers; use the shortcut when only one low-power expression is required.</p>
+</section>
+</section>
+<section id="建立变换后根的新方程" class="level3">
+<h3 class="anchored" data-anchor-id="建立变换后根的新方程">5.5 建立变换后根的新方程</h3>
+<p>The first decision is whether the new roots are a simple linear transformation or a nonlinear transformation.</p>
+<section id="线性变换wmzc" class="level4">
+<h4 class="anchored" data-anchor-id="线性变换wmzc">线性变换：<span class="math inline">w=mz+c</span></h4>
+<p>Substitute <span class="math display">z=\frac{w-c}{m}</span> into the original equation and multiply through by the required power of <span class="math inline">m</span> to remove fractions.</p>
+<p>For example, if the old equation is <span class="math inline">P(z)=0</span> and the new roots are <span class="math inline">m\alpha+c</span>, <span class="math inline">m\beta+c</span>, use <span class="math display">P\left(\frac{w-c}{m}\right)=0.</span></p>
+<p>This method is usually faster and less error-prone than calculating all new symmetric functions.</p>
+</section>
+<section id="平方根wz2" class="level4">
+<h4 class="anchored" data-anchor-id="平方根wz2">平方根：<span class="math inline">w=z^2</span></h4>
+<p>If the new roots are <span class="math inline">\alpha^2,\beta^2,\gamma^2</span>, let <span class="math inline">w=z^2</span>. Use the original equation to eliminate odd powers or calculate <span class="math display">\alpha^2+\beta^2+\gamma^2=e_1^2-2e_2,</span> <span class="math display">\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2=e_2^2-2e_1e_3,</span> <span class="math display">\alpha^2\beta^2\gamma^2=e_3^2.</span></p>
+<p>The required cubic is therefore <span class="math display">w^3-(\sum\alpha^2)w^2+(\sum\alpha^2\beta^2)w-\alpha^2\beta^2\gamma^2=0.</span></p>
+</section>
+<section id="倒数根与平移后的倒数根" class="level4">
+<h4 class="anchored" data-anchor-id="倒数根与平移后的倒数根">倒数根与平移后的倒数根</h4>
+<p>For roots such as <span class="math inline">1/\alpha+c</span>, first form the reciprocal-root equation, then apply the linear transformation <span class="math inline">w=u+c</span>. Separating the two steps prevents sign and coefficient-order errors.</p>
+</section>
+</section>
+<section id="高效求未知系数" class="level3">
+<h3 class="anchored" data-anchor-id="高效求未知系数">5.6 高效求未知系数</h3>
+<p>When an equation contains an unknown coefficient, use every independent piece of information in this order:</p>
+<ol type="1">
+<li>Use the given root to substitute into the polynomial.</li>
+<li>Use a sum or product of roots with Vieta’s formulae.</li>
+<li>Use a repeated-root condition only if the question states or implies a repeated root.</li>
+<li>Solve the resulting simultaneous equations and substitute back into the original equation.</li>
+</ol>
+<p>If one root is known, factor out the corresponding linear factor. For a monic cubic with root <span class="math inline">r</span>, <span class="math display">P(z)=(z-r)(z^2+uz+v).</span> Comparing coefficients is often quicker than solving a full cubic.</p>
+</section>
+<section id="常见错误检查" class="level3">
+<h3 class="anchored" data-anchor-id="常见错误检查">5.7 常见错误检查</h3>
+<ul>
+<li>Check the alternating sign pattern: <span class="math inline">-,+,-,+</span> for the basic symmetric functions.</li>
+<li>Do not forget to divide by the leading coefficient.</li>
+<li>In a power-sum recurrence, remember <span class="math inline">S_0</span> equals the number of roots.</li>
+<li>Combine terms only after expanding; do not confuse <span class="math inline">\sum\alpha\beta</span> with <span class="math inline">(\sum\alpha)(\sum\beta)</span>.</li>
+<li>For reciprocal roots, confirm the constant term is non-zero.</li>
+<li>After forming a new equation, check its leading coefficient, sum of roots and product of roots.</li>
+<li>Keep the variable names clear: <span class="math inline">z</span> for an old root and <span class="math inline">w</span> for a transformed root.</li>
+</ul>
+</section>
+<section id="考试答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="考试答题结构">5.8 考试答题结构</h3>
+<p>计算题通常按以下顺序书写：</p>
+<ol type="1">
+<li>State the relevant Vieta values.</li>
+<li>State the identity, recurrence or substitution being used.</li>
+<li>Show the substitution and the main algebraic step.</li>
+<li>Give the exact answer first, followed by a decimal only when requested.</li>
+<li>For a new equation, state that its roots are exactly the transformed roots and write the equation in a standard form.</li>
+</ol>
+<p>这种写法能清楚呈现方法，也符合 Cambridge Mark Scheme 的分点评分方式。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -2846,8 +2968,8 @@ document.addEventListener("DOMContentLoaded", () => {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../paper-1/roots-of-polynomial-equations-techniques.html" class="pagination-link" aria-label="1.1 Common problem-solving techniques">
-        <span class="nav-page-text">1.1 Common problem-solving techniques</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../paper-1/rational-functions-and-graphs.html" class="pagination-link" aria-label="1.2 Rational functions and graphs">
+        <span class="nav-page-text">1.2 Rational functions and graphs</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
