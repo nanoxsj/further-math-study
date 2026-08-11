@@ -384,6 +384,20 @@ window.Quarto = {
   <li><a href="#mayjune-923141-and-923142-question-4" id="toc-mayjune-923141-and-923142-question-4" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-4">2024 May/June · 9231/41 and 9231/42 · Question 4</a></li>
   <li><a href="#octobernovember-923142-question-6" id="toc-octobernovember-923142-question-6" class="nav-link" data-scroll-target="#octobernovember-923142-question-6">2025 October/November · 9231/42 · Question 6</a></li>
   <li><a href="#mayjune-923141-and-923142-question-6-1" id="toc-mayjune-923141-and-923142-question-6-1" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-6-1">2025 May/June · 9231/41 and 9231/42 · Question 6</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">4. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先确认-pgf-的定义" id="toc-先确认-pgf-的定义" class="nav-link" data-scroll-target="#先确认-pgf-的定义">4.1 先确认 PGF 的定义</a></li>
+  <li><a href="#从概率分布写-pgf" id="toc-从概率分布写-pgf" class="nav-link" data-scroll-target="#从概率分布写-pgf">4.2 从概率分布写 PGF</a></li>
+  <li><a href="#用导数求期望和方差" id="toc-用导数求期望和方差" class="nav-link" data-scroll-target="#用导数求期望和方差">4.3 用导数求期望和方差</a></li>
+  <li><a href="#从-pgf-提取概率" id="toc-从-pgf-提取概率" class="nav-link" data-scroll-target="#从-pgf-提取概率">4.4 从 PGF 提取概率</a></li>
+  <li><a href="#独立随机变量的和" id="toc-独立随机变量的和" class="nav-link" data-scroll-target="#独立随机变量的和">4.5 独立随机变量的和</a></li>
+  <li><a href="#独立和的均值与方差" id="toc-独立和的均值与方差" class="nav-link" data-scroll-target="#独立和的均值与方差">4.6 独立和的均值与方差</a></li>
+  <li><a href="#从-g_ytg_xt2-反求-g_x" id="toc-从-g_ytg_xt2-反求-g_x" class="nav-link" data-scroll-target="#从-g_ytg_xt2-反求-g_x">4.7 从 <span class="math inline">G_Y(t)=[G_X(t)]^2</span> 反求 <span class="math inline">G_X</span></a></li>
+  <li><a href="#用因式分解识别独立试验" id="toc-用因式分解识别独立试验" class="nav-link" data-scroll-target="#用因式分解识别独立试验">4.8 用因式分解识别独立试验</a></li>
+  <li><a href="#几何型-pgf-的展开" id="toc-几何型-pgf-的展开" class="nav-link" data-scroll-target="#几何型-pgf-的展开">4.9 几何型 PGF 的展开</a></li>
+  <li><a href="#常数和参数的确定" id="toc-常数和参数的确定" class="nav-link" data-scroll-target="#常数和参数的确定">4.10 常数和参数的确定</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">4.11 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -807,8 +821,151 @@ G_Y'(t)=\frac{0.32t}{(1-0.2t^2)^2},
 \operatorname{E}(Y)=G_Y'(1)=\frac{0.32}{(1-0.2)^2}=0.5.
 </span>
 </details>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">4. 常用解题技巧</h2>
+<section id="先确认-pgf-的定义" class="level3">
+<h3 class="anchored" data-anchor-id="先确认-pgf-的定义">4.1 先确认 PGF 的定义</h3>
+<p>对取非负整数值的离散随机变量 <span class="math inline">X</span>，</p>
+<p><span class="math display">
+G_X(t)=\operatorname{E}(t^X)
+=\sum_x t^x\operatorname{P}(X=x).
+</span></p>
+<p>因此 <span class="math inline">t^x</span> 的系数就是 <span class="math inline">P(X=x)</span>。任何合法 PGF 都满足</p>
+<p><span class="math display">
+G_X(1)=1.
+</span></p>
+<p>如果题目给出含未知常数的 PGF，第一步通常是代入 <span class="math inline">t=1</span> 求归一化常数；如果系数不是非负数，不能作为概率分布。</p>
+</section>
+<section id="从概率分布写-pgf" class="level3">
+<h3 class="anchored" data-anchor-id="从概率分布写-pgf">4.2 从概率分布写 PGF</h3>
+<p>若已知概率表，直接逐项写成</p>
+<p><span class="math display">
+G_X(t)=P(X=0)+P(X=1)t+P(X=2)t^2+\cdots.
+</span></p>
+<p>写完后检查所有系数之和为 <span class="math inline">1</span>。例如有限取值的随机变量，PGF 应是有限多项式；不要漏写概率为零的幂次对应的项，也不要把 <span class="math inline">P(X=x)</span> 写成 <span class="math inline">xP(X=x)</span>。</p>
+</section>
+<section id="用导数求期望和方差" class="level3">
+<h3 class="anchored" data-anchor-id="用导数求期望和方差">4.3 用导数求期望和方差</h3>
+<p>先求导，再令 <span class="math inline">t=1</span>：</p>
+<p><span class="math display">
+\operatorname{E}(X)=G_X'(1).
+</span></p>
+<p>二阶导数给出 factorial moment：</p>
+<p><span class="math display">
+G_X''(1)=\operatorname{E}[X(X-1)].
+</span></p>
+<p>因此</p>
+<p><span class="math display">
+\operatorname{Var}(X)
+=G_X''(1)+G_X'(1)-[G_X'(1)]^2.
+</span></p>
+<p>不要把 <span class="math inline">G_X''(1)</span> 直接当成 <span class="math inline">E(X^2)</span>；正确关系是</p>
+<p><span class="math display">
+E(X^2)=G_X''(1)+G_X'(1).
+</span></p>
+</section>
+<section id="从-pgf-提取概率" class="level3">
+<h3 class="anchored" data-anchor-id="从-pgf-提取概率">4.4 从 PGF 提取概率</h3>
+<p>若 PGF 已展开，直接读取系数：</p>
+<p><span class="math display">
+P(X=k)=[t^k]G_X(t).
+</span></p>
+<p>若 PGF 是有理式，先进行适当变形或使用二项式展开。例如</p>
+<p><span class="math display">
+(1-at)^{-r}
+=\sum_{k=0}^{\infty}\binom{r+k-1}{k}a^kt^k.
+</span></p>
+<p>若前面还有 <span class="math inline">t^m</span>，则整体幂次会平移 <span class="math inline">m</span>；读取 <span class="math inline">t^k</span> 时要先减去这个平移量。</p>
+</section>
+<section id="独立随机变量的和" class="level3">
+<h3 class="anchored" data-anchor-id="独立随机变量的和">4.5 独立随机变量的和</h3>
+<p>若 <span class="math inline">X</span>、<span class="math inline">Y</span> independent，且 <span class="math inline">Z=X+Y</span>，则</p>
+<p><span class="math display">
+G_Z(t)=G_X(t)G_Y(t).
+</span></p>
+<p>这相当于把两个概率分布做 convolution，但使用 PGF 时只需相乘。若有三个独立变量，继续写</p>
+<p><span class="math display">
+G_{X+Y+W}(t)=G_X(t)G_Y(t)G_W(t).
+</span></p>
+<p>乘完后若要求某个概率，读取对应系数；若只要求均值和方差，可以直接使用导数或独立和的性质，避免完整展开高次多项式。</p>
+</section>
+<section id="独立和的均值与方差" class="level3">
+<h3 class="anchored" data-anchor-id="独立和的均值与方差">4.6 独立和的均值与方差</h3>
+<p>若 <span class="math inline">Z=X+Y</span> 且 independent，则</p>
+<p><span class="math display">
+E(Z)=E(X)+E(Y),
+\qquad
+\operatorname{Var}(Z)=\operatorname{Var}(X)+\operatorname{Var}(Y).
+</span></p>
+<p>如果题目明确要求“use the PGF of <span class="math inline">Z</span>”，应先写 <span class="math inline">G_Z=G_XG_Y</span>，再求导；如果只问数值，直接使用独立和的均值、方差性质通常更快。</p>
+</section>
+<section id="从-g_ytg_xt2-反求-g_x" class="level3">
+<h3 class="anchored" data-anchor-id="从-g_ytg_xt2-反求-g_x">4.7 从 <span class="math inline">G_Y(t)=[G_X(t)]^2</span> 反求 <span class="math inline">G_X</span></h3>
+<p>若 <span class="math inline">Y</span> 是两个 independent observations of <span class="math inline">X</span> 的和，则</p>
+<p><span class="math display">
+G_Y(t)=[G_X(t)]^2.
+</span></p>
+<p>若 <span class="math inline">G_Y(t)</span> 是多项式，先比较常数项、一次项和最高次项，或设</p>
+<p><span class="math display">
+G_X(t)=a_0+a_1t+\cdots+a_rt^r
+</span></p>
+<p>再比较系数。必须选择所有系数非负且在 <span class="math inline">t=1</span> 时等于 <span class="math inline">1</span> 的根，不能只进行形式上的平方根。</p>
+</section>
+<section id="用因式分解识别独立试验" class="level3">
+<h3 class="anchored" data-anchor-id="用因式分解识别独立试验">4.8 用因式分解识别独立试验</h3>
+<p>若 PGF 可以因式分解为</p>
+<p><span class="math display">
+G_X(t)=\prod_{i=1}^{n}(q_i+p_it),
+\qquad q_i=1-p_i,
+</span></p>
+<p>通常可解释为 <span class="math inline">n</span> 个 independent Bernoulli trials 中成功次数的 PGF。若每个因子相同，则可识别为 binomial 结构：</p>
+<p><span class="math display">
+G_X(t)=(q+pt)^n.
+</span></p>
+<p>因子不同时，仍可使用乘积求均值、方差或指定概率，但不能直接称为 ordinary binomial distribution。</p>
+</section>
+<section id="几何型-pgf-的展开" class="level3">
+<h3 class="anchored" data-anchor-id="几何型-pgf-的展开">4.9 几何型 PGF 的展开</h3>
+<p>遇到</p>
+<p><span class="math display">
+G_X(t)=\frac{t^m}{(a-bt)^r},
+</span></p>
+<p>先提出 <span class="math inline">a^{-r}</span>，写成</p>
+<p><span class="math display">
+G_X(t)=\frac{t^m}{a^r}\left(1-\frac ba t\right)^{-r}.
+</span></p>
+<p>再使用广义二项式展开读取概率。求 <span class="math inline">P(X&gt;k)</span> 时，若分布形式明显，通常先求有限项和或使用 complement；不要把 PGF 本身在 <span class="math inline">t=k</span> 处代入，<span class="math inline">t</span> 是生成函数变量，不是随机变量的取值。</p>
+</section>
+<section id="常数和参数的确定" class="level3">
+<h3 class="anchored" data-anchor-id="常数和参数的确定">4.10 常数和参数的确定</h3>
+<p>题目可能给出</p>
+<p><span class="math display">
+G_X(t)=k(1+3t+4t^2)
+</span></p>
+<p>或含有 <span class="math inline">p,q</span> 的表达式。先使用</p>
+<p><span class="math display">
+G_X(1)=1
+</span></p>
+<p>得到一个方程，再使用 <span class="math inline">E(X)=G_X'(1)</span>、某个概率系数或题目给出的其他条件求剩余参数。最后检查所有概率系数非负且总和为 <span class="math inline">1</span>。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">4.11 常见失分点与答题结构</h3>
+<ul>
+<li>把 <span class="math inline">G_X(t)</span> 写成 <span class="math inline">\sum x t^xP(X=x)</span>；</li>
+<li>忘记用 <span class="math inline">G_X(1)=1</span> 归一化；</li>
+<li>把 <span class="math inline">G_X''(1)</span> 直接当成 <span class="math inline">E(X^2)</span>；</li>
+<li>独立随机变量求和时没有相乘 PGF；</li>
+<li>读取系数时忽略前面的 <span class="math inline">t^m</span>；</li>
+<li>把 <span class="math inline">G_X(k)</span> 误当作 <span class="math inline">P(X=k)</span>；</li>
+<li>反求平方根 PGF 时选了负系数或未归一化的结果；</li>
+<li>用独立和的方差公式时忘记独立条件；</li>
+<li>有理式展开时漏掉广义二项式系数。</li>
+</ul>
+<p>推荐按“验证 <span class="math inline">G(1)=1</span> → 识别系数或因式结构 → 求导/相乘/展开 → 提取概率或矩 → 检查系数非负和总和为 1”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

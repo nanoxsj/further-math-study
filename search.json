@@ -165,6 +165,17 @@
     ]
   },
   {
+    "objectID": "paper-4/probability-generating-functions.html#常用解题技巧",
+    "href": "paper-4/probability-generating-functions.html#常用解题技巧",
+    "title": "4.5 Probability generating functions",
+    "section": "4. 常用解题技巧",
+    "text": "4. 常用解题技巧\n\n4.1 先确认 PGF 的定义\n对取非负整数值的离散随机变量 X，\n\nG_X(t)=\\operatorname{E}(t^X)\n=\\sum_x t^x\\operatorname{P}(X=x).\n\n因此 t^x 的系数就是 P(X=x)。任何合法 PGF 都满足\n\nG_X(1)=1.\n\n如果题目给出含未知常数的 PGF，第一步通常是代入 t=1 求归一化常数；如果系数不是非负数，不能作为概率分布。\n\n\n4.2 从概率分布写 PGF\n若已知概率表，直接逐项写成\n\nG_X(t)=P(X=0)+P(X=1)t+P(X=2)t^2+\\cdots.\n\n写完后检查所有系数之和为 1。例如有限取值的随机变量，PGF 应是有限多项式；不要漏写概率为零的幂次对应的项，也不要把 P(X=x) 写成 xP(X=x)。\n\n\n4.3 用导数求期望和方差\n先求导，再令 t=1：\n\n\\operatorname{E}(X)=G_X'(1).\n\n二阶导数给出 factorial moment：\n\nG_X''(1)=\\operatorname{E}[X(X-1)].\n\n因此\n\n\\operatorname{Var}(X)\n=G_X''(1)+G_X'(1)-[G_X'(1)]^2.\n\n不要把 G_X''(1) 直接当成 E(X^2)；正确关系是\n\nE(X^2)=G_X''(1)+G_X'(1).\n\n\n\n4.4 从 PGF 提取概率\n若 PGF 已展开，直接读取系数：\n\nP(X=k)=[t^k]G_X(t).\n\n若 PGF 是有理式，先进行适当变形或使用二项式展开。例如\n\n(1-at)^{-r}\n=\\sum_{k=0}^{\\infty}\\binom{r+k-1}{k}a^kt^k.\n\n若前面还有 t^m，则整体幂次会平移 m；读取 t^k 时要先减去这个平移量。\n\n\n4.5 独立随机变量的和\n若 X、Y independent，且 Z=X+Y，则\n\nG_Z(t)=G_X(t)G_Y(t).\n\n这相当于把两个概率分布做 convolution，但使用 PGF 时只需相乘。若有三个独立变量，继续写\n\nG_{X+Y+W}(t)=G_X(t)G_Y(t)G_W(t).\n\n乘完后若要求某个概率，读取对应系数；若只要求均值和方差，可以直接使用导数或独立和的性质，避免完整展开高次多项式。\n\n\n4.6 独立和的均值与方差\n若 Z=X+Y 且 independent，则\n\nE(Z)=E(X)+E(Y),\n\\qquad\n\\operatorname{Var}(Z)=\\operatorname{Var}(X)+\\operatorname{Var}(Y).\n\n如果题目明确要求“use the PGF of Z”，应先写 G_Z=G_XG_Y，再求导；如果只问数值，直接使用独立和的均值、方差性质通常更快。\n\n\n4.7 从 G_Y(t)=[G_X(t)]^2 反求 G_X\n若 Y 是两个 independent observations of X 的和，则\n\nG_Y(t)=[G_X(t)]^2.\n\n若 G_Y(t) 是多项式，先比较常数项、一次项和最高次项，或设\n\nG_X(t)=a_0+a_1t+\\cdots+a_rt^r\n\n再比较系数。必须选择所有系数非负且在 t=1 时等于 1 的根，不能只进行形式上的平方根。\n\n\n4.8 用因式分解识别独立试验\n若 PGF 可以因式分解为\n\nG_X(t)=\\prod_{i=1}^{n}(q_i+p_it),\n\\qquad q_i=1-p_i,\n\n通常可解释为 n 个 independent Bernoulli trials 中成功次数的 PGF。若每个因子相同，则可识别为 binomial 结构：\n\nG_X(t)=(q+pt)^n.\n\n因子不同时，仍可使用乘积求均值、方差或指定概率，但不能直接称为 ordinary binomial distribution。\n\n\n4.9 几何型 PGF 的展开\n遇到\n\nG_X(t)=\\frac{t^m}{(a-bt)^r},\n\n先提出 a^{-r}，写成\n\nG_X(t)=\\frac{t^m}{a^r}\\left(1-\\frac ba t\\right)^{-r}.\n\n再使用广义二项式展开读取概率。求 P(X&gt;k) 时，若分布形式明显，通常先求有限项和或使用 complement；不要把 PGF 本身在 t=k 处代入，t 是生成函数变量，不是随机变量的取值。\n\n\n4.10 常数和参数的确定\n题目可能给出\n\nG_X(t)=k(1+3t+4t^2)\n\n或含有 p,q 的表达式。先使用\n\nG_X(1)=1\n\n得到一个方程，再使用 E(X)=G_X'(1)、某个概率系数或题目给出的其他条件求剩余参数。最后检查所有概率系数非负且总和为 1。\n\n\n4.11 常见失分点与答题结构\n\n把 G_X(t) 写成 \\sum x t^xP(X=x)；\n忘记用 G_X(1)=1 归一化；\n把 G_X''(1) 直接当成 E(X^2)；\n独立随机变量求和时没有相乘 PGF；\n读取系数时忽略前面的 t^m；\n把 G_X(k) 误当作 P(X=k)；\n反求平方根 PGF 时选了负系数或未归一化的结果；\n用独立和的方差公式时忘记独立条件；\n有理式展开时漏掉广义二项式系数。\n\n推荐按“验证 G(1)=1 → 识别系数或因式结构 → 求导/相乘/展开 → 提取概率或矩 → 检查系数非负和总和为 1”的顺序作答。",
+    "crumbs": [
+      "Paper 4 · Further Probability & Statistics",
+      "4.5 Probability generating functions"
+    ]
+  },
+  {
     "objectID": "paper-4/chi-squared-tests.html",
     "href": "paper-4/chi-squared-tests.html",
     "title": "4.3 Chi-squared tests",
