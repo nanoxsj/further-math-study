@@ -1336,6 +1336,17 @@
     ]
   },
   {
+    "objectID": "paper-1/matrices.html#常用解题技巧",
+    "href": "paper-1/matrices.html#常用解题技巧",
+    "title": "1.4 Matrices",
+    "section": "6. 常用解题技巧",
+    "text": "6. 常用解题技巧\n\n6.1 先检查阶数\n设 A 是 m\\times n 矩阵，B 是 p\\times q 矩阵：\n\nA+B 或 A-B 有定义，当且仅当两个矩阵阶数相同；\nAB 有定义，当且仅当 n=p，结果是 m\\times q；\n乘法结果的行数取左边矩阵的行数，列数取右边矩阵的列数。\n\n先写阶数，例如\n\n(2\\times3)(3\\times2)=2\\times2,\n\n可以立即检查乘法是否有定义以及答案应有几行几列。加减法不能只看两个矩阵是否都是方阵，而要检查阶数是否完全相同。\n\n\n6.2 矩阵乘法按“行乘列”\n若\n\nA=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix},\\qquad\nB=\\begin{pmatrix}e&f\\\\g&h\\end{pmatrix},\n\n则\n\nAB=\\begin{pmatrix}ae+bg&af+bh\\\\ce+dg&cf+dh\\end{pmatrix}.\n\n每个元素都由左矩阵的一行和右矩阵的一列得到。不要把矩阵乘法当成对应元素相乘，也不要默认 AB=BA。若题目要求比较 AB 与 BA，必须分别计算。\n\n\n6.3 由两个基向量的像写变换矩阵\n若变换矩阵为 M，则 M\\binom10 是 \\binom10 的像，M\\binom01 是 \\binom01 的像。因此，如果题目给出两个单位向量的像，可以直接把它们作为矩阵的两列：\n\nM=\\begin{pmatrix}\\,|&|\\\\M\\binom10&M\\binom01\\\\\\,|&|\\end{pmatrix}.\n\n写出矩阵后，再乘回两个单位向量检查列向量是否放置正确。\n\n\n6.4 识别常见二维变换\n旋转角 \\theta（逆时针）对应\n\nR_\\theta=\\begin{pmatrix}\n\\cos\\theta&-\\sin\\theta\\\\\n\\sin\\theta&\\cos\\theta\n\\end{pmatrix}.\n\n常见结构包括：\n\n关于 x 轴反射：\\begin{pmatrix}1&0\\\\0&-1\\end{pmatrix}；\n关于 y 轴反射：\\begin{pmatrix}-1&0\\\\0&1\\end{pmatrix}；\n关于原点反射：\\begin{pmatrix}-1&0\\\\0&-1\\end{pmatrix}；\n均匀放大因子 k：\\begin{pmatrix}k&0\\\\0&k\\end{pmatrix}；\n水平剪切：\\begin{pmatrix}1&h\\\\0&1\\end{pmatrix}；\n竖直剪切：\\begin{pmatrix}1&0\\\\k&1\\end{pmatrix}。\n\n判断变换时同时检查两个基向量的像、行列式以及是否改变方向，不要只根据一个元素猜测。\n\n\n6.5 复合变换的顺序\n若先作 B，再作 A，则\n\n\\mathbf{x}\\xrightarrow{B}B\\mathbf{x}\n\\xrightarrow{A}AB\\mathbf{x}.\n\n所以矩阵乘积从右向左读：最右边的矩阵最先作用。题目若说“先旋转、再反射”，应写成“反射矩阵 \\times 旋转矩阵”。不要按文字顺序直接从左到右排列。\n\n\n6.6 行列式与逆矩阵\n对于\n\nA=\\begin{pmatrix}a&b\\\\c&d\\end{pmatrix},\n\n先算\n\n\\det A=ad-bc.\n\n若 \\det A=0，矩阵是 singular，没有逆矩阵；若 \\det A\\ne0，\n\nA^{-1}=\\frac1{ad-bc}\\begin{pmatrix}d&-b\\\\-c&a\\end{pmatrix}.\n\n求逆时要交换两个对角元素，同时改变两个非对角元素的符号，最后除以行列式。可用 AA^{-1}=I 检查。\n对于乘积，顺序必须反转：\n\n(AB)^{-1}=B^{-1}A^{-1},\\qquad\n(ABC)^{-1}=C^{-1}B^{-1}A^{-1}.\n\n\n\n6.7 三阶行列式的展开\n计算 3\\times3 行列式时，优先选择含有零或数字较简单的一行或一列展开。余子式符号按\n\n\\begin{pmatrix}+&-&+\\\\-&+&-\\\\+&-&+\\end{pmatrix}\n\n交替排列。若要证明矩阵 singular，直接证明 \\det A=0 即可，不必先尝试求逆。计算逆矩阵时要区分 minor 与 cofactor：cofactor 还要乘相应的交替符号。\n\n\n6.8 面积伸缩因子与方向\n矩阵 M 所表示变换的面积伸缩因子为\n\n|\\det M|.\n\n若原图形面积为 S，像的面积为 |\\det M|S。行列式的符号还表示方向：\\det M&gt;0 时方向保持，\\det M&lt;0 时方向翻转，\\det M=0 时面积被压为零。\n复合变换可利用\n\n\\det(AB)=\\det A\\det B\n\n快速求面积因子，不一定要先算出整个乘积矩阵。\n\n\n6.9 求不动点\n不动点满足\n\nM\\mathbf{x}=\\mathbf{x},\n\n因此应解\n\n(M-I)\\mathbf{x}=\\mathbf0.\n\n如果 M-I 可逆，唯一不动点通常是原点；如果 \\det(M-I)=0，可能有无穷多个不动点。不要把不动点方程误写成 M\\mathbf{x}=\\mathbf0，后者是在求零空间。\n\n\n6.10 求不变直线\n对于过原点的直线 y=mx，取方向向量\n\n\\mathbf{v}=\\binom1m.\n\n直线不变的条件是 M\\mathbf{v} 与 \\mathbf{v} 平行，即存在标量 \\lambda 使\n\nM\\binom1m=\\lambda\\binom1m.\n\n消去 \\lambda 后解出可能的斜率，并代回检查。对于一般直线 y=mx+c，不能只检查方向；还必须将直线上任意点的像代回同一条直线并比较常数项。方向不变不自动意味着整条直线不变。\n\n\n6.11 常见失分点与答题结构\n\n未检查矩阵阶数，就直接进行加法或乘法；\n将复合变换按文字顺序从左到右写；\n把矩阵乘法当成对应元素相乘；\n求逆矩阵时忘记行列式分母或负号；\n面积题忘记取 |\\det M|；\n求不动点时把 M\\mathbf{x}=\\mathbf{x} 写成 M\\mathbf{x}=\\mathbf0；\n证明不变直线时只证明方向平行，却没有检查直线的位置。\n\n推荐按“写定义或变换顺序 → 检查阶数 → 进行矩阵计算 → 展示关键行列式或方程 → 代回检查 → 写出几何结论”的顺序作答。",
+    "crumbs": [
+      "Paper 1 · Further Pure Mathematics 1",
+      "1.4 Matrices"
+    ]
+  },
+  {
     "objectID": "paper-1/vectors.html",
     "href": "paper-1/vectors.html",
     "title": "1.6 Vectors",
