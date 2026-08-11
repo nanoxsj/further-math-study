@@ -411,6 +411,22 @@ window.Quarto = {
   <li><a href="#octobernovember-923132-question-3-1" id="toc-octobernovember-923132-question-3-1" class="nav-link" data-scroll-target="#octobernovember-923132-question-3-1">2025 October/November · 9231/32 · Question 3</a></li>
   </ul></li>
   <li><a href="#本章检查清单" id="toc-本章检查清单" class="nav-link" data-scroll-target="#本章检查清单">5. 本章检查清单</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">6. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先画完整受力图" id="toc-先画完整受力图" class="nav-link" data-scroll-target="#先画完整受力图">6.1 先画完整受力图</a></li>
+  <li><a href="#先判断使用-particle-还是-rigid-body-model" id="toc-先判断使用-particle-还是-rigid-body-model" class="nav-link" data-scroll-target="#先判断使用-particle-还是-rigid-body-model">6.2 先判断使用 particle 还是 rigid body model</a></li>
+  <li><a href="#力矩一定使用垂直距离" id="toc-力矩一定使用垂直距离" class="nav-link" data-scroll-target="#力矩一定使用垂直距离">6.3 力矩一定使用垂直距离</a></li>
+  <li><a href="#统一力矩正负号" id="toc-统一力矩正负号" class="nav-link" data-scroll-target="#统一力矩正负号">6.4 统一力矩正负号</a></li>
+  <li><a href="#选择最有利的取矩点" id="toc-选择最有利的取矩点" class="nav-link" data-scroll-target="#选择最有利的取矩点">6.5 选择最有利的取矩点</a></li>
+  <li><a href="#先列合力方程再列力矩方程" id="toc-先列合力方程再列力矩方程" class="nav-link" data-scroll-target="#先列合力方程再列力矩方程">6.6 先列合力方程，再列力矩方程</a></li>
+  <li><a href="#couples-的处理" id="toc-couples-的处理" class="nav-link" data-scroll-target="#couples-的处理">6.7 Couples 的处理</a></li>
+  <li><a href="#smooth-contact-与-rough-contact" id="toc-smooth-contact-与-rough-contact" class="nav-link" data-scroll-target="#smooth-contact-与-rough-contact">6.8 Smooth contact 与 rough contact</a></li>
+  <li><a href="#limiting-equilibrium-与-friction" id="toc-limiting-equilibrium-与-friction" class="nav-link" data-scroll-target="#limiting-equilibrium-与-friction">6.9 Limiting equilibrium 与 friction</a></li>
+  <li><a href="#梯子杆和梁题" id="toc-梯子杆和梁题" class="nav-link" data-scroll-target="#梯子杆和梁题">6.10 梯子、杆和梁题</a></li>
+  <li><a href="#centre-of-mass-与-tipping" id="toc-centre-of-mass-与-tipping" class="nav-link" data-scroll-target="#centre-of-mass-与-tipping">6.11 Centre of mass 与 tipping</a></li>
+  <li><a href="#多个物体或-lamina-的合并" id="toc-多个物体或-lamina-的合并" class="nav-link" data-scroll-target="#多个物体或-lamina-的合并">6.12 多个物体或 lamina 的合并</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">6.13 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1693,8 +1709,159 @@ k^2=\frac23.
 <li>point of tipping 时，centre of mass 的竖直投影通过支撑边缘；</li>
 <li>选取矩点时，优先选择能消去一个或多个未知 reaction 的点。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">6. 常用解题技巧</h2>
+<section id="先画完整受力图" class="level3">
+<h3 class="anchored" data-anchor-id="先画完整受力图">6.1 先画完整受力图</h3>
+<p>把刚体单独画出，并标明：</p>
+<ul>
+<li>每个力的大小、方向和作用点；</li>
+<li>weight 的作用线；</li>
+<li>normal reaction；</li>
+<li>friction 的方向；</li>
+<li>string tension、hinge reaction 或 support reaction。</li>
+</ul>
+<p>均匀 rod、beam 或 lamina 的 weight 作用在 centre of mass。若接触面 smooth，只能画 normal reaction；若接触面 rough，才可以画 friction。</p>
+</section>
+<section id="先判断使用-particle-还是-rigid-body-model" class="level3">
+<h3 class="anchored" data-anchor-id="先判断使用-particle-还是-rigid-body-model">6.2 先判断使用 particle 还是 rigid body model</h3>
+<p>若题目只研究平移，可以把物体近似为 particle；若力的作用点、物体长度或转动效果重要，必须使用 rigid body model，并列力矩方程。</p>
+<p>刚体平衡需要同时满足</p>
+<p><span class="math display">
+\sum F_x=0,
+\qquad
+\sum F_y=0,
+\qquad
+\sum M_O=0.
+</span></p>
+<p>只写水平和竖直方向的合力为零，不能保证刚体没有转动。</p>
+</section>
+<section id="力矩一定使用垂直距离" class="level3">
+<h3 class="anchored" data-anchor-id="力矩一定使用垂直距离">6.3 力矩一定使用垂直距离</h3>
+<p>力 <span class="math inline">F</span> 关于点 <span class="math inline">O</span> 的力矩为</p>
+<p><span class="math display">
+M=Fd,
+</span></p>
+<p>其中 <span class="math inline">d</span> 是 <span class="math inline">O</span> 到 force line of action 的 perpendicular distance，不是力的作用点到 <span class="math inline">O</span> 的任意距离。</p>
+<p>若力作用点距 <span class="math inline">O</span> 的距离为 <span class="math inline">a</span>，力与 rod 的夹角为 <span class="math inline">\alpha</span>，则</p>
+<p><span class="math display">
+M=Fa\sin\alpha.
+</span></p>
+<p>若力的作用线通过取矩点，直接写该力的 moment 为零，即使力本身不为零。</p>
+</section>
+<section id="统一力矩正负号" class="level3">
+<h3 class="anchored" data-anchor-id="统一力矩正负号">6.4 统一力矩正负号</h3>
+<p>建议规定 anticlockwise 为正、clockwise 为负，然后在草稿上逐个标记每个力的转动方向。平衡时写</p>
+<p><span class="math display">
+\text{anticlockwise moments}
+=\text{clockwise moments}
+</span></p>
+<p>或统一写成带符号的</p>
+<p><span class="math display">
+\sum M_O=0.
+</span></p>
+<p>同一道题不要一部分使用“顺时针为正”，另一部分又使用“逆时针为正”。最后检查每个 moment 的量纲应为 <span class="math inline">\mathrm{N\,m}</span>。</p>
+</section>
+<section id="选择最有利的取矩点" class="level3">
+<h3 class="anchored" data-anchor-id="选择最有利的取矩点">6.5 选择最有利的取矩点</h3>
+<p>取 moments 可以关于任意一点。优先选取：</p>
+<ul>
+<li>hinge 或 contact point；</li>
+<li>一个或多个未知 reaction 的作用线经过的点；</li>
+<li>几何上容易确定垂直距离的端点。</li>
+</ul>
+<p>这样可以直接消去相应未知力的 moment，通常只需一个力矩方程就能求出关键未知量。若取矩点不在刚体上，也可以使用，但必须准确计算每条 force line 的 perpendicular distance。</p>
+</section>
+<section id="先列合力方程再列力矩方程" class="level3">
+<h3 class="anchored" data-anchor-id="先列合力方程再列力矩方程">6.6 先列合力方程，再列力矩方程</h3>
+<p>常见流程是：</p>
+<ol type="1">
+<li>画受力图并选择坐标轴；</li>
+<li>写 <span class="math inline">\sum F_x=0</span>；</li>
+<li>写 <span class="math inline">\sum F_y=0</span>；</li>
+<li>选择方便的点写 <span class="math inline">\sum M=0</span>；</li>
+<li>解未知 reaction、friction、tension 或角度；</li>
+<li>检查所有方程和力的方向。</li>
+</ol>
+<p>对于只包含竖直力和水平力的题，水平、竖直方程可能直接给出 reaction；力矩方程则负责确定作用位置或角度。</p>
+</section>
+<section id="couples-的处理" class="level3">
+<h3 class="anchored" data-anchor-id="couples-的处理">6.7 Couples 的处理</h3>
+<p>一对大小相等、方向相反、作用线不同的平行力的 resultant force 为零，但 couple moment 不为零：</p>
+<p><span class="math display">
+M=Fd,
+</span></p>
+<p>其中 <span class="math inline">d</span> 是两条作用线之间的 perpendicular distance。</p>
+<p>Couple 的 moment 与取矩点无关。若题目同时有其他外力，先检查 couple 是否已经抵消合力，再把 couple moment 作为一个独立的顺时针或逆时针 moment 加入力矩方程。</p>
+</section>
+<section id="smooth-contact-与-rough-contact" class="level3">
+<h3 class="anchored" data-anchor-id="smooth-contact-与-rough-contact">6.8 Smooth contact 与 rough contact</h3>
+<p>接触类型决定未知力的方向：</p>
+<ul>
+<li>smooth contact：只有 normal reaction，方向垂直接触面；</li>
+<li>rough contact：有 normal reaction 和 friction，friction 沿接触面；</li>
+<li>string：tension 沿 string，方向指向 string 的另一端；</li>
+<li>hinge：通常需要水平和竖直两个 reaction 分量。</li>
+</ul>
+<p>不要因为物体“可能向右滑”就预先把 friction 方向写死；先假设一个方向，若解出负值，说明真实方向相反。</p>
+</section>
+<section id="limiting-equilibrium-与-friction" class="level3">
+<h3 class="anchored" data-anchor-id="limiting-equilibrium-与-friction">6.9 Limiting equilibrium 与 friction</h3>
+<p>一般静止接触只满足</p>
+<p><span class="math display">
+F\leqslant\mu R.
+</span></p>
+<p>题目出现 “about to slip”“on the point of sliding” 或 “limiting equilibrium” 时，才使用</p>
+<p><span class="math display">
+F=\mu R.
+</span></p>
+<p>常见流程是先用力矩方程和合力方程求 <span class="math inline">F</span>、<span class="math inline">R</span> 或角度，最后代入 <span class="math inline">F=\mu R</span>。若题目要求证明物体仍保持平衡，则应证明所得 friction 不超过 <span class="math inline">\mu R</span>，不能直接使用等号。</p>
+</section>
+<section id="梯子杆和梁题" class="level3">
+<h3 class="anchored" data-anchor-id="梯子杆和梁题">6.10 梯子、杆和梁题</h3>
+<p>对 rod、ladder 或 beam：</p>
+<ol type="1">
+<li>标出重力作用在中点或题目给出的 centre of mass；</li>
+<li>将接触力分解成 normal reaction 和 friction；</li>
+<li>以接触点或铰链为取矩点，消去该点的 reaction；</li>
+<li>用力矩方程求角度或临界条件；</li>
+<li>用水平、竖直平衡方程求剩余 reaction。</li>
+</ol>
+<p>若 rod 与水平线夹角为 <span class="math inline">\theta</span>，长度方向的距离要乘 <span class="math inline">\cos\theta</span> 或 <span class="math inline">\sin\theta</span> 才能得到水平、竖直投影；不能把 rod 的实际长度直接当作力矩臂。</p>
+</section>
+<section id="centre-of-mass-与-tipping" class="level3">
+<h3 class="anchored" data-anchor-id="centre-of-mass-与-tipping">6.11 Centre of mass 与 tipping</h3>
+<p>物体保持平衡时，centre of mass 的竖直投影必须落在 supporting region 内。到达 tipping point 时，投影经过支撑边缘。</p>
+<p>临界 tipping 的解题方法通常是关于支撑边缘取 moments，因为边缘处的 reaction moment 为零。此时不要继续假设另一侧有正的 support reaction；临界点处该侧 reaction 已降为零。</p>
+</section>
+<section id="多个物体或-lamina-的合并" class="level3">
+<h3 class="anchored" data-anchor-id="多个物体或-lamina-的合并">6.12 多个物体或 lamina 的合并</h3>
+<p>若系统由多个质量 <span class="math inline">m_i</span> 的部分组成，centre of mass 坐标为</p>
+<p><span class="math display">
+\bar x=\frac{\sum m_ix_i}{\sum m_i},
+\qquad
+\bar y=\frac{\sum m_iy_i}{\sum m_i}.
+</span></p>
+<p>先把每个部分的质量和质心坐标列成表格，再求加权平均。若使用面积代替质量，必须说明 lamina 密度均匀；若有孔洞，可把孔洞视为负质量或负面积。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">6.13 常见失分点与答题结构</h3>
+<ul>
+<li>没有画出完整受力图；</li>
+<li>把任意距离当作 moment arm；</li>
+<li>忘记均匀物体的 weight 作用在 centre of mass；</li>
+<li>smooth contact 错误加入 friction；</li>
+<li>未达到 limiting equilibrium 就使用 <span class="math inline">F=\mu R</span>；</li>
+<li>取矩时顺、逆时针符号混乱；</li>
+<li>只满足 <span class="math inline">\sum F=0</span>，没有检查 <span class="math inline">\sum M=0</span>；</li>
+<li>tipping 时仍保留错误方向的 support reaction；</li>
+<li>对 rod 的长度投影和 moment arm 没有乘正确的三角函数。</li>
+</ul>
+<p>推荐按“画受力图 → 规定正方向 → 选择取矩点 → 列水平、竖直和力矩方程 → 使用接触或临界条件 → 检查 reaction、friction 和几何意义”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
