@@ -385,6 +385,21 @@ window.Quarto = {
   <li><a href="#教材中标注-cambridge-international-的题目" id="toc-教材中标注-cambridge-international-的题目" class="nav-link" data-scroll-target="#教材中标注-cambridge-international-的题目">3. 教材中标注 Cambridge International 的题目</a></li>
   <li><a href="#paper-3-真题题库" id="toc-paper-3-真题题库" class="nav-link" data-scroll-target="#paper-3-真题题库">4. Paper 3 真题题库</a></li>
   <li><a href="#本章检查清单" id="toc-本章检查清单" class="nav-link" data-scroll-target="#本章检查清单">5. 本章检查清单</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">6. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先写建模假设和坐标方向" id="toc-先写建模假设和坐标方向" class="nav-link" data-scroll-target="#先写建模假设和坐标方向">6.1 先写建模假设和坐标方向</a></li>
+  <li><a href="#初速度必须分解" id="toc-初速度必须分解" class="nav-link" data-scroll-target="#初速度必须分解">6.2 初速度必须分解</a></li>
+  <li><a href="#每个条件先翻译成物理方程" id="toc-每个条件先翻译成物理方程" class="nav-link" data-scroll-target="#每个条件先翻译成物理方程">6.3 每个条件先翻译成物理方程</a></li>
+  <li><a href="#最高点飞行时间和射程" id="toc-最高点飞行时间和射程" class="nav-link" data-scroll-target="#最高点飞行时间和射程">6.4 最高点、飞行时间和射程</a></li>
+  <li><a href="#求最高高度时分清上升高度和离地高度" id="toc-求最高高度时分清上升高度和离地高度" class="nav-link" data-scroll-target="#求最高高度时分清上升高度和离地高度">6.5 求最高高度时分清“上升高度”和“离地高度”</a></li>
+  <li><a href="#消去时间得到轨迹方程" id="toc-消去时间得到轨迹方程" class="nav-link" data-scroll-target="#消去时间得到轨迹方程">6.6 消去时间得到轨迹方程</a></li>
+  <li><a href="#用轨迹方程处理目标点" id="toc-用轨迹方程处理目标点" class="nav-link" data-scroll-target="#用轨迹方程处理目标点">6.7 用轨迹方程处理目标点</a></li>
+  <li><a href="#用竖直二次方程判断到达时刻" id="toc-用竖直二次方程判断到达时刻" class="nav-link" data-scroll-target="#用竖直二次方程判断到达时刻">6.8 用竖直二次方程判断到达时刻</a></li>
+  <li><a href="#速度speed-和方向" id="toc-速度speed-和方向" class="nav-link" data-scroll-target="#速度speed-和方向">6.9 速度、speed 和方向</a></li>
+  <li><a href="#碰撞和同一时刻到达" id="toc-碰撞和同一时刻到达" class="nav-link" data-scroll-target="#碰撞和同一时刻到达">6.10 碰撞和同一时刻到达</a></li>
+  <li><a href="#用相对运动简化问题" id="toc-用相对运动简化问题" class="nav-link" data-scroll-target="#用相对运动简化问题">6.11 用相对运动简化问题</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">6.12 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1780,8 +1795,185 @@ d=\frac{U^2\sin a}{g}(\sin a+\cos a\tan b),
 <li>题目若改变初始高度，不能直接套用 <span class="math inline">T=2u\sin\alpha/g</span>；</li>
 <li>真题中若出现 barrier、string、liquid 或 air resistance，先判断它是否已经超出本章的简单 projectile model。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">6. 常用解题技巧</h2>
+<section id="先写建模假设和坐标方向" class="level3">
+<h3 class="anchored" data-anchor-id="先写建模假设和坐标方向">6.1 先写建模假设和坐标方向</h3>
+<p>开始计算前先明确：</p>
+<ul>
+<li>projectile 视为 particle；</li>
+<li>忽略 air resistance 和 wind；</li>
+<li>水平方向加速度为 <span class="math inline">0</span>；</li>
+<li>竖直方向加速度为 <span class="math inline">-g</span>，本章取 <span class="math inline">g=10\,\mathrm{m\,s^{-2}}</span>；</li>
+<li>坐标原点、水平轴和竖直轴的方向。</li>
+</ul>
+<p>若向上取正，则</p>
+<p><span class="math display">
+\mathbf a=\begin{pmatrix}0\\-g\end{pmatrix}.
+</span></p>
+<p>若题目选择向下为正，所有竖直速度和位移的符号都要相应改变。最安全的做法是先画出坐标轴和初速度方向，再写分量。</p>
+</section>
+<section id="初速度必须分解" class="level3">
+<h3 class="anchored" data-anchor-id="初速度必须分解">6.2 初速度必须分解</h3>
+<p>从点 <span class="math inline">(x_0,y_0)</span> 以 speed <span class="math inline">u</span>、仰角 <span class="math inline">\alpha</span> 发射时，</p>
+<p><span class="math display">
+u_x=u\cos\alpha,
+\qquad
+u_y=u\sin\alpha.
+</span></p>
+<p>因此</p>
+<p><span class="math display">
+x=x_0+ut\cos\alpha,
+</span></p>
+<p><span class="math display">
+y=y_0+ut\sin\alpha-\frac12gt^2,
+</span></p>
+<p>以及</p>
+<p><span class="math display">
+v_x=u\cos\alpha,
+\qquad
+v_y=u\sin\alpha-gt.
+</span></p>
+<p>水平速度保持不变，但 speed 不保持不变，因为 <span class="math inline">v_y</span> 随时间变化。</p>
+</section>
+<section id="每个条件先翻译成物理方程" class="level3">
+<h3 class="anchored" data-anchor-id="每个条件先翻译成物理方程">6.3 每个条件先翻译成物理方程</h3>
+<p>常见文字条件对应：</p>
+<ul>
+<li>“highest point” 或 “moving horizontally”：<span class="math inline">v_y=0</span>；</li>
+<li>“on the ground”：<span class="math inline">y=0</span>；</li>
+<li>“at height <span class="math inline">h</span>”：<span class="math inline">y=h</span>；</li>
+<li>“at horizontal distance <span class="math inline">d</span>”：<span class="math inline">x=d</span>；</li>
+<li>“same time”：使用同一个 <span class="math inline">t</span>；</li>
+<li>“same position”：同时满足相同的 <span class="math inline">x</span> 和 <span class="math inline">y</span>；</li>
+<li>“speed is <span class="math inline">v</span>”：使用 <span class="math inline">v^2=v_x^2+v_y^2</span>。</li>
+</ul>
+<p>不要把“moving horizontally”误解成 <span class="math inline">y=0</span>；它表示竖直速度为零，物体通常仍在最高点的正上方。</p>
+</section>
+<section id="最高点飞行时间和射程" class="level3">
+<h3 class="anchored" data-anchor-id="最高点飞行时间和射程">6.4 最高点、飞行时间和射程</h3>
+<p>最高点由</p>
+<p><span class="math display">
+v_y=u\sin\alpha-gt=0
+</span></p>
+<p>确定，所以</p>
+<p><span class="math display">
+t_{\max}=\frac{u\sin\alpha}{g}.
+</span></p>
+<p>从原点发射且回到同一高度时，飞行时间和水平射程为</p>
+<p><span class="math display">
+T=\frac{2u\sin\alpha}{g},
+\qquad
+R=u\cos\alpha\,T
+=\frac{u^2\sin2\alpha}{g}.
+</span></p>
+<p>只有发射点和落地点同高时，才可以使用 <span class="math inline">T=2t_{\max}</span>。若初始高度为 <span class="math inline">h</span>，应把 <span class="math inline">y=h+u\sin\alpha\,t-\frac12gt^2</span> 代入落地条件后解正根。</p>
+</section>
+<section id="求最高高度时分清上升高度和离地高度" class="level3">
+<h3 class="anchored" data-anchor-id="求最高高度时分清上升高度和离地高度">6.5 求最高高度时分清“上升高度”和“离地高度”</h3>
+<p>初始高度为 <span class="math inline">y_0</span> 时，最高点的时刻仍为</p>
+<p><span class="math display">
+t_{\max}=\frac{u\sin\alpha}{g},
+</span></p>
+<p>但最高点的坐标是</p>
+<p><span class="math display">
+y_{\max}=y_0+\frac{u^2\sin^2\alpha}{2g}.
+</span></p>
+<p>第二项只是相对于发射点的上升高度；若题目问离地最大高度，不能漏掉 <span class="math inline">y_0</span>。</p>
+</section>
+<section id="消去时间得到轨迹方程" class="level3">
+<h3 class="anchored" data-anchor-id="消去时间得到轨迹方程">6.6 消去时间得到轨迹方程</h3>
+<p>由水平运动</p>
+<p><span class="math display">
+t=\frac{x-x_0}{u\cos\alpha}
+</span></p>
+<p>代入竖直方程，得到</p>
+<p><span class="math display">
+y=y_0+(x-x_0)\tan\alpha
+-\frac{g(x-x_0)^2}{2u^2\cos^2\alpha}.
+</span></p>
+<p>也可写成</p>
+<p><span class="math display">
+y=y_0+(x-x_0)\tan\alpha
+-\frac{g(x-x_0)^2}{2u^2}(1+\tan^2\alpha).
+</span></p>
+<p>轨迹是关于 <span class="math inline">x</span> 的二次函数。用轨迹方程时，必须确认 <span class="math inline">x</span> 是从发射点水平量起，还是题目坐标系中的绝对坐标。</p>
+</section>
+<section id="用轨迹方程处理目标点" class="level3">
+<h3 class="anchored" data-anchor-id="用轨迹方程处理目标点">6.7 用轨迹方程处理目标点</h3>
+<p>若 projectile 要经过 <span class="math inline">(d,h)</span>，将 <span class="math inline">x=d</span>、<span class="math inline">y=h</span> 代入轨迹方程，得到关于 <span class="math inline">u</span>、<span class="math inline">\alpha</span> 或 <span class="math inline">\tan\alpha</span> 的方程。若 <span class="math inline">u</span> 已知而要求角度，令 <span class="math inline">T=\tan\alpha</span>，利用</p>
+<p><span class="math display">
+\sec^2\alpha=1+T^2
+</span></p>
+<p>把方程化为关于 <span class="math inline">T</span> 的二次方程。解出后要根据仰角范围筛选，并检查对应的飞行时间为正。</p>
+</section>
+<section id="用竖直二次方程判断到达时刻" class="level3">
+<h3 class="anchored" data-anchor-id="用竖直二次方程判断到达时刻">6.8 用竖直二次方程判断到达时刻</h3>
+<p>到达指定高度 <span class="math inline">h</span> 时，先写</p>
+<p><span class="math display">
+y_0+u\sin\alpha\,t-\frac12gt^2=h.
+</span></p>
+<p>这是关于 <span class="math inline">t</span> 的二次方程，可能有两个正根：一个对应上升过程，一个对应下降过程。题目若要求“第一次到达”，取较小的正根；若要求下降时刻，取较大的正根。</p>
+<p>计算后检查：</p>
+<ul>
+<li>时间不能为负；</li>
+<li>若题目给出水平距离，还要检查 <span class="math inline">x(t)</span> 是否满足该距离；</li>
+<li>两个根都存在时，必须结合运动方向判断物理意义。</li>
+</ul>
+</section>
+<section id="速度speed-和方向" class="level3">
+<h3 class="anchored" data-anchor-id="速度speed-和方向">6.9 速度、speed 和方向</h3>
+<p>任意时刻的 velocity 为</p>
+<p><span class="math display">
+\mathbf v=\begin{pmatrix}u\cos\alpha\\u\sin\alpha-gt\end{pmatrix}.
+</span></p>
+<p>speed 为</p>
+<p><span class="math display">
+|\mathbf v|=\sqrt{(u\cos\alpha)^2+(u\sin\alpha-gt)^2}.
+</span></p>
+<p>若速度与水平线夹角为 <span class="math inline">\beta</span>，则</p>
+<p><span class="math display">
+\tan\beta=\frac{v_y}{v_x}
+</span></p>
+<p>并根据上升或下降选择方向。若题目要求与竖直方向的角度，应交换分子和分母，而不是继续使用同一个正切式。</p>
+</section>
+<section id="碰撞和同一时刻到达" class="level3">
+<h3 class="anchored" data-anchor-id="碰撞和同一时刻到达">6.10 碰撞和同一时刻到达</h3>
+<p>若两个 projectile 或一个 projectile 与物体发生碰撞，碰撞条件是同一时刻位置相同：</p>
+<p><span class="math display">
+x_1(t)=x_2(t),
+\qquad
+y_1(t)=y_2(t).
+</span></p>
+<p>先利用水平关系求出共同的 <span class="math inline">t</span> 或约束关系，再代入竖直关系。不能分别用两个不同的时间代入同一碰撞点。</p>
+<p>如果两个物体的竖直加速度相同，比较它们的竖直位移时，<span class="math inline">-\frac12gt^2</span> 项可能相消；但初始高度和初始竖直速度仍必须保留。题目若说一个物体从较高位置向下投射，初始竖直速度应写成负值。</p>
+</section>
+<section id="用相对运动简化问题" class="level3">
+<h3 class="anchored" data-anchor-id="用相对运动简化问题">6.11 用相对运动简化问题</h3>
+<p>若两个粒子都只受相同的重力加速度，则相对加速度为零：</p>
+<p><span class="math display">
+\mathbf a_{\mathrm{relative}}=\mathbf a_1-\mathbf a_2=\mathbf0.
+</span></p>
+<p>因此相对运动是匀速运动，可以先比较初始相对位置和相对速度，判断是否可能相遇。若使用分量方程，仍需保证两个粒子的时间参数相同。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">6.12 常见失分点与答题结构</h3>
+<ul>
+<li>没有明确坐标正方向，导致 <span class="math inline">-g</span> 的符号错误；</li>
+<li>把 <span class="math inline">u\sin\alpha</span> 和 <span class="math inline">u\cos\alpha</span> 放错方向；</li>
+<li>将“moving horizontally”写成 <span class="math inline">y=0</span>；</li>
+<li>初始高度不为零时仍直接套用同高度射程公式；</li>
+<li>解高度二次方程后漏掉上升或下降的另一个时刻；</li>
+<li>碰撞题给两个物体使用不同时间；</li>
+<li>求 speed 时只使用 <span class="math inline">v_y</span>，忽略水平速度；</li>
+<li>使用轨迹方程时混淆相对坐标与绝对坐标；</li>
+<li>中途过早四舍五入，导致最终答案偏差。</li>
+</ul>
+<p>推荐按“画坐标图 → 分解初速度 → 分别写水平和竖直方程 → 翻译题目条件 → 解时间或参数 → 检查运动阶段和物理意义”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
