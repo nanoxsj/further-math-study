@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="CIE 9231 Paper 4 probability generating functions, based on John du Feu Further Probability &amp; Statistics.">
+<meta name="description" content="常用解题技巧：根与系数、对称式、幂和、倒数根与根的变换。">
 
-<title>4.5 Probability generating functions – CIE Further Mathematics 9231</title>
+<title>1.1 Common problem-solving techniques – CIE Further Mathematics 9231</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -34,7 +34,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../paper-4/non-parametric-tests.html" rel="prev">
+<link href="../paper-1/rational-functions-and-graphs.html" rel="next">
+<link href="../paper-1/roots-of-polynomial-equations.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -130,7 +131,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-4/continuous-random-variables.html">Paper 4 · Further Probability &amp; Statistics</a></li><li class="breadcrumb-item"><a href="../paper-4/probability-generating-functions.html">4.5 Probability generating functions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations-techniques.html">1.1 Common problem-solving techniques</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="展开或折叠侧边栏导航" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="搜索" onclick="window.quartoOpenSearch();">
@@ -178,7 +179,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../paper-1/roots-of-polynomial-equations-techniques.html" class="sidebar-item-text sidebar-link">
+  <a href="../paper-1/roots-of-polynomial-equations-techniques.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">1.1 Common problem-solving techniques</span></a>
   </div>
 </li>
@@ -355,7 +356,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../paper-4/probability-generating-functions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../paper-4/probability-generating-functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">4.5 Probability generating functions</span></a>
   </div>
 </li>
@@ -371,40 +372,46 @@ window.Quarto = {
     <h2 id="toc-title">该页面内容</h2>
    
   <ul>
-  <li><a href="#core-results" id="toc-core-results" class="nav-link active" data-scroll-target="#core-results">1. Core results</a></li>
-  <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
+  <li><a href="#start-with-the-right-notation" id="toc-start-with-the-right-notation" class="nav-link active" data-scroll-target="#start-with-the-right-notation">1. Start with the right notation</a></li>
+  <li><a href="#convert-the-target-expression-before-substituting" id="toc-convert-the-target-expression-before-substituting" class="nav-link" data-scroll-target="#convert-the-target-expression-before-substituting">2. Convert the target expression before substituting</a>
   <ul class="collapse">
-  <li><a href="#example-5.1" id="toc-example-5.1" class="nav-link" data-scroll-target="#example-5.1">Example 5.1</a></li>
-  <li><a href="#example-5.2" id="toc-example-5.2" class="nav-link" data-scroll-target="#example-5.2">Example 5.2</a></li>
-  <li><a href="#example-5.3" id="toc-example-5.3" class="nav-link" data-scroll-target="#example-5.3">Example 5.3</a></li>
+  <li><a href="#squares" id="toc-squares" class="nav-link" data-scroll-target="#squares">Squares</a></li>
+  <li><a href="#cubes" id="toc-cubes" class="nav-link" data-scroll-target="#cubes">Cubes</a></li>
+  <li><a href="#products-of-pairs" id="toc-products-of-pairs" class="nav-link" data-scroll-target="#products-of-pairs">Products of pairs</a></li>
+  <li><a href="#a-reliable-workflow" id="toc-a-reliable-workflow" class="nav-link" data-scroll-target="#a-reliable-workflow">A reliable workflow</a></li>
   </ul></li>
-  <li><a href="#paper-4-past-paper-questions" id="toc-paper-4-past-paper-questions" class="nav-link" data-scroll-target="#paper-4-past-paper-questions">3. Paper 4 past-paper questions</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-6" id="toc-mayjune-923141-and-923142-question-6" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-6">2021 May/June · 9231/41 and 9231/42 · Question 6</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-2" id="toc-mayjune-923141-and-923142-question-2" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-2">2022 May/June · 9231/41 and 9231/42 · Question 2</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-5" id="toc-mayjune-923141-and-923142-question-5" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-5">2023 May/June · 9231/41 and 9231/42 · Question 5</a></li>
-  <li><a href="#mayjune-923143-question-5" id="toc-mayjune-923143-question-5" class="nav-link" data-scroll-target="#mayjune-923143-question-5">2023 May/June · 9231/43 · Question 5</a></li>
-  <li><a href="#octobernovember-923142-question-2" id="toc-octobernovember-923142-question-2" class="nav-link" data-scroll-target="#octobernovember-923142-question-2">2024 October/November · 9231/42 · Question 2</a></li>
-  <li><a href="#mayjune-923143-question-3" id="toc-mayjune-923143-question-3" class="nav-link" data-scroll-target="#mayjune-923143-question-3">2022 May/June · 9231/43 · Question 3</a></li>
-  <li><a href="#octobernovember-923142-question-3" id="toc-octobernovember-923142-question-3" class="nav-link" data-scroll-target="#octobernovember-923142-question-3">2023 October/November · 9231/42 · Question 3</a></li>
-  <li><a href="#octobernovember-923141-and-923143-question-5" id="toc-octobernovember-923141-and-923143-question-5" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-5">2024 October/November · 9231/41 and 9231/43 · Question 5</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-4" id="toc-mayjune-923141-and-923142-question-4" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-4">2024 May/June · 9231/41 and 9231/42 · Question 4</a></li>
-  <li><a href="#octobernovember-923142-question-6" id="toc-octobernovember-923142-question-6" class="nav-link" data-scroll-target="#octobernovember-923142-question-6">2025 October/November · 9231/42 · Question 6</a></li>
-  <li><a href="#mayjune-923141-and-923142-question-6-1" id="toc-mayjune-923141-and-923142-question-6-1" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-6-1">2025 May/June · 9231/41 and 9231/42 · Question 6</a></li>
+  <li><a href="#use-the-polynomial-to-reduce-high-powers" id="toc-use-the-polynomial-to-reduce-high-powers" class="nav-link" data-scroll-target="#use-the-polynomial-to-reduce-high-powers">3. Use the polynomial to reduce high powers</a>
+  <ul class="collapse">
+  <li><a href="#efficient-order-of-work" id="toc-efficient-order-of-work" class="nav-link" data-scroll-target="#efficient-order-of-work">Efficient order of work</a></li>
+  </ul></li>
+  <li><a href="#handle-negative-powers-with-reciprocal-roots" id="toc-handle-negative-powers-with-reciprocal-roots" class="nav-link" data-scroll-target="#handle-negative-powers-with-reciprocal-roots">4. Handle negative powers with reciprocal roots</a>
+  <ul class="collapse">
+  <li><a href="#direct-shortcut" id="toc-direct-shortcut" class="nav-link" data-scroll-target="#direct-shortcut">Direct shortcut</a></li>
+  </ul></li>
+  <li><a href="#form-an-equation-for-transformed-roots" id="toc-form-an-equation-for-transformed-roots" class="nav-link" data-scroll-target="#form-an-equation-for-transformed-roots">5. Form an equation for transformed roots</a>
+  <ul class="collapse">
+  <li><a href="#linear-transformation-wmzc" id="toc-linear-transformation-wmzc" class="nav-link" data-scroll-target="#linear-transformation-wmzc">Linear transformation: <span class="math inline">w=mz+c</span></a></li>
+  <li><a href="#squared-roots" id="toc-squared-roots" class="nav-link" data-scroll-target="#squared-roots">Squared roots</a></li>
+  <li><a href="#reciprocal-and-shifted-reciprocal-roots" id="toc-reciprocal-and-shifted-reciprocal-roots" class="nav-link" data-scroll-target="#reciprocal-and-shifted-reciprocal-roots">Reciprocal and shifted reciprocal roots</a></li>
+  </ul></li>
+  <li><a href="#find-unknown-coefficients-efficiently" id="toc-find-unknown-coefficients-efficiently" class="nav-link" data-scroll-target="#find-unknown-coefficients-efficiently">6. Find unknown coefficients efficiently</a></li>
+  <li><a href="#common-errors-checklist" id="toc-common-errors-checklist" class="nav-link" data-scroll-target="#common-errors-checklist">7. Common errors checklist</a></li>
+  <li><a href="#exam-ready-answer-structure" id="toc-exam-ready-answer-structure" class="nav-link" data-scroll-target="#exam-ready-answer-structure">8. Exam-ready answer structure</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-4/continuous-random-variables.html">Paper 4 · Further Probability &amp; Statistics</a></li><li class="breadcrumb-item"><a href="../paper-4/probability-generating-functions.html">4.5 Probability generating functions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations.html">Paper 1 · Further Pure Mathematics 1</a></li><li class="breadcrumb-item"><a href="../paper-1/roots-of-polynomial-equations-techniques.html">1.1 Common problem-solving techniques</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">4.5 Probability generating functions</h1>
-<p class="subtitle lead">Further Probability &amp; Statistics · PGFs · expectation · variance</p>
+<h1 class="title">1.1 Common problem-solving techniques</h1>
+<p class="subtitle lead">Roots of polynomial equations</p>
 </div>
 
 <div>
   <div class="description">
-    CIE 9231 Paper 4 probability generating functions, based on John du Feu Further Probability &amp; Statistics.
+    常用解题技巧：根与系数、对称式、幂和、倒数根与根的变换。
   </div>
 </div>
 
@@ -431,388 +438,126 @@ window.Quarto = {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>This page uses the original English wording of the textbook examples and Paper 4 questions. Open <code>Show answer</code> for the textbook solution or the matching Mark Scheme working.</p>
+<p>This page is a problem-solving guide for <a href="../paper-1/roots-of-polynomial-equations.html">1.1 Roots of polynomial equations</a>. Use it together with the textbook examples and past-paper questions.</p>
 </div>
 </div>
-<section id="core-results" class="level2">
-<h2 class="anchored" data-anchor-id="core-results">1. Core results</h2>
-<p>For a discrete random variable <span class="math inline">X</span>, <span class="math display">
-G_X(t)=\operatorname{E}(t^X)=\sum_x t^x\operatorname{P}(X=x),\qquad G_X(1)=1.
-</span></p>
-<p><span class="math display">
-\operatorname{E}(X)=G_X'(1),\qquad
-\operatorname{Var}(X)=G_X''(1)+G_X'(1)-[G_X'(1)]^2.
-</span></p>
-<p>For independent <span class="math inline">X</span> and <span class="math inline">Y</span>, <span class="math inline">G_{X+Y}(t)=G_X(t)G_Y(t)</span>.</p>
+<section id="start-with-the-right-notation" class="level2">
+<h2 class="anchored" data-anchor-id="start-with-the-right-notation">1. Start with the right notation</h2>
+<p>Before calculating, write the polynomial in a standard form and identify the number of roots.</p>
+<p>For <span class="math display">az^n+bz^{n-1}+\cdots=0,</span> check the leading coefficient first. Vieta’s formulae use <strong>signed coefficients divided by the leading coefficient</strong>. If convenient, divide through by <span class="math inline">a</span> and use the monic form.</p>
+<p>For a cubic, define <span class="math display">e_1=\alpha+\beta+\gamma,\qquad e_2=\alpha\beta+\beta\gamma+\gamma\alpha,\qquad e_3=\alpha\beta\gamma.</span> Then read these values directly from the equation: <span class="math display">e_1=-\frac ba,\qquad e_2=\frac ca,\qquad e_3=-\frac da.</span></p>
+<p>For a quartic, use <span class="math display">e_1=\alpha+\beta+\gamma+\delta=-\frac ba,</span> <span class="math display">e_2=\sum\alpha\beta=\frac ca,\qquad e_3=\sum\alpha\beta\gamma=-\frac da,qquad e_4=\alpha\beta\gamma\delta=\frac ea.</span></p>
 </section>
-<section id="textbook-examples" class="level2">
-<h2 class="anchored" data-anchor-id="textbook-examples">2. Textbook Examples</h2>
-<section id="example-5.1" class="level3">
-<h3 class="anchored" data-anchor-id="example-5.1">Example 5.1</h3>
-<p>Let <span class="math inline">X</span> be the discrete random variable that denotes the score when a fair die is thrown. Find the probability generating function (PGF) for <span class="math inline">X</span>.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<span class="math display">
-\operatorname{P}(X=x)=\frac16\quad(x=1,2,3,4,5,6).
-</span> Therefore <span class="math display">
-G(t)=\operatorname{E}(t^X)=\frac16t+\frac16t^2+\frac16t^3+\frac16t^4+\frac16t^5+\frac16t^6
-=\frac{t(1-t^6)}{6(1-t)}.
-</span>
-</details>
+<section id="convert-the-target-expression-before-substituting" class="level2">
+<h2 class="anchored" data-anchor-id="convert-the-target-expression-before-substituting">2. Convert the target expression before substituting</h2>
+<p>Most symmetric-function questions become short once the target is rewritten in terms of <span class="math inline">e_1,e_2,e_3,e_4</span>.</p>
+<section id="squares" class="level3">
+<h3 class="anchored" data-anchor-id="squares">Squares</h3>
+<p>For any set of roots, <span class="math display">\sum\alpha^2=\left(\sum\alpha\right)^2-2\sum\alpha\beta.</span></p>
+<p>For a cubic this becomes <span class="math display">\alpha^2+\beta^2+\gamma^2=e_1^2-2e_2.</span></p>
 </section>
-<section id="example-5.2" class="level3">
-<h3 class="anchored" data-anchor-id="example-5.2">Example 5.2</h3>
-<p>Wei is a keen archer. He has taken part in many competitions. When aiming for the centre of the target, called the gold, he finds that he hits the gold 70% of the time. Find the PGF for <span class="math inline">X</span>, the number of gold hits in four consecutive shots at the target.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<span class="math inline">X\sim B(4,0.7)</span>, so <span class="math display">
-G(t)=\sum_{x=0}^{4}\binom4x(0.7)^x(0.3)^{4-x}t^x
-=0.3^4+4(0.3)^3(0.7)t+6(0.3)^2(0.7)^2t^2+4(0.3)(0.7)^3t^3+(0.7)^4t^4.
-</span> Hence <span class="math display">
-G(t)=(0.3+0.7t)^4.
-</span>
-</details>
+<section id="cubes" class="level3">
+<h3 class="anchored" data-anchor-id="cubes">Cubes</h3>
+<p>Use the identity <span class="math display">\sum\alpha^3=e_1^3-3e_1e_2+3e_3.</span></p>
+<p>The safest derivation is to expand <span class="math display">e_1^3=(\alpha+\beta+\gamma)^3</span> and collect the terms <span class="math inline">\alpha^3+\beta^3+\gamma^3</span>.</p>
 </section>
-<section id="example-5.3" class="level3">
-<h3 class="anchored" data-anchor-id="example-5.3">Example 5.3</h3>
-<p>A pack of playing cards contains 52 cards, with 13 cards of each of four suits (hearts, spades, diamonds and clubs). A card is selected at random from a normal pack of cards. If it is a heart, the experiment ends, otherwise it is replaced, the pack is shuffled and another card is selected. Let <span class="math inline">X</span> represent the number of cards selected up to and including the first heart. Find the PGF for <span class="math inline">X</span>.</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<span class="math inline">X\sim\operatorname{Geo}(\frac14)</span>, so <span class="math display">
-\operatorname{P}(X=x)=\frac14\left(\frac34\right)^{x-1}\quad(x=1,2,\ldots).
-</span> Thus <span class="math display">
-G(t)=\sum_{x=1}^{\infty}\frac14\left(\frac34\right)^{x-1}t^x
-=\frac14t\left[1+\frac34t+\left(\frac34t\right)^2+\cdots\right]
-=\frac{t}{4-3t}.
-</span>
-</details>
+<section id="products-of-pairs" class="level3">
+<h3 class="anchored" data-anchor-id="products-of-pairs">Products of pairs</h3>
+<p>For a cubic, <span class="math display">\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2=e_2^2-2e_1e_3.</span></p>
+<p>This is usually faster than expanding each term separately.</p>
+</section>
+<section id="a-reliable-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="a-reliable-workflow">A reliable workflow</h3>
+<ol type="1">
+<li>Write the basic symmetric values from the polynomial.</li>
+<li>Rewrite the requested expression using <span class="math inline">e_1,e_2,e_3,e_4</span>.</li>
+<li>Substitute only at the last line.</li>
+<li>Check that the final expression is unchanged if the roots are relabelled.</li>
+</ol>
+<p>If the expression contains an individual root, such as <span class="math inline">\alpha^2+\beta</span>, it is not symmetric. Do not force a symmetric-function formula onto it; use the extra information in the question.</p>
 </section>
 </section>
-<section id="paper-4-past-paper-questions" class="level2">
-<h2 class="anchored" data-anchor-id="paper-4-past-paper-questions">3. Paper 4 past-paper questions</h2>
+<section id="use-the-polynomial-to-reduce-high-powers" class="level2">
+<h2 class="anchored" data-anchor-id="use-the-polynomial-to-reduce-high-powers">3. Use the polynomial to reduce high powers</h2>
+<p>If <span class="math inline">\alpha</span> is a root of <span class="math display">z^3+pz^2+qz+r=0,</span> then <span class="math display">\alpha^3=-p\alpha^2-q\alpha-r.</span></p>
+<p>The same relation holds for <span class="math inline">\beta</span> and <span class="math inline">\gamma</span>. Adding the three equations gives <span class="math display">S_3+pS_2+qS_1+3r=0,</span> where <span class="math display">S_k=\alpha^k+\beta^k+\gamma^k.</span></p>
+<p>For <span class="math inline">n\geqslant3</span>, <span class="math display">S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}=0.</span></p>
+<p>The term <span class="math inline">3r</span> appears when <span class="math inline">n=3</span> because <span class="math inline">S_0=3</span>. This is a common place to lose a mark.</p>
+<section id="efficient-order-of-work" class="level3">
+<h3 class="anchored" data-anchor-id="efficient-order-of-work">Efficient order of work</h3>
+<p>For a cubic:</p>
+<p><span class="math display">S_0=3,\qquad S_1=-p,\qquad S_2=p^2-2q.</span></p>
+<p>Then use the recurrence successively. Do not expand <span class="math inline">\alpha^4</span>, <span class="math inline">\alpha^5</span> and so on separately; that repeats the same work three times.</p>
+<p>For a quartic <span class="math display">z^4+pz^3+qz^2+rz+s=0,</span> use <span class="math display">S_n+pS_{n-1}+qS_{n-2}+rS_{n-3}+sS_{n-4}=0\qquad(n\geqslant4),</span> with <span class="math inline">S_0=4</span>.</p>
 </section>
-<section id="mayjune-923141-and-923142-question-6" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-6">2021 May/June · 9231/41 and 9231/42 · Question 6</h2>
-<p>Tanji has a bag containing 4 red balls and 2 blue balls. He selects 3 balls at random from the bag, without replacement. The number of red balls selected by Tanji is denoted by <span class="math inline">X</span>.</p>
-<p><strong>(a)</strong> Find the probability generating function <span class="math inline">G_X(t)</span> of <span class="math inline">X</span>. [2]</p>
-<p>Tanji also has two coins, each biased so that the probability of obtaining a head when it is thrown is <span class="math inline">\frac14</span>. He throws the two coins at the same time. The number of heads obtained is denoted by <span class="math inline">Y</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function <span class="math inline">G_Y(t)</span> of <span class="math inline">Y</span>. [2]</p>
-<p>The random variable <span class="math inline">Z</span> is the sum of the number of red balls selected by Tanji and the number of heads obtained.</p>
-<p><strong>(c)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial. [3]</p>
-<p><strong>(d)</strong> Use the probability generating function of <span class="math inline">Z</span> to find <span class="math inline">\operatorname{E}(Z)</span> and <span class="math inline">\operatorname{Var}(Z)</span>. [5]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> <span class="math display">
-\operatorname{P}(X=1)=\frac15,\quad \operatorname{P}(X=2)=\frac35,\quad \operatorname{P}(X=3)=\frac15,
-</span> so <span class="math display">
-G_X(t)=\frac15t+\frac35t^2+\frac15t^3.
-</span></p>
-<p><strong>(b)</strong> <span class="math display">
-\operatorname{P}(Y=0)=\frac9{16},\quad \operatorname{P}(Y=1)=\frac6{16},\quad \operatorname{P}(Y=2)=\frac1{16},
-</span> so <span class="math display">
-G_Y(t)=\frac9{16}+\frac6{16}t+\frac1{16}t^2.
-</span></p>
-<p><strong>(c)</strong> <span class="math display">
-G_Z(t)=G_X(t)G_Y(t)=\frac9{80}t+\frac{33}{80}t^2+\frac{28}{80}t^3+\frac9{80}t^4+\frac1{80}t^5.
-</span></p>
-<strong>(d)</strong> <span class="math display">
-G_Z'(1)=\frac1{80}(9+66+84+36+5)=2.5,
-</span> <span class="math display">
-G_Z''(1)=\frac1{80}(66+168+108+20)=4.525.
-</span> Therefore <span class="math display">
-\operatorname{E}(Z)=2.5,
-</span> <span class="math display">
-\operatorname{Var}(Z)=G_Z''(1)+G_Z'(1)-[G_Z'(1)]^2
-=4.525+2.5-2.5^2=0.775=\frac{31}{40}.
-</span>
-</details>
 </section>
-<section id="mayjune-923141-and-923142-question-2" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-2">2022 May/June · 9231/41 and 9231/42 · Question 2</h2>
-<p>The probability generating function, <span class="math inline">G_Y(t)</span>, of the random variable <span class="math inline">Y</span> is given by <span class="math display">
-G_Y(t)=0.04+0.2t+0.37t^2+0.3t^3+0.09t^4.
-</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\operatorname{Var}(Y)</span>. [4]</p>
-<p>The random variable <span class="math inline">Y</span> is the sum of two independent observations of the random variable <span class="math inline">X</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">X</span>, giving your answer as a polynomial in <span class="math inline">t</span>. [3]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> <span class="math display">
-G_Y'(t)=0.2+0.74t+0.9t^2+0.36t^3,
-</span> <span class="math display">
-G_Y''(t)=0.74+1.8t+1.08t^2.
-</span> Hence <span class="math inline">G_Y'(1)=2.2</span> and <span class="math inline">G_Y''(1)=3.62</span>, so <span class="math display">
-\operatorname{Var}(Y)=3.62+2.2-2.2^2=0.98.
-</span></p>
-<strong>(b)</strong> Since <span class="math inline">G_Y(t)=[G_X(t)]^2</span>, comparing coefficients gives <span class="math display">
-G_X(t)=0.2+0.5t+0.3t^2.
-</span>
-</details>
+<section id="handle-negative-powers-with-reciprocal-roots" class="level2">
+<h2 class="anchored" data-anchor-id="handle-negative-powers-with-reciprocal-roots">4. Handle negative powers with reciprocal roots</h2>
+<p>If the constant term is non-zero, no root is zero. Set <span class="math display">w=\frac1z.</span></p>
+<p>For <span class="math display">az^3+bz^2+cz+d=0,</span> substitute <span class="math inline">z=1/w</span> and multiply by <span class="math inline">w^3</span>: <span class="math display">d w^3+c w^2+bw+a=0.</span></p>
+<p>The coefficients are reversed. The roots of this new equation are <span class="math display">\frac1\alpha,\quad\frac1\beta,\quad\frac1\gamma.</span></p>
+<p>This converts <span class="math display">\alpha^{-1}+\beta^{-1}+\gamma^{-1}</span> into an ordinary sum of roots of the reciprocal equation. It also converts negative power sums into the positive power sums of the reciprocal roots.</p>
+<section id="direct-shortcut" class="level3">
+<h3 class="anchored" data-anchor-id="direct-shortcut">Direct shortcut</h3>
+<p>For a cubic, <span class="math display">\sum\frac1\alpha=\frac{e_2}{e_3},\qquad
+\sum\frac1{\alpha\beta}=\frac{e_1}{e_3},\qquad
+\frac1{\alpha\beta\gamma}=\frac1{e_3}.</span></p>
+<p>Use the reciprocal equation when the question asks for several negative powers; use the shortcut when only one low-power expression is required.</p>
 </section>
-<section id="mayjune-923141-and-923142-question-5" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-5">2023 May/June · 9231/41 and 9231/42 · Question 5</h2>
-<p>Harry has three coins.</p>
+</section>
+<section id="form-an-equation-for-transformed-roots" class="level2">
+<h2 class="anchored" data-anchor-id="form-an-equation-for-transformed-roots">5. Form an equation for transformed roots</h2>
+<p>The first decision is whether the new roots are a simple linear transformation or a nonlinear transformation.</p>
+<section id="linear-transformation-wmzc" class="level3">
+<h3 class="anchored" data-anchor-id="linear-transformation-wmzc">Linear transformation: <span class="math inline">w=mz+c</span></h3>
+<p>Substitute <span class="math display">z=\frac{w-c}{m}</span> into the original equation and multiply through by the required power of <span class="math inline">m</span> to remove fractions.</p>
+<p>For example, if the old equation is <span class="math inline">P(z)=0</span> and the new roots are <span class="math inline">m\alpha+c</span>, <span class="math inline">m\beta+c</span>, use <span class="math display">P\left(\frac{w-c}{m}\right)=0.</span></p>
+<p>This method is usually faster and less error-prone than calculating all new symmetric functions.</p>
+</section>
+<section id="squared-roots" class="level3">
+<h3 class="anchored" data-anchor-id="squared-roots">Squared roots</h3>
+<p>If the new roots are <span class="math inline">\alpha^2,\beta^2,\gamma^2</span>, let <span class="math inline">w=z^2</span>. Use the original equation to eliminate odd powers or calculate <span class="math display">\alpha^2+\beta^2+\gamma^2=e_1^2-2e_2,</span> <span class="math display">\alpha^2\beta^2+\beta^2\gamma^2+\gamma^2\alpha^2=e_2^2-2e_1e_3,</span> <span class="math display">\alpha^2\beta^2\gamma^2=e_3^2.</span></p>
+<p>The required cubic is therefore <span class="math display">w^3-(\sum\alpha^2)w^2+(\sum\alpha^2\beta^2)w-\alpha^2\beta^2\gamma^2=0.</span></p>
+</section>
+<section id="reciprocal-and-shifted-reciprocal-roots" class="level3">
+<h3 class="anchored" data-anchor-id="reciprocal-and-shifted-reciprocal-roots">Reciprocal and shifted reciprocal roots</h3>
+<p>For roots such as <span class="math inline">1/\alpha+c</span>, first form the reciprocal-root equation, then apply the linear transformation <span class="math inline">w=u+c</span>. Separating the two steps prevents sign and coefficient-order errors.</p>
+</section>
+</section>
+<section id="find-unknown-coefficients-efficiently" class="level2">
+<h2 class="anchored" data-anchor-id="find-unknown-coefficients-efficiently">6. Find unknown coefficients efficiently</h2>
+<p>When an equation contains an unknown coefficient, use every independent piece of information in this order:</p>
+<ol type="1">
+<li>Use the given root to substitute into the polynomial.</li>
+<li>Use a sum or product of roots with Vieta’s formulae.</li>
+<li>Use a repeated-root condition only if the question states or implies a repeated root.</li>
+<li>Solve the resulting simultaneous equations and substitute back into the original equation.</li>
+</ol>
+<p>If one root is known, factor out the corresponding linear factor. For a monic cubic with root <span class="math inline">r</span>, <span class="math display">P(z)=(z-r)(z^2+uz+v).</span> Comparing coefficients is often quicker than solving a full cubic.</p>
+</section>
+<section id="common-errors-checklist" class="level2">
+<h2 class="anchored" data-anchor-id="common-errors-checklist">7. Common errors checklist</h2>
 <ul>
-<li>One coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\frac13</span>.</li>
-<li>The second coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\frac14</span>.</li>
-<li>The third coin is biased so that, when it is thrown, the probability of obtaining a head is <span class="math inline">\frac15</span>.</li>
+<li>Check the alternating sign pattern: <span class="math inline">-,+,-,+</span> for the basic symmetric functions.</li>
+<li>Do not forget to divide by the leading coefficient.</li>
+<li>In a power-sum recurrence, remember <span class="math inline">S_0</span> equals the number of roots.</li>
+<li>Combine terms only after expanding; do not confuse <span class="math inline">\sum\alpha\beta</span> with <span class="math inline">(\sum\alpha)(\sum\beta)</span>.</li>
+<li>For reciprocal roots, confirm the constant term is non-zero.</li>
+<li>After forming a new equation, check its leading coefficient, sum of roots and product of roots.</li>
+<li>Keep the variable names clear: <span class="math inline">z</span> for an old root and <span class="math inline">w</span> for a transformed root.</li>
 </ul>
-<p>The random variable <span class="math inline">X</span> is the number of heads that Harry obtains when he throws all three coins together.</p>
-<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">X</span>. [3]</p>
-<p>Isaac has two fair coins. The random variable <span class="math inline">Y</span> is the number of heads that Isaac obtains when he throws both of his coins together. The random variable <span class="math inline">Z</span> is the total number of heads obtained when Harry throws his three coins and Isaac throws his two coins.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial in <span class="math inline">t</span>. [4]</p>
-<p><strong>(c)</strong> Use the probability generating function of <span class="math inline">Z</span> to find <span class="math inline">\operatorname{E}(Z)</span>. [2]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> <span class="math display">
-G_X(t)=\left(\frac23+\frac13t\right)\left(\frac34+\frac14t\right)\left(\frac45+\frac15t\right)
-=\frac{24}{60}+\frac{26}{60}t+\frac9{60}t^2+\frac1{60}t^3.
-</span></p>
-<p><strong>(b)</strong> <span class="math display">
-G_Y(t)=\frac14+\frac12t+\frac14t^2,
-</span> so <span class="math display">
-G_Z(t)=G_X(t)G_Y(t)
-=\frac1{240}\left(24+74t+85t^2+45t^3+11t^4+t^5\right).
-</span></p>
-<strong>(c)</strong> <span class="math display">
-G_Z'(t)=\frac1{240}(74+170t+135t^2+44t^3+5t^4),
-</span> therefore <span class="math display">
-\operatorname{E}(Z)=G_Z'(1)=\frac{428}{240}=\frac{107}{60}=1.78.
-</span>
-</details>
 </section>
-<section id="mayjune-923143-question-5" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923143-question-5">2023 May/June · 9231/43 · Question 5</h2>
-<p>The random variable <span class="math inline">X</span> has probability generating function <span class="math inline">G_X(t)</span> given by <span class="math display">
-G_X(t)=k(1+3t+4t^2),
-</span> where <span class="math inline">k</span> is a constant.</p>
-<p><strong>(a)</strong> Show that <span class="math inline">\operatorname{E}(X)=\frac{11}{8}</span>. [3]</p>
-<p>The random variable <span class="math inline">Y</span> has probability generating function <span class="math inline">G_Y(t)</span> given by <span class="math display">
-G_Y(t)=\frac13t^2(1+2t).
-</span> The random variables <span class="math inline">X</span> and <span class="math inline">Y</span> are independent and <span class="math inline">Z=X+Y</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial in <span class="math inline">t</span>. [2]</p>
-<p><strong>(c)</strong> Use your answer to part (b) to find the value of <span class="math inline">\operatorname{Var}(Z)</span>. [3]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> Since <span class="math inline">G_X(1)=1</span>, <span class="math inline">8k=1</span>, so <span class="math inline">k=\frac18</span>. Hence <span class="math display">
-G_X'(t)=\frac18(3+8t),\qquad \operatorname{E}(X)=G_X'(1)=\frac{11}{8}.
-</span></p>
-<p><strong>(b)</strong> <span class="math display">
-G_Z(t)=G_X(t)G_Y(t)=\frac1{24}(t^2+5t^3+10t^4+8t^5).
-</span></p>
-<strong>(c)</strong> <span class="math display">
-G_Z'(t)=\frac1{24}(2t+15t^2+40t^3+40t^4),
-</span> <span class="math display">
-G_Z''(t)=\frac1{24}(2+30t+120t^2+160t^3).
-</span> Therefore <span class="math display">
-\operatorname{Var}(Z)=G_Z''(1)+G_Z'(1)-[G_Z'(1)]^2=0.707=\frac{407}{576}.
-</span>
-</details>
-</section>
-<section id="octobernovember-923142-question-2" class="level2">
-<h2 class="anchored" data-anchor-id="octobernovember-923142-question-2">2024 October/November · 9231/42 · Question 2</h2>
-<p>The random variable <span class="math inline">X</span> has probability generating function <span class="math inline">G_X(t)</span> given by <span class="math display">
-G_X(t)=\frac15+pt+qt^2,
-</span> where <span class="math inline">p</span> and <span class="math inline">q</span> are constants.</p>
-<p><strong>(a)</strong> Given that <span class="math inline">\operatorname{E}(X)=1.1</span>, find the numerical value of <span class="math inline">\operatorname{Var}(X)</span>. [4]</p>
-<p>The random variable <span class="math inline">Y</span> has probability generating function <span class="math inline">G_Y(t)</span> given by <span class="math display">
-G_Y(t)=\frac23t\left(1+\frac12t^2\right).
-</span> The random variable <span class="math inline">Z</span> is the sum of independent observations of <span class="math inline">X</span> and <span class="math inline">Y</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>. [2]</p>
-<p><strong>(c)</strong> Find <span class="math inline">\operatorname{P}(Z=2)</span>. [1]</p>
-<p><strong>(d)</strong> Find the mode of <span class="math inline">Z</span>. [1]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> <span class="math display">
-G_X'(t)=p+2qt,\qquad p+2q=1.1,
-</span> and <span class="math inline">p+q=\frac45</span>. Thus <span class="math inline">p=\frac12</span>, <span class="math inline">q=\frac3{10}</span>, and <span class="math display">
-G_X''(t)=2q=\frac35.
-</span> Therefore <span class="math display">
-\operatorname{Var}(X)=\frac35+1.1-1.1^2=0.49.
-</span></p>
-<p><strong>(b)</strong> <span class="math display">
-G_Z(t)=\left(\frac15+\frac12t+\frac3{10}t^2\right)\frac23t\left(1+\frac12t^2\right)
-=\frac1{30}(4t+10t^2+8t^3+5t^4+3t^5).
-</span></p>
-<p><strong>(c)</strong> <span class="math inline">\operatorname{P}(Z=2)=\frac{10}{30}=\frac13</span>.</p>
-<strong>(d)</strong> The mode is <span class="math inline">2</span>.
-</details>
-</section>
-<section id="mayjune-923143-question-3" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923143-question-3">2022 May/June · 9231/43 · Question 3</h2>
-<p>George throws two coins, A and B, at the same time. Coin A is biased so that the probability of obtaining a head is <span class="math inline">a</span>. Coin B is biased so that the probability of obtaining a head is <span class="math inline">b</span>, where <span class="math inline">b&lt; a</span>. The probability generating function of <span class="math inline">X</span>, the number of heads obtained by George, is <span class="math inline">G_X(t)</span>. The coefficients of <span class="math inline">t</span> and <span class="math inline">t^2</span> in <span class="math inline">G_X(t)</span> are <span class="math inline">\frac5{12}</span> and <span class="math inline">\frac1{12}</span> respectively.</p>
-<p><strong>(a)</strong> Find the value of <span class="math inline">a</span>. [2]</p>
-<p>The random variable <span class="math inline">Y</span> is the sum of two independent observations of <span class="math inline">X</span>.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Y</span>, giving your answer as a polynomial in <span class="math inline">t</span>. [3]</p>
-<p><strong>(c)</strong> Find <span class="math inline">\operatorname{Var}(Y)</span>. [3]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> <span class="math inline">ab=\frac1{12}</span> and <span class="math inline">a(1-b)+(1-a)b=\frac5{12}</span>, giving <span class="math display">
-a=\frac13\qquad\left(b=\frac14\right).
-</span></p>
-<p><strong>(b)</strong> <span class="math display">
-G_X(t)=\frac6{12}+\frac5{12}t+\frac1{12}t^2,
-</span> so <span class="math display">
-G_Y(t)=\frac1{144}(36+60t+37t^2+10t^3+t^4).
-</span></p>
-<strong>(c)</strong> <span class="math display">
-G_Y'(t)=\frac1{144}(60+74t+30t^2+4t^3),
-</span> <span class="math display">
-G_Y''(t)=\frac1{144}(74+60t+12t^2).
-</span> Thus <span class="math display">
-\operatorname{Var}(Y)=G_Y''(1)+G_Y'(1)-[G_Y'(1)]^2=\frac{59}{72}=0.819.
-</span>
-</details>
-</section>
-<section id="octobernovember-923142-question-3" class="level2">
-<h2 class="anchored" data-anchor-id="octobernovember-923142-question-3">2023 October/November · 9231/42 · Question 3</h2>
-<p>Toby has a bag which contains 6 red marbles and 3 green marbles. He randomly chooses 3 marbles from the bag, without replacement. The random variable <span class="math inline">X</span> is the number of red marbles that Toby obtains.</p>
-<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">X</span>. [3]</p>
-<p>Ling also has a bag which contains 6 red marbles and 3 green marbles. He randomly chooses 2 marbles from his bag, without replacement. The random variable <span class="math inline">Y</span> is the number of red marbles that Ling obtains. It is given that the probability generating function of <span class="math inline">Y</span> is <span class="math inline">\frac1{12}(1+6t+5t^2)</span>. The random variable <span class="math inline">Z</span> is the total number of red marbles that Toby and Ling obtain.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial in <span class="math inline">t</span>. [3]</p>
-<p><strong>(c)</strong> Use the probability generating function of <span class="math inline">Z</span> to find <span class="math inline">\operatorname{Var}(Z)</span>. [4]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> <span class="math display">
-G_X(t)=\frac1{504}(6+108t+270t^2+120t^3)
-=\frac1{84}(1+18t+45t^2+20t^3).
-</span></p>
-<p><strong>(b)</strong> <span class="math display">
-G_Z(t)=\frac1{1008}(1+24t+158t^2+380t^3+345t^4+100t^5).
-</span></p>
-<strong>(c)</strong> <span class="math display">
-G_Z'(t)=\frac1{1008}(24+316t+1140t^2+1380t^3+500t^4),
-</span> <span class="math display">
-G_Z''(t)=\frac1{1008}(316+2280t+4140t^2+2000t^3).
-</span> Hence <span class="math inline">\operatorname{E}(Z)=\frac{10}{3}</span> and <span class="math display">
-\operatorname{Var}(Z)=\frac{8}{9}=0.889.
-</span>
-</details>
-</section>
-<section id="octobernovember-923141-and-923143-question-5" class="level2">
-<h2 class="anchored" data-anchor-id="octobernovember-923141-and-923143-question-5">2024 October/November · 9231/41 and 9231/43 · Question 5</h2>
-<p>Nikita has three coins. One coin is fair, one coin is biased so that the probability of obtaining a head is <span class="math inline">\frac13</span> and the third coin is biased so that the probability of obtaining a head is <span class="math inline">\frac15</span>. The random variable <span class="math inline">X</span> is the number of heads that Nikita obtains when he throws all three coins at the same time.</p>
-<p><strong>(a)</strong> Find the probability generating function of <span class="math inline">X</span>. [3]</p>
-<p>Rajesh has two fair six-sided dice with faces labelled 1, 2, 3, 4, 5, 6. The random variable <span class="math inline">Y</span> is the number of 4s that Rajesh obtains when he throws the two dice. The random variable <span class="math inline">Z</span> is the sum of the number of heads obtained by Nikita and the number of 4s obtained by Rajesh.</p>
-<p><strong>(b)</strong> Find the probability generating function of <span class="math inline">Z</span>, expressing your answer as a polynomial. [4]</p>
-<p><strong>(c)</strong> Find <span class="math inline">\operatorname{E}(Z)</span>. [2]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> <span class="math display">
-G_X(t)=\frac8{30}+\frac{14}{30}t+\frac7{30}t^2+\frac1{30}t^3.
-</span></p>
-<p><strong>(b)</strong> Since <span class="math display">
-G_Y(t)=\frac{25}{36}+\frac{10}{36}t+\frac1{36}t^2,
-</span> <span class="math display">
-G_Z(t)=\frac1{1080}(200+430t+323t^2+109t^3+17t^4+t^5).
-</span></p>
-<strong>(c)</strong> <span class="math display">
-\operatorname{E}(Z)=G_Z'(1)=\frac{430+646+327+68+5}{1080}=\frac{41}{30}=1.37.
-</span>
-</details>
-</section>
-<section id="mayjune-923141-and-923142-question-4" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-4">2024 May/June · 9231/41 and 9231/42 · Question 4</h2>
-<p>The random variable <span class="math inline">Y</span> is the sum of two independent observations of the random variable <span class="math inline">X</span>. The probability generating function <span class="math inline">G_Y(t)</span> of <span class="math inline">Y</span> is given by <span class="math display">
-G_Y(t)=\frac{t^2}{(4-3t)^4}.
-</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\operatorname{E}(Y)</span>. [3]</p>
-<p><strong>(b)</strong> Write down an expression for the probability generating function of <span class="math inline">X</span>. [1]</p>
-<p><strong>(c)</strong> Find <span class="math inline">\operatorname{P}(X=4)</span>. [3]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> <span class="math display">
-G_Y'(t)=\frac{2t(4-3t)+12t^2}{(4-3t)^5},
-</span> so <span class="math display">
-\operatorname{E}(Y)=G_Y'(1)=14.
-</span></p>
-<p><strong>(b)</strong> <span class="math display">
-G_X(t)=\frac{t}{(4-3t)^2}.
-</span></p>
-<strong>(c)</strong> <span class="math display">
-G_X(t)=\frac{t}{16}\left(1-\frac34t\right)^{-2}.
-</span> The coefficient of <span class="math inline">t^4</span> is <span class="math display">
-\operatorname{P}(X=4)=\frac{81}{1024}.
-</span>
-</details>
-</section>
-<section id="octobernovember-923142-question-6" class="level2">
-<h2 class="anchored" data-anchor-id="octobernovember-923142-question-6">2025 October/November · 9231/42 · Question 6</h2>
-<p>The discrete random variable <span class="math inline">X</span> has probability generating function <span class="math inline">G_X(t)</span> given by <span class="math display">
-G_X(t)=\frac{t}{(3-2t)^2}.
-</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">\operatorname{E}(X)</span> and <span class="math inline">\operatorname{Var}(X)</span>. [5]</p>
-<p>The discrete random variable <span class="math inline">Y</span> has probability generating function <span class="math inline">G_Y(t)</span> given by <span class="math display">
-G_Y(t)=\frac{t^2}{(3-2t)^2}.
-</span> The random variable <span class="math inline">Z</span> is the sum of the random variables <span class="math inline">X</span> and <span class="math inline">Y</span>.</p>
-<p><strong>(b)</strong> Assuming <span class="math inline">X</span> and <span class="math inline">Y</span> are independent, find <span class="math inline">\operatorname{P}(Z&gt;4)</span>. [5]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> Differentiation gives <span class="math inline">G_X'(1)=5</span> and <span class="math inline">G_X''(1)=32</span>. Hence <span class="math display">
-\operatorname{E}(X)=5,
-</span> <span class="math display">
-\operatorname{Var}(X)=32+5-25=12.
-</span></p>
-<strong>(b)</strong> <span class="math display">
-G_Z(t)=G_X(t)G_Y(t)=\frac{t^3}{(3-2t)^4}.
-</span> From its expansion, <span class="math display">
-\operatorname{P}(Z=3)=\frac1{81},\qquad \operatorname{P}(Z=4)=\frac8{243}.
-</span> Therefore <span class="math display">
-\operatorname{P}(Z&gt;4)=1-\frac1{81}-\frac8{243}=\frac{232}{243}.
-</span>
-</details>
-</section>
-<section id="mayjune-923141-and-923142-question-6-1" class="level2">
-<h2 class="anchored" data-anchor-id="mayjune-923141-and-923142-question-6-1">2025 May/June · 9231/41 and 9231/42 · Question 6</h2>
-<p><span class="math inline">Y</span> is a discrete random variable which takes the values <span class="math inline">0,2,4,\ldots</span>. The probability generating function of <span class="math inline">Y</span> is given by <span class="math display">
-G_Y(t)=\frac{k}{1-at^2}.
-</span></p>
-<p><strong>(a)</strong> Find <span class="math inline">k</span> in terms of <span class="math inline">a</span>. [1]</p>
-<p><strong>(b)</strong> Show that <span class="math inline">\operatorname{P}(Y&gt;2)=a^2</span>. [3]</p>
-<p><strong>(c)</strong> When <span class="math inline">a=0.2</span>, find <span class="math inline">\operatorname{E}(Y)</span>. [2]</p>
-<details class="answer-panel">
-<summary>
-Show answer
-</summary>
-<p><strong>(a)</strong> Since <span class="math inline">G_Y(1)=1</span>, <span class="math display">
-k=1-a.
-</span></p>
-<p><strong>(b)</strong> <span class="math display">
-\operatorname{P}(Y&gt;2)=1-k(1+a)
-=1-(1-a)(1+a)=a^2.
-</span></p>
-<strong>(c)</strong> <span class="math display">
-G_Y'(t)=\frac{0.32t}{(1-0.2t^2)^2},
-</span> so <span class="math display">
-\operatorname{E}(Y)=G_Y'(1)=\frac{0.32}{(1-0.2)^2}=0.5.
-</span>
-</details>
+<section id="exam-ready-answer-structure" class="level2">
+<h2 class="anchored" data-anchor-id="exam-ready-answer-structure">8. Exam-ready answer structure</h2>
+<p>For a calculation question, a clear answer normally follows this order:</p>
+<ol type="1">
+<li>State the relevant Vieta values.</li>
+<li>State the identity, recurrence or substitution being used.</li>
+<li>Show the substitution and the main algebraic step.</li>
+<li>Give the exact answer first, followed by a decimal only when requested.</li>
+<li>For a new equation, state that its roots are exactly the transformed roots and write the equation in a standard form.</li>
+</ol>
+<p>This structure makes the method visible and matches the mark-by-mark style used in Cambridge mark schemes.</p>
 
 
 </section>
@@ -1241,11 +986,14 @@ document.addEventListener("DOMContentLoaded", () => {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../paper-4/non-parametric-tests.html" class="pagination-link" aria-label="4.4 Non-parametric tests">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4.4 Non-parametric tests</span>
+      <a href="../paper-1/roots-of-polynomial-equations.html" class="pagination-link" aria-label="1.1 Roots of polynomial equations">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1.1 Roots of polynomial equations</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../paper-1/rational-functions-and-graphs.html" class="pagination-link" aria-label="1.2 Rational functions and graphs">
+        <span class="nav-page-text">1.2 Rational functions and graphs</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
