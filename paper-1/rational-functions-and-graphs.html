@@ -433,6 +433,18 @@ window.Quarto = {
   <li><a href="#octobernovember-923114-question-7-16-marks" id="toc-octobernovember-923114-question-7-16-marks" class="nav-link" data-scroll-target="#octobernovember-923114-question-7-16-marks">2025 October/November · 9231/14 · Question 7 · 16 marks</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">5. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#有理函数草图固定使用五步法" id="toc-有理函数草图固定使用五步法" class="nav-link" data-scroll-target="#有理函数草图固定使用五步法">5.1 有理函数草图：固定使用五步法</a></li>
+  <li><a href="#渐近线的快速判断" id="toc-渐近线的快速判断" class="nav-link" data-scroll-target="#渐近线的快速判断">5.2 渐近线的快速判断</a></li>
+  <li><a href="#交点驻点和符号表" id="toc-交点驻点和符号表" class="nav-link" data-scroll-target="#交点驻点和符号表">5.3 交点、驻点和符号表</a></li>
+  <li><a href="#用判别式求值域" id="toc-用判别式求值域" class="nav-link" data-scroll-target="#用判别式求值域">5.4 用判别式求值域</a></li>
+  <li><a href="#对称性先于计算" id="toc-对称性先于计算" class="nav-link" data-scroll-target="#对称性先于计算">5.5 对称性先于计算</a></li>
+  <li><a href="#四类图像变换的记忆法" id="toc-四类图像变换的记忆法" class="nav-link" data-scroll-target="#四类图像变换的记忆法">5.6 四类图像变换的记忆法</a></li>
+  <li><a href="#图像解方程与不等式" id="toc-图像解方程与不等式" class="nav-link" data-scroll-target="#图像解方程与不等式">5.7 图像解方程与不等式</a></li>
+  <li><a href="#常见失分点" id="toc-常见失分点" class="nav-link" data-scroll-target="#常见失分点">5.8 常见失分点</a></li>
+  <li><a href="#考试答题顺序" id="toc-考试答题顺序" class="nav-link" data-scroll-target="#考试答题顺序">5.9 考试答题顺序</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2927,8 +2939,161 @@ Normalising a to 1 preserves the required shape and relative positions.
 <li>从 <span class="math inline">y=f(x)</span> 准确得到 <span class="math inline">|f(x)|</span>、<span class="math inline">f(|x|)</span>、<span class="math inline">1/f(x)</span> 与 <span class="math inline">y^2=f(x)</span>；</li>
 <li>使用图像求方程解的个数和不等式的精确解集。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">5. 常用解题技巧</h2>
+<p>下面的技巧对应本章教材 Example 4.1–4.6、Cambridge exercise 和真题中的主要问法。</p>
+<section id="有理函数草图固定使用五步法" class="level3">
+<h3 class="anchored" data-anchor-id="有理函数草图固定使用五步法">5.1 有理函数草图：固定使用五步法</h3>
+<p>对 <span class="math display">y=\frac{f(x)}{g(x)}</span> 作图时，按以下顺序写草稿：</p>
+<ol type="1">
+<li>求 <span class="math inline">x</span> 轴和 <span class="math inline">y</span> 轴交点；</li>
+<li>求竖直渐近线，并做符号表判断左右两侧趋向；</li>
+<li>用最高次项或多项式除法求水平/斜渐近线；</li>
+<li>求驻点并判断极大、极小或拐向；</li>
+<li>综合对称性、交点和渐近行为，分支逐段完成。</li>
+</ol>
+<p>不要一开始凭直觉画曲线。先写出这些关键特征，草图才不容易漏掉分支或画错趋向。</p>
+</section>
+<section id="渐近线的快速判断" class="level3">
+<h3 class="anchored" data-anchor-id="渐近线的快速判断">5.2 渐近线的快速判断</h3>
+<section id="竖直渐近线" class="level4">
+<h4 class="anchored" data-anchor-id="竖直渐近线">竖直渐近线</h4>
+<p>先解 <span class="math inline">g(x)=0</span>，再检查分子是否同时为零。</p>
+<ul>
+<li>若 <span class="math inline">g(a)=0</span> 且 <span class="math inline">f(a)\ne0</span>，通常有竖直渐近线 <span class="math inline">x=a</span>；</li>
+<li>若分子分母有公因式，先约分，再区分“渐近线”和“可去间断点”；</li>
+<li>若需要判断方向，分别取 <span class="math inline">x\to a^-</span> 和 <span class="math inline">x\to a^+</span> 的符号。</li>
+</ul>
+<p>例如 <span class="math display">y=\frac{x+1}{x-2}</span> 在 <span class="math inline">x=2</span> 处分母为零而分子不为零，所以 <span class="math inline">x=2</span> 是竖直渐近线。</p>
+</section>
+<section id="水平渐近线" class="level4">
+<h4 class="anchored" data-anchor-id="水平渐近线">水平渐近线</h4>
+<p>比较分子、分母次数：</p>
+<ul>
+<li>分子次数小于分母次数：<span class="math inline">y=0</span>；</li>
+<li>次数相同：水平渐近线是最高次项系数之比；</li>
+<li>分子次数比分母高 1：通常是斜渐近线；</li>
+<li>分子次数高出超过 1：先做多项式除法，得到多项式渐近线。</li>
+</ul>
+</section>
+<section id="斜渐近线" class="level4">
+<h4 class="anchored" data-anchor-id="斜渐近线">斜渐近线</h4>
+<p>一定先做除法。例如 <span class="math display">\frac{x^2+1}{x-1}=x+1+\frac2{x-1},</span> 所以斜渐近线为 <span class="math display">y=x+1.</span></p>
+<p>余项决定曲线从哪一侧接近渐近线：当 <span class="math inline">x</span> 很大时，只需判断 <span class="math inline">\dfrac2{x-1}</span> 的正负。</p>
+</section>
+</section>
+<section id="交点驻点和符号表" class="level3">
+<h3 class="anchored" data-anchor-id="交点驻点和符号表">5.3 交点、驻点和符号表</h3>
+<p>求交点时不要混淆分子和分母：</p>
+<ul>
+<li><span class="math inline">x</span> 轴交点：令 <span class="math inline">y=0</span>，即令分子为零，同时确认该点不使分母为零；</li>
+<li><span class="math inline">y</span> 轴交点：令 <span class="math inline">x=0</span>，前提是函数在 <span class="math inline">x=0</span> 有定义。</li>
+</ul>
+<p>驻点使用 <span class="math display">y'=\frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2}.</span> 由于分母平方为正，定义域内解 <span class="math inline">y'=0</span> 时只需解分子方程，但最后仍要检查候选点是否在定义域内。</p>
+<p>在每条竖直渐近线、每个零点和每个驻点处标记数轴，再做符号表。这样可以同时判断：</p>
+<ul>
+<li><span class="math inline">y</span> 的正负；</li>
+<li>曲线是上升还是下降；</li>
+<li>两侧是趋向 <span class="math inline">+\infty</span> 还是 <span class="math inline">-\infty</span>。</li>
+</ul>
+</section>
+<section id="用判别式求值域" class="level3">
+<h3 class="anchored" data-anchor-id="用判别式求值域">5.4 用判别式求值域</h3>
+<p>这是本章最稳定的值域方法。给定 <span class="math inline">y=k</span>，把 <span class="math display">k=\frac{f(x)}{g(x)}</span> 整理成关于 <span class="math inline">x</span> 的二次方程 <span class="math display">Ax^2+Bx+C=0.</span></p>
+<p>为了存在实数 <span class="math inline">x</span>，必须有 <span class="math display">\Delta=B^2-4AC\ge0.</span></p>
+<p>因此：</p>
+<ol type="1">
+<li>先把 <span class="math inline">\Delta</span> 化成关于 <span class="math inline">k</span> 的不等式；</li>
+<li>解出允许的 <span class="math inline">k</span> 区间；</li>
+<li>检查端点是否真的能取到；</li>
+<li>检查整理时是否引入了不在定义域内的值。</li>
+</ol>
+<p>如果题目问“<span class="math inline">f(x)=k</span> has no real solutions”，条件应取 <span class="math display">\Delta&lt;0,</span> 而不是 <span class="math inline">\Delta\le0</span>。当 <span class="math inline">\Delta=0</span> 时通常正好对应曲线的驻点，仍有一个实数解。</p>
+</section>
+<section id="对称性先于计算" class="level3">
+<h3 class="anchored" data-anchor-id="对称性先于计算">5.5 对称性先于计算</h3>
+<p>计算前检查 <span class="math display">f(-x)=f(x)</span> 或 <span class="math display">f(-x)=-f(x).</span></p>
+<p>前者说明关于 <span class="math inline">y</span> 轴对称，后者说明关于原点对称。对称性可以：</p>
+<ul>
+<li>只计算一半的交点和驻点；</li>
+<li>检查草图是否画对；</li>
+<li>快速判断值域是否需要包含正负两个部分。</li>
+</ul>
+</section>
+<section id="四类图像变换的记忆法" class="level3">
+<h3 class="anchored" data-anchor-id="四类图像变换的记忆法">5.6 四类图像变换的记忆法</h3>
+<section id="yfx" class="level4">
+<h4 class="anchored" data-anchor-id="yfx"><span class="math inline">y=|f(x)|</span></h4>
+<p>保留 <span class="math inline">x</span> 轴上方，反射 <span class="math inline">x</span> 轴下方的部分。原来的零点保留，负值变为正值。</p>
+</section>
+<section id="yfx-1" class="level4">
+<h4 class="anchored" data-anchor-id="yfx-1"><span class="math inline">y=f(|x|)</span></h4>
+<p>只保留原图的 <span class="math inline">x\ge0</span> 部分，再关于 <span class="math inline">y</span> 轴反射。因此新图一定关于 <span class="math inline">y</span> 轴对称。不要把原图左半边直接保留。</p>
+</section>
+<section id="y1fx" class="level4">
+<h4 class="anchored" data-anchor-id="y1fx"><span class="math inline">y=1/f(x)</span></h4>
+<p>用以下对应关系检查草图：</p>
+<ul>
+<li><span class="math inline">f(x)=0</span> 的点变成新图的竖直渐近线；</li>
+<li>原图的竖直渐近线通常变成新图在 <span class="math inline">x</span> 轴上的空点；</li>
+<li>原图的水平渐近线 <span class="math inline">y=L\ne0</span> 变成 <span class="math inline">y=1/L</span>；</li>
+<li>两图在 <span class="math inline">f(x)=1</span> 或 <span class="math inline">f(x)=-1</span> 处相交；</li>
+<li>符号不变，但增减性反向。</li>
+</ul>
+<p>特别注意：如果原函数在某个 <span class="math inline">x=a</span> 没有定义，即使倒数的极限存在，<span class="math inline">x=a</span> 仍不能补成普通实点。</p>
+</section>
+<section id="y2fx" class="level4">
+<h4 class="anchored" data-anchor-id="y2fx"><span class="math inline">y^2=f(x)</span></h4>
+<p>改写为 <span class="math display">y=\pm\sqrt{f(x)}.</span></p>
+<p>所以必须先找出 <span class="math inline">f(x)\ge0</span> 的 <span class="math inline">x</span> 区间，然后画上下对称的两支。常用信息为：</p>
+<ul>
+<li><span class="math inline">f(x)&lt;0</span> 的区间没有实图像；</li>
+<li><span class="math inline">f(x)=0</span> 的根给出 <span class="math inline">x</span> 轴交点；</li>
+<li><span class="math inline">f(x)=1</span> 的点与原图 <span class="math inline">y=f(x)</span> 相交；</li>
+<li>原图的极大值 <span class="math inline">f(a)=M&gt;0</span> 对应新图的点 <span class="math inline">(a,\pm\sqrt M)</span>。</li>
+</ul>
+</section>
+</section>
+<section id="图像解方程与不等式" class="level3">
+<h3 class="anchored" data-anchor-id="图像解方程与不等式">5.7 图像解方程与不等式</h3>
+<p>遇到 <span class="math display">f(x)=c</span> 时，画 <span class="math inline">y=f(x)</span> 与水平线 <span class="math inline">y=c</span>，交点的横坐标就是解。遇到 <span class="math display">f(x)&gt;c</span> 时，取曲线位于水平线 <span class="math inline">y=c</span> 上方的 <span class="math inline">x</span> 区间。</p>
+<p>书写不等式解集时要同时排除：</p>
+<ul>
+<li>竖直渐近线和其他定义域禁点；</li>
+<li>严格不等式中的交点；</li>
+<li>因 <span class="math inline">y=1/f(x)</span> 或 <span class="math inline">y^2=f(x)</span> 变换而产生的空点。</li>
+</ul>
+</section>
+<section id="常见失分点" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点">5.8 常见失分点</h3>
+<ul>
+<li>把分母的零点全部写成渐近线，却没有检查约分后的可去间断点；</li>
+<li>水平渐近线只看分子，忘记比较最高次项系数；</li>
+<li><span class="math inline">f(|x|)</span> 错误地保留原图左右两边；</li>
+<li><span class="math inline">|f(x)|</span> 只画了正半部分，没有反射负半部分；</li>
+<li>求值域时把 <span class="math inline">\Delta=0</span> 排除；</li>
+<li>画 <span class="math inline">y^2=f(x)</span> 时没有先限制 <span class="math inline">f(x)\ge0</span>；</li>
+<li>倒数图像忘记保留原函数的定义域限制；</li>
+<li>草图没有标出渐近线、空点、交点和驻点。</li>
+</ul>
+</section>
+<section id="考试答题顺序" class="level3">
+<h3 class="anchored" data-anchor-id="考试答题顺序">5.9 考试答题顺序</h3>
+<p>对“sketch”题，建议按以下顺序写在草稿上：</p>
+<ol type="1">
+<li>定义域；</li>
+<li>轴截距；</li>
+<li>竖直渐近线及左右趋向；</li>
+<li>水平或斜渐近线及接近方向；</li>
+<li>对称性；</li>
+<li>驻点与关键点；</li>
+<li>分支、空点和最终值域。</li>
+</ol>
+<p>只要这些信息完整，草图即使不按比例，也能清楚体现函数的主要性质。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
