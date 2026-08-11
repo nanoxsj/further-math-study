@@ -390,6 +390,19 @@ window.Quarto = {
   <li><a href="#section-6" id="toc-section-6" class="nav-link" data-scroll-target="#section-6">2025</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">5. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">6. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先确定起始整数和命题" id="toc-先确定起始整数和命题" class="nav-link" data-scroll-target="#先确定起始整数和命题">6.1 先确定起始整数和命题</a></li>
+  <li><a href="#标准五步结构" id="toc-标准五步结构" class="nav-link" data-scroll-target="#标准五步结构">6.2 标准五步结构</a></li>
+  <li><a href="#级数题从-s_k1s_k-新项开始" id="toc-级数题从-s_k1s_k-新项开始" class="nav-link" data-scroll-target="#级数题从-s_k1s_k-新项开始">6.3 级数题：从 <span class="math inline">S_{k+1}=S_k+</span> 新项开始</a></li>
+  <li><a href="#递推数列从-recurrence-出发" id="toc-递推数列从-recurrence-出发" class="nav-link" data-scroll-target="#递推数列从-recurrence-出发">6.4 递推数列：从 recurrence 出发</a></li>
+  <li><a href="#不等式题每一步都检查方向" id="toc-不等式题每一步都检查方向" class="nav-link" data-scroll-target="#不等式题每一步都检查方向">6.5 不等式题：每一步都检查方向</a></li>
+  <li><a href="#导数题对假设结果求一次导数" id="toc-导数题对假设结果求一次导数" class="nav-link" data-scroll-target="#导数题对假设结果求一次导数">6.6 导数题：对假设结果求一次导数</a></li>
+  <li><a href="#矩阵幂题保留乘法顺序" id="toc-矩阵幂题保留乘法顺序" class="nav-link" data-scroll-target="#矩阵幂题保留乘法顺序">6.7 矩阵幂题：保留乘法顺序</a></li>
+  <li><a href="#处理带参数或积的命题" id="toc-处理带参数或积的命题" class="nav-link" data-scroll-target="#处理带参数或积的命题">6.8 处理带参数或积的命题</a></li>
+  <li><a href="#防止循环论证" id="toc-防止循环论证" class="nav-link" data-scroll-target="#防止循环论证">6.9 防止循环论证</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">6.10 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2100,8 +2113,133 @@ u_{n+1}=\frac{6u_n+5}{u_n+2}.
 <li>递推、导数和矩阵题会从定义或 recurrence 开始；</li>
 <li>不等式题会说明每次比较的方向和适用条件。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">6. 常用解题技巧</h2>
+<section id="先确定起始整数和命题" class="level3">
+<h3 class="anchored" data-anchor-id="先确定起始整数和命题">6.1 先确定起始整数和命题</h3>
+<p>把题目要证明的结论记为 <span class="math inline">P(n)</span>，先找清楚题目要求的范围是 <span class="math inline">n\geqslant n_0</span> 还是所有正整数。证明必须从题目声明的第一个整数 <span class="math inline">n_0</span> 开始，不能习惯性地从 <span class="math inline">n=1</span> 开始。</p>
+<p>写证明前先列出：</p>
+<ol type="1">
+<li><span class="math inline">P(n_0)</span> 的具体内容；</li>
+<li>假设成立的 <span class="math inline">P(k)</span>；</li>
+<li>要得到的目标 <span class="math inline">P(k+1)</span>。</li>
+</ol>
+<p>这样可以避免在 inductive step 中把目标本身当作已知条件。</p>
+</section>
+<section id="标准五步结构" class="level3">
+<h3 class="anchored" data-anchor-id="标准五步结构">6.2 标准五步结构</h3>
+<p>完整的数学归纳法证明应包含：</p>
+<ol type="1">
+<li><strong>Base case</strong>：验证 <span class="math inline">n=n_0</span> 时结论成立；</li>
+<li><strong>Inductive hypothesis</strong>：假设 <span class="math inline">P(k)</span> 对某个 <span class="math inline">k\geqslant n_0</span> 成立；</li>
+<li><strong>Target</strong>：明确写出 <span class="math inline">P(k+1)</span>；</li>
+<li><strong>Inductive step</strong>：只使用 <span class="math inline">P(k)</span>、定义和已知恒等式推出 <span class="math inline">P(k+1)</span>；</li>
+<li><strong>Conclusion</strong>：说明由 mathematical induction，结论对所有 <span class="math inline">n\geqslant n_0</span> 成立。</li>
+</ol>
+<p>最后一步必须写出整数范围；只写“因此命题成立”通常不够完整。</p>
+</section>
+<section id="级数题从-s_k1s_k-新项开始" class="level3">
+<h3 class="anchored" data-anchor-id="级数题从-s_k1s_k-新项开始">6.3 级数题：从 <span class="math inline">S_{k+1}=S_k+</span> 新项开始</h3>
+<p>若要证明</p>
+<p><span class="math display">
+S_n=\sum_{r=1}^{n}f(r)=F(n),
+</span></p>
+<p>inductive step 的自然起点是</p>
+<p><span class="math display">
+S_{k+1}=S_k+f(k+1).
+</span></p>
+<p>利用假设 <span class="math inline">S_k=F(k)</span> 后，继续化简：</p>
+<p><span class="math display">
+S_{k+1}=F(k)+f(k+1)=F(k+1).
+</span></p>
+<p>不要一开始直接写 <span class="math inline">S_{k+1}=F(k+1)</span>，也不要把 <span class="math inline">k</span> 项误写成 <span class="math inline">k+1</span> 项。重点是明确展示新增的最后一项。</p>
+</section>
+<section id="递推数列从-recurrence-出发" class="level3">
+<h3 class="anchored" data-anchor-id="递推数列从-recurrence-出发">6.4 递推数列：从 recurrence 出发</h3>
+<p>若数列满足 <span class="math inline">u_{n+1}=g(u_n)</span>，要证明 <span class="math inline">u_n=F(n)</span>，先在 base case 验证公式，再假设</p>
+<p><span class="math display">
+u_k=F(k).
+</span></p>
+<p>然后从递推关系开始：</p>
+<p><span class="math display">
+u_{k+1}=g(u_k)=g(F(k)).
+</span></p>
+<p>最后化简为 <span class="math inline">F(k+1)</span>。不能把所要证明的 <span class="math inline">F(k+1)</span> 直接作为 <span class="math inline">u_{k+1}</span> 的起点。</p>
+</section>
+<section id="不等式题每一步都检查方向" class="level3">
+<h3 class="anchored" data-anchor-id="不等式题每一步都检查方向">6.5 不等式题：每一步都检查方向</h3>
+<p>不等式的 inductive hypothesis 是一个范围或大小关系，不是等式。若乘以或除以某个量，必须说明该量的正负号。例如，若 <span class="math inline">c_k&gt;0</span>，才能写</p>
+<p><span class="math display">
+A_k&gt;B_k\quad\Longrightarrow\quad c_kA_k&gt;c_kB_k.
+</span></p>
+<p>典型结构为</p>
+<p><span class="math display">
+A_{k+1}=c_kA_k&gt;c_kB_k\geqslant B_{k+1}.
+</span></p>
+<p>若中间乘数可能为负，必须分情况处理，不能直接保留不等号方向。base case 也要从题目给出的第一个适用整数开始验证。</p>
+</section>
+<section id="导数题对假设结果求一次导数" class="level3">
+<h3 class="anchored" data-anchor-id="导数题对假设结果求一次导数">6.6 导数题：对假设结果求一次导数</h3>
+<p>若要证明 <span class="math inline">D^n[f(x)]</span> 的公式，假设</p>
+<p><span class="math display">
+D^k[f(x)]=F_k(x).
+</span></p>
+<p>则</p>
+<p><span class="math display">
+D^{k+1}[f(x)]=\frac{\mathrm d}{\mathrm dx}\left(D^k[f(x)]\right)
+=\frac{\mathrm d}{\mathrm dx}F_k(x).
+</span></p>
+<p>完成微分后，要把结果整理成题目公式中 <span class="math inline">k</span> 换成 <span class="math inline">k+1</span> 的形式。不要只说明“显然成立”，应展示关键的微分步骤。</p>
+</section>
+<section id="矩阵幂题保留乘法顺序" class="level3">
+<h3 class="anchored" data-anchor-id="矩阵幂题保留乘法顺序">6.7 矩阵幂题：保留乘法顺序</h3>
+<p>若要证明 <span class="math inline">A^n=M_n</span>，假设 <span class="math inline">A^k=M_k</span>，则从</p>
+<p><span class="math display">
+A^{k+1}=A^kA=M_kA
+</span></p>
+<p>开始。要进行完整的矩阵乘法，并逐个比较结果矩阵的元素与 <span class="math inline">M_{k+1}</span>。</p>
+<p>不要把矩阵乘法当作对应元素相乘，也不要不说明理由地把 <span class="math inline">A^kA</span> 改写成其他顺序。若题目给出的矩阵可以利用已知结构简化，也必须保留足够的中间步骤。</p>
+</section>
+<section id="处理带参数或积的命题" class="level3">
+<h3 class="anchored" data-anchor-id="处理带参数或积的命题">6.8 处理带参数或积的命题</h3>
+<p>如果 <span class="math inline">P(n)</span> 含有参数、乘积或分式，先把 <span class="math inline">P(k+1)</span> 完整写出来，再决定如何使用 <span class="math inline">P(k)</span>。常用方法包括：</p>
+<ul>
+<li>将 <span class="math inline">P(k+1)</span> 拆成包含 <span class="math inline">P(k)</span> 的部分和新增部分；</li>
+<li>先通分，再利用假设替换；</li>
+<li>对乘积提取前 <span class="math inline">k</span> 项，单独处理最后一项；</li>
+<li>对幂或指数先保留公共因子，再比较剩余因子。</li>
+</ul>
+<p>关键是让假设 <span class="math inline">P(k)</span> 在推导中确实出现，而不是只在段首写出一次。</p>
+</section>
+<section id="防止循环论证" class="level3">
+<h3 class="anchored" data-anchor-id="防止循环论证">6.9 防止循环论证</h3>
+<p>inductive step 必须从已知的 <span class="math inline">P(k)</span> 或题目给出的定义出发，不能从目标 <span class="math inline">P(k+1)</span> 倒推后直接宣称目标成立。若使用等价变形进行倒推，应明确说明每一步可逆，并最终给出从已知侧到目标侧的推导。</p>
+<p>最安全的写法是：</p>
+<p><span class="math display">
+\text{left-hand side of }P(k+1)
+\;\longrightarrow\;
+\text{use }P(k)
+\;\longrightarrow\;
+\text{right-hand side of }P(k+1).
+</span></p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">6.10 常见失分点与答题结构</h3>
+<ul>
+<li>base case 验证了错误的起始值；</li>
+<li>只验证多个数值，却没有写 inductive step；</li>
+<li>只写 <span class="math inline">P(k)\Rightarrow P(k+1)</span>，没有说明 <span class="math inline">P(k)</span> 的具体内容；</li>
+<li>没有明确写出 <span class="math inline">P(k+1)</span> 的 target；</li>
+<li>级数题漏加第 <span class="math inline">k+1</span> 项；</li>
+<li>不等式中乘除负数后没有改变方向；</li>
+<li>矩阵幂题错误使用交换律；</li>
+<li>结论没有写明“对所有 <span class="math inline">n\geqslant n_0</span>”。</li>
+</ul>
+<p>推荐的考场结构是：先标出 <strong>Base case</strong>，再写 <strong>Assume true for <span class="math inline">n=k</span></strong>，随后写 <strong>For <span class="math inline">n=k+1</span></strong> 并从定义或 <span class="math inline">k</span>-case 开始推导，最后用 <strong>Therefore, by mathematical induction…</strong> 完成结论。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
