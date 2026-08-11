@@ -410,6 +410,21 @@ window.Quarto = {
   <li><a href="#octobernovember-923124-question-5-10-marks" id="toc-octobernovember-923124-question-5-10-marks" class="nav-link" data-scroll-target="#octobernovember-923124-question-5-10-marks">2025 October/November · 9231/24 · Question 5 · 10 marks</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">5. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先判断方程类型" id="toc-先判断方程类型" class="nav-link" data-scroll-target="#先判断方程类型">5.1 先判断方程类型</a></li>
+  <li><a href="#一阶线性方程与积分因子" id="toc-一阶线性方程与积分因子" class="nav-link" data-scroll-target="#一阶线性方程与积分因子">5.2 一阶线性方程与积分因子</a></li>
+  <li><a href="#使用初始条件的一阶方程" id="toc-使用初始条件的一阶方程" class="nav-link" data-scroll-target="#使用初始条件的一阶方程">5.3 使用初始条件的一阶方程</a></li>
+  <li><a href="#辅助方程与-cf" id="toc-辅助方程与-cf" class="nav-link" data-scroll-target="#辅助方程与-cf">5.4 辅助方程与 CF</a></li>
+  <li><a href="#非齐次方程的-cfpi-结构" id="toc-非齐次方程的-cfpi-结构" class="nav-link" data-scroll-target="#非齐次方程的-cfpi-结构">5.5 非齐次方程的 CF+PI 结构</a></li>
+  <li><a href="#选择-pi-的形式" id="toc-选择-pi-的形式" class="nav-link" data-scroll-target="#选择-pi-的形式">5.6 选择 PI 的形式</a></li>
+  <li><a href="#pi-与-cf-重复时的修正" id="toc-pi-与-cf-重复时的修正" class="nav-link" data-scroll-target="#pi-与-cf-重复时的修正">5.7 PI 与 CF 重复时的修正</a></li>
+  <li><a href="#代入-pi-时的高效做法" id="toc-代入-pi-时的高效做法" class="nav-link" data-scroll-target="#代入-pi-时的高效做法">5.8 代入 PI 时的高效做法</a></li>
+  <li><a href="#euler-型方程的代换-xet" id="toc-euler-型方程的代换-xet" class="nav-link" data-scroll-target="#euler-型方程的代换-xet">5.9 Euler 型方程的代换 <span class="math inline">x=e^t</span></a></li>
+  <li><a href="#齐次型代换-yux" id="toc-齐次型代换-yux" class="nav-link" data-scroll-target="#齐次型代换-yux">5.10 齐次型代换 <span class="math inline">y=ux</span></a></li>
+  <li><a href="#bernoulli-型代换-vyn" id="toc-bernoulli-型代换-vyn" class="nav-link" data-scroll-target="#bernoulli-型代换-vyn">5.11 Bernoulli 型代换 <span class="math inline">v=y^n</span></a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">5.12 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1497,8 +1512,168 @@ y''=-4p\sin2x-4q\cos2x.
 <li>能用给定代换化简方程；</li>
 <li>能用初始条件求特解。 本节保留教材 Chapter 6 的全部编号 Example（Example 1–10）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">5. 常用解题技巧</h2>
+<section id="先判断方程类型" class="level3">
+<h3 class="anchored" data-anchor-id="先判断方程类型">5.1 先判断方程类型</h3>
+<p>开始计算前先判断方程属于哪一类：</p>
+<ul>
+<li>一阶线性方程：<span class="math inline">y'+P(x)y=Q(x)</span>；</li>
+<li>可分离变量方程：可以整理成 <span class="math inline">g(y)\,\mathrm dy=f(x)\,\mathrm dx</span>；</li>
+<li>齐次二阶常系数方程：先求 complementary function（CF）；</li>
+<li>非齐次二阶常系数方程：先求 CF，再求 particular integral（PI）；</li>
+<li>题目指定代换的方程：严格按 chain rule 转换。</li>
+</ul>
+<p>不要在没有确定类型前直接套积分因子或辅助方程。先整理最高阶导数的系数，并检查是否需要除以常数使方程成为标准形式。</p>
+</section>
+<section id="一阶线性方程与积分因子" class="level3">
+<h3 class="anchored" data-anchor-id="一阶线性方程与积分因子">5.2 一阶线性方程与积分因子</h3>
+<p>先把方程整理成</p>
+<p><span class="math display">
+\frac{\mathrm dy}{\mathrm dx}+P(x)y=Q(x).
+</span></p>
+<p>积分因子是</p>
+<p><span class="math display">
+R(x)=e^{\int P(x)\,\mathrm dx}.
+</span></p>
+<p>乘上 <span class="math inline">R(x)</span> 后，左边应成为</p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}\bigl(R(x)y\bigr).
+</span></p>
+<p>于是</p>
+<p><span class="math display">
+R(x)y=\int R(x)Q(x)\,\mathrm dx+C.
+</span></p>
+<p>检查积分因子最简单的方法是验证</p>
+<p><span class="math display">
+R'(x)=P(x)R(x).
+</span></p>
+<p>常见错误是把 <span class="math inline">e^{\int Q(x)\,\mathrm dx}</span> 当成积分因子，或没有先把 <span class="math inline">y'</span> 的系数化为 <span class="math inline">1</span>。</p>
+</section>
+<section id="使用初始条件的一阶方程" class="level3">
+<h3 class="anchored" data-anchor-id="使用初始条件的一阶方程">5.3 使用初始条件的一阶方程</h3>
+<p>先求含常数 <span class="math inline">C</span> 的通解，再代入初始条件，例如 <span class="math inline">y(x_0)=y_0</span>。若积分过程中出现 <span class="math inline">\ln|y|</span>，不要过早删掉绝对值；代入初始条件并根据解的范围确定符号后再简化。</p>
+<p>若题目要求一个特解，答案应包括：</p>
+<ol type="1">
+<li>积分因子；</li>
+<li>积分后的通解；</li>
+<li>利用初始条件求出的常数；</li>
+<li>最终的特解。</li>
+</ol>
+</section>
+<section id="辅助方程与-cf" class="level3">
+<h3 class="anchored" data-anchor-id="辅助方程与-cf">5.4 辅助方程与 CF</h3>
+<p>对齐次二阶常系数方程</p>
+<p><span class="math display">
+a\frac{\mathrm d^2y}{\mathrm dx^2}+b\frac{\mathrm dy}{\mathrm dx}+cy=0,
+</span></p>
+<p>写辅助方程</p>
+<p><span class="math display">
+ar^2+br+c=0.
+</span></p>
+<p>根据根的类型写 CF：</p>
+<ul>
+<li>互异实根 <span class="math inline">r_1,r_2</span>： <span class="math display">y_c=Ae^{r_1x}+Be^{r_2x};</span></li>
+<li>重根 <span class="math inline">r</span>： <span class="math display">y_c=e^{rx}(A+Bx);</span></li>
+<li>共轭复根 <span class="math inline">\alpha\pm\mathrm i\beta</span>： <span class="math display">y_c=e^{\alpha x}(A\cos\beta x+B\sin\beta x).</span></li>
+</ul>
+<p>重根情形必须出现 <span class="math inline">x e^{rx}</span> 项；复根情形必须同时保留正弦和余弦项，不能只写其中一个。</p>
+</section>
+<section id="非齐次方程的-cfpi-结构" class="level3">
+<h3 class="anchored" data-anchor-id="非齐次方程的-cfpi-结构">5.5 非齐次方程的 CF+PI 结构</h3>
+<p>非齐次方程的通解始终写成</p>
+<p><span class="math display">
+y=y_c+y_p.
+</span></p>
+<p>先求 CF，再根据右端函数选择 PI。求 PI 时只需确定待定系数，不要重新加入 CF 中已有的任意常数；所有任意常数应统一放在 <span class="math inline">y_c</span> 中。</p>
+</section>
+<section id="选择-pi-的形式" class="level3">
+<h3 class="anchored" data-anchor-id="选择-pi-的形式">5.6 选择 PI 的形式</h3>
+<p>对于</p>
+<p><span class="math display">
+a y''+b y'+cy=f(x),
+</span></p>
+<p>常见试探形式为：</p>
+<ul>
+<li><span class="math inline">f(x)</span> 是 <span class="math inline">n</span> 次多项式：取同次数的一般多项式；</li>
+<li><span class="math inline">f(x)=Ke^{mx}</span>：取 <span class="math inline">Ce^{mx}</span>；</li>
+<li><span class="math inline">f(x)=K\cos px+L\sin px</span>：取 <span class="math inline">C\cos px+D\sin px</span>。</li>
+</ul>
+<p>把试探式及其导数代回原方程，按 <span class="math inline">x</span> 的幂次、<span class="math inline">e^{mx}</span> 或 <span class="math inline">\sin px</span>、<span class="math inline">\cos px</span> 比较系数。三角函数的 PI 必须同时包含正弦和余弦，即使右端只出现其中一个。</p>
+</section>
+<section id="pi-与-cf-重复时的修正" class="level3">
+<h3 class="anchored" data-anchor-id="pi-与-cf-重复时的修正">5.7 PI 与 CF 重复时的修正</h3>
+<p>如果试探 PI 的形式已经出现在 CF 中，必须乘以 <span class="math inline">x</span>：</p>
+<p><span class="math display">
+y_p=x(\text{原试探式}).
+</span></p>
+<p>若乘一次 <span class="math inline">x</span> 后仍与 CF 重复，再乘以 <span class="math inline">x^2</span>。例如右端为 <span class="math inline">e^{rx}</span>，而 <span class="math inline">r</span> 是辅助方程的重根，就需要乘以 <span class="math inline">x^2</span>。</p>
+<p>判断是否重复时要比较指数、三角频率和重数，而不是只看外观。<span class="math inline">e^{\alpha x}\cos\beta x</span> 与 <span class="math inline">e^{\alpha x}\sin\beta x</span> 通常属于同一对复根对应的 CF 结构。</p>
+</section>
+<section id="代入-pi-时的高效做法" class="level3">
+<h3 class="anchored" data-anchor-id="代入-pi-时的高效做法">5.8 代入 PI 时的高效做法</h3>
+<p>若右端是指数函数，可把 <span class="math inline">e^{mx}</span> 作为公共因子提取；若右端是正余弦，可分别比较 <span class="math inline">\cos px</span> 和 <span class="math inline">\sin px</span> 的系数。若右端是多项式，从最高次幂开始比较通常更快。</p>
+<p>代入后应把结果整理成独立函数的线性组合，例如</p>
+<p><span class="math display">
+(\text{coefficient of }x^2)x^2
++(\text{coefficient of }x)x
++\text{constant}.
+</span></p>
+<p>每个独立系数分别与右端比较，最后代回检查 PI。</p>
+</section>
+<section id="euler-型方程的代换-xet" class="level3">
+<h3 class="anchored" data-anchor-id="euler-型方程的代换-xet">5.9 Euler 型方程的代换 <span class="math inline">x=e^t</span></h3>
+<p>若题目给出 <span class="math inline">x=e^t</span>，则</p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}=e^{-t}\frac{\mathrm d}{\mathrm dt}.
+</span></p>
+<p>因此</p>
+<p><span class="math display">
+\frac{\mathrm dy}{\mathrm dx}=e^{-t}\frac{\mathrm dy}{\mathrm dt},
+</span></p>
+<p>二阶导数要再次使用 chain rule，不能简单地把 <span class="math inline">e^{-t}</span> 当常数。先把每一项全部转换成 <span class="math inline">t</span> 和 <span class="math inline">\dfrac{\mathrm dy}{\mathrm dt}</span>，再化成常系数方程；求解后最后把 <span class="math inline">t</span> 换回 <span class="math inline">\ln x</span>。</p>
+</section>
+<section id="齐次型代换-yux" class="level3">
+<h3 class="anchored" data-anchor-id="齐次型代换-yux">5.10 齐次型代换 <span class="math inline">y=ux</span></h3>
+<p>若方程中的 <span class="math inline">x</span>、<span class="math inline">y</span> 只通过比值 <span class="math inline">y/x</span> 出现，尝试令</p>
+<p><span class="math display">
+y=ux,
+\qquad
+\frac{\mathrm dy}{\mathrm dx}=u+x\frac{\mathrm du}{\mathrm dx}.
+</span></p>
+<p>代入后应整理成关于 <span class="math inline">u</span> 和 <span class="math inline">x</span> 的可分离形式。积分完成后要把 <span class="math inline">u=y/x</span> 代回，并检查在除以 <span class="math inline">u</span>、<span class="math inline">1-u</span> 或其他表达式时是否遗漏特殊解。</p>
+</section>
+<section id="bernoulli-型代换-vyn" class="level3">
+<h3 class="anchored" data-anchor-id="bernoulli-型代换-vyn">5.11 Bernoulli 型代换 <span class="math inline">v=y^n</span></h3>
+<p>若方程可整理为</p>
+<p><span class="math display">
+\frac{\mathrm dy}{\mathrm dx}+P(x)y=Q(x)y^n,
+</span></p>
+<p>令 <span class="math inline">v=y^{1-n}</span>，通常可化为关于 <span class="math inline">v</span> 的一阶线性方程。若题目直接指定 <span class="math inline">v=y^n</span>，则使用</p>
+<p><span class="math display">
+\frac{\mathrm dv}{\mathrm dx}=ny^{n-1}\frac{\mathrm dy}{\mathrm dx}.
+</span></p>
+<p>代换后要明确写出新方程，再使用积分因子；最后必须从 <span class="math inline">v</span> 还原 <span class="math inline">y</span>，并根据初始条件选择正确分支。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">5.12 常见失分点与答题结构</h3>
+<ul>
+<li>没有先把一阶方程整理成标准线性形式；</li>
+<li>积分因子使用了 <span class="math inline">Q(x)</span> 而不是 <span class="math inline">P(x)</span>；</li>
+<li>辅助方程重根时漏写 <span class="math inline">x</span>；</li>
+<li>复根时漏写正弦或余弦的一项；</li>
+<li>PI 与 CF 重复时没有乘 <span class="math inline">x</span> 或 <span class="math inline">x^2</span>；</li>
+<li>把 PI 中的任意常数与 CF 的常数重复计算；</li>
+<li>代换二阶导数时漏掉 chain rule；</li>
+<li>代换过程中除以可能为零的因子，漏掉特殊解；</li>
+<li>初始条件没有代入完整通解；</li>
+<li>得到 <span class="math inline">y</span> 后没有检查原方程或定义域。</li>
+</ul>
+<p>推荐按“判断类型 → 标准化方程 → 选择积分因子、辅助方程或代换 → 求通解 → 使用初始条件 → 代回检查”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
