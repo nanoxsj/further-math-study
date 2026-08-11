@@ -825,6 +825,17 @@
     ]
   },
   {
+    "objectID": "paper-2/matrices.html#常用解题技巧",
+    "href": "paper-2/matrices.html#常用解题技巧",
+    "title": "2.2 Matrices",
+    "section": "5. 常用解题技巧",
+    "text": "5. 常用解题技巧\n\n5.1 先把方程组写成标准矩阵形式\n三元一次方程组应先整理为变量顺序一致的形式，再写成\n\nM\\mathbf x=\\mathbf b,\n\\qquad\n\\mathbf x=\\begin{pmatrix}x\\\\y\\\\z\\end{pmatrix}.\n\n每一行的系数必须对应同样的变量顺序。若某个变量缺失，必须写出系数 0，不能直接省略一列。\n若 \\det M\\ne0，矩阵 non-singular，方程组有唯一解：\n\n\\mathbf x=M^{-1}\\mathbf b.\n\n但如果只要求解方程组，通常可优先使用消元；只有题目明确要求逆矩阵或矩阵形式时，才完整计算 M^{-1}。\n\n\n5.2 用行列式和秩判断几何情形\n三个方程代表三个平面。先计算系数矩阵的行列式：\n\n\\det M\\ne0：三个平面交于唯一一点；\n\\det M=0：不能仅凭行列式判断“有无穷多解”还是“无解”，还要比较方程的常数项。\n\n若一个方程可以由另外两个方程的线性组合得到，必须同时检查左边的系数和右边的常数。只满足系数部分而不满足常数部分时，可能形成 triangular prism，属于无解情形。\n\n\n5.3 三平面的常见几何分类\n看到法向量成比例时，先判断对应平面是否平行或重合：\n\n\\mathbf n_1=k\\mathbf n_2.\n\n若右端常数也按同一比例变化，则两个平面重合；否则两个平面平行且无公共点。\n若三个方程线性相关且一致，三个平面可能共同包含一条直线（sheaf of planes）。若系数线性相关但常数不一致，则方程组不一致。答题中应同时给出代数条件和几何解释。\n\n\n5.4 特征值从 characteristic equation 开始\n特征值必须满足\n\n\\det(A-\\lambda I)=0.\n\n推荐步骤：\n\n写出 A-\\lambda I，只在主对角线上减去 \\lambda；\n展开并因式分解 characteristic polynomial；\n解出所有题目范围内的实特征值；\n将每个特征值代回求对应的特征向量。\n\n若矩阵中有零或重复结构，优先选择最方便的一行或一列展开行列式。展开后应检查最高次项的符号和常数项，避免把 \\det(A-\\lambda I) 与 \\det(\\lambda I-A) 的符号混淆；对 3\\times3 矩阵两者的零点相同，但多项式整体符号可能不同。\n\n\n5.5 求特征向量时不要取零向量\n对每个特征值 \\lambda 解\n\n(A-\\lambda I)\\mathbf e=\\mathbf0.\n\n齐次方程的解是特征子空间，选择任意非零倍数作为特征向量即可。最后用\n\nA\\mathbf e=\\lambda\\mathbf e\n\n代回检查。特征向量的倍数或符号不同并不代表答案错误，但向量不能是零向量。\n\n\n5.6 利用迹和行列式快速自检\n对 2\\times2 或 3\\times3 矩阵，特征值应满足：\n\n\\lambda_1+\\lambda_2+\\cdots=\\operatorname{tr}(A),\n\n\n\\lambda_1\\lambda_2\\cdots=\\det A.\n\n这两个关系适合作为检查，不应代替完整的 characteristic equation 推导。若求出的特征值不满足迹或行列式关系，优先检查行列式展开和符号。\n\n\n5.7 对角化时保持对应顺序\n若特征值为 \\lambda_1,\\lambda_2,\\lambda_3，对应特征向量为 \\mathbf e_1,\\mathbf e_2,\\mathbf e_3，必须按同一顺序组成\n\nQ=\\bigl(\\mathbf e_1\\ \\mathbf e_2\\ \\mathbf e_3\\bigr),\n\\qquad\nD=\\operatorname{diag}(\\lambda_1,\\lambda_2,\\lambda_3).\n\n然后\n\nA=QDQ^{-1}.\n\n最常见的错误是改变 D 中特征值的顺序，却没有同步改变 Q 的列。得到 Q、D 后，用 AQ=QD 检查，比直接计算 QDQ^{-1} 更快。\n\n\n5.8 用对角化计算矩阵幂\n对角化后\n\nA^n=QD^nQ^{-1},\n\n其中\n\nD^n=\\operatorname{diag}(\\lambda_1^n,\\lambda_2^n,\\lambda_3^n).\n\n不要直接展开 A^n。先分别处理 D^n，再按顺序乘回 Q 和 Q^{-1}。若只要求 A^n\\mathbf v，可以先把 \\mathbf v 表示成特征向量的线性组合，避免求出整个矩阵。\n\n\n5.9 用特征向量处理递推或迭代\n若 \\mathbf v 是特征向量，则\n\nA\\mathbf v=\\lambda\\mathbf v\n\\quad\\Longrightarrow\\quad\nA^n\\mathbf v=\\lambda^n\\mathbf v.\n\n若初始向量可写成\n\n\\mathbf x=c_1\\mathbf e_1+c_2\\mathbf e_2+c_3\\mathbf e_3,\n\n则\n\nA^n\\mathbf x=c_1\\lambda_1^n\\mathbf e_1\n+c_2\\lambda_2^n\\mathbf e_2\n+c_3\\lambda_3^n\\mathbf e_3.\n\n这种方法特别适合求高次迭代、极限或递推关系。\n\n\n5.10 Cayley–Hamilton 定理的使用\n若 characteristic equation 为\n\n\\lambda^3+p\\lambda^2+q\\lambda+r=0,\n\n则矩阵满足自己的特征方程：\n\nA^3+pA^2+qA+rI=O.\n\n因此可以把 A^3 替换为 -pA^2-qA-rI，再逐步降低任何更高次幂。计算前先整理成“最高次幂等于低次幂组合”的形式，避免反复展开。\n若 r\\ne0，可进一步求逆矩阵：\n\nA^{-1}=-\\frac1r(A^2+pA+qI).\n\n最后用 AA^{-1}=I 检查。\n\n\n5.11 常见失分点与答题结构\n\n方程组的变量顺序不一致；\n缺失变量没有补系数 0；\n\\det M=0 后直接断言有无穷多解；\ncharacteristic equation 中只改了部分对角元素；\n求特征向量时取了零向量；\nQ 的列与 D 的对角元没有对应；\n把 A=QDQ^{-1} 写成 Q^{-1}DQ；\n计算矩阵幂时错误使用交换律；\n使用 Cayley–Hamilton 时漏写 I 或常数项。\n\n推荐按“写矩阵方程或 characteristic equation → 求解 → 代回验证 → 解释几何意义或构造 Q,D → 写出最终结论”的顺序作答。",
+    "crumbs": [
+      "Paper 2 · Further Pure Mathematics 2",
+      "2.2 Matrices"
+    ]
+  },
+  {
     "objectID": "paper-1/proof-by-induction.html",
     "href": "paper-1/proof-by-induction.html",
     "title": "1.7 Proof by induction",
