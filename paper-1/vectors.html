@@ -391,6 +391,21 @@ window.Quarto = {
   </ul></li>
   <li><a href="#geometric-summary-diagrams" id="toc-geometric-summary-diagrams" class="nav-link" data-scroll-target="#geometric-summary-diagrams">5. Geometric summary diagrams</a></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">6. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">7. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先区分三类向量" id="toc-先区分三类向量" class="nav-link" data-scroll-target="#先区分三类向量">7.1 先区分三类向量</a></li>
+  <li><a href="#平面的三种写法" id="toc-平面的三种写法" class="nav-link" data-scroll-target="#平面的三种写法">7.2 平面的三种写法</a></li>
+  <li><a href="#向量积的计算与检查" id="toc-向量积的计算与检查" class="nav-link" data-scroll-target="#向量积的计算与检查">7.3 向量积的计算与检查</a></li>
+  <li><a href="#直线与平面的位置关系" id="toc-直线与平面的位置关系" class="nav-link" data-scroll-target="#直线与平面的位置关系">7.4 直线与平面的位置关系</a></li>
+  <li><a href="#点到平面的垂足和距离" id="toc-点到平面的垂足和距离" class="nav-link" data-scroll-target="#点到平面的垂足和距离">7.5 点到平面的垂足和距离</a></li>
+  <li><a href="#三类角度不要混用" id="toc-三类角度不要混用" class="nav-link" data-scroll-target="#三类角度不要混用">7.6 三类角度不要混用</a></li>
+  <li><a href="#两平面的交线" id="toc-两平面的交线" class="nav-link" data-scroll-target="#两平面的交线">7.7 两平面的交线</a></li>
+  <li><a href="#平面束问题" id="toc-平面束问题" class="nav-link" data-scroll-target="#平面束问题">7.8 平面束问题</a></li>
+  <li><a href="#点到直线的距离" id="toc-点到直线的距离" class="nav-link" data-scroll-target="#点到直线的距离">7.9 点到直线的距离</a></li>
+  <li><a href="#两条-skew-lines-的最短距离" id="toc-两条-skew-lines-的最短距离" class="nav-link" data-scroll-target="#两条-skew-lines-的最短距离">7.10 两条 skew lines 的最短距离</a></li>
+  <li><a href="#求-common-perpendicular" id="toc-求-common-perpendicular" class="nav-link" data-scroll-target="#求-common-perpendicular">7.11 求 common perpendicular</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">7.12 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -3069,8 +3084,177 @@ For skew lines, <span class="math inline">PQ</span> is parallel to <span class="
 <li>距离题能说明 perpendicular direction 或使用的面积/投影关系；</li>
 <li>common perpendicular 和 skew-line distance 能正确使用两个方向向量的 vector product。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">7. 常用解题技巧</h2>
+<section id="先区分三类向量" class="level3">
+<h3 class="anchored" data-anchor-id="先区分三类向量">7.1 先区分三类向量</h3>
+<ul>
+<li><strong>point vector</strong>：从原点指向一个点的位置向量；</li>
+<li><strong>direction vector</strong>：直线或平面内的方向；</li>
+<li><strong>normal vector</strong>：垂直于平面的向量。</li>
+</ul>
+<p>若直线写成</p>
+<p><span class="math display">
+\mathbf r=\mathbf a+\lambda\mathbf d,
+</span></p>
+<p>则 <span class="math inline">\mathbf a</span> 是直线上一点，<span class="math inline">\mathbf d</span> 是方向向量。不要把平面的 normal vector 当成平面内的方向向量。</p>
+</section>
+<section id="平面的三种写法" class="level3">
+<h3 class="anchored" data-anchor-id="平面的三种写法">7.2 平面的三种写法</h3>
+<p>过点 <span class="math inline">A</span>、方向为 <span class="math inline">\mathbf b</span> 和 <span class="math inline">\mathbf c</span> 的平面可写成</p>
+<p><span class="math display">
+\mathbf r=\mathbf a+\lambda\mathbf b+\mu\mathbf c.
+</span></p>
+<p>若已知 normal vector <span class="math inline">\mathbf n</span>，则优先写成</p>
+<p><span class="math display">
+(\mathbf r-\mathbf a)\boldsymbol\cdot\mathbf n=0,
+\qquad \mathbf r\boldsymbol\cdot\mathbf n=p.
+</span></p>
+<p>若只有两个平面内方向，先计算</p>
+<p><span class="math display">
+\mathbf n=\mathbf b\times\mathbf c.
+</span></p>
+<p>最后用已知点代回确定常数，避免只写出方向而没有确定平面位置。</p>
+</section>
+<section id="向量积的计算与检查" class="level3">
+<h3 class="anchored" data-anchor-id="向量积的计算与检查">7.3 向量积的计算与检查</h3>
+<p>对于 <span class="math inline">\mathbf a=(a_1,a_2,a_3)</span>、<span class="math inline">\mathbf b=(b_1,b_2,b_3)</span>，</p>
+<p><span class="math display">
+\mathbf a\times\mathbf b=
+\begin{pmatrix}
+a_2b_3-a_3b_2\\
+a_3b_1-a_1b_3\\
+a_1b_2-a_2b_1
+\end{pmatrix}.
+</span></p>
+<p>算完后检查</p>
+<p><span class="math display">
+(\mathbf a\times\mathbf b)\boldsymbol\cdot\mathbf a=0,
+\qquad
+(\mathbf a\times\mathbf b)\boldsymbol\cdot\mathbf b=0.
+</span></p>
+<p>交换顺序会改变方向：</p>
+<p><span class="math display">
+\mathbf a\times\mathbf b=-(\mathbf b\times\mathbf a).
+</span></p>
+</section>
+<section id="直线与平面的位置关系" class="level3">
+<h3 class="anchored" data-anchor-id="直线与平面的位置关系">7.4 直线与平面的位置关系</h3>
+<p>对直线 <span class="math inline">\mathbf r=\mathbf a+\lambda\mathbf d</span> 和平面 <span class="math inline">\mathbf r\boldsymbol\cdot\mathbf n=p</span>，先计算</p>
+<p><span class="math display">
+\mathbf d\boldsymbol\cdot\mathbf n.
+</span></p>
+<ul>
+<li>若 <span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n\ne0</span>，有唯一交点；</li>
+<li>若 <span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n=0</span>，直线与平面平行或整条直线在平面内；</li>
+<li>平行情形下，再检查 <span class="math inline">\mathbf a\boldsymbol\cdot\mathbf n=p</span>，成立则整条直线在平面内。</li>
+</ul>
+<p>求交点时，把直线参数式逐坐标代入平面方程，先解参数，再代回直线。</p>
+</section>
+<section id="点到平面的垂足和距离" class="level3">
+<h3 class="anchored" data-anchor-id="点到平面的垂足和距离">7.5 点到平面的垂足和距离</h3>
+<p>若点 <span class="math inline">P</span> 的位置向量为 <span class="math inline">\mathbf p</span>，平面 normal 为 <span class="math inline">\mathbf n</span>，从 <span class="math inline">P</span> 出发的垂线为</p>
+<p><span class="math display">
+\mathbf r=\mathbf p+t\mathbf n.
+</span></p>
+<p>将它代入平面方程得到 <span class="math inline">t</span>，再代回求 foot of perpendicular。若只要求距离，可使用</p>
+<p><span class="math display">
+D=\frac{|ax_0+by_0+cz_0-d|}{\sqrt{a^2+b^2+c^2}}
+</span></p>
+<p>其中平面为 <span class="math inline">ax+by+cz=d</span>，点为 <span class="math inline">(x_0,y_0,z_0)</span>。若题目要求垂足，不能只写距离公式。</p>
+</section>
+<section id="三类角度不要混用" class="level3">
+<h3 class="anchored" data-anchor-id="三类角度不要混用">7.6 三类角度不要混用</h3>
+<p>两条直线的夹角使用方向向量：</p>
+<p><span class="math display">
+\cos\theta=\frac{|\mathbf d_1\boldsymbol\cdot\mathbf d_2|}
+{|\mathbf d_1||\mathbf d_2|}.
+</span></p>
+<p>两平面的夹角使用两个 normal vectors：</p>
+<p><span class="math display">
+\cos\theta=\frac{|\mathbf n_1\boldsymbol\cdot\mathbf n_2|}
+{|\mathbf n_1||\mathbf n_2|}.
+</span></p>
+<p>直线与平面的夹角使用正弦：</p>
+<p><span class="math display">
+\sin\theta=\frac{|\mathbf d\boldsymbol\cdot\mathbf n|}
+{|\mathbf d||\mathbf n|}.
+</span></p>
+<p>取绝对值是为了得到锐角。直线与平面角不能直接套用直线方向和 normal 之间夹角的余弦公式。</p>
+</section>
+<section id="两平面的交线" class="level3">
+<h3 class="anchored" data-anchor-id="两平面的交线">7.7 两平面的交线</h3>
+<p>两个不平行平面的交线方向同时垂直于两个 normals，因此可取</p>
+<p><span class="math display">
+\mathbf d=\mathbf n_1\times\mathbf n_2.
+</span></p>
+<p>再联立两个平面方程求交线上的一个点 <span class="math inline">A</span>，最后写成</p>
+<p><span class="math display">
+\mathbf r=\mathbf a+t\mathbf d.
+</span></p>
+<p>求出方向后检查 <span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n_1=0</span>、<span class="math inline">\mathbf d\boldsymbol\cdot\mathbf n_2=0</span>，并把点 <span class="math inline">A</span> 代回两个平面。</p>
+</section>
+<section id="平面束问题" class="level3">
+<h3 class="anchored" data-anchor-id="平面束问题">7.8 平面束问题</h3>
+<p>包含两个平面 <span class="math inline">f_1=0</span> 和 <span class="math inline">f_2=0</span> 的所有平面可写成</p>
+<p><span class="math display">
+pf_1+qf_2=0,
+</span></p>
+<p>其中 <span class="math inline">p,q</span> 不同时为零。题目给出额外条件时，将条件代入确定 <span class="math inline">p:q</span>，最后检查所得平面确实包含两个平面的公共交线。</p>
+</section>
+<section id="点到直线的距离" class="level3">
+<h3 class="anchored" data-anchor-id="点到直线的距离">7.9 点到直线的距离</h3>
+<p>点 <span class="math inline">P</span> 的位置向量为 <span class="math inline">\mathbf p</span>，直线为 <span class="math inline">\mathbf r=\mathbf a+\lambda\mathbf d</span> 时，</p>
+<p><span class="math display">
+D=\frac{|(\mathbf p-\mathbf a)\times\mathbf d|}{|\mathbf d|}.
+</span></p>
+<p>这里 <span class="math inline">\mathbf p-\mathbf a</span> 必须从直线上一点指向给定点。向量积的大小给出平行四边形面积，除以底边 <span class="math inline">|\mathbf d|</span> 后得到距离。</p>
+</section>
+<section id="两条-skew-lines-的最短距离" class="level3">
+<h3 class="anchored" data-anchor-id="两条-skew-lines-的最短距离">7.10 两条 skew lines 的最短距离</h3>
+<p>若两条 skew lines 的方向向量为 <span class="math inline">\mathbf b</span>、<span class="math inline">\mathbf d</span>，先求共同垂直方向</p>
+<p><span class="math display">
+\mathbf n=\mathbf b\times\mathbf d.
+</span></p>
+<p>设两线上已知点的位置向量分别为 <span class="math inline">\mathbf a</span>、<span class="math inline">\mathbf c</span>，最短距离为</p>
+<p><span class="math display">
+D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
+{|\mathbf b\times\mathbf d|}.
+</span></p>
+<p>若 <span class="math inline">\mathbf b\times\mathbf d=\mathbf0</span>，两条直线方向平行，不能使用 skew-line 公式，应另行处理平行线距离。</p>
+</section>
+<section id="求-common-perpendicular" class="level3">
+<h3 class="anchored" data-anchor-id="求-common-perpendicular">7.11 求 common perpendicular</h3>
+<p>若题目要求 common perpendicular，而不仅是最短距离：</p>
+<ol type="1">
+<li>写两条直线上的一般点 <span class="math display">
+P=\mathbf a+\lambda\mathbf b,\qquad Q=\mathbf c+\mu\mathbf d;
+</span></li>
+<li>令 <span class="math inline">\overrightarrow{PQ}=Q-P</span> 同时垂直于两条直线方向： <span class="math display">
+(Q-P)\boldsymbol\cdot\mathbf b=0,\qquad
+(Q-P)\boldsymbol\cdot\mathbf d=0;
+</span></li>
+<li>解出 <span class="math inline">\lambda</span> 和 <span class="math inline">\mu</span>，再用 <span class="math inline">P</span> 或 <span class="math inline">Q</span> 作为起点、<span class="math inline">\mathbf b\times\mathbf d</span> 作为方向写直线；</li>
+<li>代回检查该直线同时与两条原直线相交且垂直。</li>
+</ol>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">7.12 常见失分点与答题结构</h3>
+<ul>
+<li>把 point vector、direction vector 和 normal vector 混用；</li>
+<li>向量积交换顺序后忘记改变符号；</li>
+<li>判断直线与平面平行时没有检查直线是否在平面内；</li>
+<li>直线与平面角误用余弦；</li>
+<li>点到平面的距离漏掉绝对值；</li>
+<li>两平面交线只求出方向，没有求出交线上的点；</li>
+<li>skew lines 题没有先检查两个方向是否平行；</li>
+<li>common perpendicular 没有代回检查垂直和相交条件。</li>
+</ul>
+<p>推荐按“确定向量角色 → 选择点积或向量积 → 写出方程 → 解参数 → 代回验证 → 写几何结论”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
