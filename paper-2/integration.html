@@ -427,6 +427,20 @@ window.Quarto = {
   <li><a href="#octobernovember-923124-question-1-5-marks" id="toc-octobernovember-923124-question-1-5-marks" class="nav-link" data-scroll-target="#octobernovember-923124-question-1-5-marks">2025 October/November · 9231/24 · Question 1 · 5 marks</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">5. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先识别积分结构" id="toc-先识别积分结构" class="nav-link" data-scroll-target="#先识别积分结构">5.1 先识别积分结构</a></li>
+  <li><a href="#双曲函数基本积分" id="toc-双曲函数基本积分" class="nav-link" data-scroll-target="#双曲函数基本积分">5.2 双曲函数基本积分</a></li>
+  <li><a href="#配方后识别标准积分" id="toc-配方后识别标准积分" class="nav-link" data-scroll-target="#配方后识别标准积分">5.3 配方后识别标准积分</a></li>
+  <li><a href="#三角代换的选择" id="toc-三角代换的选择" class="nav-link" data-scroll-target="#三角代换的选择">5.4 三角代换的选择</a></li>
+  <li><a href="#通过某个函数的导数识别积分" id="toc-通过某个函数的导数识别积分" class="nav-link" data-scroll-target="#通过某个函数的导数识别积分">5.5 通过“某个函数的导数”识别积分</a></li>
+  <li><a href="#递推公式的推导" id="toc-递推公式的推导" class="nav-link" data-scroll-target="#递推公式的推导">5.6 递推公式的推导</a></li>
+  <li><a href="#使用递推公式计算定积分" id="toc-使用递推公式计算定积分" class="nav-link" data-scroll-target="#使用递推公式计算定积分">5.7 使用递推公式计算定积分</a></li>
+  <li><a href="#矩形近似与上下界" id="toc-矩形近似与上下界" class="nav-link" data-scroll-target="#矩形近似与上下界">5.8 矩形近似与上下界</a></li>
+  <li><a href="#曲线弧长" id="toc-曲线弧长" class="nav-link" data-scroll-target="#曲线弧长">5.9 曲线弧长</a></li>
+  <li><a href="#旋转曲面面积" id="toc-旋转曲面面积" class="nav-link" data-scroll-target="#旋转曲面面积">5.10 旋转曲面面积</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">5.11 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -2020,8 +2034,183 @@ I_2=\cosh1-2\sinh1+2(\cosh1-1)
 <li>能用矩形面积证明积分不等式，或给出和式的上界与下界；</li>
 <li>能写出弧长与曲面面积公式并正确代入。 本节保留教材 Chapter 4 的全部编号 Example（Example 1–15）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">5. 常用解题技巧</h2>
+<section id="先识别积分结构" class="level3">
+<h3 class="anchored" data-anchor-id="先识别积分结构">5.1 先识别积分结构</h3>
+<p>看到积分时先判断它属于哪一类：</p>
+<ul>
+<li>双曲函数的基本积分；</li>
+<li>配方后可化为标准积分；</li>
+<li>需要三角或双曲代换；</li>
+<li>分部积分或递推公式；</li>
+<li>参数曲线、极坐标弧长或旋转曲面面积；</li>
+<li>矩形近似与积分不等式。</li>
+</ul>
+<p>不要一开始就盲目分部积分。先观察分母、根号、导数链和积分区间，通常可以直接确定最短方法。</p>
+</section>
+<section id="双曲函数基本积分" class="level3">
+<h3 class="anchored" data-anchor-id="双曲函数基本积分">5.2 双曲函数基本积分</h3>
+<p>最常用的三个结果是</p>
+<p><span class="math display">
+\int\cosh x\,\mathrm dx=\sinh x+C,
+\qquad
+\int\sinh x\,\mathrm dx=\cosh x+C,
+</span></p>
+<p><span class="math display">
+\int\tanh x\,\mathrm dx=\ln(\cosh x)+C.
+</span></p>
+<p>若被积函数是 <span class="math inline">\tanh(ax+b)</span>，必须乘上 chain rule 的因子：</p>
+<p><span class="math display">
+\int\tanh(ax+b)\,\mathrm dx
+=\frac1a\ln\bigl(\cosh(ax+b)\bigr)+C.
+</span></p>
+<p>求导检查时使用 <span class="math inline">\dfrac{\mathrm d}{\mathrm dx}\ln(\cosh x)=\tanh x</span>，可以快速确认符号。</p>
+</section>
+<section id="配方后识别标准积分" class="level3">
+<h3 class="anchored" data-anchor-id="配方后识别标准积分">5.3 配方后识别标准积分</h3>
+<p>先把二次式配成平方加常数或常数减平方。例如</p>
+<p><span class="math display">
+x^2+6x+13=(x+3)^2+4,
+</span></p>
+<p><span class="math display">
+9-x^2=(3-x)(3+x).
+</span></p>
+<p>再使用平移 <span class="math inline">u=x+3</span> 或其他简单代换。四个常用形式为</p>
+<p><span class="math display">
+\int\frac{\mathrm dx}{\sqrt{a^2-x^2}}
+=\sin^{-1}\frac xa+C,
+</span></p>
+<p><span class="math display">
+\int\frac{\mathrm dx}{x^2+a^2}
+=\frac1a\tan^{-1}\frac xa+C,
+</span></p>
+<p><span class="math display">
+\int\frac{\mathrm dx}{\sqrt{x^2-a^2}}
+=\cosh^{-1}\frac xa+C,
+</span></p>
+<p><span class="math display">
+\int\frac{\mathrm dx}{\sqrt{x^2+a^2}}
+=\sinh^{-1}\frac xa+C.
+</span></p>
+<p>平移后不要忘记把最后的 <span class="math inline">u</span> 换回 <span class="math inline">x</span>，定积分则要同步改变上下限或在最后换回原变量。</p>
+</section>
+<section id="三角代换的选择" class="level3">
+<h3 class="anchored" data-anchor-id="三角代换的选择">5.4 三角代换的选择</h3>
+<p>根号结构决定代换：</p>
+<ul>
+<li><span class="math inline">\sqrt{a^2-x^2}</span>：令 <span class="math inline">x=a\sin\theta</span>；</li>
+<li><span class="math inline">\sqrt{x^2+a^2}</span>：令 <span class="math inline">x=a\sinh u</span> 或 <span class="math inline">x=a\tan\theta</span>；</li>
+<li><span class="math inline">\sqrt{x^2-a^2}</span>：令 <span class="math inline">x=a\cosh u</span>。</li>
+</ul>
+<p>例如使用 <span class="math inline">x=a\sin\theta</span> 时，</p>
+<p><span class="math display">
+\sqrt{a^2-x^2}=a\cos\theta,
+\qquad
+\mathrm dx=a\cos\theta\,\mathrm d\theta.
+</span></p>
+<p>代换后要同时处理根号、<span class="math inline">\mathrm dx</span> 和上下限；如果定积分的上下限能直接转成简单角度，通常比先求不定积分更清楚。</p>
+</section>
+<section id="通过某个函数的导数识别积分" class="level3">
+<h3 class="anchored" data-anchor-id="通过某个函数的导数识别积分">5.5 通过“某个函数的导数”识别积分</h3>
+<p>遇到复杂乘积时，先尝试寻找一个整体导数。例如含有</p>
+<p><span class="math display">
+\frac{x}{(1+x^2)^m}
+</span></p>
+<p>时，令 <span class="math inline">u=1+x^2</span>；含有 <span class="math inline">\sinh x</span> 与 <span class="math inline">\cosh x</span> 的乘积时，检查是否是 <span class="math inline">\cosh^2x</span> 或 <span class="math inline">\sinh^2x</span> 的导数。</p>
+<p>若可以找到</p>
+<p><span class="math display">
+\frac{\mathrm d}{\mathrm dx}F(x)=f(x),
+</span></p>
+<p>则直接写 <span class="math inline">\int f(x)\,\mathrm dx=F(x)+C</span>，不要增加不必要的分部积分步骤。</p>
+</section>
+<section id="递推公式的推导" class="level3">
+<h3 class="anchored" data-anchor-id="递推公式的推导">5.6 递推公式的推导</h3>
+<p>定义含参数的积分 <span class="math inline">I_n</span> 后，先写清楚目标是把 <span class="math inline">I_n</span> 化为较低阶的积分。常见方法是分部积分：</p>
+<p><span class="math display">
+\int u\,\mathrm dv=u v-\int v\,\mathrm du.
+</span></p>
+<p>例如</p>
+<p><span class="math display">
+I_n=\int_0^{\pi/2}\sin^n x\,\mathrm dx
+</span></p>
+<p>可把一份 <span class="math inline">\sin^{n-1}x</span> 与 <span class="math inline">\sin x\,\mathrm dx</span> 分开，选择 <span class="math inline">u</span> 和 <span class="math inline">\mathrm dv</span> 后得到</p>
+<p><span class="math display">
+I_n=\frac{n-1}{n}I_{n-2}.
+</span></p>
+<p>推导后一定写出初始值，如 <span class="math inline">I_0</span> 或 <span class="math inline">I_1</span>，否则无法继续算出具体数值。</p>
+</section>
+<section id="使用递推公式计算定积分" class="level3">
+<h3 class="anchored" data-anchor-id="使用递推公式计算定积分">5.7 使用递推公式计算定积分</h3>
+<p>得到递推关系后，先判断 <span class="math inline">n</span> 的奇偶性：</p>
+<ul>
+<li>偶数阶最终降到 <span class="math inline">I_0</span>；</li>
+<li>奇数阶最终降到 <span class="math inline">I_1</span>。</li>
+</ul>
+<p>每一步都保留因子，最后再化简。若积分上下限或被积函数发生变化，不能直接照搬标准递推式，必须检查边界项是否为零。</p>
+</section>
+<section id="矩形近似与上下界" class="level3">
+<h3 class="anchored" data-anchor-id="矩形近似与上下界">5.8 矩形近似与上下界</h3>
+<p>将 <span class="math inline">[a,b]</span> 分成 <span class="math inline">n</span> 个等宽区间时，矩形宽度为</p>
+<p><span class="math display">
+h=\frac{b-a}{n}.
+</span></p>
+<p>若 <span class="math inline">f</span> 在区间上递增，则左端点矩形和是下界，右端点矩形和是上界；若 <span class="math inline">f</span> 递减，方向相反。写出不等式时要明确函数的单调性，而不能只凭图形判断。</p>
+<p>当 <span class="math inline">n\to\infty</span> 时，<span class="math inline">h\to0</span>，矩形和趋向</p>
+<p><span class="math display">
+\int_a^b f(x)\,\mathrm dx.
+</span></p>
+<p>如果题目给出宽度为 <span class="math inline">1</span> 的和式，要先找清楚矩形的左、右端点以及是否存在半宽或端点修正。</p>
+</section>
+<section id="曲线弧长" class="level3">
+<h3 class="anchored" data-anchor-id="曲线弧长">5.9 曲线弧长</h3>
+<p>Cartesian 曲线的弧长为</p>
+<p><span class="math display">
+s=\int_a^b\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx.
+</span></p>
+<p>参数曲线使用</p>
+<p><span class="math display">
+s=\int_{t_1}^{t_2}
+\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2
++\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt.
+</span></p>
+<p>极坐标曲线 <span class="math inline">r=f(\theta)</span> 使用</p>
+<p><span class="math display">
+s=\int_{\theta_1}^{\theta_2}
+\sqrt{r^2+\left(\frac{\mathrm dr}{\mathrm d\theta}\right)^2}\,\mathrm d\theta.
+</span></p>
+<p>先确认参数或角度区间确实描绘目标曲线一次，并检查根号内是否可以利用恒等式化简。</p>
+</section>
+<section id="旋转曲面面积" class="level3">
+<h3 class="anchored" data-anchor-id="旋转曲面面积">5.10 旋转曲面面积</h3>
+<p>曲线绕 <span class="math inline">x</span> 轴旋转一周时，Cartesian 形式为</p>
+<p><span class="math display">
+A=2\pi\int_a^b y\sqrt{1+\left(\frac{\mathrm dy}{\mathrm dx}\right)^2}\,\mathrm dx.
+</span></p>
+<p>参数形式为</p>
+<p><span class="math display">
+A=2\pi\int_{t_1}^{t_2}y
+\sqrt{\left(\frac{\mathrm dx}{\mathrm dt}\right)^2
++\left(\frac{\mathrm dy}{\mathrm dt}\right)^2}\,\mathrm dt.
+</span></p>
+<p>旋转半径是 <span class="math inline">y</span>，不是弧长微元；弧长微元才是根号部分。若曲线位于 <span class="math inline">x</span> 轴下方，应根据题目要求使用半径的绝对值或先确认区域位置。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">5.11 常见失分点与答题结构</h3>
+<ul>
+<li>配方后忘记平移变量；</li>
+<li>代换时漏写 <span class="math inline">\mathrm dx</span> 或没有改变定积分上下限；</li>
+<li>反三角、反双曲标准积分中的常数因子错误；</li>
+<li>递推公式没有给出初始积分；</li>
+<li>矩形上界、下界方向与函数单调性相反；</li>
+<li>弧长公式漏平方、漏根号或参数区间错误；</li>
+<li>曲面面积忘记乘 <span class="math inline">2\pi</span> 或使用了错误的旋转半径。</li>
+</ul>
+<p>推荐按“识别结构 → 选择公式或代换 → 写出变量和边界变化 → 积分并化简 → 检查上下限、符号和几何意义”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
