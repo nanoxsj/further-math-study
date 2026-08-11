@@ -308,6 +308,17 @@
     ]
   },
   {
+    "objectID": "paper-4/chi-squared-tests.html#常用解题技巧",
+    "href": "paper-4/chi-squared-tests.html#常用解题技巧",
+    "title": "4.3 Chi-squared tests",
+    "section": "4. 常用解题技巧",
+    "text": "4. 常用解题技巧\n\n4.1 先判断是哪一种卡方检验\n先看数据和问题目的：\n\nContingency-table test：判断两个分类变量是否 independent；\nGoodness-of-fit test：判断观察频数是否符合给定的 probability model。\n\n列联表检验的 H_0 通常是“两个分类变量独立”；拟合优度检验的 H_0 通常是“数据符合给定分布”。两种检验都不能证明因果关系，只能说明 independence 或 model fit 的证据是否足够。\n\n\n4.2 先写 H_0 和 H_1\n答案开头先结合题目语境写假设：\n\nH_0:\\text{the variables are independent},\n\n\nH_1:\\text{the variables are not independent}.\n\nGoodness-of-fit 中可写成\n\nH_0:\\text{the data fit the stated distribution},\n\n\nH_1:\\text{the data do not fit the stated distribution}.\n\n卡方统计量的拒绝区域总在右尾，所以不需要进行左尾或双尾方向转换。\n\n\n4.3 列联表的 expected frequencies\n对于列联表，每一个 expected frequency 为\n\nf_e=\\frac{(\\text{row total})(\\text{column total})}\n{\\text{grand total}}.\n\n建议先补齐每行、每列和总计，再逐格计算 expected frequencies。每一行 expected frequencies 的和应等于该行 total，每一列的和应等于该列 total；这是很有效的检查。\n不要把 observed frequency 当成 expected frequency，也不要在总计未检查前直接计算卡方统计量。\n\n\n4.4 拟合优度检验的 expected frequencies\n若模型给出每个类别的概率 P(X=x)，则\n\nf_e=N\\,P(X=x).\n\n若最后一类是 open-ended class，例如 X\\geqslant6，必须使用完整尾概率：\n\nf_e(\\geqslant6)=N P(X\\geqslant6)\n=N\\left[1-P(X\\leqslant5)\\right].\n\n不能把最后一类误写成 NP(X=6)。所有 expected frequencies 加起来应等于样本总数 N。\n\n\n4.5 计算卡方统计量\n对每一个类别或单元格计算贡献：\n\n\\frac{(f_o-f_e)^2}{f_e},\n\n然后求和：\n\n\\chi^2=\\sum\\frac{(f_o-f_e)^2}{f_e}.\n\n建议保留 expected frequencies 的完整精度，最后才对 \\chi^2 四舍五入。某个贡献很小是正常的，表示该 observed frequency 与 expected frequency 很接近，不能把它误删。\n\n\n4.6 期望频数太小时合并类别\n每个用于检验的 expected frequency 通常应至少为 5。如果某些类别过小：\n\n合并相邻类别；\n同时合并 observed frequencies 和 expected frequencies；\n对合并后的类别只计算一个贡献；\n用合并后的类别数重新计算 degrees of freedom。\n\n不能先分别计算小类别的贡献，再在最后把它们相加；合并后应重新计算\n\n\\frac{(f_{o,1}+f_{o,2}-f_{e,1}-f_{e,2})^2}\n{f_{e,1}+f_{e,2}}.\n\n\n\n4.7 Degrees of freedom\n对 m\\times n contingency table：\n\nv=(m-1)(n-1).\n\n对 goodness-of-fit test：\n\nv=(\\text{number of classes after combining})\n-(\\text{number of estimated parameters})-1.\n\n如果使用样本估计 Poisson 参数 \\lambda 或 binomial 参数 p，要扣除一个 degree of freedom。题目直接给出的参数不需要扣除。类别合并后，要用合并后的类别数量，不是原始类别数量。\n\n\n4.8 临界值和右尾判断\n卡方统计量的拒绝区域在右尾。若显著性水平为 \\alpha，比较\n\n\\chi^2_{\\text{calculated}}\n\\quad\\text{和}\\quad\n\\chi^2_{\\text{critical},v}.\n\n若\n\n\\chi^2_{\\text{calculated}}&gt;\\chi^2_{\\text{critical},v},\n\n则 reject H_0；否则 do not reject H_0。不要使用绝对值，也不要把卡方检验当成双尾正态检验处理。\n\n\n4.9 结论要回到题目语境\n拒绝 H_0 时，可写“在给定显著性水平下，有足够证据表明变量不独立”或“有足够证据表明数据不符合该模型”。\n不拒绝 H_0 时，应写“证据不足以表明变量不独立”或“证据不足以认为数据不符合该模型”。不要写“证明变量独立”或“接受 H_0 所以模型一定正确”。\n\n\n4.10 用贡献值定位差异来源\n虽然最终结论由总 \\chi^2 决定，但各项贡献\n\n\\frac{(f_o-f_e)^2}{f_e}\n\n可以帮助判断哪些类别或单元格对差异贡献最大。贡献最大的格子通常是 observed 与 expected 差异相对较大的地方；这可以作为解释数据的补充，但不能替代正式检验结论。\n\n\n4.11 常见失分点与答题结构\n\n选错 contingency test 与 goodness-of-fit test；\nH_0 和 H_1 没有写成题目语境；\n使用 observed frequency 代替 expected frequency；\nopen-ended class 只计算单点概率；\n合并类别后仍使用原来的 degrees of freedom；\n估计了参数却没有扣除相应自由度；\n将卡方拒绝区域写在左尾；\n过早四舍五入 expected frequencies；\n把“不拒绝 H_0”写成“证明 H_0”。\n\n推荐按“确定检验类型 → 写 H_0,H_1 → 计算 expected frequencies → 合并类别 → 求 \\chi^2 → 写自由度和临界值 → 右尾比较 → 作语境结论”的顺序作答。",
+    "crumbs": [
+      "Paper 4 · Further Probability & Statistics",
+      "4.3 Chi-squared tests"
+    ]
+  },
+  {
     "objectID": "paper-4/continuous-random-variables.html",
     "href": "paper-4/continuous-random-variables.html",
     "title": "4.1 Continuous random variables",

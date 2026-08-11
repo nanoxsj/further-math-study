@@ -391,6 +391,20 @@ window.Quarto = {
   <li><a href="#mayjune-923141-and-923142-question-3" id="toc-mayjune-923141-and-923142-question-3" class="nav-link" data-scroll-target="#mayjune-923141-and-923142-question-3">2023 May/June · 9231/41 and 9231/42 · Question 3</a></li>
   <li><a href="#octobernovember-923141-and-923143-question-2-1" id="toc-octobernovember-923141-and-923143-question-2-1" class="nav-link" data-scroll-target="#octobernovember-923141-and-923143-question-2-1">2023 October/November · 9231/41 and 9231/43 · Question 2</a></li>
   <li><a href="#octobernovember-923142-question-2" id="toc-octobernovember-923142-question-2" class="nav-link" data-scroll-target="#octobernovember-923142-question-2">2023 October/November · 9231/42 · Question 2</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">4. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先判断是哪一种卡方检验" id="toc-先判断是哪一种卡方检验" class="nav-link" data-scroll-target="#先判断是哪一种卡方检验">4.1 先判断是哪一种卡方检验</a></li>
+  <li><a href="#先写-h_0-和-h_1" id="toc-先写-h_0-和-h_1" class="nav-link" data-scroll-target="#先写-h_0-和-h_1">4.2 先写 <span class="math inline">H_0</span> 和 <span class="math inline">H_1</span></a></li>
+  <li><a href="#列联表的-expected-frequencies" id="toc-列联表的-expected-frequencies" class="nav-link" data-scroll-target="#列联表的-expected-frequencies">4.3 列联表的 expected frequencies</a></li>
+  <li><a href="#拟合优度检验的-expected-frequencies" id="toc-拟合优度检验的-expected-frequencies" class="nav-link" data-scroll-target="#拟合优度检验的-expected-frequencies">4.4 拟合优度检验的 expected frequencies</a></li>
+  <li><a href="#计算卡方统计量" id="toc-计算卡方统计量" class="nav-link" data-scroll-target="#计算卡方统计量">4.5 计算卡方统计量</a></li>
+  <li><a href="#期望频数太小时合并类别" id="toc-期望频数太小时合并类别" class="nav-link" data-scroll-target="#期望频数太小时合并类别">4.6 期望频数太小时合并类别</a></li>
+  <li><a href="#degrees-of-freedom" id="toc-degrees-of-freedom" class="nav-link" data-scroll-target="#degrees-of-freedom">4.7 Degrees of freedom</a></li>
+  <li><a href="#临界值和右尾判断" id="toc-临界值和右尾判断" class="nav-link" data-scroll-target="#临界值和右尾判断">4.8 临界值和右尾判断</a></li>
+  <li><a href="#结论要回到题目语境" id="toc-结论要回到题目语境" class="nav-link" data-scroll-target="#结论要回到题目语境">4.9 结论要回到题目语境</a></li>
+  <li><a href="#用贡献值定位差异来源" id="toc-用贡献值定位差异来源" class="nav-link" data-scroll-target="#用贡献值定位差异来源">4.10 用贡献值定位差异来源</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">4.11 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1380,8 +1394,143 @@ Show answer
 <p>Combine the first two classes: <span class="math inline">O=5</span>, <span class="math inline">E=12.23</span>; and the final two classes: <span class="math inline">O=9</span>, <span class="math inline">E=5.876</span>. <span class="math display">\chi^2=4.274+0.799+0.302+0.945+1.417+0.612+1.661=10.0.</span></p>
 With seven classes and one total restriction, <span class="math inline">v=6</span>. The 10% critical value is <span class="math inline">10.64</span>. Since <span class="math inline">10.0&lt;10.64</span>, accept <span class="math inline">H_0</span>. There is insufficient evidence to suggest that <span class="math inline">\operatorname{Po}(3.5)</span> is not a good fit to the data.
 </details>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">4. 常用解题技巧</h2>
+<section id="先判断是哪一种卡方检验" class="level3">
+<h3 class="anchored" data-anchor-id="先判断是哪一种卡方检验">4.1 先判断是哪一种卡方检验</h3>
+<p>先看数据和问题目的：</p>
+<ul>
+<li><strong>Contingency-table test</strong>：判断两个分类变量是否 independent；</li>
+<li><strong>Goodness-of-fit test</strong>：判断观察频数是否符合给定的 probability model。</li>
+</ul>
+<p>列联表检验的 <span class="math inline">H_0</span> 通常是“两个分类变量独立”；拟合优度检验的 <span class="math inline">H_0</span> 通常是“数据符合给定分布”。两种检验都不能证明因果关系，只能说明 independence 或 model fit 的证据是否足够。</p>
+</section>
+<section id="先写-h_0-和-h_1" class="level3">
+<h3 class="anchored" data-anchor-id="先写-h_0-和-h_1">4.2 先写 <span class="math inline">H_0</span> 和 <span class="math inline">H_1</span></h3>
+<p>答案开头先结合题目语境写假设：</p>
+<p><span class="math display">
+H_0:\text{the variables are independent},
+</span></p>
+<p><span class="math display">
+H_1:\text{the variables are not independent}.
+</span></p>
+<p>Goodness-of-fit 中可写成</p>
+<p><span class="math display">
+H_0:\text{the data fit the stated distribution},
+</span></p>
+<p><span class="math display">
+H_1:\text{the data do not fit the stated distribution}.
+</span></p>
+<p>卡方统计量的拒绝区域总在右尾，所以不需要进行左尾或双尾方向转换。</p>
+</section>
+<section id="列联表的-expected-frequencies" class="level3">
+<h3 class="anchored" data-anchor-id="列联表的-expected-frequencies">4.3 列联表的 expected frequencies</h3>
+<p>对于列联表，每一个 expected frequency 为</p>
+<p><span class="math display">
+f_e=\frac{(\text{row total})(\text{column total})}
+{\text{grand total}}.
+</span></p>
+<p>建议先补齐每行、每列和总计，再逐格计算 expected frequencies。每一行 expected frequencies 的和应等于该行 total，每一列的和应等于该列 total；这是很有效的检查。</p>
+<p>不要把 observed frequency 当成 expected frequency，也不要在总计未检查前直接计算卡方统计量。</p>
+</section>
+<section id="拟合优度检验的-expected-frequencies" class="level3">
+<h3 class="anchored" data-anchor-id="拟合优度检验的-expected-frequencies">4.4 拟合优度检验的 expected frequencies</h3>
+<p>若模型给出每个类别的概率 <span class="math inline">P(X=x)</span>，则</p>
+<p><span class="math display">
+f_e=N\,P(X=x).
+</span></p>
+<p>若最后一类是 open-ended class，例如 <span class="math inline">X\geqslant6</span>，必须使用完整尾概率：</p>
+<p><span class="math display">
+f_e(\geqslant6)=N P(X\geqslant6)
+=N\left[1-P(X\leqslant5)\right].
+</span></p>
+<p>不能把最后一类误写成 <span class="math inline">NP(X=6)</span>。所有 expected frequencies 加起来应等于样本总数 <span class="math inline">N</span>。</p>
+</section>
+<section id="计算卡方统计量" class="level3">
+<h3 class="anchored" data-anchor-id="计算卡方统计量">4.5 计算卡方统计量</h3>
+<p>对每一个类别或单元格计算贡献：</p>
+<p><span class="math display">
+\frac{(f_o-f_e)^2}{f_e},
+</span></p>
+<p>然后求和：</p>
+<p><span class="math display">
+\chi^2=\sum\frac{(f_o-f_e)^2}{f_e}.
+</span></p>
+<p>建议保留 expected frequencies 的完整精度，最后才对 <span class="math inline">\chi^2</span> 四舍五入。某个贡献很小是正常的，表示该 observed frequency 与 expected frequency 很接近，不能把它误删。</p>
+</section>
+<section id="期望频数太小时合并类别" class="level3">
+<h3 class="anchored" data-anchor-id="期望频数太小时合并类别">4.6 期望频数太小时合并类别</h3>
+<p>每个用于检验的 expected frequency 通常应至少为 <span class="math inline">5</span>。如果某些类别过小：</p>
+<ol type="1">
+<li>合并相邻类别；</li>
+<li>同时合并 observed frequencies 和 expected frequencies；</li>
+<li>对合并后的类别只计算一个贡献；</li>
+<li>用合并后的类别数重新计算 degrees of freedom。</li>
+</ol>
+<p>不能先分别计算小类别的贡献，再在最后把它们相加；合并后应重新计算</p>
+<p><span class="math display">
+\frac{(f_{o,1}+f_{o,2}-f_{e,1}-f_{e,2})^2}
+{f_{e,1}+f_{e,2}}.
+</span></p>
+</section>
+<section id="degrees-of-freedom" class="level3">
+<h3 class="anchored" data-anchor-id="degrees-of-freedom">4.7 Degrees of freedom</h3>
+<p>对 <span class="math inline">m\times n</span> contingency table：</p>
+<p><span class="math display">
+v=(m-1)(n-1).
+</span></p>
+<p>对 goodness-of-fit test：</p>
+<p><span class="math display">
+v=(\text{number of classes after combining})
+-(\text{number of estimated parameters})-1.
+</span></p>
+<p>如果使用样本估计 Poisson 参数 <span class="math inline">\lambda</span> 或 binomial 参数 <span class="math inline">p</span>，要扣除一个 degree of freedom。题目直接给出的参数不需要扣除。类别合并后，要用合并后的类别数量，不是原始类别数量。</p>
+</section>
+<section id="临界值和右尾判断" class="level3">
+<h3 class="anchored" data-anchor-id="临界值和右尾判断">4.8 临界值和右尾判断</h3>
+<p>卡方统计量的拒绝区域在右尾。若显著性水平为 <span class="math inline">\alpha</span>，比较</p>
+<p><span class="math display">
+\chi^2_{\text{calculated}}
+\quad\text{和}\quad
+\chi^2_{\text{critical},v}.
+</span></p>
+<p>若</p>
+<p><span class="math display">
+\chi^2_{\text{calculated}}&gt;\chi^2_{\text{critical},v},
+</span></p>
+<p>则 reject <span class="math inline">H_0</span>；否则 do not reject <span class="math inline">H_0</span>。不要使用绝对值，也不要把卡方检验当成双尾正态检验处理。</p>
+</section>
+<section id="结论要回到题目语境" class="level3">
+<h3 class="anchored" data-anchor-id="结论要回到题目语境">4.9 结论要回到题目语境</h3>
+<p>拒绝 <span class="math inline">H_0</span> 时，可写“在给定显著性水平下，有足够证据表明变量不独立”或“有足够证据表明数据不符合该模型”。</p>
+<p>不拒绝 <span class="math inline">H_0</span> 时，应写“证据不足以表明变量不独立”或“证据不足以认为数据不符合该模型”。不要写“证明变量独立”或“接受 <span class="math inline">H_0</span> 所以模型一定正确”。</p>
+</section>
+<section id="用贡献值定位差异来源" class="level3">
+<h3 class="anchored" data-anchor-id="用贡献值定位差异来源">4.10 用贡献值定位差异来源</h3>
+<p>虽然最终结论由总 <span class="math inline">\chi^2</span> 决定，但各项贡献</p>
+<p><span class="math display">
+\frac{(f_o-f_e)^2}{f_e}
+</span></p>
+<p>可以帮助判断哪些类别或单元格对差异贡献最大。贡献最大的格子通常是 observed 与 expected 差异相对较大的地方；这可以作为解释数据的补充，但不能替代正式检验结论。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">4.11 常见失分点与答题结构</h3>
+<ul>
+<li>选错 contingency test 与 goodness-of-fit test；</li>
+<li><span class="math inline">H_0</span> 和 <span class="math inline">H_1</span> 没有写成题目语境；</li>
+<li>使用 observed frequency 代替 expected frequency；</li>
+<li>open-ended class 只计算单点概率；</li>
+<li>合并类别后仍使用原来的 degrees of freedom；</li>
+<li>估计了参数却没有扣除相应自由度；</li>
+<li>将卡方拒绝区域写在左尾；</li>
+<li>过早四舍五入 expected frequencies；</li>
+<li>把“不拒绝 <span class="math inline">H_0</span>”写成“证明 <span class="math inline">H_0</span>”。</li>
+</ul>
+<p>推荐按“确定检验类型 → 写 <span class="math inline">H_0,H_1</span> → 计算 expected frequencies → 合并类别 → 求 <span class="math inline">\chi^2</span> → 写自由度和临界值 → 右尾比较 → 作语境结论”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
