@@ -417,6 +417,20 @@ window.Quarto = {
   <li><a href="#octobernovember-923124-question-2-6-marks" id="toc-octobernovember-923124-question-2-6-marks" class="nav-link" data-scroll-target="#octobernovember-923124-question-2-6-marks">2025 October/November · 9231/24 · Question 2 · 6 marks</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">5. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先回到指数定义" id="toc-先回到指数定义" class="nav-link" data-scroll-target="#先回到指数定义">5.1 先回到指数定义</a></li>
+  <li><a href="#熟记定义域值域和奇偶性" id="toc-熟记定义域值域和奇偶性" class="nav-link" data-scroll-target="#熟记定义域值域和奇偶性">5.2 熟记定义域、值域和奇偶性</a></li>
+  <li><a href="#核心恒等式的选择" id="toc-核心恒等式的选择" class="nav-link" data-scroll-target="#核心恒等式的选择">5.3 核心恒等式的选择</a></li>
+  <li><a href="#双曲函数的符号判断" id="toc-双曲函数的符号判断" class="nav-link" data-scroll-target="#双曲函数的符号判断">5.4 双曲函数的符号判断</a></li>
+  <li><a href="#二倍角与加法公式" id="toc-二倍角与加法公式" class="nav-link" data-scroll-target="#二倍角与加法公式">5.5 二倍角与加法公式</a></li>
+  <li><a href="#osborns-rule-要逐项检查" id="toc-osborns-rule-要逐项检查" class="nav-link" data-scroll-target="#osborns-rule-要逐项检查">5.6 Osborn’s rule 要逐项检查</a></li>
+  <li><a href="#解含双曲函数的方程" id="toc-解含双曲函数的方程" class="nav-link" data-scroll-target="#解含双曲函数的方程">5.7 解含双曲函数的方程</a></li>
+  <li><a href="#反双曲函数的对数形式" id="toc-反双曲函数的对数形式" class="nav-link" data-scroll-target="#反双曲函数的对数形式">5.8 反双曲函数的对数形式</a></li>
+  <li><a href="#反双曲函数题的代数化方法" id="toc-反双曲函数题的代数化方法" class="nav-link" data-scroll-target="#反双曲函数题的代数化方法">5.9 反双曲函数题的代数化方法</a></li>
+  <li><a href="#图像题的关键特征" id="toc-图像题的关键特征" class="nav-link" data-scroll-target="#图像题的关键特征">5.10 图像题的关键特征</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">5.11 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1475,8 +1489,160 @@ x=\pm\ln\left(\frac12+\frac{\sqrt5}2\right),
 <li>能解含 <span class="math inline">\sinh x</span>、<span class="math inline">\cosh x</span> 的方程，必要时化为关于 <span class="math inline">e^x</span> 或 <span class="math inline">\sinh x</span> 的二次方程；</li>
 <li>能写出三个常用反双曲函数的对数形式并正确使用定义域。 本节保留教材 Chapter 1 的全部编号 Example（Example 1–17）。题意与符号按教材重写，作图题配原创 SVG 示意图。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">5. 常用解题技巧</h2>
+<section id="先回到指数定义" class="level3">
+<h3 class="anchored" data-anchor-id="先回到指数定义">5.1 先回到指数定义</h3>
+<p>最稳妥的基本式是</p>
+<p><span class="math display">
+\sinh x=\frac{e^x-e^{-x}}2,
+\qquad
+\cosh x=\frac{e^x+e^{-x}}2.
+</span></p>
+<p>由此可立即得到</p>
+<p><span class="math display">
+e^x=\cosh x+\sinh x,
+\qquad
+e^{-x}=\cosh x-\sinh x.
+</span></p>
+<p>遇到复杂的双曲式、证明题或需要解方程时，先把所有函数改写成 <span class="math inline">e^x</span> 的形式，通常比直接展开多个恒等式更不容易出错。</p>
+</section>
+<section id="熟记定义域值域和奇偶性" class="level3">
+<h3 class="anchored" data-anchor-id="熟记定义域值域和奇偶性">5.2 熟记定义域、值域和奇偶性</h3>
+<p>作图或解方程前先写清楚限制：</p>
+<ul>
+<li><span class="math inline">\sinh x</span>：定义域 <span class="math inline">\mathbb R</span>，值域 <span class="math inline">\mathbb R</span>，奇函数；</li>
+<li><span class="math inline">\cosh x</span>：定义域 <span class="math inline">\mathbb R</span>，值域 <span class="math inline">[1,\infty)</span>，偶函数；</li>
+<li><span class="math inline">\tanh x</span>：定义域 <span class="math inline">\mathbb R</span>，值域 <span class="math inline">(-1,1)</span>，奇函数；</li>
+<li><span class="math inline">\coth x</span>：定义域 <span class="math inline">\mathbb R\setminus\{0\}</span>，值域 <span class="math inline">(-\infty,-1)\cup(1,\infty)</span>，奇函数；</li>
+<li><span class="math inline">\operatorname{sech}x</span>：定义域 <span class="math inline">\mathbb R</span>，值域 <span class="math inline">(0,1]</span>，偶函数；</li>
+<li><span class="math inline">\operatorname{cosech}x</span>：定义域 <span class="math inline">\mathbb R\setminus\{0\}</span>，值域 <span class="math inline">\mathbb R\setminus\{0\}</span>，奇函数。</li>
+</ul>
+<p>因此，遇到 <span class="math inline">\cosh x=a</span> 时必须有 <span class="math inline">a\geqslant1</span>；遇到 <span class="math inline">\tanh x=a</span> 时必须有 <span class="math inline">|a|&lt;1</span>。先使用值域可以快速判断方程是否有实数解。</p>
+</section>
+<section id="核心恒等式的选择" class="level3">
+<h3 class="anchored" data-anchor-id="核心恒等式的选择">5.3 核心恒等式的选择</h3>
+<p>核心恒等式为</p>
+<p><span class="math display">
+\cosh^2x-\sinh^2x=1.
+</span></p>
+<p>根据题目中出现的函数选择最方便的形式：</p>
+<p><span class="math display">
+1-\tanh^2x=\operatorname{sech}^2x,
+\qquad
+\coth^2x-1=\operatorname{cosech}^2x.
+</span></p>
+<p>若题目给出 <span class="math inline">\sinh x</span> 或 <span class="math inline">\cosh x</span> 的值，先用核心恒等式求另一个函数，再根据区间或符号选择正负号。不要只由平方关系直接写出正根。</p>
+</section>
+<section id="双曲函数的符号判断" class="level3">
+<h3 class="anchored" data-anchor-id="双曲函数的符号判断">5.4 双曲函数的符号判断</h3>
+<p>当 <span class="math inline">x&gt;0</span> 时，<span class="math inline">\sinh x&gt;0</span>、<span class="math inline">\cosh x&gt;0</span>、<span class="math inline">\tanh x&gt;0</span>；当 <span class="math inline">x&lt;0</span> 时，<span class="math inline">\sinh x</span> 和 <span class="math inline">\tanh x</span> 改变符号，而 <span class="math inline">\cosh x</span> 保持正值。</p>
+<p>这在开平方、求反函数和解恒等式题中很重要。例如若已知 <span class="math inline">x&lt;0</span>，则</p>
+<p><span class="math display">
+\sinh x=-\sqrt{\cosh^2x-1},
+</span></p>
+<p>不能直接取正根。</p>
+</section>
+<section id="二倍角与加法公式" class="level3">
+<h3 class="anchored" data-anchor-id="二倍角与加法公式">5.5 二倍角与加法公式</h3>
+<p>常用公式为</p>
+<p><span class="math display">
+\sinh2x=2\sinh x\cosh x,
+</span></p>
+<p><span class="math display">
+\cosh2x=\cosh^2x+\sinh^2x
+=2\cosh^2x-1=2\sinh^2x+1.
+</span></p>
+<p>看到 <span class="math inline">2\sinh x\cosh x</span> 时优先合并成 <span class="math inline">\sinh2x</span>；看到 <span class="math inline">\cosh^2x+\sinh^2x</span> 时优先合并成 <span class="math inline">\cosh2x</span>。遇到含 <span class="math inline">A+B</span> 或 <span class="math inline">A-B</span> 的式子，再使用</p>
+<p><span class="math display">
+\sinh(A\pm B)=\sinh A\cosh B\pm\cosh A\sinh B,
+</span></p>
+<p><span class="math display">
+\cosh(A\pm B)=\cosh A\cosh B\pm\sinh A\sinh B.
+</span></p>
+</section>
+<section id="osborns-rule-要逐项检查" class="level3">
+<h3 class="anchored" data-anchor-id="osborns-rule-要逐项检查">5.6 Osborn’s rule 要逐项检查</h3>
+<p>把三角恒等式转为双曲恒等式时，不能机械地把每个函数名称替换掉。重点检查含有两个 <span class="math inline">\sinh</span> 相乘的项，相关符号要反转。例如</p>
+<p><span class="math display">
+\cos^2x+\sin^2x=1
+\quad\longrightarrow\quad
+\cosh^2x-\sinh^2x=1.
+</span></p>
+<p>建议转换后用 <span class="math inline">x=0</span> 或指数定义做一次快速检查，尤其注意减号和二倍角公式中的常数项。</p>
+</section>
+<section id="解含双曲函数的方程" class="level3">
+<h3 class="anchored" data-anchor-id="解含双曲函数的方程">5.7 解含双曲函数的方程</h3>
+<p>若方程只含 <span class="math inline">\sinh x</span>、<span class="math inline">\cosh x</span> 的多项式，常见策略是：</p>
+<ol type="1">
+<li>使用 <span class="math inline">\cosh^2x-\sinh^2x=1</span> 降低次数；</li>
+<li>令 <span class="math inline">u=e^x</span>，将 <span class="math inline">e^{-x}</span> 写成 <span class="math inline">1/u</span>，化为关于 <span class="math inline">u</span> 的方程；</li>
+<li>解出 <span class="math inline">u</span> 后保留 <span class="math inline">u&gt;0</span> 的根；</li>
+<li>由 <span class="math inline">x=\ln u</span> 求解，并代回原方程检查。</li>
+</ol>
+<p>例如，若令 <span class="math inline">u=e^x</span>，则</p>
+<p><span class="math display">
+\sinh x=\frac{u-u^{-1}}2,
+\qquad
+\cosh x=\frac{u+u^{-1}}2.
+</span></p>
+<p>若题目给出 <span class="math inline">x&gt;0</span> 或 <span class="math inline">x&lt;0</span>，应利用它筛选根，而不是只看代数方程的形式。</p>
+</section>
+<section id="反双曲函数的对数形式" class="level3">
+<h3 class="anchored" data-anchor-id="反双曲函数的对数形式">5.8 反双曲函数的对数形式</h3>
+<p>三个最常用公式为</p>
+<p><span class="math display">
+\sinh^{-1}x=\ln\left(x+\sqrt{x^2+1}\right),
+</span></p>
+<p><span class="math display">
+\cosh^{-1}x=\ln\left(x+\sqrt{x^2-1}\right)\quad(x\geqslant1),
+</span></p>
+<p><span class="math display">
+\tanh^{-1}x=\frac12\ln\left(\frac{1+x}{1-x}\right)\quad(|x|&lt;1).
+</span></p>
+<p>注意 <span class="math inline">\sinh^{-1}x</span> 表示 inverse function，而不是 <span class="math inline">1/\sinh x</span>；后者应写成 <span class="math inline">\operatorname{cosech}x</span>。使用 <span class="math inline">\cosh^{-1}x</span> 和 <span class="math inline">\tanh^{-1}x</span> 时，必须同时写出定义域限制。</p>
+</section>
+<section id="反双曲函数题的代数化方法" class="level3">
+<h3 class="anchored" data-anchor-id="反双曲函数题的代数化方法">5.9 反双曲函数题的代数化方法</h3>
+<p>若令 <span class="math inline">y=\sinh^{-1}x</span>，则 <span class="math inline">\sinh y=x</span>，并利用</p>
+<p><span class="math display">
+\cosh^2y-\sinh^2y=1
+</span></p>
+<p>得到 <span class="math inline">\cosh y=\sqrt{x^2+1}</span>，因为 <span class="math inline">\cosh y&gt;0</span>。于是</p>
+<p><span class="math display">
+e^y=\cosh y+\sinh y=x+\sqrt{x^2+1},
+</span></p>
+<p>从而得到 <span class="math inline">y=\ln(x+\sqrt{x^2+1})</span>。同样的方法可以推导另外两个对数公式，并能避免记错符号。</p>
+</section>
+<section id="图像题的关键特征" class="level3">
+<h3 class="anchored" data-anchor-id="图像题的关键特征">5.10 图像题的关键特征</h3>
+<p>作图时优先标出：</p>
+<ul>
+<li><span class="math inline">\sinh x</span> 的原点和两端趋势；</li>
+<li><span class="math inline">\cosh x</span> 的最低点 <span class="math inline">(0,1)</span>；</li>
+<li><span class="math inline">\tanh x</span> 的水平渐近线 <span class="math inline">y=\pm1</span>；</li>
+<li><span class="math inline">\coth x</span> 的渐近线 <span class="math inline">x=0</span>、<span class="math inline">y=\pm1</span>；</li>
+<li><span class="math inline">\operatorname{sech}x</span> 的最高点 <span class="math inline">(0,1)</span> 和 <span class="math inline">y=0</span>；</li>
+<li><span class="math inline">\operatorname{cosech}x</span> 的竖直渐近线 <span class="math inline">x=0</span> 和水平渐近线 <span class="math inline">y=0</span>。</li>
+</ul>
+<p>结合奇偶性可以先画右半边，再关于 <span class="math inline">y</span> 轴或原点反射。不要把 <span class="math inline">\cosh x</span> 误画成类似抛物线的对称曲线而忽略两端的指数增长。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">5.11 常见失分点与答题结构</h3>
+<ul>
+<li>把 <span class="math inline">\cosh^2x-\sinh^2x</span> 写成加号；</li>
+<li>使用值域或开平方时选错符号；</li>
+<li>把 inverse hyperbolic function 与 reciprocal function 混淆；</li>
+<li>写 <span class="math inline">\cosh^{-1}x</span> 或 <span class="math inline">\tanh^{-1}x</span> 时漏掉定义域；</li>
+<li>用 Osborn’s rule 时没有反转含两个 <span class="math inline">\sinh</span> 的乘积项符号；</li>
+<li>令 <span class="math inline">u=e^x</span> 后忘记 <span class="math inline">u&gt;0</span>；</li>
+<li>图像题漏画渐近线、极值点或定义域限制。</li>
+</ul>
+<p>推荐按“先写定义域和值域 → 选择核心恒等式或指数定义 → 解出候选值 → 用符号和定义域筛选 → 代回检查”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
