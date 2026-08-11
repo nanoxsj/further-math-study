@@ -417,6 +417,21 @@ window.Quarto = {
   <li><a href="#octobernovember-923132-question-3-1" id="toc-octobernovember-923132-question-3-1" class="nav-link" data-scroll-target="#octobernovember-923132-question-3-1">2025 October/November · 9231/32 · Question 3</a></li>
   </ul></li>
   <li><a href="#本章检查清单" id="toc-本章检查清单" class="nav-link" data-scroll-target="#本章检查清单">5. 本章检查清单</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">6. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先选参考原点和坐标轴" id="toc-先选参考原点和坐标轴" class="nav-link" data-scroll-target="#先选参考原点和坐标轴">6.1 先选参考原点和坐标轴</a></li>
+  <li><a href="#质量与-weight-可以互换" id="toc-质量与-weight-可以互换" class="nav-link" data-scroll-target="#质量与-weight-可以互换">6.2 质量与 weight 可以互换</a></li>
+  <li><a href="#先利用对称性" id="toc-先利用对称性" class="nav-link" data-scroll-target="#先利用对称性">6.3 先利用对称性</a></li>
+  <li><a href="#常用标准质心结果" id="toc-常用标准质心结果" class="nav-link" data-scroll-target="#常用标准质心结果">6.4 常用标准质心结果</a></li>
+  <li><a href="#组合物体的加权平均" id="toc-组合物体的加权平均" class="nav-link" data-scroll-target="#组合物体的加权平均">6.5 组合物体的加权平均</a></li>
+  <li><a href="#挖孔与-removed-part" id="toc-挖孔与-removed-part" class="nav-link" data-scroll-target="#挖孔与-removed-part">6.6 挖孔与 removed part</a></li>
+  <li><a href="#负面积法的表格" id="toc-负面积法的表格" class="nav-link" data-scroll-target="#负面积法的表格">6.7 负面积法的表格</a></li>
+  <li><a href="#由悬挂判断-centre-of-mass" id="toc-由悬挂判断-centre-of-mass" class="nav-link" data-scroll-target="#由悬挂判断-centre-of-mass">6.8 由悬挂判断 centre of mass</a></li>
+  <li><a href="#tipping-的临界条件" id="toc-tipping-的临界条件" class="nav-link" data-scroll-target="#tipping-的临界条件">6.9 Tipping 的临界条件</a></li>
+  <li><a href="#同时判断-sliding-与-tipping" id="toc-同时判断-sliding-与-tipping" class="nav-link" data-scroll-target="#同时判断-sliding-与-tipping">6.10 同时判断 sliding 与 tipping</a></li>
+  <li><a href="#质心支撑和稳定性" id="toc-质心支撑和稳定性" class="nav-link" data-scroll-target="#质心支撑和稳定性">6.11 质心、支撑和稳定性</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">6.12 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1992,8 +2007,145 @@ k^2=\frac23.
 <li>toppling 问题中，取矩点应选 supporting edge；</li>
 <li>sliding 与 toppling 要比较临界条件，不能只验证其中一个。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">6. 常用解题技巧</h2>
+<section id="先选参考原点和坐标轴" class="level3">
+<h3 class="anchored" data-anchor-id="先选参考原点和坐标轴">6.1 先选参考原点和坐标轴</h3>
+<p>求 centre of mass 前先固定 reference origin、<span class="math inline">x</span>-axis 和 <span class="math inline">y</span>-axis。所有坐标必须相对于同一个原点，不能一部分用左端点作原点，另一部分又用圆心作原点而不转换。</p>
+<p>一维系统使用</p>
+<p><span class="math display">
+M\bar x=\sum_i m_ix_i,
+\qquad
+\bar x=\frac{\sum_i m_ix_i}{\sum_i m_i}.
+</span></p>
+<p>二维系统分别计算</p>
+<p><span class="math display">
+\bar x=\frac{\sum_i m_ix_i}{M},
+\qquad
+\bar y=\frac{\sum_i m_iy_i}{M}.
+</span></p>
+<p>建议先画出数轴或坐标图，再列“质量/面积、<span class="math inline">x</span> 坐标、<span class="math inline">y</span> 坐标、moment”表格。</p>
+</section>
+<section id="质量与-weight-可以互换" class="level3">
+<h3 class="anchored" data-anchor-id="质量与-weight-可以互换">6.2 质量与 weight 可以互换</h3>
+<p>若题目给出的是 weights 而不是 masses，可以直接使用 weight moments：</p>
+<p><span class="math display">
+W\bar x=\sum_i W_ix_i.
+</span></p>
+<p>因为 <span class="math inline">W_i=m_ig</span>，分子和分母中的 <span class="math inline">g</span> 会约去。不要在同一道题中一部分使用 mass、一部分使用 weight，除非先明确统一单位。</p>
+</section>
+<section id="先利用对称性" class="level3">
+<h3 class="anchored" data-anchor-id="先利用对称性">6.3 先利用对称性</h3>
+<p>若物体关于某条轴对称，centre of mass 必定位于该对称轴上。例如：</p>
+<ul>
+<li>uniform rod 的 centre of mass 在中点；</li>
+<li>对称三角形的 centre of mass 在对称轴上；</li>
+<li>semicircular lamina 的 centre of mass 在 symmetry axis 上；</li>
+<li>圆盘或扇形的 centre of mass 位于其对称方向上。</li>
+</ul>
+<p>利用对称性可以先确定一个坐标为 <span class="math inline">0</span> 或某个已知距离，再只计算另一个坐标，减少不必要的 moment 方程。</p>
+</section>
+<section id="常用标准质心结果" class="level3">
+<h3 class="anchored" data-anchor-id="常用标准质心结果">6.4 常用标准质心结果</h3>
+<p>考试中应熟悉以下结果及其测量方向：</p>
+<ul>
+<li>uniform rod：中点；</li>
+<li>triangle：从顶点沿 median 量全长的 <span class="math inline">2/3</span>，或从底边量高度的 <span class="math inline">1/3</span>；</li>
+<li>semicircular lamina：从圆心沿 symmetry axis 量 <span class="math inline">\dfrac{4r}{3\pi}</span>；</li>
+<li>semicircular arc：从圆心沿 symmetry axis 量 <span class="math inline">\dfrac{2r}{\pi}</span>；</li>
+<li>quarter-circle sector：沿对称方向距圆心 <span class="math inline">\dfrac{4r}{3\pi}</span>。</li>
+</ul>
+<p>semicircular lamina 和 semicircular arc 的结果不同，使用前先确认题目是“面”还是“弧”。</p>
+</section>
+<section id="组合物体的加权平均" class="level3">
+<h3 class="anchored" data-anchor-id="组合物体的加权平均">6.5 组合物体的加权平均</h3>
+<p>把复杂物体分成简单部分后，使用</p>
+<p><span class="math display">
+M\bar x=m_1x_1+m_2x_2+\cdots,
+</span></p>
+<p><span class="math display">
+M\bar y=m_1y_1+m_2y_2+\cdots.
+</span></p>
+<p>如果各部分由同一种均匀材料组成，可以用 area 代替 mass；若密度不同，必须使用真正的 mass，而不能只用面积比例。总质量应是各部分质量之和，不能只计算总 moment。</p>
+</section>
+<section id="挖孔与-removed-part" class="level3">
+<h3 class="anchored" data-anchor-id="挖孔与-removed-part">6.6 挖孔与 removed part</h3>
+<p>把完整图形减去被挖去的部分：</p>
+<p><span class="math display">
+M=M_{\text{whole}}-M_{\text{removed}},
+</span></p>
+<p><span class="math display">
+M\bar x=M_{\text{whole}}x_{\text{whole}}
+-M_{\text{removed}}x_{\text{removed}}.
+</span></p>
+<p>二维时对 <span class="math inline">\bar y</span> 使用相同方法。被移除部分的位置坐标仍按原坐标系取，负号只表示它对 total mass 和 total moment 的贡献被减去。</p>
+<p>最常见错误是只减去 removed part 的 moment，却忘记从总质量或总面积中减去它。</p>
+</section>
+<section id="负面积法的表格" class="level3">
+<h3 class="anchored" data-anchor-id="负面积法的表格">6.7 负面积法的表格</h3>
+<p>对于 uniform lamina，可用下表结构：</p>
+<p><span class="math display">
+\begin{array}{c|c|c|c}
+\text{part}&amp;\text{area}&amp;x\text{-coordinate}&amp;\text{area moment about }y\text{-axis}\\ \hline
+\text{whole}&amp;A_1&amp;x_1&amp;A_1x_1\\
+\text{removed}&amp;-A_2&amp;x_2&amp;-A_2x_2
+\end{array}
+</span></p>
+<p>最后用</p>
+<p><span class="math display">
+\bar x=\frac{A_1x_1-A_2x_2}{A_1-A_2}.
+</span></p>
+<p>若图形有多个孔洞，每个孔洞都作为负面积加入；要同时处理 <span class="math inline">x</span> 和 <span class="math inline">y</span> moments。</p>
+</section>
+<section id="由悬挂判断-centre-of-mass" class="level3">
+<h3 class="anchored" data-anchor-id="由悬挂判断-centre-of-mass">6.8 由悬挂判断 centre of mass</h3>
+<p>物体 freely suspended from point <span class="math inline">P</span> 时，centre of mass <span class="math inline">G</span> 必须位于 <span class="math inline">P</span> 的正下方，且 weight 的作用线通过 <span class="math inline">P</span>。因此若题目给出悬挂方向，可以直接得到 <span class="math inline">G</span> 所在的竖直线。</p>
+<p>若同一物体从两个不同点悬挂并保持平衡，<span class="math inline">G</span> 必须同时位于两条相应的竖直线的交点。先用几何条件确定 <span class="math inline">G</span>，再用质量矩验证坐标，通常比直接列大量力矩方程更快。</p>
+</section>
+<section id="tipping-的临界条件" class="level3">
+<h3 class="anchored" data-anchor-id="tipping-的临界条件">6.9 Tipping 的临界条件</h3>
+<p>物体在支撑区域内平衡时，centre of mass 的竖直投影必须落在 supporting region 内。到达 point of tipping 时，投影通过支撑边缘。</p>
+<p>解临界 tipping 问题时：</p>
+<ol type="1">
+<li>找出实际可能成为 pivot 的 supporting edge；</li>
+<li>将 weight 的作用线画出；</li>
+<li>关于该 edge 取 moments；</li>
+<li>令另一侧的 support reaction 为零；</li>
+<li>解出临界力、角度或位置。</li>
+</ol>
+<p>不要把 tipping 条件误写成 centre of mass 位于边缘本身；正确条件是其竖直投影通过边缘。</p>
+</section>
+<section id="同时判断-sliding-与-tipping" class="level3">
+<h3 class="anchored" data-anchor-id="同时判断-sliding-与-tipping">6.10 同时判断 sliding 与 tipping</h3>
+<p>若物体既可能滑动又可能翻倒，应分别求两个临界条件：</p>
+<ul>
+<li>sliding：通常使用 <span class="math inline">F=\mu R</span>；</li>
+<li>tipping：关于 supporting edge 取 moments，并令相应 support reaction 为零。</li>
+</ul>
+<p>将两个临界外力或临界角度比较：较小的临界值先发生。如果题目要求“仍不翻倒”或“仍不滑动”，要分别验证两个不等式，不能只验证其中一个。</p>
+</section>
+<section id="质心支撑和稳定性" class="level3">
+<h3 class="anchored" data-anchor-id="质心支撑和稳定性">6.11 质心、支撑和稳定性</h3>
+<p>物体能否稳定，关键看 weight 的作用线是否落在 support base 内。增加底面宽度、降低 centre of mass 或改变物体倾角，都会改变 tipping 条件。</p>
+<p>在倾斜平面上，先把重力分解为平行和垂直于斜面的分量，再判断 sliding；若支撑边缘会成为 pivot，则另行判断 tipping。不要把“沿斜面滑动”和“绕边缘翻倒”混为同一个条件。</p>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">6.12 常见失分点与答题结构</h3>
+<ul>
+<li>参考原点或坐标轴在计算中途改变；</li>
+<li>组合物体只算 moment，没有算 total mass/area；</li>
+<li>removed part 的 moment 忘记使用负号；</li>
+<li>把 semicircular lamina 和 semicircular arc 的标准结果混用；</li>
+<li>三角形质心误记为 median 的 <span class="math inline">1/2</span>；</li>
+<li>悬挂时没有画 weight 的竖直作用线；</li>
+<li>tipping 时没有选择 supporting edge 作为 pivot；</li>
+<li>同时存在 sliding 和 tipping 时只检查一个临界条件。</li>
+</ul>
+<p>推荐按“画图并定原点 → 利用对称性 → 分解为标准部分 → 列总质量/面积和总 moment → 求质心 → 检查悬挂、支撑或 tipping 条件”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
