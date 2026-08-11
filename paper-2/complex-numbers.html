@@ -408,6 +408,20 @@ window.Quarto = {
   <li><a href="#octobernovember-923124-question-3-8-marks" id="toc-octobernovember-923124-question-3-8-marks" class="nav-link" data-scroll-target="#octobernovember-923124-question-3-8-marks">2025 October/November · 9231/24 · Question 3 · 8 marks</a></li>
   </ul></li>
   <li><a href="#完成本节的判断标准" id="toc-完成本节的判断标准" class="nav-link" data-scroll-target="#完成本节的判断标准">4. 完成本节的判断标准</a></li>
+  <li><a href="#常用解题技巧" id="toc-常用解题技巧" class="nav-link" data-scroll-target="#常用解题技巧">5. 常用解题技巧</a>
+  <ul class="collapse">
+  <li><a href="#先把复数写成-modulus-argument-form" id="toc-先把复数写成-modulus-argument-form" class="nav-link" data-scroll-target="#先把复数写成-modulus-argument-form">5.1 先把复数写成 modulus-argument form</a></li>
+  <li><a href="#de-moivre-定理的基本用法" id="toc-de-moivre-定理的基本用法" class="nav-link" data-scroll-target="#de-moivre-定理的基本用法">5.2 de Moivre 定理的基本用法</a></li>
+  <li><a href="#用数学归纳法证明-de-moivre-定理" id="toc-用数学归纳法证明-de-moivre-定理" class="nav-link" data-scroll-target="#用数学归纳法证明-de-moivre-定理">5.3 用数学归纳法证明 de Moivre 定理</a></li>
+  <li><a href="#用-zpm-z-1-提取实部和虚部" id="toc-用-zpm-z-1-提取实部和虚部" class="nav-link" data-scroll-target="#用-zpm-z-1-提取实部和虚部">5.4 用 <span class="math inline">z\pm z^{-1}</span> 提取实部和虚部</a></li>
+  <li><a href="#推导倍角公式的展开策略" id="toc-推导倍角公式的展开策略" class="nav-link" data-scroll-target="#推导倍角公式的展开策略">5.5 推导倍角公式的展开策略</a></li>
+  <li><a href="#把幂化为倍角形式" id="toc-把幂化为倍角形式" class="nav-link" data-scroll-target="#把幂化为倍角形式">5.6 把幂化为倍角形式</a></li>
+  <li><a href="#求-n-次单位根" id="toc-求-n-次单位根" class="nav-link" data-scroll-target="#求-n-次单位根">5.7 求 <span class="math inline">n</span> 次单位根</a></li>
+  <li><a href="#解一般方程-zna" id="toc-解一般方程-zna" class="nav-link" data-scroll-target="#解一般方程-zna">5.8 解一般方程 <span class="math inline">z^n=a</span></a></li>
+  <li><a href="#cis-求三角级数" id="toc-cis-求三角级数" class="nav-link" data-scroll-target="#cis-求三角级数">5.9 C+iS 求三角级数</a></li>
+  <li><a href="#cis-结果的检查方法" id="toc-cis-结果的检查方法" class="nav-link" data-scroll-target="#cis-结果的检查方法">5.10 C+iS 结果的检查方法</a></li>
+  <li><a href="#常见失分点与答题结构" id="toc-常见失分点与答题结构" class="nav-link" data-scroll-target="#常见失分点与答题结构">5.11 常见失分点与答题结构</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -1537,8 +1551,173 @@ Show answer and mark scheme
 <li>能用 C+iS 方法求有限三角级数；</li>
 <li>能把 <span class="math inline">\sin^n\theta</span>、<span class="math inline">\cos^n\theta</span> 化为倍角形式并用于积分或解方程。 本节保留教材 Chapter 5 的全部编号 Example（Example 1–6）。题意与符号按教材重写，题目与答案均以文字和 LaTeX 呈现。</li>
 </ol>
+</section>
+<section id="常用解题技巧" class="level2">
+<h2 class="anchored" data-anchor-id="常用解题技巧">5. 常用解题技巧</h2>
+<section id="先把复数写成-modulus-argument-form" class="level3">
+<h3 class="anchored" data-anchor-id="先把复数写成-modulus-argument-form">5.1 先把复数写成 modulus-argument form</h3>
+<p>对非零复数 <span class="math inline">z</span>，先写成</p>
+<p><span class="math display">
+z=r(\cos\theta+\mathrm i\sin\theta)=r\operatorname{cis}\theta,
+\qquad r=|z|.
+</span></p>
+<p>乘法、除法和幂在这个形式下最简单：模相乘或相除，辐角相加或相减。求辐角时要根据实部、虚部判断象限，不能只使用 <span class="math inline">\tan^{-1}(y/x)</span> 的 principal value。</p>
+</section>
+<section id="de-moivre-定理的基本用法" class="level3">
+<h3 class="anchored" data-anchor-id="de-moivre-定理的基本用法">5.2 de Moivre 定理的基本用法</h3>
+<p>核心公式为</p>
+<p><span class="math display">
+(\cos\theta+\mathrm i\sin\theta)^n
+=\cos n\theta+\mathrm i\sin n\theta.
+</span></p>
+<p>若 <span class="math inline">z=r\operatorname{cis}\theta</span>，则</p>
+<p><span class="math display">
+z^n=r^n\operatorname{cis}(n\theta).
+</span></p>
+<p>遇到负指数时先使用 <span class="math inline">z^{-n}=1/z^n</span>，注意辐角可以相差 <span class="math inline">2k\pi</span>。遇到有理指数时，必须列出所有不同的根，不能只取一个 principal root。</p>
+</section>
+<section id="用数学归纳法证明-de-moivre-定理" class="level3">
+<h3 class="anchored" data-anchor-id="用数学归纳法证明-de-moivre-定理">5.3 用数学归纳法证明 de Moivre 定理</h3>
+<p>证明正整数指数时设</p>
+<p><span class="math display">
+P(n):(\cos\theta+\mathrm i\sin\theta)^n
+=\cos n\theta+\mathrm i\sin n\theta.
+</span></p>
+<p>先验证 <span class="math inline">P(1)</span>。假设 <span class="math inline">P(k)</span> 成立，则</p>
+<p><span class="math display">
+(\cos\theta+\mathrm i\sin\theta)^{k+1}
+=(\cos k\theta+\mathrm i\sin k\theta)
+(\cos\theta+\mathrm i\sin\theta),
+</span></p>
+<p>展开后使用加法公式得到 <span class="math inline">P(k+1)</span>。结论必须写明对所有正整数 <span class="math inline">n</span> 成立。</p>
+</section>
+<section id="用-zpm-z-1-提取实部和虚部" class="level3">
+<h3 class="anchored" data-anchor-id="用-zpm-z-1-提取实部和虚部">5.4 用 <span class="math inline">z\pm z^{-1}</span> 提取实部和虚部</h3>
+<p>若 <span class="math inline">z=\operatorname{cis}\theta</span>，则</p>
+<p><span class="math display">
+z+z^{-1}=2\cos\theta,
+\qquad
+z-z^{-1}=2\mathrm i\sin\theta.
+</span></p>
+<p>更一般地，</p>
+<p><span class="math display">
+z^n+z^{-n}=2\cos n\theta,
+\qquad
+z^n-z^{-n}=2\mathrm i\sin n\theta.
+</span></p>
+<p>要得到 <span class="math inline">\cos n\theta</span>，取对称和的实部；要得到 <span class="math inline">\sin n\theta</span>，取反对称差后除以 <span class="math inline">2\mathrm i</span>。展开时只保留最终需要的实部或虚部，可以减少计算量。</p>
+</section>
+<section id="推导倍角公式的展开策略" class="level3">
+<h3 class="anchored" data-anchor-id="推导倍角公式的展开策略">5.5 推导倍角公式的展开策略</h3>
+<p>要推导 <span class="math inline">\cos n\theta</span>，优先展开</p>
+<p><span class="math display">
+(z+z^{-1})^n,
+</span></p>
+<p>因为 <span class="math inline">z+z^{-1}=2\cos\theta</span>。要推导 <span class="math inline">\sin n\theta</span>，可展开</p>
+<p><span class="math display">
+(z-z^{-1})^n,
+</span></p>
+<p>再取虚部。展开完成后使用 <span class="math inline">z^m+z^{-m}</span> 或 <span class="math inline">z^m-z^{-m}</span> 成对整理，不要逐项转成三角函数后再处理。</p>
+<p>例如，</p>
+<p><span class="math display">
+\cos3\theta=4\cos^3\theta-3\cos\theta.
+</span></p>
+<p>若题目要求用 <span class="math inline">\tan\theta</span> 表示倍角公式，可以先除以适当的 <span class="math inline">\cos^n\theta</span>，并使用 <span class="math inline">1+\tan^2\theta=\sec^2\theta</span> 化简。</p>
+</section>
+<section id="把幂化为倍角形式" class="level3">
+<h3 class="anchored" data-anchor-id="把幂化为倍角形式">5.6 把幂化为倍角形式</h3>
+<p>这种题的目标是把 <span class="math inline">\sin^n\theta</span> 或 <span class="math inline">\cos^n\theta</span> 改写成不同倍角的线性组合。常用做法是从</p>
+<p><span class="math display">
+2\cos\theta=z+z^{-1},
+\qquad
+2\mathrm i\sin\theta=z-z^{-1}
+</span></p>
+<p>开始，再展开并配对。结果应按幂次检查：</p>
+<ul>
+<li><span class="math inline">\sin^n\theta</span> 的展开只含与奇偶性相符的正弦或余弦项；</li>
+<li><span class="math inline">\cos^n\theta</span> 的展开只含余弦项；</li>
+<li><span class="math inline">\theta=0</span> 或 <span class="math inline">\theta=\pi/2</span> 代入后，左右两边应相等。</li>
+</ul>
+<p>这些展开通常用于积分，因此要把每个系数写成精确分数，不要过早使用小数。</p>
+</section>
+<section id="求-n-次单位根" class="level3">
+<h3 class="anchored" data-anchor-id="求-n-次单位根">5.7 求 <span class="math inline">n</span> 次单位根</h3>
+<p>解</p>
+<p><span class="math display">
+z^n=1
+</span></p>
+<p>时写成</p>
+<p><span class="math display">
+z_k=\operatorname{cis}\frac{2k\pi}{n},
+\qquad k=0,1,\ldots,n-1.
+</span></p>
+<p>这些根在单位圆上均匀分布，相邻根的辐角差为 <span class="math inline">2\pi/n</span>。若题目要求非实根、上半平面的根或某个原根，要根据 <span class="math inline">k</span> 的范围筛选，不能只写 <span class="math inline">z=1</span>。</p>
+<p>非 1 的 <span class="math inline">n</span> 次单位根满足</p>
+<p><span class="math display">
+1+z+z^2+\cdots+z^{n-1}=0,
+</span></p>
+<p>也可由等比数列直接证明。求根的和、积或对称式时，先利用这个关系通常最省步骤。</p>
+</section>
+<section id="解一般方程-zna" class="level3">
+<h3 class="anchored" data-anchor-id="解一般方程-zna">5.8 解一般方程 <span class="math inline">z^n=a</span></h3>
+<p>先把右边写成</p>
+<p><span class="math display">
+a=R\operatorname{cis}\phi.
+</span></p>
+<p>则所有根为</p>
+<p><span class="math display">
+z_k=R^{1/n}\operatorname{cis}\left(\frac{\phi+2k\pi}{n}\right),
+\qquad k=0,1,\ldots,n-1.
+</span></p>
+<p>最后检查根的数量、模和辐角间隔。若要求 Cartesian form，再逐个使用 <span class="math inline">x=r\cos\theta</span>、<span class="math inline">y=r\sin\theta</span> 转换；不要在取 <span class="math inline">n</span> 次根时遗漏 <span class="math inline">2k\pi</span>。</p>
+</section>
+<section id="cis-求三角级数" class="level3">
+<h3 class="anchored" data-anchor-id="cis-求三角级数">5.9 C+iS 求三角级数</h3>
+<p>面对</p>
+<p><span class="math display">
+C=\sum\cos(r\theta),
+\qquad S=\sum\sin(r\theta),
+</span></p>
+<p>令 <span class="math inline">z=\operatorname{cis}\theta</span>，把两式合并为</p>
+<p><span class="math display">
+C+\mathrm iS=\sum z^r.
+</span></p>
+<p>使用等比数列求和，再取实部和虚部。若从 <span class="math inline">r=1</span> 到 <span class="math inline">n</span>，</p>
+<p><span class="math display">
+\sum_{r=1}^{n}z^r=\frac{z(1-z^n)}{1-z}.
+</span></p>
+<p>化简分母时使用</p>
+<p><span class="math display">
+1-z=-2\mathrm i\,z^{1/2}\sin\frac\theta2,
+</span></p>
+<p>或等价形式。最后分别取实部、虚部，并检查 <span class="math inline">\sin(\theta/2)\ne0</span>；若分母为零，应单独处理 <span class="math inline">\theta</span> 为 <span class="math inline">2\pi</span> 的整数倍的情形。</p>
+</section>
+<section id="cis-结果的检查方法" class="level3">
+<h3 class="anchored" data-anchor-id="cis-结果的检查方法">5.10 C+iS 结果的检查方法</h3>
+<p>求出 <span class="math inline">C</span> 或 <span class="math inline">S</span> 后，可以用以下方法检查：</p>
+<ul>
+<li>令 <span class="math inline">n=1</span>，结果应退化为单个三角项；</li>
+<li>令 <span class="math inline">\theta=\pi</span> 或其他简单角度，比较原和式；</li>
+<li>检查结果的分母是否来自 <span class="math inline">\sin(\theta/2)</span>，以及是否需要绝对值；</li>
+<li>若和式关于角度具有奇偶性，结果也应保持相同对称性。</li>
+</ul>
+</section>
+<section id="常见失分点与答题结构" class="level3">
+<h3 class="anchored" data-anchor-id="常见失分点与答题结构">5.11 常见失分点与答题结构</h3>
+<ul>
+<li>求辐角时忽略象限；</li>
+<li>de Moivre 有理指数只写出一个根；</li>
+<li>单位根的 <span class="math inline">k</span> 范围写错，漏根或重复计根；</li>
+<li>展开 <span class="math inline">(z\pm z^{-1})^n</span> 后没有正确提取实部或虚部；</li>
+<li>把 <span class="math inline">z-z^{-1}</span> 直接当成 <span class="math inline">2\sin\theta</span>，漏掉 <span class="math inline">\mathrm i</span>；</li>
+<li>C+iS 求和时等比数列首项或指数范围错误；</li>
+<li>分母为零时仍直接套用化简公式；</li>
+<li>将 modulus、argument 与 Cartesian 坐标混在一起。</li>
+</ul>
+<p>推荐按“写极坐标形式 → 选择 de Moivre、单位根或 C+iS 方法 → 保留所有分支 → 化简 → 转回题目要求的形式 → 检查根数和特殊值”的顺序作答。</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
