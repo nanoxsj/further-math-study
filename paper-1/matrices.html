@@ -369,12 +369,12 @@ window.Quarto = {
   <li><a href="#学习路线" id="toc-学习路线" class="nav-link active" data-scroll-target="#学习路线">学习路线</a></li>
   <li><a href="#教材知识点" id="toc-教材知识点" class="nav-link" data-scroll-target="#教材知识点">1. 教材知识点</a>
   <ul class="collapse">
-  <li><a href="#matrix-operations" id="toc-matrix-operations" class="nav-link" data-scroll-target="#matrix-operations">1.1 Matrix operations</a></li>
-  <li><a href="#determinants-and-inverses" id="toc-determinants-and-inverses" class="nav-link" data-scroll-target="#determinants-and-inverses">1.2 Determinants and inverses</a></li>
-  <li><a href="#products-and-inverse-order" id="toc-products-and-inverse-order" class="nav-link" data-scroll-target="#products-and-inverse-order">1.3 Products and inverse order</a></li>
-  <li><a href="#matrices-as-transformations" id="toc-matrices-as-transformations" class="nav-link" data-scroll-target="#matrices-as-transformations">1.4 Matrices as transformations</a></li>
-  <li><a href="#successive-transformations-and-area" id="toc-successive-transformations-and-area" class="nav-link" data-scroll-target="#successive-transformations-and-area">1.5 Successive transformations and area</a></li>
-  <li><a href="#invariant-points-and-lines" id="toc-invariant-points-and-lines" class="nav-link" data-scroll-target="#invariant-points-and-lines">1.6 Invariant points and lines</a></li>
+  <li><a href="#矩阵的基本运算" id="toc-矩阵的基本运算" class="nav-link" data-scroll-target="#矩阵的基本运算">1.1 矩阵的基本运算</a></li>
+  <li><a href="#行列式奇异矩阵与逆矩阵" id="toc-行列式奇异矩阵与逆矩阵" class="nav-link" data-scroll-target="#行列式奇异矩阵与逆矩阵">1.2 行列式、奇异矩阵与逆矩阵</a></li>
+  <li><a href="#乘积的逆矩阵与运算顺序" id="toc-乘积的逆矩阵与运算顺序" class="nav-link" data-scroll-target="#乘积的逆矩阵与运算顺序">1.3 乘积的逆矩阵与运算顺序</a></li>
+  <li><a href="#矩阵表示平面变换" id="toc-矩阵表示平面变换" class="nav-link" data-scroll-target="#矩阵表示平面变换">1.4 矩阵表示平面变换</a></li>
+  <li><a href="#复合变换与面积" id="toc-复合变换与面积" class="nav-link" data-scroll-target="#复合变换与面积">1.5 复合变换与面积</a></li>
+  <li><a href="#不动点与不变直线" id="toc-不动点与不变直线" class="nav-link" data-scroll-target="#不动点与不变直线">1.6 不动点与不变直线</a></li>
   </ul></li>
   <li><a href="#textbook-examples" id="toc-textbook-examples" class="nav-link" data-scroll-target="#textbook-examples">2. Textbook Examples</a>
   <ul class="collapse">
@@ -513,76 +513,114 @@ window.Quarto = {
 </section>
 <section id="教材知识点" class="level2">
 <h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
-<p>本章建议按以下逻辑学习：</p>
+<p>本节按“计算 → 解释 → 应用”的顺序组织：</p>
 <p><span class="math display">
-\text{矩阵运算}
+\boxed{\text{矩阵运算}}
 \longrightarrow
-\text{行列式与逆矩阵}
+\boxed{\text{行列式与逆矩阵}}
 \longrightarrow
-\text{平面变换}
+\boxed{\text{平面变换}}
 \longrightarrow
-\text{复合变换}
+\boxed{\text{复合变换与面积}}
 \longrightarrow
-\text{不动点与不变直线}.
+\boxed{\text{不动点与不变直线}}.
 </span></p>
-<div class="callout callout-style-default callout-note callout-titled" title="本章核心主线">
+<div class="callout callout-style-default callout-important callout-titled" title="本节最重要的观念">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">注记</span>本章核心主线
+<span class="screen-reader-only">重要</span>本节最重要的观念
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>矩阵既可以看作数字表格，也可以看作对向量和图形进行变换的规则。前半部分解决“如何计算矩阵”，后半部分解决“矩阵代表什么几何变换”。</p>
+<p>矩阵既是一个数字表格，也是一个把向量映到新向量的线性规则。做题时始终区分两层含义：</p>
+<ul>
+<li>代数层面：矩阵的阶数、乘法顺序、行列式和逆矩阵；</li>
+<li>几何层面：点、方向、面积以及直线经过变换后发生什么变化。</li>
+</ul>
 </div>
 </div>
-<section id="matrix-operations" class="level3">
-<h3 class="anchored" data-anchor-id="matrix-operations">1.1 Matrix operations</h3>
-<p>只有阶数相同的矩阵可以相加或相减。若 <span class="math inline">A</span> 为 <span class="math inline">m\times n</span>，<span class="math inline">B</span> 为 <span class="math inline">n\times p</span>，则 <span class="math inline">AB</span> 有定义且为 <span class="math inline">m\times p</span>。</p>
-<p>矩阵乘法一般不满足交换律：</p>
-<p><span class="math display">
-AB\ne BA,
-</span></p>
-<p>但满足结合律与分配律。单位矩阵 <span class="math inline">I</span> 满足 <span class="math inline">AI=IA=A</span>，零矩阵记作 <span class="math inline">O</span>。</p>
-<div class="callout callout-style-default callout-important callout-titled" title="矩阵运算的三个检查">
+<section id="矩阵的基本运算" class="level3">
+<h3 class="anchored" data-anchor-id="矩阵的基本运算">1.1 矩阵的基本运算</h3>
+<section id="阶数与加减法" class="level4">
+<h4 class="anchored" data-anchor-id="阶数与加减法">1.1.1 阶数与加减法</h4>
+<p>若矩阵有 <span class="math inline">m</span> 行、<span class="math inline">n</span> 列，就称为 <span class="math inline">m\times n</span> 矩阵。只有阶数完全相同的矩阵才能相加或相减，并且对应位置的元素分别相加或相减。</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="先看阶数">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">重要</span>矩阵运算的三个检查
+<span class="screen-reader-only">提示</span>先看阶数
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>加减法前先检查两个矩阵是否都是 <span class="math inline">m\times n</span>。阶数不同，运算没有定义。</p>
+</div>
+</div>
+</section>
+<section id="矩阵乘法" class="level4">
+<h4 class="anchored" data-anchor-id="矩阵乘法">1.1.2 矩阵乘法</h4>
+<p>若 <span class="math inline">A</span> 是 <span class="math inline">m\times n</span>、<span class="math inline">B</span> 是 <span class="math inline">n\times p</span>，则 <span class="math inline">AB</span> 有定义，结果为 <span class="math inline">m\times p</span>。结果矩阵第 <span class="math inline">i,j</span> 个元素等于 <span class="math inline">A</span> 的第 <span class="math inline">i</span> 行与 <span class="math inline">B</span> 的第 <span class="math inline">j</span> 列的对应乘积之和。</p>
+<div class="callout callout-style-default callout-important callout-titled" title="矩阵乘法的三个检查">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>矩阵乘法的三个检查
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>加减法：两个矩阵必须阶数完全相同；</li>
-<li>乘法：左矩阵的列数必须等于右矩阵的行数；</li>
-<li>乘积 <span class="math inline">AB</span> 的阶数是“左边的行数 × 右边的列数”，并且一般 <span class="math inline">AB\ne BA</span>。</li>
+<li>左矩阵的列数必须等于右矩阵的行数；</li>
+<li><span class="math inline">AB</span> 的阶数是“左边的行数 × 右边的列数”；</li>
+<li>一般 <span class="math inline">AB\ne BA</span>，所以不能随意交换顺序。</li>
 </ol>
 </div>
 </div>
+<p>矩阵乘法满足结合律和分配律：</p>
+<p><span class="math display">
+(AB)C=A(BC),\qquad A(B+C)=AB+AC.
+</span></p>
+<p>单位矩阵 <span class="math inline">I</span> 满足 <span class="math inline">AI=IA=A</span>；零矩阵 <span class="math inline">O</span> 的所有元素都是 <span class="math inline">0</span>。</p>
 </section>
-<section id="determinants-and-inverses" class="level3">
-<h3 class="anchored" data-anchor-id="determinants-and-inverses">1.2 Determinants and inverses</h3>
-<p>对于</p>
+</section>
+<section id="行列式奇异矩阵与逆矩阵" class="level3">
+<h3 class="anchored" data-anchor-id="行列式奇异矩阵与逆矩阵">1.2 行列式、奇异矩阵与逆矩阵</h3>
+<section id="times2-行列式与逆矩阵" class="level4">
+<h4 class="anchored" data-anchor-id="times2-行列式与逆矩阵">1.2.1 <span class="math inline">2\times2</span> 行列式与逆矩阵</h4>
+<p>若</p>
 <p><span class="math display">
 A=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix},
 </span></p>
+<p>则</p>
 <p><span class="math display">
 \det A=ad-bc.
 </span></p>
-<p>若 <span class="math inline">\det A=0</span>，则 <span class="math inline">A</span> singular，不存在逆矩阵；若 <span class="math inline">\det A\ne0</span>，则</p>
+<div class="callout callout-style-default callout-important callout-titled" title="singular 与 non-singular">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>singular 与 non-singular
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>当 <span class="math inline">\det A=0</span> 时，<span class="math inline">A</span> 是 singular，不存在逆矩阵；当 <span class="math inline">\det A\ne0</span> 时，<span class="math inline">A</span> 是 non-singular，且</p>
 <p><span class="math display">
-A^{-1}=\frac1{ad-bc}\begin{pmatrix}d&amp;-b\\-c&amp;a\end{pmatrix}.
+A^{-1}=\frac{1}{ad-bc}
+\begin{pmatrix}d&amp;-b\\-c&amp;a\end{pmatrix}.
 </span></p>
-<p>对 <span class="math inline">3\times3</span> 矩阵可按任意一行或一列展开行列式；逆矩阵可由余子式、代数余子式和伴随矩阵求得：</p>
-<p><span class="math display">
-A^{-1}=\frac1{\det A}\operatorname{adj}A.
-</span></p>
+</div>
+</div>
+<p>求逆后可用 <span class="math inline">AA^{-1}=I</span> 检查结果。最常见错误是交换对角元素时不完整、只改变一个非对角元素的符号，或忘记除以行列式。</p>
+</section>
 <section id="times3-行列式的展开" class="level4">
-<h4 class="anchored" data-anchor-id="times3-行列式的展开"><span class="math inline">3\times3</span> 行列式的展开</h4>
+<h4 class="anchored" data-anchor-id="times3-行列式的展开">1.2.2 <span class="math inline">3\times3</span> 行列式的展开</h4>
 <p>设</p>
 <p><span class="math display">
 A=\begin{pmatrix}
@@ -591,155 +629,147 @@ a_{21}&amp;a_{22}&amp;a_{23}\\
 a_{31}&amp;a_{32}&amp;a_{33}
 \end{pmatrix}.
 </span></p>
-<p>元素 <span class="math inline">a_{ij}</span> 的 <strong>minor</strong>，记作 <span class="math inline">M_{ij}</span>，是删去第 <span class="math inline">i</span> 行和第 <span class="math inline">j</span> 列后留下的 <span class="math inline">2\times2</span> 行列式。例如</p>
+<p>元素 <span class="math inline">a_{ij}</span> 的 minor <span class="math inline">M_{ij}</span>，是删去第 <span class="math inline">i</span> 行和第 <span class="math inline">j</span> 列后留下的 <span class="math inline">2\times2</span> 行列式。例如</p>
 <p><span class="math display">
-M_{12}=
-\begin{vmatrix}
-a_{21}&amp;a_{23}\\
-a_{31}&amp;a_{33}
-\end{vmatrix}
-=a_{21}a_{33}-a_{23}a_{31}.
+M_{12}=\begin{vmatrix}a_{21}&amp;a_{23}\\a_{31}&amp;a_{33}\end{vmatrix}.
 </span></p>
-<p>对应的 <strong>cofactor</strong>，记作 <span class="math inline">C_{ij}</span>，还要乘以交替符号：</p>
+<p>cofactor 为</p>
 <p><span class="math display">
-C_{ij}=(-1)^{i+j}M_{ij}.
+C_{ij}=(-1)^{i+j}M_{ij},
 </span></p>
 <p>符号表为</p>
 <p><span class="math display">
-\begin{pmatrix}
-+&amp;-&amp;+\\
--&amp;+&amp;-\\
-+&amp;-&amp;+
-\end{pmatrix}.
+\begin{pmatrix}+&amp;-&amp;+\\-&amp;+&amp;-\\+&amp;-&amp;+\end{pmatrix}.
 </span></p>
-<p>因此第一行展开为</p>
+<p>因此可以按任意一行或任意一列展开。例如按第一行：</p>
 <p><span class="math display">
-\det A=a_{11}C_{11}+a_{12}C_{12}+a_{13}C_{13},
+\det A=a_{11}C_{11}+a_{12}C_{12}+a_{13}C_{13}.
 </span></p>
-<p>即</p>
-<p><span class="math display">
-\begin{aligned}
-\det A
-&amp;=a_{11}
-\begin{vmatrix}a_{22}&amp;a_{23}\\a_{32}&amp;a_{33}\end{vmatrix}
--a_{12}
-\begin{vmatrix}a_{21}&amp;a_{23}\\a_{31}&amp;a_{33}\end{vmatrix}\\
-&amp;\quad
-+a_{13}
-\begin{vmatrix}a_{21}&amp;a_{22}\\a_{31}&amp;a_{32}\end{vmatrix}.
-\end{aligned}
-</span></p>
-<p>也可以按任意一行或一列展开。例如按第二列展开：</p>
-<p><span class="math display">
-\det A=a_{12}C_{12}+a_{22}C_{22}+a_{32}C_{32}.
-</span></p>
-<p>实际计算时，优先选择含有最多 <span class="math inline">0</span> 或最简单数字的一行/列，这样可以减少计算量。按不同的行或列展开，结果必须相同，可作为检查方法。</p>
+<div class="callout callout-style-default callout-tip callout-titled" title="如何选择展开行或列">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">提示</span>如何选择展开行或列
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>优先选择含有 <span class="math inline">0</span> 或简单数字最多的一行/列。展开时每个元素都必须与“删去它所在的行和列”得到的 minor 配对，并使用正确的 <span class="math inline">+,-,+</span> 符号。</p>
+</div>
+</div>
 </section>
 <section id="cofactor-matrix-与-adjugate-matrix" class="level4">
-<h4 class="anchored" data-anchor-id="cofactor-matrix-与-adjugate-matrix">Cofactor matrix 与 adjugate matrix</h4>
-<p>先逐个计算所有 <span class="math inline">C_{ij}</span>，组成 <strong>cofactor matrix</strong>：</p>
+<h4 class="anchored" data-anchor-id="cofactor-matrix-与-adjugate-matrix">1.2.3 Cofactor matrix 与 adjugate matrix</h4>
+<p>把所有 cofactors 按原位置组成 cofactor matrix：</p>
 <p><span class="math display">
-C=\begin{pmatrix}
-C_{11}&amp;C_{12}&amp;C_{13}\\
-C_{21}&amp;C_{22}&amp;C_{23}\\
-C_{31}&amp;C_{32}&amp;C_{33}
-\end{pmatrix}.
+C=\begin{pmatrix}C_{11}&amp;C_{12}&amp;C_{13}\\C_{21}&amp;C_{22}&amp;C_{23}\\C_{31}&amp;C_{32}&amp;C_{33}\end{pmatrix}.
 </span></p>
-<p>然后将 cofactor matrix 转置，得到 <strong>adjugate matrix</strong>：</p>
+<p>将其转置，得到 adjugate matrix：</p>
 <p><span class="math display">
 \operatorname{adj}A=C^{\mathsf T}.
 </span></p>
-<p>最后使用</p>
+<p>若 <span class="math inline">\det A\ne0</span>，则</p>
 <p><span class="math display">
-\boxed{A^{-1}=\frac1{\det A}\operatorname{adj}A},
-\qquad \det A\ne0.
+\boxed{A^{-1}=\frac{1}{\det A}\operatorname{adj}A}.
 </span></p>
-<p>顺序不能混淆：先求 minors，再根据符号得到 cofactors，最后转置 cofactor matrix。若直接把 cofactor matrix 当作 adjugate matrix，通常会导致非对称矩阵的逆矩阵错误。</p>
-</section>
-<section id="times3-逆矩阵的完整流程" class="level4">
-<h4 class="anchored" data-anchor-id="times3-逆矩阵的完整流程"><span class="math inline">3\times3</span> 逆矩阵的完整流程</h4>
-<p>对 <span class="math inline">A</span> 求逆时按以下步骤：</p>
+<div class="callout callout-style-default callout-important callout-titled" title="$3\times3$ 求逆固定流程">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span><span class="math inline">3\times3</span> 求逆固定流程
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ol type="1">
-<li>计算 <span class="math inline">\det A</span>；</li>
-<li>若 <span class="math inline">\det A=0</span>，则 <span class="math inline">A</span> singular，不存在逆矩阵；</li>
-<li>对每一个元素求 minor <span class="math inline">M_{ij}</span>；</li>
-<li>用 <span class="math inline">C_{ij}=(-1)^{i+j}M_{ij}</span> 求所有 cofactors；</li>
-<li>组成 cofactor matrix <span class="math inline">C</span>；</li>
-<li>转置得到 <span class="math inline">\operatorname{adj}A=C^{\mathsf T}</span>；</li>
-<li>将每个元素除以 <span class="math inline">\det A</span>；</li>
-<li>用 <span class="math inline">AA^{-1}=I</span> 或 <span class="math inline">A^{-1}A=I</span> 验证。</li>
+<li>求 <span class="math inline">\det A</span>，并确认不为 <span class="math inline">0</span>；</li>
+<li>求九个 minors；</li>
+<li>乘以交替符号，得到九个 cofactors；</li>
+<li>组成 cofactor matrix；</li>
+<li>转置得到 adjugate matrix；</li>
+<li>整个矩阵乘以 <span class="math inline">1/\det A</span>；</li>
+<li>用 <span class="math inline">AA^{-1}=I</span> 检查。</li>
 </ol>
-<p>这里的 <span class="math inline">\det A</span> 必须是原矩阵的行列式，而不是某个 minor 或 cofactor。最终逆矩阵中的每个元素都应含有同一个因子 <span class="math inline">1/\det A</span>。</p>
-</section>
-<section id="常见错误" class="level4">
-<h4 class="anchored" data-anchor-id="常见错误">常见错误</h4>
-<ul>
-<li>把 minor 当成 cofactor，漏掉交替符号；</li>
-<li>符号表写成全是正号；</li>
-<li>求得 cofactor matrix 后忘记转置；</li>
-<li>用错误的行列式作为分母；</li>
-<li><span class="math inline">\det A=0</span> 时仍尝试求逆；</li>
-<li>展开某一行时，minor 删除了错误的行或列；</li>
-<li>计算 <span class="math inline">2\times2</span> minor 时把 <span class="math inline">ad-bc</span> 写成 <span class="math inline">ad+bc</span>。</li>
-</ul>
+<p>切勿把 cofactor matrix 直接当成 adjugate matrix；非对称矩阵通常必须转置。</p>
+</div>
+</div>
 </section>
 </section>
-<section id="products-and-inverse-order" class="level3">
-<h3 class="anchored" data-anchor-id="products-and-inverse-order">1.3 Products and inverse order</h3>
-<p>若 <span class="math inline">A,B</span> 均非奇异，</p>
+<section id="乘积的逆矩阵与运算顺序" class="level3">
+<h3 class="anchored" data-anchor-id="乘积的逆矩阵与运算顺序">1.3 乘积的逆矩阵与运算顺序</h3>
+<p>若 <span class="math inline">A,B</span> 均 non-singular，则</p>
 <p><span class="math display">
 (AB)^{-1}=B^{-1}A^{-1}.
 </span></p>
-<p>右侧顺序必须反转。对三个矩阵，</p>
+<p>顺序反转的原因是：<span class="math inline">AB</span> 表示先作 <span class="math inline">B</span>，再作 <span class="math inline">A</span>。因此</p>
 <p><span class="math display">
 (ABC)^{-1}=C^{-1}B^{-1}A^{-1}.
 </span></p>
+<div class="callout callout-style-default callout-warning callout-titled" title="易错点：不能逐项保持原顺序">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">警告</span>易错点：不能逐项保持原顺序
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>一般不能写成 <span class="math inline">(AB)^{-1}=A^{-1}B^{-1}</span>。验证时直接相乘：</p>
+<p><span class="math display">
+(B^{-1}A^{-1})(AB)=B^{-1}IB=I.
+</span></p>
+</div>
+</div>
 </section>
-<section id="matrices-as-transformations" class="level3">
-<h3 class="anchored" data-anchor-id="matrices-as-transformations">1.4 Matrices as transformations</h3>
+<section id="矩阵表示平面变换" class="level3">
+<h3 class="anchored" data-anchor-id="矩阵表示平面变换">1.4 矩阵表示平面变换</h3>
+<section id="坐标变换的基本形式" class="level4">
+<h4 class="anchored" data-anchor-id="坐标变换的基本形式">1.4.1 坐标变换的基本形式</h4>
 <p>若</p>
 <p><span class="math display">
 M=\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix},
 </span></p>
-<p>则</p>
+<p>则点 <span class="math inline">(x,y)</span> 的像 <span class="math inline">(x',y')</span> 满足</p>
 <p><span class="math display">
-\begin{pmatrix}x'\\y'\end{pmatrix}
-=M\begin{pmatrix}x\\y\end{pmatrix}.
+\binom{x'}{y'}=M\binom{x}{y}
+=\binom{ax+by}{cx+dy}.
 </span></p>
-<p>矩阵第一列是 <span class="math inline">\binom10</span> 的像，第二列是 <span class="math inline">\binom01</span> 的像。常用矩阵包括</p>
-<p><span class="math display">
-R_\theta=\begin{pmatrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix},
-</span></p>
-<p>以及</p>
-<p><span class="math display">
-\begin{pmatrix}k&amp;0\\0&amp;k\end{pmatrix},\quad
-\begin{pmatrix}1&amp;h\\0&amp;1\end{pmatrix},\quad
-\begin{pmatrix}1&amp;0\\k&amp;1\end{pmatrix}.
-</span></p>
-<section id="从基向量理解变换矩阵" class="level4">
-<h4 class="anchored" data-anchor-id="从基向量理解变换矩阵">从基向量理解变换矩阵</h4>
-<p>二维向量可以写成两个 standard basis vectors 的线性组合：</p>
+<p>所以矩阵的第一行决定 <span class="math inline">x'</span>，第二行决定 <span class="math inline">y'</span>。</p>
+</section>
+<section id="基向量与矩阵的两列" class="level4">
+<h4 class="anchored" data-anchor-id="基向量与矩阵的两列">1.4.2 基向量与矩阵的两列</h4>
+<p>二维向量可以写成</p>
 <p><span class="math display">
 \binom{x}{y}=x\binom10+y\binom01.
 </span></p>
-<p>由于矩阵变换保持线性，</p>
+<p>线性变换保持线性组合，因此</p>
 <p><span class="math display">
-M\binom{x}{y}
-=xM\binom10+yM\binom01.
+M\binom{x}{y}=xM\binom10+yM\binom01.
 </span></p>
-<p>因此，矩阵的两列分别就是两个基向量的像：</p>
+<p>这说明：</p>
+<div class="callout callout-style-default callout-important callout-titled" title="矩阵的列 = 基向量的像">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>矩阵的列 = 基向量的像
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>矩阵第一列是 <span class="math inline">\binom10</span> 的像，第二列是 <span class="math inline">\binom01</span> 的像。若</p>
 <p><span class="math display">
-M=
-\begin{pmatrix}
-|&amp;|\\
-M\binom10&amp;M\binom01\\
-|&amp;|
-\end{pmatrix}.
+M\binom10=\binom ab,\qquad M\binom01=\binom cd,
 </span></p>
-<p>如果题目给出 <span class="math inline">M\binom10=\binom ab</span>、<span class="math inline">M\binom01=\binom cd</span>，则</p>
+<p>则</p>
 <p><span class="math display">
 M=\begin{pmatrix}a&amp;c\\b&amp;d\end{pmatrix}.
 </span></p>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/matrices/transformation-basis.svg" class="img-fluid figure-img" style="width:95.0%"></p>
@@ -747,79 +777,111 @@ M=\begin{pmatrix}a&amp;c\\b&amp;d\end{pmatrix}.
 </figure>
 </div>
 </section>
-<section id="常见变换的识别" class="level4">
-<h4 class="anchored" data-anchor-id="常见变换的识别">常见变换的识别</h4>
-<ul>
-<li><span class="math inline">R_\theta</span> 表示逆时针旋转 <span class="math inline">\theta</span>；</li>
-<li><span class="math inline">\begin{pmatrix}k&amp;0\\0&amp;k\end{pmatrix}</span> 表示以原点为中心的 uniform enlargement，scale factor 为 <span class="math inline">|k|</span>；</li>
-<li><span class="math inline">\begin{pmatrix}1&amp;h\\0&amp;1\end{pmatrix}</span> 把 <span class="math inline">(x,y)</span> 变为 <span class="math inline">(x+hy,y)</span>，是 horizontal shear；</li>
-<li><span class="math inline">\begin{pmatrix}1&amp;0\\k&amp;1\end{pmatrix}</span> 把 <span class="math inline">(x,y)</span> 变为 <span class="math inline">(x,y+kx)</span>，是 vertical shear。</li>
-</ul>
-<p>判断变换时检查三个方面：基向量的像、<span class="math inline">\det M</span> 的绝对值（面积伸缩因子）以及 <span class="math inline">\det M</span> 的符号（方向是否翻转）。若 <span class="math inline">\det M=0</span>，二维区域会被压到一条线或一个点，变换不可逆。</p>
+<section id="常见变换矩阵" class="level4">
+<h4 class="anchored" data-anchor-id="常见变换矩阵">1.4.3 常见变换矩阵</h4>
+<p>旋转 <span class="math inline">\theta</span>（逆时针）：</p>
+<p><span class="math display">
+R_\theta=\begin{pmatrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix}.
+</span></p>
+<p>以原点为中心、scale factor 为 <span class="math inline">k</span> 的放大：</p>
+<p><span class="math display">
+\begin{pmatrix}k&amp;0\\0&amp;k\end{pmatrix}.
+</span></p>
+<p>水平剪切与竖直剪切分别为</p>
+<p><span class="math display">
+\begin{pmatrix}1&amp;h\\0&amp;1\end{pmatrix}: (x,y)\mapsto(x+hy,y),
+\qquad
+\begin{pmatrix}1&amp;0\\k&amp;1\end{pmatrix}: (x,y)\mapsto(x,y+kx).
+</span></p>
+<p>识别变换时优先查看基向量的像，再用行列式检查面积和方向。</p>
 </section>
 </section>
-<section id="successive-transformations-and-area" class="level3">
-<h3 class="anchored" data-anchor-id="successive-transformations-and-area">1.5 Successive transformations and area</h3>
-<p>若先作 <span class="math inline">B</span>、再作 <span class="math inline">A</span>，复合矩阵为 <span class="math inline">AB</span>。矩阵 <span class="math inline">M</span> 所表示变换的面积伸缩因子为</p>
+<section id="复合变换与面积" class="level3">
+<h3 class="anchored" data-anchor-id="复合变换与面积">1.5 复合变换与面积</h3>
+<p>若先作 <span class="math inline">B</span>、再作 <span class="math inline">A</span>，则</p>
 <p><span class="math display">
-|\det M|.
+\binom{x'}{y'}=A\left(B\binom{x}{y}\right)=(AB)\binom{x}{y}.
 </span></p>
-<p>行列式的符号还反映方向是否翻转。</p>
+<p>因此 <span class="math inline">AB</span> 的右侧矩阵先作用。</p>
+<div class="callout callout-style-default callout-important callout-titled" title="行列式的几何意义">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>行列式的几何意义
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>对于二维矩阵 <span class="math inline">M</span>，面积伸缩因子为</p>
+<p><span class="math display">
+\boxed{|\det M|}.
+</span></p>
+<p>若原面积为 <span class="math inline">S</span>，像面积为 <span class="math inline">S'</span>，则 <span class="math inline">S'=|\det M|S</span>。<span class="math inline">\det M&lt;0</span> 表示方向翻转；<span class="math inline">\det M=0</span> 表示图形被压到一条线或一个点，变换不可逆。</p>
+</div>
+</div>
 </section>
-<section id="invariant-points-and-lines" class="level3">
-<h3 class="anchored" data-anchor-id="invariant-points-and-lines">1.6 Invariant points and lines</h3>
-<p>不动点 <span class="math inline">\mathbf{x}</span> 满足</p>
+<section id="不动点与不变直线" class="level3">
+<h3 class="anchored" data-anchor-id="不动点与不变直线">1.6 不动点与不变直线</h3>
+<section id="不动点" class="level4">
+<h4 class="anchored" data-anchor-id="不动点">1.6.1 不动点</h4>
+<p>不动点是变换前后坐标完全相同的点。若位置向量为 <span class="math inline">\mathbf x</span>，则</p>
 <p><span class="math display">
-M\mathbf{x}=\mathbf{x},
-</span></p>
-<p>即 <span class="math inline">(M-I)\mathbf{x}=\mathbf0</span>。</p>
-<p>若过原点的直线 <span class="math inline">y=mx</span> 在变换后仍映到自身，则方向向量 <span class="math inline">\binom1m</span> 的像必须仍与 <span class="math inline">\binom1m</span> 平行。对于一般直线 <span class="math inline">y=mx+c</span>，应把像点代回同一条直线并比较系数。</p>
-<section id="invariant-points" class="level4">
-<h4 class="anchored" data-anchor-id="invariant-points">Invariant points</h4>
-<p>不动点是变换前后坐标完全相同的点。若位置向量为 <span class="math inline">\mathbf x</span>，条件是</p>
-<p><span class="math display">
-M\mathbf x=\mathbf x,
-</span></p>
-<p>移项后得到</p>
-<p><span class="math display">
+M\mathbf x=\mathbf x
+\quad\Longleftrightarrow\quad
 (M-I)\mathbf x=\mathbf0.
 </span></p>
-<p>因此求不动点就是解一个齐次线性方程组。若 <span class="math inline">\det(M-I)\ne0</span>，只有</p>
-<p><span class="math display">
-\mathbf x=\mathbf0,
-</span></p>
-<p>即原点是不动点。若 <span class="math inline">\det(M-I)=0</span>，则可能有一条不动直线或无穷多个不动点，需要继续解出 <span class="math inline">(M-I)\mathbf x=\mathbf0</span> 的全部解。</p>
-<p>注意：不动点要求 <span class="math inline">M\mathbf x=\mathbf x</span>，不是 <span class="math inline">M\mathbf x=\mathbf0</span>。后者只是在求矩阵的 null space。</p>
+<p>因此求不动点就是解齐次方程组：</p>
+<ol type="1">
+<li>写出 <span class="math inline">M-I</span>；</li>
+<li>解 <span class="math inline">(M-I)\mathbf x=\mathbf0</span>；</li>
+<li>写出所有解，而不是只找一个点。</li>
+</ol>
+<p>若 <span class="math inline">\det(M-I)\ne0</span>，只有原点是不动点；若 <span class="math inline">\det(M-I)=0</span>，则可能有无穷多个不动点，继续解方程组即可。</p>
+<div class="callout callout-style-default callout-warning callout-titled" title="不动点与零空间不要混淆">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">警告</span>不动点与零空间不要混淆
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>不动点满足 <span class="math inline">M\mathbf x=\mathbf x</span>，不是 <span class="math inline">M\mathbf x=\mathbf0</span>。后一个方程求的是矩阵的 null space。</p>
+</div>
+</div>
 </section>
-<section id="invariant-lines-through-the-origin" class="level4">
-<h4 class="anchored" data-anchor-id="invariant-lines-through-the-origin">Invariant lines through the origin</h4>
-<p>对于过原点的直线 <span class="math inline">y=mx</span>，方向向量可取</p>
+<section id="经过原点的不变直线" class="level4">
+<h4 class="anchored" data-anchor-id="经过原点的不变直线">1.6.2 经过原点的不变直线</h4>
+<p>对直线 <span class="math inline">y=mx</span>，可取方向向量</p>
 <p><span class="math display">
 \mathbf v=\binom1m.
 </span></p>
-<p>直线不变的条件不是要求 <span class="math inline">M\mathbf v=\mathbf v</span>，而是要求像向量仍在同一条直线上。因此存在 scalar <span class="math inline">\lambda</span> 使</p>
+<p>直线不变只要求方向保持，因此存在 scalar <span class="math inline">\lambda</span> 使</p>
 <p><span class="math display">
 M\mathbf v=\lambda\mathbf v.
 </span></p>
-<p>这说明不变直线的方向正是 eigenvector direction，而 <span class="math inline">\lambda</span> 是该方向上的 scale factor。实际步骤为：</p>
+<p>实际步骤：</p>
 <ol type="1">
-<li>写出 <span class="math inline">M\binom1m</span>；</li>
-<li>令它等于 <span class="math inline">\lambda\binom1m</span>；</li>
-<li>消去 <span class="math inline">\lambda</span>，解出 <span class="math inline">m</span>；</li>
-<li>将每个候选斜率代回检查。</li>
+<li>计算 <span class="math inline">M\binom1m</span>；</li>
+<li>与 <span class="math inline">\lambda\binom1m</span> 比较；</li>
+<li>消去 <span class="math inline">\lambda</span> 并解出 <span class="math inline">m</span>；</li>
+<li>将斜率代回检查。</li>
 </ol>
+<p>所以经过原点的不变直线方向就是 eigenvector direction，<span class="math inline">\lambda</span> 是该方向上的 scale factor。</p>
 </section>
 <section id="一般不变直线" class="level4">
-<h4 class="anchored" data-anchor-id="一般不变直线">一般不变直线</h4>
-<p>若直线为 <span class="math inline">y=mx+c</span>，仅仅保持方向还不够，因为直线可能平移到另一条平行线。应取直线上一般点</p>
+<h4 class="anchored" data-anchor-id="一般不变直线">1.6.3 一般不变直线</h4>
+<p>对于 <span class="math inline">y=mx+c</span>，保持方向还不够，像线还必须是同一条直线。取直线上一般点</p>
 <p><span class="math display">
 \mathbf x=\binom{x}{mx+c},
 </span></p>
-<p>计算 <span class="math inline">M\mathbf x</span>，再要求像点仍满足同一条方程</p>
+<p>计算 <span class="math inline">M\mathbf x=\binom{x'}{y'}</span>，再代入</p>
 <p><span class="math display">
 y'=mx'+c.
 </span></p>
-<p>比较 <span class="math inline">x</span> 的系数和常数项，才能同时保证方向和位置都不变。</p>
+<p>比较 <span class="math inline">x</span> 的系数和常数项，才能同时确定斜率 <span class="math inline">m</span> 和截距 <span class="math inline">c</span>。</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="figures/matrices/invariant-points-lines.svg" class="img-fluid figure-img" style="width:95.0%"></p>
