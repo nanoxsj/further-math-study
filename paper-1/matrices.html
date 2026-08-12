@@ -513,6 +513,31 @@ window.Quarto = {
 </section>
 <section id="教材知识点" class="level2">
 <h2 class="anchored" data-anchor-id="教材知识点">1. 教材知识点</h2>
+<p>本章建议按以下逻辑学习：</p>
+<p><span class="math display">
+\text{矩阵运算}
+\longrightarrow
+\text{行列式与逆矩阵}
+\longrightarrow
+\text{平面变换}
+\longrightarrow
+\text{复合变换}
+\longrightarrow
+\text{不动点与不变直线}.
+</span></p>
+<div class="callout callout-style-default callout-note callout-titled" title="本章核心主线">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">注记</span>本章核心主线
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>矩阵既可以看作数字表格，也可以看作对向量和图形进行变换的规则。前半部分解决“如何计算矩阵”，后半部分解决“矩阵代表什么几何变换”。</p>
+</div>
+</div>
 <section id="matrix-operations" class="level3">
 <h3 class="anchored" data-anchor-id="matrix-operations">1.1 Matrix operations</h3>
 <p>只有阶数相同的矩阵可以相加或相减。若 <span class="math inline">A</span> 为 <span class="math inline">m\times n</span>，<span class="math inline">B</span> 为 <span class="math inline">n\times p</span>，则 <span class="math inline">AB</span> 有定义且为 <span class="math inline">m\times p</span>。</p>
@@ -521,6 +546,23 @@ window.Quarto = {
 AB\ne BA,
 </span></p>
 <p>但满足结合律与分配律。单位矩阵 <span class="math inline">I</span> 满足 <span class="math inline">AI=IA=A</span>，零矩阵记作 <span class="math inline">O</span>。</p>
+<div class="callout callout-style-default callout-important callout-titled" title="矩阵运算的三个检查">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>矩阵运算的三个检查
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>加减法：两个矩阵必须阶数完全相同；</li>
+<li>乘法：左矩阵的列数必须等于右矩阵的行数；</li>
+<li>乘积 <span class="math inline">AB</span> 的阶数是“左边的行数 × 右边的列数”，并且一般 <span class="math inline">AB\ne BA</span>。</li>
+</ol>
+</div>
+</div>
 </section>
 <section id="determinants-and-inverses" class="level3">
 <h3 class="anchored" data-anchor-id="determinants-and-inverses">1.2 Determinants and inverses</h3>
@@ -800,7 +842,12 @@ y'=mx'+c.
 <summary>
 Show solution
 </summary>
-<p>Taking each row against the column gives</p>
+<p>The product is a <span class="math inline">2\times1</span> matrix. Calculate its two entries row by row:</p>
+<p><span class="math display">
+(10)(5)+(3)(2)=56,
+\qquad
+(-2)(5)+(7)(2)=4.
+</span></p>
 <p><span class="math display">
 \boxed{\begin{pmatrix}56\\4\end{pmatrix}}.
 </span></p>
@@ -818,7 +865,13 @@ Show solution
 <summary>
 Show solution
 </summary>
-<p>The product has order <span class="math inline">2\times3</span>:</p>
+<p>The product has order <span class="math inline">2\times3</span>. Pair each row of the first matrix with each column of the second:</p>
+<p><span class="math display">
+\begin{aligned}
+c_{11}&amp;=(1)(4)+(3)(-2)=-2, &amp; c_{12}&amp;=(1)(3)+(3)(-3)=-6, &amp; c_{13}&amp;=(1)(0)+(3)(1)=3,\\
+c_{21}&amp;=(-2)(4)+(5)(-2)=-18, &amp; c_{22}&amp;=(-2)(3)+(5)(-3)=-21, &amp; c_{23}&amp;=(-2)(0)+(5)(1)=5.
+\end{aligned}
+</span></p>
 <p><span class="math display">
 \boxed{\begin{pmatrix}-2&amp;-6&amp;3\\-18&amp;-21&amp;5\end{pmatrix}}.
 </span></p>
@@ -838,7 +891,13 @@ Show solution
 Show solution
 </summary>
 <p><span class="math display">
-\boxed{\begin{pmatrix}3&amp;2\\-1&amp;4\end{pmatrix}}.
+\begin{pmatrix}3&amp;2\\-1&amp;4\end{pmatrix}
+\begin{pmatrix}1&amp;0\\0&amp;1\end{pmatrix}
+=\begin{pmatrix}
+3(1)+2(0)&amp;3(0)+2(1)\\
+(-1)(1)+4(0)&amp;(-1)(0)+4(1)
+\end{pmatrix}
+=\boxed{\begin{pmatrix}3&amp;2\\-1&amp;4\end{pmatrix}}.
 </span></p>
 <p>Multiplication by the identity matrix has no effect.</p>
 </details>
@@ -856,7 +915,15 @@ Show solution
 <summary>
 Show solution
 </summary>
-<p>The first matrix interchanges the coordinates, so it is reflection in <span class="math inline">y=x</span>. The second multiplies both coordinates by <span class="math inline">2</span>, so it is an enlargement of scale factor <span class="math inline">2</span> about the origin.</p>
+<p>For a general point <span class="math inline">(x,y)^T</span>,</p>
+<p><span class="math display">
+\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix}\binom{x}{y}=\binom{y}{x}.
+</span></p>
+<p>The coordinates are interchanged, so this is reflection in <span class="math inline">y=x</span>. Also,</p>
+<p><span class="math display">
+\begin{pmatrix}2&amp;0\\0&amp;2\end{pmatrix}\binom{x}{y}=\binom{2x}{2y}.
+</span></p>
+<p>Every point is twice as far from the origin in the same direction. This is an enlargement, centre the origin, scale factor <span class="math inline">2</span>.</p>
 </details>
 <p><label class="done-toggle"><input type="checkbox" data-progress="matrices-example-1-4"> Completed</label></p>
 </section>
@@ -871,10 +938,21 @@ Show solution
 <summary>
 Show solution
 </summary>
-<p>Use the images of <span class="math inline">\binom10</span> and <span class="math inline">\binom01</span> as the columns:</p>
+<p>The columns of a transformation matrix are the images of the standard basis vectors <span class="math inline">\mathbf e_1=(1,0)^T</span> and <span class="math inline">\mathbf e_2=(0,1)^T</span>.</p>
+<p>For reflection in the <span class="math inline">x</span>-axis,</p>
 <p><span class="math display">
-\boxed{\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix}},
-\qquad
+\mathbf e_1\mapsto\binom10,\qquad \mathbf e_2\mapsto\binom0{-1}.
+</span></p>
+<p>Therefore,</p>
+<p><span class="math display">
+\boxed{\begin{pmatrix}1&amp;0\\0&amp;-1\end{pmatrix}}.
+</span></p>
+<p>For the enlargement of scale factor <span class="math inline">3</span>,</p>
+<p><span class="math display">
+\mathbf e_1\mapsto\binom30,\qquad \mathbf e_2\mapsto\binom03,
+</span></p>
+<p>so</p>
+<p><span class="math display">
 \boxed{\begin{pmatrix}3&amp;0\\0&amp;3\end{pmatrix}}.
 </span></p>
 <figure class="math-figure figure">
@@ -896,6 +974,7 @@ Example 1.5: the reflected image lies below the x-axis and every distance from t
 <summary>
 Show solution
 </summary>
+<p>The image of <span class="math inline">(1,0)</span> is <span class="math inline">(\cos\theta,\sin\theta)</span> and the image of <span class="math inline">(0,1)</span> is <span class="math inline">(-\sin\theta,\cos\theta)</span>. These image vectors form the columns, hence</p>
 <p><span class="math display">
 \boxed{R_\theta=
 \begin{pmatrix}\cos\theta&amp;-\sin\theta\\\sin\theta&amp;\cos\theta\end{pmatrix}}.
@@ -918,7 +997,7 @@ Show solution
 <summary>
 Show solution
 </summary>
-<p>Multiplying the coordinate matrix gives</p>
+<p>Apply the matrix to each vertex. Putting the four position vectors into one matrix gives</p>
 <p><span class="math display">
 \begin{pmatrix}1&amp;3\\0&amp;1\end{pmatrix}
 \begin{pmatrix}-1&amp;1&amp;1&amp;-1\\2&amp;2&amp;-1&amp;-1\end{pmatrix}
@@ -946,7 +1025,7 @@ Example 1.7: a shear preserves height and area while slanting the vertical sides
 <summary>
 Show solution
 </summary>
-<p>The images of the basis vectors are <span class="math inline">\binom15</span> and <span class="math inline">\binom01</span>, so</p>
+<p>The <span class="math inline">y</span>-axis is fixed, so <span class="math inline">S\mathbf e_2=\mathbf e_2=(0,1)^T</span>. The condition <span class="math inline">(1,0)\mapsto(1,5)</span> gives <span class="math inline">S\mathbf e_1=(1,5)^T</span>. These image vectors are the columns of <span class="math inline">S</span>, so</p>
 <p><span class="math display">
 \boxed{S=\begin{pmatrix}1&amp;0\\5&amp;1\end{pmatrix}}.
 </span></p>
@@ -965,7 +1044,11 @@ Show solution
 <summary>
 Show solution
 </summary>
-<p>Using <span class="math inline">R_\theta</span> gives the three matrices. Since successive anticlockwise rotations add their angles,</p>
+<p>Using <span class="math inline">R_\theta</span>,</p>
+<p><span class="math display">
+A=R_{135^\circ},\qquad B=R_{45^\circ},\qquad C=R_{90^\circ}.
+</span></p>
+<p>Successive anticlockwise rotations add their angles, so</p>
 <p><span class="math display">
 \boxed{BC=R_{45^\circ}R_{90^\circ}=R_{135^\circ}=A},
 </span></p>
@@ -987,7 +1070,11 @@ M=\begin{pmatrix}2&amp;-1\\1&amp;0\end{pmatrix}.
 <summary>
 Show solution
 </summary>
-<p>Direct multiplication maps <span class="math inline">\binom55</span> to itself. In general,</p>
+<p>Directly,</p>
+<p><span class="math display">
+M\binom55=\binom{2(5)-5}{5}=\binom55,
+</span></p>
+<p>so <span class="math inline">(5,5)</span> is invariant. For a general point <span class="math inline">(x,y)</span>, impose <span class="math inline">M(x,y)^T=(x,y)^T</span>:</p>
 <p><span class="math display">
 M\binom{x}{y}=\binom{x}{y}
 </span></p>
@@ -1008,7 +1095,11 @@ M=\begin{pmatrix}5&amp;1\\2&amp;4\end{pmatrix}.
 <summary>
 Show solution
 </summary>
-<p>Put <span class="math inline">y=mx+c</span> and require the image point to satisfy the same equation. Comparing coefficients gives</p>
+<p>Let a point on the line be <span class="math inline">(x,mx+c)</span>. Its image is</p>
+<p><span class="math display">
+M\binom{x}{mx+c}=\binom{(5+m)x+c}{(2+4m)x+4c}.
+</span></p>
+<p>For the image to remain on <span class="math inline">y=mx+c</span>, substitute these coordinates into the line equation and compare the coefficients of <span class="math inline">x</span> and the constant term. This gives</p>
 <p><span class="math display">
 m^2+m-2=0,
 \qquad
@@ -1040,7 +1131,11 @@ M=\begin{pmatrix}1&amp;-2\\3&amp;0\end{pmatrix}.
 <summary>
 Show solution
 </summary>
-<p><span class="math inline">\det M=6</span>, so the area scale factor is <span class="math inline">6</span>. The image area is</p>
+<p>The absolute value of the determinant is the area scale factor. Here</p>
+<p><span class="math display">
+\det M=(1)(0)-(-2)(3)=6.
+</span></p>
+<p>Therefore the image area is</p>
 <p><span class="math display">
 \boxed{48\text{ cm}^2}.
 </span></p>
@@ -1058,7 +1153,11 @@ M=\begin{pmatrix}2&amp;3\\4&amp;1\end{pmatrix}.
 <summary>
 Show solution
 </summary>
-<p>The four vertices map to <span class="math inline">(0,0),(2,4),(5,5),(3,1)</span>. Also</p>
+<p>For <span class="math inline">(x,y)^T</span>,</p>
+<p><span class="math display">
+M\binom{x}{y}=\binom{2x+3y}{4x+y}.
+</span></p>
+<p>Applying this to <span class="math inline">(0,0),(1,0),(1,1),(0,1)</span> gives the image vertices <span class="math inline">(0,0),(2,4),(5,5),(3,1)</span>. Also</p>
 <p><span class="math display">
 \det M=2-12=-10.
 </span></p>
@@ -1087,8 +1186,9 @@ Q=\begin{pmatrix}2&amp;1\\1&amp;2\end{pmatrix},
 <summary>
 Show solution
 </summary>
+<p>Using <span class="math inline">\det\begin{pmatrix}a&amp;b\\c&amp;d\end{pmatrix}=ad-bc</span>,</p>
 <p><span class="math display">
-\det P=2,\qquad \det Q=3,
+\det P=(2)(1)-(1)(0)=2,\qquad \det Q=(2)(2)-(1)(1)=3,
 </span></p>
 <p>and</p>
 <p><span class="math display">
@@ -1112,7 +1212,7 @@ A=\begin{pmatrix}0&amp;-1\\1&amp;0\end{pmatrix},
 \qquad
 B=\begin{pmatrix}0&amp;1\\-1&amp;0\end{pmatrix}.
 </span></p>
-<p>Then</p>
+<p>Multiplying the two matrices gives</p>
 <p><span class="math display">
 \boxed{AB=I},
 </span></p>
@@ -1131,11 +1231,15 @@ A=\begin{pmatrix}11&amp;3\\6&amp;2\end{pmatrix}.
 <summary>
 Show solution
 </summary>
-<p>Since <span class="math inline">\det A=4</span>,</p>
+<p>First,</p>
+<p><span class="math display">
+\det A=(11)(2)-(3)(6)=4\ne0,
+</span></p>
+<p>so <span class="math inline">A^{-1}</span> exists. Using the <span class="math inline">2\times2</span> inverse formula,</p>
 <p><span class="math display">
 \boxed{A^{-1}=\frac14\begin{pmatrix}2&amp;-3\\-6&amp;11\end{pmatrix}}.
 </span></p>
-<p>Then</p>
+<p>Because <span class="math inline">AP=Q</span>, we have <span class="math inline">P=A^{-1}Q</span>:</p>
 <p><span class="math display">
 A^{-1}\binom52=\binom1{-2},
 </span></p>
@@ -1153,7 +1257,7 @@ M=\begin{pmatrix}3&amp;0&amp;-4\\7&amp;2&amp;-1\\-2&amp;1&amp;3\end{pmatrix}.
 <summary>
 Show solution
 </summary>
-<p>Expanding along the top row,</p>
+<p>Expand along the top row; the signs are <span class="math inline">+,-,+</span> and the middle term is zero:</p>
 <p><span class="math display">
 \det M
 =3\begin{vmatrix}2&amp;-1\\1&amp;3\end{vmatrix}
@@ -1175,11 +1279,21 @@ M=\begin{pmatrix}2&amp;3&amp;4\\2&amp;-5&amp;2\\-3&amp;6&amp;-3\end{pmatrix}
 <summary>
 Show solution
 </summary>
-<p>The determinant is <span class="math inline">-6</span>. The cofactor matrix is</p>
+<p>Use <span class="math inline">M^{-1}=\dfrac1{\det M}\operatorname{adj}(M)</span>. Expanding by the first column,</p>
+<p><span class="math display">
+\begin{aligned}
+\det M
+&amp;=2\begin{vmatrix}-5&amp;2\\6&amp;-3\end{vmatrix}
+-2\begin{vmatrix}3&amp;4\\6&amp;-3\end{vmatrix}
+-3\begin{vmatrix}3&amp;4\\-5&amp;2\end{vmatrix}\\
+&amp;=2(15-12)-2(-9-24)-3(6+20)=-6.
+\end{aligned}
+</span></p>
+<p>Since this is non-zero, the inverse exists. The cofactor matrix is</p>
 <p><span class="math display">
 \begin{pmatrix}3&amp;0&amp;-3\\33&amp;6&amp;-21\\26&amp;4&amp;-16\end{pmatrix}.
 </span></p>
-<p>Transpose and divide by <span class="math inline">-6</span>:</p>
+<p>Transpose the cofactor matrix to obtain the adjugate, then multiply by <span class="math inline">1/(-6)</span>:</p>
 <p><span class="math display">
 \boxed{M^{-1}=\frac16
 \begin{pmatrix}-3&amp;-33&amp;-26\\0&amp;-6&amp;-4\\3&amp;21&amp;16\end{pmatrix}}.
