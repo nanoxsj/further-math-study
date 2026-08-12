@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Foot of a perpendicular and distance from a point to a plane</title>
+  <desc id="desc">A point P lies above an oblique plane. The perpendicular segment from P meets the plane at H and is parallel to the plane normal vector n. The segment PH is the shortest distance.</desc>
+  <defs>
+    <linearGradient id="plane" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#dbeafe" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#a7f3d0" stop-opacity="0.82"/>
+    </linearGradient>
+    <marker id="arrowPurple" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrowDark" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#172554"/>
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#1e3a8a" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="720" rx="34" fill="#f8fafc"/>
+  <text x="65" y="68" font-family="Arial, sans-serif" font-size="32" font-weight="700" fill="#172554">Distance from a point to a plane</text>
+  <text x="65" y="108" font-family="Arial, sans-serif" font-size="20" fill="#64748b">The shortest distance is measured along the normal direction.</text>
+
+  <!-- plane -->
+  <polygon points="170,480 690,300 1050,430 530,620" fill="url(#plane)" stroke="#0f766e" stroke-width="4" filter="url(#shadow)"/>
+  <g stroke="#60a5fa" stroke-width="2" opacity="0.55">
+    <line x1="240" y1="456" x2="600" y2="586"/><line x1="335" y1="423" x2="695" y2="553"/>
+    <line x1="430" y1="390" x2="790" y2="520"/><line x1="525" y1="357" x2="885" y2="487"/>
+    <line x1="620" y1="324" x2="980" y2="454"/>
+    <line x1="260" y1="449" x2="780" y2="269"/><line x1="365" y1="494" x2="885" y2="314"/>
+    <line x1="470" y1="539" x2="990" y2="359"/>
+  </g>
+  <text x="830" y="400" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#047857">plane Π</text>
+
+  <!-- point and perpendicular -->
+  <line x1="570" y1="175" x2="570" y2="505" stroke="#7c3aed" stroke-width="7" marker-end="url(#arrowPurple)"/>
+  <line x1="570" y1="505" x2="570" y2="175" stroke="#7c3aed" stroke-width="4" stroke-dasharray="11 9"/>
+  <circle cx="570" cy="175" r="12" fill="#f97316" stroke="#fff" stroke-width="6"/>
+  <circle cx="570" cy="505" r="11" fill="#2563eb" stroke="#fff" stroke-width="5"/>
+  <text x="594" y="170" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#c2410c">P</text>
+  <text x="594" y="513" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#1d4ed8">H</text>
+  <text x="603" y="345" font-family="Georgia, serif" font-size="29" font-style="italic" fill="#6d28d9">n</text>
+  <text x="615" y="405" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#6d28d9">PH is perpendicular to Π</text>
+  <text x="615" y="438" font-family="Arial, sans-serif" font-size="21" fill="#475569">PH = shortest distance</text>
+
+  <!-- right angle -->
+  <path d="M570 505 L600 495 L590 470" fill="none" stroke="#7c3aed" stroke-width="4"/>
+
+  <!-- vector explanation -->
+  <line x1="270" y1="560" x2="465" y2="493" stroke="#172554" stroke-width="5" marker-end="url(#arrowDark)"/>
+  <text x="265" y="590" font-family="Georgia, serif" font-size="28" font-style="italic" fill="#172554">r − p₀</text>
+  <text x="225" y="655" font-family="Arial, sans-serif" font-size="20" fill="#475569">point-to-plane displacement</text>
+
+  <!-- formula card -->
+  <rect x="770" y="515" width="355" height="125" rx="20" fill="#fff" stroke="#c4b5fd" stroke-width="3" filter="url(#shadow)"/>
+  <text x="800" y="555" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#5b21b6">Distance formula</text>
+  <text x="800" y="600" font-family="Georgia, serif" font-size="28" font-style="italic" fill="#172554">d = |p − p₀ · n| / |n|</text>
+</svg>
