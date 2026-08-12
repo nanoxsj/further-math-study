@@ -560,11 +560,62 @@ p=\mathbf a\boldsymbol\cdot\mathbf n.
 </section>
 <section id="foot-of-a-perpendicular-and-distance-to-a-plane" class="level3">
 <h3 class="anchored" data-anchor-id="foot-of-a-perpendicular-and-distance-to-a-plane">1.3 Foot of a perpendicular and distance to a plane</h3>
-<p>从点 <span class="math inline">P</span> 到平面 <span class="math inline">\mathbf r\boldsymbol\cdot\mathbf n=p</span> 的垂线方向为 <span class="math inline">\mathbf n</span>。先写</p>
+<p>设平面为</p>
 <p><span class="math display">
-\mathbf r=\mathbf p_0+t\mathbf n,
+\Pi:\quad \mathbf r\boldsymbol\cdot\mathbf n=p,
 </span></p>
-<p>再与平面联立，所得交点 <span class="math inline">M</span> 是 foot of the perpendicular，距离为 <span class="math inline">|PM|</span>。</p>
+<p>点 <span class="math inline">P</span> 的位置向量为 <span class="math inline">\mathbf p_0</span>。从 <span class="math inline">P</span> 到平面的最短线段必须垂直于平面，因此它的方向必定平行于 normal vector <span class="math inline">\mathbf n</span>。先写出经过 <span class="math inline">P</span> 且沿法向量的直线：</p>
+<p><span class="math display">
+\mathbf r=\mathbf p_0+t\mathbf n.
+</span></p>
+<p>令这条直线与平面的交点为垂足 <span class="math inline">M</span>。把 <span class="math inline">\mathbf r=\mathbf p_0+t\mathbf n</span> 代入平面方程：</p>
+<p><span class="math display">
+(\mathbf p_0+t\mathbf n)\boldsymbol\cdot\mathbf n=p.
+</span></p>
+<p>利用点积的分配律：</p>
+<p><span class="math display">
+\mathbf p_0\boldsymbol\cdot\mathbf n+t(\mathbf n\boldsymbol\cdot\mathbf n)=p.
+</span></p>
+<p>由于 <span class="math inline">\mathbf n\boldsymbol\cdot\mathbf n=\|\mathbf n\|^2</span>，得到</p>
+<p><span class="math display">
+\boxed{t=\frac{p-\mathbf p_0\boldsymbol\cdot\mathbf n}{\|\mathbf n\|^2}}.
+</span></p>
+<p>因此垂足的位置向量为</p>
+<p><span class="math display">
+\boxed{\mathbf m=\mathbf p_0+
+\frac{p-\mathbf p_0\boldsymbol\cdot\mathbf n}{\|\mathbf n\|^2}\mathbf n}.
+</span></p>
+<p>点 <span class="math inline">P</span> 到垂足 <span class="math inline">M</span> 的位移向量为</p>
+<p><span class="math display">
+\overrightarrow{PM}=\mathbf m-\mathbf p_0=t\mathbf n.
+</span></p>
+<p>所以距离为</p>
+<p><span class="math display">
+PM=\|t\mathbf n\|=|t|\,\|\mathbf n\|
+=\boxed{\frac{|p-\mathbf p_0\boldsymbol\cdot\mathbf n|}{\|\mathbf n\|}}.
+</span></p>
+<div class="callout callout-style-default callout-important callout-titled" title="距离公式的几何意义">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">重要</span>距离公式的几何意义
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>距离不是点到平面内任意一点的距离，而是点到平面的最短距离。最短线段必须沿平面的 normal direction，因此只需要取点的位置向量在 normal direction 上的有向差，再除以 <span class="math inline">\|\mathbf n\|</span> 进行单位化：</p>
+<p><span class="math display">
+\boxed{\text{distance}=
+\frac{\text{absolute normal displacement}}{\text{length of the normal vector}}}.
+</span></p>
+<p>其中 <span class="math inline">p-\mathbf p_0\boldsymbol\cdot\mathbf n</span> 是未单位化法向量下的有向差；绝对值保证距离为非负数。</p>
+<p>若将 <span class="math inline">\mathbf n</span> 单位化为 <span class="math inline">\widehat{\mathbf n}=\mathbf n/\|\mathbf n\|</span>，则距离直接是</p>
+<p><span class="math display">
+\left|p\,\frac{1}{\|\mathbf n\|}-\mathbf p_0\boldsymbol\cdot\widehat{\mathbf n}\right|.
+</span></p>
+</div>
+</div>
 <p>对于平面 <span class="math inline">ax+by+cz=d</span> 和点 <span class="math inline">(x_0,y_0,z_0)</span>，距离公式为</p>
 <p><span class="math display">
 \boxed{
@@ -657,7 +708,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 <div class="callout-example" title="Example 7.1 — Plane through three points">
 <p>Find the equation of the plane through <span class="math inline">A(4,2,0)</span>, <span class="math inline">B(3,1,1)</span> and <span class="math inline">C(4,-1,1)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -666,7 +717,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Two independent directions in the plane are</p>
 <p><span class="math display">
@@ -690,7 +741,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 <div class="callout-example" title="Example 7.2 — Plane from a point and a normal">
 <p>Write down the equation of the plane through <span class="math inline">(2,1,3)</span> whose normal is <span class="math inline">4\mathbf i+5\mathbf j+6\mathbf k</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -699,7 +750,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>With <span class="math inline">\mathbf a=(2,1,3)</span> and <span class="math inline">\mathbf n=(4,5,6)</span>,</p>
 <p><span class="math display">
@@ -721,7 +772,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 </span></p>
 <p>meets the plane <span class="math inline">5x+y-z=1</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -730,7 +781,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A point of the line has coordinates <span class="math inline">(2+\lambda,3+2\lambda,4-\lambda)</span>. Substitution gives</p>
 <p><span class="math display">
@@ -752,7 +803,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 </span></p>
 <p>is parallel to the plane <span class="math inline">2x+4y+5z=8</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -761,7 +812,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The direction of the line is <span class="math inline">\mathbf d=(3,1,-2)</span> and a normal to the plane is <span class="math inline">\mathbf n=(2,4,5)</span>. Since</p>
 <p><span class="math display">
@@ -775,7 +826,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 <div class="callout-example" title="Example 7.5 — A line lying in a plane">
 <p>Determine whether the line in Example 7.4 lies in the plane <span class="math inline">2x+4y+5z=8</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -784,7 +835,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Example 7.4 shows that the line is parallel to the plane. For <span class="math inline">t=1</span>, the point on the line is <span class="math inline">(5,2,-2)</span>, and</p>
 <p><span class="math display">
@@ -803,7 +854,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 <li><p>Find <span class="math inline">AP</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -812,7 +863,7 @@ D=\frac{|(\mathbf c-\mathbf a)\boldsymbol\cdot(\mathbf b\times\mathbf d)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li>A normal to <span class="math inline">\pi</span> is <span class="math inline">(3,2,1)</span>, so</li>
@@ -851,7 +902,7 @@ AP=\sqrt{36+16+4}=\boxed{\sqrt{56}}.
 </span></p>
 <p>and the plane <span class="math inline">2x+3y+z=4</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -860,7 +911,7 @@ AP=\sqrt{36+16+4}=\boxed{\sqrt{56}}.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Take <span class="math inline">\mathbf n=(2,3,1)</span> and <span class="math inline">\mathbf d=(-1,2,5)</span>. If <span class="math inline">A</span> is the angle between <span class="math inline">\mathbf n</span> and <span class="math inline">\mathbf d</span>, then</p>
 <p><span class="math display">
@@ -884,7 +935,7 @@ AP=\sqrt{36+16+4}=\boxed{\sqrt{56}}.
 x-2y+z=12.
 </span></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -893,7 +944,7 @@ x-2y+z=12.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Putting <span class="math inline">y=0</span> gives <span class="math inline">x=3</span>, <span class="math inline">z=9</span>, so <span class="math inline">P=(3,0,9)</span>. Putting <span class="math inline">z=1</span> gives <span class="math inline">x=-1</span>, <span class="math inline">y=-6</span>, so <span class="math inline">Q=(-1,-6,1)</span>. Then</p>
 <p><span class="math display">
@@ -913,7 +964,7 @@ x-2y+z=12.
 <div class="callout-example" title="Example 7.9 — Angle between two planes">
 <p>Find the acute angle between <span class="math inline">\pi_1:2x+3y+5z=8</span> and <span class="math inline">\pi_2:5x+y-4z=12</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -922,7 +973,7 @@ x-2y+z=12.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The normals are <span class="math inline">\mathbf n_1=(2,3,5)</span> and <span class="math inline">\mathbf n_2=(5,1,-4)</span>. Hence</p>
 <p><span class="math display">
@@ -945,7 +996,7 @@ x-2y+z=12.
 \pi_2:2x+3y+z+13=0.
 </span></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -954,7 +1005,7 @@ x-2y+z=12.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Every plane in the sheaf through the common line has equation</p>
 <p><span class="math display">
@@ -986,7 +1037,7 @@ p(2x+2y+z+3)+q(2x+3y+z+13)=0,
 +\beta\begin{pmatrix}-3\\0\\1\end{pmatrix}.
 </span></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -995,7 +1046,7 @@ p(2x+2y+z+3)+q(2x+3y+z+13)=0,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let</p>
 <p><span class="math display">
@@ -1035,7 +1086,7 @@ Q=(-2-3\beta,1,4+\beta).
 <li><p>Hence find a unit vector perpendicular to both <span class="math inline">\mathbf a</span> and <span class="math inline">\mathbf b</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1044,7 +1095,7 @@ Q=(-2-3\beta,1,4+\beta).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li></li>
@@ -1073,7 +1124,7 @@ Q=(-2-3\beta,1,4+\beta).
 <div class="callout-example" title="Example 7.13 — Plane through three points using a vector product">
 <p>Find the Cartesian equation of the plane through <span class="math inline">A(3,4,2)</span>, <span class="math inline">B(2,0,5)</span> and <span class="math inline">C(6,7,8)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1082,7 +1133,7 @@ Q=(-2-3\beta,1,4+\beta).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">
 \overrightarrow{AB}=(-1,-4,3),
@@ -1111,7 +1162,7 @@ Q=(-2-3\beta,1,4+\beta).
 </span></p>
 <p>Find its Cartesian equation.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1120,7 +1171,7 @@ Q=(-2-3\beta,1,4+\beta).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A normal is the vector product of the two directions:</p>
 <p><span class="math display">
@@ -1155,7 +1206,7 @@ Q=(-2-3\beta,1,4+\beta).
 <li><p>Verify the value of <span class="math inline">PM</span>.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1164,7 +1215,7 @@ Q=(-2-3\beta,1,4+\beta).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li></li>
@@ -1197,7 +1248,7 @@ PM=\sqrt{900+900+100}=\boxed{10\sqrt{19}}.
 <div class="callout-example" title="Example 7.16 — Distance from a point to a line in two dimensions">
 <p>Find the shortest distance from <span class="math inline">P(3,5)</span> to <span class="math inline">5x-3y+4=0</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1206,7 +1257,7 @@ PM=\sqrt{900+900+100}=\boxed{10\sqrt{19}}.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Using the two-dimensional distance formula,</p>
 <p><span class="math display">
@@ -1221,7 +1272,7 @@ D=\frac{|5(3)-3(5)+4|}{\sqrt{5^2+(-3)^2}}
 <div class="callout-example" title="Example 7.17 — Distance from a point to a plane">
 <p>Find the shortest distance from <span class="math inline">(2,4,-2)</span> to <span class="math inline">6x-y-3z+1=0</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1230,7 +1281,7 @@ D=\frac{|5(3)-3(5)+4|}{\sqrt{5^2+(-3)^2}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">
 D=\frac{|6(2)-4-3(-2)+1|}{\sqrt{6^2+(-1)^2+(-3)^2}}
@@ -1258,7 +1309,7 @@ l_2:\mathbf r=\begin{pmatrix}4\\2\\1\end{pmatrix}
 <li><p>Find the shortest distance between them.</p></li>
 </ol>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1267,7 +1318,7 @@ l_2:\mathbf r=\begin{pmatrix}4\\2\\1\end{pmatrix}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li><p>The second direction is <span class="math inline">-2</span> times the first, so the lines are parallel.</p></li>
@@ -1297,7 +1348,7 @@ l_2:\mathbf r=\begin{pmatrix}6\\0\\-2\end{pmatrix}
 +\mu\begin{pmatrix}1\\-1\\-2\end{pmatrix}.
 </span></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Solution">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1306,7 +1357,7 @@ l_2:\mathbf r=\begin{pmatrix}6\\0\\-2\end{pmatrix}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Let <span class="math inline">\mathbf a_1=(8,9,-2)</span>, <span class="math inline">\mathbf a_2=(6,0,-2)</span>, <span class="math inline">\mathbf d_1=(1,2,-3)</span> and <span class="math inline">\mathbf d_2=(1,-1,-2)</span>. Then</p>
 <p><span class="math display">
@@ -1346,7 +1397,7 @@ l_2:\mathbf r=5\mathbf i+3\mathbf j-14\mathbf k
 <p>The point <span class="math inline">P</span> on <span class="math inline">l_1</span> and the point <span class="math inline">Q</span> on <span class="math inline">l_2</span> are such that <span class="math inline">PQ</span> is perpendicular to both lines. Find the position vectors of <span class="math inline">P</span> and <span class="math inline">Q</span>.</p>
 <p><em>Source: 9231 Paper 11 Question 11 (part question), May/June 2015. The sign of the <span class="math inline">\mathbf k</span> term is given here in the form consistent with the original mark scheme and the textbook answer.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1355,7 +1406,7 @@ l_2:\mathbf r=5\mathbf i+3\mathbf j-14\mathbf k
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Write</p>
 <p><span class="math display">
@@ -1403,7 +1454,7 @@ Q=(5,3-2\mu,-14+3\mu).
 </ol>
 <p><em>Source: 9231 Paper 11 Question 8, October/November 2013.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1412,7 +1463,7 @@ Q=(5,3-2\mu,-14+3\mu).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li>A normal to <span class="math inline">\Pi_1</span> is</li>
@@ -1461,7 +1512,7 @@ x+3y-z=(2)+3(3)-(-1)=12,
 </ol>
 <p><em>Source: 9231 Paper 11 Question 11, May/June 2014.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1470,7 +1521,7 @@ x+3y-z=(2)+3(3)-(-1)=12,
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li>Direction vectors are</li>
@@ -1534,7 +1585,7 @@ D=\frac{|\overrightarrow{AC}\boldsymbol\cdot(\mathbf d_1\times\mathbf d_2)|}
 </ol>
 <p><em>Source: 9231 Paper 11 Question 11, May/June 2012.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1543,7 +1594,7 @@ D=\frac{|\overrightarrow{AC}\boldsymbol\cdot(\mathbf d_1\times\mathbf d_2)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li></li>
@@ -1631,7 +1682,7 @@ l_2:\mathbf r=4\mathbf i+4\mathbf j+\mu(-6\mathbf j+\mathbf k).
 <p>Points <span class="math inline">P</span> on <span class="math inline">l_1</span> and <span class="math inline">Q</span> on <span class="math inline">l_2</span> are such that <span class="math inline">PQ</span> is perpendicular to both lines. Find their position vectors. [8]</p>
 <p><em>Sources: 9231/11/M/J/19 Q3; 9231/12/M/J/19 Q3.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1640,7 +1691,7 @@ l_2:\mathbf r=4\mathbf i+4\mathbf j+\mu(-6\mathbf j+\mathbf k).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math display">
 P=(6+\lambda,2+\lambda,7),
@@ -1676,7 +1727,7 @@ P=(6+\lambda,2+\lambda,7),
 </ol>
 <p><em>Source: 9231/13/M/J/19 Q7.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1685,7 +1736,7 @@ P=(6+\lambda,2+\lambda,7),
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li></li>
@@ -1726,7 +1777,7 @@ D=\frac{|(1,5,1)\boldsymbol\cdot(-5,5,-2)|}{\sqrt{54}}
 </ol>
 <p><em>Sources: 9231/11/O/N/19 Q6; 9231/12/O/N/19 Q6; 9231/13/O/N/19 Q6.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1735,7 +1786,7 @@ D=\frac{|(1,5,1)\boldsymbol\cdot(-5,5,-2)|}{\sqrt{54}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="i">
 <li>Directions are <span class="math inline">\overrightarrow{OC}=(1,-1,1)</span> and <span class="math inline">\overrightarrow{AB}=(1,2,7)</span>. Thus</li>
@@ -1773,7 +1824,7 @@ D=\frac{|(1,-1,0)\boldsymbol\cdot(3,2,-1)|}{\sqrt{14}}
 </ol>
 <p><em>Sources: 9231/11/M/J/20 Q5; 9231/12/M/J/20 Q5.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1782,7 +1833,7 @@ D=\frac{|(1,-1,0)\boldsymbol\cdot(3,2,-1)|}{\sqrt{14}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -1813,7 +1864,7 @@ D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
 </ol>
 <p><em>Source: 9231/13/M/J/20 Q7.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1822,7 +1873,7 @@ D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>A normal is <span class="math inline">(5,0,2)\times(0,1,1)=(-2,-5,5)</span>. Thus</li>
@@ -1854,7 +1905,7 @@ D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
 </ol>
 <p><em>Sources: 9231/11/O/N/20 Q4; 9231/13/O/N/20 Q4.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1863,7 +1914,7 @@ D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><span class="math inline">\overrightarrow{AB}\times\overrightarrow{AC}=(-2,-6,7)</span>, so</li>
@@ -1891,7 +1942,7 @@ D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
 <p>The point <span class="math inline">D</span> has position vector <span class="math inline">t\mathbf i-\mathbf j</span>. (c) Given that the shortest distance between <span class="math inline">AB</span> and <span class="math inline">CD</span> is <span class="math inline">\sqrt{10}</span>, find <span class="math inline">t</span>. [6]</p>
 <p><em>Source: 9231/12/O/N/20 Q7.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1900,7 +1951,7 @@ D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li><span class="math inline">\overrightarrow{AB}\times\overrightarrow{AC}=2(5,3,1)</span>, hence</li>
@@ -1939,7 +1990,7 @@ D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
 </ol>
 <p><em>Sources: 9231/11/M/J/21 Q6; 9231/12/M/J/21 Q6.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -1948,7 +1999,7 @@ D=\frac{|(0,-5,-9)\boldsymbol\cdot(4,-6,5)|}{\sqrt{77}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>A vector joining the base points is <span class="math inline">t(-1,0,1)</span>, while</li>
@@ -2006,7 +2057,7 @@ l_2:\mathbf r=3\mathbf i-2\mathbf k+t(3\mathbf i-\mathbf j+3\mathbf k).
 </ol>
 <p><em>Source: 9231/13/M/J/21 Q6.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2015,7 +2066,7 @@ l_2:\mathbf r=3\mathbf i-2\mathbf k+t(3\mathbf i-\mathbf j+3\mathbf k).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>From <span class="math inline">P</span> to <span class="math inline">(-1,-2,1)</span> on <span class="math inline">l_1</span> is <span class="math inline">(1,0,-3)</span>, hence</li>
@@ -2064,7 +2115,7 @@ l_2:\mathbf r=3\mathbf i-2\mathbf k+t(3\mathbf i-\mathbf j+3\mathbf k).
 </ol>
 <p><em>Sources: 9231/11/O/N/21 Q5; 9231/13/O/N/21 Q5.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2073,7 +2124,7 @@ l_2:\mathbf r=3\mathbf i-2\mathbf k+t(3\mathbf i-\mathbf j+3\mathbf k).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2123,7 +2174,7 @@ D=\frac{|-3(2)+2(-3)+3(5)-21|}{\sqrt{22}}
 </ol>
 <p><em>Source: 9231/12/O/N/21 Q7.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2132,7 +2183,7 @@ D=\frac{|-3(2)+2(-3)+3(5)-21|}{\sqrt{22}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2187,7 +2238,7 @@ D=\frac{|-3(2)+2(-3)+3(5)-21|}{\sqrt{22}}
 </ol>
 <p><em>Sources: 9231/11/M/J/22 Q2; 9231/12/M/J/22 Q2.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2196,7 +2247,7 @@ D=\frac{|-3(2)+2(-3)+3(5)-21|}{\sqrt{22}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2251,7 +2302,7 @@ D=\frac{|-3(2)+2(-3)+3(5)-21|}{\sqrt{22}}
 </ol>
 <p><em>Source: 9231/13/M/J/22 Q7.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2260,7 +2311,7 @@ D=\frac{|-3(2)+2(-3)+3(5)-21|}{\sqrt{22}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2343,7 +2394,7 @@ l_2:\mathbf r=2\mathbf i-2\mathbf j+3\mathbf k
 </ol>
 <p><em>Sources: 9231/11/O/N/23 Q4; 9231/13/O/N/23 Q4.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2352,7 +2403,7 @@ l_2:\mathbf r=2\mathbf i-2\mathbf j+3\mathbf k
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>The vector from the base point of <span class="math inline">l_1</span> to that of <span class="math inline">l_2</span> is <span class="math inline">(4,1,8)</span>. A common perpendicular direction is</li>
@@ -2403,7 +2454,7 @@ D=\frac{|(4,1,8)\boldsymbol\cdot(9,7,3)|}{\sqrt{139}}
 </ol>
 <p><em>Source: 9231/12/O/N/23 Q5.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2412,7 +2463,7 @@ D=\frac{|(4,1,8)\boldsymbol\cdot(9,7,3)|}{\sqrt{139}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-41" class="callout-41-contents callout-collapse collapse">
+<div id="callout-42" class="callout-42-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2473,7 +2524,7 @@ D=\frac{|-3-4(0)+3(1)+1|}{\sqrt{26}}
 </ol>
 <p><em>Sources: 9231/11/M/J/24 Q5; 9231/12/M/J/24 Q5.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-42-contents" aria-controls="callout-42" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2482,7 +2533,7 @@ D=\frac{|-3-4(0)+3(1)+1|}{\sqrt{26}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-42" class="callout-42-contents callout-collapse collapse">
+<div id="callout-43" class="callout-43-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2541,7 +2592,7 @@ l_2:\mathbf r=-3\mathbf i+4\mathbf j+n(\mathbf i+2\mathbf j+\mathbf k).
 </ol>
 <p><em>Source: 9231/13/M/J/24 Q5.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-43-contents" aria-controls="callout-43" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2550,7 +2601,7 @@ l_2:\mathbf r=-3\mathbf i+4\mathbf j+n(\mathbf i+2\mathbf j+\mathbf k).
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-43" class="callout-43-contents callout-collapse collapse">
+<div id="callout-44" class="callout-44-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>The directions are <span class="math inline">\mathbf d_1=(0,1,-2)</span> and <span class="math inline">\mathbf d_2=(1,2,1)</span>, so</li>
@@ -2605,7 +2656,7 @@ l_2:\mathbf r=\mathbf i-2\mathbf j+9\mathbf k+n(\mathbf i-4\mathbf j+2\mathbf k)
 </ol>
 <p><em>Sources: 9231/11/O/N/24 Q7; 9231/13/O/N/24 Q7.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-44-contents" aria-controls="callout-44" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2614,7 +2665,7 @@ l_2:\mathbf r=\mathbf i-2\mathbf j+9\mathbf k+n(\mathbf i-4\mathbf j+2\mathbf k)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-44" class="callout-44-contents callout-collapse collapse">
+<div id="callout-45" class="callout-45-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2677,7 +2728,7 @@ l_1:\mathbf r=\mathbf i+3\mathbf j-\mathbf k+m(\mathbf i-\mathbf j-4\mathbf k)
 </ol>
 <p><em>Source: 9231/12/O/N/24 Q2.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-45-contents" aria-controls="callout-45" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2686,7 +2737,7 @@ l_1:\mathbf r=\mathbf i+3\mathbf j-\mathbf k+m(\mathbf i-\mathbf j-4\mathbf k)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-45" class="callout-45-contents callout-collapse collapse">
+<div id="callout-46" class="callout-46-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li>A normal is</li>
@@ -2734,7 +2785,7 @@ l_1:\mathbf r=\mathbf i+3\mathbf j-\mathbf k+m(\mathbf i-\mathbf j-4\mathbf k)
 </ol>
 <p><em>Sources: 9231/11/M/J/25 Q6; 9231/12/M/J/25 Q6.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-46-contents" aria-controls="callout-46" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2743,7 +2794,7 @@ l_1:\mathbf r=\mathbf i+3\mathbf j-\mathbf k+m(\mathbf i-\mathbf j-4\mathbf k)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-46" class="callout-46-contents callout-collapse collapse">
+<div id="callout-47" class="callout-47-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2809,7 +2860,7 @@ D=\frac{|(1,-1,1)\boldsymbol\cdot(t-1,-2,1)|}
 </ol>
 <p><em>Source: 9231/13/M/J/25 Q5.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-47-contents" aria-controls="callout-47" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2818,7 +2869,7 @@ D=\frac{|(1,-1,1)\boldsymbol\cdot(t-1,-2,1)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-47" class="callout-47-contents callout-collapse collapse">
+<div id="callout-48" class="callout-48-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2866,7 +2917,7 @@ D=\frac{|(1,-1,1)\boldsymbol\cdot(t-1,-2,1)|}
 </ol>
 <p><em>Source: 9231/14/M/J/25 Q3.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-48-contents" aria-controls="callout-48" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2875,7 +2926,7 @@ D=\frac{|(1,-1,1)\boldsymbol\cdot(t-1,-2,1)|}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-48" class="callout-48-contents callout-collapse collapse">
+<div id="callout-49" class="callout-49-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2929,7 +2980,7 @@ D=\frac{13}{\sqrt{2^2+8^2+(-1)^2}}
 </ol>
 <p><em>Sources: 9231/11/O/N/25 Q5; 9231/13/O/N/25 Q5.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-49-contents" aria-controls="callout-49" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2938,7 +2989,7 @@ D=\frac{13}{\sqrt{2^2+8^2+(-1)^2}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-49" class="callout-49-contents callout-collapse collapse">
+<div id="callout-50" class="callout-50-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -2988,7 +3039,7 @@ D=\frac{|5(-1)-2(0)-2+14|}{\sqrt{30}}
 </ol>
 <p><em>Source: 9231/12/O/N/25 Q6.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-50-contents" aria-controls="callout-50" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -2997,7 +3048,7 @@ D=\frac{|5(-1)-2(0)-2+14|}{\sqrt{30}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-50" class="callout-50-contents callout-collapse collapse">
+<div id="callout-51" class="callout-51-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
@@ -3038,7 +3089,7 @@ D=\frac{|5(-1)-2(0)-2+14|}{\sqrt{30}}
 </ol>
 <p><em>Source: 9231/14/O/N/25 Q4.</em></p>
 <div class="callout callout-style-default callout-tip callout-titled" title="Mark-scheme-style answer">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-51-contents" aria-controls="callout-51" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-52-contents" aria-controls="callout-52" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -3047,7 +3098,7 @@ D=\frac{|5(-1)-2(0)-2+14|}{\sqrt{30}}
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-51" class="callout-51-contents callout-collapse collapse">
+<div id="callout-52" class="callout-52-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ol type="a">
 <li></li>
